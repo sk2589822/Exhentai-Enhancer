@@ -1,3 +1,5 @@
+import { fileURLToPath, URL } from 'url'
+
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import monkey, { cdn } from 'vite-plugin-monkey'
@@ -10,8 +12,11 @@ export default defineConfig({
       entry: 'src/main.ts',
       userscript: {
         icon: 'https://vitejs.dev/logo.svg',
-        namespace: 'npm/vite-plugin-monkey',
-        match: ['https://www.google.com/'],
+        namespace: 'https://github.com/sk2589822/Exhentai-Enhencer',
+        match: [
+          'https://exhentai.org/g/*/*/',
+          'https://exhentai.org/mpv/*/*/',
+        ],
       },
       build: {
         externalGlobals: {
@@ -20,4 +25,9 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
 })
