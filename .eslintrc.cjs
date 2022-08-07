@@ -19,6 +19,7 @@ module.exports = {
     'vue',
     '@typescript-eslint',
   ],
+  'ignorePatterns': ['dist/*.user.js'],
   'rules': {
     'curly': [
       'error',
