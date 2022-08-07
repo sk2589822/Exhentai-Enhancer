@@ -16,11 +16,17 @@
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "@vitejs/plugin-vue": "^3.0.0",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.21.0",
     "eslint-plugin-vue": "^9.3.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.0",
     "vite-plugin-monkey": "^1.1.4",
     "vue-tsc": "^0.38.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
