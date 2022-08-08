@@ -4,6 +4,7 @@
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
   "git": {
+    "autoGenerate": true,
     "commitMessage": "chore: release v${version}",
     "tagName": "v${version}",
     "tagAnnotation": "Release v${version}"
