@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name       exhentai-enhencer
 // @namespace  https://github.com/sk2589822/Exhentai-Enhencer
-// @version    0.1.0
+// @version    0.1.1
 // @icon       https://vitejs.dev/logo.svg
 // @match      https://exhentai.org/g/*/*/
 // @match      https://exhentai.org/mpv/*/*/
 // @require    https://cdn.jsdelivr.net/npm/vue@3.2.37/dist/vue.global.prod.js
 // ==/UserScript==
 
-// use vite-plugin-monkey@1.1.4 at 2022-08-07T13:33:29.361Z
+// use vite-plugin-monkey@1.1.4 at 2022-08-08T12:28:39.699Z
 
 (function(vue) {
   "use strict";
