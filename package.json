@@ -13,6 +13,7 @@
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@release-it/conventional-changelog": "^5.0.0",
     "@types/node": "^18.6.4",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
