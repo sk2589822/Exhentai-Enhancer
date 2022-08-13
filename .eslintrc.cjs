@@ -129,7 +129,10 @@ module.exports = {
     ],
     'object-curly-newline': [
       'error',
-      { consistent: true },
+      {
+        multiline: true,
+        consistent: true,
+      },
     ],
     'object-curly-spacing': [
       'error',
