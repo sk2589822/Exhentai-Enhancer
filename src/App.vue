@@ -1,9 +1,12 @@
 <template>
   <div>
+    <GalleryEnhencer />
   </div>
 </template>
 
 <script setup lang="ts">
+import GalleryEnhencer from '@/components/GalleryEnhencer/GalleryEnhencer.vue'
+
 import initGalleryEnhencer from '@/scripts/GalleryEnhencer'
 import initMultipageViewerEnhencer from '@/scripts/MultipageViewerEnhencer'
 import { onMounted } from 'vue'
