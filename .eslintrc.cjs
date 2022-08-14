@@ -153,7 +153,12 @@ module.exports = {
     ],
     'operator-linebreak': [
       'error',
-      'after',
+      'after', {
+        'overrides': {
+          '?': 'before',
+          ':': 'before',
+        },
+      },
     ],
     'padded-blocks': [
       'error',
@@ -232,6 +237,10 @@ module.exports = {
     ],
     'prefer-spread': 'error',
     'prefer-template': 'error',
+    'no-multiple-empty-lines': [
+      'error',
+      { max: 2 },
+    ],
   },
 }
 
