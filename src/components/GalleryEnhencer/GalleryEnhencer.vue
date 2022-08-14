@@ -9,7 +9,7 @@ import {
   setArchiveEvent,
   setClickOutsideEvent,
 } from './utils/downloadLinks'
-import { fetchAllImages, setImagesContainerWheelEvent } from './utils/images'
+import fetchAllImages from './utils/images'
 
 preloadDownloadLinks()
   .then(() => {
@@ -17,4 +17,7 @@ preloadDownloadLinks()
     setArchiveEvent()
     setClickOutsideEvent()
   })
+
+fetchAllImages()
 </script>
+

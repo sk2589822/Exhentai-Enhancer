@@ -1,4 +1,4 @@
-import { getElement, getElements, getDoc, delay } from '@/utils/commons'
+import { getElement, getElements } from '@/utils/commons'
 
 const init = () => {
   'use strict'
@@ -14,72 +14,13 @@ const init = () => {
   function main() {
     injectCss()
 
-    fetchAllImages()
-
     firstImagesOfRows = getFirstImagesOfRows()
     setImagesContainerWheelEvent()
   }
 
   /**
-   * 若 gallery 的頁數超過1頁，在第1頁時，會依序載入後面的頁面 (間隔3秒)
-   */
-  async function fetchAllImages() {
-    const log = logTemplate.bind(this, 'Fetch All Images')
-
-    log('Start')
-    const pageUrls = getPageUrls()
-
-    if (pageUrls.length === 0) {
-      log('Only one page, do nothing')
-      return
-    }
-
-    if (!isFirstPage()) {
-      log('Not first page, do nothing')
-      return
-    }
-
-    for (const url of pageUrls) {
-      try {
-        await delay(3000)
-
-        log(`fetching ${url}`)
-        const doc = await getDoc(url)
-        const imageElements = getImageElements(doc)
-        appendImages(imageElements)
-        firstImagesOfRows = getFirstImagesOfRows()
-      } catch (e) {
-        log(`fetch ${url} failed`, e)
-      }
-    }
-
-    log('Done')
-
-    function isFirstPage() {
-      return getElement('.ptds').innerText === '1'
-    }
-
-    function getImageElements(doc) {
-      return getElements('.gdtl', doc)
-    }
-
-    function getPageUrls() {
-      const indexes = [...getElements('.ptb td:not(.ptds)')]
-      indexes.pop()
-      indexes.shift()
-
-      return indexes.map(elem => elem.children[0].href)
-    }
-
-    function appendImages(elems) {
-      getElement('#gdt > .c')
-        .before(...elems)
-    }
-  }
-
-  /**
-   * 在 images container 上滾滾輪時，直接定位到上/下一個 row
-   */
+ * 在 images container 上滾滾輪時，直接定位到上/下一個 row
+ */
   function setImagesContainerWheelEvent() {
     const imagesContainer = getElement('#gdt')
 
@@ -106,20 +47,9 @@ const init = () => {
   }
 
   function getFirstImagesOfRows() {
-    // 沒有幫 RWD 做最佳化 (我用不到)
+  // 沒有幫 RWD 做最佳化 (我用不到)
     const imagesPerRow = Math.floor(getElement('#gdt').clientWidth / getElement('.gdtl').clientWidth)
     return [...getElements(`.gdtl:nth-child(${imagesPerRow}n + 1)`)]
-  }
-
-
-
-  function logTemplate(featrue, message, error) {
-    const icon = [`%c ${featrue} `, 'background: #777; border-radius: 5px']
-    if (error) {
-      console.error(...icon, message, error)
-    } else {
-      console.log(...icon, message)
-    }
   }
 
   function injectCss() {
