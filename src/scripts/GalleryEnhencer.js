@@ -1,9 +1,7 @@
-import { getElement, getElements } from '@/utils/commons'
+import { getElement } from '@/utils/commons'
 
 const init = () => {
   'use strict'
-
-  let firstImagesOfRows = null
 
   if (document.readyState === 'complete' || document.readyState === 'interactive') {
     main()
@@ -13,43 +11,6 @@ const init = () => {
 
   function main() {
     injectCss()
-
-    firstImagesOfRows = getFirstImagesOfRows()
-    setImagesContainerWheelEvent()
-  }
-
-  /**
- * 在 images container 上滾滾輪時，直接定位到上/下一個 row
- */
-  function setImagesContainerWheelEvent() {
-    const imagesContainer = getElement('#gdt')
-
-    imagesContainer.addEventListener('mousewheel', e => {
-      const firstVisibleImageIndex = firstImagesOfRows
-        .findIndex(image => image.getBoundingClientRect().bottom >= 0)
-
-      const firstVisibleImage = firstImagesOfRows[firstVisibleImageIndex]
-      const boundingTop = firstVisibleImage.getBoundingClientRect().top
-
-      let nextIndex = firstVisibleImageIndex
-      if (Math.sign(e.deltaY) === 1 && boundingTop <= 0) {
-        nextIndex++
-      } else if (Math.sign(e.deltaY) === -1 && boundingTop >= 0) {
-        nextIndex--
-      }
-
-      if (nextIndex >= 0 && nextIndex < firstImagesOfRows.length) {
-        e.preventDefault()
-        e.stopPropagation()
-        firstImagesOfRows[nextIndex].scrollIntoView()
-      }
-    })
-  }
-
-  function getFirstImagesOfRows() {
-  // 沒有幫 RWD 做最佳化 (我用不到)
-    const imagesPerRow = Math.floor(getElement('#gdt').clientWidth / getElement('.gdtl').clientWidth)
-    return [...getElements(`.gdtl:nth-child(${imagesPerRow}n + 1)`)]
   }
 
   function injectCss() {
