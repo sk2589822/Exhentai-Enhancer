@@ -1,25 +1,39 @@
 <template>
-  <div />
+  <PopupArchive
+    v-if="archiveInnerHtml"
+    :inner-h-t-m-l="archiveInnerHtml"
+  />
+  <PopupTorrent
+    v-if="torrentInnerHtml"
+    :inner-h-t-m-l="torrentInnerHtml"
+  />
 </template>
 
 <script setup lang="ts">
-import {
-  preloadDownloadLinks,
-  setHentaiAtHomeEvent,
-  setArchiveEvent,
-  setClickOutsideEvent,
-} from './utils/downloadLinks'
+import PopupTorrent from './components/PopupTorrent.vue'
+import PopupArchive from './components/PopupArchive.vue'
 import { fetchAllImages, setImagesContainerWheelEvent } from './utils/images'
+import usePreloadDownloadLinks from './composables/usePreloadDownloadLinks'
+import usePosition from './composables/usePositions'
+
+const {
+  preloadDownloadLinks,
+  archiveInnerHtml,
+  torrentInnerHtml,
+} = usePreloadDownloadLinks()
 
 preloadDownloadLinks()
-  .then(() => {
-    setHentaiAtHomeEvent()
-    setArchiveEvent()
-    setClickOutsideEvent()
-  })
+
+const {
+  rightWithPx,
+  archiveTopWithPx,
+  torrentTopWithPx,
+} = usePosition()
+
 
 fetchAllImages()
 setImagesContainerWheelEvent()
+
 </script>
 
 <style lang="scss">
@@ -33,24 +47,18 @@ div#gd5 {
 
 .popup {
   position: absolute;
-  top: -99999px;
-  right: 0;
-  padding: 20px;
-  text-align: center;
-  background-color: #34353b;
-  border: white solid 3px;
-  border-radius: 20px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+  /* stylelint-disable-next-line value-keyword-case */
+  right: v-bind(rightWithPx);
 
-.popup--show {
-  top: initial;
-  opacity: 1;
-}
+  &--archive {
+    /* stylelint-disable-next-line value-keyword-case */
+    top: v-bind(archiveTopWithPx);
+  }
 
-.popup a {
-  text-decoration: underline;
+  &--torrent {
+    /* stylelint-disable-next-line value-keyword-case */
+    top: v-bind(torrentTopWithPx);
+  }
 }
 </style>
 

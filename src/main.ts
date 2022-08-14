@@ -18,7 +18,7 @@ app.use(Toast, {
 app.mount(
   (() => {
     const app = document.createElement('div') as HTMLElement
-    app.style.display = 'none'
+    app.classList.add('enhencer-container')
     document.body.append(app)
     return app
   })(),

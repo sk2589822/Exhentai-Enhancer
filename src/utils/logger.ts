@@ -1,12 +1,12 @@
 export class Logger {
   private readonly _feature: string
   private readonly _featureStyle: string
-  private _scope: string | null
+  private _scope: string | undefined
   private readonly _scopeStyle: string
 
-  constructor(feature: string) {
+  constructor(feature: string, scope?: string) {
     this._feature = feature
-    this._scope = null
+    this._scope = scope
     this._featureStyle = 'background: #777; border-radius: 5px;'
     this._scopeStyle = 'background: #555; border-radius: 5px;'
   }
