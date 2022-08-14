@@ -52,48 +52,5 @@ div#gd5 {
 .popup a {
   text-decoration: underline;
 }
-
-.toast-container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  z-index: 100;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.toast {
-  padding: 10px;
-  font-size: 16px;
-  background-color: gray;
-  opacity: 0;
-  z-index: 100;
-  animation: show-toast 5s linear;
-}
-
-.toast h1 {
-  margin: 0;
-}
-
-@keyframes show-toast {
-  0% {
-    top: 12px;
-    opacity: 0;
-  }
-
-  10% {
-    top: 10px;
-    opacity: 1;
-  }
-
-  80% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
 </style>
 

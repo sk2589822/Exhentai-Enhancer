@@ -1,7 +1,10 @@
+import { useToast } from 'vue-toastification'
+
 import { getElement, getElements, getDoc } from '@/utils/commons'
 import { Logger, LoggerScopeDecorator } from '@/utils/logger'
 
 const baseLogger = new Logger('Preload Download Links')
+const toast = useToast()
 
 /**
 * 預先載入 Torrent 和 Archive 視窗
@@ -128,14 +131,13 @@ async function preloadDownloadLinks() {
 }
 
 /**
-   * 重新實作 Hentai@Home 的下載事件
-   *
-   * 原本會開一個新的頁面，裡面有 submit form 的 function
-   * 因為改用 preload 就沒辦法呼叫該 function，所以這邊要補實作
-   */
+ * 重新實作 Hentai@Home 的下載事件
+ *
+ * 原本會開一個新的頁面，裡面有 submit form 的 function
+ * 因為改用 preload 就沒辦法呼叫該 function，所以這邊要補實作
+ */
 function setHentaiAtHomeEvent() {
   const logger = new Logger('Hentai At Home Event')
-  const toastContainer = appendToastContainerToBody()
 
   const hentaiAtHomeLinks = getElements('#db table td a')
   if (!hentaiAtHomeLinks) {
@@ -150,58 +152,83 @@ function setHentaiAtHomeEvent() {
   }
 
   for (const link of hentaiAtHomeLinks) {
-    const resolution = link?.getAttribute('onclick')?.split('\'')?.[1] || 'org'
     link.removeAttribute('onclick')
 
     link.addEventListener('click', async () => {
-      // HACK: 不加 setTimeout popup 會自己消失
-      setTimeout(() => {
-        if (link.parentElement) {
-          link.parentElement.innerHTML = '✔️'
-        }
-      }, 0)
-
-      const formData = new FormData()
-      formData.append('hathdl_xres', resolution)
-      const doc = await getDoc(postUrl, {
-        method: 'POST',
-        body: formData,
-      })
-
+      const doc = await sendDownloadRequest(link, postUrl)
       const response = getElement('#db', doc)
       logger.log(response)
-      const toast = createToastElement(response)
-      toastContainer.append(toast)
+
+      const parsedResponse = parseResponse(response, logger)
+      if (parsedResponse) {
+        showToast(parsedResponse)
+      }
     })
   }
+}
 
-  function appendToastContainerToBody() {
-    const container = document.createElement('div')
-    container.classList.add('toast-container')
+async function sendDownloadRequest(link: HTMLElement, postUrl: string) {
+  const ORIGINAL_SIZE = 'org'
+  const resolution = link?.getAttribute('onclick')?.split('\'')?.[1] || ORIGINAL_SIZE
 
-    document.body.append(container)
+  const parentElement = link.parentElement
+  // HACK: 不加 setTimeout popup 會消失
+  setTimeout(() => {
+    if (parentElement) {
+      parentElement.innerHTML = '⌛'
+    }
+  }, 0)
 
-    return container
+  const formData = new FormData()
+  formData.append('hathdl_xres', resolution)
+  const doc = await getDoc(postUrl, {
+    method: 'POST',
+    body: formData,
+  })
+
+  setTimeout(() => {
+    if (parentElement) {
+      parentElement.innerHTML = '✔️'
+    }
+  }, 0)
+
+  return doc
+}
+
+function parseResponse(response: HTMLElement | null, logger: Logger) {
+  if (!response) {
+    logger.error('Failed to get response.')
+    return null
   }
 
-  function createToastElement(response: HTMLElement | null) {
-    const toast = document.createElement('div')
-    toast.innerHTML = response?.innerHTML || 'response missing'
+  if (!response.innerHTML) {
+    logger.error('Failed to get response innerHTML.')
+    return null
+  }
 
-    toast.classList.add('toast')
-    toast.addEventListener('animationend', function() {
-      this.remove()
-    })
+  const result = response.innerHTML.match(/(?<=<p>)(.*?)(?=<\/p>)/g)
 
-    return toast
+  if (!result) {
+    logger.error('Failed to parse response.')
+    return null
+  }
+
+  return result.join('\n').replace(/<strong>#\d+<\/strong>/, '')
+}
+
+function showToast(parsedResponse: string) {
+  if (/download has been queued/.test(parsedResponse)) {
+    toast.success(parsedResponse)
+  } else {
+    toast.error(parsedResponse)
   }
 }
 
 /**
-   * 點擊 Archive 的下載按鈕時，將原本的下載視窗彈出
-   *
-   * 會做成彈窗是因為 Archive 的連結最後會連到不同 domain 的 url，會被 same orgin 擋。
-   */
+ * 點擊 Archive 的下載按鈕時，將原本的下載視窗彈出
+ *
+ * 會做成彈窗是因為 Archive 的連結最後會連到不同 domain 的 url，會被 same origin 擋。
+ */
 function setArchiveEvent() {
   const logger = new LoggerScopeDecorator(baseLogger, 'Archive Event')
 
