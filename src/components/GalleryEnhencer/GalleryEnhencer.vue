@@ -31,9 +31,8 @@ const {
 } = usePosition()
 
 
-fetchAllImages()
+fetchAllImages({ delayInMs: 1000 })
 setImagesContainerWheelEvent()
-
 </script>
 
 <style lang="scss">

@@ -6,9 +6,9 @@ const baseLogger = new Logger('Images')
 let firstImagesOfRows: HTMLElement[] | null = null
 
 /**
- * 若 gallery 的頁數超過1頁，在第1頁時，會依序載入後面的頁面 (間隔3秒)
+ * 若 gallery 的頁數超過1頁，在第1頁時，會依序載入後面的頁面
  */
-async function fetchAllImages() {
+async function fetchAllImages({ delayInMs = 3000 }: { delayInMs: number }) {
   const logger = new LoggerScopeDecorator(baseLogger, 'Fetch All')
   if (!isFirstPage()) {
     logger.log('Not first page, do nothing')
@@ -29,7 +29,7 @@ async function fetchAllImages() {
 
   for (const url of pageUrls) {
     try {
-      await delay(3000)
+      await delay(delayInMs)
 
       logger.log(`fetching ${url}`)
       const doc = await getDoc(url)
