@@ -6,7 +6,7 @@ module.exports = {
   },
   'extends': [
     'eslint:recommended',
-    'plugin:vue/vue3-essential',
+    'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
   ],
   'parser': 'vue-eslint-parser',
@@ -97,6 +97,7 @@ module.exports = {
     'lines-between-class-members': [
       'error',
       'always',
+      { 'exceptAfterSingleLine': true },
     ],
     'multiline-ternary': [
       'error',
@@ -129,7 +130,10 @@ module.exports = {
     ],
     'object-curly-newline': [
       'error',
-      { consistent: true },
+      {
+        multiline: true,
+        consistent: true,
+      },
     ],
     'object-curly-spacing': [
       'error',
@@ -149,7 +153,12 @@ module.exports = {
     ],
     'operator-linebreak': [
       'error',
-      'after',
+      'after', {
+        'overrides': {
+          '?': 'before',
+          ':': 'before',
+        },
+      },
     ],
     'padded-blocks': [
       'error',
@@ -228,6 +237,10 @@ module.exports = {
     ],
     'prefer-spread': 'error',
     'prefer-template': 'error',
+    'no-multiple-empty-lines': [
+      'error',
+      { max: 2 },
+    ],
   },
 }
 

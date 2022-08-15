@@ -10,7 +10,9 @@
     "release": "release-it"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "@vueuse/core": "^9.1.0",
+    "vue": "^3.2.37",
+    "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
     "@types/node": "^18.6.4",
@@ -20,7 +22,13 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.21.0",
     "eslint-plugin-vue": "^9.3.0",
+    "postcss-html": "^1.5.0",
     "release-it": "^15.2.0",
+    "sass": "^1.54.4",
+    "stylelint": "^14.10.0",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-order": "^5.0.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.0",
     "vite-plugin-monkey": "^1.1.4",
