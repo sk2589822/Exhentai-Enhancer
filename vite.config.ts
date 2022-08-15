@@ -21,8 +21,8 @@ export default defineConfig({
       build: {
         externalGlobals: {
           'vue': cdn.jsdelivr('Vue', 'dist/vue.global.prod.js'),
-          'vue-toastification': cdn.jsdelivr('vue-toastification', 'dist/esm/index.js'),
-          '@vueuse/core': cdn.jsdelivr('@vueuse/core', 'index.iife.min.js'),
+          'vue-toastification': cdn.jsdelivr('vueToastification'),
+          '@vueuse/core': cdn.jsdelivr('vueuse'),
         },
       },
     }),
