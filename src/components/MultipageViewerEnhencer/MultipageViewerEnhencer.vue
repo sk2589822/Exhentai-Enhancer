@@ -4,15 +4,15 @@
     @wheel.stop="changePage"
   >
     <PageElevator class="enhencer-features__feature" />
+    <ImageResizer class="enhencer-features__feature" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
 import usePages from './composables/usePages'
 import useEvents from './composables/useEvents'
 import PageElevator from './components/PageElevator.vue'
+import ImageResizer from './components/ImageResizer.vue'
 
 const {
   appendPageIndex,
@@ -81,18 +81,6 @@ div#bar3 {
 
   > img {
     pointer-events: none;
-  }
-}
-
-div#pane_images.resize {
-  .mi0 {
-    width: max-content !important;
-    max-height: calc(var(--image-height) + 24px) !important;
-  }
-
-  img[id^="imgsrc_"] {
-    width: auto !important;
-    max-height: var(--image-height);
   }
 }
 

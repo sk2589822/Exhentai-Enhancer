@@ -3,23 +3,15 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
 import GalleryEnhencer from '@/components/GalleryEnhencer/GalleryEnhencer.vue'
 import MultipageViewerEnhencer from '@/components/MultipageViewerEnhencer/MultipageViewerEnhencer.vue'
-
-import initMultipageViewerEnhencer from '@/scripts/MultipageViewerEnhencer'
-import { computed, onMounted } from 'vue'
-
-const isMultipageViewer = /https:\/\/exhentai\.org\/mpv\/\w+\/\w+\//.test(window.location.href)
-
-onMounted(() => {
-  if (isMultipageViewer) {
-    initMultipageViewerEnhencer()
-  }
-})
 
 const enhencer = computed(() => {
   const { href } = window.location
   const isGallery = /https:\/\/exhentai\.org\/g\/\w+\/\w+\//.test(href)
+  const isMultipageViewer = /https:\/\/exhentai\.org\/mpv\/\w+\/\w+\//.test(href)
 
   if (isGallery) {
     return GalleryEnhencer
@@ -32,9 +24,3 @@ const enhencer = computed(() => {
   return null
 })
 </script>
-
-<style lang="scss" scope>
-// .enhencer-container {
-
-// }
-</style>
