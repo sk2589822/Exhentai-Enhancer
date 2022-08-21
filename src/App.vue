@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 import GalleryEnhencer from '@/components/GalleryEnhencer/GalleryEnhencer.vue'
+import MultipageViewerEnhencer from '@/components/MultipageViewerEnhencer/MultipageViewerEnhencer.vue'
 
 import initMultipageViewerEnhencer from '@/scripts/MultipageViewerEnhencer'
 import { computed, onMounted } from 'vue'
@@ -22,6 +23,10 @@ const enhencer = computed(() => {
 
   if (isGallery) {
     return GalleryEnhencer
+  }
+
+  if (isMultipageViewer) {
+    return MultipageViewerEnhencer
   }
 
   return null

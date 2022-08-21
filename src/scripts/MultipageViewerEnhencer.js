@@ -16,8 +16,6 @@ const init = () => {
   function main() {
     appendPageIndex()
 
-    showThumbsWhenHover()
-
     const featuresContainer = appendFeaturesContainer()
 
     const [pageElevatorElem, pageElevatorContainer] = createPageElevator()
@@ -56,21 +54,6 @@ const init = () => {
     const config = { attributes: true }
     imageContainers.forEach(container => {
       mutationObserver.observe(container, config)
-    })
-  }
-
-  /**
-   * 滑鼠移到左方時顯示縮圖清單
-   */
-  function showThumbsWhenHover() {
-    const paneThumbs = getElement('#pane_thumbs')
-
-    document.addEventListener('mousemove', e => {
-      if (e.clientX < paneThumbs.offsetWidth + 15) {
-        paneThumbs.style.opacity = 1
-      } else {
-        paneThumbs.style.opacity = 0
-      }
     })
   }
 
@@ -390,13 +373,6 @@ const init = () => {
       div#pane_images.resize img[id^=imgsrc_] {
         width: auto !important;
         max-height: var(--image-height);
-      }
-
-      div#pane_thumbs {
-        display: block;
-        opacity: 0;
-        z-index: 1;
-        transition: opacity .3s;
       }
 
       .enhencer-features {
