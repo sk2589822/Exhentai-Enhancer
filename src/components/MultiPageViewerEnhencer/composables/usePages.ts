@@ -1,11 +1,13 @@
 import { computed, ref } from 'vue'
 
+import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
+
 import { getElement, getElements } from '@/utils/commons'
 import useElements from './useElements'
 
 const { paneImagesDiv } = useElements()
 
-const currentPage = ref(window.currentpage)
+const currentPage = ref(unsafeWindow.currentpage)
 const currentImage = computed(() => getElement(`#imgsrc_${currentPage.value}`))
 
 export default function() {
@@ -36,7 +38,7 @@ export default function() {
     })
   }
 
-  const pageCount = window.pagecount
+  const pageCount = unsafeWindow.pagecount
 
   function goToNextPage() {
     goToPageByOffset(1)
@@ -55,7 +57,7 @@ export default function() {
   }
 
   function goToPage(index: number) {
-    window.currentpage = index
+    unsafeWindow.currentpage = index
 
     currentPage.value = index
     const target = getElement(`#image_${index}`) as HTMLElement
@@ -67,8 +69,8 @@ export default function() {
    */
   function setCurrentPageUpdateEvent() {
     paneImagesDiv.value.onscroll = () => {
-      window.preload_scroll_images()
-      currentPage.value = window.currentpage
+      unsafeWindow.preload_scroll_images()
+      currentPage.value = unsafeWindow.currentpage
     }
   }
 
