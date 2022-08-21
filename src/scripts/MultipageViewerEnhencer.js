@@ -31,87 +31,8 @@ const init = () => {
     return featuresContainer
   }
 
-
-  function setShowCursorEvent() {
-    document.body
-      .addEventListener('mousemove', function listener(e) {
-        if (!checkMouseDelta(e)) {
-          return
-        }
-
-        showCursor()
-        document.body.removeEventListener('mousemove', listener)
-      })
-  }
-
-  const prevMousePoint = {
-    x: 0,
-    y: 0,
-  }
-
-  function checkMouseDelta({ clientX, clientY }) {
-    const threshold = 50
-    return (
-      Math.abs(clientX - prevMousePoint.x) >= threshold ||
-      Math.abs(clientY - prevMousePoint.y) >= threshold
-    )
-  }
-
-  function showCursor() {
-    document.body
-      .classList
-      .remove('hide-cursor')
-  }
-
-  function hideCursor({ clientX, clientY }) {
-    prevMousePoint.x = clientX
-    prevMousePoint.y = clientY
-
-    document.body
-      .classList
-      .add('hide-cursor')
-  }
-
   function setChangePageEvent(featuresContainer) {
-    setClickEvent()
     setMouseWheelEvent()
-
-    /**
-     * 點擊畫面上半部 -> 上一頁
-     * 點擊畫面下半部 -> 下一頁
-     */
-    function setClickEvent() {
-      const config = [
-        {
-          event: 'click',
-          action: goToNextPage,
-        },
-        {
-          event: 'contextmenu',
-          action: goToPrevPage,
-        },
-      ]
-
-      const paneImages = getElement('#pane_images')
-
-      config.forEach(({ event, action }) => {
-        paneImages
-          .addEventListener(event, e => {
-            // 點擊資訊列不動作
-            if (e.target.closest('.mi1')) {
-              return
-            }
-
-            e.preventDefault()
-            e.stopPropagation()
-
-            action()
-
-            hideCursor(e)
-            setShowCursorEvent()
-          })
-      })
-    }
 
     /**
      * 若滾動時滑鼠在右側，直接換頁

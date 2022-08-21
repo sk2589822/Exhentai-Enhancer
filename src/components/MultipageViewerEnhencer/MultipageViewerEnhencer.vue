@@ -11,10 +11,15 @@ import useEvents from './composables/useEvents'
 import PageElevator from './components/PageElevator.vue'
 
 const { appendPageIndex } = usePages()
-const { overrideKeyBoardEvent } = useEvents()
+const {
+  overrideKeyBoardEvent,
+  setChangePageClickEvent,
+} = useEvents()
 
 appendPageIndex()
 overrideKeyBoardEvent()
+
+setChangePageClickEvent()
 
 showThumbsWhenHover()
 </script>
