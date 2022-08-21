@@ -16,10 +16,7 @@ const init = () => {
   function main() {
     const featuresContainer = appendFeaturesContainer()
 
-    const [pageElevatorElem, pageElevatorContainer] = createPageElevator()
-    featuresContainer.append(pageElevatorContainer)
     overrideKeyBoardEvent()
-    updateCurrentPageWhenScrolling(pageElevatorElem)
 
     setChangePageEvent(featuresContainer)
 
@@ -36,35 +33,6 @@ const init = () => {
     return featuresContainer
   }
 
-  function createPageElevator() {
-    const container = document.createElement('div')
-    container.classList.add('enhencer-features__enhencer-feature', 'page-elevator')
-
-    const pageElevatorElem = document.createElement('input')
-    pageElevatorElem.classList.add('page-elevator__input')
-    pageElevatorElem.value = currentpage // currentpage 為 exhentai 內建變數，表示目前頁數
-
-    pageElevatorElem.addEventListener('keydown', e => {
-      e.stopPropagation()
-      if (e.code === 'Enter' || e.code === 'NumpadEnter') {
-        const page = Number(e.target.value)
-        goToPage(page)
-      }
-    })
-
-    container.append(pageElevatorElem)
-
-    const slash = document.createElement('span')
-    slash.classList.add('page-elevator__slash')
-    slash.innerText = '／'
-    container.append(slash)
-
-    const totalPage = document.createElement('span')
-    totalPage.innerText = pagecount
-    container.append(totalPage)
-
-    return [pageElevatorElem, container]
-  }
 
   function setShowCursorEvent() {
     document.body
@@ -197,17 +165,6 @@ const init = () => {
     document.getElementById(`image_${index}`).scrollIntoView()
   }
 
-  /**
-   * onscroll 時同時更新 currentpage 至 pageElevatorElem 的 value
-   */
-  function updateCurrentPageWhenScrolling(pageElevatorElem) {
-    // exhentai 原為 pane_images.onscroll = preload_scroll_images
-    // eslint-disable-next-line no-undef
-    pane_images.onscroll = () => {
-      preload_scroll_images()
-      pageElevatorElem.value = currentpage
-    }
-  }
 
   /**
    * 只保留方向鍵的事件，且改寫左右鍵的方法
@@ -297,108 +254,6 @@ const init = () => {
   function injectCss() {
     const style = document.createElement('style')
     style.textContent = `
-      html {
-        width: 100% !important;
-        height: 100% !important;
-      }
-
-      body {
-        padding: 0;
-        width: 100% !important;
-        height: 100% !important;
-      }
-
-      div#bar3 {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      div#bar3:hover {
-        opacity: 1;
-      }
-
-      div#pane_outer {
-        height: 100% !important;
-        width: 100% !important;
-      }
-
-      div#pane_images {
-        height: 100% !important;
-        width: 100% !important;
-      }
-
-      .hide-cursor,
-      .hide-cursor * {
-        cursor: none;
-      }
-
-      .mi0 {
-        pointer-events: none;
-      }
-
-      div#pane_images.resize .mi0 {
-        width: max-content !important;
-        max-height: calc(var(--image-height) + 24px) !important;
-      }
-
-      div#pane_images.resize img[id^=imgsrc_] {
-        width: auto !important;
-        max-height: var(--image-height);
-      }
-
-      .enhencer-features {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        gap: 16px;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        padding-right: 5px;
-        transform: translate(0, -50%);
-        box-sizing: border-box;
-        z-index: 100;
-      }
-
-      .enhencer-features > * {
-        box-sizing: border-box;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .enhencer-features:hover > * {
-        opacity: 1;
-      }
-
-      .enhencer-features__enhencer-feature {
-        background: #77777777;
-        padding: 10px 5px;
-        border-radius: 10px;
-      }
-
-      .page-elevator {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 40px;
-        opacity: 1;
-      }
-
-      .page-elevator__input {
-        width: 100%;
-        display: flex;
-        padding: 0;
-        height: 30px;
-        margin: 0;
-        box-sizing: border-box;
-        border: #777 solid 1px;
-        text-align: center;
-      }
-
-      .page-elevator__slash {
-        line-height: 100%;
-      }
-
       .image-resizer {
         display: flex;
         flex-direction: column;
