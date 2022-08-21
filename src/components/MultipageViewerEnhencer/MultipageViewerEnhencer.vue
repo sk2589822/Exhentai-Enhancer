@@ -76,9 +76,12 @@ div#bar3 {
   cursor: none;
 }
 
-// FIXME: 沒辦法選
-.mi0 {
-  pointer-events: none;
+.mi0 > a {
+  user-select: none;
+
+  > img {
+    pointer-events: none;
+  }
 }
 
 div#pane_images.resize {
