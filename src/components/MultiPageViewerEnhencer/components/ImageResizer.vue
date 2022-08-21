@@ -80,12 +80,17 @@ function setResizeShortcuts() {
           break
 
         case 'Numpad0':
-          clearImageHeight()
+          setImageHeight(0)
           goToPage(currentPage.value)
           break
 
         case 'NumpadDecimal':
           setImageHeight(Math.floor(heightList.length / 2))
+          goToPage(currentPage.value)
+          break
+
+        case 'NumpadEnter':
+          clearImageHeight()
           goToPage(currentPage.value)
           break
       }
