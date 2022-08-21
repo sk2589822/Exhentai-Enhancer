@@ -5,14 +5,21 @@
   >
     <PageElevator class="enhencer-features__feature" />
     <ImageResizer class="enhencer-features__feature" />
+    <div
+      class="original-functions"
+      v-html="exhentaiButtons"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
 import usePages from './composables/usePages'
 import useEvents from './composables/useEvents'
 import PageElevator from './components/PageElevator.vue'
 import ImageResizer from './components/ImageResizer.vue'
+import { getElement } from '@/utils/commons'
 
 const {
   appendPageIndex,
@@ -22,7 +29,7 @@ const {
 } = usePages()
 
 const {
-  overrideKeyBoardEvent,
+  setKeyBoardEvent,
   setChangePageClickEvent,
   setShowCursorEvent,
   setHideCursorEvent,
@@ -30,7 +37,7 @@ const {
 } = useEvents()
 
 appendPageIndex()
-overrideKeyBoardEvent()
+setKeyBoardEvent()
 
 setChangePageClickEvent()
 setCurrentPageUpdateEvent()
@@ -47,6 +54,11 @@ function changePage(event: WheelEvent) {
     goToNextPage()
   }
 }
+
+const exhentaiButtons = ref<string>('')
+onMounted(() => {
+  exhentaiButtons.value = (getElement('#bar3') as HTMLElement)?.innerHTML
+})
 </script>
 
 <style lang="scss">
@@ -65,17 +77,31 @@ div#pane_images {
 }
 
 div#bar3 {
+  display: none;
+}
+
+.hide-cursor,
+.hide-cursor * {
+  cursor: none;
+}
+
+.original-functions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 35px;
+  height: 270px;
   opacity: 0;
   transition: opacity 0.3s ease;
 
   &:hover {
     opacity: 1;
   }
-}
 
-.hide-cursor,
-.hide-cursor * {
-  cursor: none;
+  > img {
+    cursor: pointer;
+  }
 }
 
 .mi0 > a {

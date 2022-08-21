@@ -1,11 +1,11 @@
 <template>
   <div class="image-resizer">
     <button
-      v-for="height in heightList"
+      v-for="(height, index) in heightList"
       :key="height"
       class="image-resizer__button"
       :class="{ 'image-resizer__button--active': height === currentHeight }"
-      @click="setImageHeight(height)"
+      @click="resizeImage(index)"
       v-text="height"
     />
   </div>
@@ -18,26 +18,98 @@ import usePages from '../composables/usePages'
 import useElements from '../composables/useElements'
 
 const heightList = [100, 125, 150, 175, 200]
-const currentHeight = ref<number | null>(null)
-const resizedHeight = computed(() => `${currentHeight.value}vh`)
+const currentIndex = ref<number | null>(null)
+const currentHeight = computed<number | null>(() => {
+  if (typeof currentIndex.value === 'number') {
+    return heightList[currentIndex.value]
+  }
+  return null
+})
 
 const { goToPage, currentPage } = usePages()
 
 const { paneImagesDiv } = useElements()
-function setImageHeight(height: number) {
-  if (height === currentHeight.value) {
-    currentHeight.value = null
-    // paneImagesDiv.value.classList.remove(containerActiveClass)
-    paneImagesDiv.value.style.removeProperty('--image-height')
+
+setResizeShortcuts()
+
+
+function resizeImage(index: number) {
+  if (index === currentIndex.value) {
+    clearImageHeight()
   } else {
-    currentHeight.value = height
-    // paneImagesDiv.value.classList.add(containerActiveClass)
-    paneImagesDiv.value.style.setProperty('--image-height', resizedHeight.value)
+    setImageHeight(index)
   }
 
   goToPage(currentPage.value)
 }
 
+function clearImageHeight() {
+  currentIndex.value = null
+  paneImagesDiv.value.style.removeProperty('--image-height')
+}
+
+function setImageHeight(index: number) {
+  currentIndex.value = index
+  paneImagesDiv.value.style.setProperty('--image-height', `${currentHeight.value}vh`)
+}
+
+function setResizeShortcuts() {
+  window.addEventListener('keydown', event => {
+    const isCtrlPressed = event.ctrlKey
+
+    if (isCtrlPressed) {
+      const regex = /Numpad(?<index>[1-5])/
+      const matchResult = event.code.match(regex)
+      if (!matchResult) {
+        return
+      }
+
+      const index = Number(matchResult.groups?.index)
+      setImageHeight(index - 1)
+      goToPage(currentPage.value)
+    } else {
+      switch (event.code) {
+        case 'NumpadAdd':
+          increaseHeight()
+          goToPage(currentPage.value)
+          break
+
+        case 'NumpadSubtract':
+          decreaseHeight()
+          goToPage(currentPage.value)
+          break
+
+        case 'Numpad0':
+          clearImageHeight()
+          goToPage(currentPage.value)
+          break
+
+        case 'NumpadDecimal':
+          setImageHeight(Math.floor(heightList.length / 2))
+          goToPage(currentPage.value)
+          break
+      }
+    }
+  })
+}
+
+function increaseHeight() {
+  if (currentIndex.value === null) {
+    currentIndex.value = 0
+  } else {
+    currentIndex.value = Math.min(currentIndex.value + 1, heightList.length - 1)
+  }
+  setImageHeight(currentIndex.value)
+}
+
+function decreaseHeight() {
+  if (currentIndex.value === null) {
+    currentIndex.value = 0
+  } else {
+    currentIndex.value = Math.max(currentIndex.value - 1, 0)
+  }
+  setImageHeight(currentIndex.value)
+}
 </script>
 
 <style lang="scss">

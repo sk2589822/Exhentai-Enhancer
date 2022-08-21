@@ -1,9 +1,12 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 import { getElement, getElements } from '@/utils/commons'
 import useElements from './useElements'
 
+const { paneImagesDiv } = useElements()
+
 const currentPage = ref(window.currentpage)
+const currentImage = computed(() => getElement(`#imgsrc_${currentPage.value}`))
 
 export default function() {
   /**
@@ -59,8 +62,6 @@ export default function() {
     target.scrollIntoView()
   }
 
-  const { paneImagesDiv } = useElements()
-
   /**
    * onscroll 時同時更新 currentpage 至 pageElevatorElem 的 value
    */
@@ -75,6 +76,7 @@ export default function() {
     appendPageIndex,
     pageCount,
     currentPage,
+    currentImage,
     goToNextPage,
     goToPrevPage,
     goToPageByOffset,

@@ -1,7 +1,9 @@
 import usePages from './usePages'
 import useElements from './useElements'
+import { scrollElement } from '@/utils/commons'
 
 const {
+  currentImage,
   goToPageByOffset,
   goToNextPage,
   goToPrevPage,
@@ -13,12 +15,14 @@ const {
 } = useElements()
 
 export default function() {
-  function overrideKeyBoardEvent() {
-    document.onkeydown = e => {
-      const isCtrlPressed = e.ctrlKey
+  function setKeyBoardEvent() {
+    document.onkeydown = null
+
+    window.addEventListener('keydown', event => {
+      const isCtrlPressed = event.ctrlKey
 
       if (isCtrlPressed) {
-        switch (e.code) {
+        switch (event.code) {
           case 'ArrowLeft':
             goToPageByOffset(-10)
             break
@@ -27,35 +31,48 @@ export default function() {
             goToPageByOffset(10)
             break
         }
-        return
+      } else {
+        const top = (currentImage.value as HTMLElement).offsetTop
+        const height = (currentImage.value as HTMLElement).offsetHeight
+        switch (event.code) {
+          case 'Numpad8': // 置頂
+            scrollElement(paneImagesDiv.value, { absolute: top })
+            break
+
+          case 'Numpad5': // 置中
+            scrollElement(paneImagesDiv.value, { absolute: top + ((height - window.innerHeight) / 2) })
+            break
+
+          case 'Numpad2': // 置底
+            scrollElement(paneImagesDiv.value, { absolute: top + height - window.innerHeight })
+            break
+
+          case 'ArrowUp':
+            scrollElement(paneImagesDiv.value, { offset: -50 })
+            break
+
+          case 'ArrowDown':
+            scrollElement(paneImagesDiv.value, { offset: 50 })
+            break
+
+          case 'ArrowLeft':
+            goToPrevPage()
+            break
+
+          case 'ArrowRight':
+            goToNextPage()
+            break
+
+          case 'PageUp':
+            goToPageByOffset(-10)
+            break
+
+          case 'PageDown':
+            goToPageByOffset(10)
+            break
+        }
       }
-
-      switch (e.code) {
-        case 'ArrowUp':
-          window.scroll_relative('pane_images', 50)
-          break
-
-        case 'ArrowDown':
-          window.scroll_relative('pane_images', -50)
-          break
-
-        case 'ArrowLeft':
-          goToPrevPage()
-          break
-
-        case 'ArrowRight':
-          goToNextPage()
-          break
-
-        case 'PageUp':
-          goToPageByOffset(-10)
-          break
-
-        case 'PageDown':
-          goToPageByOffset(10)
-          break
-      }
-    }
+    })
   }
 
   /**
@@ -146,7 +163,7 @@ export default function() {
   }
 
   return {
-    overrideKeyBoardEvent,
+    setKeyBoardEvent,
     setChangePageClickEvent,
     setShowCursorEvent,
     setHideCursorEvent,

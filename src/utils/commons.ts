@@ -16,14 +16,13 @@ export async function getDoc(url: string, options?: RequestInit) {
   return new DOMParser().parseFromString(html, 'text/html')
 }
 
-export function createLogger(feature: string) {
-  return (message: string, error: string) => {
-    const icon = [`%c ${feature} `, 'background: #777; border-radius: 5px']
+export function scrollElement(element: HTMLElement, { offset, absolute }: {offset?: number, absolute?: number}) {
+  if (offset) {
+    element.scrollTop += offset
+    return
+  }
 
-    if (error) {
-      console.error(...icon, message, error)
-    } else {
-      console.log(...icon, message)
-    }
+  if (absolute) {
+    element.scrollTop = absolute
   }
 }
