@@ -5,15 +5,19 @@
 2. Install [ExHentai Enhencer](https://github.com/sk2589822/Exhentai-Enhencer/raw/master/dist/exhentai-enhencer.user.js).
 
 ## Gallery Enhencer
-Available if url match ```https://exhentai.org/g/*/*```
+Available for
+1. url match ```https://exhentai.org/g/*/*```
+2. settings -> Front Page Settings -> check `Thumbnail`
 
 * Load all images sequentially if the number of images is more than 200.
 * Show pop-up in same page instead of window popup when click `Archive Download` or `Torrent Download`.
 * Download torrent directly if there is only 1 torrent.
 * Go to next/prev row if mouse wheel on images container.
 
-## Multipage Viewer Enhencer
-Available if url match ```https://exhentai.org/mpv/*/*```
+## Multi-Page Viewer Enhencer
+available for 
+1. url match ```https://exhentai.org/mpv/*/*```
+2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup
 
 * Append current index & page count to image info.
 * Show thumbs when mouse hover left side of window.
