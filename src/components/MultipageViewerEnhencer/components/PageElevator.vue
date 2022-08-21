@@ -19,10 +19,7 @@ const {
   pageCount,
   currentPage,
   goToPage,
-  updateCurrentPageWhenScrolling,
 } = usePages()
-
-updateCurrentPageWhenScrolling()
 
 </script>
 

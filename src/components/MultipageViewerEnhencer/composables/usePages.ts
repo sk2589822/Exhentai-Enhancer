@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { getElement, getElements } from '@/utils/commons'
 import useElements from './useElements'
 
+const currentPage = ref(window.currentpage)
+
 export default function() {
   /**
  * 於圖片資訊欄新增目前頁數/總共頁數
@@ -32,7 +34,6 @@ export default function() {
   }
 
   const pageCount = window.pagecount
-  const currentPage = ref(window.currentpage)
 
   function goToNextPage() {
     goToPageByOffset(1)
@@ -63,7 +64,7 @@ export default function() {
   /**
    * onscroll 時同時更新 currentpage 至 pageElevatorElem 的 value
    */
-  function updateCurrentPageWhenScrolling() {
+  function setCurrentPageUpdateEvent() {
     paneImagesDiv.value.onscroll = () => {
       window.preload_scroll_images()
       currentPage.value = window.currentpage
@@ -78,6 +79,6 @@ export default function() {
     goToPrevPage,
     goToPageByOffset,
     goToPage,
-    updateCurrentPageWhenScrolling,
+    setCurrentPageUpdateEvent,
   }
 }

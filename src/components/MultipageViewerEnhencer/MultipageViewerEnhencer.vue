@@ -18,6 +18,7 @@ const {
   appendPageIndex,
   goToPrevPage,
   goToNextPage,
+  setCurrentPageUpdateEvent,
 } = usePages()
 
 const {
@@ -32,6 +33,7 @@ appendPageIndex()
 overrideKeyBoardEvent()
 
 setChangePageClickEvent()
+setCurrentPageUpdateEvent()
 
 setShowCursorEvent()
 setHideCursorEvent()
