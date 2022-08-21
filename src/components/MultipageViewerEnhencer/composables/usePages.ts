@@ -34,6 +34,22 @@ export default function() {
   const pageCount = window.pagecount
   const currentPage = ref(window.currentpage)
 
+  function goToNextPage() {
+    if (currentPage.value === window.pagecount) {
+      return
+    }
+
+    goToPage(++currentPage.value)
+  }
+
+  function goToPrevPage() {
+    if (currentPage.value === 1) {
+      return
+    }
+
+    goToPage(--currentPage.value)
+  }
+
   function goToPage(index: number) {
     window.currentpage = index
 
@@ -58,6 +74,8 @@ export default function() {
     appendPageIndex,
     pageCount,
     currentPage,
+    goToNextPage,
+    goToPrevPage,
     goToPage,
     updateCurrentPageWhenScrolling,
   }

@@ -7,10 +7,14 @@
 <script setup lang="ts">
 import { showThumbsWhenHover } from './utils/thumbs'
 import usePages from './composables/usePages'
+import useEvents from './composables/useEvents'
 import PageElevator from './components/PageElevator.vue'
 
 const { appendPageIndex } = usePages()
+const { overrideKeyBoardEvent } = useEvents()
+
 appendPageIndex()
+overrideKeyBoardEvent()
 
 showThumbsWhenHover()
 </script>

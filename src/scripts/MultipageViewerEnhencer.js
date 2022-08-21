@@ -16,8 +16,6 @@ const init = () => {
   function main() {
     const featuresContainer = appendFeaturesContainer()
 
-    overrideKeyBoardEvent()
-
     setChangePageEvent(featuresContainer)
 
     featuresContainer.append(createImageHeightResizer())
@@ -165,28 +163,6 @@ const init = () => {
     document.getElementById(`image_${index}`).scrollIntoView()
   }
 
-
-  /**
-   * 只保留方向鍵的事件，且改寫左右鍵的方法
-   */
-  function overrideKeyBoardEvent() {
-    document.onkeydown = e => {
-      switch (e.code) {
-      case 'ArrowUp':
-        scroll_relative('pane_images', 50) // scroll_relative 為 exhentai 內建變數 function
-        break
-      case 'ArrowDown':
-        scroll_relative('pane_images', -50)
-        break
-      case 'ArrowLeft':
-        goToPrevPage()
-        break
-      case 'ArrowRight':
-        goToNextPage()
-        break
-      }
-    }
-  }
 
   let currentImageHeight = null
 
