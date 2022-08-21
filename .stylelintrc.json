@@ -13,6 +13,9 @@
     "no-descending-specificity": true,
     "shorthand-property-no-redundant-values": true,
     "selector-class-pattern": null,
+    "value-keyword-case": ["lower", {
+      "ignoreFunctions": ["v-bind", "var"]
+    }],
     "order/properties-order": [
       "position",
       "top",

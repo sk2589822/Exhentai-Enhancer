@@ -46,16 +46,13 @@ div#gd5 {
 
 .popup {
   position: absolute;
-  /* stylelint-disable-next-line value-keyword-case */
   right: v-bind(rightWithPx);
 
   &--archive {
-    /* stylelint-disable-next-line value-keyword-case */
     top: v-bind(archiveTopWithPx);
   }
 
   &--torrent {
-    /* stylelint-disable-next-line value-keyword-case */
     top: v-bind(torrentTopWithPx);
   }
 }
