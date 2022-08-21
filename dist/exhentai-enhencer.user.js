@@ -1,14 +1,15 @@
 // ==UserScript==
 // @name       exhentai-enhencer
 // @namespace  https://github.com/sk2589822/Exhentai-Enhencer
-// @version    1.1.0
+// @version    1.1.1
 // @icon       https://vitejs.dev/logo.svg
 // @match      https://exhentai.org/g/*/*/
 // @match      https://exhentai.org/mpv/*/*/
 // @require    https://cdn.jsdelivr.net/npm/vue@3.2.37/dist/vue.global.prod.js
+// @grant      unsafeWindow
 // ==/UserScript==
 
-// use vite-plugin-monkey@2.0.1 at 2022-08-21T09:45:56.030Z
+// use vite-plugin-monkey@2.0.1 at 2022-08-21T10:16:59.963Z
 
 ;(({ css = "" }) => {
   const style = document.createElement("style");
@@ -26,6 +27,7 @@ var __publicField = (obj, key, value) => {
   return value;
 };
 (function(vue) {
+  var _a2, _b;
   "use strict";
   var __defProp$1 = Object.defineProperty;
   var __getOwnPropSymbols$1 = Object.getOwnPropertySymbols;
@@ -1026,9 +1028,9 @@ var __publicField = (obj, key, value) => {
       vue.nextTick(fn);
   }
   function unrefElement(elRef) {
-    var _a2;
+    var _a3;
     const plain = resolveUnref(elRef);
-    return (_a2 = plain == null ? void 0 : plain.$el) != null ? _a2 : plain;
+    return (_a3 = plain == null ? void 0 : plain.$el) != null ? _a3 : plain;
   }
   const defaultWindow = isClient ? window : void 0;
   isClient ? window.document : void 0;
@@ -1100,9 +1102,9 @@ var __publicField = (obj, key, value) => {
         }
       }, { passive: true }),
       detectIframe && useEventListener(window2, "blur", (event) => {
-        var _a2;
+        var _a3;
         const el = unrefElement(target);
-        if (((_a2 = document.activeElement) == null ? void 0 : _a2.tagName) === "IFRAME" && !(el == null ? void 0 : el.contains(document.activeElement)))
+        if (((_a3 = document.activeElement) == null ? void 0 : _a3.tagName) === "IFRAME" && !(el == null ? void 0 : el.contains(document.activeElement)))
           handler(event);
       })
     ].filter(Boolean);
@@ -1136,7 +1138,7 @@ var __publicField = (obj, key, value) => {
     return target;
   };
   function useResizeObserver(target, callback, options = {}) {
-    const _a2 = options, { window: window2 = defaultWindow } = _a2, observerOptions = __objRest$2(_a2, ["window"]);
+    const _a3 = options, { window: window2 = defaultWindow } = _a3, observerOptions = __objRest$2(_a3, ["window"]);
     let observer;
     const isSupported = useSupported(() => window2 && "ResizeObserver" in window2);
     const cleanup = () => {
@@ -1272,9 +1274,9 @@ var __publicField = (obj, key, value) => {
       });
       function setDownloadEvent() {
         torrentLinkAnchor2.value.addEventListener("click", (event) => {
-          var _a2;
+          var _a3;
           event.preventDefault();
-          (_a2 = getElement("a", popup.value)) == null ? void 0 : _a2.click();
+          (_a3 = getElement("a", popup.value)) == null ? void 0 : _a3.click();
         });
       }
       function setToggleEvent() {
@@ -1376,14 +1378,14 @@ var __publicField = (obj, key, value) => {
   const toast = useToast();
   function useDownloadEvent() {
     function setHentaiAtHomeEvent() {
-      var _a2;
+      var _a3;
       const logger = new Logger("Hentai At Home Event");
       const hentaiAtHomeLinks = getElements(".popup--archive table td a");
       if (!(hentaiAtHomeLinks == null ? void 0 : hentaiAtHomeLinks.length)) {
         logger.error("hentai@Home Links not found.");
         return;
       }
-      const postUrl = (_a2 = getElement("#hathdl_form")) == null ? void 0 : _a2.getAttribute("action");
+      const postUrl = (_a3 = getElement("#hathdl_form")) == null ? void 0 : _a3.getAttribute("action");
       if (!postUrl) {
         logger.error("postUrl not found.");
         return;
@@ -1428,9 +1430,9 @@ var __publicField = (obj, key, value) => {
       element.style.textDecoration = "underline";
     }
     async function sendDownloadRequest(link, postUrl) {
-      var _a2, _b;
+      var _a3, _b2;
       const ORIGINAL_SIZE = "org";
-      const resolution = ((_b = (_a2 = link == null ? void 0 : link.getAttribute("onclick")) == null ? void 0 : _a2.split("'")) == null ? void 0 : _b[1]) || ORIGINAL_SIZE;
+      const resolution = ((_b2 = (_a3 = link == null ? void 0 : link.getAttribute("onclick")) == null ? void 0 : _a3.split("'")) == null ? void 0 : _b2[1]) || ORIGINAL_SIZE;
       const formData = new FormData();
       formData.append("hathdl_xres", resolution);
       const doc = await getDoc(postUrl, {
@@ -1464,10 +1466,10 @@ var __publicField = (obj, key, value) => {
       }
       for (const button of downloadButtons) {
         button.addEventListener("click", (event) => {
-          var _a2;
+          var _a3;
           event.preventDefault();
           const buttonValue = button.getAttribute("value");
-          const form = (_a2 = button == null ? void 0 : button.parentElement) == null ? void 0 : _a2.parentElement;
+          const form = (_a3 = button == null ? void 0 : button.parentElement) == null ? void 0 : _a3.parentElement;
           if (!form) {
             logger.error("form not found.");
             return;
@@ -1479,8 +1481,8 @@ var __publicField = (obj, key, value) => {
           }
           const popupWindow = openWindow(url);
           popupWindow.addEventListener("load", () => {
-            var _a3;
-            (_a3 = getElement(`input[value="${buttonValue}"]`, popupWindow.document)) == null ? void 0 : _a3.click();
+            var _a4;
+            (_a4 = getElement(`input[value="${buttonValue}"]`, popupWindow.document)) == null ? void 0 : _a4.click();
           });
         });
       }
@@ -1587,8 +1589,8 @@ var __publicField = (obj, key, value) => {
     }
     logger.log("Done");
     function isFirstPage() {
-      var _a2;
-      return ((_a2 = getElement(".ptds")) == null ? void 0 : _a2.innerText) === "1";
+      var _a3;
+      return ((_a3 = getElement(".ptds")) == null ? void 0 : _a3.innerText) === "1";
     }
     function getImageElements(doc) {
       return getElements(".gdtl", doc);
@@ -1607,8 +1609,8 @@ var __publicField = (obj, key, value) => {
       return Array(pageCount - 1).fill("").map((_, index2) => `${href}?p=${index2 + 1}`);
     }
     function appendImages(elements) {
-      var _a2;
-      (_a2 = getElement("#gdt > .c")) == null ? void 0 : _a2.before(...elements);
+      var _a3;
+      (_a3 = getElement("#gdt > .c")) == null ? void 0 : _a3.before(...elements);
     }
   }
   function setImagesContainerWheelEvent() {
@@ -1696,12 +1698,12 @@ var __publicField = (obj, key, value) => {
       return popupContent.innerHTML;
     }
     function getLink(linkElement) {
-      var _a2;
+      var _a3;
       const onClick = linkElement.getAttribute("onclick");
       if (!onClick) {
         return null;
       }
-      return (_a2 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a2[1];
+      return (_a3 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a3[1];
     }
     function getPopupContent(doc, selector) {
       const content = getElement(selector, doc);
@@ -1779,6 +1781,12 @@ var __publicField = (obj, key, value) => {
     }
   });
   const GalleryEnhencer_vue_vue_type_style_index_0_lang = "";
+  var monkeyWindow = (_a2 = Reflect.get(document, "__monkeyWindow")) != null ? _a2 : window;
+  monkeyWindow.GM;
+  monkeyWindow.unsafeWindow = (_b = monkeyWindow.unsafeWindow) != null ? _b : window;
+  var unsafeWindow = monkeyWindow.unsafeWindow;
+  monkeyWindow.GM_info;
+  monkeyWindow.GM_cookie;
   function useElements() {
     const paneImagesDiv2 = vue.ref(getElement("#pane_images"));
     const paneThumbsDiv2 = vue.ref(getElement("#pane_thumbs"));
@@ -1788,7 +1796,7 @@ var __publicField = (obj, key, value) => {
     };
   }
   const { paneImagesDiv: paneImagesDiv$1 } = useElements();
-  const currentPage = vue.ref(window.currentpage);
+  const currentPage = vue.ref(unsafeWindow.currentpage);
   const currentImage$1 = vue.computed(() => getElement(`#imgsrc_${currentPage.value}`));
   function usePages() {
     function appendPageIndex() {
@@ -1809,7 +1817,7 @@ var __publicField = (obj, key, value) => {
         mutationObserver.observe(container, config);
       });
     }
-    const pageCount = window.pagecount;
+    const pageCount = unsafeWindow.pagecount;
     function goToNextPage2() {
       goToPageByOffset2(1);
     }
@@ -1823,15 +1831,15 @@ var __publicField = (obj, key, value) => {
       goToPage(index2);
     }
     function goToPage(index2) {
-      window.currentpage = index2;
+      unsafeWindow.currentpage = index2;
       currentPage.value = index2;
       const target = getElement(`#image_${index2}`);
       target.scrollIntoView();
     }
     function setCurrentPageUpdateEvent() {
       paneImagesDiv$1.value.onscroll = () => {
-        window.preload_scroll_images();
-        currentPage.value = window.currentpage;
+        unsafeWindow.preload_scroll_images();
+        currentPage.value = unsafeWindow.currentpage;
       };
     }
     return {
@@ -2036,7 +2044,7 @@ var __publicField = (obj, key, value) => {
       }
       function setResizeShortcuts() {
         window.addEventListener("keydown", (event) => {
-          var _a2;
+          var _a3;
           const isCtrlPressed = event.ctrlKey;
           if (isCtrlPressed) {
             const regex = /Numpad(?<index>[1-5])/;
@@ -2044,7 +2052,7 @@ var __publicField = (obj, key, value) => {
             if (!matchResult) {
               return;
             }
-            const index2 = Number((_a2 = matchResult.groups) == null ? void 0 : _a2.index);
+            const index2 = Number((_a3 = matchResult.groups) == null ? void 0 : _a3.index);
             setImageHeight(index2 - 1);
             goToPage(currentPage2.value);
           } else {
@@ -2136,8 +2144,8 @@ var __publicField = (obj, key, value) => {
       }
       const exhentaiButtons = vue.ref("");
       vue.onMounted(() => {
-        var _a2;
-        exhentaiButtons.value = (_a2 = getElement("#bar3")) == null ? void 0 : _a2.innerHTML;
+        var _a3;
+        exhentaiButtons.value = (_a3 = getElement("#bar3")) == null ? void 0 : _a3.innerHTML;
       });
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock("div", {
