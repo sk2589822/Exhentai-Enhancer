@@ -35,19 +35,19 @@ export default function() {
   const currentPage = ref(window.currentpage)
 
   function goToNextPage() {
-    if (currentPage.value === window.pagecount) {
-      return
-    }
-
-    goToPage(++currentPage.value)
+    goToPageByOffset(1)
   }
 
   function goToPrevPage() {
-    if (currentPage.value === 1) {
-      return
-    }
+    goToPageByOffset(-1)
+  }
 
-    goToPage(--currentPage.value)
+  function goToPageByOffset(offset: number) {
+    let index = currentPage.value + offset
+    index = Math.min(index, pageCount)
+    index = Math.max(index, 1)
+
+    goToPage(index)
   }
 
   function goToPage(index: number) {
@@ -76,6 +76,7 @@ export default function() {
     currentPage,
     goToNextPage,
     goToPrevPage,
+    goToPageByOffset,
     goToPage,
     updateCurrentPageWhenScrolling,
   }
