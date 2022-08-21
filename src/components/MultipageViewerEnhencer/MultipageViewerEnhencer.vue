@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { appendPageIndex } from './utils/imageInfo'
 import { showThumbsWhenHover } from './utils/thumbs'
+
+appendPageIndex()
 
 showThumbsWhenHover()
 </script>
