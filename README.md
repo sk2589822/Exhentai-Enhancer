@@ -9,6 +9,8 @@ Available for
 1. url match ```https://exhentai.org/g/*/*```
 2. settings -> Front Page Settings -> check `Thumbnail`
 
+### features
+
 * Load all images sequentially if the number of images is more than 200.
 * Show pop-up in same page instead of window popup when click `Archive Download` or `Torrent Download`.
 * Download torrent directly if there is only 1 torrent.
@@ -19,25 +21,28 @@ available for
 1. url match ```https://exhentai.org/mpv/*/*```
 2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup
 
+### features
+
 * Append current index & page count to image info.
-* Show thumbs when mouse hover left side of window.
-* Add page elevator to go to specific page directly.
-* Allow to changing page with mouse click / wheel.
-* Able to Resize images (by setting max-height of image. Currently 100%, 125%, 150%, 175%, 200% of browser height).
-  * ctrl + 1~5: set image height to 100%/125%/150%/175%/200.
-  * Numpad 0: clear the image height (to original size).
-  * Numpad +: increase image height (100% if not set yet).
-  * Numpad -: decrease image height (100% if not set yet).
-* Add Shortcuts
-  * left click: go to next page.
-  * right click: go to previous page.
-  * wheel up (on enhencer): go to next page.
-  * wheel down (on enhencer): go to previous page.
-  * ctrl +  →: go to next 10 page.
-  * ctrl +  ←: go to previous 10 page.
-  * Numpad 8: scroll to top of image
-  * Numpad 5: scroll to middle of image
-  * Numpad 2: scroll to bottom of image
+* Show thumbs when mouse close to/hover thumbs(remember to open thumbs in settings).
+* Add page elevator.
+* Add images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height). 
+* Add Shortcuts:
+  * `left click`: go to next page.
+  * `right click`: go to previous page.
+  * `mouse wheel up` (when hovering enhencer): go to next page.
+  * `mouse wheel down` (when hovering enhencer): go to previous page.
+  * `ctrl + →`: go to next 10 page.
+  * `ctrl + ←`: go to previous 10 page.
+  * `ctrl + 1~5`: set current size of images resizer to 100%/125%/150%/175%/200%.
+  * `numpad +`: increase current size of images resizer (100% if not set yet).
+  * `numpad -`: decrease current size of images resizer (100% if not set yet).
+  * `numpad 0`: set current size of images resizer to smallest size (currently 100%).
+  * `numpad .`: set current size of images resizer to middle size (currently 150%).
+  * `numpad enter`: clear current size of images resizer (to original size).
+  * `numpad 8`: scroll to top of current image.
+  * `numpad 5`: scroll to middle of current image.
+  * `numpad 2`: scroll to bottom of current image.
 
 ## Development
 
