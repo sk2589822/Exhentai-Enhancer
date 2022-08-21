@@ -9,6 +9,7 @@ const {
 
 const {
   paneImagesDiv,
+  paneThumbsDiv,
 } = useElements()
 
 export default function() {
@@ -83,21 +84,26 @@ export default function() {
           action()
 
           hideCursor(e as MouseEvent)
-          setShowCursorEvent()
         })
     }
   }
 
   function setShowCursorEvent() {
     document.body
-      .addEventListener('mousemove', function listener(event) {
+      .addEventListener('mousemove', event => {
         if (!checkMouseDelta(event)) {
           return
         }
 
         showCursor()
-        document.body.removeEventListener('mousemove', listener)
       })
+  }
+
+  function setHideCursorEvent() {
+    document.body
+      .addEventListener('mousewheel', event => {
+        hideCursor(event as WheelEvent)
+      }, true)
   }
 
   const prevMousePoint = {
@@ -127,8 +133,23 @@ export default function() {
       .classList
       .add('hide-cursor')
   }
+
+  function setShowThumbsEvent() {
+    document.addEventListener('mousemove', e => {
+      const threshold = 15
+
+      const shouldShowThumbs = e.clientX < paneThumbsDiv.value.offsetWidth + threshold
+      paneThumbsDiv.value.style.opacity = shouldShowThumbs
+        ? '1'
+        : '0'
+    })
+  }
+
   return {
     overrideKeyBoardEvent,
     setChangePageClickEvent,
+    setShowCursorEvent,
+    setHideCursorEvent,
+    setShowThumbsEvent,
   }
 }

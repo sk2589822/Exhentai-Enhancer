@@ -1,19 +1,31 @@
 <template>
-  <div class="enhencer-features">
+  <div
+    class="enhencer-features"
+    @wheel.stop="changePage"
+  >
     <PageElevator class="enhencer-features__feature" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { showThumbsWhenHover } from './utils/thumbs'
+import { ref } from 'vue'
+
 import usePages from './composables/usePages'
 import useEvents from './composables/useEvents'
 import PageElevator from './components/PageElevator.vue'
 
-const { appendPageIndex } = usePages()
+const {
+  appendPageIndex,
+  goToPrevPage,
+  goToNextPage,
+} = usePages()
+
 const {
   overrideKeyBoardEvent,
   setChangePageClickEvent,
+  setShowCursorEvent,
+  setHideCursorEvent,
+  setShowThumbsEvent,
 } = useEvents()
 
 appendPageIndex()
@@ -21,7 +33,18 @@ overrideKeyBoardEvent()
 
 setChangePageClickEvent()
 
-showThumbsWhenHover()
+setShowCursorEvent()
+setHideCursorEvent()
+
+setShowThumbsEvent()
+
+function changePage(event: WheelEvent) {
+  if (event.deltaY < 0) {
+    goToPrevPage()
+  } else {
+    goToNextPage()
+  }
+}
 </script>
 
 <style lang="scss">
@@ -70,11 +93,11 @@ div#pane_images.resize {
   }
 }
 
-  div#pane_thumbs {
-    display: block;
-    opacity: 0;
-    z-index: 1;
-    transition: opacity 0.3s;
+div#pane_thumbs {
+  display: block;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.3s;
 }
 
 /**
@@ -82,7 +105,8 @@ div#pane_images.resize {
  */
 .enhencer-features {
   position: absolute;
-  top: 50%;
+  top: 0;
+  bottom: 0;
   right: 0;
   display: flex;
   align-items: center;
@@ -90,7 +114,6 @@ div#pane_images.resize {
   z-index: 100;
   flex-direction: row-reverse;
   gap: 16px;
-  transform: translate(0, -50%);
   box-sizing: border-box;
 
   &__feature {

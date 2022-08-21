@@ -2,10 +2,6 @@
 
 const init = () => {
   'use strict'
-  // currentpage: exhentai 內建變數，表示目前頁數
-  // pagecount: exhentai 內建變數，表示總頁數
-  // scroll_relative: exhentai 內建 function，實現 scrolling
-  // preload_scroll_images: exhentai 內建 function，scroll 時根據目前頁數去 preload images
 
   if (document.readyState === 'complete' || document.readyState === 'interactive') {
     main()
@@ -15,8 +11,6 @@ const init = () => {
 
   function main() {
     const featuresContainer = appendFeaturesContainer()
-
-    setChangePageEvent(featuresContainer)
 
     featuresContainer.append(createImageHeightResizer())
 
@@ -29,54 +23,6 @@ const init = () => {
     getElement('#pane_outer').append(featuresContainer)
 
     return featuresContainer
-  }
-
-  function setChangePageEvent(featuresContainer) {
-    setMouseWheelEvent()
-
-    /**
-     * 若滾動時滑鼠在右側，直接換頁
-     */
-    function setMouseWheelEvent() {
-      document.body
-        .addEventListener('mousewheel', e => {
-          hideCursor(e)
-          setShowCursorEvent()
-
-          // 以 features container 左側當作界線
-          if (e.x >= featuresContainer.offsetLeft) {
-            changePage(e)
-          }
-        },
-        true)
-
-      function changePage(e) {
-        e.stopPropagation()
-
-        if (Math.sign(e.deltaY) === -1) { // 滾輪向上
-          goToPrevPage()
-        } else { // 滾輪向下
-          goToNextPage()
-        }
-      }
-    }
-  }
-
-  function goToNextPage() {
-    // pagecount 為 exhentai 內建變數，表示總共的頁數
-    if (currentpage === pagecount) {
-      return
-    }
-
-    goToPage(++currentpage)
-  }
-
-  function goToPrevPage() {
-    if (currentpage === 1) {
-      return
-    }
-
-    goToPage(--currentpage)
   }
 
   function goToPage(index) {
