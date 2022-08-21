@@ -6,7 +6,7 @@
 import { computed } from 'vue'
 
 import GalleryEnhencer from '@/components/GalleryEnhencer/GalleryEnhencer.vue'
-import MultipageViewerEnhencer from '@/components/MultipageViewerEnhencer/MultipageViewerEnhencer.vue'
+import MultipageViewerEnhencer from '@/components/MultiPageViewerEnhencer/MultiPageViewerEnhencer.vue'
 
 const enhencer = computed(() => {
   const { href } = window.location
