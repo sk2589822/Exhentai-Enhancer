@@ -22,7 +22,7 @@ const {
 } = usePages()
 
 const {
-  overrideKeyBoardEvent,
+  setKeyBoardEvent,
   setChangePageClickEvent,
   setShowCursorEvent,
   setHideCursorEvent,
@@ -30,7 +30,7 @@ const {
 } = useEvents()
 
 appendPageIndex()
-overrideKeyBoardEvent()
+setKeyBoardEvent()
 
 setChangePageClickEvent()
 setCurrentPageUpdateEvent()
