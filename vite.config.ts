@@ -19,6 +19,7 @@ export default defineConfig({
         ],
       },
       build: {
+        metaFileName: true,
         externalGlobals: {
           'vue': cdn.jsdelivr('Vue', 'dist/vue.global.prod.js'),
         },

@@ -56,10 +56,12 @@ export default function() {
             break
 
           case 'ArrowLeft':
+          case 'Numpad1':
             goToPrevPage()
             break
 
           case 'ArrowRight':
+          case 'Numpad3':
             goToNextPage()
             break
 
@@ -117,6 +119,8 @@ export default function() {
   }
 
   function setHideCursorEvent() {
+  //TODO: hide after stop
+
     document.body
       .addEventListener('mousewheel', event => {
         hideCursor(event as WheelEvent)
