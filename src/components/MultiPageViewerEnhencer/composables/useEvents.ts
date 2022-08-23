@@ -57,11 +57,13 @@ export default function() {
 
           case 'ArrowLeft':
           case 'Numpad1':
+          case 'Numpad4':
             goToPrevPage()
             break
 
           case 'ArrowRight':
           case 'Numpad3':
+          case 'Numpad6':
             goToNextPage()
             break
 
