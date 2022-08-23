@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "dist/exhentai-enhencer.user.js"
+        artifacts: "dist/exhentai-enhencer.*.js"
         generateReleaseNotes: true
         token: ${{ secrets.GITHUB_TOKEN }}
         
