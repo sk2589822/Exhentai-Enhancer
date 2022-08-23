@@ -1,15 +1,16 @@
 // ==UserScript==
 // @name       exhentai-enhencer
 // @namespace  https://github.com/sk2589822/Exhentai-Enhencer
-// @version    1.1.5
+// @version    1.2.0
 // @icon       https://vitejs.dev/logo.svg
-// @match      https://exhentai.org/g/*/*/
-// @match      https://exhentai.org/mpv/*/*/
+// @match      https://exhentai.org/g/*/*
+// @match      https://exhentai.org/mpv/*/*
+// @match      https://exhentai.org/s/*/*
 // @require    https://cdn.jsdelivr.net/npm/vue@3.2.37/dist/vue.global.prod.js
 // @grant      unsafeWindow
 // ==/UserScript==
 
-// use vite-plugin-monkey@2.1.1 at 2022-08-23T13:55:56.344Z
+// use vite-plugin-monkey@2.1.1 at 2022-08-23T14:07:14.896Z
 
 ;(({ css = "" }) => {
   const style = document.createElement("style");
@@ -2174,18 +2175,26 @@ var __publicField = (obj, key, value) => {
   const _sfc_main = /* @__PURE__ */ vue.defineComponent({
     __name: "App",
     setup(__props) {
+      const { href } = window.location;
       const enhencer = vue.computed(() => {
-        const { href } = window.location;
-        const isGallery = /https:\/\/exhentai\.org\/g\/\w+\/\w+\//.test(href);
-        const isMultipageViewer = /https:\/\/exhentai\.org\/mpv\/\w+\/\w+\//.test(href);
+        const isGallery = /https:\/\/exhentai\.org\/g\/\w+\/\w+/.test(href);
         if (isGallery) {
           return _sfc_main$4;
         }
-        if (isMultipageViewer) {
+        const isMultiPageViewer = /https:\/\/exhentai\.org\/mpv\/\w+\/\w+/.test(href);
+        if (isMultiPageViewer) {
           return _sfc_main$1;
         }
         return null;
       });
+      const isSinglePageViewer = /https:\/\/exhentai\.org\/s\/\w+\/\w+/.test(href);
+      if (isSinglePageViewer) {
+        vue.onMounted(() => {
+          const page = location.pathname.split("-")[1];
+          const url = getElement(".sb > a").href.replace("/g/", "/mpv/");
+          location.href = `${url}#page${page}`;
+        });
+      }
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(vue.unref(enhencer)));
       };
