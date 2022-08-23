@@ -10,14 +10,14 @@ import MultipageViewerEnhencer from '@/components/MultiPageViewerEnhencer/MultiP
 
 const enhencer = computed(() => {
   const { href } = window.location
-  const isGallery = /https:\/\/exhentai\.org\/g\/\w+\/\w+\//.test(href)
-  const isMultipageViewer = /https:\/\/exhentai\.org\/mpv\/\w+\/\w+\//.test(href)
+  const isGallery = /https:\/\/exhentai\.org\/g\/\w+\/\w+/.test(href)
+  const isMultiPageViewer = /https:\/\/exhentai\.org\/mpv\/\w+\/\w+/.test(href)
 
   if (isGallery) {
     return GalleryEnhencer
   }
 
-  if (isMultipageViewer) {
+  if (isMultiPageViewer) {
     return MultipageViewerEnhencer
   }
 

@@ -14,8 +14,8 @@ export default defineConfig({
         icon: 'https://vitejs.dev/logo.svg',
         namespace: 'https://github.com/sk2589822/Exhentai-Enhencer',
         match: [
-          'https://exhentai.org/g/*/*/',
-          'https://exhentai.org/mpv/*/*/',
+          'https://exhentai.org/g/*/*',
+          'https://exhentai.org/mpv/*/*',
         ],
       },
       build: {
