@@ -16,6 +16,7 @@ export default defineConfig({
         match: [
           'https://exhentai.org/g/*/*',
           'https://exhentai.org/mpv/*/*',
+          'https://exhentai.org/s/*/*',
         ],
       },
       build: {
