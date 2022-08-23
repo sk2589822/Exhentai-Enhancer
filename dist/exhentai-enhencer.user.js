@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       exhentai-enhencer
 // @namespace  https://github.com/sk2589822/Exhentai-Enhencer
-// @version    1.1.4
+// @version    1.1.5
 // @icon       https://vitejs.dev/logo.svg
 // @match      https://exhentai.org/g/*/*/
 // @match      https://exhentai.org/mpv/*/*/
@@ -9,7 +9,7 @@
 // @grant      unsafeWindow
 // ==/UserScript==
 
-// use vite-plugin-monkey@2.1.1 at 2022-08-23T13:44:27.809Z
+// use vite-plugin-monkey@2.1.1 at 2022-08-23T13:55:56.344Z
 
 ;(({ css = "" }) => {
   const style = document.createElement("style");
@@ -1899,10 +1899,12 @@ var __publicField = (obj, key, value) => {
               break;
             case "ArrowLeft":
             case "Numpad1":
+            case "Numpad4":
               goToPrevPage();
               break;
             case "ArrowRight":
             case "Numpad3":
+            case "Numpad6":
               goToNextPage();
               break;
             case "PageUp":
