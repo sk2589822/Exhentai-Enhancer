@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       exhentai-enhencer
 // @namespace  https://github.com/sk2589822/Exhentai-Enhencer
-// @version    1.1.3
+// @version    1.1.4
 // @icon       https://vitejs.dev/logo.svg
 // @match      https://exhentai.org/g/*/*/
 // @match      https://exhentai.org/mpv/*/*/
@@ -9,7 +9,7 @@
 // @grant      unsafeWindow
 // ==/UserScript==
 
-// use vite-plugin-monkey@2.1.1 at 2022-08-23T13:38:18.129Z
+// use vite-plugin-monkey@2.1.1 at 2022-08-23T13:44:27.809Z
 
 ;(({ css = "" }) => {
   const style = document.createElement("style");
