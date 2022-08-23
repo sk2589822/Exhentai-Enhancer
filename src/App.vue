@@ -3,24 +3,36 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 import GalleryEnhencer from '@/components/GalleryEnhencer/GalleryEnhencer.vue'
 import MultipageViewerEnhencer from '@/components/MultiPageViewerEnhencer/MultiPageViewerEnhencer.vue'
+import { getElement } from '@/utils/commons'
+
+
+const { href } = window.location
 
 const enhencer = computed(() => {
-  const { href } = window.location
-  const isGallery = /https:\/\/exhentai\.org\/g\/\w+\/\w+\//.test(href)
-  const isMultipageViewer = /https:\/\/exhentai\.org\/mpv\/\w+\/\w+\//.test(href)
-
+  const isGallery = /https:\/\/exhentai\.org\/g\/\w+\/\w+/.test(href)
   if (isGallery) {
     return GalleryEnhencer
   }
 
-  if (isMultipageViewer) {
+  const isMultiPageViewer = /https:\/\/exhentai\.org\/mpv\/\w+\/\w+/.test(href)
+  if (isMultiPageViewer) {
     return MultipageViewerEnhencer
   }
 
   return null
 })
+
+
+const isSinglePageViewer = /https:\/\/exhentai\.org\/s\/\w+\/\w+/.test(href)
+if (isSinglePageViewer) {
+  onMounted(() => {
+    const page = location.pathname.split('-')[1]
+    const url = (getElement('.sb > a') as HTMLAnchorElement).href.replace('/g/', '/mpv/')
+    location.href = `${url}#page${page}`
+  })
+}
 </script>
