@@ -4527,10 +4527,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vite-plugin-monkey@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vite-plugin-monkey/-/vite-plugin-monkey-2.0.1.tgz#7a8029f939feb850c72040d2f492779d635ddfe3"
-  integrity sha512-D0lW54ZDtXVEw35y7p6SgPpbImincu2yvP+d6dqtu/WO8O2qvE5wM+gmkSfFMsG1ZHfI5aRJ2OyLn3RJS5BQgQ==
+vite-plugin-monkey@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-monkey/-/vite-plugin-monkey-2.1.1.tgz#fb3daac07ea086d248905652c67ea0bedbded391"
+  integrity sha512-6LMcfpKWwIlkzVUsxR5oPCE1Ap9041MRXGU8i/iwwhDWLDItaeciS/wFK0mQD6BcRr7c4WapLV8Uszg6bXOiWA==
   dependencies:
     cross-spawn "7.0.3"
     detect-port "1.3.0"
