@@ -28,24 +28,8 @@ const {
   setCurrentPageUpdateEvent,
 } = usePages()
 
-const {
-  setKeyBoardEvent,
-  setChangePageClickEvent,
-  setShowCursorEvent,
-  setHideCursorEvent,
-  setShowThumbsEvent,
-} = useEvents()
-
 appendPageIndex()
-setKeyBoardEvent()
-
-setChangePageClickEvent()
 setCurrentPageUpdateEvent()
-
-setShowCursorEvent()
-setHideCursorEvent()
-
-setShowThumbsEvent()
 
 function changePage(event: WheelEvent) {
   if (event.deltaY < 0) {
@@ -54,6 +38,22 @@ function changePage(event: WheelEvent) {
     goToNextPage()
   }
 }
+
+
+const {
+  setKeyBoardEvent,
+  setChangePageClickEvent,
+  setShowCursorEvent,
+  setHideCursorEvent,
+  setShowThumbsEvent,
+} = useEvents()
+
+setKeyBoardEvent()
+setChangePageClickEvent()
+setShowCursorEvent()
+setHideCursorEvent()
+setShowThumbsEvent()
+
 
 const exhentaiButtons = ref<string>('')
 onMounted(() => {
