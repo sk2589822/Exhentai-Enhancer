@@ -1,6 +1,10 @@
+import { debounce } from 'lodash-es'
+
+import { scrollElement } from '@/utils/commons'
+
 import usePages from './usePages'
 import useElements from './useElements'
-import { scrollElement } from '@/utils/commons'
+
 
 const {
   currentImage,
@@ -121,11 +125,15 @@ export default function() {
   }
 
   function setHideCursorEvent() {
-  //TODO: hide after stop
-
     document.body
       .addEventListener('mousewheel', event => {
         hideCursor(event as WheelEvent)
+      }, true)
+
+    const debouncedHideCursor = debounce(hideCursor, 1000)
+    document.body
+      .addEventListener('mousemove', event => {
+        debouncedHideCursor(event)
       }, true)
   }
 

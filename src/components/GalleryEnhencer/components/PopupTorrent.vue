@@ -13,8 +13,9 @@
 import { onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
-import useElement from '../composables/useElements'
 import { getElement } from '@/utils/commons'
+
+import useElement from '../composables/useElements'
 
 const { torrentLinkAnchor } = useElement()
 
