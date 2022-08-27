@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       exhentai-enhencer
 // @namespace  https://github.com/sk2589822/Exhentai-Enhencer
-// @version    1.2.0
+// @version    1.2.1
 // @icon       https://vitejs.dev/logo.svg
 // @match      https://exhentai.org/g/*/*
 // @match      https://exhentai.org/mpv/*/*
@@ -10,7 +10,7 @@
 // @grant      unsafeWindow
 // ==/UserScript==
 
-// use vite-plugin-monkey@2.1.1 at 2022-08-23T14:07:14.896Z
+// use vite-plugin-monkey@2.1.1 at 2022-08-27T06:15:46.617Z
 
 ;(({ css = "" }) => {
   const style = document.createElement("style");
@@ -18,7 +18,7 @@
   style.dataset.source = "vite-plugin-monkey";
   document.head.appendChild(style);
 })({
-  "css": "/* sass-plugin-1:/Users/maronato/Developer/vue-toastification/src/scss/index.scss */\n.Vue-Toastification__container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 600px;\n  box-sizing: border-box;\n  display: flex;\n  min-height: 100%;\n  color: #fff;\n  flex-direction: column;\n  pointer-events: none;\n}\n@media only screen and (min-width : 600px) {\n  .Vue-Toastification__container.top-left,\n  .Vue-Toastification__container.top-right,\n  .Vue-Toastification__container.top-center {\n    top: 1em;\n  }\n  .Vue-Toastification__container.bottom-left,\n  .Vue-Toastification__container.bottom-right,\n  .Vue-Toastification__container.bottom-center {\n    bottom: 1em;\n    flex-direction: column-reverse;\n  }\n  .Vue-Toastification__container.top-left,\n  .Vue-Toastification__container.bottom-left {\n    left: 1em;\n  }\n  .Vue-Toastification__container.top-left .Vue-Toastification__toast,\n  .Vue-Toastification__container.bottom-left .Vue-Toastification__toast {\n    margin-right: auto;\n  }\n  @supports not (-moz-appearance: none) {\n    .Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,\n    .Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl {\n      margin-right: unset;\n      margin-left: auto;\n    }\n  }\n  .Vue-Toastification__container.top-right,\n  .Vue-Toastification__container.bottom-right {\n    right: 1em;\n  }\n  .Vue-Toastification__container.top-right .Vue-Toastification__toast,\n  .Vue-Toastification__container.bottom-right .Vue-Toastification__toast {\n    margin-left: auto;\n  }\n  @supports not (-moz-appearance: none) {\n    .Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,\n    .Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl {\n      margin-left: unset;\n      margin-right: auto;\n    }\n  }\n  .Vue-Toastification__container.top-center,\n  .Vue-Toastification__container.bottom-center {\n    left: 50%;\n    margin-left: -300px;\n  }\n  .Vue-Toastification__container.top-center .Vue-Toastification__toast,\n  .Vue-Toastification__container.bottom-center .Vue-Toastification__toast {\n    margin-left: auto;\n    margin-right: auto;\n  }\n}\n@media only screen and (max-width : 600px) {\n  .Vue-Toastification__container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0;\n  }\n  .Vue-Toastification__container .Vue-Toastification__toast {\n    width: 100%;\n  }\n  .Vue-Toastification__container.top-left,\n  .Vue-Toastification__container.top-right,\n  .Vue-Toastification__container.top-center {\n    top: 0;\n  }\n  .Vue-Toastification__container.bottom-left,\n  .Vue-Toastification__container.bottom-right,\n  .Vue-Toastification__container.bottom-center {\n    bottom: 0;\n    flex-direction: column-reverse;\n  }\n}\n.Vue-Toastification__toast {\n  display: inline-flex;\n  position: relative;\n  max-height: 800px;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 22px 24px;\n  border-radius: 8px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  justify-content: space-between;\n  font-family:\n    \"Lato\",\n    Helvetica,\n    \"Roboto\",\n    Arial,\n    sans-serif;\n  max-width: 600px;\n  min-width: 326px;\n  pointer-events: auto;\n  overflow: hidden;\n  transform: translateZ(0);\n  direction: ltr;\n}\n.Vue-Toastification__toast--rtl {\n  direction: rtl;\n}\n.Vue-Toastification__toast--default {\n  background-color: #1976d2;\n  color: #fff;\n}\n.Vue-Toastification__toast--info {\n  background-color: #2196f3;\n  color: #fff;\n}\n.Vue-Toastification__toast--success {\n  background-color: #4caf50;\n  color: #fff;\n}\n.Vue-Toastification__toast--error {\n  background-color: #ff5252;\n  color: #fff;\n}\n.Vue-Toastification__toast--warning {\n  background-color: #ffc107;\n  color: #fff;\n}\n@media only screen and (max-width : 600px) {\n  .Vue-Toastification__toast {\n    border-radius: 0px;\n    margin-bottom: 0.5rem;\n  }\n}\n.Vue-Toastification__toast-body {\n  flex: 1;\n  line-height: 24px;\n  font-size: 16px;\n  word-break: break-word;\n  white-space: pre-wrap;\n}\n.Vue-Toastification__toast-component-body {\n  flex: 1;\n}\n.Vue-Toastification__toast.disable-transition {\n  animation: none !important;\n}\n.Vue-Toastification__close-button {\n  font-weight: bold;\n  font-size: 24px;\n  line-height: 24px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  padding-left: 10px;\n  cursor: pointer;\n  transition: 0.3s ease;\n  align-items: center;\n  color: #fff;\n  opacity: 0.3;\n  transition: visibility 0s, opacity 0.2s linear;\n}\n.Vue-Toastification__close-button:hover,\n.Vue-Toastification__close-button:focus {\n  opacity: 1;\n}\n.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover {\n  opacity: 0;\n}\n.Vue-Toastification__toast--rtl .Vue-Toastification__close-button {\n  padding-left: unset;\n  padding-right: 10px;\n}\n@keyframes scale-x-frames {\n  0% {\n    transform: scaleX(1);\n  }\n  100% {\n    transform: scaleX(0);\n  }\n}\n.Vue-Toastification__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 10000;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left;\n  animation: scale-x-frames linear 1 forwards;\n}\n.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar {\n  right: 0;\n  left: unset;\n  transform-origin: right;\n}\n.Vue-Toastification__icon {\n  margin: auto 18px auto 0px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  transition: 0.3s ease;\n  align-items: center;\n  width: 20px;\n  height: 100%;\n}\n.Vue-Toastification__toast--rtl .Vue-Toastification__icon {\n  margin: auto 0px auto 18px;\n}\n@keyframes bounceInRight {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(-5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n@keyframes bounceOutRight {\n  40% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(1000px, 0, 0);\n  }\n}\n@keyframes bounceInLeft {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(-10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n@keyframes bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n@keyframes bounceInUp {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  75% {\n    transform: translate3d(0, 10px, 0);\n  }\n  90% {\n    transform: translate3d(0, -5px, 0);\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n@keyframes bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0);\n  }\n  40%, 45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n@keyframes bounceInDown {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0);\n  }\n  75% {\n    transform: translate3d(0, -10px, 0);\n  }\n  90% {\n    transform: translate3d(0, 5px, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n@keyframes bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0);\n  }\n  40%, 45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n.Vue-Toastification__bounce-enter-active.top-left,\n.Vue-Toastification__bounce-enter-active.bottom-left {\n  animation-name: bounceInLeft;\n}\n.Vue-Toastification__bounce-enter-active.top-right,\n.Vue-Toastification__bounce-enter-active.bottom-right {\n  animation-name: bounceInRight;\n}\n.Vue-Toastification__bounce-enter-active.top-center {\n  animation-name: bounceInDown;\n}\n.Vue-Toastification__bounce-enter-active.bottom-center {\n  animation-name: bounceInUp;\n}\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left {\n  animation-name: bounceOutLeft;\n}\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right {\n  animation-name: bounceOutRight;\n}\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center {\n  animation-name: bounceOutUp;\n}\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center {\n  animation-name: bounceOutDown;\n}\n.Vue-Toastification__bounce-leave-active,\n.Vue-Toastification__bounce-enter-active {\n  animation-duration: 750ms;\n  animation-fill-mode: both;\n}\n.Vue-Toastification__bounce-move {\n  transition-timing-function: ease-in-out;\n  transition-property: all;\n  transition-duration: 400ms;\n}\n@keyframes fadeOutTop {\n  0% {\n    transform: translateY(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateY(-50px);\n    opacity: 0;\n  }\n}\n@keyframes fadeOutLeft {\n  0% {\n    transform: translateX(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateX(-50px);\n    opacity: 0;\n  }\n}\n@keyframes fadeOutBottom {\n  0% {\n    transform: translateY(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateY(50px);\n    opacity: 0;\n  }\n}\n@keyframes fadeOutRight {\n  0% {\n    transform: translateX(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateX(50px);\n    opacity: 0;\n  }\n}\n@keyframes fadeInLeft {\n  0% {\n    transform: translateX(-50px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateX(0);\n    opacity: 1;\n  }\n}\n@keyframes fadeInRight {\n  0% {\n    transform: translateX(50px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateX(0);\n    opacity: 1;\n  }\n}\n@keyframes fadeInTop {\n  0% {\n    transform: translateY(-50px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateY(0);\n    opacity: 1;\n  }\n}\n@keyframes fadeInBottom {\n  0% {\n    transform: translateY(50px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateY(0);\n    opacity: 1;\n  }\n}\n.Vue-Toastification__fade-enter-active.top-left,\n.Vue-Toastification__fade-enter-active.bottom-left {\n  animation-name: fadeInLeft;\n}\n.Vue-Toastification__fade-enter-active.top-right,\n.Vue-Toastification__fade-enter-active.bottom-right {\n  animation-name: fadeInRight;\n}\n.Vue-Toastification__fade-enter-active.top-center {\n  animation-name: fadeInTop;\n}\n.Vue-Toastification__fade-enter-active.bottom-center {\n  animation-name: fadeInBottom;\n}\n.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,\n.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left {\n  animation-name: fadeOutLeft;\n}\n.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,\n.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right {\n  animation-name: fadeOutRight;\n}\n.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center {\n  animation-name: fadeOutTop;\n}\n.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center {\n  animation-name: fadeOutBottom;\n}\n.Vue-Toastification__fade-leave-active,\n.Vue-Toastification__fade-enter-active {\n  animation-duration: 750ms;\n  animation-fill-mode: both;\n}\n.Vue-Toastification__fade-move {\n  transition-timing-function: ease-in-out;\n  transition-property: all;\n  transition-duration: 400ms;\n}\n@keyframes slideInBlurredLeft {\n  0% {\n    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);\n    transform-origin: 100% 50%;\n    filter: blur(40px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateX(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n}\n@keyframes slideInBlurredTop {\n  0% {\n    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);\n    transform-origin: 50% 0%;\n    filter: blur(240px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateY(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n}\n@keyframes slideInBlurredRight {\n  0% {\n    transform: translateX(1000px) scaleX(2.5) scaleY(0.2);\n    transform-origin: 0% 50%;\n    filter: blur(40px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateX(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n}\n@keyframes slideInBlurredBottom {\n  0% {\n    transform: translateY(1000px) scaleY(2.5) scaleX(0.2);\n    transform-origin: 50% 100%;\n    filter: blur(240px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateY(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n}\n@keyframes slideOutBlurredTop {\n  0% {\n    transform: translateY(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 0%;\n    filter: blur(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateY(-1000px) scaleY(2) scaleX(0.2);\n    transform-origin: 50% 0%;\n    filter: blur(240px);\n    opacity: 0;\n  }\n}\n@keyframes slideOutBlurredBottom {\n  0% {\n    transform: translateY(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateY(1000px) scaleY(2) scaleX(0.2);\n    transform-origin: 50% 100%;\n    filter: blur(240px);\n    opacity: 0;\n  }\n}\n@keyframes slideOutBlurredLeft {\n  0% {\n    transform: translateX(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateX(-1000px) scaleX(2) scaleY(0.2);\n    transform-origin: 100% 50%;\n    filter: blur(40px);\n    opacity: 0;\n  }\n}\n@keyframes slideOutBlurredRight {\n  0% {\n    transform: translateX(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateX(1000px) scaleX(2) scaleY(0.2);\n    transform-origin: 0% 50%;\n    filter: blur(40px);\n    opacity: 0;\n  }\n}\n.Vue-Toastification__slideBlurred-enter-active.top-left,\n.Vue-Toastification__slideBlurred-enter-active.bottom-left {\n  animation-name: slideInBlurredLeft;\n}\n.Vue-Toastification__slideBlurred-enter-active.top-right,\n.Vue-Toastification__slideBlurred-enter-active.bottom-right {\n  animation-name: slideInBlurredRight;\n}\n.Vue-Toastification__slideBlurred-enter-active.top-center {\n  animation-name: slideInBlurredTop;\n}\n.Vue-Toastification__slideBlurred-enter-active.bottom-center {\n  animation-name: slideInBlurredBottom;\n}\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left {\n  animation-name: slideOutBlurredLeft;\n}\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right {\n  animation-name: slideOutBlurredRight;\n}\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center {\n  animation-name: slideOutBlurredTop;\n}\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center {\n  animation-name: slideOutBlurredBottom;\n}\n.Vue-Toastification__slideBlurred-leave-active,\n.Vue-Toastification__slideBlurred-enter-active {\n  animation-duration: 750ms;\n  animation-fill-mode: both;\n}\n.Vue-Toastification__slideBlurred-move {\n  transition-timing-function: ease-in-out;\n  transition-property: all;\n  transition-duration: 400ms;\n}\n.popup[data-v-a145078a] {\n  padding: 20px;\n  text-align: center;\n  background-color: #34353b;\n  border: white solid 3px;\n  border-radius: 20px;\n  z-index: 100;\n  transition: opacity 0.3s;\n}\n.popup a[data-v-a145078a] {\n  text-decoration: underline;\n}\n.fade-enter-active[data-v-a145078a],\n.fade-leave-active[data-v-a145078a] {\n  transition: opacity 0.3s ease;\n}\n.fade-enter-from[data-v-a145078a],\n.fade-leave-to[data-v-a145078a] {\n  opacity: 0;\n}.popup[data-v-3f4d0042] {\n  padding: 20px;\n  text-align: center;\n  background-color: #34353b;\n  border: white solid 3px;\n  border-radius: 20px;\n  z-index: 100;\n  transition: opacity 0.3s;\n}\n.popup a[data-v-3f4d0042] {\n  text-decoration: underline;\n}\n.fade-enter-active[data-v-3f4d0042],\n.fade-leave-active[data-v-3f4d0042] {\n  transition: opacity 0.3s ease;\n}\n.fade-enter-from[data-v-3f4d0042],\n.fade-leave-to[data-v-3f4d0042] {\n  opacity: 0;\n}div#gmid {\n  width: 931px;\n}\ndiv#gd5 {\n  width: 158px;\n}\n.popup {\n  position: absolute;\n  right: var(--5caaa6c8);\n}\n.popup--archive {\n  top: var(--4e4089ba);\n}\n.popup--torrent {\n  top: var(--bec10ad6);\n}.page-elevator[data-v-00c1efa6] {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  width: 40px;\n  opacity: 1;\n}\n.page-elevator__input[data-v-00c1efa6] {\n  display: flex;\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 30px;\n  text-align: center;\n  border: #777 solid 1px;\n  box-sizing: border-box;\n}\n.page-elevator__slash[data-v-00c1efa6] {\n  line-height: 100%;\n}/* stylelint-disable-next-line selector-id-pattern */\ndiv#pane_images .mi0 {\n  width: max-content !important;\n  max-height: calc(var(--image-height) + 24px) !important;\n}\ndiv#pane_images img[id^=imgsrc_] {\n  width: auto !important;\n  max-height: var(--image-height);\n}.image-resizer[data-v-838c2007] {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  width: 40px;\n}\n.image-resizer__button[data-v-838c2007] {\n  padding: 0;\n  width: 100%;\n  height: 30px;\n  text-align: center;\n  background-color: transparent;\n  border: #777 solid 1px;\n  border-radius: 5px;\n  box-sizing: border-box;\n  cursor: pointer;\n}\n.image-resizer__button[data-v-838c2007]:hover {\n  background-color: rgba(255, 165, 0, 0.2);\n}\n.image-resizer__button--active[data-v-838c2007], .image-resizer__button--active[data-v-838c2007]:hover {\n  background-color: #ffa500;\n}/* stylelint-disable selector-id-pattern */\n/**\n * Override\n */\nhtml,\nbody,\ndiv#pane_outer,\ndiv#pane_images {\n  padding: 0;\n  width: 100% !important;\n  height: 100% !important;\n}\ndiv#bar3 {\n  display: none;\n}\n.hide-cursor,\n.hide-cursor * {\n  cursor: none;\n}\n.original-functions {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: block;\n  width: 35px;\n  height: 270px;\n  opacity: 0;\n  transition: opacity 0.3s ease;\n}\n.original-functions:hover {\n  opacity: 1;\n}\n.original-functions > img {\n  cursor: pointer;\n}\n.mi0 > a {\n  user-select: none;\n}\n.mi0 > a > img {\n  pointer-events: none;\n}\ndiv#pane_thumbs {\n  display: block;\n  opacity: 0;\n  z-index: 1;\n  transition: opacity 0.3s;\n}\n\n/**\n * Components\n */\n.enhencer-features {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  display: flex;\n  align-items: center;\n  padding-right: 5px;\n  z-index: 100;\n  flex-direction: row-reverse;\n  gap: 16px;\n  box-sizing: border-box;\n}\n.enhencer-features__feature {\n  padding: 10px 5px;\n  background: rgba(119, 119, 119, 0.4666666667);\n  border-radius: 10px;\n  opacity: 0;\n  transition: opacity 0.3s ease;\n  box-sizing: border-box;\n}\n.enhencer-features__feature:hover {\n  opacity: 1;\n}"
+  "css": "/* sass-plugin-1:/Users/maronato/Developer/vue-toastification/src/scss/index.scss */\n.Vue-Toastification__container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 600px;\n  box-sizing: border-box;\n  display: flex;\n  min-height: 100%;\n  color: #fff;\n  flex-direction: column;\n  pointer-events: none;\n}\n@media only screen and (min-width : 600px) {\n  .Vue-Toastification__container.top-left,\n  .Vue-Toastification__container.top-right,\n  .Vue-Toastification__container.top-center {\n    top: 1em;\n  }\n  .Vue-Toastification__container.bottom-left,\n  .Vue-Toastification__container.bottom-right,\n  .Vue-Toastification__container.bottom-center {\n    bottom: 1em;\n    flex-direction: column-reverse;\n  }\n  .Vue-Toastification__container.top-left,\n  .Vue-Toastification__container.bottom-left {\n    left: 1em;\n  }\n  .Vue-Toastification__container.top-left .Vue-Toastification__toast,\n  .Vue-Toastification__container.bottom-left .Vue-Toastification__toast {\n    margin-right: auto;\n  }\n  @supports not (-moz-appearance: none) {\n    .Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,\n    .Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl {\n      margin-right: unset;\n      margin-left: auto;\n    }\n  }\n  .Vue-Toastification__container.top-right,\n  .Vue-Toastification__container.bottom-right {\n    right: 1em;\n  }\n  .Vue-Toastification__container.top-right .Vue-Toastification__toast,\n  .Vue-Toastification__container.bottom-right .Vue-Toastification__toast {\n    margin-left: auto;\n  }\n  @supports not (-moz-appearance: none) {\n    .Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,\n    .Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl {\n      margin-left: unset;\n      margin-right: auto;\n    }\n  }\n  .Vue-Toastification__container.top-center,\n  .Vue-Toastification__container.bottom-center {\n    left: 50%;\n    margin-left: -300px;\n  }\n  .Vue-Toastification__container.top-center .Vue-Toastification__toast,\n  .Vue-Toastification__container.bottom-center .Vue-Toastification__toast {\n    margin-left: auto;\n    margin-right: auto;\n  }\n}\n@media only screen and (max-width : 600px) {\n  .Vue-Toastification__container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0;\n  }\n  .Vue-Toastification__container .Vue-Toastification__toast {\n    width: 100%;\n  }\n  .Vue-Toastification__container.top-left,\n  .Vue-Toastification__container.top-right,\n  .Vue-Toastification__container.top-center {\n    top: 0;\n  }\n  .Vue-Toastification__container.bottom-left,\n  .Vue-Toastification__container.bottom-right,\n  .Vue-Toastification__container.bottom-center {\n    bottom: 0;\n    flex-direction: column-reverse;\n  }\n}\n.Vue-Toastification__toast {\n  display: inline-flex;\n  position: relative;\n  max-height: 800px;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 22px 24px;\n  border-radius: 8px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  justify-content: space-between;\n  font-family:\n    \"Lato\",\n    Helvetica,\n    \"Roboto\",\n    Arial,\n    sans-serif;\n  max-width: 600px;\n  min-width: 326px;\n  pointer-events: auto;\n  overflow: hidden;\n  transform: translateZ(0);\n  direction: ltr;\n}\n.Vue-Toastification__toast--rtl {\n  direction: rtl;\n}\n.Vue-Toastification__toast--default {\n  background-color: #1976d2;\n  color: #fff;\n}\n.Vue-Toastification__toast--info {\n  background-color: #2196f3;\n  color: #fff;\n}\n.Vue-Toastification__toast--success {\n  background-color: #4caf50;\n  color: #fff;\n}\n.Vue-Toastification__toast--error {\n  background-color: #ff5252;\n  color: #fff;\n}\n.Vue-Toastification__toast--warning {\n  background-color: #ffc107;\n  color: #fff;\n}\n@media only screen and (max-width : 600px) {\n  .Vue-Toastification__toast {\n    border-radius: 0px;\n    margin-bottom: 0.5rem;\n  }\n}\n.Vue-Toastification__toast-body {\n  flex: 1;\n  line-height: 24px;\n  font-size: 16px;\n  word-break: break-word;\n  white-space: pre-wrap;\n}\n.Vue-Toastification__toast-component-body {\n  flex: 1;\n}\n.Vue-Toastification__toast.disable-transition {\n  animation: none !important;\n}\n.Vue-Toastification__close-button {\n  font-weight: bold;\n  font-size: 24px;\n  line-height: 24px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  padding-left: 10px;\n  cursor: pointer;\n  transition: 0.3s ease;\n  align-items: center;\n  color: #fff;\n  opacity: 0.3;\n  transition: visibility 0s, opacity 0.2s linear;\n}\n.Vue-Toastification__close-button:hover,\n.Vue-Toastification__close-button:focus {\n  opacity: 1;\n}\n.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover {\n  opacity: 0;\n}\n.Vue-Toastification__toast--rtl .Vue-Toastification__close-button {\n  padding-left: unset;\n  padding-right: 10px;\n}\n@keyframes scale-x-frames {\n  0% {\n    transform: scaleX(1);\n  }\n  100% {\n    transform: scaleX(0);\n  }\n}\n.Vue-Toastification__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 10000;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left;\n  animation: scale-x-frames linear 1 forwards;\n}\n.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar {\n  right: 0;\n  left: unset;\n  transform-origin: right;\n}\n.Vue-Toastification__icon {\n  margin: auto 18px auto 0px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  transition: 0.3s ease;\n  align-items: center;\n  width: 20px;\n  height: 100%;\n}\n.Vue-Toastification__toast--rtl .Vue-Toastification__icon {\n  margin: auto 0px auto 18px;\n}\n@keyframes bounceInRight {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(-5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n@keyframes bounceOutRight {\n  40% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(1000px, 0, 0);\n  }\n}\n@keyframes bounceInLeft {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(-10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n@keyframes bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n@keyframes bounceInUp {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  75% {\n    transform: translate3d(0, 10px, 0);\n  }\n  90% {\n    transform: translate3d(0, -5px, 0);\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n@keyframes bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0);\n  }\n  40%, 45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n@keyframes bounceInDown {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0);\n  }\n  75% {\n    transform: translate3d(0, -10px, 0);\n  }\n  90% {\n    transform: translate3d(0, 5px, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n@keyframes bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0);\n  }\n  40%, 45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n.Vue-Toastification__bounce-enter-active.top-left,\n.Vue-Toastification__bounce-enter-active.bottom-left {\n  animation-name: bounceInLeft;\n}\n.Vue-Toastification__bounce-enter-active.top-right,\n.Vue-Toastification__bounce-enter-active.bottom-right {\n  animation-name: bounceInRight;\n}\n.Vue-Toastification__bounce-enter-active.top-center {\n  animation-name: bounceInDown;\n}\n.Vue-Toastification__bounce-enter-active.bottom-center {\n  animation-name: bounceInUp;\n}\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left {\n  animation-name: bounceOutLeft;\n}\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right {\n  animation-name: bounceOutRight;\n}\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center {\n  animation-name: bounceOutUp;\n}\n.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center {\n  animation-name: bounceOutDown;\n}\n.Vue-Toastification__bounce-leave-active,\n.Vue-Toastification__bounce-enter-active {\n  animation-duration: 750ms;\n  animation-fill-mode: both;\n}\n.Vue-Toastification__bounce-move {\n  transition-timing-function: ease-in-out;\n  transition-property: all;\n  transition-duration: 400ms;\n}\n@keyframes fadeOutTop {\n  0% {\n    transform: translateY(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateY(-50px);\n    opacity: 0;\n  }\n}\n@keyframes fadeOutLeft {\n  0% {\n    transform: translateX(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateX(-50px);\n    opacity: 0;\n  }\n}\n@keyframes fadeOutBottom {\n  0% {\n    transform: translateY(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateY(50px);\n    opacity: 0;\n  }\n}\n@keyframes fadeOutRight {\n  0% {\n    transform: translateX(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateX(50px);\n    opacity: 0;\n  }\n}\n@keyframes fadeInLeft {\n  0% {\n    transform: translateX(-50px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateX(0);\n    opacity: 1;\n  }\n}\n@keyframes fadeInRight {\n  0% {\n    transform: translateX(50px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateX(0);\n    opacity: 1;\n  }\n}\n@keyframes fadeInTop {\n  0% {\n    transform: translateY(-50px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateY(0);\n    opacity: 1;\n  }\n}\n@keyframes fadeInBottom {\n  0% {\n    transform: translateY(50px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateY(0);\n    opacity: 1;\n  }\n}\n.Vue-Toastification__fade-enter-active.top-left,\n.Vue-Toastification__fade-enter-active.bottom-left {\n  animation-name: fadeInLeft;\n}\n.Vue-Toastification__fade-enter-active.top-right,\n.Vue-Toastification__fade-enter-active.bottom-right {\n  animation-name: fadeInRight;\n}\n.Vue-Toastification__fade-enter-active.top-center {\n  animation-name: fadeInTop;\n}\n.Vue-Toastification__fade-enter-active.bottom-center {\n  animation-name: fadeInBottom;\n}\n.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,\n.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left {\n  animation-name: fadeOutLeft;\n}\n.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,\n.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right {\n  animation-name: fadeOutRight;\n}\n.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center {\n  animation-name: fadeOutTop;\n}\n.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center {\n  animation-name: fadeOutBottom;\n}\n.Vue-Toastification__fade-leave-active,\n.Vue-Toastification__fade-enter-active {\n  animation-duration: 750ms;\n  animation-fill-mode: both;\n}\n.Vue-Toastification__fade-move {\n  transition-timing-function: ease-in-out;\n  transition-property: all;\n  transition-duration: 400ms;\n}\n@keyframes slideInBlurredLeft {\n  0% {\n    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);\n    transform-origin: 100% 50%;\n    filter: blur(40px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateX(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n}\n@keyframes slideInBlurredTop {\n  0% {\n    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);\n    transform-origin: 50% 0%;\n    filter: blur(240px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateY(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n}\n@keyframes slideInBlurredRight {\n  0% {\n    transform: translateX(1000px) scaleX(2.5) scaleY(0.2);\n    transform-origin: 0% 50%;\n    filter: blur(40px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateX(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n}\n@keyframes slideInBlurredBottom {\n  0% {\n    transform: translateY(1000px) scaleY(2.5) scaleX(0.2);\n    transform-origin: 50% 100%;\n    filter: blur(240px);\n    opacity: 0;\n  }\n  100% {\n    transform: translateY(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n}\n@keyframes slideOutBlurredTop {\n  0% {\n    transform: translateY(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 0%;\n    filter: blur(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateY(-1000px) scaleY(2) scaleX(0.2);\n    transform-origin: 50% 0%;\n    filter: blur(240px);\n    opacity: 0;\n  }\n}\n@keyframes slideOutBlurredBottom {\n  0% {\n    transform: translateY(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateY(1000px) scaleY(2) scaleX(0.2);\n    transform-origin: 50% 100%;\n    filter: blur(240px);\n    opacity: 0;\n  }\n}\n@keyframes slideOutBlurredLeft {\n  0% {\n    transform: translateX(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateX(-1000px) scaleX(2) scaleY(0.2);\n    transform-origin: 100% 50%;\n    filter: blur(40px);\n    opacity: 0;\n  }\n}\n@keyframes slideOutBlurredRight {\n  0% {\n    transform: translateX(0) scaleY(1) scaleX(1);\n    transform-origin: 50% 50%;\n    filter: blur(0);\n    opacity: 1;\n  }\n  100% {\n    transform: translateX(1000px) scaleX(2) scaleY(0.2);\n    transform-origin: 0% 50%;\n    filter: blur(40px);\n    opacity: 0;\n  }\n}\n.Vue-Toastification__slideBlurred-enter-active.top-left,\n.Vue-Toastification__slideBlurred-enter-active.bottom-left {\n  animation-name: slideInBlurredLeft;\n}\n.Vue-Toastification__slideBlurred-enter-active.top-right,\n.Vue-Toastification__slideBlurred-enter-active.bottom-right {\n  animation-name: slideInBlurredRight;\n}\n.Vue-Toastification__slideBlurred-enter-active.top-center {\n  animation-name: slideInBlurredTop;\n}\n.Vue-Toastification__slideBlurred-enter-active.bottom-center {\n  animation-name: slideInBlurredBottom;\n}\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left {\n  animation-name: slideOutBlurredLeft;\n}\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right {\n  animation-name: slideOutBlurredRight;\n}\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center {\n  animation-name: slideOutBlurredTop;\n}\n.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center {\n  animation-name: slideOutBlurredBottom;\n}\n.Vue-Toastification__slideBlurred-leave-active,\n.Vue-Toastification__slideBlurred-enter-active {\n  animation-duration: 750ms;\n  animation-fill-mode: both;\n}\n.Vue-Toastification__slideBlurred-move {\n  transition-timing-function: ease-in-out;\n  transition-property: all;\n  transition-duration: 400ms;\n}\n.popup[data-v-4d198bf4] {\n  padding: 20px;\n  text-align: center;\n  background-color: #34353b;\n  border: white solid 3px;\n  border-radius: 20px;\n  z-index: 100;\n  transition: opacity 0.3s;\n}\n.popup a[data-v-4d198bf4] {\n  text-decoration: underline;\n}\n.fade-enter-active[data-v-4d198bf4],\n.fade-leave-active[data-v-4d198bf4] {\n  transition: opacity 0.3s ease;\n}\n.fade-enter-from[data-v-4d198bf4],\n.fade-leave-to[data-v-4d198bf4] {\n  opacity: 0;\n}.popup[data-v-3f4d0042] {\n  padding: 20px;\n  text-align: center;\n  background-color: #34353b;\n  border: white solid 3px;\n  border-radius: 20px;\n  z-index: 100;\n  transition: opacity 0.3s;\n}\n.popup a[data-v-3f4d0042] {\n  text-decoration: underline;\n}\n.fade-enter-active[data-v-3f4d0042],\n.fade-leave-active[data-v-3f4d0042] {\n  transition: opacity 0.3s ease;\n}\n.fade-enter-from[data-v-3f4d0042],\n.fade-leave-to[data-v-3f4d0042] {\n  opacity: 0;\n}div#gmid {\n  width: 931px;\n}\ndiv#gd5 {\n  width: 158px;\n}\n.popup {\n  position: absolute;\n  right: var(--5caaa6c8);\n}\n.popup--archive {\n  top: var(--4e4089ba);\n}\n.popup--torrent {\n  top: var(--bec10ad6);\n}.page-elevator[data-v-00c1efa6] {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  width: 40px;\n  opacity: 1;\n}\n.page-elevator__input[data-v-00c1efa6] {\n  display: flex;\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 30px;\n  text-align: center;\n  border: #777 solid 1px;\n  box-sizing: border-box;\n}\n.page-elevator__slash[data-v-00c1efa6] {\n  line-height: 100%;\n}/* stylelint-disable-next-line selector-id-pattern */\ndiv#pane_images .mi0 {\n  width: max-content !important;\n  max-height: calc(var(--image-height) + 24px) !important;\n}\ndiv#pane_images img[id^=imgsrc_] {\n  width: auto !important;\n  max-height: var(--image-height);\n}.image-resizer[data-v-838c2007] {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  width: 40px;\n}\n.image-resizer__button[data-v-838c2007] {\n  padding: 0;\n  width: 100%;\n  height: 30px;\n  text-align: center;\n  background-color: transparent;\n  border: #777 solid 1px;\n  border-radius: 5px;\n  box-sizing: border-box;\n  cursor: pointer;\n}\n.image-resizer__button[data-v-838c2007]:hover {\n  background-color: rgba(255, 165, 0, 0.2);\n}\n.image-resizer__button--active[data-v-838c2007], .image-resizer__button--active[data-v-838c2007]:hover {\n  background-color: #ffa500;\n}/* stylelint-disable selector-id-pattern */\n/**\n * Override\n */\nhtml,\nbody,\ndiv#pane_outer,\ndiv#pane_images {\n  padding: 0;\n  width: 100% !important;\n  height: 100% !important;\n}\ndiv#bar3 {\n  display: none;\n}\n.hide-cursor,\n.hide-cursor * {\n  cursor: none;\n}\n.original-functions {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: block;\n  width: 35px;\n  height: 270px;\n  opacity: 0;\n  transition: opacity 0.3s ease;\n}\n.original-functions:hover {\n  opacity: 1;\n}\n.original-functions > img {\n  cursor: pointer;\n}\n.mi0 > a {\n  user-select: none;\n}\n.mi0 > a > img {\n  pointer-events: none;\n}\ndiv#pane_thumbs {\n  display: block;\n  opacity: 0;\n  z-index: 1;\n  transition: opacity 0.3s;\n}\n\n/**\n * Components\n */\n.enhencer-features {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  display: flex;\n  align-items: center;\n  padding-right: 5px;\n  z-index: 100;\n  flex-direction: row-reverse;\n  gap: 16px;\n  box-sizing: border-box;\n}\n.enhencer-features__feature {\n  padding: 10px 5px;\n  background: rgba(119, 119, 119, 0.4666666667);\n  border-radius: 10px;\n  opacity: 0;\n  transition: opacity 0.3s ease;\n  box-sizing: border-box;\n}\n.enhencer-features__feature:hover {\n  opacity: 1;\n}"
 });
 
 var __defProp = Object.defineProperty;
@@ -51,14 +51,14 @@ var __publicField = (obj, key, value) => {
   var isNonEmptyString = (value) => isString$1(value) && value.trim().length > 0;
   var isNumber = (value) => typeof value === "number";
   var isUndefined = (value) => typeof value === "undefined";
-  var isObject = (value) => typeof value === "object" && value !== null;
+  var isObject$1 = (value) => typeof value === "object" && value !== null;
   var isJSX = (obj) => hasProp(obj, "tag") && isNonEmptyString(obj.tag);
   var isTouchEvent = (event) => window.TouchEvent && event instanceof TouchEvent;
   var isToastComponent = (obj) => hasProp(obj, "component") && isToastContent(obj.component);
-  var isVueComponent = (c) => isFunction(c) || isObject(c);
+  var isVueComponent = (c) => isFunction(c) || isObject$1(c);
   var isToastContent = (obj) => !isUndefined(obj) && (isString$1(obj) || isVueComponent(obj) || isToastComponent(obj));
-  var isDOMRect = (obj) => isObject(obj) && ["height", "width", "right", "left", "top", "bottom"].every((p) => isNumber(obj[p]));
-  var hasProp = (obj, propKey) => (isObject(obj) || isFunction(obj)) && propKey in obj;
+  var isDOMRect = (obj) => isObject$1(obj) && ["height", "width", "right", "left", "top", "bottom"].every((p) => isNumber(obj[p]));
+  var hasProp = (obj, propKey) => (isObject$1(obj) || isFunction(obj)) && propKey in obj;
   var getId = ((i) => () => i++)(0);
   function getX(event) {
     return isTouchEvent(event) ? event.targetTouches[0].clientX : event.clientX;
@@ -90,8 +90,8 @@ var __publicField = (obj, key, value) => {
     if (typeof obj === "string") {
       return obj;
     }
-    const props = hasProp(obj, "props") && isObject(obj.props) ? obj.props : {};
-    const listeners = hasProp(obj, "listeners") && isObject(obj.listeners) ? obj.listeners : {};
+    const props = hasProp(obj, "props") && isObject$1(obj.props) ? obj.props : {};
+    const listeners = hasProp(obj, "listeners") && isObject$1(obj.listeners) ? obj.listeners : {};
     return { component: getVueComponentFromObj(obj), props, listeners };
   };
   var isBrowser = () => typeof window !== "undefined";
@@ -1221,11 +1221,11 @@ var __publicField = (obj, key, value) => {
   function delay(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
-  function getElement(selector, root = document) {
-    return root.querySelector(selector);
+  function getElement(selector, root2 = document) {
+    return root2.querySelector(selector);
   }
-  function getElements(selector, root = document) {
-    return root.querySelectorAll(selector);
+  function getElements(selector, root2 = document) {
+    return root2.querySelectorAll(selector);
   }
   async function getDoc(url, options) {
     const response = await fetch(url, options);
@@ -1310,7 +1310,7 @@ var __publicField = (obj, key, value) => {
       };
     }
   });
-  const PopupTorrent_vue_vue_type_style_index_0_scoped_a145078a_lang = "";
+  const PopupTorrent_vue_vue_type_style_index_0_scoped_4d198bf4_lang = "";
   const _export_sfc = (sfc, props) => {
     const target = sfc.__vccOpts || sfc;
     for (const [key, val] of props) {
@@ -1318,7 +1318,7 @@ var __publicField = (obj, key, value) => {
     }
     return target;
   };
-  const PopupTorrent = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-a145078a"]]);
+  const PopupTorrent = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-4d198bf4"]]);
   class Logger {
     constructor(feature, scope) {
       __publicField(this, "_feature");
@@ -1855,6 +1855,179 @@ var __publicField = (obj, key, value) => {
       setCurrentPageUpdateEvent
     };
   }
+  var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
+  const freeGlobal$1 = freeGlobal;
+  var freeSelf = typeof self == "object" && self && self.Object === Object && self;
+  var root = freeGlobal$1 || freeSelf || Function("return this")();
+  const root$1 = root;
+  var Symbol$1 = root$1.Symbol;
+  const Symbol$2 = Symbol$1;
+  var objectProto$1 = Object.prototype;
+  var hasOwnProperty = objectProto$1.hasOwnProperty;
+  var nativeObjectToString$1 = objectProto$1.toString;
+  var symToStringTag$1 = Symbol$2 ? Symbol$2.toStringTag : void 0;
+  function getRawTag(value) {
+    var isOwn = hasOwnProperty.call(value, symToStringTag$1), tag = value[symToStringTag$1];
+    try {
+      value[symToStringTag$1] = void 0;
+      var unmasked = true;
+    } catch (e) {
+    }
+    var result = nativeObjectToString$1.call(value);
+    if (unmasked) {
+      if (isOwn) {
+        value[symToStringTag$1] = tag;
+      } else {
+        delete value[symToStringTag$1];
+      }
+    }
+    return result;
+  }
+  var objectProto = Object.prototype;
+  var nativeObjectToString = objectProto.toString;
+  function objectToString(value) {
+    return nativeObjectToString.call(value);
+  }
+  var nullTag = "[object Null]", undefinedTag = "[object Undefined]";
+  var symToStringTag = Symbol$2 ? Symbol$2.toStringTag : void 0;
+  function baseGetTag(value) {
+    if (value == null) {
+      return value === void 0 ? undefinedTag : nullTag;
+    }
+    return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
+  }
+  function isObjectLike(value) {
+    return value != null && typeof value == "object";
+  }
+  var symbolTag = "[object Symbol]";
+  function isSymbol(value) {
+    return typeof value == "symbol" || isObjectLike(value) && baseGetTag(value) == symbolTag;
+  }
+  var reWhitespace = /\s/;
+  function trimmedEndIndex(string) {
+    var index2 = string.length;
+    while (index2-- && reWhitespace.test(string.charAt(index2))) {
+    }
+    return index2;
+  }
+  var reTrimStart = /^\s+/;
+  function baseTrim(string) {
+    return string ? string.slice(0, trimmedEndIndex(string) + 1).replace(reTrimStart, "") : string;
+  }
+  function isObject(value) {
+    var type = typeof value;
+    return value != null && (type == "object" || type == "function");
+  }
+  var NAN = 0 / 0;
+  var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+  var reIsBinary = /^0b[01]+$/i;
+  var reIsOctal = /^0o[0-7]+$/i;
+  var freeParseInt = parseInt;
+  function toNumber(value) {
+    if (typeof value == "number") {
+      return value;
+    }
+    if (isSymbol(value)) {
+      return NAN;
+    }
+    if (isObject(value)) {
+      var other = typeof value.valueOf == "function" ? value.valueOf() : value;
+      value = isObject(other) ? other + "" : other;
+    }
+    if (typeof value != "string") {
+      return value === 0 ? value : +value;
+    }
+    value = baseTrim(value);
+    var isBinary = reIsBinary.test(value);
+    return isBinary || reIsOctal.test(value) ? freeParseInt(value.slice(2), isBinary ? 2 : 8) : reIsBadHex.test(value) ? NAN : +value;
+  }
+  var now = function() {
+    return root$1.Date.now();
+  };
+  const now$1 = now;
+  var FUNC_ERROR_TEXT = "Expected a function";
+  var nativeMax = Math.max, nativeMin = Math.min;
+  function debounce(func, wait, options) {
+    var lastArgs, lastThis, maxWait, result, timerId, lastCallTime, lastInvokeTime = 0, leading = false, maxing = false, trailing = true;
+    if (typeof func != "function") {
+      throw new TypeError(FUNC_ERROR_TEXT);
+    }
+    wait = toNumber(wait) || 0;
+    if (isObject(options)) {
+      leading = !!options.leading;
+      maxing = "maxWait" in options;
+      maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
+      trailing = "trailing" in options ? !!options.trailing : trailing;
+    }
+    function invokeFunc(time) {
+      var args = lastArgs, thisArg = lastThis;
+      lastArgs = lastThis = void 0;
+      lastInvokeTime = time;
+      result = func.apply(thisArg, args);
+      return result;
+    }
+    function leadingEdge(time) {
+      lastInvokeTime = time;
+      timerId = setTimeout(timerExpired, wait);
+      return leading ? invokeFunc(time) : result;
+    }
+    function remainingWait(time) {
+      var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime, timeWaiting = wait - timeSinceLastCall;
+      return maxing ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
+    }
+    function shouldInvoke(time) {
+      var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime;
+      return lastCallTime === void 0 || timeSinceLastCall >= wait || timeSinceLastCall < 0 || maxing && timeSinceLastInvoke >= maxWait;
+    }
+    function timerExpired() {
+      var time = now$1();
+      if (shouldInvoke(time)) {
+        return trailingEdge(time);
+      }
+      timerId = setTimeout(timerExpired, remainingWait(time));
+    }
+    function trailingEdge(time) {
+      timerId = void 0;
+      if (trailing && lastArgs) {
+        return invokeFunc(time);
+      }
+      lastArgs = lastThis = void 0;
+      return result;
+    }
+    function cancel() {
+      if (timerId !== void 0) {
+        clearTimeout(timerId);
+      }
+      lastInvokeTime = 0;
+      lastArgs = lastCallTime = lastThis = timerId = void 0;
+    }
+    function flush() {
+      return timerId === void 0 ? result : trailingEdge(now$1());
+    }
+    function debounced() {
+      var time = now$1(), isInvoking = shouldInvoke(time);
+      lastArgs = arguments;
+      lastThis = this;
+      lastCallTime = time;
+      if (isInvoking) {
+        if (timerId === void 0) {
+          return leadingEdge(lastCallTime);
+        }
+        if (maxing) {
+          clearTimeout(timerId);
+          timerId = setTimeout(timerExpired, wait);
+          return invokeFunc(lastCallTime);
+        }
+      }
+      if (timerId === void 0) {
+        timerId = setTimeout(timerExpired, wait);
+      }
+      return result;
+    }
+    debounced.cancel = cancel;
+    debounced.flush = flush;
+    return debounced;
+  }
   const {
     currentImage,
     goToPageByOffset,
@@ -1947,6 +2120,10 @@ var __publicField = (obj, key, value) => {
     function setHideCursorEvent() {
       document.body.addEventListener("mousewheel", (event) => {
         hideCursor(event);
+      }, true);
+      const debouncedHideCursor = debounce(hideCursor, 1e3);
+      document.body.addEventListener("mousemove", (event) => {
+        debouncedHideCursor(event);
       }, true);
     }
     const prevMousePoint = {
