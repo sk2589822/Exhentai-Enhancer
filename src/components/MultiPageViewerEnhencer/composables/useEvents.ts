@@ -1,8 +1,10 @@
 import { debounce } from 'lodash-es'
 
+import { scrollElement } from '@/utils/commons'
+
 import usePages from './usePages'
 import useElements from './useElements'
-import { scrollElement } from '@/utils/commons'
+
 
 const {
   currentImage,

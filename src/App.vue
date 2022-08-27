@@ -9,7 +9,6 @@ import GalleryEnhencer from '@/components/GalleryEnhencer/GalleryEnhencer.vue'
 import MultipageViewerEnhencer from '@/components/MultiPageViewerEnhencer/MultiPageViewerEnhencer.vue'
 import { getElement } from '@/utils/commons'
 
-
 const { href } = window.location
 
 const enhencer = computed(() => {

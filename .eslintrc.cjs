@@ -8,6 +8,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
   ],
   'parser': 'vue-eslint-parser',
   'parserOptions': {
@@ -19,6 +21,11 @@ module.exports = {
     'vue',
     '@typescript-eslint',
   ],
+  'settings': {
+    'import/resolver': {
+      typescript: {}, // this loads <rootdir>/tsconfig.json to eslint
+    },
+  },
   'ignorePatterns': ['dist/*.user.js'],
   'rules': {
     'curly': [
@@ -241,6 +248,22 @@ module.exports = {
     'no-multiple-empty-lines': [
       'error',
       { max: 2 },
+    ],
+    'import/order': ['error',
+      {
+        'groups':
+        [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+          'type',
+        ],
+        'newlines-between': 'always',
+      },
     ],
   },
 }

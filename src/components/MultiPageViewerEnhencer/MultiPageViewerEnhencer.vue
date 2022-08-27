@@ -15,11 +15,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
+import { getElement } from '@/utils/commons'
+
 import usePages from './composables/usePages'
 import useEvents from './composables/useEvents'
 import PageElevator from './components/PageElevator.vue'
 import ImageResizer from './components/ImageResizer.vue'
-import { getElement } from '@/utils/commons'
 
 const {
   appendPageIndex,
