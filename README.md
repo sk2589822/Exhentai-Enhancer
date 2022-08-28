@@ -16,6 +16,24 @@ Available for
 * Download torrent directly if there is only 1 torrent.
 * Go to next/prev row if mouse wheel on images container.
 
+
+  #### Demo:
+  Archive download success
+  ![](https://imgur.com/a8hzlNN.gif)
+
+  Archive download failed
+  ![](https://imgur.com/hBmh7A7.gif)
+
+  If there is only 1 torrent, download directly
+  ![](https://imgur.com/kdu3MyP.gif)
+
+  If there are multiple torrents, show popup
+  ![](https://imgur.com/bXd1YJH.gif)
+
+  scroll step by row on images container
+  ![](https://imgur.com/nBqGhBh.gif)
+  
+
 ## Multi-Page Viewer Enhencer
 available for 
 1. url match ```https://exhentai.org/mpv/*/*```
@@ -28,8 +46,8 @@ available for
 * Add page elevator.
 * Add images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height). 
 * Add Shortcuts:
-  * `left click`: go to next page.
-  * `right click`: go to previous page.
+  * `left click` `numpad 3` `numpad 6`: go to next page.
+  * `right click` `numpad 1` `numpad 4`: go to previous page.
   * `mouse wheel up` (when hovering enhencer): go to next page.
   * `mouse wheel down` (when hovering enhencer): go to previous page.
   * `ctrl + →`: go to next 10 page.
@@ -43,6 +61,25 @@ available for
   * `numpad 8`: scroll to top of current image.
   * `numpad 5`: scroll to middle of current image.
   * `numpad 2`: scroll to bottom of current image.
+
+  #### Demo:
+  page elevator
+  ![](https://imgur.com/pmwTRuJ.gif)
+
+  image resizer
+  ![](https://imgur.com/Jv2hMgJ.gif)
+
+  keyboard shortcuts for image resizer
+  ![](https://imgur.com/8IRzMkH.gif)
+
+  keyboard shortcuts for scroll to top/middle/bottom of current image
+  ![](https://imgur.com/552vKHC.gif)
+
+  show thumbs when hover
+  ![](https://imgur.com/RoVA7iX.gif)
+  
+  go to next/previous 10 page by `ctrl + →` `ctrl + ←`
+  ![](https://imgur.com/5viyiJ8.gif)
 
 ## Development
 
