@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       exhentai-enhencer
 // @namespace  https://github.com/sk2589822/Exhentai-Enhencer
-// @version    1.2.1
+// @version    1.2.2
 // @icon       https://vitejs.dev/logo.svg
 // @match      https://exhentai.org/g/*/*
 // @match      https://exhentai.org/mpv/*/*
