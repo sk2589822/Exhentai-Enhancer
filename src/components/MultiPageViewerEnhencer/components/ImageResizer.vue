@@ -122,6 +122,7 @@ function decreaseHeight() {
 div#pane_images {
   .mi0 {
     width: max-content !important;
+    min-width: unset;
     max-height: calc(var(--image-height) + 24px) !important;
   }
 
