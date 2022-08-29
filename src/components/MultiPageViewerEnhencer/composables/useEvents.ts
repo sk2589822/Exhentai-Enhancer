@@ -5,7 +5,6 @@ import { scrollElement } from '@/utils/commons'
 import usePages from './usePages'
 import useElements from './useElements'
 
-
 const {
   currentImage,
   goToPageByOffset,

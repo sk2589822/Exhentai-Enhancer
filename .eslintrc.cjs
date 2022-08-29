@@ -247,7 +247,7 @@ module.exports = {
     'prefer-template': 'error',
     'no-multiple-empty-lines': [
       'error',
-      { max: 2 },
+      { max: 1 },
     ],
     'import/order': ['error',
       {

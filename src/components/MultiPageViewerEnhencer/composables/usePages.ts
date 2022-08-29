@@ -11,9 +11,11 @@ const currentPage = ref(unsafeWindow.currentpage)
 const currentImage = computed(() => getElement(`#imgsrc_${currentPage.value}`))
 
 export default function() {
+  const pageCount = unsafeWindow.pagecount
+
   /**
- * 於圖片資訊欄新增目前頁數/總共頁數
- */
+   * 於圖片資訊欄新增目前頁數/總共頁數
+   */
   function appendPageIndex() {
     const imageContainers = getElements('.mi0') as NodeListOf<HTMLElement>
     const pageCount = imageContainers.length
@@ -37,8 +39,6 @@ export default function() {
       mutationObserver.observe(container, config)
     })
   }
-
-  const pageCount = unsafeWindow.pagecount
 
   function goToNextPage() {
     goToPageByOffset(1)
@@ -64,6 +64,14 @@ export default function() {
     target.scrollIntoView()
   }
 
+  function changePageOnClick(event: WheelEvent) {
+    if (event.deltaY < 0) {
+      goToPrevPage()
+    } else {
+      goToNextPage()
+    }
+  }
+
   /**
    * onscroll 時同時更新 currentpage 至 pageElevatorElem 的 value
    */
@@ -83,6 +91,7 @@ export default function() {
     goToPrevPage,
     goToPageByOffset,
     goToPage,
+    changePageOnClick,
     setCurrentPageUpdateEvent,
   }
 }

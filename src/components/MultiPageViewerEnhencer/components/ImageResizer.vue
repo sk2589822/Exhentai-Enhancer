@@ -17,104 +17,118 @@ import { computed, ref } from 'vue'
 import usePages from '../composables/usePages'
 import useElements from '../composables/useElements'
 
-const heightList = [100, 125, 150, 175, 200]
-const currentIndex = ref<number | null>(null)
-const currentHeight = computed<number | null>(() => {
-  if (typeof currentIndex.value === 'number') {
-    return heightList[currentIndex.value]
-  }
-  return null
-})
-
 const { goToPage, currentPage } = usePages()
-
 const { paneImagesDiv } = useElements()
+const {
+  heightList,
+  currentHeight,
+  resizeImage,
+  setResizeShortcuts,
+} = useImageResizer()
 
 setResizeShortcuts()
 
-
-function resizeImage(index: number) {
-  if (index === currentIndex.value) {
-    clearImageHeight()
-  } else {
-    setImageHeight(index)
-  }
-
-  goToPage(currentPage.value)
-}
-
-function clearImageHeight() {
-  currentIndex.value = null
-  paneImagesDiv.value.style.removeProperty('--image-height')
-}
-
-function setImageHeight(index: number) {
-  currentIndex.value = index
-  paneImagesDiv.value.style.setProperty('--image-height', `${currentHeight.value}vh`)
-}
-
-function setResizeShortcuts() {
-  window.addEventListener('keydown', event => {
-    const isCtrlPressed = event.ctrlKey
-
-    if (isCtrlPressed) {
-      const regex = /Numpad(?<index>[1-5])/
-      const matchResult = event.code.match(regex)
-      if (!matchResult) {
-        return
-      }
-
-      const index = Number(matchResult.groups?.index)
-      setImageHeight(index - 1)
-      goToPage(currentPage.value)
-    } else {
-      switch (event.code) {
-        case 'NumpadAdd':
-          increaseHeight()
-          goToPage(currentPage.value)
-          break
-
-        case 'NumpadSubtract':
-          decreaseHeight()
-          goToPage(currentPage.value)
-          break
-
-        case 'Numpad0':
-          setImageHeight(0)
-          goToPage(currentPage.value)
-          break
-
-        case 'NumpadDecimal':
-          setImageHeight(Math.floor(heightList.length / 2))
-          goToPage(currentPage.value)
-          break
-
-        case 'NumpadEnter':
-          clearImageHeight()
-          goToPage(currentPage.value)
-          break
-      }
+function useImageResizer() {
+  const heightList = [100, 125, 150, 175, 200]
+  const currentIndex = ref<number | null>(null)
+  const currentHeight = computed<number | null>(() => {
+    if (typeof currentIndex.value === 'number') {
+      return heightList[currentIndex.value]
     }
+    return null
   })
+
+  function resizeImage(index: number) {
+    if (index === currentIndex.value) {
+      clearImageHeight()
+    } else {
+      setImageHeight(index)
+    }
+
+    goToPage(currentPage.value)
+  }
+
+  function clearImageHeight() {
+    currentIndex.value = null
+    paneImagesDiv.value.style.removeProperty('--image-height')
+  }
+
+  function setImageHeight(index: number) {
+    currentIndex.value = index
+    paneImagesDiv.value.style.setProperty('--image-height', `${currentHeight.value}vh`)
+  }
+
+  function setResizeShortcuts() {
+    window.addEventListener('keydown', event => {
+      const isCtrlPressed = event.ctrlKey
+
+      if (isCtrlPressed) {
+        const regex = /Numpad(?<index>[1-5])/
+        const matchResult = event.code.match(regex)
+        if (!matchResult) {
+          return
+        }
+
+        const index = Number(matchResult.groups?.index)
+        setImageHeight(index - 1)
+        goToPage(currentPage.value)
+      } else {
+        switch (event.code) {
+          case 'NumpadAdd':
+            increaseHeight()
+            goToPage(currentPage.value)
+            break
+
+          case 'NumpadSubtract':
+            decreaseHeight()
+            goToPage(currentPage.value)
+            break
+
+          case 'Numpad0':
+            setImageHeight(0)
+            goToPage(currentPage.value)
+            break
+
+          case 'NumpadDecimal':
+            setImageHeight(Math.floor(heightList.length / 2))
+            goToPage(currentPage.value)
+            break
+
+          case 'NumpadEnter':
+            clearImageHeight()
+            goToPage(currentPage.value)
+            break
+        }
+      }
+    })
+  }
+
+  function increaseHeight() {
+    if (currentIndex.value === null) {
+      currentIndex.value = 0
+    } else {
+      currentIndex.value = Math.min(currentIndex.value + 1, heightList.length - 1)
+    }
+    setImageHeight(currentIndex.value)
+  }
+
+  function decreaseHeight() {
+    if (currentIndex.value === null) {
+      currentIndex.value = 0
+    } else {
+      currentIndex.value = Math.max(currentIndex.value - 1, 0)
+    }
+    setImageHeight(currentIndex.value)
+  }
+
+  return {
+    heightList,
+    currentHeight,
+    resizeImage,
+    setResizeShortcuts,
+  }
 }
 
-function increaseHeight() {
-  if (currentIndex.value === null) {
-    currentIndex.value = 0
-  } else {
-    currentIndex.value = Math.min(currentIndex.value + 1, heightList.length - 1)
-  }
-  setImageHeight(currentIndex.value)
-}
-
-function decreaseHeight() {
-  if (currentIndex.value === null) {
-    currentIndex.value = 0
-  } else {
-    currentIndex.value = Math.max(currentIndex.value - 1, 0)
-  }
-  setImageHeight(currentIndex.value)
-}
 </script>
 
 <style lang="scss">

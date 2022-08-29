@@ -16,8 +16,6 @@ import { onClickOutside } from '@vueuse/core'
 import useElement from '../composables/useElements'
 import useDownloadEvent from '../composables/useDownloadEvents'
 
-const { archiveLinkAnchor } = useElement()
-
 defineProps({
   innerHTML: {
     type: String,
@@ -25,35 +23,44 @@ defineProps({
   },
 })
 
+const { archiveLinkAnchor } = useElement()
 const { setHentaiAtHomeEvent, setDirectDownloadEvent } = useDownloadEvent()
+const { isShow } = useDownloadArchive()
 
-const isShow = ref(false)
-const popup = ref(null)
+function useDownloadArchive() {
+  const isShow = ref(false)
+  const popup = ref(null)
 
-onMounted(() => {
-  archiveLinkAnchor.value.removeAttribute('onclick')
-  archiveLinkAnchor.value.innerText += ' ✔️'
+  onMounted(() => {
+    archiveLinkAnchor.value.removeAttribute('onclick')
+    archiveLinkAnchor.value.innerText += ' ✔️'
 
-  setToggleEvent()
-  setHentaiAtHomeEvent()
-  setDirectDownloadEvent()
-})
-
-function setToggleEvent() {
-  archiveLinkAnchor.value.addEventListener('click', event => {
-    event.preventDefault()
-    event.stopPropagation()
-    isShow.value = !isShow.value
+    setToggleEvent()
+    setHentaiAtHomeEvent()
+    setDirectDownloadEvent()
   })
 
-  onClickOutside(popup, event => {
-    if (event.target === archiveLinkAnchor.value) {
-      return
-    }
+  function setToggleEvent() {
+    archiveLinkAnchor.value.addEventListener('click', event => {
+      event.preventDefault()
+      event.stopPropagation()
+      isShow.value = !isShow.value
+    })
 
-    isShow.value = false
-  })
+    onClickOutside(popup, event => {
+      if (event.target === archiveLinkAnchor.value) {
+        return
+      }
+
+      isShow.value = false
+    })
+  }
+
+  return {
+    isShow,
+  }
 }
+
 </script>
 
 <style lang="scss" scoped>
