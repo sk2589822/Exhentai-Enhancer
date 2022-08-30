@@ -76,7 +76,7 @@ export default function() {
    * onscroll 時同時更新 currentpage 至 pageElevatorElem 的 value
    */
   function setCurrentPageUpdateEvent() {
-    paneImagesDiv.value.onscroll = () => {
+    paneImagesDiv.onscroll = () => {
       unsafeWindow.preload_scroll_images()
       currentPage.value = unsafeWindow.currentpage
     }

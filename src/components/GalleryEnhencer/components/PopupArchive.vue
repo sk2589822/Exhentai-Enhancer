@@ -32,8 +32,8 @@ function useDownloadArchive() {
   const popup = ref(null)
 
   onMounted(() => {
-    archiveLinkAnchor.value.removeAttribute('onclick')
-    archiveLinkAnchor.value.innerText += ' ✔️'
+    archiveLinkAnchor.removeAttribute('onclick')
+    archiveLinkAnchor.innerText += ' ✔️'
 
     setToggleEvent()
     setHentaiAtHomeEvent()
@@ -41,14 +41,14 @@ function useDownloadArchive() {
   })
 
   function setToggleEvent() {
-    archiveLinkAnchor.value.addEventListener('click', event => {
+    archiveLinkAnchor.addEventListener('click', event => {
       event.preventDefault()
       event.stopPropagation()
       isShow.value = !isShow.value
     })
 
     onClickOutside(popup, event => {
-      if (event.target === archiveLinkAnchor.value) {
+      if (event.target === archiveLinkAnchor) {
         return
       }
 

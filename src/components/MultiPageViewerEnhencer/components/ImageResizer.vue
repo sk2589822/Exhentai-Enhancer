@@ -50,12 +50,12 @@ function useImageResizer() {
 
   function clearImageHeight() {
     currentIndex.value = null
-    paneImagesDiv.value.style.removeProperty('--image-height')
+    paneImagesDiv.style.removeProperty('--image-height')
   }
 
   function setImageHeight(index: number) {
     currentIndex.value = index
-    paneImagesDiv.value.style.setProperty('--image-height', `${currentHeight.value}vh`)
+    paneImagesDiv.style.setProperty('--image-height', `${currentHeight.value}vh`)
   }
 
   function setResizeShortcuts() {

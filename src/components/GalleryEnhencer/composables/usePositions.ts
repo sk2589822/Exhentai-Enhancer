@@ -8,21 +8,21 @@ export default function() {
 
   const rightWithPx = ref('0')
   useResizeObserver(document.documentElement, () => {
-    if (!infoDiv.value) {
+    if (!infoDiv) {
       return
     }
-    rightWithPx.value = `${(document.documentElement.clientWidth - infoDiv.value.clientWidth) / 2}px`
+    rightWithPx.value = `${(document.documentElement.clientWidth - infoDiv.clientWidth) / 2}px`
   })
 
   const archiveTopWithPx = ref('0')
   ;(() => {
-    const { top, height } = archiveLinkAnchor.value.getBoundingClientRect()
+    const { top, height } = archiveLinkAnchor.getBoundingClientRect()
     archiveTopWithPx.value = `${top + height + 5}px`
   })()
 
   const torrentTopWithPx = ref('0')
   ;(() => {
-    const { top, height } = torrentLinkAnchor.value.getBoundingClientRect()
+    const { top, height } = torrentLinkAnchor.getBoundingClientRect()
     torrentTopWithPx.value = `${top + height + 5}px`
   })()
 
