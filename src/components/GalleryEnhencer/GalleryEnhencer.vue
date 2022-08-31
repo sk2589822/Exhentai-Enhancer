@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
+import { fetchAllImages, setImagesContainerWheelEvent } from './utils/images'
 import PopupTorrent from './components/PopupTorrent.vue'
 import PopupArchive from './components/PopupArchive.vue'
-import { fetchAllImages, setImagesContainerWheelEvent } from './utils/images'
 import usePreloadDownloadLinks from './composables/usePreloadDownloadLinks'
 import usePosition from './composables/usePositions'
 
@@ -22,17 +22,16 @@ const {
   torrentInnerHtml,
 } = usePreloadDownloadLinks()
 
-preloadDownloadLinks()
-
-
 const {
   rightWithPx,
   archiveTopWithPx,
   torrentTopWithPx,
 } = usePosition()
 
+preloadDownloadLinks()
 
 fetchAllImages({ delayInMs: 1000 })
+
 setImagesContainerWheelEvent()
 </script>
 

@@ -28,7 +28,7 @@ export default function() {
     const logger = new LoggerScopeDecorator(baseLogger, 'Torrent')
     logger.log('Start')
 
-    const link = getLink(torrentLinkAnchor.value)
+    const link = getLink(torrentLinkAnchor as HTMLElement)
     if (!link) {
       logger.error('link not found.')
       return ''
@@ -50,7 +50,7 @@ export default function() {
     const logger = new Logger('Archive')
     logger.log('Start')
 
-    const link = getLink(archiveLinkAnchor.value)
+    const link = getLink(archiveLinkAnchor)
     if (!link) {
       logger.error('link not found.')
       return ''

@@ -5,33 +5,51 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 
+import { getElement } from '@/utils/commons'
 import GalleryEnhencer from '@/components/GalleryEnhencer/GalleryEnhencer.vue'
 import MultipageViewerEnhencer from '@/components/MultiPageViewerEnhencer/MultiPageViewerEnhencer.vue'
-import { getElement } from '@/utils/commons'
 
 const { href } = window.location
 
-const enhencer = computed(() => {
-  const isGallery = /https:\/\/exhentai\.org\/g\/\w+\/\w+/.test(href)
-  if (isGallery) {
-    return GalleryEnhencer
-  }
+const { enhencer } = useEnhencer()
+const { redirectIfSinglePageViewer } = useRedirect()
 
-  const isMultiPageViewer = /https:\/\/exhentai\.org\/mpv\/\w+\/\w+/.test(href)
-  if (isMultiPageViewer) {
-    return MultipageViewerEnhencer
-  }
+redirectIfSinglePageViewer()
 
-  return null
-})
+function useEnhencer() {
+  const enhencer = computed(() => {
+    const isGallery = /https:\/\/exhentai\.org\/g\/\w+\/\w+/.test(href)
+    if (isGallery) {
+      return GalleryEnhencer
+    }
 
+    const isMultiPageViewer = /https:\/\/exhentai\.org\/mpv\/\w+\/\w+/.test(href)
+    if (isMultiPageViewer) {
+      return MultipageViewerEnhencer
+    }
 
-const isSinglePageViewer = /https:\/\/exhentai\.org\/s\/\w+\/\w+/.test(href)
-if (isSinglePageViewer) {
-  onMounted(() => {
-    const page = location.pathname.split('-')[1]
-    const url = (getElement('.sb > a') as HTMLAnchorElement).href.replace('/g/', '/mpv/')
-    location.href = `${url}#page${page}`
+    return null
   })
+
+  return {
+    enhencer,
+  }
+}
+
+function useRedirect() {
+  function redirectIfSinglePageViewer() {
+    const isSinglePageViewer = /https:\/\/exhentai\.org\/s\/\w+\/\w+/.test(href)
+    if (isSinglePageViewer) {
+      onMounted(() => {
+        const page = location.pathname.split('-')[1]
+        const url = (getElement('.sb > a') as HTMLAnchorElement).href.replace('/g/', '/mpv/')
+        location.href = `${url}#page${page}`
+      })
+    }
+  }
+
+  return {
+    redirectIfSinglePageViewer,
+  }
 }
 </script>

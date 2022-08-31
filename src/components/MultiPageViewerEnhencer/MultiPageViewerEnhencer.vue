@@ -1,7 +1,7 @@
 <template>
   <div
     class="enhencer-features"
-    @wheel.stop="changePage"
+    @wheel.stop="changePageOnClick"
   >
     <PageElevator class="enhencer-features__feature" />
     <ImageResizer class="enhencer-features__feature" />
@@ -24,22 +24,9 @@ import ImageResizer from './components/ImageResizer.vue'
 
 const {
   appendPageIndex,
-  goToPrevPage,
-  goToNextPage,
+  changePageOnClick,
   setCurrentPageUpdateEvent,
 } = usePages()
-
-appendPageIndex()
-setCurrentPageUpdateEvent()
-
-function changePage(event: WheelEvent) {
-  if (event.deltaY < 0) {
-    goToPrevPage()
-  } else {
-    goToNextPage()
-  }
-}
-
 
 const {
   setKeyBoardEvent,
@@ -49,17 +36,21 @@ const {
   setShowThumbsEvent,
 } = useEvents()
 
+appendPageIndex()
+setCurrentPageUpdateEvent()
+
 setKeyBoardEvent()
 setChangePageClickEvent()
 setShowCursorEvent()
 setHideCursorEvent()
 setShowThumbsEvent()
 
-
 const exhentaiButtons = ref<string>('')
 onMounted(() => {
   exhentaiButtons.value = (getElement('#bar3') as HTMLElement)?.innerHTML
 })
+
+// TODO: set currentpage after click thumb
 </script>
 
 <style lang="scss">

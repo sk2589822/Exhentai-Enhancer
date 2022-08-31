@@ -5,7 +5,6 @@ import { scrollElement } from '@/utils/commons'
 import usePages from './usePages'
 import useElements from './useElements'
 
-
 const {
   currentImage,
   goToPageByOffset,
@@ -40,23 +39,23 @@ export default function() {
         const height = (currentImage.value as HTMLElement).offsetHeight
         switch (event.code) {
           case 'Numpad8': // 置頂
-            scrollElement(paneImagesDiv.value, { absolute: top })
+            scrollElement(paneImagesDiv, { absolute: top })
             break
 
           case 'Numpad5': // 置中
-            scrollElement(paneImagesDiv.value, { absolute: top + ((height - window.innerHeight) / 2) })
+            scrollElement(paneImagesDiv, { absolute: top + ((height - window.innerHeight) / 2) })
             break
 
           case 'Numpad2': // 置底
-            scrollElement(paneImagesDiv.value, { absolute: top + height - window.innerHeight })
+            scrollElement(paneImagesDiv, { absolute: top + height - window.innerHeight })
             break
 
           case 'ArrowUp':
-            scrollElement(paneImagesDiv.value, { offset: -50 })
+            scrollElement(paneImagesDiv, { offset: -50 })
             break
 
           case 'ArrowDown':
-            scrollElement(paneImagesDiv.value, { offset: 50 })
+            scrollElement(paneImagesDiv, { offset: 50 })
             break
 
           case 'ArrowLeft':
@@ -94,7 +93,7 @@ export default function() {
     }
 
     for (const [event, action] of Object.entries(config)) {
-      paneImagesDiv.value
+      paneImagesDiv
         .addEventListener(event, e => {
           const target = e.target as HTMLElement
 
@@ -169,8 +168,8 @@ export default function() {
     document.addEventListener('mousemove', e => {
       const threshold = 15
 
-      const shouldShowThumbs = e.clientX < paneThumbsDiv.value.offsetWidth + threshold
-      paneThumbsDiv.value.style.opacity = shouldShowThumbs
+      const shouldShowThumbs = e.clientX < paneThumbsDiv.offsetWidth + threshold
+      paneThumbsDiv.style.opacity = shouldShowThumbs
         ? '1'
         : '0'
     })

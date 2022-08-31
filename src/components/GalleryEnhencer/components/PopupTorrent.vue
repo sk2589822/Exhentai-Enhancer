@@ -17,8 +17,6 @@ import { getElement } from '@/utils/commons'
 
 import useElement from '../composables/useElements'
 
-const { torrentLinkAnchor } = useElement()
-
 defineProps({
   innerHTML: {
     type: String,
@@ -26,41 +24,50 @@ defineProps({
   },
 })
 
-const isShow = ref(false)
-const popup = ref<HTMLElement>()
+const { torrentLinkAnchor } = useElement()
+const { isShow } = useDownloadTorrent()
 
-onMounted(() => {
-  torrentLinkAnchor.value.removeAttribute('onclick')
-  torrentLinkAnchor.value.innerText += ' ✔️'
+function useDownloadTorrent() {
+  const isShow = ref(false)
+  const popup = ref<HTMLElement>()
 
-  if (torrentLinkAnchor.value.innerText === 'Torrent Download (1) ✔️') {
-    setDownloadEvent()
-  } else {
-    setToggleEvent()
-  }
-})
+  onMounted(() => {
+    torrentLinkAnchor.removeAttribute('onclick')
+    torrentLinkAnchor.innerText += ' ✔️'
 
-function setDownloadEvent() {
-  torrentLinkAnchor.value.addEventListener('click', event => {
-    event.preventDefault()
-    getElement('a', popup.value)?.click()
-  })
-}
-
-function setToggleEvent() {
-  torrentLinkAnchor.value.addEventListener('click', event => {
-    event.preventDefault()
-    event.stopPropagation()
-
-    isShow.value = !isShow.value
-  })
-
-  onClickOutside(popup, event => {
-    if (event.target === torrentLinkAnchor.value) {
-      return
+    if (torrentLinkAnchor.innerText === 'Torrent Download (1) ✔️') {
+      setDownloadEvent()
+    } else {
+      setToggleEvent()
     }
-    isShow.value = false
   })
+
+  function setDownloadEvent() {
+    torrentLinkAnchor.addEventListener('click', event => {
+      event.preventDefault()
+      getElement('a', popup.value)?.click()
+    })
+  }
+
+  function setToggleEvent() {
+    torrentLinkAnchor.addEventListener('click', event => {
+      event.preventDefault()
+      event.stopPropagation()
+
+      isShow.value = !isShow.value
+    })
+
+    onClickOutside(popup, event => {
+      if (event.target === torrentLinkAnchor) {
+        return
+      }
+      isShow.value = false
+    })
+  }
+
+  return {
+    isShow,
+  }
 }
 </script>
 
