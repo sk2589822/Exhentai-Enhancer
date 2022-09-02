@@ -24,12 +24,13 @@ defineProps({
   },
 })
 
+const popup = ref<HTMLElement>()
+
 const { torrentLinkAnchor } = useElement()
 const { isShow } = useDownloadTorrent()
 
 function useDownloadTorrent() {
   const isShow = ref(false)
-  const popup = ref<HTMLElement>()
 
   onMounted(() => {
     torrentLinkAnchor.removeAttribute('onclick')

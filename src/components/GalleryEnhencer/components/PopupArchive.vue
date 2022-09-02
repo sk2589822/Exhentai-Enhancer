@@ -23,13 +23,14 @@ defineProps({
   },
 })
 
+const popup = ref<HTMLElement>()
+
 const { archiveLinkAnchor } = useElement()
 const { setHentaiAtHomeEvent, setDirectDownloadEvent } = useDownloadEvent()
 const { isShow } = useDownloadArchive()
 
 function useDownloadArchive() {
   const isShow = ref(false)
-  const popup = ref(null)
 
   onMounted(() => {
     archiveLinkAnchor.removeAttribute('onclick')
