@@ -8,7 +8,7 @@ import useElements from './useElements'
 const { paneImagesDiv } = useElements()
 
 const currentPage = ref(unsafeWindow.currentpage)
-const currentImage = computed(() => getElement(`#imgsrc_${currentPage.value}`))
+const currentImageContainer = computed(() => getElement(`#image_${currentPage.value}`))
 
 export default function() {
   const pageCount = unsafeWindow.pagecount
@@ -60,6 +60,7 @@ export default function() {
     unsafeWindow.currentpage = index
 
     currentPage.value = index
+    console.log(currentPage.value)
     const target = getElement(`#image_${index}`) as HTMLElement
     target.scrollIntoView()
   }
@@ -86,7 +87,7 @@ export default function() {
     appendPageIndex,
     pageCount,
     currentPage,
-    currentImage,
+    currentImageContainer,
     goToNextPage,
     goToPrevPage,
     goToPageByOffset,

@@ -6,7 +6,7 @@ import usePages from './usePages'
 import useElements from './useElements'
 
 const {
-  currentImage,
+  currentImageContainer,
   goToPageByOffset,
   goToNextPage,
   goToPrevPage,
@@ -35,8 +35,8 @@ export default function() {
             break
         }
       } else {
-        const top = (currentImage.value as HTMLElement).offsetTop
-        const height = (currentImage.value as HTMLElement).offsetHeight
+        const top = (currentImageContainer.value as HTMLElement).offsetTop
+        const height = (currentImageContainer.value as HTMLElement).offsetHeight
         switch (event.code) {
           case 'Numpad8': // 置頂
             scrollElement(paneImagesDiv, { absolute: top })
