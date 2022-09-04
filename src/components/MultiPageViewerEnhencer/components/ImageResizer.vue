@@ -101,11 +101,20 @@ function useImageResizer() {
           break
 
         case 'Numpad0':
-          setImageHeight(0)
+          if (currentIndex.value === 0) {
+            clearImageHeight()
+          } else {
+            setImageHeight(0)
+          }
           break
 
         case 'NumpadDecimal': {
-          setImageHeight(Math.floor(heightList.length / 2))
+          const index = Math.floor(heightList.length / 2)
+          if (currentIndex.value === index) {
+            clearImageHeight()
+          } else {
+            setImageHeight(index)
+          }
           break
         }
 
