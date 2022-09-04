@@ -84,9 +84,9 @@ available for
 ## Development
 
 ### Debug
-1. ```yarn dev```
+1. ```pnpm dev```
 2. install the script that pop-up on your browser.
 
 ### Build & Install your own script
-1. ```yarn build```
+1. ```pnpm build```
 2. drag `dist/exhentai-enhencer.user.js` to your browser to install the script.

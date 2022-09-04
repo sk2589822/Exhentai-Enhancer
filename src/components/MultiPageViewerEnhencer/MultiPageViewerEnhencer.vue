@@ -104,6 +104,34 @@ div#bar3 {
   }
 }
 
+div.mi1 {
+  display: flex;
+
+  img {
+    display: block;
+    margin: 0;
+  }
+}
+
+div.mi2 {
+  display: flex;
+  flex-direction: row;
+  float: initial;
+  margin-top: initial;
+}
+
+div.mi3 {
+  display: flex;
+  flex-direction: row;
+  float: initial;
+  margin-top: initial;
+  order: 3;
+}
+
+div.mi4 {
+  position: initial;
+}
+
 div#pane_thumbs {
   display: block;
   opacity: 0;
