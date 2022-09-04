@@ -28,21 +28,91 @@ module.exports = {
   },
   'ignorePatterns': ['dist/*.user.js'],
   'rules': {
+    /**
+     *  Suggestions
+     */
+    'arrow-body-style': [
+      'error',
+      'as-needed',
+    ],
     'curly': [
       'error',
       'all',
     ],
-    'no-multi-spaces': [
+    'new-cap': [
       'error',
-      { ignoreEOLComments: false },
+      {
+        newIsCap: true,
+        capIsNew: true,
+      },
     ],
+    'no-mixed-operators': 'error',
+    'no-multi-assign': 'error',
+    'no-negated-condition': 'warn',
+    'no-unneeded-ternary': [
+      'error',
+      { defaultAssignment: false },
+    ],
+    'no-useless-computed-key': 'error',
+    'no-var': 'error',
+    'one-var': [
+      'error',
+      'never',
+    ],
+    'object-shorthand': [
+      'error',
+      'always',
+    ],
+    'operator-assignment': [
+      'error',
+      'always',
+    ],
+    'prefer-arrow-callback': [
+      'error',
+      {
+        allowNamedFunctions: false,
+        allowUnboundThis: true,
+      },
+    ],
+    'prefer-const': [
+      'error',
+      {
+        'destructuring': 'any',
+        'ignoreReadBeforeAssign': false,
+      },
+    ],
+    'prefer-spread': 'error',
+    'prefer-template': 'error',
+    'quote-props': [
+      'error',
+      'consistent',
+    ],
+
+    /**
+     * Layout & Formatting
+     */
     'array-bracket-spacing': [
       'error',
       'never',
     ],
+    'arrow-parens': [
+      'error',
+      'as-needed',
+    ],
+    'arrow-spacing': [
+      'error',
+      {
+        before: true,
+        after: true,
+      },
+    ],
     'block-spacing': [
       'error',
       'always',
+    ],
+    'no-multi-spaces': [
+      'error',
+      { ignoreEOLComments: false },
     ],
     'brace-style': [
       'error',
@@ -112,30 +182,20 @@ module.exports = {
       'error',
       'always',
     ],
-    'new-cap': [
-      'error',
-      {
-        newIsCap: true,
-        capIsNew: true,
-      },
-    ],
     'newline-per-chained-call': [
       'error',
       { ignoreChainWithDepth: 2 },
     ],
-    'no-mixed-operators': 'error',
-    'no-multi-assign': 'error',
-    'no-negated-condition': 'warn',
+    'no-multiple-empty-lines': [
+      'error',
+      { max: 1 },
+    ],
     'no-trailing-spaces': [
       'error',
       {
         skipBlankLines: false,
         ignoreComments: false,
       },
-    ],
-    'no-unneeded-ternary': [
-      'error',
-      { defaultAssignment: false },
     ],
     'object-curly-newline': [
       'error',
@@ -151,14 +211,6 @@ module.exports = {
     'object-property-newline': [
       'error',
       { allowAllPropertiesOnSameLine: false },
-    ],
-    'one-var': [
-      'error',
-      'never',
-    ],
-    'operator-assignment': [
-      'error',
-      'always',
     ],
     'operator-linebreak': [
       'error',
@@ -180,10 +232,6 @@ module.exports = {
         prev: 'function',
         next: '*',
       },
-    ],
-    'quote-props': [
-      'error',
-      'consistent',
     ],
     'quotes': [
       'error',
@@ -217,47 +265,7 @@ module.exports = {
         'after': true,
       },
     ],
-    'arrow-body-style': [
-      'error',
-      'as-needed',
-    ],
-    'arrow-parens': [
-      'error',
-      'as-needed',
-    ],
-    'arrow-spacing': [
-      'error',
-      {
-        before: true,
-        after: true,
-      },
-    ],
-    'no-useless-computed-key': 'error',
-    'no-var': 'error',
-    'object-shorthand': [
-      'error',
-      'always',
-    ],
-    'prefer-arrow-callback': [
-      'error',
-      {
-        allowNamedFunctions: false,
-        allowUnboundThis: true,
-      },
-    ],
-    'prefer-const': [
-      'error',
-      {
-        'destructuring': 'any',
-        'ignoreReadBeforeAssign': false,
-      },
-    ],
-    'prefer-spread': 'error',
-    'prefer-template': 'error',
-    'no-multiple-empty-lines': [
-      'error',
-      { max: 1 },
-    ],
+
     'import/order': ['error',
       {
         'groups':
