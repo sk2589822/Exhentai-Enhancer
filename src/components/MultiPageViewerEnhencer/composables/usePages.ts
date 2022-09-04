@@ -60,8 +60,12 @@ export default function() {
     unsafeWindow.currentpage = index
 
     currentPage.value = index
-    console.log(currentPage.value)
     const target = getElement(`#image_${index}`) as HTMLElement
+    target.scrollIntoView()
+  }
+
+  function goToCurrentPage() {
+    const target = getElement(`#image_${currentPage.value}`) as HTMLElement
     target.scrollIntoView()
   }
 
@@ -92,6 +96,7 @@ export default function() {
     goToPrevPage,
     goToPageByOffset,
     goToPage,
+    goToCurrentPage,
     changePageOnClick,
     setCurrentPageUpdateEvent,
   }
