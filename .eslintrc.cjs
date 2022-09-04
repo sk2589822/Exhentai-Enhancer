@@ -29,6 +29,11 @@ module.exports = {
   'ignorePatterns': ['dist/*.user.js'],
   'rules': {
     /**
+     * Possible Problems
+     */
+    'no-unreachable-loop': 'error',
+
+    /**
      *  Suggestions
      */
     'arrow-body-style': [
