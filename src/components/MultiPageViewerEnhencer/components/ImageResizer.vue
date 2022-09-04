@@ -114,7 +114,7 @@ function useImageResizer() {
 
   function decreaseHeight() {
     if (currentIndex.value === null) {
-      currentIndex.value = 0
+      currentIndex.value = heightList.length - 1
     } else {
       currentIndex.value = Math.max(currentIndex.value - 1, 0)
     }
