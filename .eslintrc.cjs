@@ -100,6 +100,7 @@ module.exports = {
       {
         beforeBlockComment: true,
         allowBlockStart: true,
+        allowObjectStart: true,
       },
     ],
     'lines-between-class-members': [
