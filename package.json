@@ -26,6 +26,7 @@
     "eslint-import-resolver-typescript": "^3.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-vue": "^9.4.0",
+    "postcss": "^8.4.16",
     "postcss-html": "^1.5.0",
     "release-it": "^15.4.0",
     "sass": "^1.54.6",
