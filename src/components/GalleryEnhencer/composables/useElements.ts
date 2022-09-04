@@ -1,5 +1,3 @@
-import { ref } from 'vue'
-
 import { getElement } from '@/utils/commons'
 
 export default function() {

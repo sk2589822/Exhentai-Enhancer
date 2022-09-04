@@ -5,7 +5,7 @@
       :key="height"
       class="image-resizer__button"
       :class="{ 'image-resizer__button--active': height === currentHeight }"
-      @click="resizeImage(index)"
+      @click="onResizerClick(index)"
       v-text="height"
     />
   </div>
@@ -17,12 +17,12 @@ import { computed, ref } from 'vue'
 import usePages from '../composables/usePages'
 import useElements from '../composables/useElements'
 
-const { goToPage, currentPage } = usePages()
+const { goToCurrentPage } = usePages()
 const { paneImagesDiv } = useElements()
 const {
   heightList,
   currentHeight,
-  resizeImage,
+  onResizerClick,
   setResizeShortcuts,
 } = useImageResizer()
 
@@ -32,25 +32,21 @@ function useImageResizer() {
   const heightList = [100, 125, 150, 175, 200]
   const currentIndex = ref<number | null>(null)
   const currentHeight = computed<number | null>(() => {
-    if (typeof currentIndex.value === 'number') {
-      return heightList[currentIndex.value]
+    if (typeof currentIndex.value !== 'number') {
+      return null
     }
-    return null
+
+    return heightList[currentIndex.value]
   })
 
-  function resizeImage(index: number) {
+  function onResizerClick(index: number) {
     if (index === currentIndex.value) {
       clearImageHeight()
     } else {
       setImageHeight(index)
     }
 
-    goToPage(currentPage.value)
-  }
-
-  function clearImageHeight() {
-    currentIndex.value = null
-    paneImagesDiv.style.removeProperty('--image-height')
+    goToCurrentPage()
   }
 
   function setImageHeight(index: number) {
@@ -58,10 +54,30 @@ function useImageResizer() {
     paneImagesDiv.style.setProperty('--image-height', `${currentHeight.value}vh`)
   }
 
+  function clearImageHeight() {
+    currentIndex.value = null
+    paneImagesDiv.style.removeProperty('--image-height')
+  }
+
+  function increaseImageHeight() {
+    const index = currentIndex.value === null
+      ? 0
+      : Math.min(currentIndex.value + 1, heightList.length - 1)
+
+    setImageHeight(index)
+  }
+
+  function decreaseImageHeight() {
+    const index = currentIndex.value === null
+      ? heightList.length - 1
+      : Math.max(currentIndex.value - 1, 0)
+
+    setImageHeight(index)
+  }
+
   function setResizeShortcuts() {
     window.addEventListener('keydown', event => {
       const isCtrlPressed = event.ctrlKey
-
       if (isCtrlPressed) {
         const regex = /Numpad(?<index>[1-5])/
         const matchResult = event.code.match(regex)
@@ -71,60 +87,50 @@ function useImageResizer() {
 
         const index = Number(matchResult.groups?.index)
         setImageHeight(index - 1)
-        goToPage(currentPage.value)
-      } else {
-        switch (event.code) {
-          case 'NumpadAdd':
-            increaseHeight()
-            goToPage(currentPage.value)
-            break
-
-          case 'NumpadSubtract':
-            decreaseHeight()
-            goToPage(currentPage.value)
-            break
-
-          case 'Numpad0':
-            setImageHeight(0)
-            goToPage(currentPage.value)
-            break
-
-          case 'NumpadDecimal':
-            setImageHeight(Math.floor(heightList.length / 2))
-            goToPage(currentPage.value)
-            break
-
-          case 'NumpadEnter':
-            clearImageHeight()
-            goToPage(currentPage.value)
-            break
-        }
+        goToCurrentPage()
+        return
       }
+
+      switch (event.code) {
+        case 'NumpadAdd':
+          increaseImageHeight()
+          break
+
+        case 'NumpadSubtract':
+          decreaseImageHeight()
+          break
+
+        case 'Numpad0':
+          if (currentIndex.value === 0) {
+            clearImageHeight()
+          } else {
+            setImageHeight(0)
+          }
+          break
+
+        case 'NumpadDecimal': {
+          const index = Math.floor(heightList.length / 2)
+          if (currentIndex.value === index) {
+            clearImageHeight()
+          } else {
+            setImageHeight(index)
+          }
+          break
+        }
+
+        case 'NumpadEnter':
+          clearImageHeight()
+          break
+      }
+
+      goToCurrentPage()
     })
-  }
-
-  function increaseHeight() {
-    if (currentIndex.value === null) {
-      currentIndex.value = 0
-    } else {
-      currentIndex.value = Math.min(currentIndex.value + 1, heightList.length - 1)
-    }
-    setImageHeight(currentIndex.value)
-  }
-
-  function decreaseHeight() {
-    if (currentIndex.value === null) {
-      currentIndex.value = 0
-    } else {
-      currentIndex.value = Math.max(currentIndex.value - 1, 0)
-    }
-    setImageHeight(currentIndex.value)
   }
 
   return {
     heightList,
     currentHeight,
-    resizeImage,
+    onResizerClick,
     setResizeShortcuts,
   }
 }

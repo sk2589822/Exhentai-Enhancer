@@ -8,7 +8,7 @@ import useElements from './useElements'
 const { paneImagesDiv } = useElements()
 
 const currentPage = ref(unsafeWindow.currentpage)
-const currentImage = computed(() => getElement(`#imgsrc_${currentPage.value}`))
+const currentImageContainer = computed(() => getElement(`#image_${currentPage.value}`))
 
 export default function() {
   const pageCount = unsafeWindow.pagecount
@@ -64,6 +64,11 @@ export default function() {
     target.scrollIntoView()
   }
 
+  function goToCurrentPage() {
+    const target = getElement(`#image_${currentPage.value}`) as HTMLElement
+    target.scrollIntoView()
+  }
+
   function changePageOnClick(event: WheelEvent) {
     if (event.deltaY < 0) {
       goToPrevPage()
@@ -86,11 +91,12 @@ export default function() {
     appendPageIndex,
     pageCount,
     currentPage,
-    currentImage,
+    currentImageContainer,
     goToNextPage,
     goToPrevPage,
     goToPageByOffset,
     goToPage,
+    goToCurrentPage,
     changePageOnClick,
     setCurrentPageUpdateEvent,
   }
