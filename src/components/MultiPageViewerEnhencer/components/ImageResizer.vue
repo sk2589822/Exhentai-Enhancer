@@ -104,20 +104,18 @@ function useImageResizer() {
   }
 
   function increaseHeight() {
-    if (currentIndex.value === null) {
-      currentIndex.value = 0
-    } else {
-      currentIndex.value = Math.min(currentIndex.value + 1, heightList.length - 1)
-    }
+    currentIndex.value = currentIndex.value
+      ? Math.min(currentIndex.value + 1, heightList.length - 1)
+      : 0
+
     setImageHeight(currentIndex.value)
   }
 
   function decreaseHeight() {
-    if (currentIndex.value === null) {
-      currentIndex.value = heightList.length - 1
-    } else {
-      currentIndex.value = Math.max(currentIndex.value - 1, 0)
-    }
+    currentIndex.value = currentIndex.value
+      ? Math.max(currentIndex.value - 1, 0)
+      : heightList.length - 1
+
     setImageHeight(currentIndex.value)
   }
 
