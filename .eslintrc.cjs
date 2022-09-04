@@ -172,6 +172,14 @@ module.exports = {
       'error',
       'never',
     ],
+    'padding-line-between-statements': [
+      'error',
+      {
+        blankLine: 'always',
+        prev: 'function',
+        next: '*',
+      },
+    ],
     'quote-props': [
       'error',
       'consistent',
