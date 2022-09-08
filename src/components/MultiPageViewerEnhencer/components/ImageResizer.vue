@@ -94,10 +94,13 @@ function useImageResizer() {
       switch (event.code) {
         case 'NumpadAdd':
           increaseImageHeight()
+          goToCurrentPage()
+
           break
 
         case 'NumpadSubtract':
           decreaseImageHeight()
+          goToCurrentPage()
           break
 
         case 'Numpad0':
@@ -106,6 +109,7 @@ function useImageResizer() {
           } else {
             setImageHeight(0)
           }
+          goToCurrentPage()
           break
 
         case 'NumpadDecimal': {
@@ -115,15 +119,16 @@ function useImageResizer() {
           } else {
             setImageHeight(index)
           }
+
+          goToCurrentPage()
           break
         }
 
         case 'NumpadEnter':
           clearImageHeight()
+          goToCurrentPage()
           break
       }
-
-      goToCurrentPage()
     })
   }
 
