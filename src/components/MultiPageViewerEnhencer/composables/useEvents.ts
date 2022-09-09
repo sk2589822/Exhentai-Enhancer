@@ -1,6 +1,6 @@
 import { debounce } from 'lodash-es'
 
-import { scrollElement } from '@/utils/commons'
+import { getElement, scrollElement } from '@/utils/commons'
 
 import usePages from './usePages'
 import useElements from './useElements'
@@ -35,19 +35,30 @@ export default function() {
             break
         }
       } else {
-        const top = (currentImageContainer.value as HTMLElement).offsetTop
-        const height = (currentImageContainer.value as HTMLElement).offsetHeight
+        const currentImage = getElement('img[id^=imgsrc_]', currentImageContainer.value as HTMLElement)
         switch (event.code) {
           case 'Numpad8': // 置頂
-            scrollElement(paneImagesDiv, { absolute: top })
+            if (currentImage) {
+              scrollElement(paneImagesDiv, {
+                absolute: currentImage.offsetTop,
+              })
+            }
             break
 
           case 'Numpad5': // 置中
-            scrollElement(paneImagesDiv, { absolute: top + ((height - window.innerHeight) / 2) })
+            if (currentImage) {
+              scrollElement(paneImagesDiv, {
+                absolute: currentImage.offsetTop + ((currentImage.offsetHeight - window.innerHeight) / 2),
+              })
+            }
             break
 
           case 'Numpad2': // 置底
-            scrollElement(paneImagesDiv, { absolute: top + height - window.innerHeight })
+            if (currentImage) {
+              scrollElement(paneImagesDiv, {
+                absolute: currentImage.offsetTop + currentImage.offsetHeight - window.innerHeight,
+              })
+            }
             break
 
           case 'ArrowUp':
