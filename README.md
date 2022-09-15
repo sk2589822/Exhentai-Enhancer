@@ -46,8 +46,8 @@ available for
 * Add page elevator.
 * Add images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height). 
 * Add Shortcuts:
-  * `left click` `numpad 3` `numpad 6`: go to next page.
-  * `right click` `numpad 1` `numpad 4`: go to previous page.
+  * `left click` `numpad 3` `numpad 6` `space`: go to next page.
+  * `right click` `numpad 1` `numpad 4` `backspace`: go to previous page.
   * `mouse wheel up` (when hovering enhencer): go to next page.
   * `mouse wheel down` (when hovering enhencer): go to previous page.
   * `ctrl + →`: go to next 10 page.
