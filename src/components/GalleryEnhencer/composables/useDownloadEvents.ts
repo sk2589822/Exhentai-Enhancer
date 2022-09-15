@@ -30,7 +30,9 @@ export default function() {
     for (const link of hentaiAtHomeLinks) {
       link.removeAttribute('onclick')
 
-      link.addEventListener('click', async () => {
+      link.addEventListener('click', async event => {
+        event.preventDefault()
+
         const originalText = replaceLinkByLoadingIcon(link)
 
         const doc = await sendDownloadRequest(link, postUrl)
