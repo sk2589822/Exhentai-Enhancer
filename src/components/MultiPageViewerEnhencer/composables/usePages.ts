@@ -8,7 +8,6 @@ import useElements from './useElements'
 const { paneImagesDiv } = useElements()
 
 const currentPage = ref(unsafeWindow.currentpage)
-const currentImageContainer = computed(() => getElement(`#image_${currentPage.value}`))
 
 export default function() {
   const pageCount = unsafeWindow.pagecount
@@ -64,9 +63,12 @@ export default function() {
     target.scrollIntoView()
   }
 
-  function goToCurrentPage() {
-    const target = getElement(`#image_${currentPage.value}`) as HTMLElement
-    target.scrollIntoView()
+  function scrollToRelativePosition(relativeToViewport: number) {
+    const currentImage = getCurrentImage()
+    const { height: imageHeight } = currentImage.getBoundingClientRect()
+    const top = currentImage.offsetTop + relativeToViewport * imageHeight - window.innerHeight / 2 - 1
+
+    paneImagesDiv.scrollTo({ top })
   }
 
   function changePageOnClick(event: WheelEvent) {
@@ -87,16 +89,20 @@ export default function() {
     }
   }
 
+  function getCurrentImage() {
+    return getElement(`img[id^=imgsrc_${currentPage.value}]`) as HTMLElement
+  }
+
   return {
     appendPageIndex,
     pageCount,
     currentPage,
-    currentImageContainer,
+    getCurrentImage,
     goToNextPage,
     goToPrevPage,
     goToPageByOffset,
     goToPage,
-    goToCurrentPage,
+    scrollToRelativePosition,
     changePageOnClick,
     setCurrentPageUpdateEvent,
   }

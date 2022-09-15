@@ -51,7 +51,11 @@ module.exports = {
         capIsNew: true,
       },
     ],
-    'no-mixed-operators': 'error',
+    'no-mixed-operators': [
+      'error',
+      {
+        groups: [['&&', '||']],
+      }
     'no-multi-assign': 'error',
     'no-negated-condition': 'warn',
     'no-unneeded-ternary': [
