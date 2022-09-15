@@ -1,12 +1,12 @@
 import { debounce } from 'lodash-es'
 
-import { getElement, scrollElement } from '@/utils/commons'
+import { scrollElement } from '@/utils/commons'
 
 import usePages from './usePages'
 import useElements from './useElements'
 
 const {
-  currentImageContainer,
+  getCurrentImage,
   goToPageByOffset,
   goToNextPage,
   goToPrevPage,
@@ -35,7 +35,7 @@ export default function() {
             break
         }
       } else {
-        const currentImage = getElement('img[id^=imgsrc_]', currentImageContainer.value as HTMLElement)
+        const currentImage = getCurrentImage()
         switch (event.code) {
           case 'Numpad8': // 置頂
             if (currentImage) {

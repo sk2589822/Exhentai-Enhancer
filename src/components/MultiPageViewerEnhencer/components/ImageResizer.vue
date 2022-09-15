@@ -17,7 +17,7 @@ import { computed, ref } from 'vue'
 import usePages from '../composables/usePages'
 import useElements from '../composables/useElements'
 
-const { goToCurrentPage } = usePages()
+const { scrollToRelativePosition, getCurrentImage } = usePages()
 const { paneImagesDiv } = useElements()
 const {
   heightList,
@@ -40,13 +40,15 @@ function useImageResizer() {
   })
 
   function onResizerClick(index: number) {
+    const relativeToViewport = getRelativeToViewport()
+
     if (index === currentIndex.value) {
       clearImageHeight()
     } else {
       setImageHeight(index)
     }
 
-    goToCurrentPage()
+    scrollToRelativePosition(relativeToViewport)
   }
 
   function setImageHeight(index: number) {
@@ -75,8 +77,16 @@ function useImageResizer() {
     setImageHeight(index)
   }
 
+  function getRelativeToViewport() {
+    const currentImage = getCurrentImage()
+    const { top: imageTop, height: imageHeight } = currentImage.getBoundingClientRect()
+    // 1 - (image top 相對於 viewport top 的距離 - border + viewport top 到螢幕中間的距離) / 圖片高度 = viewport 相對圖片中心的百分比
+    return 1 - ((imageHeight - 1 + imageTop - window.innerHeight / 2) / imageHeight)
+  }
+
   function setResizeShortcuts() {
     window.addEventListener('keydown', event => {
+      const relativeToViewport = getRelativeToViewport()
       const isCtrlPressed = event.ctrlKey
       if (isCtrlPressed) {
         const regex = /Numpad(?<index>[1-5])/
@@ -87,20 +97,20 @@ function useImageResizer() {
 
         const index = Number(matchResult.groups?.index)
         setImageHeight(index - 1)
-        goToCurrentPage()
+        scrollToRelativePosition(relativeToViewport)
         return
       }
 
       switch (event.code) {
         case 'NumpadAdd':
           increaseImageHeight()
-          goToCurrentPage()
+          scrollToRelativePosition(relativeToViewport)
 
           break
 
         case 'NumpadSubtract':
           decreaseImageHeight()
-          goToCurrentPage()
+          scrollToRelativePosition(relativeToViewport)
           break
 
         case 'Numpad0':
@@ -109,7 +119,7 @@ function useImageResizer() {
           } else {
             setImageHeight(0)
           }
-          goToCurrentPage()
+          scrollToRelativePosition(relativeToViewport)
           break
 
         case 'NumpadDecimal': {
@@ -120,13 +130,13 @@ function useImageResizer() {
             setImageHeight(index)
           }
 
-          goToCurrentPage()
+          scrollToRelativePosition(relativeToViewport)
           break
         }
 
         case 'NumpadEnter':
           clearImageHeight()
-          goToCurrentPage()
+          scrollToRelativePosition(relativeToViewport)
           break
       }
     })
