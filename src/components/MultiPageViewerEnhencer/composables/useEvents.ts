@@ -74,10 +74,16 @@ export default function() {
           case 'Numpad4':
             goToPrevPage()
             break
+            
+          case 'Backspace':
+            event.preventDefault()
+            goToPrevPage()
+            break
 
           case 'ArrowRight':
           case 'Numpad3':
           case 'Numpad6':
+          case 'Space':
             goToNextPage()
             break
 
