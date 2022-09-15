@@ -1,34 +1,45 @@
 import { ref } from 'vue'
-import { useResizeObserver } from '@vueuse/core'
+import { useMutationObserver } from '@vueuse/core'
 
 import useElement from './useElements'
 
 export default function() {
   const { archiveLinkAnchor, torrentLinkAnchor, infoDiv } = useElement()
 
-  const rightWithPx = ref('0')
-  useResizeObserver(document.documentElement, () => {
+  const popupRight = ref(0)
+  const archiveTop = ref(0)
+  const torrentTop = ref(0)
+
+  useMutationObserver(infoDiv, () => {
     if (!infoDiv) {
       return
     }
-    rightWithPx.value = `${(document.documentElement.clientWidth - infoDiv.clientWidth) / 2}px`
+
+    popupRight.value = getPopupRight()
+    archiveTop.value = getArchiveTop()
+    torrentTop.value = getTorrentTop()
+  }, {
+    childList: true,
+    subtree: true,
   })
 
-  const archiveTopWithPx = ref('0')
-  ;(() => {
-    const { top, height } = archiveLinkAnchor.getBoundingClientRect()
-    archiveTopWithPx.value = `${top + height + 5}px`
-  })()
+  function getPopupRight(): number {
+    return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2
+  }
 
-  const torrentTopWithPx = ref('0')
-  ;(() => {
+  function getArchiveTop(): number {
+    const { top, height } = archiveLinkAnchor.getBoundingClientRect()
+    return top + height + 5
+  }
+
+  function getTorrentTop(): number {
     const { top, height } = torrentLinkAnchor.getBoundingClientRect()
-    torrentTopWithPx.value = `${top + height + 5}px`
-  })()
+    return top + height + 5
+  }
 
   return {
-    rightWithPx,
-    archiveTopWithPx,
-    torrentTopWithPx,
+    popupRight,
+    archiveTop,
+    torrentTop,
   }
 }

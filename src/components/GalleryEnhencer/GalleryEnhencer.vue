@@ -23,9 +23,9 @@ const {
 } = usePreloadDownloadLinks()
 
 const {
-  rightWithPx,
-  archiveTopWithPx,
-  torrentTopWithPx,
+  popupRight,
+  archiveTop,
+  torrentTop,
 } = usePosition()
 
 preloadDownloadLinks()
@@ -36,6 +36,7 @@ setImagesContainerWheelEvent()
 </script>
 
 <style lang="scss">
+/* stylelint-disable function-name-case */
 div#gmid {
   width: 931px;
 }
@@ -46,14 +47,14 @@ div#gd5 {
 
 .popup {
   position: absolute;
-  right: v-bind(rightWithPx);
+  right: calc(v-bind(popupRight) * 1px);
 
   &--archive {
-    top: v-bind(archiveTopWithPx);
+    top: calc(v-bind(archiveTop) * 1px);
   }
 
   &--torrent {
-    top: v-bind(torrentTopWithPx);
+    top: calc(v-bind(torrentTop) * 1px);
   }
 }
 </style>
