@@ -63,6 +63,10 @@ export default function() {
     target.scrollIntoView()
   }
 
+  function scrollToImageTop() {
+    getCurrentImage().scrollIntoView()
+  }
+
   function scrollToRelativePosition(relativeToViewport: number) {
     const currentImage = getCurrentImage()
     const { height: imageHeight } = currentImage.getBoundingClientRect()
@@ -102,6 +106,7 @@ export default function() {
     goToPrevPage,
     goToPageByOffset,
     goToPage,
+    scrollToImageTop,
     scrollToRelativePosition,
     changePageOnClick,
     setCurrentPageUpdateEvent,
