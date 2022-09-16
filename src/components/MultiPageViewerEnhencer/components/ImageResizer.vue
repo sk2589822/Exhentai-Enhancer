@@ -17,7 +17,7 @@ import { computed, ref } from 'vue'
 import usePages from '../composables/usePages'
 import useElements from '../composables/useElements'
 
-const { scrollToRelativePosition, getCurrentImage } = usePages()
+const { scrollToRelativePosition, scrollToImageTop, getCurrentImage } = usePages()
 const { paneImagesDiv } = useElements()
 const {
   heightList,
@@ -48,7 +48,7 @@ function useImageResizer() {
       setImageHeight(index)
     }
 
-    scrollToRelativePosition(relativeToViewport)
+    scroll(relativeToViewport)
   }
 
   function setImageHeight(index: number) {
@@ -84,6 +84,14 @@ function useImageResizer() {
     return 1 - ((imageHeight - 1 + imageTop - window.innerHeight / 2) / imageHeight)
   }
 
+  function scroll(relativeToViewport: number) {
+    if (currentHeight.value === 100) {
+      scrollToImageTop()
+    } else {
+      scrollToRelativePosition(relativeToViewport)
+    }
+  }
+
   function setResizeShortcuts() {
     window.addEventListener('keydown', event => {
       const relativeToViewport = getRelativeToViewport()
@@ -97,48 +105,47 @@ function useImageResizer() {
 
         const index = Number(matchResult.groups?.index)
         setImageHeight(index - 1)
-        scrollToRelativePosition(relativeToViewport)
-        return
-      }
+      } else {
 
-      switch (event.code) {
-        case 'NumpadAdd':
-          increaseImageHeight()
-          scrollToRelativePosition(relativeToViewport)
-
-          break
-
-        case 'NumpadSubtract':
-          decreaseImageHeight()
-          scrollToRelativePosition(relativeToViewport)
-          break
-
-        case 'Numpad0':
-          if (currentIndex.value === 0) {
-            clearImageHeight()
-          } else {
-            setImageHeight(0)
+        switch (event.code) {
+          case 'NumpadAdd':
+            increaseImageHeight()
+            break
+  
+          case 'NumpadSubtract':
+            decreaseImageHeight()
+            break
+  
+          case 'Numpad0':
+            if (currentIndex.value === 0) {
+              clearImageHeight()
+            } else {
+              setImageHeight(0)
+            }
+  
+            break
+  
+          case 'NumpadDecimal': {
+            const index = Math.floor(heightList.length / 2)
+            if (currentIndex.value === index) {
+              clearImageHeight()
+            } else {
+              setImageHeight(index)
+            }
+  
+            break
           }
-          scrollToRelativePosition(relativeToViewport)
-          break
-
-        case 'NumpadDecimal': {
-          const index = Math.floor(heightList.length / 2)
-          if (currentIndex.value === index) {
+  
+          case 'NumpadEnter':
             clearImageHeight()
-          } else {
-            setImageHeight(index)
-          }
-
-          scrollToRelativePosition(relativeToViewport)
-          break
+            break
+  
+          default:
+            return
         }
-
-        case 'NumpadEnter':
-          clearImageHeight()
-          scrollToRelativePosition(relativeToViewport)
-          break
       }
+
+      scroll(relativeToViewport)
     })
   }
 
