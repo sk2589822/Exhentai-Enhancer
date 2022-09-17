@@ -6,7 +6,7 @@ import usePages from './usePages'
 import useElements from './useElements'
 
 const {
-  currentImageContainer,
+  getCurrentImage,
   goToPageByOffset,
   goToNextPage,
   goToPrevPage,
@@ -35,19 +35,30 @@ export default function() {
             break
         }
       } else {
-        const top = (currentImageContainer.value as HTMLElement).offsetTop
-        const height = (currentImageContainer.value as HTMLElement).offsetHeight
+        const currentImage = getCurrentImage()
         switch (event.code) {
           case 'Numpad8': // 置頂
-            scrollElement(paneImagesDiv, { absolute: top })
+            if (currentImage) {
+              scrollElement(paneImagesDiv, {
+                absolute: currentImage.offsetTop,
+              })
+            }
             break
 
           case 'Numpad5': // 置中
-            scrollElement(paneImagesDiv, { absolute: top + ((height - window.innerHeight) / 2) })
+            if (currentImage) {
+              scrollElement(paneImagesDiv, {
+                absolute: currentImage.offsetTop + ((currentImage.offsetHeight - window.innerHeight) / 2),
+              })
+            }
             break
 
           case 'Numpad2': // 置底
-            scrollElement(paneImagesDiv, { absolute: top + height - window.innerHeight })
+            if (currentImage) {
+              scrollElement(paneImagesDiv, {
+                absolute: currentImage.offsetTop + currentImage.offsetHeight - window.innerHeight,
+              })
+            }
             break
 
           case 'ArrowUp':
@@ -64,9 +75,15 @@ export default function() {
             goToPrevPage()
             break
 
+          case 'Backspace':
+            event.preventDefault()
+            goToPrevPage()
+            break
+
           case 'ArrowRight':
           case 'Numpad3':
           case 'Numpad6':
+          case 'Space':
             goToNextPage()
             break
 
