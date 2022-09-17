@@ -21,6 +21,10 @@ export default defineConfig({
           'https://exhentai.org/s/*/*',
           'https://e-hentai.org/s/*/*',
         ],
+        description: {
+          '': 'improve UX of gallery & multipage viewer',
+          'zh-TW': '改善 gallery 和 multipage viewer 的 UX',
+        },
       },
       build: {
         metaFileName: true,
