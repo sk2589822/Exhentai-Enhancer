@@ -15,8 +15,11 @@ export default defineConfig({
         namespace: 'https://github.com/sk2589822/Exhentai-Enhencer',
         match: [
           'https://exhentai.org/g/*/*',
+          'https://e-hentai.org/g/*/*',
           'https://exhentai.org/mpv/*/*',
+          'https://e-hentai.org/mpv/*/*',
           'https://exhentai.org/s/*/*',
+          'https://e-hentai.org/s/*/*',
         ],
       },
       build: {
