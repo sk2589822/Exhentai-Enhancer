@@ -85,10 +85,16 @@ function useImageResizer() {
   }
 
   function scroll(relativeToViewport: number) {
+    const currentImage = getCurrentImage()
+
     if (currentHeight.value === 100) {
       scrollToImageTop()
     } else {
       scrollToRelativePosition(relativeToViewport)
+    }
+    
+    if (currentImage.getBoundingClientRect().top > 1) {
+      scrollToImageTop()
     }
   }
 
