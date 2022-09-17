@@ -70,7 +70,7 @@ available when
   ![](https://imgur.com/bXd1YJH.gif)
 
   scroll step by row on images container
-  ![](https://imgur.com/nBqGhBh.gif)
+  ![](https://imgur.com/WdDGu8J.gif)
 
 
   ### Multi-Page Viewer Enhencer
