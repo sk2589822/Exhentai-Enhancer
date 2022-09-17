@@ -92,7 +92,7 @@ function useImageResizer() {
     } else {
       scrollToRelativePosition(relativeToViewport)
     }
-    
+
     if (currentImage.getBoundingClientRect().top > 1) {
       scrollToImageTop()
     }
@@ -112,25 +112,24 @@ function useImageResizer() {
         const index = Number(matchResult.groups?.index)
         setImageHeight(index - 1)
       } else {
-
         switch (event.code) {
           case 'NumpadAdd':
             increaseImageHeight()
             break
-  
+
           case 'NumpadSubtract':
             decreaseImageHeight()
             break
-  
+
           case 'Numpad0':
             if (currentIndex.value === 0) {
               clearImageHeight()
             } else {
               setImageHeight(0)
             }
-  
+
             break
-  
+
           case 'NumpadDecimal': {
             const index = Math.floor(heightList.length / 2)
             if (currentIndex.value === index) {
@@ -138,14 +137,14 @@ function useImageResizer() {
             } else {
               setImageHeight(index)
             }
-  
+
             break
           }
-  
+
           case 'NumpadEnter':
             clearImageHeight()
             break
-  
+
           default:
             return
         }
