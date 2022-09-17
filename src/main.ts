@@ -19,6 +19,7 @@ app.mount(
   (() => {
     const app = document.createElement('div') as HTMLElement
     app.classList.add('enhencer-container')
+    app.style.backgroundColor = 'inherit'
     document.body.append(app)
     return app
   })(),
