@@ -29,12 +29,12 @@ export default function() {
 
   function getArchiveTop(): number {
     const { top, height } = archiveLinkAnchor.getBoundingClientRect()
-    return top + height + 5
+    return top + height + window.scrollY + 5
   }
 
   function getTorrentTop(): number {
     const { top, height } = torrentLinkAnchor.getBoundingClientRect()
-    return top + height + 5
+    return top + height + window.scrollY + 5
   }
 
   return {
