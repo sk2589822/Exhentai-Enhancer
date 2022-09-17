@@ -74,7 +74,7 @@ export default function() {
           case 'Numpad4':
             goToPrevPage()
             break
-            
+
           case 'Backspace':
             event.preventDefault()
             goToPrevPage()

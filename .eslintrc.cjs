@@ -55,7 +55,8 @@ module.exports = {
       'error',
       {
         groups: [['&&', '||']],
-      }
+      },
+    ],
     'no-multi-assign': 'error',
     'no-negated-condition': 'warn',
     'no-unneeded-ternary': [
