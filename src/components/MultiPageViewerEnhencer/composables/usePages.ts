@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { getElement, getElements } from '@/utils/commons'

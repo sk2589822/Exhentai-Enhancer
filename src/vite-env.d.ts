@@ -24,7 +24,7 @@ interface Window {
   pagecount: number; // page Count
   currentpage: number; // current page
   preload_scroll_images: () => void; // preload images & set currentpage
-  scroll_relative: (selector: string, offset: number) => void; // for scrolling top/down
+  action_reload: (page) => void; // reload image
 }
 
 interface Document {

@@ -1,4 +1,5 @@
 import { debounce } from 'lodash-es'
+import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { scrollElement } from '@/utils/commons'
 
@@ -6,6 +7,7 @@ import usePages from './usePages'
 import useElements from './useElements'
 
 const {
+  currentPage,
   getCurrentImage,
   goToPageByOffset,
   goToNextPage,
@@ -97,6 +99,10 @@ export default function() {
 
           case 'KeyF':
             toggleFullScreen()
+            break
+
+          case 'KeyR':
+            unsafeWindow.action_reload(currentPage.value)
             break
         }
       }
