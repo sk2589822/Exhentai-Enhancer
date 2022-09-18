@@ -26,3 +26,18 @@ interface Window {
   preload_scroll_images: () => void; // preload images & set currentpage
   scroll_relative: (selector: string, offset: number) => void; // for scrolling top/down
 }
+
+interface Document {
+  mozCancelFullScreen?: () => Promise<void>;
+  msExitFullscreen?: () => Promise<void>;
+  webkitExitFullscreen?: () => Promise<void>;
+  mozFullScreenElement?: Element;
+  msFullscreenElement?: Element;
+  webkitFullscreenElement?: Element;
+}
+
+interface HTMLElement {
+  msRequestFullscreen?: () => Promise<void>;
+  mozRequestFullScreen?: () => Promise<void>;
+  webkitRequestFullscreen?: () => Promise<void>;
+}
