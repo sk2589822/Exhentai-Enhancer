@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name               exhentai-enhencer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhencer
-// @version            1.2.10
+// @version            1.2.11
 // @description        improve UX of gallery & multipage viewer
 // @description:zh-TW  改善 gallery 和 multipage viewer 的 UX
 // @icon               https://vitejs.dev/logo.svg

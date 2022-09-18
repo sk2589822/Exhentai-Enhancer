@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name               exhentai-enhencer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhencer
-// @version            1.2.10
+// @version            1.2.11
 // @description        improve UX of gallery & multipage viewer
 // @description:zh-TW  改善 gallery 和 multipage viewer 的 UX
 // @icon               https://vitejs.dev/logo.svg
@@ -16,7 +16,7 @@
 // @grant              unsafeWindow
 // ==/UserScript==
 
-// use vite-plugin-monkey@2.3.0 at 2022-09-18T01:02:21.413Z
+// use vite-plugin-monkey@2.3.0 at 2022-09-18T01:15:17.991Z
 
 ;(({ css = "" }) => {
   const style = document.createElement("style");
@@ -1183,6 +1183,9 @@ var __publicField = (obj, key, value) => {
             case "PageDown":
               goToPageByOffset(10);
               break;
+            case "KeyF":
+              toggleFullScreen();
+              break;
           }
         }
       });
@@ -1244,6 +1247,30 @@ var __publicField = (obj, key, value) => {
         const shouldShowThumbs = e.clientX < paneThumbsDiv.offsetWidth + threshold;
         paneThumbsDiv.style.opacity = shouldShowThumbs ? "1" : "0";
       });
+    }
+    function toggleFullScreen() {
+      const { body } = document;
+      if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        if (body.requestFullscreen) {
+          body.requestFullscreen();
+        } else if (body.msRequestFullscreen) {
+          body.msRequestFullscreen();
+        } else if (body.mozRequestFullScreen) {
+          body.mozRequestFullScreen();
+        } else if (body.webkitRequestFullscreen) {
+          body.webkitRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
+      }
     }
     return {
       setKeyBoardEvent,
