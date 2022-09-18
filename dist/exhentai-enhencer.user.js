@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name               exhentai-enhencer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhencer
-// @version            1.2.11
+// @version            1.2.12
 // @description        improve UX of gallery & multipage viewer
 // @description:zh-TW  改善 gallery 和 multipage viewer 的 UX
 // @icon               https://vitejs.dev/logo.svg
@@ -16,7 +16,7 @@
 // @grant              unsafeWindow
 // ==/UserScript==
 
-// use vite-plugin-monkey@2.3.0 at 2022-09-18T01:15:17.991Z
+// use vite-plugin-monkey@2.3.0 at 2022-09-18T07:15:31.059Z
 
 ;(({ css = "" }) => {
   const style = document.createElement("style");
@@ -856,7 +856,7 @@ var __publicField = (obj, key, value) => {
     };
   }
   const { paneImagesDiv: paneImagesDiv$1 } = useElements();
-  const currentPage = vue.ref(unsafeWindow.currentpage);
+  const currentPage$1 = vue.ref(unsafeWindow.currentpage);
   function usePages() {
     const pageCount = unsafeWindow.pagecount;
     function appendPageIndex() {
@@ -884,14 +884,14 @@ var __publicField = (obj, key, value) => {
       goToPageByOffset2(-1);
     }
     function goToPageByOffset2(offset) {
-      let index2 = currentPage.value + offset;
+      let index2 = currentPage$1.value + offset;
       index2 = Math.min(index2, pageCount);
       index2 = Math.max(index2, 1);
       goToPage(index2);
     }
     function goToPage(index2) {
       unsafeWindow.currentpage = index2;
-      currentPage.value = index2;
+      currentPage$1.value = index2;
       const target = getElement(`#image_${index2}`);
       target.scrollIntoView();
     }
@@ -914,16 +914,16 @@ var __publicField = (obj, key, value) => {
     function setCurrentPageUpdateEvent() {
       paneImagesDiv$1.onscroll = () => {
         unsafeWindow.preload_scroll_images();
-        currentPage.value = unsafeWindow.currentpage;
+        currentPage$1.value = unsafeWindow.currentpage;
       };
     }
     function getCurrentImage2() {
-      return getElement(`img[id^=imgsrc_${currentPage.value}]`);
+      return getElement(`img[id^=imgsrc_${currentPage$1.value}]`);
     }
     return {
       appendPageIndex,
       pageCount,
-      currentPage,
+      currentPage: currentPage$1,
       getCurrentImage: getCurrentImage2,
       goToNextPage: goToNextPage2,
       goToPrevPage: goToPrevPage2,
@@ -1109,6 +1109,7 @@ var __publicField = (obj, key, value) => {
     return debounced;
   }
   const {
+    currentPage,
     getCurrentImage,
     goToPageByOffset,
     goToNextPage,
@@ -1185,6 +1186,9 @@ var __publicField = (obj, key, value) => {
               break;
             case "KeyF":
               toggleFullScreen();
+              break;
+            case "KeyR":
+              unsafeWindow.action_reload(currentPage.value);
               break;
           }
         }
