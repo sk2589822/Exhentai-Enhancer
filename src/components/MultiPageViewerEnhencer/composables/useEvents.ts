@@ -94,6 +94,10 @@ export default function() {
           case 'PageDown':
             goToPageByOffset(10)
             break
+
+          case 'KeyF':
+            toggleFullScreen()
+            break
         }
       }
     })
@@ -190,6 +194,32 @@ export default function() {
         ? '1'
         : '0'
     })
+  }
+
+  function toggleFullScreen() {
+    const { body } = document
+    if (!document.fullscreenElement && // alternative standard method
+        !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) { // current working methods
+      if (body.requestFullscreen) {
+        body.requestFullscreen()
+      } else if (body.msRequestFullscreen) {
+        body.msRequestFullscreen()
+      } else if (body.mozRequestFullScreen) {
+        body.mozRequestFullScreen()
+      } else if (body.webkitRequestFullscreen) {
+        body.webkitRequestFullscreen()
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen()
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen()
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen()
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen()
+      }
+    }
   }
 
   return {
