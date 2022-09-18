@@ -53,6 +53,8 @@ available when
 | numpad 8 | scroll to top of current image. |
 | numpad 5 | scroll to middle of current image. |
 | numpad 2 | scroll to bottom of current image. |
+| Key F | Toggle full screen. |
+| Key R | Reload current image. |
 
 ## Demo:
   ### Gallery Enhencer
@@ -69,27 +71,27 @@ available when
   If there are multiple torrents, show popup
   ![](https://imgur.com/bXd1YJH.gif)
 
-  scroll step by row on images container
+  Scroll step by row on images container
   ![](https://imgur.com/WdDGu8J.gif)
 
 
   ### Multi-Page Viewer Enhencer
-  page elevator
+  Page elevator
   ![](https://imgur.com/pmwTRuJ.gif)
 
-  image resizer
+  Image resizer
   ![](https://imgur.com/Jv2hMgJ.gif)
 
-  keyboard shortcuts for image resizer
+  Keyboard shortcuts for image resizer
   ![](https://imgur.com/8IRzMkH.gif)
 
-  keyboard shortcuts for scroll to top/middle/bottom of current image
+  Keyboard shortcuts for scroll to top/middle/bottom of current image
   ![](https://imgur.com/552vKHC.gif)
 
-  show thumbs when hover
+  Show thumbs when hover
   ![](https://imgur.com/RoVA7iX.gif)
   
-  go to next/previous 10 page by `ctrl + →` `ctrl + ←`
+  Go to next/previous 10 page by `ctrl + →` `ctrl + ←`
   ![](https://imgur.com/5viyiJ8.gif)
 
 ## Development
