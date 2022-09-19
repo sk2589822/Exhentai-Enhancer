@@ -12,7 +12,7 @@ export default defineConfig({
       entry: 'src/main.ts',
       userscript: {
         icon: 'https://vitejs.dev/logo.svg',
-        namespace: 'https://github.com/sk2589822/Exhentai-Enhencer',
+        namespace: 'https://github.com/sk2589822/Exhentai-Enhancer',
         match: [
           'https://exhentai.org/g/*/*',
           'https://e-hentai.org/g/*/*',

@@ -1,10 +1,10 @@
 <template>
   <div
-    class="enhencer-features"
+    class="enhancer-features"
     @wheel.stop="changePageOnClick"
   >
-    <PageElevator class="enhencer-features__feature" />
-    <ImageResizer class="enhencer-features__feature" />
+    <PageElevator class="enhancer-features__feature" />
+    <ImageResizer class="enhancer-features__feature" />
     <div
       class="original-functions"
       v-html="exhentaiButtons"
@@ -142,7 +142,7 @@ div#pane_thumbs {
 /**
  * Components
  */
-.enhencer-features {
+.enhancer-features {
   position: absolute;
   top: 0;
   bottom: 0;

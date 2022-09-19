@@ -1,38 +1,38 @@
 <template>
-  <component :is="enhencer" />
+  <component :is="enhancer" />
 </template>
 
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 
 import { getElement } from '@/utils/commons'
-import GalleryEnhencer from '@/components/GalleryEnhencer/GalleryEnhencer.vue'
-import MultipageViewerEnhencer from '@/components/MultiPageViewerEnhencer/MultiPageViewerEnhencer.vue'
+import GalleryEnhancer from '@/components/GalleryEnhancer/GalleryEnhancer.vue'
+import MultipageViewerEnhancer from '@/components/MultiPageViewerEnhancer/MultiPageViewerEnhancer.vue'
 
 const { href } = window.location
 
-const { enhencer } = useEnhencer()
+const { enhancer } = useEnhancer()
 const { redirectIfSinglePageViewer } = useRedirect()
 
 redirectIfSinglePageViewer()
 
-function useEnhencer() {
-  const enhencer = computed(() => {
+function useEnhancer() {
+  const enhancer = computed(() => {
     const isGallery = /https:\/\/e[-x]hentai\.org\/g\/\w+\/\w+/.test(href)
     if (isGallery) {
-      return GalleryEnhencer
+      return GalleryEnhancer
     }
 
     const isMultiPageViewer = /https:\/\/e[-x]hentai\.org\/mpv\/\w+\/\w+/.test(href)
     if (isMultiPageViewer) {
-      return MultipageViewerEnhencer
+      return MultipageViewerEnhancer
     }
 
     return null
   })
 
   return {
-    enhencer,
+    enhancer,
   }
 }
 

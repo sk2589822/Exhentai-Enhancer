@@ -7,13 +7,13 @@ declare module '*.vue' {
   export default component
 }
 
-declare module '@/scripts/GalleryEnhencer' {
+declare module '@/scripts/GalleryEnhancer' {
   function init(): void
 
   export default init
 }
 
-declare module '@/scripts/MultipageViewerEnhencer' {
+declare module '@/scripts/MultipageViewerEnhancer' {
   function init(): void;
 
   export default init
