@@ -1,10 +1,10 @@
-# ExHentai Enhencer
+# ExHentai Enhancer
 
 ## How to use
 1. Install [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) to your browser.
-2. Install [ExHentai Enhencer](https://github.com/sk2589822/Exhentai-Enhencer/raw/master/dist/exhentai-enhencer.user.js).
+2. Install [ExHentai Enhancer](https://github.com/sk2589822/Exhentai-Enhancer/raw/master/dist/exhentai-enhancer.user.js).
 
-## Gallery Enhencer
+## Gallery Enhancer
 available when
 1. url match ```https://exhentai.org/g/*/*```
 2. settings -> Front Page Settings -> check `Thumbnail`
@@ -16,7 +16,7 @@ available when
 * Download torrent directly if there is only 1 torrent.
 * Go to next/prev row if mouse wheel on images container.
 
-## Multi-Page Viewer Enhencer
+## Multi-Page Viewer Enhancer
 available when 
 1. url match ```https://exhentai.org/mpv/*/*```
 2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup
@@ -36,12 +36,12 @@ available when
 | numpad 3  | go to next page. |
 | numpad 6  | go to next page. | 
 | space | go to next page. |
-| mouse wheel up (when hovering enhencer) | go to next page. |
+| mouse wheel up (when hovering enhancer) | go to next page. |
 | right click | go to previous page. |
 | numpad 1 | go to previous page. |
 | numpad 4  | go to previous page. |
 | backspace | go to previous page. |
-| mouse wheel down (when hovering enhencer) | go to previous page. |
+| mouse wheel down (when hovering enhancer) | go to previous page. |
 | ctrl + → | go to next 10 page. |
 | ctrl + ← | go to previous 10 page. |
 | ctrl + 1~5 | set current size of image resizer to 100%/125%/150%/175%/200%. |
@@ -57,7 +57,7 @@ available when
 | Key R | Reload current image. |
 
 ## Demo:
-  ### Gallery Enhencer
+  ### Gallery Enhancer
 
   Archive download success
   ![](https://imgur.com/a8hzlNN.gif)
@@ -75,7 +75,7 @@ available when
   ![](https://imgur.com/WdDGu8J.gif)
 
 
-  ### Multi-Page Viewer Enhencer
+  ### Multi-Page Viewer Enhancer
   Page elevator
   ![](https://imgur.com/pmwTRuJ.gif)
 
@@ -102,4 +102,4 @@ available when
 
 ### Build & Install your own script
 1. ```pnpm build```
-2. drag `dist/exhentai-enhencer.user.js` to your browser to install the script.
+2. drag `dist/exhentai-enhancer.user.js` to your browser to install the script.
