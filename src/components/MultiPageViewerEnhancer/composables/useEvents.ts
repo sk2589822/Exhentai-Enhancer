@@ -12,6 +12,8 @@ const {
   goToPageByOffset,
   goToNextPage,
   goToPrevPage,
+  getRelativeToViewport,
+  scrollToProperPosition,
 } = usePages()
 
 const {
@@ -19,11 +21,29 @@ const {
   paneThumbsDiv,
 } = useElements()
 
+setReflowTrigger()
+
+// Ref: https://stackoverflow.com/a/66646270
+// Not stable
+function setReflowTrigger() {
+  const observer = new ResizeObserver(entries => {
+    for (const entry of entries) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          entry.target?.dispatchEvent(new CustomEvent('reflow'))
+        })
+      })
+    }
+  })
+
+  observer.observe(document.body)
+}
+
 export default function() {
   function setKeyBoardEvent() {
     document.onkeydown = null
 
-    window.addEventListener('keydown', event => {
+    window.addEventListener('keydown', async event => {
       const isCtrlPressed = event.ctrlKey
 
       if (isCtrlPressed) {
@@ -97,9 +117,16 @@ export default function() {
             goToPageByOffset(10)
             break
 
-          case 'KeyF':
-            toggleFullScreen()
+          case 'KeyF': {
+            const relativeToViewport = getRelativeToViewport()
+            await toggleFullScreen()
+            document.body.addEventListener('reflow', () => {
+              scrollToProperPosition(relativeToViewport)
+            }, {
+              once: true,
+            })
             break
+          }
 
           case 'KeyR':
             unsafeWindow.action_reload(currentPage.value)
@@ -202,28 +229,32 @@ export default function() {
     })
   }
 
-  function toggleFullScreen() {
+  async function toggleFullScreen() {
     const { body } = document
-    if (!document.fullscreenElement && // alternative standard method
-        !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) { // current working methods
-      if (body.requestFullscreen) {
-        body.requestFullscreen()
-      } else if (body.msRequestFullscreen) {
-        body.msRequestFullscreen()
-      } else if (body.mozRequestFullScreen) {
-        body.mozRequestFullScreen()
-      } else if (body.webkitRequestFullscreen) {
-        body.webkitRequestFullscreen()
+    if (
+      document.fullscreenElement ||
+      document.mozFullScreenElement ||
+      document.webkitFullscreenElement ||
+      document.msFullscreenElement
+    ) {
+      if (document.exitFullscreen) {
+        await document.exitFullscreen()
+      } else if (document.msExitFullscreen) {
+        await document.msExitFullscreen()
+      } else if (document.mozCancelFullScreen) {
+        await document.mozCancelFullScreen()
+      } else if (document.webkitExitFullscreen) {
+        await document.webkitExitFullscreen()
       }
     } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen()
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen()
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen()
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen()
+      if (body.requestFullscreen) {
+        await body.requestFullscreen()
+      } else if (body.msRequestFullscreen) {
+        await body.msRequestFullscreen()
+      } else if (body.mozRequestFullScreen) {
+        await body.mozRequestFullScreen()
+      } else if (body.webkitRequestFullscreen) {
+        await body.webkitRequestFullscreen()
       }
     }
   }
