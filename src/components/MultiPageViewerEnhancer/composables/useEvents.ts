@@ -7,8 +7,10 @@ import usePages from './usePages'
 import useElements from './useElements'
 
 const {
+  pageCount,
   currentPage,
   getCurrentImage,
+  goToPage,
   goToPageByOffset,
   goToNextPage,
   goToPrevPage,
@@ -115,6 +117,14 @@ export default function() {
 
           case 'PageDown':
             goToPageByOffset(10)
+            break
+
+          case 'Home':
+            goToPage(1)
+            break
+
+          case 'End':
+            goToPage(pageCount)
             break
 
           case 'KeyF': {
