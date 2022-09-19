@@ -75,6 +75,26 @@ export default function() {
     paneImagesDiv.scrollTo({ top })
   }
 
+  function getRelativeToViewport() {
+    const { top: imageTop, height: imageHeight } = getCurrentImage().getBoundingClientRect()
+    // 1 - (image top 相對於 viewport top 的距離 - border + viewport top 到螢幕中間的距離) / 圖片高度 = viewport 相對圖片中心的百分比
+    return 1 - ((imageHeight - 1 + imageTop - window.innerHeight / 2) / imageHeight)
+  }
+
+  function scrollToProperPosition(relativeToViewport: number, currentSize?: number) {
+    const currentImage = getCurrentImage()
+
+    if (currentSize === 100) {
+      scrollToImageTop()
+    } else {
+      scrollToRelativePosition(relativeToViewport)
+    }
+
+    if (currentImage.getBoundingClientRect().top > 1) {
+      scrollToImageTop()
+    }
+  }
+
   function changePageOnClick(event: WheelEvent) {
     if (event.deltaY < 0) {
       goToPrevPage()
@@ -108,6 +128,8 @@ export default function() {
     goToPage,
     scrollToImageTop,
     scrollToRelativePosition,
+    getRelativeToViewport,
+    scrollToProperPosition,
     changePageOnClick,
     setCurrentPageUpdateEvent,
   }

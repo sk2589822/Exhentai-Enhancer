@@ -1,12 +1,12 @@
 <template>
   <div class="image-resizer">
     <button
-      v-for="(height, index) in heightList"
-      :key="height"
+      v-for="(size, index) in sizeList"
+      :key="size"
       class="image-resizer__button"
-      :class="{ 'image-resizer__button--active': height === currentHeight }"
+      :class="{ 'image-resizer__button--active': size === currentSize }"
       @click="onResizerClick(index)"
-      v-text="height"
+      v-text="size"
     />
   </div>
 </template>
@@ -17,11 +17,14 @@ import { computed, ref } from 'vue'
 import usePages from '../composables/usePages'
 import useElements from '../composables/useElements'
 
-const { scrollToRelativePosition, scrollToImageTop, getCurrentImage } = usePages()
+const {
+  getRelativeToViewport,
+  scrollToProperPosition,
+} = usePages()
 const { paneImagesDiv } = useElements()
 const {
-  heightList,
-  currentHeight,
+  sizeList,
+  currentSize,
   onResizerClick,
   setResizeShortcuts,
 } = useImageResizer()
@@ -29,73 +32,52 @@ const {
 setResizeShortcuts()
 
 function useImageResizer() {
-  const heightList = [100, 125, 150, 175, 200]
+  const sizeList = [100, 125, 150, 175, 200]
   const currentIndex = ref<number | null>(null)
-  const currentHeight = computed<number | null>(() => {
+  const currentSize = computed<number | undefined>(() => {
     if (typeof currentIndex.value !== 'number') {
-      return null
+      return undefined
     }
 
-    return heightList[currentIndex.value]
+    return sizeList[currentIndex.value]
   })
 
   function onResizerClick(index: number) {
     const relativeToViewport = getRelativeToViewport()
 
     if (index === currentIndex.value) {
-      clearImageHeight()
+      clearImageSize()
     } else {
-      setImageHeight(index)
+      setImageSize(index)
     }
 
-    scroll(relativeToViewport)
+    scrollToProperPosition(relativeToViewport)
   }
 
-  function setImageHeight(index: number) {
+  function setImageSize(index: number) {
     currentIndex.value = index
-    paneImagesDiv.style.setProperty('--image-height', `${currentHeight.value}vh`)
+    paneImagesDiv.style.setProperty('--image-size', `${currentSize.value}vh`)
   }
 
-  function clearImageHeight() {
+  function clearImageSize() {
     currentIndex.value = null
-    paneImagesDiv.style.removeProperty('--image-height')
+    paneImagesDiv.style.removeProperty('--image-size')
   }
 
-  function increaseImageHeight() {
+  function increaseImageSize() {
     const index = currentIndex.value === null
       ? 0
-      : Math.min(currentIndex.value + 1, heightList.length - 1)
+      : Math.min(currentIndex.value + 1, sizeList.length - 1)
 
-    setImageHeight(index)
+    setImageSize(index)
   }
 
-  function decreaseImageHeight() {
+  function decreaseImageSize() {
     const index = currentIndex.value === null
-      ? heightList.length - 1
+      ? sizeList.length - 1
       : Math.max(currentIndex.value - 1, 0)
 
-    setImageHeight(index)
-  }
-
-  function getRelativeToViewport() {
-    const currentImage = getCurrentImage()
-    const { top: imageTop, height: imageHeight } = currentImage.getBoundingClientRect()
-    // 1 - (image top 相對於 viewport top 的距離 - border + viewport top 到螢幕中間的距離) / 圖片高度 = viewport 相對圖片中心的百分比
-    return 1 - ((imageHeight - 1 + imageTop - window.innerHeight / 2) / imageHeight)
-  }
-
-  function scroll(relativeToViewport: number) {
-    const currentImage = getCurrentImage()
-
-    if (currentHeight.value === 100) {
-      scrollToImageTop()
-    } else {
-      scrollToRelativePosition(relativeToViewport)
-    }
-
-    if (currentImage.getBoundingClientRect().top > 1) {
-      scrollToImageTop()
-    }
+    setImageSize(index)
   }
 
   function setResizeShortcuts() {
@@ -110,39 +92,39 @@ function useImageResizer() {
         }
 
         const index = Number(matchResult.groups?.index)
-        setImageHeight(index - 1)
+        setImageSize(index - 1)
       } else {
         switch (event.code) {
           case 'NumpadAdd':
-            increaseImageHeight()
+            increaseImageSize()
             break
 
           case 'NumpadSubtract':
-            decreaseImageHeight()
+            decreaseImageSize()
             break
 
           case 'Numpad0':
             if (currentIndex.value === 0) {
-              clearImageHeight()
+              clearImageSize()
             } else {
-              setImageHeight(0)
+              setImageSize(0)
             }
 
             break
 
           case 'NumpadDecimal': {
-            const index = Math.floor(heightList.length / 2)
+            const index = Math.floor(sizeList.length / 2)
             if (currentIndex.value === index) {
-              clearImageHeight()
+              clearImageSize()
             } else {
-              setImageHeight(index)
+              setImageSize(index)
             }
 
             break
           }
 
           case 'NumpadEnter':
-            clearImageHeight()
+            clearImageSize()
             break
 
           default:
@@ -150,13 +132,13 @@ function useImageResizer() {
         }
       }
 
-      scroll(relativeToViewport)
+      scrollToProperPosition(relativeToViewport, currentSize.value)
     })
   }
 
   return {
-    heightList,
-    currentHeight,
+    sizeList,
+    currentSize,
     onResizerClick,
     setResizeShortcuts,
   }
@@ -170,12 +152,12 @@ div#pane_images {
   .mi0 {
     width: max-content !important;
     min-width: unset;
-    max-height: calc(var(--image-height) + 24px) !important;
+    max-height: calc(var(--image-size) + 24px) !important;
   }
 
   img[id^="imgsrc_"] {
     width: auto !important;
-    max-height: var(--image-height);
+    max-height: var(--image-size);
   }
 }
 </style>
