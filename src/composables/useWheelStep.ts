@@ -10,12 +10,21 @@ export default function({
   containerSelector: string
   itemsSelector: string
 }) {
-  let firstItemOfRows: HTMLElement[] | null = null
+  const container = getElement(containerSelector) as HTMLElement
+
+  let firstItemOfRows: HTMLElement[] = getFirstItemOfRows()
+  const mutationObserver = new MutationObserver(() => {
+    firstItemOfRows = getFirstItemOfRows()
+  })
+
+  mutationObserver.observe(container, {
+    childList: true,
+    characterData: true,
+  })
 
   setContainerWheelEvent()
 
   function setContainerWheelEvent() {
-    const container = getElement(containerSelector)
     if (!container) {
       return
     }
@@ -26,6 +35,7 @@ export default function({
       if (!firstItemOfRows) {
         return
       }
+
       const firstVisibleItemIndex = firstItemOfRows
         .findIndex(item => item.getBoundingClientRect().bottom >= 0)
 
@@ -48,8 +58,6 @@ export default function({
   }
 
   function getFirstItemOfRows(): HTMLElement[] {
-    // 沒有幫 RWD 做最佳化 (我用不到)
-    const container = getElement(containerSelector) as HTMLDivElement
     const item = getElement(itemsSelector) as HTMLDivElement
     const itemsPerRow = Math.floor(container.clientWidth / item.clientWidth)
 
