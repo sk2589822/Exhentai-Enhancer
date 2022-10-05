@@ -37,7 +37,7 @@ export default function({
       }
 
       const firstVisibleItemIndex = firstItemOfRows
-        .findIndex(item => item.getBoundingClientRect().bottom >= 0)
+        .findIndex(item => item.getBoundingClientRect().bottom > 0)
 
       const firstVisibleItem = firstItemOfRows[firstVisibleItemIndex]
       const boundingTop = firstVisibleItem.getBoundingClientRect().top
