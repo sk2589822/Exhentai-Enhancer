@@ -6,6 +6,7 @@
 import { computed, onMounted } from 'vue'
 
 import { getElement } from '@/utils/commons'
+import FrontPageEnhancer from '@/components/FrontPageEnhancer/FrontPageEnhancer.vue'
 import GalleryEnhancer from '@/components/GalleryEnhancer/GalleryEnhancer.vue'
 import MultipageViewerEnhancer from '@/components/MultiPageViewerEnhancer/MultiPageViewerEnhancer.vue'
 
@@ -18,13 +19,18 @@ redirectIfSinglePageViewer()
 
 function useEnhancer() {
   const enhancer = computed(() => {
-    const isGallery = /https:\/\/e[-x]hentai\.org\/g\/\w+\/\w+/.test(href)
-    if (isGallery) {
+    if (
+      /https:\/\/e[-x]hentai\.org\/(\?.+)?$/.test(href) ||
+      /https:\/\/e[-x]hentai\.org\/tag\/\w+/.test(href)
+    ) {
+      return FrontPageEnhancer
+    }
+
+    if (/https:\/\/e[-x]hentai\.org\/g\/\w+\/\w+/.test(href)) {
       return GalleryEnhancer
     }
 
-    const isMultiPageViewer = /https:\/\/e[-x]hentai\.org\/mpv\/\w+\/\w+/.test(href)
-    if (isMultiPageViewer) {
+    if (/https:\/\/e[-x]hentai\.org\/mpv\/\w+\/\w+/.test(href)) {
       return MultipageViewerEnhancer
     }
 
