@@ -1,10 +1,14 @@
 // ==UserScript==
 // @name               exhentai-enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.2.14
+// @version            1.3.0
 // @description        improve UX of gallery & multipage viewer
 // @description:zh-TW  改善 gallery 和 multipage viewer 的 UX
 // @icon               https://vitejs.dev/logo.svg
+// @match              https://exhentai.org/*
+// @match              https://e-hentai.org/*
+// @match              https://exhentai.org/tag/*
+// @match              https://e-hentai.org/tag/*
 // @match              https://exhentai.org/g/*/*
 // @match              https://e-hentai.org/g/*/*
 // @match              https://exhentai.org/mpv/*/*
