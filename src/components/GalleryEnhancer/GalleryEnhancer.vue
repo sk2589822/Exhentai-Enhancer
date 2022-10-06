@@ -10,7 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import { fetchAllImages, setImagesContainerWheelEvent } from './utils/images'
+import useWheelStep from '@/composables/useWheelStep'
+
+import { fetchAllImages } from './utils/images'
 import PopupTorrent from './components/PopupTorrent.vue'
 import PopupArchive from './components/PopupArchive.vue'
 import usePreloadDownloadLinks from './composables/usePreloadDownloadLinks'
@@ -32,7 +34,10 @@ preloadDownloadLinks()
 
 fetchAllImages({ delayInMs: 1000 })
 
-setImagesContainerWheelEvent()
+useWheelStep({
+  containerSelector: '#gdt',
+  itemsSelector: '.gdtl',
+})
 </script>
 
 <style lang="scss">
