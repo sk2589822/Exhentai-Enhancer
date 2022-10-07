@@ -29,18 +29,16 @@ export default function({
       return
     }
 
-    firstItemOfRows = getFirstItemOfRows()
-
     container.addEventListener('mousewheel', ((event: WheelEvent) => {
       if (!firstItemOfRows) {
         return
       }
 
       const firstVisibleItemIndex = firstItemOfRows
-        .findIndex(item => item.getBoundingClientRect().bottom > 0)
+        .findIndex(item => Math.floor(item.getBoundingClientRect().bottom) > 0)
 
       const firstVisibleItem = firstItemOfRows[firstVisibleItemIndex]
-      const boundingTop = firstVisibleItem.getBoundingClientRect().top
+      const boundingTop = Math.floor(firstVisibleItem.getBoundingClientRect().top)
 
       let nextIndex = firstVisibleItemIndex
       if (Math.sign(event.deltaY) === 1 && boundingTop <= 0) {
