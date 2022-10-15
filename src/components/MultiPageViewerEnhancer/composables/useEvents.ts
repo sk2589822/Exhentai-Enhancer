@@ -127,7 +127,8 @@ export default function() {
             goToPage(pageCount)
             break
 
-          case 'KeyF': {
+          case 'KeyF':
+          case 'Enter': {
             const relativeToViewport = getRelativeToViewport()
             await toggleFullScreen()
             document.body.addEventListener('reflow', () => {
@@ -273,9 +274,9 @@ export default function() {
       const { body } = document
       if (
         document.fullscreenElement ||
-      document.mozFullScreenElement ||
-      document.webkitFullscreenElement ||
-      document.msFullscreenElement
+        document.mozFullScreenElement ||
+        document.webkitFullscreenElement ||
+        document.msFullscreenElement
       ) {
         if (document.exitFullscreen) {
           await document.exitFullscreen()
