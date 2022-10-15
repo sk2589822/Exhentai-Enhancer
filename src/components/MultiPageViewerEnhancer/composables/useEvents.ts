@@ -146,32 +146,53 @@ export default function() {
     })
   }
 
-  /**
-   * 點擊滑鼠左鍵 -> 下一頁
-   * 點擊滑鼠右鍵 -> 上一頁
-   */
-  function setChangePageClickEvent() {
-    const config = {
-      click: goToNextPage,
-      contextmenu: goToPrevPage,
+  function setClickEvent() {
+    setChangePageClickEvent()
+    setFullscreenToggleEvent()
+
+    /**
+     * 點擊滑鼠左鍵 -> 下一頁
+     * 點擊滑鼠右鍵 -> 上一頁
+     */
+    function setChangePageClickEvent() {
+      const config = {
+        click: goToNextPage,
+        contextmenu: goToPrevPage,
+      }
+
+      for (const [event, action] of Object.entries(config)) {
+        paneImagesDiv
+          .addEventListener(event, e => {
+            const target = e.target as HTMLElement
+
+            // 點擊資訊列不動作
+            if (target.closest('.mi1')) {
+              return
+            }
+
+            e.preventDefault()
+            e.stopPropagation()
+
+            action()
+
+            hideCursor(e as MouseEvent)
+          })
+      }
     }
 
-    for (const [event, action] of Object.entries(config)) {
-      paneImagesDiv
-        .addEventListener(event, e => {
-          const target = e.target as HTMLElement
-
-          // 點擊資訊列不動作
-          if (target.closest('.mi1')) {
+    function setFullscreenToggleEvent() {
+      document.body
+        .addEventListener('mousedown', event => {
+          // event.button === 1 => Middle button
+          if (event.button !== 1) {
             return
           }
 
-          e.preventDefault()
-          e.stopPropagation()
-
-          action()
-
-          hideCursor(e as MouseEvent)
+          document.body.addEventListener('mouseup', () => {
+            toggleFullScreen()
+          }, {
+            once: true,
+          })
         })
     }
   }
@@ -240,38 +261,48 @@ export default function() {
   }
 
   async function toggleFullScreen() {
-    const { body } = document
-    if (
-      document.fullscreenElement ||
+    const relativeToViewport = getRelativeToViewport()
+    await toggle()
+    document.body.addEventListener('reflow', () => {
+      scrollToProperPosition(relativeToViewport)
+    }, {
+      once: true,
+    })
+
+    async function toggle() {
+      const { body } = document
+      if (
+        document.fullscreenElement ||
       document.mozFullScreenElement ||
       document.webkitFullscreenElement ||
       document.msFullscreenElement
-    ) {
-      if (document.exitFullscreen) {
-        await document.exitFullscreen()
-      } else if (document.msExitFullscreen) {
-        await document.msExitFullscreen()
-      } else if (document.mozCancelFullScreen) {
-        await document.mozCancelFullScreen()
-      } else if (document.webkitExitFullscreen) {
-        await document.webkitExitFullscreen()
-      }
-    } else {
-      if (body.requestFullscreen) {
-        await body.requestFullscreen()
-      } else if (body.msRequestFullscreen) {
-        await body.msRequestFullscreen()
-      } else if (body.mozRequestFullScreen) {
-        await body.mozRequestFullScreen()
-      } else if (body.webkitRequestFullscreen) {
-        await body.webkitRequestFullscreen()
+      ) {
+        if (document.exitFullscreen) {
+          await document.exitFullscreen()
+        } else if (document.msExitFullscreen) {
+          await document.msExitFullscreen()
+        } else if (document.mozCancelFullScreen) {
+          await document.mozCancelFullScreen()
+        } else if (document.webkitExitFullscreen) {
+          await document.webkitExitFullscreen()
+        }
+      } else {
+        if (body.requestFullscreen) {
+          await body.requestFullscreen()
+        } else if (body.msRequestFullscreen) {
+          await body.msRequestFullscreen()
+        } else if (body.mozRequestFullScreen) {
+          await body.mozRequestFullScreen()
+        } else if (body.webkitRequestFullscreen) {
+          await body.webkitRequestFullscreen()
+        }
       }
     }
   }
 
   return {
     setKeyBoardEvent,
-    setChangePageClickEvent,
+    setClickEvent,
     setShowCursorEvent,
     setHideCursorEvent,
     setShowThumbsEvent,

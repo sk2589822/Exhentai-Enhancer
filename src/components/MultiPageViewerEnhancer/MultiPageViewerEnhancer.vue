@@ -30,7 +30,7 @@ const {
 
 const {
   setKeyBoardEvent,
-  setChangePageClickEvent,
+  setClickEvent,
   setShowCursorEvent,
   setHideCursorEvent,
   setShowThumbsEvent,
@@ -40,7 +40,7 @@ appendPageIndex()
 setCurrentPageUpdateEvent()
 
 setKeyBoardEvent()
-setChangePageClickEvent()
+setClickEvent()
 setShowCursorEvent()
 setHideCursorEvent()
 setShowThumbsEvent()

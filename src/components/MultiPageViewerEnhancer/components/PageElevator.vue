@@ -46,4 +46,14 @@ const {
     line-height: 100%;
   }
 }
+
+:fullscreen {
+  .page-elevator {
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
 </style>
