@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name               exhentai-enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.3.1
+// @version            1.3.2
 // @description        improve UX of gallery & multipage viewer
 // @description:zh-TW  改善 gallery 和 multipage viewer 的 UX
 // @icon               https://vitejs.dev/logo.svg
@@ -20,7 +20,7 @@
 // @grant              unsafeWindow
 // ==/UserScript==
 
-// use vite-plugin-monkey@2.3.0 at 2022-10-15T00:12:57.372Z
+// use vite-plugin-monkey@2.3.0 at 2022-10-15T05:41:42.404Z
 
 ;(({ css = "" }) => {
   const style = document.createElement("style");
@@ -1264,7 +1264,8 @@ var __publicField = (obj, key, value) => {
             case "End":
               goToPage(pageCount);
               break;
-            case "KeyF": {
+            case "KeyF":
+            case "Enter": {
               const relativeToViewport = getRelativeToViewport();
               await toggleFullScreen();
               document.body.addEventListener("reflow", () => {
