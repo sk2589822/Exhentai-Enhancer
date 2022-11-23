@@ -1,7 +1,7 @@
 <template>
   <div
     class="enhancer-features"
-    @wheel.stop="changePageOnClick"
+    @wheel.stop="changePageOnWheel"
   >
     <PageElevator class="enhancer-features__feature" />
     <ImageResizer class="enhancer-features__feature" />
@@ -24,7 +24,7 @@ import ImageResizer from './components/ImageResizer.vue'
 
 const {
   appendPageIndex,
-  changePageOnClick,
+  changePageOnWheel,
   setCurrentPageUpdateEvent,
 } = usePages()
 

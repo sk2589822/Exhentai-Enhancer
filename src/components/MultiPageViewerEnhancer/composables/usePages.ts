@@ -95,7 +95,7 @@ export default function() {
     }
   }
 
-  function changePageOnClick(event: WheelEvent) {
+  function changePageOnWheel(event: WheelEvent) {
     if (event.deltaY < 0) {
       goToPrevPage()
     } else {
@@ -130,7 +130,7 @@ export default function() {
     scrollToRelativePosition,
     getRelativeToViewport,
     scrollToProperPosition,
-    changePageOnClick,
+    changePageOnWheel,
     setCurrentPageUpdateEvent,
   }
 }
