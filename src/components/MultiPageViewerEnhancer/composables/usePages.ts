@@ -47,6 +47,10 @@ export default function() {
     goToPageByOffset(-1)
   }
 
+  function goToCurrentPage() {
+    goToPage(currentPage.value)
+  }
+
   function goToPageByOffset(offset: number) {
     let index = currentPage.value + offset
     index = Math.min(index, pageCount)
@@ -95,7 +99,7 @@ export default function() {
     }
   }
 
-  function changePageOnClick(event: WheelEvent) {
+  function changePageOnWheel(event: WheelEvent) {
     if (event.deltaY < 0) {
       goToPrevPage()
     } else {
@@ -124,13 +128,14 @@ export default function() {
     getCurrentImage,
     goToNextPage,
     goToPrevPage,
+    goToCurrentPage,
     goToPageByOffset,
     goToPage,
     scrollToImageTop,
     scrollToRelativePosition,
     getRelativeToViewport,
     scrollToProperPosition,
-    changePageOnClick,
+    changePageOnWheel,
     setCurrentPageUpdateEvent,
   }
 }

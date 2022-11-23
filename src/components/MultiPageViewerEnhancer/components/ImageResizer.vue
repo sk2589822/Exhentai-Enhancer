@@ -4,7 +4,7 @@
       v-for="(size, index) in sizeList"
       :key="size"
       class="image-resizer__button"
-      :class="{ 'image-resizer__button--active': size === currentSize }"
+      :class="{ 'image-resizer__button--active': index === currentIndex }"
       @click="onResizerClick(index)"
       v-text="size"
     />
@@ -12,30 +12,39 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, nextTick } from 'vue'
+import { useStorage } from '@vueuse/core'
 
 import usePages from '../composables/usePages'
 import useElements from '../composables/useElements'
 
 const {
+  goToCurrentPage,
   getRelativeToViewport,
   scrollToProperPosition,
 } = usePages()
 const { paneImagesDiv } = useElements()
 const {
   sizeList,
-  currentSize,
+  currentIndex,
+  setImageSize,
   onResizerClick,
   setResizeShortcuts,
 } = useImageResizer()
+
+nextTick(() => {
+  goToCurrentPage()
+  setImageSize(currentIndex.value)
+})
 
 setResizeShortcuts()
 
 function useImageResizer() {
   const sizeList = [100, 125, 150, 175, 200]
-  const currentIndex = ref<number | null>(null)
+
+  const currentIndex = useStorage('image-resizer-index', 0)
   const currentSize = computed<number | undefined>(() => {
-    if (typeof currentIndex.value !== 'number') {
+    if (currentIndex.value < 0) {
       return undefined
     }
 
@@ -60,23 +69,17 @@ function useImageResizer() {
   }
 
   function clearImageSize() {
-    currentIndex.value = null
+    currentIndex.value = -1
     paneImagesDiv.style.removeProperty('--image-size')
   }
 
   function increaseImageSize() {
-    const index = currentIndex.value === null
-      ? 0
-      : Math.min(currentIndex.value + 1, sizeList.length - 1)
-
+    const index = Math.min(currentIndex.value + 1, sizeList.length - 1)
     setImageSize(index)
   }
 
   function decreaseImageSize() {
-    const index = currentIndex.value === null
-      ? sizeList.length - 1
-      : Math.max(currentIndex.value - 1, 0)
-
+    const index = Math.max(currentIndex.value - 1, 0)
     setImageSize(index)
   }
 
@@ -138,7 +141,9 @@ function useImageResizer() {
 
   return {
     sizeList,
+    currentIndex,
     currentSize,
+    setImageSize,
     onResizerClick,
     setResizeShortcuts,
   }
