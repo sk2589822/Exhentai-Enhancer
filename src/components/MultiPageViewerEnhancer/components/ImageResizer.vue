@@ -12,7 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
+import { useStorage } from '@vueuse/core'
 
 import usePages from '../composables/usePages'
 import useElements from '../composables/useElements'
@@ -33,7 +34,8 @@ setResizeShortcuts()
 
 function useImageResizer() {
   const sizeList = [100, 125, 150, 175, 200]
-  const currentIndex = ref<number | null>(null)
+
+  const currentIndex = useStorage('image-resizer-index', 0)
   const currentSize = computed<number | undefined>(() => {
     if (typeof currentIndex.value !== 'number') {
       return undefined
@@ -41,6 +43,8 @@ function useImageResizer() {
 
     return sizeList[currentIndex.value]
   })
+
+  setImageSize(currentIndex.value)
 
   function onResizerClick(index: number) {
     const relativeToViewport = getRelativeToViewport()
