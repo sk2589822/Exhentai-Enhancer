@@ -1,13 +1,15 @@
 import { ref } from 'vue'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
+import { useBrowserLocation } from '@vueuse/core'
 
 import { getElement, getElements } from '@/utils/commons'
 
 import useElements from './useElements'
 
 const { paneImagesDiv } = useElements()
+const location = useBrowserLocation()
 
-const currentPage = ref(unsafeWindow.currentpage)
+const currentPage = ref(Number(location.value.hash?.replace('#page', '')))
 
 export default function() {
   const pageCount = unsafeWindow.pagecount
@@ -45,6 +47,10 @@ export default function() {
 
   function goToPrevPage() {
     goToPageByOffset(-1)
+  }
+
+  function goToCurrentPage() {
+    goToPage(currentPage.value)
   }
 
   function goToPageByOffset(offset: number) {
@@ -109,7 +115,7 @@ export default function() {
   function setCurrentPageUpdateEvent() {
     paneImagesDiv.onscroll = () => {
       unsafeWindow.preload_scroll_images()
-      currentPage.value = unsafeWindow.currentpage
+      currentPage.value = Number(location.value.hash?.replace('#page', ''))
     }
   }
 
@@ -126,6 +132,7 @@ export default function() {
     goToPrevPage,
     goToPageByOffset,
     goToPage,
+    goToCurrentPage,
     scrollToImageTop,
     scrollToRelativePosition,
     getRelativeToViewport,

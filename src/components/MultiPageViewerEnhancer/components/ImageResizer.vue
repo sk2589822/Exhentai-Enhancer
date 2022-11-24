@@ -12,13 +12,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick } from 'vue'
+import { computed, watch, onMounted, nextTick } from 'vue'
 import { useStorage } from '@vueuse/core'
 
 import usePages from '../composables/usePages'
 import useElements from '../composables/useElements'
 
 const {
+  currentPage,
+  goToCurrentPage,
   getRelativeToViewport,
   scrollToProperPosition,
 } = usePages()
@@ -31,11 +33,12 @@ const {
   setResizeShortcuts,
 } = useImageResizer()
 
+setResizeShortcuts()
+
 setTimeout(() => {
   setImageSize(currentIndex.value)
+  goToCurrentPage()
 }, 0)
-
-setResizeShortcuts()
 
 function useImageResizer() {
   const sizeList = [100, 125, 150, 175, 200]
