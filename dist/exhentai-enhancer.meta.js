@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name               exhentai-enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.3.4
+// @version            1.3.5
 // @author             sk2589822
 // @description        improve UX of gallery & multipage viewer
 // @description:zh-TW  改善 gallery 和 multipage viewer 的 UX
