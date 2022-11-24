@@ -19,7 +19,6 @@ import usePages from '../composables/usePages'
 import useElements from '../composables/useElements'
 
 const {
-  currentPage,
   goToCurrentPage,
   getRelativeToViewport,
   scrollToProperPosition,

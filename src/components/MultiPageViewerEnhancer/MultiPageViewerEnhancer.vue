@@ -25,7 +25,7 @@ import ImageResizer from './components/ImageResizer.vue'
 const {
   appendPageIndex,
   changePageOnWheel,
-  setCurrentPageUpdateEvent,
+  setPreloadImagesEvent,
 } = usePages()
 
 const {
@@ -37,7 +37,7 @@ const {
 } = useEvents()
 
 appendPageIndex()
-setCurrentPageUpdateEvent()
+setPreloadImagesEvent()
 
 setKeyBoardEvent()
 setClickEvent()
