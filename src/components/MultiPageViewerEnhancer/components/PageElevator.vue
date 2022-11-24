@@ -20,7 +20,6 @@ const {
   currentPage,
   goToPage,
 } = usePages()
-
 </script>
 
 <style lang="scss" scoped>
