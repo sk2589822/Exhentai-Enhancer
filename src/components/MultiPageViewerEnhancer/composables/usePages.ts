@@ -62,8 +62,6 @@ export default function() {
   }
 
   function goToPage(index: number) {
-    unsafeWindow.currentpage = index
-
     currentPage.value = index
     const target = getElement(`#image_${index}`) as HTMLElement
     target.scrollIntoView()
@@ -109,13 +107,9 @@ export default function() {
     }
   }
 
-  /**
-   * onscroll 時同時更新 currentpage 至 pageElevatorElem 的 value
-   */
-  function setCurrentPageUpdateEvent() {
+  function setPreloadImagesEvent() {
     paneImagesDiv.onscroll = () => {
       unsafeWindow.preload_scroll_images()
-      currentPage.value = Number(location.value.hash?.replace('#page', ''))
     }
   }
 
@@ -138,6 +132,6 @@ export default function() {
     getRelativeToViewport,
     scrollToProperPosition,
     changePageOnWheel,
-    setCurrentPageUpdateEvent,
+    setPreloadImagesEvent,
   }
 }
