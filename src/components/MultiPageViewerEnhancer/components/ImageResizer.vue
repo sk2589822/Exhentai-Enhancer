@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch, onMounted, nextTick } from 'vue'
+import { computed } from 'vue'
 import { useStorage } from '@vueuse/core'
 
 import usePages from '../composables/usePages'

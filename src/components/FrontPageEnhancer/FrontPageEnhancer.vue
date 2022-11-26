@@ -3,9 +3,13 @@
 
 <script setup lang="ts">
 import useWheelStep from '@/composables/useWheelStep'
+import { scrollPerRowSwitch } from '@/utils/monkeySwitches'
 
-useWheelStep({
-  containerSelector: '.itg.gld',
-  itemsSelector: '.gl1t',
-})
+if (scrollPerRowSwitch.enabled) {
+  useWheelStep({
+    containerSelector: '#gdt',
+    itemsSelector: '.gdtl',
+  })
+}
+
 </script>
