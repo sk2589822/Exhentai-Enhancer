@@ -9,13 +9,16 @@ import { getElement } from '@/utils/commons'
 import FrontPageEnhancer from '@/components/FrontPageEnhancer/FrontPageEnhancer.vue'
 import GalleryEnhancer from '@/components/GalleryEnhancer/GalleryEnhancer.vue'
 import MultipageViewerEnhancer from '@/components/MultiPageViewerEnhancer/MultiPageViewerEnhancer.vue'
+import { autoRedirectSwitch, multipageViewerEnhancerSwitch } from '@/utils/monkeySwitches'
 
 const { href } = window.location
 
 const { enhancer } = useEnhancer()
 const { redirectIfSinglePageViewer } = useRedirect()
 
-redirectIfSinglePageViewer()
+if (autoRedirectSwitch.enabled) {
+  redirectIfSinglePageViewer()
+}
 
 function useEnhancer() {
   const enhancer = computed(() => {
@@ -30,7 +33,7 @@ function useEnhancer() {
       return GalleryEnhancer
     }
 
-    if (/https:\/\/e[-x]hentai\.org\/mpv\/\w+\/\w+/.test(href)) {
+    if (multipageViewerEnhancerSwitch.enabled && /https:\/\/e[-x]hentai\.org\/mpv\/\w+\/\w+/.test(href)) {
       return MultipageViewerEnhancer
     }
 

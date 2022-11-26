@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import useWheelStep from '@/composables/useWheelStep'
+import { scrollPerRowSwitch, betterDownloadPopupSwitch } from '@/utils/monkeySwitches'
 
 import { fetchAllImages } from './utils/images'
 import PopupTorrent from './components/PopupTorrent.vue'
@@ -18,26 +19,30 @@ import PopupArchive from './components/PopupArchive.vue'
 import usePreloadDownloadLinks from './composables/usePreloadDownloadLinks'
 import usePosition from './composables/usePositions'
 
+fetchAllImages({ delayInMs: 1000 })
+
 const {
   preloadDownloadLinks,
   archiveInnerHtml,
   torrentInnerHtml,
 } = usePreloadDownloadLinks()
 
+if (betterDownloadPopupSwitch.enabled) {
+  preloadDownloadLinks()
+}
+
+if (scrollPerRowSwitch.enabled) {
+  useWheelStep({
+    containerSelector: '#gdt',
+    itemsSelector: '.gdtl',
+  })
+}
+
 const {
   popupRight,
   archiveTop,
   torrentTop,
 } = usePosition()
-
-preloadDownloadLinks()
-
-fetchAllImages({ delayInMs: 1000 })
-
-useWheelStep({
-  containerSelector: '#gdt',
-  itemsSelector: '.gdtl',
-})
 </script>
 
 <style lang="scss">

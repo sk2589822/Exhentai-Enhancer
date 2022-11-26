@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 
+import { initializeMonkeySwitches } from '@/utils/monkeySwitches'
 import App from '@/App.vue'
 
 const app = createApp(App)
@@ -13,14 +14,18 @@ app.use(Toast, {
   pauseOnFocusLoss: true,
   hideProgressBar: true,
   closeButton: false,
-})
+});
 
-app.mount(
-  (() => {
-    const app = document.createElement('div') as HTMLElement
-    app.classList.add('enhancer-container')
-    app.style.backgroundColor = 'inherit'
-    document.body.append(app)
-    return app
-  })(),
-)
+(async () => {
+  await initializeMonkeySwitches()
+  app.mount(
+    (() => {
+      const app = document.createElement('div') as HTMLElement
+      app.classList.add('enhancer-container')
+      app.style.backgroundColor = 'inherit'
+      document.body.append(app)
+      return app
+    })(),
+  )
+})()
+
