@@ -7,8 +7,8 @@ import { getElement, getElements } from '@/utils/commons'
 import useElements from './useElements'
 
 const { paneImagesDiv } = useElements()
-const location = useBrowserLocation()
 
+const location = useBrowserLocation()
 const currentPage = ref(Number(location.value.hash?.replace('#page', '')))
 
 export default function() {
