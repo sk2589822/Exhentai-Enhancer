@@ -16,14 +16,6 @@ export default defineConfig({
         match: [
           'https://exhentai.org/*',
           'https://e-hentai.org/*',
-          'https://exhentai.org/tag/*',
-          'https://e-hentai.org/tag/*',
-          'https://exhentai.org/g/*/*',
-          'https://e-hentai.org/g/*/*',
-          'https://exhentai.org/mpv/*/*',
-          'https://e-hentai.org/mpv/*/*',
-          'https://exhentai.org/s/*/*',
-          'https://e-hentai.org/s/*/*',
         ],
         description: {
           '': 'improve UX of gallery & multipage viewer',
