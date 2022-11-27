@@ -34,12 +34,14 @@ class Switch {
 
 export const autoRedirectSwitch = new Switch('Enable auto redirect to Multi-Page Viewer')
 export const scrollPerRowSwitch = new Switch('Enable scroll per row')
-export const betterDownloadPopupSwitch = new Switch('Enable better download Popup')
-export const multipageViewerEnhancerSwitch = new Switch('Enable enhance Multi-Page Viewer')
+export const betterDownloadPopupSwitch = new Switch('Enable better download popup')
+export const multipageViewerEnhancerSwitch = new Switch('Enable Multi-Page Viewer enhancer')
 
 export async function initializeMonkeySwitches() {
-  autoRedirectSwitch.initialize()
-  scrollPerRowSwitch.initialize()
-  betterDownloadPopupSwitch.initialize()
-  multipageViewerEnhancerSwitch.initialize()
+  await Promise.all([
+    autoRedirectSwitch.initialize(),
+    scrollPerRowSwitch.initialize(),
+    betterDownloadPopupSwitch.initialize(),
+    multipageViewerEnhancerSwitch.initialize(),
+  ])
 }
