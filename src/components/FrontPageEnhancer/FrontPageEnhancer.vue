@@ -7,8 +7,8 @@ import { scrollPerRowSwitch } from '@/utils/monkeySwitches'
 
 if (scrollPerRowSwitch.enabled) {
   useWheelStep({
-    containerSelector: '#gdt',
-    itemsSelector: '.gdtl',
+    containerSelector: '.itg.gld',
+    itemsSelector: '.gl1t',
   })
 }
 
