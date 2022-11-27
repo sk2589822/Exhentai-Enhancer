@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name               exhentai-enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.4.0
+// @version            1.4.1
 // @author             sk2589822
 // @description        improve UX of gallery & multipage viewer
 // @description:zh-TW  改善 gallery 和 multipage viewer 的 UX
@@ -60,13 +60,15 @@ var __publicField = (obj, key, value) => {
   }
   const autoRedirectSwitch = new Switch("Enable auto redirect to Multi-Page Viewer");
   const scrollPerRowSwitch = new Switch("Enable scroll per row");
-  const betterDownloadPopupSwitch = new Switch("Enable better download Popup");
-  const multipageViewerEnhancerSwitch = new Switch("Enable enhance Multi-Page Viewer");
+  const betterDownloadPopupSwitch = new Switch("Enable better download popup");
+  const multipageViewerEnhancerSwitch = new Switch("Enable Multi-Page Viewer enhancer");
   async function initializeMonkeySwitches() {
-    autoRedirectSwitch.initialize();
-    scrollPerRowSwitch.initialize();
-    betterDownloadPopupSwitch.initialize();
-    multipageViewerEnhancerSwitch.initialize();
+    await Promise.all([
+      autoRedirectSwitch.initialize(),
+      scrollPerRowSwitch.initialize(),
+      betterDownloadPopupSwitch.initialize(),
+      multipageViewerEnhancerSwitch.initialize()
+    ]);
   }
   function delay(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -145,8 +147,8 @@ var __publicField = (obj, key, value) => {
     setup(__props) {
       if (scrollPerRowSwitch.enabled) {
         useWheelStep({
-          containerSelector: "#gdt",
-          itemsSelector: ".gdtl"
+          containerSelector: ".itg.gld",
+          itemsSelector: ".gl1t"
         });
       }
       return (_ctx, _cache) => {
