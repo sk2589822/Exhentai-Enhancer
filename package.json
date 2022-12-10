@@ -2,7 +2,7 @@
   "name": "exhentai-enhancer",
   "author": "sk2589822",
   "private": true,
-  "version": "1.4.1",
+  "version": "1.4.2",
   "type": "module",
   "scripts": {
     "dev": "vite",

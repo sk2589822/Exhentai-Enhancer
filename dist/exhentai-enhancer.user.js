@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name               exhentai-enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.4.1
+// @version            1.4.2
 // @author             sk2589822
 // @description        improve UX of gallery & multipage viewer
 // @description:zh-TW  改善 gallery 和 multipage viewer 的 UX
@@ -1919,7 +1919,7 @@ var __publicField = (obj, key, value) => {
       }
       function useEnhancer() {
         const enhancer2 = vue.computed(() => {
-          if (/https:\/\/e[-x]hentai\.org\/(\?.+)?$/.test(href) || /https:\/\/e[-x]hentai\.org\/tag\/\w+/.test(href)) {
+          if (/https:\/\/e[-x]hentai\.org\/(watched|popular)?(\?.+)?$/.test(href) || /https:\/\/e[-x]hentai\.org\/(tag)\/\w+/.test(href)) {
             return _sfc_main$7;
           }
           if (/https:\/\/e[-x]hentai\.org\/g\/\w+\/\w+/.test(href)) {
