@@ -23,8 +23,8 @@ if (autoRedirectSwitch.enabled) {
 function useEnhancer() {
   const enhancer = computed(() => {
     if (
-      /https:\/\/e[-x]hentai\.org\/(\?.+)?$/.test(href) ||
-      /https:\/\/e[-x]hentai\.org\/tag\/\w+/.test(href)
+      /https:\/\/e[-x]hentai\.org\/(watched|popular)?(\?.+)?$/.test(href) ||
+      /https:\/\/e[-x]hentai\.org\/(tag)\/\w+/.test(href)
     ) {
       return FrontPageEnhancer
     }
