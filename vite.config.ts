@@ -17,10 +17,19 @@ export default defineConfig({
           'https://exhentai.org/*',
           'https://e-hentai.org/*',
         ],
-        description: {
-          '': 'improve UX of gallery & multipage viewer',
-          'zh-TW': '改善 gallery 和 multipage viewer 的 UX',
+        name: {
+          '': 'Exhentai Enhancer',
+          'en': 'Exhentai Enhancer',
+          'zh-TW': 'Exhentai Enhancer',
+          'zh-CN': 'Exhentai Enhancer',
         },
+        description: {
+          '': 'improve UX of Gallery Page & Multi-Page Viewer',
+          'en': 'improve UX of Gallery Page & Multi-Page Viewer',
+          'zh-TW': '改善 Gallery Page 和 Multi-Page Viewer 的使用者體驗',
+          'zh-CN': '改善 Gallery Page 和 Multi-Page Viewer 的使用者體驗',
+        },
+        license: 'MIT',
       },
       build: {
         metaFileName: true,
