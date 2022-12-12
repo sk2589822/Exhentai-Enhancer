@@ -79,7 +79,9 @@ function useImageResizer() {
   }
 
   function decreaseImageSize() {
-    const index = Math.max(currentIndex.value - 1, 0)
+    const index = currentIndex.value === -1
+      ? sizeList.length - 1
+      : Math.max(currentIndex.value - 1, 0)
     setImageSize(index)
   }
 
