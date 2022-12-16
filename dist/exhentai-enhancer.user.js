@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.4.4
+// @version            1.4.5
 // @author             sk2589822
 // @description        improve UX of Gallery Page & Multi-Page Viewer
 // @description:en     improve UX of Gallery Page & Multi-Page Viewer
@@ -33,6 +33,8 @@ var __publicField = (obj, key, value) => {
 (function(vue, Toast) {
   var _a2;
   "use strict";
+  const _interopDefaultLegacy = (e) => e && typeof e === "object" && "default" in e ? e : { default: e };
+  const Toast__default = /* @__PURE__ */ _interopDefaultLegacy(Toast);
   const index = "";
   var monkeyWindow = window;
   var GM = /* @__PURE__ */ (() => monkeyWindow.GM)();
@@ -54,7 +56,7 @@ var __publicField = (obj, key, value) => {
       GM.registerMenuCommand(this.getTitle(), () => this.toggle());
     }
     getTitle() {
-      const checkBoxIcon = this._enabled ? "☑" : "☐";
+      const checkBoxIcon = this._enabled ? "\u2611" : "\u2610";
       return `${checkBoxIcon} ${this._name}`;
     }
     async toggle() {
@@ -800,8 +802,8 @@ var __publicField = (obj, key, value) => {
         const isShow2 = vue.ref(false);
         vue.onMounted(() => {
           torrentLinkAnchor2.removeAttribute("onclick");
-          torrentLinkAnchor2.innerText += " ✔️";
-          if (torrentLinkAnchor2.innerText === "Torrent Download (1) ✔️") {
+          torrentLinkAnchor2.innerText += " \u2714\uFE0F";
+          if (torrentLinkAnchor2.innerText === "Torrent Download (1) \u2714\uFE0F") {
             setDownloadEvent();
           } else {
             setToggleEvent();
@@ -896,7 +898,7 @@ var __publicField = (obj, key, value) => {
     function replaceLinkByLoadingIcon(element) {
       const originalText = element.innerText;
       setTimeout(() => {
-        element.innerText = "⌛";
+        element.innerText = "\u231B";
       }, 0);
       element.style.pointerEvents = "none";
       element.style.textDecoration = "none";
@@ -904,7 +906,7 @@ var __publicField = (obj, key, value) => {
     }
     function replaceLinkByCheckIcon(element) {
       setTimeout(() => {
-        element.innerText = "✔️";
+        element.innerText = "\u2714\uFE0F";
       }, 0);
     }
     function resetLink(element, originalText) {
@@ -1001,7 +1003,7 @@ var __publicField = (obj, key, value) => {
         const isShow2 = vue.ref(false);
         vue.onMounted(() => {
           archiveLinkAnchor2.removeAttribute("onclick");
-          archiveLinkAnchor2.innerText += " ✔️";
+          archiveLinkAnchor2.innerText += " \u2714\uFE0F";
           setToggleEvent();
           setHentaiAtHomeEvent();
           setDirectDownloadEvent();
@@ -1207,10 +1209,10 @@ var __publicField = (obj, key, value) => {
         const index2 = target.id.split("image_")[1];
         const captionElement = getElement(".mi4", target);
         const captionText = captionElement == null ? void 0 : captionElement.innerText;
-        if (!captionText || (captionText == null ? void 0 : captionText.includes(" ／ "))) {
+        if (!captionText || (captionText == null ? void 0 : captionText.includes(" \uFF0F "))) {
           return;
         }
-        captionElement.innerText = `${captionText}　-　${index2} ／ ${pageCount22}`;
+        captionElement.innerText = `${captionText}\u3000-\u3000${index2} \uFF0F ${pageCount22}`;
       });
       const config = { attributes: true };
       imageContainers.forEach((container) => {
@@ -1703,7 +1705,7 @@ var __publicField = (obj, key, value) => {
   const _withScopeId = (n) => (vue.pushScopeId("data-v-8c30a5e8"), n = n(), vue.popScopeId(), n);
   const _hoisted_1$2 = { class: "page-elevator" };
   const _hoisted_2$1 = ["value"];
-  const _hoisted_3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("span", { class: "page-elevator__slash" }, "／", -1));
+  const _hoisted_3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("span", { class: "page-elevator__slash" }, "\uFF0F", -1));
   const _hoisted_4 = ["textContent"];
   const _sfc_main$3 = /* @__PURE__ */ vue.defineComponent({
     __name: "PageElevator",
@@ -1959,7 +1961,7 @@ var __publicField = (obj, key, value) => {
     }
   });
   const app = vue.createApp(_sfc_main);
-  app.use(Toast, {
+  app.use(Toast__default.default, {
     transition: "Vue-Toastification__fade",
     maxToasts: 2,
     newestOnTop: true,
