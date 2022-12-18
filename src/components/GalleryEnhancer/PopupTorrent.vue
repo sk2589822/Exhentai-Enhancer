@@ -13,9 +13,8 @@
 import { onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
+import useElement from '@/composables/GalleryEnhancer/useElements'
 import { getElement } from '@/utils/commons'
-
-import useElement from '../composables/useElements'
 
 defineProps({
   innerHTML: {
@@ -72,6 +71,4 @@ function useDownloadTorrent() {
 }
 </script>
 
-<style lang="scss" scoped>
-@import "../style/popup";
-</style>
+<style lang="scss" src="@/styles/popup.scss" scoped />

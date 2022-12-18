@@ -13,8 +13,8 @@
 import { onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
-import useElement from '../composables/useElements'
-import useDownloadEvent from '../composables/useDownloadEvents'
+import useElement from '@/composables/GalleryEnhancer/useElements'
+import useDownloadEvent from '@/composables/GalleryEnhancer/useDownloadEvents'
 
 defineProps({
   innerHTML: {
@@ -64,6 +64,4 @@ function useDownloadArchive() {
 
 </script>
 
-<style lang="scss" scoped>
-@import "../style/popup";
-</style>
+<style lang="scss" src="@/styles/popup.scss" scoped />
