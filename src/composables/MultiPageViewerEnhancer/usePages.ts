@@ -122,7 +122,7 @@ export default function() {
 
     let firstIntersectingIndex = 1
 
-    let observer = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver(entries => {
       firstIntersectingIndex = Number(entries[0].target.id.replace('image_', ''))
     })
     imageContainers.forEach(container => {
@@ -131,20 +131,22 @@ export default function() {
 
     paneImagesDiv.addEventListener('scroll', () => {
       const visibleImageContainers = []
-      for (let index = firstIntersectingIndex - 1; index < imageContainers.length; index++) {
-        const percentage = getVisiblePercentageInViewport(imageContainers[index])
+      for (let index = firstIntersectingIndex; index < imageContainers.length; index++) {
+        const percentage = getVisiblePercentageInViewport(imageContainers[index - 1])
         if (percentage > 0) {
           visibleImageContainers.push({
             index,
             percentage,
-            element: imageContainers[index]
+            element: imageContainers[index],
           })
         } else if (visibleImageContainers.length > 0) {
           break
         }
       }
 
-      if (visibleImageContainers.length === 1) {
+      if (visibleImageContainers.length === 0) {
+        return
+      } else if (visibleImageContainers.length === 1) {
         currentPage.value = visibleImageContainers[0].index
       } else {
         visibleImageContainers.sort((elem1, elem2) => elem2.percentage - elem1.percentage)
