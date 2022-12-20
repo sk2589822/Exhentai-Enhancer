@@ -15,8 +15,8 @@
 import { computed } from 'vue'
 import { useStorage } from '@vueuse/core'
 
-import usePages from '../composables/usePages'
-import useElements from '../composables/useElements'
+import usePages from '@/composables/MultiPageViewerEnhancer/usePages'
+import useElements from '@/composables/MultiPageViewerEnhancer/useElements'
 
 const {
   goToCurrentPage,

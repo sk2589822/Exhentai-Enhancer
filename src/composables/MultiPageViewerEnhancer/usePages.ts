@@ -117,6 +117,59 @@ export default function() {
     return getElement(`img[id^=imgsrc_${currentPage.value}]`) as HTMLElement
   }
 
+  function syncCurrentImageOnScroll() {
+    const imageContainers = getElements('.mi0') as NodeListOf<HTMLElement>
+
+    let firstIntersectingIndex = 1
+
+    let observer = new IntersectionObserver(entries => {
+      firstIntersectingIndex = Number(entries[0].target.id.replace('image_', ''))
+    })
+    imageContainers.forEach(container => {
+      observer.observe(container)
+    })
+
+    paneImagesDiv.addEventListener('scroll', () => {
+      const visibleImageContainers = []
+      for (let index = firstIntersectingIndex - 1; index < imageContainers.length; index++) {
+        const percentage = getVisiblePercentageInViewport(imageContainers[index])
+        if (percentage > 0) {
+          visibleImageContainers.push({
+            index,
+            percentage,
+            element: imageContainers[index]
+          })
+        } else if (visibleImageContainers.length > 0) {
+          break
+        }
+      }
+
+      if (visibleImageContainers.length === 1) {
+        currentPage.value = visibleImageContainers[0].index
+      } else {
+        visibleImageContainers.sort((elem1, elem2) => elem2.percentage - elem1.percentage)
+        const [largest, secondLargest] = visibleImageContainers
+        if (largest.percentage / secondLargest.percentage >= 2) {
+          currentPage.value = largest.index
+        }
+      }
+    })
+  }
+
+  function getVisiblePercentageInViewport(element: HTMLElement) {
+    const viewportHeight = window.innerHeight
+    const { top, bottom } = element.getBoundingClientRect()
+    if (bottom < 0) {
+      return 0
+    }
+
+    if (top >= 0) {
+      return (Math.min(viewportHeight, bottom) - top) / viewportHeight
+    } else {
+      return bottom / viewportHeight
+    }
+  }
+
   return {
     appendPageIndex,
     pageCount,
@@ -132,6 +185,7 @@ export default function() {
     getRelativeToViewport,
     scrollToProperPosition,
     changePageOnWheel,
+    syncCurrentImageOnScroll,
     setPreloadImagesEvent,
   }
 }

@@ -3,8 +3,6 @@ import { Logger, LoggerScopeDecorator } from '@/utils/logger'
 
 const baseLogger = new Logger('Images')
 
-let firstImagesOfRows: HTMLElement[] | null = null
-
 /**
  * 若 gallery 的頁數超過1頁，在第1頁時，會依序載入後面的頁面
  */
@@ -39,7 +37,6 @@ async function fetchAllImages({ delayInMs = 3000 }: { delayInMs: number }) {
       }
 
       appendImages(imageElements)
-      firstImagesOfRows = getFirstImagesOfRows()
     } catch (error) {
       if (error instanceof Error) {
         logger.error(`fetch ${url} failed`, error)
@@ -81,61 +78,6 @@ async function fetchAllImages({ delayInMs = 3000 }: { delayInMs: number }) {
   }
 }
 
-/**
- * 在 images container 上滾滾輪時，直接定位到上/下一個 row
- */
-function setImagesContainerWheelEvent() {
-  const logger = new LoggerScopeDecorator(baseLogger, 'Wheel Event')
-
-  const imagesContainer = getElement('#gdt')
-  if (!imagesContainer) {
-    logger.error('Images container not found')
-    return
-  }
-
-  firstImagesOfRows = getFirstImagesOfRows()
-
-  imagesContainer.addEventListener('mousewheel', ((event: WheelEvent) => {
-    if (!firstImagesOfRows) {
-      logger.error('firstImagesOfRows is Empty')
-      return
-    }
-    const firstVisibleImageIndex = firstImagesOfRows
-      .findIndex(image => image.getBoundingClientRect().bottom >= 0)
-
-    const firstVisibleImage = firstImagesOfRows[firstVisibleImageIndex]
-    const boundingTop = firstVisibleImage.getBoundingClientRect().top
-
-    let nextIndex = firstVisibleImageIndex
-    if (Math.sign(event.deltaY) === 1 && boundingTop <= 0) {
-      nextIndex++
-    } else if (Math.sign(event.deltaY) === -1 && boundingTop >= 0) {
-      nextIndex--
-    }
-
-    if (nextIndex >= 0 && nextIndex < firstImagesOfRows.length) {
-      event.preventDefault()
-      event.stopPropagation()
-      firstImagesOfRows[nextIndex].scrollIntoView()
-    }
-  }) as EventListener)
-}
-
-function getFirstImagesOfRows(): HTMLElement[] {
-  // 沒有幫 RWD 做最佳化 (我用不到)
-  const imagesContainer = getElement('#gdt') as HTMLDivElement
-  const image = getElement('.gdtl') as HTMLDivElement
-  const imagesPerRow = Math.floor(imagesContainer.clientWidth / image.clientWidth)
-
-  const firstImagesOfRows = getElements(`.gdtl:nth-child(${imagesPerRow}n + 1)`)
-  if (!firstImagesOfRows) {
-    return []
-  }
-
-  return [...firstImagesOfRows]
-}
-
 export {
   fetchAllImages,
-  setImagesContainerWheelEvent,
 }

@@ -15,17 +15,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
+import usePages from '@/composables/MultiPageViewerEnhancer/usePages'
+import useEvents from '@/composables/MultiPageViewerEnhancer/useEvents'
 import { getElement } from '@/utils/commons'
 
-import usePages from './composables/usePages'
-import useEvents from './composables/useEvents'
-import PageElevator from './components/PageElevator.vue'
-import ImageResizer from './components/ImageResizer.vue'
+import PageElevator from './PageElevator.vue'
+import ImageResizer from './ImageResizer.vue'
 
 const {
   appendPageIndex,
   changePageOnWheel,
   setPreloadImagesEvent,
+  syncCurrentImageOnScroll,
 } = usePages()
 
 const {
@@ -38,6 +39,7 @@ const {
 
 appendPageIndex()
 setPreloadImagesEvent()
+syncCurrentImageOnScroll()
 
 setKeyBoardEvent()
 setClickEvent()
@@ -49,8 +51,6 @@ const exhentaiButtons = ref<string>('')
 onMounted(() => {
   exhentaiButtons.value = (getElement('#bar3') as HTMLElement)?.innerHTML
 })
-
-// TODO: set currentpage after click thumb
 </script>
 
 <style lang="scss">
