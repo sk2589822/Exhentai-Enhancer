@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.4.6
+// @version            1.4.7
 // @author             sk2589822
 // @description        improve UX of Gallery Page & Multi-Page Viewer
 // @description:en     improve UX of Gallery Page & Multi-Page Viewer
@@ -1269,7 +1269,7 @@ var __publicField = (obj, key, value) => {
     function syncCurrentImageOnScroll() {
       const imageContainers = getElements(".mi0");
       let firstIntersectingIndex = 1;
-      let observer = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver((entries) => {
         firstIntersectingIndex = Number(entries[0].target.id.replace("image_", ""));
       });
       imageContainers.forEach((container) => {
@@ -1277,8 +1277,8 @@ var __publicField = (obj, key, value) => {
       });
       paneImagesDiv$1.addEventListener("scroll", () => {
         const visibleImageContainers = [];
-        for (let index2 = firstIntersectingIndex - 1; index2 < imageContainers.length; index2++) {
-          const percentage = getVisiblePercentageInViewport(imageContainers[index2]);
+        for (let index2 = firstIntersectingIndex; index2 < imageContainers.length; index2++) {
+          const percentage = getVisiblePercentageInViewport(imageContainers[index2 - 1]);
           if (percentage > 0) {
             visibleImageContainers.push({
               index: index2,
@@ -1289,7 +1289,9 @@ var __publicField = (obj, key, value) => {
             break;
           }
         }
-        if (visibleImageContainers.length === 1) {
+        if (visibleImageContainers.length === 0) {
+          return;
+        } else if (visibleImageContainers.length === 1) {
           currentPage$1.value = visibleImageContainers[0].index;
         } else {
           visibleImageContainers.sort((elem1, elem2) => elem2.percentage - elem1.percentage);
