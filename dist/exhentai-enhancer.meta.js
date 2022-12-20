@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.4.5
+// @version            1.4.6
 // @author             sk2589822
 // @description        improve UX of Gallery Page & Multi-Page Viewer
 // @description:en     improve UX of Gallery Page & Multi-Page Viewer
