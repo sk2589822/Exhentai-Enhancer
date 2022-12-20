@@ -26,6 +26,7 @@ const {
   appendPageIndex,
   changePageOnWheel,
   setPreloadImagesEvent,
+  syncCurrentImageOnScroll,
 } = usePages()
 
 const {
@@ -38,6 +39,7 @@ const {
 
 appendPageIndex()
 setPreloadImagesEvent()
+syncCurrentImageOnScroll()
 
 setKeyBoardEvent()
 setClickEvent()
@@ -49,8 +51,6 @@ const exhentaiButtons = ref<string>('')
 onMounted(() => {
   exhentaiButtons.value = (getElement('#bar3') as HTMLElement)?.innerHTML
 })
-
-// TODO: set currentpage after click thumb
 </script>
 
 <style lang="scss">
