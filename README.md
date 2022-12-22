@@ -11,50 +11,59 @@ available when
 
 ### features
 
-* Load all images sequentially if the number of images is more than 200.
-* Show pop-up in same page instead of window popup when click `Archive Download` or `Torrent Download`.
-* Download torrent directly if there is only 1 torrent.
-* Go to next/prev row if mouse wheel on images container.
+1. Load all images sequentially if the there are more than one page.  
+   *Could disable by untick *Enable auto redirect to Multi-Page Viewer* in your tampermonkey menu
+2. Show pop-up in same page instead of window popup when click `Archive Download` or `Torrent Download`.  
+   *Could disable by untick *Enable better download popup* in your tampermonkey menu
+3. Download torrent directly if there is only 1 torrent.  
+   *Could disable by untick *Enable better download popup* in your tampermonkey menu
+4. Go to next/prev row if mouse wheel on images container.   
+   *Could disable by untick *Enable scroll per row* in your tampermonkey menu
+   (*Notice*: This also works in the homepage(`https://exhentai.org`))
 
 ## Multi-Page Viewer Enhancer
 available when 
 1. url match ```https://exhentai.org/mpv/*/*```
-2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup
+2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup  
+*Could disable all features by untick *Enable Multi-Page Viewer enhancer* in your tampermonkey menu
 
 ### features
 
-* Append current index & page count to image info.
-* Show thumbs when mouse close to/hover thumbs(remember to open thumbs in settings).
-* Add page elevator.
-* Add images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height).
+1. Append current index & page count to image info.
+2. Show thumbs when mouse close to/hover thumbs(remember to open thumbs in settings).
+3. Add page elevator.
+4. Add images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height).  
+5. Auto redirect to Multi-Page Viewer if in Single-Page Viewer(url match `https://exhentai.org/s/*/*`)  
+   *(Could disabled from your tampermonkey menu - Enable auto redirect to Multi-Page Viewer)*
+   
 
 ## Shortcuts
 
 | Key / Mouse | Feature |
 | --- | --- |
-| left click | go to next page. |
-| numpad 3  | go to next page. |
-| numpad 6  | go to next page. | 
-| space | go to next page. |
-| mouse wheel up (when hovering enhancer) | go to next page. |
-| right click | go to previous page. |
-| numpad 1 | go to previous page. |
-| numpad 4  | go to previous page. |
-| backspace | go to previous page. |
-| mouse wheel down (when hovering enhancer) | go to previous page. |
-| ctrl + → | go to next 10 page. |
-| ctrl + ← | go to previous 10 page. |
-| ctrl + 1~5 | set current size of image resizer to 100%/125%/150%/175%/200%. |
-| numpad + | increase current size of image resizer (100% if not set yet). |
-| numpad - | decrease current size of image resizer (200% if not set yet). |
-| numpad 0 | set current size of image resizer to smallest size (currently 100%). |
-| numpad . | set current size of image resizer to middle size (currently 150%). |
-| numpad enter | clear current size of image resizer (to original size). |
-| numpad 8 | scroll to top of current image. |
-| numpad 5 | scroll to middle of current image. |
-| numpad 2 | scroll to bottom of current image. |
-| Key F | Toggle full screen. |
-| Key R | Reload current image. |
+| `left click` | go to next page. |
+| `numpad 3`  | go to next page. |
+| `numpad 6`  | go to next page. | 
+| `space` | go to next page. |
+| `mouse wheel up` (when hovering enhancer) | go to next page. |
+| `right click` | go to previous page. |
+| `numpad 1` | go to previous page. |
+| `numpad 4`  | go to previous page. |
+| `backspace` | go to previous page. |
+| `mouse wheel down` (when hovering enhancer) | go to previous page. |
+| `ctrl` + `→` | go to next 10 page. |
+| `ctrl` + `←` | go to previous 10 page. |
+| `ctrl` + `1`~`5` | set current size of image resizer to 100%/125%/150%/175%/200%. |
+| `numpad +` | increase current size of image resizer (100% if not set yet). |
+| `numpad -` | decrease current size of image resizer (200% if not set yet). |
+| `numpad 0` | set current size of image resizer to smallest size (currently 100%). |
+| `numpad .` | set current size of image resizer to middle size (currently 150%). |
+| `numpad enter` | clear current size of image resizer (to original size). |
+| `numpad 8` | scroll to top of current image. |
+| `numpad 5` | scroll to middle of current image. |
+| `numpad 2` | scroll to bottom of current image. |
+| `Key F` | Toggle full screen. |
+| `Key R` | Reload current image. |
 
 ## Demo:
   ### Gallery Enhancer
