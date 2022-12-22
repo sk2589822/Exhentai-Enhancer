@@ -36,6 +36,7 @@ export const autoRedirectSwitch = new Switch('Enable auto redirect to Multi-Page
 export const scrollPerRowSwitch = new Switch('Enable scroll per row')
 export const betterDownloadPopupSwitch = new Switch('Enable better download popup')
 export const multipageViewerEnhancerSwitch = new Switch('Enable Multi-Page Viewer enhancer')
+export const loadAllGalleryImagesSwitch = new Switch('Load all images in gallery page')
 
 export async function initializeMonkeySwitches() {
   await Promise.all([
@@ -43,5 +44,6 @@ export async function initializeMonkeySwitches() {
     scrollPerRowSwitch.initialize(),
     betterDownloadPopupSwitch.initialize(),
     multipageViewerEnhancerSwitch.initialize(),
+    loadAllGalleryImagesSwitch.initialize(),
   ])
 }
