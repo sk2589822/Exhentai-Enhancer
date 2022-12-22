@@ -13,13 +13,15 @@
 import useWheelStep from '@/composables/useWheelStep'
 import usePreloadDownloadLinks from '@/composables/GalleryEnhancer/usePreloadDownloadLinks'
 import usePosition from '@/composables/GalleryEnhancer/usePositions'
-import { scrollPerRowSwitch, betterDownloadPopupSwitch } from '@/utils/monkeySwitches'
+import { scrollPerRowSwitch, betterDownloadPopupSwitch, loadAllGalleryImagesSwitch } from '@/utils/monkeySwitches'
 import { fetchAllImages } from '@/utils/fetchImages'
 
 import PopupTorrent from './PopupTorrent.vue'
 import PopupArchive from './PopupArchive.vue'
 
-fetchAllImages({ delayInMs: 1000 })
+if (loadAllGalleryImagesSwitch.enabled) {
+  fetchAllImages({ delayInMs: 1000 })
+}
 
 const {
   preloadDownloadLinks,
