@@ -12,29 +12,36 @@ available when
 ### features
 
 1. Load all images sequentially if the there are more than one page.  
-   *Could disable by untick *Enable auto redirect to Multi-Page Viewer* in your tampermonkey menu
+   \*Could disable by untick *Enable auto redirect to Multi-Page Viewer* in your tampermonkey menu
+
 2. Show pop-up in same page instead of window popup when click `Archive Download` or `Torrent Download`.  
-   *Could disable by untick *Enable better download popup* in your tampermonkey menu
+   \*Could disable by untick *Enable better download popup* in your tampermonkey menu
+
 3. Download torrent directly if there is only 1 torrent.  
-   *Could disable by untick *Enable better download popup* in your tampermonkey menu
+   \*Could disable by untick *Enable better download popup* in your tampermonkey menu
+
 4. Go to next/prev row if mouse wheel on images container.   
-   *Could disable by untick *Enable scroll per row* in your tampermonkey menu
+   \*Could disable by untick *Enable scroll per row* in your tampermonkey menu
    (*Notice*: This also works in the homepage(`https://exhentai.org`))
 
 ## Multi-Page Viewer Enhancer
 available when 
 1. url match ```https://exhentai.org/mpv/*/*```
 2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup  
-*Could disable all features by untick *Enable Multi-Page Viewer enhancer* in your tampermonkey menu
+\*Could disable all features by untick *Enable Multi-Page Viewer enhancer* in your tampermonkey menu
 
 ### features
 
 1. Append current index & page count to image info.
+
 2. Show thumbs when mouse close to/hover thumbs(remember to open thumbs in settings).
+
 3. Add page elevator.
-4. Add images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height).  
+
+4. Add images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height).
+
 5. Auto redirect to Multi-Page Viewer if in Single-Page Viewer(url match `https://exhentai.org/s/*/*`)  
-   *(Could disabled from your tampermonkey menu - Enable auto redirect to Multi-Page Viewer)*
+   \*(Could disabled from your tampermonkey menu - Enable auto redirect to Multi-Page Viewer)*
    
 
 ## Shortcuts
