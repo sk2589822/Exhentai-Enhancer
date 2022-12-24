@@ -2,11 +2,11 @@ export function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-export function getElement(selector: string, root: Document | HTMLElement = document): HTMLElement | null {
+export function getElement<T extends HTMLElement>(selector: string, root: Document | HTMLElement = document): T | null {
   return root.querySelector(selector)
 }
 
-export function getElements(selector: string, root = document): NodeListOf<HTMLElement> | null {
+export function getElements<T extends HTMLElement>(selector: string, root = document): NodeListOf<T> | null {
   return root.querySelectorAll(selector)
 }
 
