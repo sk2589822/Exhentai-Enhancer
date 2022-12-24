@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.4.8
+// @version            1.4.9
 // @author             sk2589822
 // @description        improve UX of Gallery Page & Multi-Page Viewer
 // @description:en     improve UX of Gallery Page & Multi-Page Viewer
@@ -1041,10 +1041,9 @@ var __publicField = (obj, key, value) => {
         return;
       }
       for (const button of downloadButtons) {
-        button.addEventListener("click", (event) => {
+        button.addEventListener("click", async (event) => {
           var _a3;
           event.preventDefault();
-          const buttonValue = button.getAttribute("value");
           const form = (_a3 = button == null ? void 0 : button.parentElement) == null ? void 0 : _a3.parentElement;
           if (!form) {
             logger.error("form not found.");
@@ -1055,20 +1054,36 @@ var __publicField = (obj, key, value) => {
             logger.error("url not found.");
             return;
           }
-          const popupWindow = openWindow(url);
-          popupWindow.addEventListener("load", () => {
-            var _a4;
-            (_a4 = getElement(`input[value="${buttonValue}"]`, popupWindow.document)) == null ? void 0 : _a4.click();
-          });
+          const resolution = button.getAttribute("value");
+          const originalText = button.value;
+          button.value = "\u231B";
+          await sendDownloadRequest2(url, resolution);
+          button.value = originalText;
         });
       }
-      function openWindow(url) {
-        const width = 600;
-        const height = 300;
-        const left = (screen.width - 600) / 2;
-        const top = (screen.height - 300) / 2;
-        const target = `_archive+${String(Math.random()).split(".")[1]}`;
-        return window.open(url, target, `width=${width},height=${height},top=${top},left=${left}`);
+      async function sendDownloadRequest2(url, resolution) {
+        const resolutionParams = resolution === "Download Original Archive" ? "dlcheck=Download Original Archive&dltype=org" : "dlcheck=Download Resample Archive&dltype=res";
+        const response = await fetch(url, {
+          method: "POST",
+          body: resolutionParams,
+          headers: new Headers({
+            "Content-Type": "application/x-www-form-urlencoded"
+          })
+        });
+        const html = await response.text();
+        if (!html.includes("Locating archive server and preparing file for download...")) {
+          toast.error("something went wrong. Open your console to see the response");
+          console.warn("Download failed, response HTML:", html);
+          return;
+        }
+        const matches = html.match(/document\.location = "(.*)"/);
+        if (!matches || (matches == null ? void 0 : matches.length) !== 2) {
+          toast.error("something went wrong. Open your console to see the response");
+          console.warn("Download failed, response HTML:", html);
+          return;
+        }
+        const downloadLink = `${matches[1]}?start=1`;
+        window.location.href = downloadLink;
       }
     }
     return {
