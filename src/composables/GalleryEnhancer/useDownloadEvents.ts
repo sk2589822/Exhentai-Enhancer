@@ -113,24 +113,18 @@ export default function() {
     return result.join('\n').replace(/<strong>#\d+<\/strong>/, '')
   }
 
-  /**
-   * 點擊 Archive 的下載按鈕時，將原本的下載視窗彈出
-   *
-   * 會做成彈窗是因為 Archive 的連結最後會連到不同 domain 的 url，會被 same origin 擋。
-   */
   function setDirectDownloadEvent() {
     const logger = new Logger('Archive Event')
 
-    const downloadButtons = getElements('form input[name="dlcheck"]')
+    const downloadButtons = getElements<HTMLButtonElement>('form input[name="dlcheck"]')
     if (!downloadButtons) {
       logger.error('archive download buttons not found.')
       return
     }
 
     for (const button of downloadButtons) {
-      button.addEventListener('click', event => {
+      button.addEventListener('click', async event => {
         event.preventDefault()
-        const buttonValue = button.getAttribute('value')
         const form = button?.parentElement?.parentElement
         if (!form) {
           logger.error('form not found.')
@@ -143,22 +137,43 @@ export default function() {
           return
         }
 
-        const popupWindow = openWindow(url) as Window
-        popupWindow.addEventListener('load', () => {
-          getElement(`input[value="${buttonValue}"]`, popupWindow.document)
-            ?.click()
-        })
+        const resolution = button.getAttribute('value')
+        const originalText = button.value
+        button.value = '⌛'
+        await sendDownloadRequest(url, resolution)
+        button.value = originalText
       })
     }
 
-    function openWindow(url: string) {
-      const width = 600
-      const height = 300
-      const left = (screen.width - 600) / 2
-      const top = (screen.height - 300) / 2
-      const target = `_archive+${String(Math.random()).split('.')[1]}`
+    async function sendDownloadRequest(url: string, resolution: string | null) {
+      const resolutionParams = resolution === 'Download Original Archive'
+        ? 'dlcheck=Download Original Archive&dltype=org'
+        : 'dlcheck=Download Resample Archive&dltype=res'
 
-      return window.open(url, target, `width=${width},height=${height},top=${top},left=${left}`)
+      const response = await fetch(url, {
+        method: 'POST',
+        body: resolutionParams,
+        headers: new Headers({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }),
+      })
+
+      const html = await response.text()
+      if (!html.includes('Locating archive server and preparing file for download...')) {
+        toast.error('something went wrong. Open your console to see the response')
+        console.warn('Download failed, response HTML:', html)
+        return
+      }
+
+      const matches = html.match(/document\.location = "(.*)"/)
+      if (!matches || matches?.length !== 2) {
+        toast.error('something went wrong. Open your console to see the response')
+        console.warn('Download failed, response HTML:', html)
+        return
+      }
+
+      const downloadLink = `${matches[1]}?start=1`
+      window.location.href = downloadLink
     }
   }
 
