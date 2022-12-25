@@ -62,7 +62,7 @@ function useInfiniteScroll() {
 @use "@/styles/animations/spin.scss";
 
 .itg.gld.is-fetching::after {
-  grid-column: span 4;
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: center;
