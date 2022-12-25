@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.4.9
+// @version            1.5.0
 // @author             sk2589822
 // @description        improve UX of Gallery Page & Multi-Page Viewer
 // @description:en     improve UX of Gallery Page & Multi-Page Viewer
@@ -22,7 +22,7 @@
 // @grant              unsafeWindow
 // ==/UserScript==
 
-(a=>{const t=document.createElement("style");t.dataset.source="vite-plugin-monkey",t.innerText=a,document.head.appendChild(t)})(".Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width : 600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width : 600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width : 600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}.popup[data-v-1b406cc1]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-1b406cc1]{text-decoration:underline}.fade-enter-active[data-v-1b406cc1],.fade-leave-active[data-v-1b406cc1]{transition:opacity .3s ease}.fade-enter-from[data-v-1b406cc1],.fade-leave-to[data-v-1b406cc1]{opacity:0}.popup[data-v-08480dbe]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-08480dbe]{text-decoration:underline}.fade-enter-active[data-v-08480dbe],.fade-leave-active[data-v-08480dbe]{transition:opacity .3s ease}.fade-enter-from[data-v-08480dbe],.fade-leave-to[data-v-08480dbe]{opacity:0}div#gmid{width:931px}div#gd5{width:158px}.popup{position:absolute;right:calc(var(--4ff4c1ba) * 1px)}.popup--archive{top:calc(var(--874923c6) * 1px)}.popup--torrent{top:calc(var(--40f42b0f) * 1px)}.page-elevator[data-v-8b2bf6b6]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-8b2bf6b6]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-8b2bf6b6]{line-height:100%}:fullscreen .page-elevator[data-v-8b2bf6b6]{opacity:0}:fullscreen .page-elevator[data-v-8b2bf6b6]:hover{opacity:1}div#pane_images .mi0{width:max-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}div#pane_images img[id^=imgsrc_]{width:auto!important;max-height:var(--image-size)}.image-resizer[data-v-a4651a94]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-a4651a94]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-a4651a94]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-a4651a94],.image-resizer__button--active[data-v-a4651a94]:hover{background-color:orange}html,body,div#pane_outer,div#pane_images{padding:0;width:100%!important;height:100%!important}div#bar3{display:none}.hide-cursor,.hide-cursor *{cursor:none}.original-functions{position:absolute;top:0;right:0;display:block;width:35px;height:270px;opacity:0;transition:opacity .3s ease}.original-functions:hover{opacity:1}.original-functions>img{cursor:pointer}.mi0>a{user-select:none}.mi0>a>img{pointer-events:none}div.mi1{display:flex}div.mi1 img{display:block;margin:0}div.mi2{display:flex;flex-direction:row;float:initial;margin-top:initial}div.mi3{display:flex;flex-direction:row;float:initial;margin-top:initial;order:3}div.mi4{position:initial}div#pane_thumbs{display:block;opacity:0;z-index:1;transition:opacity .3s}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:rgba(119,119,119,.4666666667);border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}");
+(a=>{const t=document.createElement("style");t.dataset.source="vite-plugin-monkey",t.innerText=a,document.head.appendChild(t)})('@charset "UTF-8";.Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width : 600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width : 600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width : 600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}.itg.gld.is-fetching:after{grid-column:span 4;display:flex;align-items:center;justify-content:center;margin:auto;width:30px;height:30px;line-height:30px;content:"\\231b";animation:spin ease-in-out 1s infinite}.popup[data-v-1f3b346f]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-1f3b346f]{text-decoration:underline}.fade-enter-active[data-v-1f3b346f],.fade-leave-active[data-v-1f3b346f]{transition:opacity .3s ease}.fade-enter-from[data-v-1f3b346f],.fade-leave-to[data-v-1f3b346f]{opacity:0}.popup[data-v-96148429]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-96148429]{text-decoration:underline}.fade-enter-active[data-v-96148429],.fade-leave-active[data-v-96148429]{transition:opacity .3s ease}.fade-enter-from[data-v-96148429],.fade-leave-to[data-v-96148429]{opacity:0}@keyframes spin{0%{rotate:0}to{rotate:360deg}}div#gmid{width:931px}div#gd5{width:158px}.popup{position:absolute;right:calc(var(--545edf37) * 1px)}.popup--archive{top:calc(var(--7e74e8cc) * 1px)}.popup--torrent{top:calc(var(--455e488c) * 1px)}.is-ready:after{content:"\\2714\\fe0f"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\\231b";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.page-elevator[data-v-8b2bf6b6]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-8b2bf6b6]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-8b2bf6b6]{line-height:100%}:fullscreen .page-elevator[data-v-8b2bf6b6]{opacity:0}:fullscreen .page-elevator[data-v-8b2bf6b6]:hover{opacity:1}div#pane_images .mi0{width:max-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}div#pane_images img[id^=imgsrc_]{width:auto!important;max-height:var(--image-size)}.image-resizer[data-v-a4651a94]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-a4651a94]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-a4651a94]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-a4651a94],.image-resizer__button--active[data-v-a4651a94]:hover{background-color:orange}html,body,div#pane_outer,div#pane_images{padding:0;width:100%!important;height:100%!important}div#bar3{display:none}.hide-cursor,.hide-cursor *{cursor:none}.original-functions{position:absolute;top:0;right:0;display:block;width:35px;height:270px;opacity:0;transition:opacity .3s ease}.original-functions:hover{opacity:1}.original-functions>img{cursor:pointer}.mi0>a{user-select:none}.mi0>a>img{pointer-events:none}div.mi1{display:flex}div.mi1 img{display:block;margin:0}div.mi2{display:flex;flex-direction:row;float:initial;margin-top:initial}div.mi3{display:flex;flex-direction:row;float:initial;margin-top:initial;order:3}div.mi4{position:initial}div#pane_thumbs{display:block;opacity:0;z-index:1;transition:opacity .3s}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:rgba(119,119,119,.4666666667);border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}');
 
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
@@ -64,18 +64,20 @@ var __publicField = (obj, key, value) => {
       location.reload();
     }
   }
-  const autoRedirectSwitch = new Switch("Enable auto redirect to Multi-Page Viewer");
+  const infiniteScrollSwitch = new Switch("Enable infinite Scroll in Front page");
   const scrollPerRowSwitch = new Switch("Enable scroll per row");
   const betterDownloadPopupSwitch = new Switch("Enable better download popup");
-  const multipageViewerEnhancerSwitch = new Switch("Enable Multi-Page Viewer enhancer");
   const loadAllGalleryImagesSwitch = new Switch("Load all images in gallery page");
+  const multipageViewerEnhancerSwitch = new Switch("Enable Multi-Page Viewer enhancer");
+  const autoRedirectSwitch = new Switch("Enable auto redirect to Multi-Page Viewer");
   async function initializeMonkeySwitches() {
     await Promise.all([
-      autoRedirectSwitch.initialize(),
+      infiniteScrollSwitch.initialize(),
       scrollPerRowSwitch.initialize(),
       betterDownloadPopupSwitch.initialize(),
+      loadAllGalleryImagesSwitch.initialize(),
       multipageViewerEnhancerSwitch.initialize(),
-      loadAllGalleryImagesSwitch.initialize()
+      autoRedirectSwitch.initialize()
     ]);
   }
   function delay(ms) {
@@ -100,204 +102,6 @@ var __publicField = (obj, key, value) => {
     if (absolute) {
       element.scrollTop = absolute;
     }
-  }
-  function useWheelStep({
-    containerSelector,
-    itemsSelector
-  }) {
-    const container = getElement(containerSelector);
-    let firstItemOfRows = getFirstItemOfRows();
-    const mutationObserver = new MutationObserver(() => {
-      firstItemOfRows = getFirstItemOfRows();
-    });
-    mutationObserver.observe(container, {
-      childList: true,
-      characterData: true
-    });
-    setContainerWheelEvent();
-    function setContainerWheelEvent() {
-      if (!container) {
-        return;
-      }
-      container.addEventListener("mousewheel", (event) => {
-        if (!firstItemOfRows) {
-          return;
-        }
-        const firstVisibleItemIndex = firstItemOfRows.findIndex((item) => Math.floor(item.getBoundingClientRect().bottom) > 0);
-        const firstVisibleItem = firstItemOfRows[firstVisibleItemIndex];
-        const boundingTop = Math.floor(firstVisibleItem.getBoundingClientRect().top);
-        let nextIndex = firstVisibleItemIndex;
-        if (Math.sign(event.deltaY) === 1 && boundingTop <= 0) {
-          nextIndex++;
-        } else if (Math.sign(event.deltaY) === -1 && boundingTop >= 0) {
-          nextIndex--;
-        }
-        if (nextIndex >= 0 && nextIndex < firstItemOfRows.length) {
-          event.preventDefault();
-          event.stopPropagation();
-          firstItemOfRows[nextIndex].scrollIntoView();
-        }
-      });
-    }
-    function getFirstItemOfRows() {
-      const item = getElement(itemsSelector);
-      const itemsPerRow = Math.floor(container.clientWidth / item.clientWidth);
-      const firstItemOfRows2 = getElements(`${itemsSelector}:nth-child(${itemsPerRow}n + 1)`);
-      if (!firstItemOfRows2) {
-        return [];
-      }
-      return [...firstItemOfRows2];
-    }
-    return;
-  }
-  const _sfc_main$7 = /* @__PURE__ */ vue.defineComponent({
-    __name: "FrontPageEnhancer",
-    setup(__props) {
-      if (scrollPerRowSwitch.enabled) {
-        useWheelStep({
-          containerSelector: ".itg.gld",
-          itemsSelector: ".gl1t"
-        });
-      }
-      return (_ctx, _cache) => {
-        return null;
-      };
-    }
-  });
-  class Logger {
-    constructor(feature, scope) {
-      __publicField(this, "_feature");
-      __publicField(this, "_featureStyle");
-      __publicField(this, "_scope");
-      __publicField(this, "_scopeStyle");
-      this._feature = feature;
-      this._scope = scope;
-      this._featureStyle = "background: #777; border-radius: 5px;";
-      this._scopeStyle = "background: #555; border-radius: 5px;";
-    }
-    set scope(scope) {
-      this._scope = scope;
-    }
-    get prefix() {
-      let prefix = `%c ${this._feature} `;
-      if (this._scope) {
-        prefix += `%c ${this._scope} `;
-      }
-      return prefix;
-    }
-    get style() {
-      const style = [this._featureStyle];
-      if (this._scope) {
-        style.push(this._scopeStyle);
-      }
-      return style;
-    }
-    log(message) {
-      console.log(
-        this.prefix,
-        ...this.style,
-        message
-      );
-    }
-    error(message, error) {
-      console.error(
-        this.prefix,
-        ...this.style,
-        message,
-        error
-      );
-    }
-  }
-  class LoggerScopeDecorator {
-    constructor(baseLogger2, scope) {
-      __publicField(this, "_logger");
-      this._logger = baseLogger2;
-      this._logger.scope = scope;
-    }
-    log(message) {
-      this._logger.log(message);
-    }
-    error(message, error) {
-      this._logger.error(message, error);
-    }
-  }
-  function useElement() {
-    const infoDiv = getElement(".gm");
-    const archiveLinkAnchor2 = getElement("#gd5 > p:nth-child(2) a");
-    const torrentLinkAnchor2 = getElement("#gd5 > p:nth-child(3) a");
-    return {
-      infoDiv,
-      archiveLinkAnchor: archiveLinkAnchor2,
-      torrentLinkAnchor: torrentLinkAnchor2
-    };
-  }
-  const baseLogger$1 = new Logger("Preload Download Links");
-  const torrentInnerHtml = vue.ref("");
-  const archiveInnerHtml = vue.ref("");
-  const { archiveLinkAnchor, torrentLinkAnchor } = useElement();
-  function usePreloadDownloadLinks() {
-    async function preloadDownloadLinks() {
-      [archiveInnerHtml.value, torrentInnerHtml.value] = await Promise.all([
-        preloadArchiveLink(),
-        preloadTorrentLink()
-      ]);
-    }
-    async function preloadTorrentLink() {
-      const logger = new LoggerScopeDecorator(baseLogger$1, "Torrent");
-      logger.log("Start");
-      const link = getLink(torrentLinkAnchor);
-      if (!link) {
-        logger.error("link not found.");
-        return "";
-      }
-      const doc = await getDoc(link);
-      const popupContent = getPopupContent(doc, "#torrentinfo > div:first-child");
-      if (!popupContent) {
-        logger.error("popup content not found.");
-        return "";
-      }
-      logger.log("End");
-      return popupContent.innerHTML;
-    }
-    async function preloadArchiveLink() {
-      const logger = new Logger("Archive");
-      logger.log("Start");
-      const link = getLink(archiveLinkAnchor);
-      if (!link) {
-        logger.error("link not found.");
-        return "";
-      }
-      const doc = await getDoc(link);
-      const popupContent = getPopupContent(doc, "#db");
-      if (!popupContent) {
-        logger.error("popup content not found.");
-        return "";
-      }
-      logger.log("End");
-      return popupContent.innerHTML;
-    }
-    function getLink(linkElement) {
-      var _a3;
-      const onClick = linkElement.getAttribute("onclick");
-      if (!onClick) {
-        return null;
-      }
-      return (_a3 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a3[1];
-    }
-    function getPopupContent(doc, selector) {
-      const content = getElement(selector, doc);
-      if (!content) {
-        return null;
-      }
-      content.removeAttribute("style");
-      content.classList.add("popup");
-      return content;
-    }
-    return {
-      preloadDownloadLinks,
-      torrentInnerHtml,
-      archiveInnerHtml
-    };
   }
   var _a;
   const isClient = typeof window !== "undefined";
@@ -342,14 +146,6 @@ var __publicField = (obj, key, value) => {
     }
     return false;
   }
-  function tryOnMounted(fn, sync = true) {
-    if (vue.getCurrentInstance())
-      vue.onMounted(fn);
-    else if (sync)
-      fn();
-    else
-      vue.nextTick(fn);
-  }
   var __getOwnPropSymbols$6 = Object.getOwnPropertySymbols;
   var __hasOwnProp$6 = Object.prototype.hasOwnProperty;
   var __propIsEnum$6 = Object.prototype.propertyIsEnumerable;
@@ -392,7 +188,7 @@ var __publicField = (obj, key, value) => {
     return a;
   };
   var __spreadProps$2 = (a, b) => __defProps$2(a, __getOwnPropDescs$2(b));
-  var __objRest$1$1 = (source, exclude) => {
+  var __objRest$1 = (source, exclude) => {
     var target = {};
     for (var prop in source)
       if (__hasOwnProp$2.call(source, prop) && exclude.indexOf(prop) < 0)
@@ -407,7 +203,7 @@ var __publicField = (obj, key, value) => {
   function watchPausable(source, cb, options = {}) {
     const _a3 = options, {
       eventFilter: filter
-    } = _a3, watchOptions = __objRest$1$1(_a3, [
+    } = _a3, watchOptions = __objRest$1(_a3, [
       "eventFilter"
     ]);
     const { eventFilter, pause, resume, isActive } = pausableFilter(filter);
@@ -512,13 +308,6 @@ var __publicField = (obj, key, value) => {
     ].filter(Boolean);
     const stop = () => cleanup.forEach((fn) => fn());
     return stop;
-  }
-  function useSupported(callback, sync = false) {
-    const isSupported = vue.ref();
-    const update = () => isSupported.value = Boolean(callback());
-    update();
-    tryOnMounted(update, sync);
-    return isSupported;
   }
   function useBrowserLocation({ window: window2 = defaultWindow } = {}) {
     const buildState = (trigger) => {
@@ -690,48 +479,6 @@ var __publicField = (obj, key, value) => {
       data.value = read(event);
     }
   }
-  var __getOwnPropSymbols$7 = Object.getOwnPropertySymbols;
-  var __hasOwnProp$7 = Object.prototype.hasOwnProperty;
-  var __propIsEnum$7 = Object.prototype.propertyIsEnumerable;
-  var __objRest$1 = (source, exclude) => {
-    var target = {};
-    for (var prop in source)
-      if (__hasOwnProp$7.call(source, prop) && exclude.indexOf(prop) < 0)
-        target[prop] = source[prop];
-    if (source != null && __getOwnPropSymbols$7)
-      for (var prop of __getOwnPropSymbols$7(source)) {
-        if (exclude.indexOf(prop) < 0 && __propIsEnum$7.call(source, prop))
-          target[prop] = source[prop];
-      }
-    return target;
-  };
-  function useMutationObserver(target, callback, options = {}) {
-    const _a3 = options, { window: window2 = defaultWindow } = _a3, mutationOptions = __objRest$1(_a3, ["window"]);
-    let observer;
-    const isSupported = useSupported(() => window2 && "MutationObserver" in window2);
-    const cleanup = () => {
-      if (observer) {
-        observer.disconnect();
-        observer = void 0;
-      }
-    };
-    const stopWatch = vue.watch(() => unrefElement(target), (el) => {
-      cleanup();
-      if (isSupported.value && window2 && el) {
-        observer = new MutationObserver(callback);
-        observer.observe(el, mutationOptions);
-      }
-    }, { immediate: true });
-    const stop = () => {
-      cleanup();
-      stopWatch();
-    };
-    tryOnScopeDispose(stop);
-    return {
-      isSupported,
-      stop
-    };
-  }
   var SwipeDirection;
   (function(SwipeDirection2) {
     SwipeDirection2["UP"] = "UP";
@@ -785,22 +532,261 @@ var __publicField = (obj, key, value) => {
   __spreadValues({
     linear: identity
   }, _TransitionPresets);
-  function usePosition() {
-    const { archiveLinkAnchor: archiveLinkAnchor2, torrentLinkAnchor: torrentLinkAnchor2, infoDiv } = useElement();
-    const popupRight = vue.ref(0);
-    const archiveTop = vue.ref(0);
-    const torrentTop = vue.ref(0);
-    useMutationObserver(infoDiv, () => {
-      if (!infoDiv) {
+  function useWindowScroll({ window: window2 = defaultWindow } = {}) {
+    if (!window2) {
+      return {
+        x: vue.ref(0),
+        y: vue.ref(0)
+      };
+    }
+    const x = vue.ref(window2.pageXOffset);
+    const y = vue.ref(window2.pageYOffset);
+    useEventListener(window2, "scroll", () => {
+      x.value = window2.pageXOffset;
+      y.value = window2.pageYOffset;
+    }, {
+      capture: false,
+      passive: true
+    });
+    return { x, y };
+  }
+  function useWheelStep({
+    containerSelector,
+    itemsSelector
+  }) {
+    const container = getElement(containerSelector);
+    let firstItemOfRows = getFirstItemOfRows();
+    const mutationObserver = new MutationObserver(() => {
+      firstItemOfRows = getFirstItemOfRows();
+    });
+    mutationObserver.observe(container, {
+      childList: true,
+      characterData: true
+    });
+    setContainerWheelEvent();
+    function setContainerWheelEvent() {
+      if (!container) {
         return;
       }
-      popupRight.value = getPopupRight();
-      archiveTop.value = getArchiveTop();
-      torrentTop.value = getTorrentTop();
-    }, {
-      childList: true,
-      subtree: true
-    });
+      container.addEventListener("mousewheel", (event) => {
+        if (!firstItemOfRows) {
+          return;
+        }
+        const firstVisibleItemIndex = firstItemOfRows.findIndex((item) => Math.floor(item.getBoundingClientRect().bottom) > 0);
+        const firstVisibleItem = firstItemOfRows[firstVisibleItemIndex];
+        const boundingTop = Math.floor(firstVisibleItem.getBoundingClientRect().top);
+        let nextIndex = firstVisibleItemIndex;
+        if (Math.sign(event.deltaY) === 1 && boundingTop <= 0) {
+          nextIndex++;
+        } else if (Math.sign(event.deltaY) === -1 && boundingTop >= 0) {
+          nextIndex--;
+        }
+        if (nextIndex >= 0 && nextIndex < firstItemOfRows.length) {
+          event.preventDefault();
+          event.stopPropagation();
+          firstItemOfRows[nextIndex].scrollIntoView();
+        }
+      });
+    }
+    function getFirstItemOfRows() {
+      const item = getElement(itemsSelector);
+      const itemsPerRow = Math.floor(container.clientWidth / item.clientWidth);
+      const firstItemOfRows2 = getElements(`${itemsSelector}:nth-child(${itemsPerRow}n + 1)`);
+      if (!firstItemOfRows2) {
+        return [];
+      }
+      return [...firstItemOfRows2];
+    }
+    return;
+  }
+  const _sfc_main$7 = /* @__PURE__ */ vue.defineComponent({
+    __name: "FrontPageEnhancer",
+    setup(__props) {
+      if (scrollPerRowSwitch.enabled) {
+        useWheelStep({
+          containerSelector: ".itg.gld",
+          itemsSelector: ".gl1t"
+        });
+      }
+      if (infiniteScrollSwitch.enabled) {
+        useInfiniteScroll();
+      }
+      function useInfiniteScroll() {
+        const { y } = useWindowScroll();
+        const isAtBottomOfPage = vue.computed(() => {
+          return y.value === document.documentElement.scrollHeight - window.innerHeight;
+        });
+        const galleryContainer = getElement(".itg.gld");
+        let isFetching = false;
+        vue.watch(y, async () => {
+          var _a3;
+          if (isFetching) {
+            return;
+          }
+          if (isAtBottomOfPage.value) {
+            const nextPageUrl = (_a3 = getElement("#dnext")) == null ? void 0 : _a3.getAttribute("href");
+            if (!nextPageUrl) {
+              return;
+            }
+            isFetching = true;
+            galleryContainer == null ? void 0 : galleryContainer.classList.add("is-fetching");
+            const doc = await getDoc(nextPageUrl);
+            const galleriesOfNextPage = getElements(".itg.gld > .gl1t", doc);
+            if (!galleriesOfNextPage) {
+              return;
+            }
+            galleryContainer == null ? void 0 : galleryContainer.append(...galleriesOfNextPage);
+            isFetching = false;
+            galleryContainer == null ? void 0 : galleryContainer.classList.remove("is-fetching");
+          }
+        });
+      }
+      return (_ctx, _cache) => {
+        return null;
+      };
+    }
+  });
+  const FrontPageEnhancer_vue_vue_type_style_index_0_lang = "";
+  class Logger {
+    constructor(feature, scope) {
+      __publicField(this, "_feature");
+      __publicField(this, "_featureStyle");
+      __publicField(this, "_scope");
+      __publicField(this, "_scopeStyle");
+      this._feature = feature;
+      this._scope = scope;
+      this._featureStyle = "background: #777; border-radius: 5px;";
+      this._scopeStyle = "background: #555; border-radius: 5px;";
+    }
+    set scope(scope) {
+      this._scope = scope;
+    }
+    get prefix() {
+      let prefix = `%c ${this._feature} `;
+      if (this._scope) {
+        prefix += `%c ${this._scope} `;
+      }
+      return prefix;
+    }
+    get style() {
+      const style = [this._featureStyle];
+      if (this._scope) {
+        style.push(this._scopeStyle);
+      }
+      return style;
+    }
+    log(message) {
+      console.log(
+        this.prefix,
+        ...this.style,
+        message
+      );
+    }
+    error(message, error) {
+      console.error(
+        this.prefix,
+        ...this.style,
+        message,
+        error
+      );
+    }
+  }
+  class LoggerScopeDecorator {
+    constructor(baseLogger2, scope) {
+      __publicField(this, "_logger");
+      this._logger = baseLogger2;
+      this._logger.scope = scope;
+    }
+    log(message) {
+      this._logger.log(message);
+    }
+    error(message, error) {
+      this._logger.error(message, error);
+    }
+  }
+  function useElement() {
+    const infoDiv = getElement(".gm");
+    const archiveLinkAnchor2 = getElement("#gd5 > p:nth-child(2) a");
+    const torrentLinkAnchor2 = getElement("#gd5 > p:nth-child(3) a");
+    return {
+      infoDiv,
+      archiveLinkAnchor: archiveLinkAnchor2,
+      torrentLinkAnchor: torrentLinkAnchor2
+    };
+  }
+  const baseLogger$1 = new Logger("Preload Download Links");
+  const torrentInnerHtml = vue.ref("");
+  const archiveInnerHtml = vue.ref("");
+  const { archiveLinkAnchor, torrentLinkAnchor } = useElement();
+  function usePreloadDownloadLinks() {
+    async function preloadDownloadLinks() {
+      [archiveInnerHtml.value, torrentInnerHtml.value] = await Promise.all([
+        preloadArchiveLink(),
+        preloadTorrentLink()
+      ]);
+    }
+    async function preloadTorrentLink() {
+      const logger = new LoggerScopeDecorator(baseLogger$1, "Torrent");
+      logger.log("Start");
+      const link = getLink(torrentLinkAnchor);
+      if (!link) {
+        logger.error("link not found.");
+        return "";
+      }
+      const doc = await getDoc(link);
+      const popupContent = getPopupContent(doc, "#torrentinfo > div:first-child");
+      if (!popupContent) {
+        logger.error("popup content not found.");
+        return "";
+      }
+      logger.log("End");
+      return popupContent.innerHTML;
+    }
+    async function preloadArchiveLink() {
+      const logger = new Logger("Archive");
+      logger.log("Start");
+      const link = getLink(archiveLinkAnchor);
+      if (!link) {
+        logger.error("link not found.");
+        return "";
+      }
+      const doc = await getDoc(link);
+      const popupContent = getPopupContent(doc, "#db");
+      if (!popupContent) {
+        logger.error("popup content not found.");
+        return "";
+      }
+      logger.log("End");
+      return popupContent.innerHTML;
+    }
+    function getLink(linkElement) {
+      var _a3;
+      const onClick = linkElement.getAttribute("onclick");
+      if (!onClick) {
+        return null;
+      }
+      return (_a3 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a3[1];
+    }
+    function getPopupContent(doc, selector) {
+      const content = getElement(selector, doc);
+      if (!content) {
+        return null;
+      }
+      content.removeAttribute("style");
+      content.classList.add("popup");
+      return content;
+    }
+    return {
+      preloadDownloadLinks,
+      torrentInnerHtml,
+      archiveInnerHtml
+    };
+  }
+  function usePosition() {
+    const { archiveLinkAnchor: archiveLinkAnchor2, torrentLinkAnchor: torrentLinkAnchor2, infoDiv } = useElement();
+    const popupRight = vue.ref(getPopupRight());
+    const archiveTop = vue.ref(getArchiveTop());
+    const torrentTop = vue.ref(getTorrentTop());
     function getPopupRight() {
       return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2;
     }
@@ -893,8 +879,8 @@ var __publicField = (obj, key, value) => {
         const isShow2 = vue.ref(false);
         vue.onMounted(() => {
           torrentLinkAnchor2.removeAttribute("onclick");
-          torrentLinkAnchor2.innerText += " \u2714\uFE0F";
-          if (torrentLinkAnchor2.innerText === "Torrent Download (1) \u2714\uFE0F") {
+          torrentLinkAnchor2.classList.add("is-ready");
+          if (torrentLinkAnchor2.innerText === "Torrent Download (1)") {
             setDownloadEvent();
           } else {
             setToggleEvent();
@@ -941,7 +927,7 @@ var __publicField = (obj, key, value) => {
       };
     }
   });
-  const popup_scss_vue_type_style_index_0_src_1b406cc1_scoped_1b406cc1_lang = "";
+  const popup_scss_vue_type_style_index_0_src_1f3b346f_scoped_1f3b346f_lang = "";
   const _export_sfc = (sfc, props) => {
     const target = sfc.__vccOpts || sfc;
     for (const [key, val] of props) {
@@ -949,7 +935,7 @@ var __publicField = (obj, key, value) => {
     }
     return target;
   };
-  const PopupTorrent = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-1b406cc1"]]);
+  const PopupTorrent = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-1f3b346f"]]);
   const toast = Toast.useToast();
   function useDownloadEvent() {
     function setHentaiAtHomeEvent() {
@@ -969,7 +955,7 @@ var __publicField = (obj, key, value) => {
         link.removeAttribute("onclick");
         link.addEventListener("click", async (event) => {
           event.preventDefault();
-          const originalText = replaceLinkByLoadingIcon(link);
+          link.classList.add("is-fetching");
           const doc = await sendDownloadRequest(link, postUrl);
           const response = getElement("#db", doc);
           logger.log(response);
@@ -977,33 +963,14 @@ var __publicField = (obj, key, value) => {
           if (parsedResponse) {
             if (/download has been queued/.test(parsedResponse)) {
               toast.success(parsedResponse);
-              replaceLinkByCheckIcon(link);
+              link.classList.add("is-ready");
             } else {
               toast.error(parsedResponse);
-              resetLink(link, originalText);
+              link.classList.remove("is-fetching");
             }
           }
         });
       }
-    }
-    function replaceLinkByLoadingIcon(element) {
-      const originalText = element.innerText;
-      setTimeout(() => {
-        element.innerText = "\u231B";
-      }, 0);
-      element.style.pointerEvents = "none";
-      element.style.textDecoration = "none";
-      return originalText;
-    }
-    function replaceLinkByCheckIcon(element) {
-      setTimeout(() => {
-        element.innerText = "\u2714\uFE0F";
-      }, 0);
-    }
-    function resetLink(element, originalText) {
-      element.innerText = originalText;
-      element.style.pointerEvents = "auto";
-      element.style.textDecoration = "underline";
     }
     async function sendDownloadRequest(link, postUrl) {
       var _a3, _b;
@@ -1055,10 +1022,9 @@ var __publicField = (obj, key, value) => {
             return;
           }
           const resolution = button.getAttribute("value");
-          const originalText = button.value;
-          button.value = "\u231B";
+          button.parentElement.classList.add("is-fetching");
           await sendDownloadRequest2(url, resolution);
-          button.value = originalText;
+          button.parentElement.classList.remove("is-fetching");
         });
       }
       async function sendDownloadRequest2(url, resolution) {
@@ -1109,7 +1075,7 @@ var __publicField = (obj, key, value) => {
         const isShow2 = vue.ref(false);
         vue.onMounted(() => {
           archiveLinkAnchor2.removeAttribute("onclick");
-          archiveLinkAnchor2.innerText += " \u2714\uFE0F";
+          archiveLinkAnchor2.classList.add("is-ready");
           setToggleEvent();
           setHentaiAtHomeEvent();
           setDirectDownloadEvent();
@@ -1148,15 +1114,15 @@ var __publicField = (obj, key, value) => {
       };
     }
   });
-  const popup_scss_vue_type_style_index_0_src_08480dbe_scoped_08480dbe_lang = "";
-  const PopupArchive = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-08480dbe"]]);
+  const popup_scss_vue_type_style_index_0_src_96148429_scoped_96148429_lang = "";
+  const PopupArchive = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-96148429"]]);
   const _sfc_main$4 = /* @__PURE__ */ vue.defineComponent({
     __name: "GalleryEnhancer",
     setup(__props) {
       vue.useCssVars((_ctx) => ({
-        "4ff4c1ba": vue.unref(popupRight),
-        "874923c6": vue.unref(archiveTop),
-        "40f42b0f": vue.unref(torrentTop)
+        "545edf37": vue.unref(popupRight),
+        "7e74e8cc": vue.unref(archiveTop),
+        "455e488c": vue.unref(torrentTop)
       }));
       if (loadAllGalleryImagesSwitch.enabled) {
         fetchAllImages({ delayInMs: 1e3 });
