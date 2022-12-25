@@ -32,18 +32,25 @@ class Switch {
   }
 }
 
-export const autoRedirectSwitch = new Switch('Enable auto redirect to Multi-Page Viewer')
+// Front page enhancer
+export const infiniteScrollSwitch = new Switch('Enable infinite Scroll in Front page')
+
+// Gallery enhancer
 export const scrollPerRowSwitch = new Switch('Enable scroll per row')
 export const betterDownloadPopupSwitch = new Switch('Enable better download popup')
-export const multipageViewerEnhancerSwitch = new Switch('Enable Multi-Page Viewer enhancer')
 export const loadAllGalleryImagesSwitch = new Switch('Load all images in gallery page')
+
+// Multi-Page Viewer enhancer
+export const multipageViewerEnhancerSwitch = new Switch('Enable Multi-Page Viewer enhancer')
+export const autoRedirectSwitch = new Switch('Enable auto redirect to Multi-Page Viewer')
 
 export async function initializeMonkeySwitches() {
   await Promise.all([
-    autoRedirectSwitch.initialize(),
+    infiniteScrollSwitch.initialize(),
     scrollPerRowSwitch.initialize(),
     betterDownloadPopupSwitch.initialize(),
-    multipageViewerEnhancerSwitch.initialize(),
     loadAllGalleryImagesSwitch.initialize(),
+    multipageViewerEnhancerSwitch.initialize(),
+    autoRedirectSwitch.initialize(),
   ])
 }

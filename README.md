@@ -5,8 +5,8 @@
 2. Install [ExHentai Enhancer](https://github.com/sk2589822/Exhentai-Enhancer/raw/master/dist/exhentai-enhancer.user.js).
 
 ## Gallery Enhancer
-available when
-1. url match ```https://exhentai.org/g/*/*```
+works when:
+1. url match `https://e(x)hentai.org/g/*/*`
 2. settings -> Front Page Settings -> check `Thumbnail`
 
 ### features
@@ -20,13 +20,12 @@ available when
 3. Download torrent directly if there is only 1 torrent.  
    \*Could disable by untick *Enable better download popup* in your tampermonkey menu
 
-4. Go to next/prev row if mouse wheel on images container.   
-   (*Notice*: This feature also works in the front page (`https://exhentai.org`))  
+4. Go to next/prev row if mouse wheel on images container.  
    \*Could disable by untick *Enable scroll per row* in your tampermonkey menu
 
 ## Multi-Page Viewer Enhancer
-available when 
-1. url match ```https://exhentai.org/mpv/*/*```
+works on: 
+1. url match `https://e(x)hentai.org/mpv/*/*`
 2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup  
 \*Could disable all features by untick *Enable Multi-Page Viewer enhancer* in your tampermonkey menu
 
@@ -44,6 +43,22 @@ available when
    \*(Could disabled from your tampermonkey menu - Enable auto redirect to Multi-Page Viewer)*
    
 
+## Front Page Enhancer
+works on: 
+1. url match   
+   `https://e(x)hentai.org/?*` or  
+   `https://e(x)hentai.org/(watched|popular)?*` or  
+   `https://e(x)hentai.org/tag/*`
+
+2. settings -> Front Page Settings -> check `Thumbnail`
+
+### features
+
+1. Load next page when scroll to bottom of page.
+   \*Could disable by untick *Enable infinite Scroll in Front page* in your tampermonkey menu
+
+2. Go to next/prev row if mouse wheel on images container.   
+   \*Could disable by untick *Enable scroll per row* in your tampermonkey menu
 ## Shortcuts
 
 | Key / Mouse | Feature |
@@ -113,9 +128,9 @@ available when
 ## Development
 
 ### Debug
-1. ```pnpm dev```
+1. `pnpm dev`
 2. install the script that pop-up on your browser.
 
 ### Build & Install your own script
-1. ```pnpm build```
+1. `pnpm build`
 2. drag `dist/exhentai-enhancer.user.js` to your browser to install the script.

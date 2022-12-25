@@ -36,10 +36,6 @@ module.exports = {
     /**
      *  Suggestions
      */
-    'arrow-body-style': [
-      'error',
-      'as-needed',
-    ],
     'curly': [
       'error',
       'all',
