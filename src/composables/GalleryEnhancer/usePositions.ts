@@ -1,27 +1,13 @@
 import { ref } from 'vue'
-import { useMutationObserver } from '@vueuse/core'
 
 import useElement from './useElements'
 
 export default function() {
   const { archiveLinkAnchor, torrentLinkAnchor, infoDiv } = useElement()
 
-  const popupRight = ref(0)
-  const archiveTop = ref(0)
-  const torrentTop = ref(0)
-
-  useMutationObserver(infoDiv, () => {
-    if (!infoDiv) {
-      return
-    }
-
-    popupRight.value = getPopupRight()
-    archiveTop.value = getArchiveTop()
-    torrentTop.value = getTorrentTop()
-  }, {
-    childList: true,
-    subtree: true,
-  })
+  const popupRight = ref(getPopupRight())
+  const archiveTop = ref(getArchiveTop())
+  const torrentTop = ref(getTorrentTop())
 
   function getPopupRight(): number {
     return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2

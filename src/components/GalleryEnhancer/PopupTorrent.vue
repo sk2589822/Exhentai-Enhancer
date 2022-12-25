@@ -33,9 +33,9 @@ function useDownloadTorrent() {
 
   onMounted(() => {
     torrentLinkAnchor.removeAttribute('onclick')
-    torrentLinkAnchor.innerText += ' ✔️'
+    torrentLinkAnchor.classList.add('is-ready')
 
-    if (torrentLinkAnchor.innerText === 'Torrent Download (1) ✔️') {
+    if (torrentLinkAnchor.innerText === 'Torrent Download (1)') {
       setDownloadEvent()
     } else {
       setToggleEvent()
