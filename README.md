@@ -12,22 +12,22 @@ works when:
 ### features
 
 1. Load all images sequentially if the there are more than one page.  
-   \*Could disable by untick *Enable auto redirect to Multi-Page Viewer* in tampermonkey menu
+   \*Could disable by unticking `Enable auto redirect to Multi-Page Viewer` in tampermonkey menu
 
 2. Show pop-up in same page instead of window popup when click `Archive Download` or `Torrent Download`.  
-   \*Could disable by untick *Enable better download popup* in tampermonkey menu
+   \*Could disable by unticking `Enable better download popup` in tampermonkey menu
 
 3. Download torrent directly if there is only 1 torrent.  
-   \*Could disable by untick *Enable better download popup* in tampermonkey menu
+   \*Could disable by unticking `Enable better download popup` in tampermonkey menu
 
 4. Go to next/prev row if mouse wheel on images container.  
-   \*Could disable by untick *Enable scroll per row* in tampermonkey menu
+   \*Could disable by unticking `Enable scroll per row` in tampermonkey menu
 
 ## Multi-Page Viewer Enhancer
 works on: 
 1. url match `https://e(x)hentai.org/mpv/*/*`
 2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup  
-\*Could disable all features by untick *Enable Multi-Page Viewer enhancer* in tampermonkey menu
+   \*Could disable all featuingres by untick `Enable Multi-Page Viewer enhancer` in tampermonkey menu
 
 ### features
 
@@ -40,7 +40,7 @@ works on:
 4. Add images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height).
 
 5. Auto redirect to Multi-Page Viewer if in Single-Page Viewer(url match `https://exhentai.org/s/*/*`)  
-   \*(Could disabled from your tampermonkey menu - Enable auto redirect to Multi-Page Viewer)*
+   \*(Could disabled from youingr tampermonkey menu - Enable auto redirect to Multi-Page Viewer)*
    
 
 ## Front Page Enhancer
@@ -55,10 +55,10 @@ works on:
 ### features
 
 1. Load galleries next page when scroll to bottom of page.  
-   \*Could disable by untick *Enable infinite Scroll in Front page* in tampermonkey menu
+   \*Could disable by unticking `Enable infinite Scroll in Front page` in tampermonkey menu
 
 2. Go to next/prev row if mouse wheel on images container.   
-   \*Could disable by untick *Enable scroll per row* in tampermonkey menu
+   \*Could disable by unticking `Enable scroll per row` in tampermonkey menu
 ## Shortcuts
 
 | Key / Mouse | Feature |
