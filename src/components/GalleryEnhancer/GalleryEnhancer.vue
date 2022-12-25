@@ -105,5 +105,18 @@ input[name="dltype"] + .is-fetching {
   }
 }
 
+.is-finished {
+  font-size: 0;
+  pointer-events: none;
+  text-decoration: none;
+
+  &::after {
+    content: "✔️";
+    display: inline-block;
+    font-size: 8px;
+    line-height: 8px;
+  }
+}
+
 </style>
 

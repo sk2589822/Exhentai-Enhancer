@@ -27,6 +27,7 @@ function useInfiniteScroll() {
   })
 
   const galleryContainer = getElement('.itg.gld')
+  let nextPageUrl = getElement('#dnext')?.getAttribute('href')
 
   let isFetching = false
   watch(y, async () => {
@@ -35,7 +36,6 @@ function useInfiniteScroll() {
     }
 
     if (isAtBottomOfPage.value) {
-      const nextPageUrl = getElement('#dnext')?.getAttribute('href')
       if (!nextPageUrl) {
         return
       }
@@ -49,10 +49,11 @@ function useInfiniteScroll() {
       if (!galleriesOfNextPage) {
         return
       }
-
       galleryContainer?.append(...galleriesOfNextPage)
       isFetching = false
       galleryContainer?.classList.remove('is-fetching')
+
+      nextPageUrl = getElement('#dnext', doc)?.getAttribute('href')
     }
   })
 }
