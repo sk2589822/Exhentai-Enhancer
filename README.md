@@ -21,8 +21,8 @@ available when
    \*Could disable by untick *Enable better download popup* in your tampermonkey menu
 
 4. Go to next/prev row if mouse wheel on images container.   
+   (*Notice*: This feature also works in the front page (`https://exhentai.org`))  
    \*Could disable by untick *Enable scroll per row* in your tampermonkey menu
-   (*Notice*: This also works in the homepage(`https://exhentai.org`))
 
 ## Multi-Page Viewer Enhancer
 available when 
