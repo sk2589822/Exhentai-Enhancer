@@ -12,22 +12,22 @@ works when:
 ### features
 
 1. Load all images sequentially if the there are more than one page.  
-   \*Could disable by untick *Enable auto redirect to Multi-Page Viewer* in your tampermonkey menu
+   \*Could disable by untick *Enable auto redirect to Multi-Page Viewer* in tampermonkey menu
 
 2. Show pop-up in same page instead of window popup when click `Archive Download` or `Torrent Download`.  
-   \*Could disable by untick *Enable better download popup* in your tampermonkey menu
+   \*Could disable by untick *Enable better download popup* in tampermonkey menu
 
 3. Download torrent directly if there is only 1 torrent.  
-   \*Could disable by untick *Enable better download popup* in your tampermonkey menu
+   \*Could disable by untick *Enable better download popup* in tampermonkey menu
 
 4. Go to next/prev row if mouse wheel on images container.  
-   \*Could disable by untick *Enable scroll per row* in your tampermonkey menu
+   \*Could disable by untick *Enable scroll per row* in tampermonkey menu
 
 ## Multi-Page Viewer Enhancer
 works on: 
 1. url match `https://e(x)hentai.org/mpv/*/*`
 2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup  
-\*Could disable all features by untick *Enable Multi-Page Viewer enhancer* in your tampermonkey menu
+\*Could disable all features by untick *Enable Multi-Page Viewer enhancer* in tampermonkey menu
 
 ### features
 
@@ -54,11 +54,11 @@ works on:
 
 ### features
 
-1. Load next page when scroll to bottom of page.  
-   \*Could disable by untick *Enable infinite Scroll in Front page* in your tampermonkey menu
+1. Load galleries next page when scroll to bottom of page.  
+   \*Could disable by untick *Enable infinite Scroll in Front page* in tampermonkey menu
 
 2. Go to next/prev row if mouse wheel on images container.   
-   \*Could disable by untick *Enable scroll per row* in your tampermonkey menu
+   \*Could disable by untick *Enable scroll per row* in tampermonkey menu
 ## Shortcuts
 
 | Key / Mouse | Feature |
@@ -76,8 +76,8 @@ works on:
 | `ctrl` + `→` | go to next 10 page. |
 | `ctrl` + `←` | go to previous 10 page. |
 | `ctrl` + `1`~`5` | set current size of image resizer to 100%/125%/150%/175%/200%. |
-| `numpad +` | increase current size of image resizer (100% if not set yet). |
-| `numpad -` | decrease current size of image resizer (200% if not set yet). |
+| `numpad +` | increase current size of image resizer (set to 100% if not set yet). |
+| `numpad -` | decrease current size of image resizer (set to 200% if not set yet). |
 | `numpad 0` | set current size of image resizer to smallest size (currently 100%). |
 | `numpad .` | set current size of image resizer to middle size (currently 150%). |
 | `numpad enter` | clear current size of image resizer (to original size). |
