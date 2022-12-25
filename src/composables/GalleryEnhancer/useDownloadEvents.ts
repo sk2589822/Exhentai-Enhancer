@@ -41,12 +41,13 @@ export default function() {
 
         const parsedResponse = parseResponse(response, logger)
         if (parsedResponse) {
+          link.classList.remove('is-fetching')
+
           if (/download has been queued/.test(parsedResponse)) {
             toast.success(parsedResponse)
-            link.classList.add('is-ready')
+            link.classList.add('is-finished')
           } else {
             toast.error(parsedResponse)
-            link.classList.remove('is-fetching')
           }
         }
       })
