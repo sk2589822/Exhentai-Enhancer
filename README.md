@@ -54,7 +54,7 @@ works on:
 
 ### features
 
-1. Load next page when scroll to bottom of page.
+1. Load next page when scroll to bottom of page.  
    \*Could disable by untick *Enable infinite Scroll in Front page* in your tampermonkey menu
 
 2. Go to next/prev row if mouse wheel on images container.   
