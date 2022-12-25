@@ -48,7 +48,8 @@ const {
 </script>
 
 <style lang="scss">
-/* stylelint-disable function-name-case */
+@use "@/styles/animations/spin.scss";
+
 div#gmid {
   width: 931px;
 }
@@ -69,5 +70,40 @@ div#gd5 {
     top: calc(v-bind(torrentTop) * 1px);
   }
 }
+
+.is-ready::after {
+  content: "✔️";
+}
+
+.is-fetching {
+  font-size: 0;
+  pointer-events: none;
+  text-decoration: none;
+
+  &::after {
+    content: "⌛";
+    display: inline-block;
+    font-size: 8px;
+    line-height: 8px;
+    animation: spin ease-in-out 1s infinite;
+  }
+}
+
+input[name="dltype"] + .is-fetching {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    font-size: 12px;
+    line-height: 27px;
+  }
+
+  input {
+    color: transparent;
+  }
+}
+
 </style>
 

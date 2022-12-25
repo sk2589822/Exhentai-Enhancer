@@ -33,7 +33,7 @@ export default function() {
       link.addEventListener('click', async event => {
         event.preventDefault()
 
-        const originalText = replaceLinkByLoadingIcon(link)
+        link.classList.add('is-fetching')
 
         const doc = await sendDownloadRequest(link, postUrl)
         const response = getElement('#db', doc)
@@ -43,39 +43,14 @@ export default function() {
         if (parsedResponse) {
           if (/download has been queued/.test(parsedResponse)) {
             toast.success(parsedResponse)
-            replaceLinkByCheckIcon(link)
+            link.classList.add('is-ready')
           } else {
             toast.error(parsedResponse)
-            resetLink(link, originalText)
+            link.classList.remove('is-fetching')
           }
         }
       })
     }
-  }
-
-  function replaceLinkByLoadingIcon(element: HTMLElement) {
-    const originalText = element.innerText
-    // HACK: 不加 setTimeout popup 會消失
-    setTimeout(() => {
-      element.innerText = '⌛'
-    }, 0)
-    element.style.pointerEvents = 'none'
-    element.style.textDecoration = 'none'
-
-    return originalText
-  }
-
-  function replaceLinkByCheckIcon(element: HTMLElement) {
-    // HACK: 不加 setTimeout popup 會消失
-    setTimeout(() => {
-      element.innerText = '✔️'
-    }, 0)
-  }
-
-  function resetLink(element: HTMLElement, originalText: string) {
-    element.innerText = originalText
-    element.style.pointerEvents = 'auto'
-    element.style.textDecoration = 'underline'
   }
 
   async function sendDownloadRequest(link: HTMLElement, postUrl: string) {
@@ -138,10 +113,9 @@ export default function() {
         }
 
         const resolution = button.getAttribute('value')
-        const originalText = button.value
-        button.value = '⌛'
+        button.parentElement.classList.add('is-fetching')
         await sendDownloadRequest(url, resolution)
-        button.value = originalText
+        button.parentElement.classList.remove('is-fetching')
       })
     }
 

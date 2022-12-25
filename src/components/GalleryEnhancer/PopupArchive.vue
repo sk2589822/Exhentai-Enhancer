@@ -34,7 +34,7 @@ function useDownloadArchive() {
 
   onMounted(() => {
     archiveLinkAnchor.removeAttribute('onclick')
-    archiveLinkAnchor.innerText += ' ✔️'
+    archiveLinkAnchor.classList.add('is-ready')
 
     setToggleEvent()
     setHentaiAtHomeEvent()
