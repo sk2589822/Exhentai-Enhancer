@@ -33,7 +33,7 @@ class Switch {
 }
 
 // Front page enhancer
-export const infiniteScrollSwitch = new Switch('Enable infinite Scroll in Front page')
+export const infiniteScrollSwitch = new Switch('Enable infinite scroll in front page')
 
 // Gallery enhancer
 export const scrollPerRowSwitch = new Switch('Enable scroll per row')

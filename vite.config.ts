@@ -24,11 +24,13 @@ export default defineConfig({
           'zh-CN': 'Exhentai Enhancer',
         },
         description: {
-          '': 'improve UX of Gallery Page & Multi-Page Viewer',
-          'en': 'improve UX of Gallery Page & Multi-Page Viewer',
-          'zh-TW': '改善 Gallery Page 和 Multi-Page Viewer 的使用者體驗',
-          'zh-CN': '改善 Gallery Page 和 Multi-Page Viewer 的使用者體驗',
+          '': 'improve UX of Gallery Page, Multi-Page Viewer and Front Page',
+          'en': 'improve UX of Gallery Page, Multi-Page Viewer and Front Page',
+          'zh-TW': '改善 Gallery Page、Multi-Page Viewer 和 Front Page 的使用者體驗',
+          'zh-CN': '改善 Gallery Page、Multi-Page Viewer 和 Front Page 的使用者體驗',
         },
+        supportURL: 'https://github.com/sk2589822/Exhentai-Enhancer/issues',
+        author: 'sk2589822',
         license: 'MIT',
       },
       build: {
