@@ -55,7 +55,7 @@ works on:
 ### features
 
 1. Load galleries next page when scroll to bottom of page.  
-   \*Could disable by unticking `Enable infinite Scroll in Front page` in tampermonkey menu
+   \*Could disable by unticking `Enable infinite scroll in Front page` in tampermonkey menu
 
 2. Go to next/prev row if mouse wheel on images container.   
    \*Could disable by unticking `Enable scroll per row` in tampermonkey menu
@@ -90,39 +90,39 @@ works on:
 ## Demo:
   ### Gallery Enhancer
 
-  Archive download success
+  Archive download success  
   ![](https://imgur.com/a8hzlNN.gif)
 
-  Archive download failed
+  Archive download failed  
   ![](https://imgur.com/hBmh7A7.gif)
 
-  If there is only 1 torrent, download directly
+  If there is only 1 torrent, download directly  
   ![](https://imgur.com/kdu3MyP.gif)
 
-  If there are multiple torrents, show popup
+  If there are multiple torrents, show popup  
   ![](https://imgur.com/bXd1YJH.gif)
 
-  Scroll step by row on images container
+  Scroll step by row on images container  
   ![](https://imgur.com/WdDGu8J.gif)
 
 
   ### Multi-Page Viewer Enhancer
-  Page elevator
+  Page elevator  
   ![](https://imgur.com/pmwTRuJ.gif)
 
-  Image resizer
+  Image resizer  
   ![](https://imgur.com/Jv2hMgJ.gif)
 
-  Keyboard shortcuts for image resizer
+  Keyboard shortcuts for image resizer  
   ![](https://imgur.com/8IRzMkH.gif)
 
-  Keyboard shortcuts for scroll to top/middle/bottom of current image
+  Keyboard shortcuts for scroll to top/middle/bottom of current image  
   ![](https://imgur.com/552vKHC.gif)
 
-  Show thumbs when hover
+  Show thumbs when hover  
   ![](https://imgur.com/RoVA7iX.gif)
   
-  Go to next/previous 10 page by `ctrl + →` `ctrl + ←`
+  Go to next/previous 10 page by `ctrl + →` `ctrl + ←`  
   ![](https://imgur.com/5viyiJ8.gif)
 
 ## Development
