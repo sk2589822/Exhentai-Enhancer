@@ -1,4 +1,5 @@
 import { debounce } from 'lodash-es'
+import { useFullscreen } from '@vueuse/core'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { scrollElement } from '@/utils/commons'
@@ -129,13 +130,7 @@ export default function() {
 
           case 'KeyF':
           case 'Enter': {
-            const relativeToViewport = getRelativeToViewport()
-            await toggleFullScreen()
-            document.body.addEventListener('reflow', () => {
-              scrollToProperPosition(relativeToViewport)
-            }, {
-              once: true,
-            })
+            toggleFullScreen()
             break
           }
 
@@ -261,6 +256,8 @@ export default function() {
     })
   }
 
+  const { toggle } = useFullscreen(document.body)
+
   async function toggleFullScreen() {
     const relativeToViewport = getRelativeToViewport()
     await toggle()
@@ -269,36 +266,6 @@ export default function() {
     }, {
       once: true,
     })
-
-    async function toggle() {
-      const { body } = document
-      if (
-        document.fullscreenElement ||
-        document.mozFullScreenElement ||
-        document.webkitFullscreenElement ||
-        document.msFullscreenElement
-      ) {
-        if (document.exitFullscreen) {
-          await document.exitFullscreen()
-        } else if (document.msExitFullscreen) {
-          await document.msExitFullscreen()
-        } else if (document.mozCancelFullScreen) {
-          await document.mozCancelFullScreen()
-        } else if (document.webkitExitFullscreen) {
-          await document.webkitExitFullscreen()
-        }
-      } else {
-        if (body.requestFullscreen) {
-          await body.requestFullscreen()
-        } else if (body.msRequestFullscreen) {
-          await body.msRequestFullscreen()
-        } else if (body.mozRequestFullScreen) {
-          await body.mozRequestFullScreen()
-        } else if (body.webkitRequestFullscreen) {
-          await body.webkitRequestFullscreen()
-        }
-      }
-    }
   }
 
   return {
