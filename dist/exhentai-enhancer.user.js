@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.5.3
+// @version            1.5.4
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -147,6 +147,14 @@ var __publicField = (obj, key, value) => {
     }
     return false;
   }
+  function tryOnMounted(fn, sync = true) {
+    if (vue.getCurrentInstance())
+      vue.onMounted(fn);
+    else if (sync)
+      fn();
+    else
+      vue.nextTick(fn);
+  }
   var __getOwnPropSymbols$6 = Object.getOwnPropertySymbols;
   var __hasOwnProp$6 = Object.prototype.hasOwnProperty;
   var __propIsEnum$6 = Object.prototype.propertyIsEnumerable;
@@ -219,7 +227,7 @@ var __publicField = (obj, key, value) => {
     return (_a3 = plain == null ? void 0 : plain.$el) != null ? _a3 : plain;
   }
   const defaultWindow = isClient ? window : void 0;
-  isClient ? window.document : void 0;
+  const defaultDocument = isClient ? window.document : void 0;
   isClient ? window.navigator : void 0;
   isClient ? window.location : void 0;
   function useEventListener(...args) {
@@ -309,6 +317,13 @@ var __publicField = (obj, key, value) => {
     ].filter(Boolean);
     const stop = () => cleanup.forEach((fn) => fn());
     return stop;
+  }
+  function useSupported(callback, sync = false) {
+    const isSupported = vue.ref();
+    const update = () => isSupported.value = Boolean(callback());
+    update();
+    tryOnMounted(update, sync);
+    return isSupported;
   }
   function useBrowserLocation({ window: window2 = defaultWindow } = {}) {
     const buildState = (trigger) => {
@@ -479,6 +494,105 @@ var __publicField = (obj, key, value) => {
         return;
       data.value = read(event);
     }
+  }
+  const functionsMap = [
+    [
+      "requestFullscreen",
+      "exitFullscreen",
+      "fullscreenElement",
+      "fullscreenEnabled",
+      "fullscreenchange",
+      "fullscreenerror"
+    ],
+    [
+      "webkitRequestFullscreen",
+      "webkitExitFullscreen",
+      "webkitFullscreenElement",
+      "webkitFullscreenEnabled",
+      "webkitfullscreenchange",
+      "webkitfullscreenerror"
+    ],
+    [
+      "webkitRequestFullScreen",
+      "webkitCancelFullScreen",
+      "webkitCurrentFullScreenElement",
+      "webkitCancelFullScreen",
+      "webkitfullscreenchange",
+      "webkitfullscreenerror"
+    ],
+    [
+      "mozRequestFullScreen",
+      "mozCancelFullScreen",
+      "mozFullScreenElement",
+      "mozFullScreenEnabled",
+      "mozfullscreenchange",
+      "mozfullscreenerror"
+    ],
+    [
+      "msRequestFullscreen",
+      "msExitFullscreen",
+      "msFullscreenElement",
+      "msFullscreenEnabled",
+      "MSFullscreenChange",
+      "MSFullscreenError"
+    ]
+  ];
+  function useFullscreen(target, options = {}) {
+    const { document: document2 = defaultDocument, autoExit = false } = options;
+    const targetRef = target || (document2 == null ? void 0 : document2.querySelector("html"));
+    const isFullscreen = vue.ref(false);
+    let map = functionsMap[0];
+    const isSupported = useSupported(() => {
+      if (!document2) {
+        return false;
+      } else {
+        for (const m of functionsMap) {
+          if (m[1] in document2) {
+            map = m;
+            return true;
+          }
+        }
+      }
+      return false;
+    });
+    const [REQUEST, EXIT, ELEMENT, , EVENT] = map;
+    async function exit() {
+      if (!isSupported.value)
+        return;
+      if (document2 == null ? void 0 : document2[ELEMENT])
+        await document2[EXIT]();
+      isFullscreen.value = false;
+    }
+    async function enter() {
+      if (!isSupported.value)
+        return;
+      await exit();
+      const target2 = unrefElement(targetRef);
+      if (target2) {
+        await target2[REQUEST]();
+        isFullscreen.value = true;
+      }
+    }
+    async function toggle() {
+      if (isFullscreen.value)
+        await exit();
+      else
+        await enter();
+    }
+    if (document2) {
+      useEventListener(document2, EVENT, () => {
+        isFullscreen.value = !!(document2 == null ? void 0 : document2[ELEMENT]);
+      }, false);
+    }
+    if (autoExit)
+      tryOnScopeDispose(exit);
+    return {
+      isSupported,
+      isFullscreen,
+      enter,
+      exit,
+      toggle
+    };
   }
   var SwipeDirection;
   (function(SwipeDirection2) {
@@ -1596,13 +1710,7 @@ var __publicField = (obj, key, value) => {
               break;
             case "KeyF":
             case "Enter": {
-              const relativeToViewport = getRelativeToViewport();
-              await toggleFullScreen();
-              document.body.addEventListener("reflow", () => {
-                scrollToProperPosition(relativeToViewport);
-              }, {
-                once: true
-              });
+              toggleFullScreen();
               break;
             }
             case "KeyR":
@@ -1686,6 +1794,7 @@ var __publicField = (obj, key, value) => {
         paneThumbsDiv.style.opacity = shouldShowThumbs ? "1" : "0";
       });
     }
+    const { toggle } = useFullscreen(document.body);
     async function toggleFullScreen() {
       const relativeToViewport = getRelativeToViewport();
       await toggle();
@@ -1694,30 +1803,6 @@ var __publicField = (obj, key, value) => {
       }, {
         once: true
       });
-      async function toggle() {
-        const { body } = document;
-        if (document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
-          if (document.exitFullscreen) {
-            await document.exitFullscreen();
-          } else if (document.msExitFullscreen) {
-            await document.msExitFullscreen();
-          } else if (document.mozCancelFullScreen) {
-            await document.mozCancelFullScreen();
-          } else if (document.webkitExitFullscreen) {
-            await document.webkitExitFullscreen();
-          }
-        } else {
-          if (body.requestFullscreen) {
-            await body.requestFullscreen();
-          } else if (body.msRequestFullscreen) {
-            await body.msRequestFullscreen();
-          } else if (body.mozRequestFullScreen) {
-            await body.mozRequestFullScreen();
-          } else if (body.webkitRequestFullscreen) {
-            await body.webkitRequestFullscreen();
-          }
-        }
-      }
     }
     return {
       setKeyBoardEvent,
@@ -1917,6 +2002,10 @@ var __publicField = (obj, key, value) => {
       setShowCursorEvent();
       setHideCursorEvent();
       setShowThumbsEvent();
+      useWheelStep({
+        containerSelector: "#pane_thumbs_inner",
+        itemsSelector: "[id^=thumb_]"
+      });
       const exhentaiButtons = vue.ref("");
       vue.onMounted(() => {
         var _a3;
