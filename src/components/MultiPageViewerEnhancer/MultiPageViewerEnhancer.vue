@@ -17,6 +17,7 @@ import { ref, onMounted } from 'vue'
 
 import usePages from '@/composables/MultiPageViewerEnhancer/usePages'
 import useEvents from '@/composables/MultiPageViewerEnhancer/useEvents'
+import useWheelStep from '@/composables/useWheelStep'
 import { getElement } from '@/utils/commons'
 
 import PageElevator from './PageElevator.vue'
@@ -46,6 +47,11 @@ setClickEvent()
 setShowCursorEvent()
 setHideCursorEvent()
 setShowThumbsEvent()
+
+useWheelStep({
+  containerSelector: '#pane_thumbs_inner',
+  itemsSelector: '[id^=thumb_]',
+})
 
 const exhentaiButtons = ref<string>('')
 onMounted(() => {
