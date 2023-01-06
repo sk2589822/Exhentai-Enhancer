@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useStorage } from '@vueuse/core'
 
 import usePages from '@/composables/MultiPageViewerEnhancer/usePages'
@@ -42,7 +42,13 @@ setTimeout(() => {
 function useImageResizer() {
   const sizeList = [100, 125, 150, 175, 200]
 
-  const currentIndex = useStorage('image-resizer-index', 0)
+  const storedIndex = useStorage('image-resizer-index', 0)
+  const currentIndex = ref(storedIndex.value)
+
+  watch(currentIndex, (index: number) => {
+    storedIndex.value = index
+  })
+
   const currentSize = computed<number | undefined>(() => {
     if (currentIndex.value < 0) {
       return undefined
