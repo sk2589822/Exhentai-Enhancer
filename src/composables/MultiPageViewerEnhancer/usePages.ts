@@ -131,7 +131,7 @@ export default function() {
 
     paneImagesDiv.addEventListener('scroll', () => {
       const visibleImageContainers = []
-      for (let index = firstIntersectingIndex; index < imageContainers.length; index++) {
+      for (let index = Math.max(firstIntersectingIndex - 1, 1); index < imageContainers.length; index++) {
         const percentage = getVisiblePercentageInViewport(imageContainers[index - 1])
         if (percentage > 0) {
           visibleImageContainers.push({
@@ -139,8 +139,6 @@ export default function() {
             percentage,
             element: imageContainers[index],
           })
-        } else if (visibleImageContainers.length > 0) {
-          break
         }
       }
 
@@ -161,15 +159,14 @@ export default function() {
   function getVisiblePercentageInViewport(element: HTMLElement) {
     const viewportHeight = window.innerHeight
     const { top, bottom } = element.getBoundingClientRect()
-    if (bottom < 0) {
+    if (top > viewportHeight || bottom < 0) {
       return 0
     }
 
-    if (top >= 0) {
-      return (Math.min(viewportHeight, bottom) - top) / viewportHeight
-    } else {
-      return bottom / viewportHeight
-    }
+    const visibleBottom = Math.min(viewportHeight, bottom)
+    const visibleTop = Math.max(top, 0)
+
+    return (visibleBottom - visibleTop) / viewportHeight
   }
 
   return {
