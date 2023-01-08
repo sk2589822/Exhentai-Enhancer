@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.5.5
+// @version            1.6.0
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -1712,6 +1712,12 @@ var __publicField = (obj, key, value) => {
             case "KeyR":
               unsafeWindow.action_reload(currentPage.value);
               break;
+            case "Numpad7":
+              rotate(-90);
+              break;
+            case "Numpad9":
+              rotate(90);
+              break;
           }
         }
       });
@@ -1799,6 +1805,18 @@ var __publicField = (obj, key, value) => {
       }, {
         once: true
       });
+    }
+    function rotate(degree) {
+      const currentImage = getCurrentImage();
+      const currentDegree = Number(currentImage.style.rotate.replace("deg", ""));
+      const newDegree = (currentDegree + degree) % 360;
+      currentImage.style.rotate = `${newDegree}deg`;
+      if (newDegree % 180 == 0) {
+        currentImage.style.scale = "initial";
+      } else {
+        const { width, height } = currentImage.getBoundingClientRect();
+        currentImage.style.scale = (width / height).toString();
+      }
     }
     return {
       setKeyBoardEvent,
