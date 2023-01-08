@@ -9,7 +9,7 @@ works when:
 1. url match `https://e(x)hentai.org/g/*/*`
 2. settings -> Front Page Settings -> check `Thumbnail`
 
-### features
+### Features
 
 1. Load all images sequentially if the there are more than one page.  
    \*Could disable by unticking `Enable auto redirect to Multi-Page Viewer` in tampermonkey menu
@@ -29,17 +29,19 @@ works on:
 2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup  
    \*Could disable all featuingres by untick `Enable Multi-Page Viewer enhancer` in tampermonkey menu
 
-### features
+### Features
 
 1. Append current index & page count to image info.
 
 2. Show thumbs when mouse close to/hover thumbs(remember to open thumbs in settings).
 
-3. Add page elevator.
+3. Page elevator.
 
-4. Add images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height).
+4. Images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height).
 
-5. Auto redirect to Multi-Page Viewer if in Single-Page Viewer(url match `https://exhentai.org/s/*/*`)  
+5. Rotate image.
+
+6. Auto redirect to Multi-Page Viewer if in Single-Page Viewer(url match `https://exhentai.org/s/*/*`)  
    \*(Could disabled from youingr tampermonkey menu - Enable auto redirect to Multi-Page Viewer)*
    
 
@@ -52,7 +54,7 @@ works on:
 
 2. settings -> Front Page Settings -> check `Thumbnail`
 
-### features
+### Features
 
 1. Load galleries next page when scroll to bottom of page.  
    \*Could disable by unticking `Enable infinite scroll in Front page` in tampermonkey menu
@@ -63,27 +65,29 @@ works on:
 
 | Key / Mouse | Feature |
 | --- | --- |
-| `left click` | go to next page. |
-| `numpad 3`  | go to next page. |
-| `numpad 6`  | go to next page. | 
-| `space` | go to next page. |
-| `mouse wheel up` (when hovering enhancer) | go to next page. |
-| `right click` | go to previous page. |
-| `numpad 1` | go to previous page. |
-| `numpad 4`  | go to previous page. |
-| `backspace` | go to previous page. |
-| `mouse wheel down` (when hovering enhancer) | go to previous page. |
-| `ctrl` + `→` | go to next 10 page. |
-| `ctrl` + `←` | go to previous 10 page. |
-| `ctrl` + `1`~`5` | set current size of image resizer to 100%/125%/150%/175%/200%. |
-| `numpad +` | increase current size of image resizer (set to 100% if not set yet). |
-| `numpad -` | decrease current size of image resizer (set to 200% if not set yet). |
-| `numpad 0` | set current size of image resizer to smallest size (currently 100%). |
-| `numpad .` | set current size of image resizer to middle size (currently 150%). |
-| `numpad enter` | clear current size of image resizer (to original size). |
-| `numpad 8` | scroll to top of current image. |
-| `numpad 5` | scroll to middle of current image. |
-| `numpad 2` | scroll to bottom of current image. |
+| `left click` | Go to next page. |
+| `numpad 3`  | Go to next page. |
+| `numpad 6`  | Go to next page. | 
+| `space` | Go to next page. |
+| `mouse wheel up` (when hovering enhancer) | Go to next page. |
+| `right click` | Go to previous page. |
+| `numpad 1` | Go to previous page. |
+| `numpad 4`  | Go to previous page. |
+| `backspace` | Go to previous page. |
+| `mouse wheel down` (when hovering enhancer) | Go to previous page. |
+| `ctrl` + `→` | Go to next 10 page. |
+| `ctrl` + `←` | Go to previous 10 page. |
+| `ctrl` + `1`~`5` | Set current size of image resizer to 100%/125%/150%/175%/200%. |
+| `numpad +` | Increase current size of image resizer (set to 100% if not set yet). |
+| `numpad -` | Decrease current size of image resizer (set to 200% if not set yet). |
+| `numpad 0` | Set current size of image resizer to smallest size (currently 100%). |
+| `numpad .` | Set current size of image resizer to middle size (currently 150%). |
+| `numpad enter` | Clear current size of image resizer (to original size). |
+| `numpad 8` | Scroll to top of current image. |
+| `numpad 5` | Scroll to middle of current image. |
+| `numpad 2` | Scroll to bottom of current image. |
+| `numpad 7` | Rotate the image by -90 degree. |
+| `numpad 9` | Rotate the image by 90 degree. |
 | `Key F` | Toggle full screen. |
 | `Key R` | Reload current image. |
 
@@ -122,6 +126,9 @@ works on:
 
   Show thumbs when hover  
   ![](https://imgur.com/RoVA7iX.gif)
+
+  Rotate image  
+  ![](https://imgur.com/LtZJwH4.gif)
   
   Go to next/previous 10 page by `ctrl + →` `ctrl + ←`  
   ![](https://imgur.com/5viyiJ8.gif)

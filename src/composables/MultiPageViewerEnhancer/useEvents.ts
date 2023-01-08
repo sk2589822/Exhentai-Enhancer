@@ -137,6 +137,14 @@ export default function() {
           case 'KeyR':
             unsafeWindow.action_reload(currentPage.value)
             break
+
+          case 'Numpad7':
+            rotate(-90)
+            break
+
+          case 'Numpad9':
+            rotate(90)
+            break
         }
       }
     })
@@ -266,6 +274,21 @@ export default function() {
     }, {
       once: true,
     })
+  }
+
+  function rotate(degree: number) {
+    const currentImage = getCurrentImage()
+    const currentDegree = Number(currentImage.style.rotate.replace('deg', ''))
+
+    const newDegree = (currentDegree + degree) % 360
+    currentImage.style.rotate = `${newDegree}deg`
+
+    if (newDegree % 180 == 0) {
+      currentImage.style.scale = 'initial'
+    } else {
+      const { width, height } = currentImage.getBoundingClientRect()
+      currentImage.style.scale = (width / height).toString()
+    }
   }
 
   return {
