@@ -2,9 +2,6 @@
 <template />
 
 <script setup lang="ts">
-import { useWindowScroll } from '@vueuse/core'
-import { computed, watch } from 'vue'
-
 import useWheelStep from '@/composables/useWheelStep'
 import { getDoc, getElement, getElements } from '@/utils/commons'
 import { scrollPerRowSwitch, infiniteScrollSwitch } from '@/utils/monkeySwitches'
@@ -21,41 +18,39 @@ if (infiniteScrollSwitch.enabled) {
 }
 
 function useInfiniteScroll() {
-  const { y } = useWindowScroll()
-  const isAtBottomOfPage = computed(() => {
-    return y.value === document.documentElement.scrollHeight - window.innerHeight
-  })
-
   const galleryContainer = getElement('.itg.gld')
+  const bottomPagination = getElements('.searchnav')?.[1]
   let nextPageUrl = getElement('#dnext')?.getAttribute('href')
-
   let isFetching = false
-  watch(y, async () => {
-    if (isFetching) {
+
+  const intersectionObserver = new IntersectionObserver(async ([bottomPagination]) => {
+    if (
+      !bottomPagination.isIntersecting ||
+      isFetching ||
+      !nextPageUrl
+    ) {
       return
     }
 
-    if (isAtBottomOfPage.value) {
-      if (!nextPageUrl) {
-        return
-      }
+    isFetching = true
+    galleryContainer?.classList.add('is-fetching')
 
-      isFetching = true
-      galleryContainer?.classList.add('is-fetching')
+    const doc = await getDoc(nextPageUrl)
+    const galleriesOfNextPage = getElements('.itg.gld > .gl1t', doc)
 
-      const doc = await getDoc(nextPageUrl)
-      const galleriesOfNextPage = getElements('.itg.gld > .gl1t', doc)
-
-      if (!galleriesOfNextPage) {
-        return
-      }
-      galleryContainer?.append(...galleriesOfNextPage)
-      isFetching = false
-      galleryContainer?.classList.remove('is-fetching')
-
-      nextPageUrl = getElement('#dnext', doc)?.getAttribute('href')
+    if (!galleriesOfNextPage) {
+      return
     }
+    galleryContainer?.append(...galleriesOfNextPage)
+    isFetching = false
+    galleryContainer?.classList.remove('is-fetching')
+
+    nextPageUrl = getElement('#dnext', doc)?.getAttribute('href')
   })
+
+  if (bottomPagination) {
+    intersectionObserver.observe(bottomPagination)
+  }
 }
 </script>
 
