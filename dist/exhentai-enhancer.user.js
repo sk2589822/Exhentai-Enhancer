@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.6.0
+// @version            1.6.1
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -102,6 +102,315 @@ var __publicField = (obj, key, value) => {
     }
     if (absolute) {
       element.scrollTop = absolute;
+    }
+  }
+  function useWheelStep({
+    containerSelector,
+    itemsSelector
+  }) {
+    const container = getElement(containerSelector);
+    let firstItemOfRows = getFirstItemOfRows();
+    const mutationObserver = new MutationObserver(() => {
+      firstItemOfRows = getFirstItemOfRows();
+    });
+    mutationObserver.observe(container, {
+      childList: true,
+      characterData: true
+    });
+    setContainerWheelEvent();
+    function setContainerWheelEvent() {
+      if (!container) {
+        return;
+      }
+      container.addEventListener("mousewheel", (event) => {
+        if (!firstItemOfRows) {
+          return;
+        }
+        const firstVisibleItemIndex = firstItemOfRows.findIndex((item) => Math.floor(item.getBoundingClientRect().bottom) > 0);
+        const firstVisibleItem = firstItemOfRows[firstVisibleItemIndex];
+        const boundingTop = Math.floor(firstVisibleItem.getBoundingClientRect().top);
+        let nextIndex = firstVisibleItemIndex;
+        if (Math.sign(event.deltaY) === 1 && boundingTop <= 0) {
+          nextIndex++;
+        } else if (Math.sign(event.deltaY) === -1 && boundingTop >= 0) {
+          nextIndex--;
+        }
+        if (nextIndex >= 0 && nextIndex < firstItemOfRows.length) {
+          event.preventDefault();
+          event.stopPropagation();
+          firstItemOfRows[nextIndex].scrollIntoView();
+        }
+      });
+    }
+    function getFirstItemOfRows() {
+      const item = getElement(itemsSelector);
+      const itemsPerRow = Math.floor(container.clientWidth / item.clientWidth);
+      const firstItemOfRows2 = getElements(`${itemsSelector}:nth-child(${itemsPerRow}n + 1)`);
+      if (!firstItemOfRows2) {
+        return [];
+      }
+      return [...firstItemOfRows2];
+    }
+    return;
+  }
+  const _sfc_main$7 = /* @__PURE__ */ vue.defineComponent({
+    __name: "FrontPageEnhancer",
+    setup(__props) {
+      if (scrollPerRowSwitch.enabled) {
+        useWheelStep({
+          containerSelector: ".itg.gld",
+          itemsSelector: ".gl1t"
+        });
+      }
+      if (infiniteScrollSwitch.enabled) {
+        useInfiniteScroll();
+      }
+      function useInfiniteScroll() {
+        var _a3, _b;
+        const galleryContainer = getElement(".itg.gld");
+        const bottomPagination = (_a3 = getElements(".searchnav")) == null ? void 0 : _a3[1];
+        let nextPageUrl = (_b = getElement("#dnext")) == null ? void 0 : _b.getAttribute("href");
+        let isFetching = false;
+        const intersectionObserver = new IntersectionObserver(async ([bottomPagination2]) => {
+          var _a4;
+          if (!bottomPagination2.isIntersecting || isFetching || !nextPageUrl) {
+            return;
+          }
+          isFetching = true;
+          galleryContainer == null ? void 0 : galleryContainer.classList.add("is-fetching");
+          const doc = await getDoc(nextPageUrl);
+          const galleriesOfNextPage = getElements(".itg.gld > .gl1t", doc);
+          if (!galleriesOfNextPage) {
+            return;
+          }
+          galleryContainer == null ? void 0 : galleryContainer.append(...galleriesOfNextPage);
+          isFetching = false;
+          galleryContainer == null ? void 0 : galleryContainer.classList.remove("is-fetching");
+          nextPageUrl = (_a4 = getElement("#dnext", doc)) == null ? void 0 : _a4.getAttribute("href");
+        });
+        if (bottomPagination) {
+          intersectionObserver.observe(bottomPagination);
+        }
+      }
+      return (_ctx, _cache) => {
+        return null;
+      };
+    }
+  });
+  const FrontPageEnhancer_vue_vue_type_style_index_0_lang = "";
+  class Logger {
+    constructor(feature, scope) {
+      __publicField(this, "_feature");
+      __publicField(this, "_featureStyle");
+      __publicField(this, "_scope");
+      __publicField(this, "_scopeStyle");
+      this._feature = feature;
+      this._scope = scope;
+      this._featureStyle = "background: #777; border-radius: 5px;";
+      this._scopeStyle = "background: #555; border-radius: 5px;";
+    }
+    set scope(scope) {
+      this._scope = scope;
+    }
+    get prefix() {
+      let prefix = `%c ${this._feature} `;
+      if (this._scope) {
+        prefix += `%c ${this._scope} `;
+      }
+      return prefix;
+    }
+    get style() {
+      const style = [this._featureStyle];
+      if (this._scope) {
+        style.push(this._scopeStyle);
+      }
+      return style;
+    }
+    log(message) {
+      console.log(
+        this.prefix,
+        ...this.style,
+        message
+      );
+    }
+    error(message, error) {
+      console.error(
+        this.prefix,
+        ...this.style,
+        message,
+        error
+      );
+    }
+  }
+  class LoggerScopeDecorator {
+    constructor(baseLogger2, scope) {
+      __publicField(this, "_logger");
+      this._logger = baseLogger2;
+      this._logger.scope = scope;
+    }
+    log(message) {
+      this._logger.log(message);
+    }
+    error(message, error) {
+      this._logger.error(message, error);
+    }
+  }
+  function useElement() {
+    const infoDiv = getElement(".gm");
+    const archiveLinkAnchor2 = getElement("#gd5 > p:nth-child(2) a");
+    const torrentLinkAnchor2 = getElement("#gd5 > p:nth-child(3) a");
+    return {
+      infoDiv,
+      archiveLinkAnchor: archiveLinkAnchor2,
+      torrentLinkAnchor: torrentLinkAnchor2
+    };
+  }
+  const baseLogger$1 = new Logger("Preload Download Links");
+  const torrentInnerHtml = vue.ref("");
+  const archiveInnerHtml = vue.ref("");
+  const { archiveLinkAnchor, torrentLinkAnchor } = useElement();
+  function usePreloadDownloadLinks() {
+    async function preloadDownloadLinks() {
+      [archiveInnerHtml.value, torrentInnerHtml.value] = await Promise.all([
+        preloadArchiveLink(),
+        preloadTorrentLink()
+      ]);
+    }
+    async function preloadTorrentLink() {
+      const logger = new LoggerScopeDecorator(baseLogger$1, "Torrent");
+      logger.log("Start");
+      const link = getLink(torrentLinkAnchor);
+      if (!link) {
+        logger.error("link not found.");
+        return "";
+      }
+      const doc = await getDoc(link);
+      const popupContent = getPopupContent(doc, "#torrentinfo > div:first-child");
+      if (!popupContent) {
+        logger.error("popup content not found.");
+        return "";
+      }
+      logger.log("End");
+      return popupContent.innerHTML;
+    }
+    async function preloadArchiveLink() {
+      const logger = new Logger("Archive");
+      logger.log("Start");
+      const link = getLink(archiveLinkAnchor);
+      if (!link) {
+        logger.error("link not found.");
+        return "";
+      }
+      const doc = await getDoc(link);
+      const popupContent = getPopupContent(doc, "#db");
+      if (!popupContent) {
+        logger.error("popup content not found.");
+        return "";
+      }
+      logger.log("End");
+      return popupContent.innerHTML;
+    }
+    function getLink(linkElement) {
+      var _a3;
+      const onClick = linkElement.getAttribute("onclick");
+      if (!onClick) {
+        return null;
+      }
+      return (_a3 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a3[1];
+    }
+    function getPopupContent(doc, selector) {
+      const content = getElement(selector, doc);
+      if (!content) {
+        return null;
+      }
+      content.removeAttribute("style");
+      content.classList.add("popup");
+      return content;
+    }
+    return {
+      preloadDownloadLinks,
+      torrentInnerHtml,
+      archiveInnerHtml
+    };
+  }
+  function usePosition() {
+    const { archiveLinkAnchor: archiveLinkAnchor2, torrentLinkAnchor: torrentLinkAnchor2, infoDiv } = useElement();
+    const popupRight = vue.ref(getPopupRight());
+    const archiveTop = vue.ref(getArchiveTop());
+    const torrentTop = vue.ref(getTorrentTop());
+    function getPopupRight() {
+      return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2;
+    }
+    function getArchiveTop() {
+      const { top, height } = archiveLinkAnchor2.getBoundingClientRect();
+      return top + height + window.scrollY + 5;
+    }
+    function getTorrentTop() {
+      const { top, height } = torrentLinkAnchor2.getBoundingClientRect();
+      return top + height + window.scrollY + 5;
+    }
+    return {
+      popupRight,
+      archiveTop,
+      torrentTop
+    };
+  }
+  const baseLogger = new Logger("Images");
+  async function fetchAllImages({ delayInMs = 3e3 }) {
+    const logger = new LoggerScopeDecorator(baseLogger, "Fetch All");
+    if (!isFirstPage()) {
+      logger.log("Not first page, do nothing");
+      return;
+    }
+    logger.log("Start");
+    const pageUrls = getPageUrls();
+    if (!pageUrls) {
+      return;
+    }
+    if (pageUrls.length === 0) {
+      logger.log("Only one page, do nothing");
+      return;
+    }
+    for (const url of pageUrls) {
+      try {
+        await delay(delayInMs);
+        logger.log(`fetching ${url}`);
+        const doc = await getDoc(url);
+        const imageElements = getImageElements(doc);
+        if (!imageElements) {
+          return;
+        }
+        appendImages(imageElements);
+      } catch (error) {
+        if (error instanceof Error) {
+          logger.error(`fetch ${url} failed`, error);
+        }
+      }
+    }
+    logger.log("Done");
+    function isFirstPage() {
+      var _a3;
+      return ((_a3 = getElement(".ptds")) == null ? void 0 : _a3.innerText) === "1";
+    }
+    function getImageElements(doc) {
+      return getElements(".gdtl", doc);
+    }
+    function getPageUrls() {
+      const lastPageElement = getElement(".ptt td:nth-last-child(2)");
+      if (!lastPageElement) {
+        logger.error("Get last page element failed");
+        return;
+      }
+      const pageCount2 = Number(lastPageElement.innerText);
+      if (pageCount2 === 1) {
+        return [];
+      }
+      const { href } = window.location;
+      return Array(pageCount2 - 1).fill("").map((_, index2) => `${href}?p=${index2 + 1}`);
+    }
+    function appendImages(elements) {
+      var _a3;
+      (_a3 = getElement("#gdt > .c")) == null ? void 0 : _a3.before(...elements);
     }
   }
   var _a;
@@ -647,338 +956,6 @@ var __publicField = (obj, key, value) => {
   __spreadValues({
     linear: identity
   }, _TransitionPresets);
-  function useWindowScroll({ window: window2 = defaultWindow } = {}) {
-    if (!window2) {
-      return {
-        x: vue.ref(0),
-        y: vue.ref(0)
-      };
-    }
-    const x = vue.ref(window2.pageXOffset);
-    const y = vue.ref(window2.pageYOffset);
-    useEventListener(window2, "scroll", () => {
-      x.value = window2.pageXOffset;
-      y.value = window2.pageYOffset;
-    }, {
-      capture: false,
-      passive: true
-    });
-    return { x, y };
-  }
-  function useWheelStep({
-    containerSelector,
-    itemsSelector
-  }) {
-    const container = getElement(containerSelector);
-    let firstItemOfRows = getFirstItemOfRows();
-    const mutationObserver = new MutationObserver(() => {
-      firstItemOfRows = getFirstItemOfRows();
-    });
-    mutationObserver.observe(container, {
-      childList: true,
-      characterData: true
-    });
-    setContainerWheelEvent();
-    function setContainerWheelEvent() {
-      if (!container) {
-        return;
-      }
-      container.addEventListener("mousewheel", (event) => {
-        if (!firstItemOfRows) {
-          return;
-        }
-        const firstVisibleItemIndex = firstItemOfRows.findIndex((item) => Math.floor(item.getBoundingClientRect().bottom) > 0);
-        const firstVisibleItem = firstItemOfRows[firstVisibleItemIndex];
-        const boundingTop = Math.floor(firstVisibleItem.getBoundingClientRect().top);
-        let nextIndex = firstVisibleItemIndex;
-        if (Math.sign(event.deltaY) === 1 && boundingTop <= 0) {
-          nextIndex++;
-        } else if (Math.sign(event.deltaY) === -1 && boundingTop >= 0) {
-          nextIndex--;
-        }
-        if (nextIndex >= 0 && nextIndex < firstItemOfRows.length) {
-          event.preventDefault();
-          event.stopPropagation();
-          firstItemOfRows[nextIndex].scrollIntoView();
-        }
-      });
-    }
-    function getFirstItemOfRows() {
-      const item = getElement(itemsSelector);
-      const itemsPerRow = Math.floor(container.clientWidth / item.clientWidth);
-      const firstItemOfRows2 = getElements(`${itemsSelector}:nth-child(${itemsPerRow}n + 1)`);
-      if (!firstItemOfRows2) {
-        return [];
-      }
-      return [...firstItemOfRows2];
-    }
-    return;
-  }
-  const _sfc_main$7 = /* @__PURE__ */ vue.defineComponent({
-    __name: "FrontPageEnhancer",
-    setup(__props) {
-      if (scrollPerRowSwitch.enabled) {
-        useWheelStep({
-          containerSelector: ".itg.gld",
-          itemsSelector: ".gl1t"
-        });
-      }
-      if (infiniteScrollSwitch.enabled) {
-        useInfiniteScroll();
-      }
-      function useInfiniteScroll() {
-        var _a3;
-        const { y } = useWindowScroll();
-        const isAtBottomOfPage = vue.computed(() => {
-          return y.value === document.documentElement.scrollHeight - window.innerHeight;
-        });
-        const galleryContainer = getElement(".itg.gld");
-        let nextPageUrl = (_a3 = getElement("#dnext")) == null ? void 0 : _a3.getAttribute("href");
-        let isFetching = false;
-        vue.watch(y, async () => {
-          var _a4;
-          if (isFetching) {
-            return;
-          }
-          if (isAtBottomOfPage.value) {
-            if (!nextPageUrl) {
-              return;
-            }
-            isFetching = true;
-            galleryContainer == null ? void 0 : galleryContainer.classList.add("is-fetching");
-            const doc = await getDoc(nextPageUrl);
-            const galleriesOfNextPage = getElements(".itg.gld > .gl1t", doc);
-            if (!galleriesOfNextPage) {
-              return;
-            }
-            galleryContainer == null ? void 0 : galleryContainer.append(...galleriesOfNextPage);
-            isFetching = false;
-            galleryContainer == null ? void 0 : galleryContainer.classList.remove("is-fetching");
-            nextPageUrl = (_a4 = getElement("#dnext", doc)) == null ? void 0 : _a4.getAttribute("href");
-          }
-        });
-      }
-      return (_ctx, _cache) => {
-        return null;
-      };
-    }
-  });
-  const FrontPageEnhancer_vue_vue_type_style_index_0_lang = "";
-  class Logger {
-    constructor(feature, scope) {
-      __publicField(this, "_feature");
-      __publicField(this, "_featureStyle");
-      __publicField(this, "_scope");
-      __publicField(this, "_scopeStyle");
-      this._feature = feature;
-      this._scope = scope;
-      this._featureStyle = "background: #777; border-radius: 5px;";
-      this._scopeStyle = "background: #555; border-radius: 5px;";
-    }
-    set scope(scope) {
-      this._scope = scope;
-    }
-    get prefix() {
-      let prefix = `%c ${this._feature} `;
-      if (this._scope) {
-        prefix += `%c ${this._scope} `;
-      }
-      return prefix;
-    }
-    get style() {
-      const style = [this._featureStyle];
-      if (this._scope) {
-        style.push(this._scopeStyle);
-      }
-      return style;
-    }
-    log(message) {
-      console.log(
-        this.prefix,
-        ...this.style,
-        message
-      );
-    }
-    error(message, error) {
-      console.error(
-        this.prefix,
-        ...this.style,
-        message,
-        error
-      );
-    }
-  }
-  class LoggerScopeDecorator {
-    constructor(baseLogger2, scope) {
-      __publicField(this, "_logger");
-      this._logger = baseLogger2;
-      this._logger.scope = scope;
-    }
-    log(message) {
-      this._logger.log(message);
-    }
-    error(message, error) {
-      this._logger.error(message, error);
-    }
-  }
-  function useElement() {
-    const infoDiv = getElement(".gm");
-    const archiveLinkAnchor2 = getElement("#gd5 > p:nth-child(2) a");
-    const torrentLinkAnchor2 = getElement("#gd5 > p:nth-child(3) a");
-    return {
-      infoDiv,
-      archiveLinkAnchor: archiveLinkAnchor2,
-      torrentLinkAnchor: torrentLinkAnchor2
-    };
-  }
-  const baseLogger$1 = new Logger("Preload Download Links");
-  const torrentInnerHtml = vue.ref("");
-  const archiveInnerHtml = vue.ref("");
-  const { archiveLinkAnchor, torrentLinkAnchor } = useElement();
-  function usePreloadDownloadLinks() {
-    async function preloadDownloadLinks() {
-      [archiveInnerHtml.value, torrentInnerHtml.value] = await Promise.all([
-        preloadArchiveLink(),
-        preloadTorrentLink()
-      ]);
-    }
-    async function preloadTorrentLink() {
-      const logger = new LoggerScopeDecorator(baseLogger$1, "Torrent");
-      logger.log("Start");
-      const link = getLink(torrentLinkAnchor);
-      if (!link) {
-        logger.error("link not found.");
-        return "";
-      }
-      const doc = await getDoc(link);
-      const popupContent = getPopupContent(doc, "#torrentinfo > div:first-child");
-      if (!popupContent) {
-        logger.error("popup content not found.");
-        return "";
-      }
-      logger.log("End");
-      return popupContent.innerHTML;
-    }
-    async function preloadArchiveLink() {
-      const logger = new Logger("Archive");
-      logger.log("Start");
-      const link = getLink(archiveLinkAnchor);
-      if (!link) {
-        logger.error("link not found.");
-        return "";
-      }
-      const doc = await getDoc(link);
-      const popupContent = getPopupContent(doc, "#db");
-      if (!popupContent) {
-        logger.error("popup content not found.");
-        return "";
-      }
-      logger.log("End");
-      return popupContent.innerHTML;
-    }
-    function getLink(linkElement) {
-      var _a3;
-      const onClick = linkElement.getAttribute("onclick");
-      if (!onClick) {
-        return null;
-      }
-      return (_a3 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a3[1];
-    }
-    function getPopupContent(doc, selector) {
-      const content = getElement(selector, doc);
-      if (!content) {
-        return null;
-      }
-      content.removeAttribute("style");
-      content.classList.add("popup");
-      return content;
-    }
-    return {
-      preloadDownloadLinks,
-      torrentInnerHtml,
-      archiveInnerHtml
-    };
-  }
-  function usePosition() {
-    const { archiveLinkAnchor: archiveLinkAnchor2, torrentLinkAnchor: torrentLinkAnchor2, infoDiv } = useElement();
-    const popupRight = vue.ref(getPopupRight());
-    const archiveTop = vue.ref(getArchiveTop());
-    const torrentTop = vue.ref(getTorrentTop());
-    function getPopupRight() {
-      return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2;
-    }
-    function getArchiveTop() {
-      const { top, height } = archiveLinkAnchor2.getBoundingClientRect();
-      return top + height + window.scrollY + 5;
-    }
-    function getTorrentTop() {
-      const { top, height } = torrentLinkAnchor2.getBoundingClientRect();
-      return top + height + window.scrollY + 5;
-    }
-    return {
-      popupRight,
-      archiveTop,
-      torrentTop
-    };
-  }
-  const baseLogger = new Logger("Images");
-  async function fetchAllImages({ delayInMs = 3e3 }) {
-    const logger = new LoggerScopeDecorator(baseLogger, "Fetch All");
-    if (!isFirstPage()) {
-      logger.log("Not first page, do nothing");
-      return;
-    }
-    logger.log("Start");
-    const pageUrls = getPageUrls();
-    if (!pageUrls) {
-      return;
-    }
-    if (pageUrls.length === 0) {
-      logger.log("Only one page, do nothing");
-      return;
-    }
-    for (const url of pageUrls) {
-      try {
-        await delay(delayInMs);
-        logger.log(`fetching ${url}`);
-        const doc = await getDoc(url);
-        const imageElements = getImageElements(doc);
-        if (!imageElements) {
-          return;
-        }
-        appendImages(imageElements);
-      } catch (error) {
-        if (error instanceof Error) {
-          logger.error(`fetch ${url} failed`, error);
-        }
-      }
-    }
-    logger.log("Done");
-    function isFirstPage() {
-      var _a3;
-      return ((_a3 = getElement(".ptds")) == null ? void 0 : _a3.innerText) === "1";
-    }
-    function getImageElements(doc) {
-      return getElements(".gdtl", doc);
-    }
-    function getPageUrls() {
-      const lastPageElement = getElement(".ptt td:nth-last-child(2)");
-      if (!lastPageElement) {
-        logger.error("Get last page element failed");
-        return;
-      }
-      const pageCount2 = Number(lastPageElement.innerText);
-      if (pageCount2 === 1) {
-        return [];
-      }
-      const { href } = window.location;
-      return Array(pageCount2 - 1).fill("").map((_, index2) => `${href}?p=${index2 + 1}`);
-    }
-    function appendImages(elements) {
-      var _a3;
-      (_a3 = getElement("#gdt > .c")) == null ? void 0 : _a3.before(...elements);
-    }
-  }
   const _hoisted_1$4 = ["innerHTML"];
   const _sfc_main$6 = /* @__PURE__ */ vue.defineComponent({
     __name: "PopupTorrent",
