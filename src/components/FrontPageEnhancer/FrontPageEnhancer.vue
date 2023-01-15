@@ -46,6 +46,8 @@ function useInfiniteScroll() {
     galleryContainer?.classList.remove('is-fetching')
 
     nextPageUrl = getElement('#dnext', doc)?.getAttribute('href')
+    
+    history.pushState(undefined, doc.title, nextPageUrl)
   })
 
   if (bottomPagination) {
