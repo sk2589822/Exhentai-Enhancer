@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.6.1
+// @version            1.6.2
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -166,14 +166,17 @@ var __publicField = (obj, key, value) => {
         useInfiniteScroll();
       }
       function useInfiniteScroll() {
-        var _a3, _b;
+        var _a3;
         const galleryContainer = getElement(".itg.gld");
         const bottomPagination = (_a3 = getElements(".searchnav")) == null ? void 0 : _a3[1];
-        let nextPageUrl = (_b = getElement("#dnext")) == null ? void 0 : _b.getAttribute("href");
         let isFetching = false;
         const intersectionObserver = new IntersectionObserver(async ([bottomPagination2]) => {
           var _a4;
-          if (!bottomPagination2.isIntersecting || isFetching || !nextPageUrl) {
+          if (!bottomPagination2.isIntersecting || isFetching) {
+            return;
+          }
+          const nextPageUrl = (_a4 = getElement("#dnext")) == null ? void 0 : _a4.getAttribute("href");
+          if (!nextPageUrl) {
             return;
           }
           isFetching = true;
@@ -186,7 +189,7 @@ var __publicField = (obj, key, value) => {
           galleryContainer == null ? void 0 : galleryContainer.append(...galleriesOfNextPage);
           isFetching = false;
           galleryContainer == null ? void 0 : galleryContainer.classList.remove("is-fetching");
-          nextPageUrl = (_a4 = getElement("#dnext", doc)) == null ? void 0 : _a4.getAttribute("href");
+          history.pushState(void 0, doc.title, nextPageUrl);
         });
         if (bottomPagination) {
           intersectionObserver.observe(bottomPagination);
