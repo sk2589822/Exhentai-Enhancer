@@ -22,6 +22,7 @@ function useInfiniteScroll() {
   const bottomPagination = getElements('.searchnav')?.[1]
   let nextPageUrl = getElement('#dnext')?.getAttribute('href')
   let isFetching = false
+  let curUrl = location.href
 
   const intersectionObserver = new IntersectionObserver(async ([bottomPagination]) => {
     if (
@@ -44,10 +45,11 @@ function useInfiniteScroll() {
     galleryContainer?.append(...galleriesOfNextPage)
     isFetching = false
     galleryContainer?.classList.remove('is-fetching')
-
+    
+    curUrl = nextPageUrl
     nextPageUrl = getElement('#dnext', doc)?.getAttribute('href')
     
-    history.pushState(undefined, doc.title, nextPageUrl)
+    history.pushState(undefined, doc.title, curUrl)
   })
 
   if (bottomPagination) {
