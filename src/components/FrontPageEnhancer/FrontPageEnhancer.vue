@@ -20,15 +20,15 @@ if (infiniteScrollSwitch.enabled) {
 function useInfiniteScroll() {
   const galleryContainer = getElement('.itg.gld')
   const bottomPagination = getElements('.searchnav')?.[1]
-  let nextPageUrl = getElement('#dnext')?.getAttribute('href')
   let isFetching = false
 
   const intersectionObserver = new IntersectionObserver(async ([bottomPagination]) => {
-    if (
-      !bottomPagination.isIntersecting ||
-      isFetching ||
-      !nextPageUrl
-    ) {
+    if (!bottomPagination.isIntersecting || isFetching) {
+      return
+    }
+
+    const nextPageUrl = getElement('#dnext')?.getAttribute('href')
+    if (!nextPageUrl) {
       return
     }
 
@@ -41,11 +41,12 @@ function useInfiniteScroll() {
     if (!galleriesOfNextPage) {
       return
     }
+
     galleryContainer?.append(...galleriesOfNextPage)
     isFetching = false
     galleryContainer?.classList.remove('is-fetching')
 
-    nextPageUrl = getElement('#dnext', doc)?.getAttribute('href')
+    history.pushState(undefined, doc.title, nextPageUrl)
   })
 
   if (bottomPagination) {
