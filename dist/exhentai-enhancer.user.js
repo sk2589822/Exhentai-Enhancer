@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.6.2
+// @version            1.6.3
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -1711,21 +1711,25 @@ var __publicField = (obj, key, value) => {
           contextmenu: goToPrevPage
         };
         for (const [event, action] of Object.entries(config)) {
-          paneImagesDiv.addEventListener(event, (e) => {
-            const target = e.target;
+          paneImagesDiv.addEventListener(event, (event2) => {
+            const target = event2.target;
             if (target.closest(".mi1")) {
               return;
             }
-            e.preventDefault();
-            e.stopPropagation();
+            event2.preventDefault();
+            event2.stopPropagation();
             action();
-            hideCursor(e);
+            hideCursor(event2);
           });
         }
       }
       function setFullscreenToggleEvent() {
         document.body.addEventListener("mousedown", (event) => {
           if (event.button !== 1) {
+            return;
+          }
+          const target = event.target;
+          if (target.closest(".original-functions")) {
             return;
           }
           document.body.addEventListener("mouseup", () => {
@@ -1770,9 +1774,9 @@ var __publicField = (obj, key, value) => {
       document.body.classList.add("hide-cursor");
     }
     function setShowThumbsEvent() {
-      document.addEventListener("mousemove", (e) => {
+      document.addEventListener("mousemove", (event) => {
         const threshold = 15;
-        const shouldShowThumbs = e.clientX < paneThumbsDiv.offsetWidth + threshold;
+        const shouldShowThumbs = event.clientX < paneThumbsDiv.offsetWidth + threshold;
         paneThumbsDiv.style.opacity = shouldShowThumbs ? "1" : "0";
       });
     }
@@ -2006,9 +2010,21 @@ var __publicField = (obj, key, value) => {
       });
       const exhentaiButtons = vue.ref("");
       vue.onMounted(() => {
-        var _a3;
-        exhentaiButtons.value = (_a3 = getElement("#bar3")) == null ? void 0 : _a3.innerHTML;
+        exhentaiButtons.value = replaceOriginalFunctions();
       });
+      function replaceOriginalFunctions() {
+        var _a3;
+        const originalFunctions = getElement("#bar3");
+        const closeButton = originalFunctions.querySelector("img:first-child");
+        if (!closeButton) {
+          return "";
+        }
+        const link = document.createElement("a");
+        link.href = window.location.origin + window.location.pathname.replace("mpv", "g");
+        (_a3 = closeButton.parentNode) == null ? void 0 : _a3.insertBefore(link, closeButton);
+        link.append(closeButton);
+        return originalFunctions.innerHTML;
+      }
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock("div", {
           class: "enhancer-features",
