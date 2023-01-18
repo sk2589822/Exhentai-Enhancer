@@ -166,20 +166,20 @@ export default function() {
 
       for (const [event, action] of Object.entries(config)) {
         paneImagesDiv
-          .addEventListener(event, e => {
-            const target = e.target as HTMLElement
+          .addEventListener(event, event => {
+            const target = event.target as HTMLElement
 
             // 點擊資訊列不動作
             if (target.closest('.mi1')) {
               return
             }
 
-            e.preventDefault()
-            e.stopPropagation()
+            event.preventDefault()
+            event.stopPropagation()
 
             action()
 
-            hideCursor(e as MouseEvent)
+            hideCursor(event as MouseEvent)
           })
       }
     }
@@ -189,6 +189,12 @@ export default function() {
         .addEventListener('mousedown', event => {
           // event.button === 1 => Middle button
           if (event.button !== 1) {
+            return
+          }
+
+          const target = event.target as HTMLElement
+
+          if (target.closest('.original-functions')) {
             return
           }
 
@@ -254,10 +260,10 @@ export default function() {
   }
 
   function setShowThumbsEvent() {
-    document.addEventListener('mousemove', e => {
+    document.addEventListener('mousemove', event => {
       const threshold = 15
 
-      const shouldShowThumbs = e.clientX < paneThumbsDiv.offsetWidth + threshold
+      const shouldShowThumbs = event.clientX < paneThumbsDiv.offsetWidth + threshold
       paneThumbsDiv.style.opacity = shouldShowThumbs
         ? '1'
         : '0'

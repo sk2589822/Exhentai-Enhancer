@@ -55,8 +55,24 @@ useWheelStep({
 
 const exhentaiButtons = ref<string>('')
 onMounted(() => {
-  exhentaiButtons.value = (getElement('#bar3') as HTMLElement)?.innerHTML
+  exhentaiButtons.value = replaceOriginalFunctions()
 })
+
+function replaceOriginalFunctions() {
+  const originalFunctions = getElement('#bar3') as HTMLElement
+  const closeButton = originalFunctions.querySelector('img:first-child')
+  if (!closeButton) {
+    return ''
+  }
+
+  const link = document.createElement('a')
+  link.href = window.location.origin + window.location.pathname.replace('mpv', 'g')
+
+  closeButton.parentNode?.insertBefore(link, closeButton)
+  link.append(closeButton)
+
+  return originalFunctions.innerHTML
+}
 </script>
 
 <style lang="scss">
