@@ -6,7 +6,7 @@ export function getElement<T extends HTMLElement>(selector: string, root: Docume
   return root.querySelector(selector)
 }
 
-export function getElements<T extends HTMLElement>(selector: string, root = document): NodeListOf<T> | null {
+export function getElements<T extends HTMLElement>(selector: string, root: Document | HTMLElement = document): NodeListOf<T> | null {
   return root.querySelectorAll(selector)
 }
 

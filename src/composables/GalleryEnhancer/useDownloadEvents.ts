@@ -148,6 +148,7 @@ export default function() {
       }
 
       const downloadLink = `${matches[1]}?start=1`
+      // TODO: open in new tab?
       window.location.href = downloadLink
     }
   }

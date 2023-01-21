@@ -13,13 +13,13 @@
 import useWheelStep from '@/composables/useWheelStep'
 import usePreloadDownloadLinks from '@/composables/GalleryEnhancer/usePreloadDownloadLinks'
 import usePosition from '@/composables/GalleryEnhancer/usePositions'
-import { scrollPerRowSwitch, betterDownloadPopupSwitch, loadAllGalleryImagesSwitch } from '@/utils/monkeySwitches'
+import { scrollByRowSwitch, betterDownloadPopupSwitch, loadAllGalleryImagesSwitch } from '@/utils/GMVariables'
 import { fetchAllImages } from '@/utils/fetchImages'
 
 import PopupTorrent from './PopupTorrent.vue'
 import PopupArchive from './PopupArchive.vue'
 
-if (loadAllGalleryImagesSwitch.enabled) {
+if (loadAllGalleryImagesSwitch.value) {
   fetchAllImages({ delayInMs: 1000 })
 }
 
@@ -29,11 +29,11 @@ const {
   torrentInnerHtml,
 } = usePreloadDownloadLinks()
 
-if (betterDownloadPopupSwitch.enabled) {
+if (betterDownloadPopupSwitch.value) {
   preloadDownloadLinks()
 }
 
-if (scrollPerRowSwitch.enabled) {
+if (scrollByRowSwitch.value) {
   useWheelStep({
     containerSelector: '#gdt',
     itemsSelector: '.gdtl',
