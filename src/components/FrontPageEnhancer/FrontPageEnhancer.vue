@@ -4,16 +4,16 @@
 <script setup lang="ts">
 import useWheelStep from '@/composables/useWheelStep'
 import { getDoc, getElement, getElements } from '@/utils/commons'
-import { scrollPerRowSwitch, infiniteScrollSwitch } from '@/utils/monkeySwitches'
+import { scrollByRowSwitch, infiniteScrollSwitch } from '@/utils/GMVariables'
 
-if (scrollPerRowSwitch.enabled) {
+if (scrollByRowSwitch.value) {
   useWheelStep({
     containerSelector: '.itg.gld',
     itemsSelector: '.gl1t',
   })
 }
 
-if (infiniteScrollSwitch.enabled) {
+if (infiniteScrollSwitch.value) {
   useInfiniteScroll()
 }
 

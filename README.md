@@ -21,7 +21,7 @@ works when:
    \*Could disable by unticking `Enable better download popup` in tampermonkey menu
 
 4. Go to next/prev row if mouse wheel on images container.  
-   \*Could disable by unticking `Enable scroll per row` in tampermonkey menu
+   \*Could disable by unticking `Enable scroll by row` in tampermonkey menu
 
 ## Multi-Page Viewer Enhancer
 works on: 
@@ -60,7 +60,7 @@ works on:
    \*Could disable by unticking `Enable infinite scroll in Front page` in tampermonkey menu
 
 2. Go to next/prev row if mouse wheel on images container.   
-   \*Could disable by unticking `Enable scroll per row` in tampermonkey menu
+   \*Could disable by unticking `Enable scroll by row` in tampermonkey menu
 ## Shortcuts
 
 | Key / Mouse | Feature |

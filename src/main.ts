@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 
-import { initializeMonkeySwitches } from '@/utils/monkeySwitches'
+import { initializeMonkeySwitches } from '@/utils/GMVariables'
 import App from '@/App.vue'
 
 const app = createApp(App)

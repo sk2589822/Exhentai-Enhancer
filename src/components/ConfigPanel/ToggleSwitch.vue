@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 
 const props = defineProps<{
   modelValue: boolean
@@ -18,12 +18,14 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (event: 'update:modelValue', value: boolean): void
+  (event: 'toggle', value: boolean): void
 }>()
 
 const modelValueProxy = computed({
   get: () => props.modelValue,
   set: (value: boolean) => {
     emit('update:modelValue', value)
+    emit('toggle', value)
   },
 })
 </script>
