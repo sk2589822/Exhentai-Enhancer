@@ -1,5 +1,6 @@
 <template>
   <component :is="enhancer" />
+  <ConfigPanel />
 </template>
 
 <script setup lang="ts">
@@ -9,14 +10,15 @@ import { getElement } from '@/utils/commons'
 import FrontPageEnhancer from '@/components/FrontPageEnhancer/FrontPageEnhancer.vue'
 import GalleryEnhancer from '@/components/GalleryEnhancer/GalleryEnhancer.vue'
 import MultipageViewerEnhancer from '@/components/MultiPageViewerEnhancer/MultiPageViewerEnhancer.vue'
-import { autoRedirectSwitch, multipageViewerEnhancerSwitch } from '@/utils/monkeySwitches'
+import ConfigPanel from '@/components/ConfigPanel/ConfigPanel.vue'
+import { autoRedirectSwitch, multipageViewerEnhancerSwitch } from '@/utils/GMVariables'
 
 const { href } = window.location
 
 const { enhancer } = useEnhancer()
 const { redirectIfSinglePageViewer } = useRedirect()
 
-if (autoRedirectSwitch.enabled) {
+if (autoRedirectSwitch.value) {
   redirectIfSinglePageViewer()
 }
 
@@ -33,7 +35,7 @@ function useEnhancer() {
       return GalleryEnhancer
     }
 
-    if (multipageViewerEnhancerSwitch.enabled && /https:\/\/e[-x]hentai\.org\/mpv\/\w+\/\w+/.test(href)) {
+    if (multipageViewerEnhancerSwitch.value && /https:\/\/e[-x]hentai\.org\/mpv\/\w+\/\w+/.test(href)) {
       return MultipageViewerEnhancer
     }
 
