@@ -29,7 +29,23 @@
                 Better Download Popup
               </h3>
 
-              <select v-model="archiveDownloadMethod" />
+              <select v-model="quickDownloadMethod.value">
+                <option>
+                  {{ DownloadMethod.Manual }}
+                </option>
+                <option>
+                  {{ DownloadMethod.HaH_Original }}
+                </option>
+                <option>
+                  {{ DownloadMethod.HaH_2400 }}
+                </option>
+                <option>
+                  {{ DownloadMethod.Direct_Origin }}
+                </option>
+                <option>
+                  {{ DownloadMethod.Direct_Resample }}
+                </option>
+              </select>
             </div>
 
             <div class="config">
@@ -113,10 +129,12 @@ import { onMounted, ref } from 'vue'
 import { GM } from 'vite-plugin-monkey/dist/client'
 
 import CrossButton from '@/components/Icon/CrossButton.vue'
+import { DownloadMethod } from '@/constants/monkey'
 import {
   infiniteScrollSwitch,
   scrollByRowSwitch,
   betterDownloadPopupSwitch,
+  quickDownloadMethod,
   loadAllGalleryImagesSwitch,
   multipageViewerEnhancerSwitch,
   autoRedirectSwitch,
