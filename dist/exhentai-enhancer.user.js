@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.7.1
+// @version            1.7.2
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -1059,7 +1059,7 @@ var __publicField = (obj, key, value) => {
   const toast = Toast.useToast();
   function useDownloadEvent() {
     function setHentaiAtHomeEvent() {
-      var _a3;
+      var _a3, _b, _c;
       const logger = new Logger("Hentai At Home Event");
       const hentaiAtHomeLinks = getElements(".popup--archive table td a");
       if (!(hentaiAtHomeLinks == null ? void 0 : hentaiAtHomeLinks.length)) {
@@ -1072,11 +1072,13 @@ var __publicField = (obj, key, value) => {
         return;
       }
       for (const link of hentaiAtHomeLinks) {
+        const ORIGINAL_SIZE = "org";
+        const resolution = ((_c = (_b = link.getAttribute("onclick")) == null ? void 0 : _b.split("'")) == null ? void 0 : _c[1]) || ORIGINAL_SIZE;
         link.removeAttribute("onclick");
         link.addEventListener("click", async (event) => {
           event.preventDefault();
           link.classList.add("is-fetching");
-          const doc = await sendDownloadRequest(link, postUrl);
+          const doc = await sendDownloadRequest(postUrl, resolution);
           const response = getElement("#db", doc);
           logger.log(response);
           const parsedResponse = parseResponse(response, logger);
@@ -1092,10 +1094,7 @@ var __publicField = (obj, key, value) => {
         });
       }
     }
-    async function sendDownloadRequest(link, postUrl) {
-      var _a3, _b;
-      const ORIGINAL_SIZE = "org";
-      const resolution = ((_b = (_a3 = link == null ? void 0 : link.getAttribute("onclick")) == null ? void 0 : _a3.split("'")) == null ? void 0 : _b[1]) || ORIGINAL_SIZE;
+    async function sendDownloadRequest(postUrl, resolution) {
       const formData = new FormData();
       formData.append("hathdl_xres", resolution);
       const doc = await getDoc(postUrl, {
