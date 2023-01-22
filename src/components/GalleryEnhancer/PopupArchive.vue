@@ -12,12 +12,13 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
+import { useToast } from 'vue-toastification'
 
 import useElement from '@/composables/GalleryEnhancer/useElements'
 import useDownloadEvent from '@/composables/GalleryEnhancer/useDownloadEvents'
 import { quickDownloadMethod } from '@/utils/GMVariables'
 import { DownloadMethod } from '@/constants/monkey'
-import { getElement, getElements } from '@/utils/commons'
+import { getElement } from '@/utils/commons'
 
 defineProps({
   innerHTML: {
@@ -28,6 +29,7 @@ defineProps({
 
 const popup = ref<HTMLElement>()
 
+const toast = useToast()
 const { archiveLinkAnchor } = useElement()
 const { setHentaiAtHomeEvent, setDirectDownloadEvent } = useDownloadEvent()
 const { isShow } = useDownloadArchive()
@@ -47,14 +49,6 @@ function useDownloadArchive() {
     } else {
       setQuickDownloadEvent()
     }
-  })
-
-  function setToggleEvent() {
-    archiveLinkAnchor.addEventListener('click', event => {
-      event.preventDefault()
-      event.stopPropagation()
-      isShow.value = !isShow.value
-    })
 
     onClickOutside(popup, event => {
       if (event.target === archiveLinkAnchor) {
@@ -62,6 +56,14 @@ function useDownloadArchive() {
       }
 
       isShow.value = false
+    })
+  })
+
+  function setToggleEvent() {
+    archiveLinkAnchor.addEventListener('click', event => {
+      event.preventDefault()
+      event.stopPropagation()
+      isShow.value = !isShow.value
     })
   }
 
@@ -71,17 +73,25 @@ function useDownloadArchive() {
       event.preventDefault()
       event.stopPropagation()
 
-      if (!popup.value) {
+      if (!popup.value || isShow.value) {
+        isShow.value = false
         return
       }
 
       switch (quickDownloadMethod.value) {
         case DownloadMethod.HaH_Original:
-          (getElements('td > p > a', popup.value)?.[5] as HTMLElement).click()
+        case DownloadMethod.HaH_2400: {
+          const downloadLinkElement = getHaHDownloadLinkElement(quickDownloadMethod.value)
+
+          if (downloadLinkElement) {
+            downloadLinkElement.click()
+          } else {
+            toast.warning(`Failed ${quickDownloadMethod.value}. The link might not exists.\n Open popup`)
+            isShow.value = true
+          }
+
           break
-        case DownloadMethod.HaH_2400:
-          (getElements('td > p > a', popup.value)?.[4] as HTMLElement).click()
-          break
+        }
         case DownloadMethod.Direct_Origin:
           (getElement('input[value="Download Original Archive"]', popup.value) as HTMLElement).click()
           break
@@ -90,6 +100,16 @@ function useDownloadArchive() {
           break
       }
     })
+  }
+
+  function getHaHDownloadLinkElement(downloadMethod: DownloadMethod.HaH_Original | DownloadMethod.HaH_2400) {
+    const indexMap = {
+      [DownloadMethod.HaH_Original]: 6,
+      [DownloadMethod.HaH_2400]: 5,
+    }
+    const index = indexMap[downloadMethod]
+
+    return getElement(`td:nth-child(${index}) > p > a`, popup.value)
   }
 
   return {
