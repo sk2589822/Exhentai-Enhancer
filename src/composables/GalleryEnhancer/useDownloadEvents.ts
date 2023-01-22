@@ -28,6 +28,8 @@ export default function() {
     }
 
     for (const link of hentaiAtHomeLinks) {
+      const ORIGINAL_SIZE = 'org'
+      const resolution = link.getAttribute('onclick')?.split('\'')?.[1] || ORIGINAL_SIZE
       link.removeAttribute('onclick')
 
       link.addEventListener('click', async event => {
@@ -35,7 +37,7 @@ export default function() {
 
         link.classList.add('is-fetching')
 
-        const doc = await sendDownloadRequest(link, postUrl)
+        const doc = await sendDownloadRequest(postUrl, resolution)
         const response = getElement('#db', doc)
         logger.log(response)
 
@@ -54,10 +56,7 @@ export default function() {
     }
   }
 
-  async function sendDownloadRequest(link: HTMLElement, postUrl: string) {
-    const ORIGINAL_SIZE = 'org'
-    const resolution = link?.getAttribute('onclick')?.split('\'')?.[1] || ORIGINAL_SIZE
-
+  async function sendDownloadRequest(postUrl: string, resolution: string) {
     const formData = new FormData()
     formData.append('hathdl_xres', resolution)
     const doc = await getDoc(postUrl, {
