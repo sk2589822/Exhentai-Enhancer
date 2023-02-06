@@ -71,6 +71,22 @@
             </div>
 
             <div class="settings">
+              <ToggleSwitch v-model="preventImageRemovalSwitch.value" />
+              <h3 class="settings__name">
+                Prevent Image Removal
+              </h3>
+              <div class="settings__intro">
+                <p>
+                  The original script of exhentai would remove the images which are too far from your current scroll.
+                </p>
+                <p>
+                  So if you scroll back to the images that have been removed.
+                  It might be flashing because although your browser has cached the image but still have to re-render it.
+                </p>
+              </div>
+            </div>
+
+            <div class="settings">
               <ToggleSwitch v-model="autoRedirectSwitch.value" />
               <h3 class="settings__name">
                 Auto Redirect to Multi-Page Viewer
@@ -137,6 +153,7 @@ import {
   quickDownloadMethod,
   loadAllGalleryImagesSwitch,
   multipageViewerEnhancerSwitch,
+  preventImageRemovalSwitch,
   autoRedirectSwitch,
 } from '@/utils/GMVariables'
 
@@ -209,6 +226,7 @@ function reload() {
 
 .settings {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: start;
   padding: 8px 16px;
@@ -220,6 +238,12 @@ function reload() {
 
   &__notice {
     font-size: 12px;
+  }
+
+  &__intro {
+    margin-left: 60px;
+    font-size: 14px;
+    text-align: left;
   }
 }
 

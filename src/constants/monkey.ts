@@ -1,16 +1,14 @@
 export const enum GMKey {
   InfiniteScroll = 'InfiniteScroll',
-
   ScrollByRow = 'ScrollByRow',
 
   BetterDownloadPopup = 'BetterDownloadPopup',
   QuickDownloadMethod = 'QuickDownloadMethod',
-
   LoadAllGalleryImages = 'LoadAllGalleryImages',
 
   MultipageViewerEnhancer = 'MultipageViewerEnhancer',
-
   AutoRedirect = 'AutoRedirect',
+  PreventImageRemoval = 'PreventImageRemoval'
 }
 
 export const enum DownloadMethod {

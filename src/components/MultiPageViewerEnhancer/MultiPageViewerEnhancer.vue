@@ -13,12 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
+import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import usePages from '@/composables/MultiPageViewerEnhancer/usePages'
 import useEvents from '@/composables/MultiPageViewerEnhancer/useEvents'
 import useWheelStep from '@/composables/useWheelStep'
 import { getElement } from '@/utils/commons'
+import { preventImageRemovalSwitch } from '@/utils/GMVariables'
 
 import PageElevator from './PageElevator.vue'
 import ImageResizer from './ImageResizer.vue'
@@ -73,6 +75,27 @@ function replaceOriginalFunctions() {
 
   return originalFunctions.innerHTML
 }
+
+onMounted(() => {
+  watch(() => preventImageRemovalSwitch.value, value => {
+    if (!value) {
+      return
+    }
+
+    unsafeWindow.preload_generic = Function('a', 'b', 'c', `
+      var d = a.scrollTop;
+      a = d + a.offsetHeight;
+      for (var e = "image" == b, f = 1; f <= pagecount; f++) {
+          var g = document.getElementById(b + "_" + f)
+            , h = g.offsetTop
+            , k = h + g.offsetHeight;
+          if ("hidden" == g.style.visibility && k >= d && h <= a + c)
+              e ? load_image(f) : load_thumb(f),
+              g.style.visibility = "visible";
+      }
+    `) as (a: any, b: any, c: any) => void
+  }, { immediate: true })
+})
 </script>
 
 <style lang="scss">

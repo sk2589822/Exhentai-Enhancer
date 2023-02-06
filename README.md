@@ -11,39 +11,38 @@ works when:
 
 ### Features
 
-1. Load all images sequentially if the there are more than one page.  
-   \*Could disable by unticking `Enable auto redirect to Multi-Page Viewer` in tampermonkey menu
+1. Load all images sequentially if the there are more than one page
 
-2. Show pop-up in same page instead of window popup when click `Archive Download` or `Torrent Download`.  
-   \*Could disable by unticking `Enable better download popup` in tampermonkey menu
+2. Show pop-up in same page instead of window popup when click `Archive Download` or `Torrent Download`
 
-3. Download torrent directly if there is only 1 torrent.  
-   \*Could disable by unticking `Enable better download popup` in tampermonkey menu
+3. Download torrent directly if there is only 1 torrent
 
-4. Go to next/prev row if mouse wheel on images container.  
-   \*Could disable by unticking `Enable scroll by row` in tampermonkey menu
+4. Go to next/prev row if mouse wheel on images container
 
 ## Multi-Page Viewer Enhancer
 works on: 
 1. url match `https://e(x)hentai.org/mpv/*/*`
 2. settings -> Multi-Page Viewer -> Always use the Multi-Page Viewer? -> Yup  
-   \*Could disable all featuingres by untick `Enable Multi-Page Viewer enhancer` in tampermonkey menu
 
 ### Features
 
-1. Append current index & page count to image info.
+1. Append current index & page count to image info
 
-2. Show thumbs when mouse close to/hover thumbs(remember to open thumbs in settings).
+2. Show thumbs when mouse close to/hover thumbs(remember to open thumbs in settings)
 
-3. Page elevator.
+3. Page elevator
 
-4. Images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height).
+4. Images resizer (Currently 100%, 125%, 150%, 175%, 200% of browser height)
 
-5. Rotate image.
+5. Rotate image
 
-6. Auto redirect to Multi-Page Viewer if in Single-Page Viewer(url match `https://exhentai.org/s/*/*`)  
-   \*(Could disabled from youingr tampermonkey menu - Enable auto redirect to Multi-Page Viewer)*
+6. Prevent image removal *disabled by default
+  > The original script of exhentai would remove the images which are too far from your current scroll.  
+    So if you scroll back to the images that have been removed. It might be flashing because although your browser has cached the image but still have to re-render it.
    
+
+7. Auto redirect to Multi-Page Viewer if in Single-Page Viewer(url match `https://exhentai.org/s/*/*`)  
+
 
 ## Front Page Enhancer
 works on: 
