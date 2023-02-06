@@ -80,7 +80,12 @@ export default function() {
   }
 
   function getRelativeToViewport() {
-    const { top: imageTop, height: imageHeight } = getCurrentImage().getBoundingClientRect()
+    const currentImage = getCurrentImage()
+    if (!currentImage) {
+      return null
+    }
+
+    const { top: imageTop, height: imageHeight } = currentImage.getBoundingClientRect()
     // 1 - (image top 相對於 viewport top 的距離 - border + viewport top 到螢幕中間的距離) / 圖片高度 = viewport 相對圖片中心的百分比
     return 1 - ((imageHeight - 1 + imageTop - window.innerHeight / 2) / imageHeight)
   }

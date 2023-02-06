@@ -66,7 +66,9 @@ function useImageResizer() {
       setImageSize(index)
     }
 
-    scrollToProperPosition(relativeToViewport)
+    if (relativeToViewport) {
+      scrollToProperPosition(relativeToViewport)
+    }
   }
 
   function setImageSize(index: number) {
@@ -143,7 +145,9 @@ function useImageResizer() {
         }
       }
 
-      scrollToProperPosition(relativeToViewport, currentSize.value)
+      if (relativeToViewport) {
+        scrollToProperPosition(relativeToViewport, currentSize.value)
+      }
     })
   }
 

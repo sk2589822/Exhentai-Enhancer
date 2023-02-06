@@ -3,50 +3,42 @@ import { reactive } from 'vue'
 
 import { GMKey, DownloadMethod } from '@/constants/monkey'
 
-class GMVariable {
+class GMVariable<T extends boolean | DownloadMethod> {
   private _key: string
-  private _oldKey: string
-  private _value: any
+  private _value: T
 
-  constructor(key: string, defaultValue: any, oldKey?: string) {
+  constructor(key: string, defaultValue: T) {
     this._key = key
-    this._oldKey = oldKey || ''
     this._value = defaultValue
   }
 
-  get value(): any {
+  get value(): T {
     return this._value
   }
 
-  set value(value: any) {
+  set value(value: T) {
     this._value = value
     GM.setValue(this._key, this._value)
   }
 
   async initialize() {
-    // TODO: 之後移掉這段
-    const oldValue = await GM.getValue(this._oldKey, null)
-    if (oldValue !== null) {
-      this._value = await GM.getValue(this._key, oldValue)
-      return
-    }
-
     this._value = await GM.getValue(this._key, this._value)
   }
 }
 
 // Front page enhancer
-export const infiniteScrollSwitch = reactive(new GMVariable(GMKey.InfiniteScroll, true, 'Enable infinite scroll in front page'))
+export const infiniteScrollSwitch = reactive(new GMVariable<boolean>(GMKey.InfiniteScroll, true))
 
 // Gallery enhancer
-export const scrollByRowSwitch = reactive(new GMVariable(GMKey.ScrollByRow, true, 'Enable scroll per row'))
-export const betterDownloadPopupSwitch = reactive(new GMVariable(GMKey.BetterDownloadPopup, true, 'Enable better download popup'))
-export const quickDownloadMethod = reactive(new GMVariable(GMKey.QuickDownloadMethod, DownloadMethod.Manual))
-export const loadAllGalleryImagesSwitch = reactive(new GMVariable(GMKey.LoadAllGalleryImages, true, 'Load all images in gallery page'))
+export const scrollByRowSwitch = reactive(new GMVariable<boolean>(GMKey.ScrollByRow, true))
+export const betterDownloadPopupSwitch = reactive(new GMVariable<boolean>(GMKey.BetterDownloadPopup, true))
+export const quickDownloadMethod = reactive(new GMVariable<DownloadMethod>(GMKey.QuickDownloadMethod, DownloadMethod.Manual))
+export const loadAllGalleryImagesSwitch = reactive(new GMVariable<boolean>(GMKey.LoadAllGalleryImages, true))
 
 // Multi-Page Viewer enhancer
-export const multipageViewerEnhancerSwitch = reactive(new GMVariable(GMKey.MultipageViewerEnhancer, true, 'Enable Multi-Page Viewer enhancer'))
-export const autoRedirectSwitch = reactive(new GMVariable(GMKey.AutoRedirect, true, 'Enable auto redirect to Multi-Page Viewer'))
+export const multipageViewerEnhancerSwitch = reactive(new GMVariable<boolean>(GMKey.MultipageViewerEnhancer, true))
+export const autoRedirectSwitch = reactive(new GMVariable<boolean>(GMKey.AutoRedirect, true))
+export const preventImageRemovalSwitch = reactive(new GMVariable<boolean>(GMKey.PreventImageRemoval, false))
 
 export async function initializeMonkeySwitches() {
   await Promise.all([
@@ -56,6 +48,7 @@ export async function initializeMonkeySwitches() {
     quickDownloadMethod.initialize(),
     loadAllGalleryImagesSwitch.initialize(),
     multipageViewerEnhancerSwitch.initialize(),
+    preventImageRemovalSwitch.initialize(),
     autoRedirectSwitch.initialize(),
   ])
 }

@@ -5,27 +5,27 @@
         v-show="isShow"
         class="popup"
       >
-        <div class="config-panel">
-          <section class="config-panel__section">
-            <h2 class="config-panel__section-name">
+        <div class="settings-panel">
+          <section class="settings-panel__section">
+            <h2 class="settings-panel__section-name">
               Gallery Enhancer
             </h2>
 
             <hr>
 
-            <div class="config">
+            <div class="settings">
               <ToggleSwitch v-model="scrollByRowSwitch.value" />
-              <h3 class="config__name">
+              <h3 class="settings__name">
                 Scroll by Row
               </h3>
-              <span class="config__notice">
+              <span class="settings__notice">
                 *sync with "Front Page Enhancer - Scroll by Row"
               </span>
             </div>
 
-            <div class="config">
+            <div class="settings">
               <ToggleSwitch v-model="betterDownloadPopupSwitch.value" />
-              <h3 class="config__name">
+              <h3 class="settings__name">
                 Better Download Popup
               </h3>
 
@@ -48,63 +48,79 @@
               </select>
             </div>
 
-            <div class="config">
+            <div class="settings">
               <ToggleSwitch v-model="loadAllGalleryImagesSwitch.value" />
-              <h3 class="config__name">
+              <h3 class="settings__name">
                 Load All Gallery Images
               </h3>
             </div>
           </section>
 
-          <section class="config-panel__section">
-            <h2 class="config-panel__section-name">
+          <section class="settings-panel__section">
+            <h2 class="settings-panel__section-name">
               Multi-Page Viewer Enhancer
             </h2>
 
             <hr>
 
-            <div class="config">
+            <div class="settings">
               <ToggleSwitch v-model="multipageViewerEnhancerSwitch.value" />
-              <h3 class="config__name">
+              <h3 class="settings__name">
                 Multi-Page Viewer Enhancer
               </h3>
             </div>
 
-            <div class="config">
+            <div class="settings">
+              <ToggleSwitch v-model="preventImageRemovalSwitch.value" />
+              <h3 class="settings__name">
+                Prevent Image Removal
+              </h3>
+              <div class="settings__intro">
+                <p>
+                  The original script of exhentai would remove the images which are too far from your current scroll.
+                </p>
+                <p>
+                  So if you scroll back to the images that have been removed.
+                  It might be flashing because although your browser has cached the image but still have to re-render it.
+                </p>
+              </div>
+            </div>
+
+            <div class="settings">
               <ToggleSwitch v-model="autoRedirectSwitch.value" />
-              <h3 class="config__name">
+              <h3 class="settings__name">
                 Auto Redirect to Multi-Page Viewer
               </h3>
             </div>
           </section>
 
-          <section class="config-panel__section">
-            <h2 class="config-panel__section-name">
+          <section class="settings-panel__section">
+            <h2 class="settings-panel__section-name">
               Front Page Enhancer
             </h2>
 
             <hr>
 
-            <div class="config">
+            <div class="settings">
               <ToggleSwitch v-model="infiniteScrollSwitch.value" />
-              <h3 class="config__name">
+              <h3 class="settings__name">
                 Infinite Scroll
               </h3>
             </div>
 
-            <div class="config">
+            <div class="settings">
               <ToggleSwitch v-model="scrollByRowSwitch.value" />
-              <h3 class="config__name">
+              <h3 class="settings__name">
                 Scroll by Row
               </h3>
-              <span class="config__notice">
+              <span class="settings__notice">
                 *sync with "Gallery Enhancer - Scroll by Row"
               </span>
             </div>
           </section>
 
           <span
-            class="config-panel__close-button"
+            class="settings-panel__close-button"
             @click="isShow = false"
           >
             <CrossButton />
@@ -137,6 +153,7 @@ import {
   quickDownloadMethod,
   loadAllGalleryImagesSwitch,
   multipageViewerEnhancerSwitch,
+  preventImageRemovalSwitch,
   autoRedirectSwitch,
 } from '@/utils/GMVariables'
 
@@ -144,7 +161,7 @@ import ToggleSwitch from './ToggleSwitch.vue'
 
 const isShow = ref(false)
 onMounted(() => {
-  GM.registerMenuCommand('Open config panel', () => isShow.value = !isShow.value)
+  GM.registerMenuCommand('Open settings panel', () => isShow.value = !isShow.value)
 })
 
 function reload() {
@@ -169,7 +186,7 @@ function reload() {
   z-index: 99999;
 }
 
-.config-panel {
+.settings-panel {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -207,8 +224,9 @@ function reload() {
   }
 }
 
-.config {
+.settings {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: start;
   padding: 8px 16px;
@@ -220,6 +238,12 @@ function reload() {
 
   &__notice {
     font-size: 12px;
+  }
+
+  &__intro {
+    margin-left: 60px;
+    font-size: 14px;
+    text-align: left;
   }
 }
 

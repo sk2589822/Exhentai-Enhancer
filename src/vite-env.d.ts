@@ -25,6 +25,7 @@ interface Window {
   currentpage: number; // current page
   preload_scroll_images: () => void; // preload images & set currentpage
   action_reload: (page) => void; // reload image
+  preload_generic: (a, b, c) => void; // HTML nodes operation
 }
 
 interface Document {

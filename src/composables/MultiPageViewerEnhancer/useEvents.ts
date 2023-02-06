@@ -276,7 +276,9 @@ export default function() {
     const relativeToViewport = getRelativeToViewport()
     await toggle()
     document.body.addEventListener('reflow', () => {
-      scrollToProperPosition(relativeToViewport)
+      if (relativeToViewport) {
+        scrollToProperPosition(relativeToViewport)
+      }
     }, {
       once: true,
     })
