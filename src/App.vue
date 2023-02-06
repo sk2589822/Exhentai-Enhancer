@@ -1,6 +1,6 @@
 <template>
   <component :is="enhancer" />
-  <ConfigPanel />
+  <SettingsPanel />
 </template>
 
 <script setup lang="ts">
@@ -10,7 +10,7 @@ import { getElement } from '@/utils/commons'
 import FrontPageEnhancer from '@/components/FrontPageEnhancer/FrontPageEnhancer.vue'
 import GalleryEnhancer from '@/components/GalleryEnhancer/GalleryEnhancer.vue'
 import MultipageViewerEnhancer from '@/components/MultiPageViewerEnhancer/MultiPageViewerEnhancer.vue'
-import ConfigPanel from '@/components/ConfigPanel/ConfigPanel.vue'
+import SettingsPanel from '@/components/SettingsPanel/SettingsPanel.vue'
 import { autoRedirectSwitch, multipageViewerEnhancerSwitch } from '@/utils/GMVariables'
 
 const { href } = window.location
