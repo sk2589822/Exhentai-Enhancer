@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.8.0
+// @version            1.8.1
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -1770,6 +1770,7 @@ var __publicField = (obj, key, value) => {
     function setClickEvent() {
       setChangePageClickEvent();
       setFullscreenToggleEvent();
+      setThumbsClickEvent();
       function setChangePageClickEvent() {
         const config = {
           click: goToNextPage,
@@ -1802,6 +1803,15 @@ var __publicField = (obj, key, value) => {
           }, {
             once: true
           });
+        });
+      }
+      function setThumbsClickEvent() {
+        paneThumbsDiv.addEventListener("click", (event) => {
+          var _a3;
+          const index2 = Number(
+            (_a3 = event.target.closest("div")) == null ? void 0 : _a3.id.replace("thumb_", "")
+          );
+          currentPage.value = index2;
         });
       }
     }
