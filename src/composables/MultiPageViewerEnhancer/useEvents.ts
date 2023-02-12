@@ -153,6 +153,7 @@ export default function() {
   function setClickEvent() {
     setChangePageClickEvent()
     setFullscreenToggleEvent()
+    setThumbsClickEvent()
 
     /**
      * 點擊滑鼠左鍵 -> 下一頁
@@ -204,6 +205,19 @@ export default function() {
             once: true,
           })
         })
+    }
+
+    function setThumbsClickEvent() {
+      paneThumbsDiv.addEventListener('click', event => {
+        const index = Number(
+          (event.target as HTMLElement)
+            .closest('div')
+            ?.id
+            .replace('thumb_', ''),
+        )
+
+        currentPage.value = index
+      })
     }
   }
 
