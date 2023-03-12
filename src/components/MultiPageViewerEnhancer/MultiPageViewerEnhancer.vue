@@ -26,6 +26,7 @@ import PageElevator from './PageElevator.vue'
 import ImageResizer from './ImageResizer.vue'
 
 const {
+  currentPage,
   appendPageIndex,
   changePageOnWheel,
   setPreloadImagesEvent,
@@ -95,6 +96,13 @@ onMounted(() => {
       }
     `) as (a: any, b: any, c: any) => void
   }, { immediate: true })
+
+  watch(currentPage, index => {
+    getElement(`#thumb_${index}`)
+      ?.scrollIntoView({
+        block: 'center',
+      })
+  })
 })
 </script>
 
