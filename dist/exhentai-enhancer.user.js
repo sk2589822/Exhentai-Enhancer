@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.8.1
+// @version            1.8.2
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -1329,7 +1329,7 @@ var __publicField = (obj, key, value) => {
   }
   const { paneImagesDiv: paneImagesDiv$1 } = useElements();
   const location$1 = useBrowserLocation();
-  const currentPage$1 = vue.ref(Number((_a2 = location$1.value.hash) == null ? void 0 : _a2.replace("#page", "")));
+  const currentPage$1 = vue.ref(Number((_a2 = location$1.value.hash) == null ? void 0 : _a2.replace("#page", "")) || 1);
   function usePages() {
     const pageCount2 = unsafeWindow.pagecount;
     function appendPageIndex() {
@@ -2065,6 +2065,7 @@ var __publicField = (obj, key, value) => {
     __name: "MultiPageViewerEnhancer",
     setup(__props) {
       const {
+        currentPage: currentPage2,
         appendPageIndex,
         changePageOnWheel,
         setPreloadImagesEvent,
@@ -2124,6 +2125,12 @@ var __publicField = (obj, key, value) => {
       }
     `);
         }, { immediate: true });
+        vue.watch(currentPage2, (index2) => {
+          var _a3;
+          (_a3 = getElement(`#thumb_${index2}`)) == null ? void 0 : _a3.scrollIntoView({
+            block: "center"
+          });
+        });
       });
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock("div", {
