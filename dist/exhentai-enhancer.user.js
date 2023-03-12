@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.8.2
+// @version            1.8.3
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -15,15 +15,14 @@
 // @supportURL         https://github.com/sk2589822/Exhentai-Enhancer/issues
 // @match              https://exhentai.org/*
 // @match              https://e-hentai.org/*
-// @require            https://cdn.jsdelivr.net/npm/vue@3.2.45/dist/vue.global.prod.js
-// @require            https://unpkg.com/pkg-cdn/dist/vue-toastification/v2.0.0-rc.5.iife.js
+// @require            https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.prod.js
 // @grant              GM.getValue
 // @grant              GM.registerMenuCommand
 // @grant              GM.setValue
 // @grant              unsafeWindow
 // ==/UserScript==
 
-(a=>{const t=document.createElement("style");t.dataset.source="vite-plugin-monkey",t.innerText=a,document.head.appendChild(t)})('@charset "UTF-8";.Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width : 600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width : 600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width : 600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:auto;width:30px;height:30px;line-height:30px;content:"\\231b";animation:spin ease-in-out 1s infinite}.popup[data-v-1f3b346f]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-1f3b346f]{text-decoration:underline}.fade-enter-active[data-v-1f3b346f],.fade-leave-active[data-v-1f3b346f]{transition:opacity .3s ease}.fade-enter-from[data-v-1f3b346f],.fade-leave-to[data-v-1f3b346f]{opacity:0}.popup[data-v-d6502b26]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-d6502b26]{text-decoration:underline}.fade-enter-active[data-v-d6502b26],.fade-leave-active[data-v-d6502b26]{transition:opacity .3s ease}.fade-enter-from[data-v-d6502b26],.fade-leave-to[data-v-d6502b26]{opacity:0}@keyframes spin{0%{rotate:0}to{rotate:360deg}}div#gmid{width:931px}div#gd5{width:158px}.popup{position:absolute;right:calc(var(--e837c04e) * 1px)}.popup--archive{top:calc(var(--0f6a6788) * 1px)}.popup--torrent{top:calc(var(--7ce3892e) * 1px)}.is-ready:after{content:"\\2714\\fe0f"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\\231b";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.is-finished{font-size:0;pointer-events:none;text-decoration:none}.is-finished:after{content:"\\2714\\fe0f";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-8b2bf6b6]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-8b2bf6b6]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-8b2bf6b6]{line-height:100%}:fullscreen .page-elevator[data-v-8b2bf6b6]{opacity:0}:fullscreen .page-elevator[data-v-8b2bf6b6]:hover{opacity:1}div#pane_images .mi0{width:max-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}div#pane_images img[id^=imgsrc_]{width:auto!important;max-height:var(--image-size)}.image-resizer[data-v-4ba11677]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-4ba11677]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-4ba11677]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-4ba11677],.image-resizer__button--active[data-v-4ba11677]:hover{background-color:orange}html,body,div#pane_outer,div#pane_images{padding:0;width:100%!important;height:100%!important}div#bar3{display:none}.hide-cursor,.hide-cursor *{cursor:none}.original-functions{position:absolute;top:0;right:0;display:block;width:35px;height:270px;opacity:0;transition:opacity .3s ease}.original-functions:hover{opacity:1}.original-functions>img{cursor:pointer}.mi0>a{user-select:none}.mi0>a>img{pointer-events:none}div.mi1{display:flex}div.mi1 img{display:block;margin:0}div.mi2{display:flex;flex-direction:row;float:initial;margin-top:initial}div.mi3{display:flex;flex-direction:row;float:initial;margin-top:initial;order:3}div.mi4{position:initial}div#pane_thumbs{display:block;opacity:0;z-index:1;transition:opacity .3s}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:rgba(119,119,119,.4666666667);border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-894c8e09]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-894c8e09]{width:0;height:0;opacity:0}.switch__slider[data-v-894c8e09]{position:absolute;inset:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-894c8e09]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-894c8e09]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-894c8e09]:before{transform:translate(26px)}.popup[data-v-309fd430]{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background-color:#00000080;z-index:99999}.settings-panel[data-v-309fd430]{position:relative;display:flex;flex-direction:column;row-gap:16px;margin:32px;padding:32px;width:50%;height:auto;background-color:#34353b;border-radius:4px}.settings-panel__section[data-v-309fd430]{background-color:#4f535b;border-radius:4px}.settings-panel__section-name[data-v-309fd430]{margin:16px 32px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button[data-v-309fd430]{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button[data-v-309fd430] svg{width:16px;height:16px}.settings[data-v-309fd430]{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name[data-v-309fd430]{font-size:16px}.settings__notice[data-v-309fd430]{font-size:12px}.settings__intro[data-v-309fd430]{margin-left:60px;font-size:14px;text-align:left}.actions[data-v-309fd430]{display:flex;align-items:center;justify-content:flex-end}.actions__button[data-v-309fd430]{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer}.v-enter-active[data-v-309fd430],.v-leave-active[data-v-309fd430]{transition:opacity .2s ease}.v-enter-from[data-v-309fd430],.v-leave-to[data-v-309fd430]{opacity:0}');
+(a=>{const t=document.createElement("style");t.dataset.source="vite-plugin-monkey",t.innerText=a,document.head.appendChild(t)})(' @charset "UTF-8";.Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width : 600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width : 600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width : 600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:auto;width:30px;height:30px;line-height:30px;content:"\\231b";animation:spin ease-in-out 1s infinite}.popup[data-v-1f3b346f]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-1f3b346f]{text-decoration:underline}.fade-enter-active[data-v-1f3b346f],.fade-leave-active[data-v-1f3b346f]{transition:opacity .3s ease}.fade-enter-from[data-v-1f3b346f],.fade-leave-to[data-v-1f3b346f]{opacity:0}.popup[data-v-d6502b26]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-d6502b26]{text-decoration:underline}.fade-enter-active[data-v-d6502b26],.fade-leave-active[data-v-d6502b26]{transition:opacity .3s ease}.fade-enter-from[data-v-d6502b26],.fade-leave-to[data-v-d6502b26]{opacity:0}@keyframes spin{0%{rotate:0}to{rotate:360deg}}div#gmid{width:931px}div#gd5{width:158px}.popup{position:absolute;right:calc(var(--e837c04e) * 1px)}.popup--archive{top:calc(var(--0f6a6788) * 1px)}.popup--torrent{top:calc(var(--7ce3892e) * 1px)}.is-ready:after{content:"\\2714\\fe0f"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\\231b";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.is-finished{font-size:0;pointer-events:none;text-decoration:none}.is-finished:after{content:"\\2714\\fe0f";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-8b2bf6b6]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-8b2bf6b6]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-8b2bf6b6]{line-height:100%}:fullscreen .page-elevator[data-v-8b2bf6b6]{opacity:0}:fullscreen .page-elevator[data-v-8b2bf6b6]:hover{opacity:1}div#pane_images .mi0{width:max-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}div#pane_images img[id^=imgsrc_]{width:auto!important;max-height:var(--image-size)}.image-resizer[data-v-4ba11677]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-4ba11677]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-4ba11677]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-4ba11677],.image-resizer__button--active[data-v-4ba11677]:hover{background-color:orange}html,body,div#pane_outer,div#pane_images{padding:0;width:100%!important;height:100%!important}div#bar3{display:none}.hide-cursor,.hide-cursor *{cursor:none}.original-functions{position:absolute;top:0;right:0;display:block;width:35px;height:270px;opacity:0;transition:opacity .3s ease}.original-functions:hover{opacity:1}.original-functions>img{cursor:pointer}.mi0>a{user-select:none}.mi0>a>img{pointer-events:none}div.mi1{display:flex}div.mi1 img{display:block;margin:0}div.mi2{display:flex;flex-direction:row;float:initial;margin-top:initial}div.mi3{display:flex;flex-direction:row;float:initial;margin-top:initial;order:3}div.mi4{position:initial}div#pane_thumbs{display:block;opacity:0;z-index:1;transition:opacity .3s}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:rgba(119,119,119,.4666666667);border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-894c8e09]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-894c8e09]{width:0;height:0;opacity:0}.switch__slider[data-v-894c8e09]{position:absolute;top:0;bottom:0;right:0;left:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-894c8e09]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-894c8e09]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-894c8e09]:before{transform:translate(26px)}.popup[data-v-309fd430]{position:fixed;top:0;bottom:0;right:0;left:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background-color:#00000080;z-index:99999}.settings-panel[data-v-309fd430]{position:relative;display:flex;flex-direction:column;row-gap:16px;margin:32px;padding:32px;width:50%;height:auto;background-color:#34353b;border-radius:4px}.settings-panel__section[data-v-309fd430]{background-color:#4f535b;border-radius:4px}.settings-panel__section-name[data-v-309fd430]{margin:16px 32px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button[data-v-309fd430]{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button[data-v-309fd430] svg{width:16px;height:16px}.settings[data-v-309fd430]{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name[data-v-309fd430]{font-size:16px}.settings__notice[data-v-309fd430]{font-size:12px}.settings__intro[data-v-309fd430]{margin-left:60px;font-size:14px;text-align:left}.actions[data-v-309fd430]{display:flex;align-items:center;justify-content:flex-end}.actions__button[data-v-309fd430]{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer}.v-enter-active[data-v-309fd430],.v-leave-active[data-v-309fd430]{transition:opacity .2s ease}.v-enter-from[data-v-309fd430],.v-leave-to[data-v-309fd430]{opacity:0} ');
 
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
@@ -31,11 +30,979 @@ var __publicField = (obj, key, value) => {
   __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
 };
-(function(vue, Toast) {
+(function(vue) {
   var _a2;
   "use strict";
-  const _interopDefaultLegacy = (e) => e && typeof e === "object" && "default" in e ? e : { default: e };
-  const Toast__default = /* @__PURE__ */ _interopDefaultLegacy(Toast);
+  var __defProp$1 = Object.defineProperty;
+  var __getOwnPropSymbols$1 = Object.getOwnPropertySymbols;
+  var __hasOwnProp$1 = Object.prototype.hasOwnProperty;
+  var __propIsEnum$1 = Object.prototype.propertyIsEnumerable;
+  var __defNormalProp$1 = (obj, key, value) => key in obj ? __defProp$1(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+  var __spreadValues$1 = (a, b) => {
+    for (var prop in b || (b = {}))
+      if (__hasOwnProp$1.call(b, prop))
+        __defNormalProp$1(a, prop, b[prop]);
+    if (__getOwnPropSymbols$1)
+      for (var prop of __getOwnPropSymbols$1(b)) {
+        if (__propIsEnum$1.call(b, prop))
+          __defNormalProp$1(a, prop, b[prop]);
+      }
+    return a;
+  };
+  var isFunction$1 = (value) => typeof value === "function";
+  var isString$1 = (value) => typeof value === "string";
+  var isNonEmptyString = (value) => isString$1(value) && value.trim().length > 0;
+  var isNumber = (value) => typeof value === "number";
+  var isUndefined = (value) => typeof value === "undefined";
+  var isObject$1 = (value) => typeof value === "object" && value !== null;
+  var isJSX = (obj) => hasProp(obj, "tag") && isNonEmptyString(obj.tag);
+  var isTouchEvent = (event) => window.TouchEvent && event instanceof TouchEvent;
+  var isToastComponent = (obj) => hasProp(obj, "component") && isToastContent(obj.component);
+  var isVueComponent = (c) => isFunction$1(c) || isObject$1(c);
+  var isToastContent = (obj) => !isUndefined(obj) && (isString$1(obj) || isVueComponent(obj) || isToastComponent(obj));
+  var isDOMRect = (obj) => isObject$1(obj) && ["height", "width", "right", "left", "top", "bottom"].every((p) => isNumber(obj[p]));
+  var hasProp = (obj, propKey) => (isObject$1(obj) || isFunction$1(obj)) && propKey in obj;
+  var getId = ((i) => () => i++)(0);
+  function getX(event) {
+    return isTouchEvent(event) ? event.targetTouches[0].clientX : event.clientX;
+  }
+  function getY(event) {
+    return isTouchEvent(event) ? event.targetTouches[0].clientY : event.clientY;
+  }
+  var removeElement = (el) => {
+    if (!isUndefined(el.remove)) {
+      el.remove();
+    } else if (el.parentNode) {
+      el.parentNode.removeChild(el);
+    }
+  };
+  var getVueComponentFromObj = (obj) => {
+    if (isToastComponent(obj)) {
+      return getVueComponentFromObj(obj.component);
+    }
+    if (isJSX(obj)) {
+      return vue.defineComponent({
+        render() {
+          return obj;
+        }
+      });
+    }
+    return typeof obj === "string" ? obj : vue.toRaw(vue.unref(obj));
+  };
+  var normalizeToastComponent = (obj) => {
+    if (typeof obj === "string") {
+      return obj;
+    }
+    const props = hasProp(obj, "props") && isObject$1(obj.props) ? obj.props : {};
+    const listeners = hasProp(obj, "listeners") && isObject$1(obj.listeners) ? obj.listeners : {};
+    return { component: getVueComponentFromObj(obj), props, listeners };
+  };
+  var isBrowser = () => typeof window !== "undefined";
+  var EventBus = class {
+    constructor() {
+      this.allHandlers = {};
+    }
+    getHandlers(eventType) {
+      return this.allHandlers[eventType] || [];
+    }
+    on(eventType, handler) {
+      const handlers2 = this.getHandlers(eventType);
+      handlers2.push(handler);
+      this.allHandlers[eventType] = handlers2;
+    }
+    off(eventType, handler) {
+      const handlers2 = this.getHandlers(eventType);
+      handlers2.splice(handlers2.indexOf(handler) >>> 0, 1);
+    }
+    emit(eventType, event) {
+      const handlers2 = this.getHandlers(eventType);
+      handlers2.forEach((handler) => handler(event));
+    }
+  };
+  var isEventBusInterface = (e) => ["on", "off", "emit"].every((f) => hasProp(e, f) && isFunction$1(e[f]));
+  var TYPE;
+  (function(TYPE2) {
+    TYPE2["SUCCESS"] = "success";
+    TYPE2["ERROR"] = "error";
+    TYPE2["WARNING"] = "warning";
+    TYPE2["INFO"] = "info";
+    TYPE2["DEFAULT"] = "default";
+  })(TYPE || (TYPE = {}));
+  var POSITION;
+  (function(POSITION2) {
+    POSITION2["TOP_LEFT"] = "top-left";
+    POSITION2["TOP_CENTER"] = "top-center";
+    POSITION2["TOP_RIGHT"] = "top-right";
+    POSITION2["BOTTOM_LEFT"] = "bottom-left";
+    POSITION2["BOTTOM_CENTER"] = "bottom-center";
+    POSITION2["BOTTOM_RIGHT"] = "bottom-right";
+  })(POSITION || (POSITION = {}));
+  var EVENTS;
+  (function(EVENTS2) {
+    EVENTS2["ADD"] = "add";
+    EVENTS2["DISMISS"] = "dismiss";
+    EVENTS2["UPDATE"] = "update";
+    EVENTS2["CLEAR"] = "clear";
+    EVENTS2["UPDATE_DEFAULTS"] = "update_defaults";
+  })(EVENTS || (EVENTS = {}));
+  var VT_NAMESPACE = "Vue-Toastification";
+  var COMMON = {
+    type: {
+      type: String,
+      default: TYPE.DEFAULT
+    },
+    classNames: {
+      type: [String, Array],
+      default: () => []
+    },
+    trueBoolean: {
+      type: Boolean,
+      default: true
+    }
+  };
+  var ICON = {
+    type: COMMON.type,
+    customIcon: {
+      type: [String, Boolean, Object, Function],
+      default: true
+    }
+  };
+  var CLOSE_BUTTON = {
+    component: {
+      type: [String, Object, Function, Boolean],
+      default: "button"
+    },
+    classNames: COMMON.classNames,
+    showOnHover: {
+      type: Boolean,
+      default: false
+    },
+    ariaLabel: {
+      type: String,
+      default: "close"
+    }
+  };
+  var PROGRESS_BAR = {
+    timeout: {
+      type: [Number, Boolean],
+      default: 5e3
+    },
+    hideProgressBar: {
+      type: Boolean,
+      default: false
+    },
+    isRunning: {
+      type: Boolean,
+      default: false
+    }
+  };
+  var TRANSITION = {
+    transition: {
+      type: [Object, String],
+      default: `${VT_NAMESPACE}__bounce`
+    }
+  };
+  var CORE_TOAST = {
+    position: {
+      type: String,
+      default: POSITION.TOP_RIGHT
+    },
+    draggable: COMMON.trueBoolean,
+    draggablePercent: {
+      type: Number,
+      default: 0.6
+    },
+    pauseOnFocusLoss: COMMON.trueBoolean,
+    pauseOnHover: COMMON.trueBoolean,
+    closeOnClick: COMMON.trueBoolean,
+    timeout: PROGRESS_BAR.timeout,
+    hideProgressBar: PROGRESS_BAR.hideProgressBar,
+    toastClassName: COMMON.classNames,
+    bodyClassName: COMMON.classNames,
+    icon: ICON.customIcon,
+    closeButton: CLOSE_BUTTON.component,
+    closeButtonClassName: CLOSE_BUTTON.classNames,
+    showCloseButtonOnHover: CLOSE_BUTTON.showOnHover,
+    accessibility: {
+      type: Object,
+      default: () => ({
+        toastRole: "alert",
+        closeButtonLabel: "close"
+      })
+    },
+    rtl: {
+      type: Boolean,
+      default: false
+    },
+    eventBus: {
+      type: Object,
+      required: false,
+      default: () => new EventBus()
+    }
+  };
+  var TOAST = {
+    id: {
+      type: [String, Number],
+      required: true,
+      default: 0
+    },
+    type: COMMON.type,
+    content: {
+      type: [String, Object, Function],
+      required: true,
+      default: ""
+    },
+    onClick: {
+      type: Function,
+      default: void 0
+    },
+    onClose: {
+      type: Function,
+      default: void 0
+    }
+  };
+  var CONTAINER = {
+    container: {
+      type: [
+        Object,
+        Function
+      ],
+      default: () => document.body
+    },
+    newestOnTop: COMMON.trueBoolean,
+    maxToasts: {
+      type: Number,
+      default: 20
+    },
+    transition: TRANSITION.transition,
+    toastDefaults: Object,
+    filterBeforeCreate: {
+      type: Function,
+      default: (toast2) => toast2
+    },
+    filterToasts: {
+      type: Function,
+      default: (toasts) => toasts
+    },
+    containerClassName: COMMON.classNames,
+    onMounted: Function,
+    shareAppContext: [Boolean, Object]
+  };
+  var propValidators_default = {
+    CORE_TOAST,
+    TOAST,
+    CONTAINER,
+    PROGRESS_BAR,
+    ICON,
+    TRANSITION,
+    CLOSE_BUTTON
+  };
+  var VtProgressBar_default = vue.defineComponent({
+    name: "VtProgressBar",
+    props: propValidators_default.PROGRESS_BAR,
+    data() {
+      return {
+        hasClass: true
+      };
+    },
+    computed: {
+      style() {
+        return {
+          animationDuration: `${this.timeout}ms`,
+          animationPlayState: this.isRunning ? "running" : "paused",
+          opacity: this.hideProgressBar ? 0 : 1
+        };
+      },
+      cpClass() {
+        return this.hasClass ? `${VT_NAMESPACE}__progress-bar` : "";
+      }
+    },
+    watch: {
+      timeout() {
+        this.hasClass = false;
+        this.$nextTick(() => this.hasClass = true);
+      }
+    },
+    mounted() {
+      this.$el.addEventListener("animationend", this.animationEnded);
+    },
+    beforeUnmount() {
+      this.$el.removeEventListener("animationend", this.animationEnded);
+    },
+    methods: {
+      animationEnded() {
+        this.$emit("close-toast");
+      }
+    }
+  });
+  function render(_ctx, _cache) {
+    return vue.openBlock(), vue.createElementBlock("div", {
+      style: vue.normalizeStyle(_ctx.style),
+      class: vue.normalizeClass(_ctx.cpClass)
+    }, null, 6);
+  }
+  VtProgressBar_default.render = render;
+  var VtProgressBar_default2 = VtProgressBar_default;
+  var VtCloseButton_default = vue.defineComponent({
+    name: "VtCloseButton",
+    props: propValidators_default.CLOSE_BUTTON,
+    computed: {
+      buttonComponent() {
+        if (this.component !== false) {
+          return getVueComponentFromObj(this.component);
+        }
+        return "button";
+      },
+      classes() {
+        const classes = [`${VT_NAMESPACE}__close-button`];
+        if (this.showOnHover) {
+          classes.push("show-on-hover");
+        }
+        return classes.concat(this.classNames);
+      }
+    }
+  });
+  var _hoisted_1$8 = /* @__PURE__ */ vue.createTextVNode(" × ");
+  function render2(_ctx, _cache) {
+    return vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(_ctx.buttonComponent), vue.mergeProps({
+      "aria-label": _ctx.ariaLabel,
+      class: _ctx.classes
+    }, _ctx.$attrs), {
+      default: vue.withCtx(() => [
+        _hoisted_1$8
+      ]),
+      _: 1
+    }, 16, ["aria-label", "class"]);
+  }
+  VtCloseButton_default.render = render2;
+  var VtCloseButton_default2 = VtCloseButton_default;
+  var VtSuccessIcon_default = {};
+  var _hoisted_12$1 = {
+    "aria-hidden": "true",
+    focusable: "false",
+    "data-prefix": "fas",
+    "data-icon": "check-circle",
+    class: "svg-inline--fa fa-check-circle fa-w-16",
+    role: "img",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 512 512"
+  };
+  var _hoisted_2$5 = /* @__PURE__ */ vue.createElementVNode("path", {
+    fill: "currentColor",
+    d: "M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+  }, null, -1);
+  var _hoisted_3$3 = [
+    _hoisted_2$5
+  ];
+  function render3(_ctx, _cache) {
+    return vue.openBlock(), vue.createElementBlock("svg", _hoisted_12$1, _hoisted_3$3);
+  }
+  VtSuccessIcon_default.render = render3;
+  var VtSuccessIcon_default2 = VtSuccessIcon_default;
+  var VtInfoIcon_default = {};
+  var _hoisted_13$1 = {
+    "aria-hidden": "true",
+    focusable: "false",
+    "data-prefix": "fas",
+    "data-icon": "info-circle",
+    class: "svg-inline--fa fa-info-circle fa-w-16",
+    role: "img",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 512 512"
+  };
+  var _hoisted_22$1 = /* @__PURE__ */ vue.createElementVNode("path", {
+    fill: "currentColor",
+    d: "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+  }, null, -1);
+  var _hoisted_32 = [
+    _hoisted_22$1
+  ];
+  function render4(_ctx, _cache) {
+    return vue.openBlock(), vue.createElementBlock("svg", _hoisted_13$1, _hoisted_32);
+  }
+  VtInfoIcon_default.render = render4;
+  var VtInfoIcon_default2 = VtInfoIcon_default;
+  var VtWarningIcon_default = {};
+  var _hoisted_14$1 = {
+    "aria-hidden": "true",
+    focusable: "false",
+    "data-prefix": "fas",
+    "data-icon": "exclamation-circle",
+    class: "svg-inline--fa fa-exclamation-circle fa-w-16",
+    role: "img",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 512 512"
+  };
+  var _hoisted_23$1 = /* @__PURE__ */ vue.createElementVNode("path", {
+    fill: "currentColor",
+    d: "M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+  }, null, -1);
+  var _hoisted_33 = [
+    _hoisted_23$1
+  ];
+  function render5(_ctx, _cache) {
+    return vue.openBlock(), vue.createElementBlock("svg", _hoisted_14$1, _hoisted_33);
+  }
+  VtWarningIcon_default.render = render5;
+  var VtWarningIcon_default2 = VtWarningIcon_default;
+  var VtErrorIcon_default = {};
+  var _hoisted_15$1 = {
+    "aria-hidden": "true",
+    focusable: "false",
+    "data-prefix": "fas",
+    "data-icon": "exclamation-triangle",
+    class: "svg-inline--fa fa-exclamation-triangle fa-w-18",
+    role: "img",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 576 512"
+  };
+  var _hoisted_24$1 = /* @__PURE__ */ vue.createElementVNode("path", {
+    fill: "currentColor",
+    d: "M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+  }, null, -1);
+  var _hoisted_34 = [
+    _hoisted_24$1
+  ];
+  function render6(_ctx, _cache) {
+    return vue.openBlock(), vue.createElementBlock("svg", _hoisted_15$1, _hoisted_34);
+  }
+  VtErrorIcon_default.render = render6;
+  var VtErrorIcon_default2 = VtErrorIcon_default;
+  var VtIcon_default = vue.defineComponent({
+    name: "VtIcon",
+    props: propValidators_default.ICON,
+    computed: {
+      customIconChildren() {
+        return hasProp(this.customIcon, "iconChildren") ? this.trimValue(this.customIcon.iconChildren) : "";
+      },
+      customIconClass() {
+        if (isString$1(this.customIcon)) {
+          return this.trimValue(this.customIcon);
+        } else if (hasProp(this.customIcon, "iconClass")) {
+          return this.trimValue(this.customIcon.iconClass);
+        }
+        return "";
+      },
+      customIconTag() {
+        if (hasProp(this.customIcon, "iconTag")) {
+          return this.trimValue(this.customIcon.iconTag, "i");
+        }
+        return "i";
+      },
+      hasCustomIcon() {
+        return this.customIconClass.length > 0;
+      },
+      component() {
+        if (this.hasCustomIcon) {
+          return this.customIconTag;
+        }
+        if (isToastContent(this.customIcon)) {
+          return getVueComponentFromObj(this.customIcon);
+        }
+        return this.iconTypeComponent;
+      },
+      iconTypeComponent() {
+        const types = {
+          [TYPE.DEFAULT]: VtInfoIcon_default2,
+          [TYPE.INFO]: VtInfoIcon_default2,
+          [TYPE.SUCCESS]: VtSuccessIcon_default2,
+          [TYPE.ERROR]: VtErrorIcon_default2,
+          [TYPE.WARNING]: VtWarningIcon_default2
+        };
+        return types[this.type];
+      },
+      iconClasses() {
+        const classes = [`${VT_NAMESPACE}__icon`];
+        if (this.hasCustomIcon) {
+          return classes.concat(this.customIconClass);
+        }
+        return classes;
+      }
+    },
+    methods: {
+      trimValue(value, empty = "") {
+        return isNonEmptyString(value) ? value.trim() : empty;
+      }
+    }
+  });
+  function render7(_ctx, _cache) {
+    return vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(_ctx.component), {
+      class: vue.normalizeClass(_ctx.iconClasses)
+    }, {
+      default: vue.withCtx(() => [
+        vue.createTextVNode(vue.toDisplayString(_ctx.customIconChildren), 1)
+      ]),
+      _: 1
+    }, 8, ["class"]);
+  }
+  VtIcon_default.render = render7;
+  var VtIcon_default2 = VtIcon_default;
+  var VtToast_default = vue.defineComponent({
+    name: "VtToast",
+    components: { ProgressBar: VtProgressBar_default2, CloseButton: VtCloseButton_default2, Icon: VtIcon_default2 },
+    inheritAttrs: false,
+    props: Object.assign({}, propValidators_default.CORE_TOAST, propValidators_default.TOAST),
+    data() {
+      const data = {
+        isRunning: true,
+        disableTransitions: false,
+        beingDragged: false,
+        dragStart: 0,
+        dragPos: { x: 0, y: 0 },
+        dragRect: {}
+      };
+      return data;
+    },
+    computed: {
+      classes() {
+        const classes = [
+          `${VT_NAMESPACE}__toast`,
+          `${VT_NAMESPACE}__toast--${this.type}`,
+          `${this.position}`
+        ].concat(this.toastClassName);
+        if (this.disableTransitions) {
+          classes.push("disable-transition");
+        }
+        if (this.rtl) {
+          classes.push(`${VT_NAMESPACE}__toast--rtl`);
+        }
+        return classes;
+      },
+      bodyClasses() {
+        const classes = [
+          `${VT_NAMESPACE}__toast-${isString$1(this.content) ? "body" : "component-body"}`
+        ].concat(this.bodyClassName);
+        return classes;
+      },
+      draggableStyle() {
+        if (this.dragStart === this.dragPos.x) {
+          return {};
+        } else if (this.beingDragged) {
+          return {
+            transform: `translateX(${this.dragDelta}px)`,
+            opacity: 1 - Math.abs(this.dragDelta / this.removalDistance)
+          };
+        } else {
+          return {
+            transition: "transform 0.2s, opacity 0.2s",
+            transform: "translateX(0)",
+            opacity: 1
+          };
+        }
+      },
+      dragDelta() {
+        return this.beingDragged ? this.dragPos.x - this.dragStart : 0;
+      },
+      removalDistance() {
+        if (isDOMRect(this.dragRect)) {
+          return (this.dragRect.right - this.dragRect.left) * this.draggablePercent;
+        }
+        return 0;
+      }
+    },
+    mounted() {
+      if (this.draggable) {
+        this.draggableSetup();
+      }
+      if (this.pauseOnFocusLoss) {
+        this.focusSetup();
+      }
+    },
+    beforeUnmount() {
+      if (this.draggable) {
+        this.draggableCleanup();
+      }
+      if (this.pauseOnFocusLoss) {
+        this.focusCleanup();
+      }
+    },
+    methods: {
+      hasProp,
+      getVueComponentFromObj,
+      closeToast() {
+        this.eventBus.emit(EVENTS.DISMISS, this.id);
+      },
+      clickHandler() {
+        if (this.onClick) {
+          this.onClick(this.closeToast);
+        }
+        if (this.closeOnClick) {
+          if (!this.beingDragged || this.dragStart === this.dragPos.x) {
+            this.closeToast();
+          }
+        }
+      },
+      timeoutHandler() {
+        this.closeToast();
+      },
+      hoverPause() {
+        if (this.pauseOnHover) {
+          this.isRunning = false;
+        }
+      },
+      hoverPlay() {
+        if (this.pauseOnHover) {
+          this.isRunning = true;
+        }
+      },
+      focusPause() {
+        this.isRunning = false;
+      },
+      focusPlay() {
+        this.isRunning = true;
+      },
+      focusSetup() {
+        addEventListener("blur", this.focusPause);
+        addEventListener("focus", this.focusPlay);
+      },
+      focusCleanup() {
+        removeEventListener("blur", this.focusPause);
+        removeEventListener("focus", this.focusPlay);
+      },
+      draggableSetup() {
+        const element = this.$el;
+        element.addEventListener("touchstart", this.onDragStart, {
+          passive: true
+        });
+        element.addEventListener("mousedown", this.onDragStart);
+        addEventListener("touchmove", this.onDragMove, { passive: false });
+        addEventListener("mousemove", this.onDragMove);
+        addEventListener("touchend", this.onDragEnd);
+        addEventListener("mouseup", this.onDragEnd);
+      },
+      draggableCleanup() {
+        const element = this.$el;
+        element.removeEventListener("touchstart", this.onDragStart);
+        element.removeEventListener("mousedown", this.onDragStart);
+        removeEventListener("touchmove", this.onDragMove);
+        removeEventListener("mousemove", this.onDragMove);
+        removeEventListener("touchend", this.onDragEnd);
+        removeEventListener("mouseup", this.onDragEnd);
+      },
+      onDragStart(event) {
+        this.beingDragged = true;
+        this.dragPos = { x: getX(event), y: getY(event) };
+        this.dragStart = getX(event);
+        this.dragRect = this.$el.getBoundingClientRect();
+      },
+      onDragMove(event) {
+        if (this.beingDragged) {
+          event.preventDefault();
+          if (this.isRunning) {
+            this.isRunning = false;
+          }
+          this.dragPos = { x: getX(event), y: getY(event) };
+        }
+      },
+      onDragEnd() {
+        if (this.beingDragged) {
+          if (Math.abs(this.dragDelta) >= this.removalDistance) {
+            this.disableTransitions = true;
+            this.$nextTick(() => this.closeToast());
+          } else {
+            setTimeout(() => {
+              this.beingDragged = false;
+              if (isDOMRect(this.dragRect) && this.pauseOnHover && this.dragRect.bottom >= this.dragPos.y && this.dragPos.y >= this.dragRect.top && this.dragRect.left <= this.dragPos.x && this.dragPos.x <= this.dragRect.right) {
+                this.isRunning = false;
+              } else {
+                this.isRunning = true;
+              }
+            });
+          }
+        }
+      }
+    }
+  });
+  var _hoisted_16$1 = ["role"];
+  function render8(_ctx, _cache) {
+    const _component_Icon = vue.resolveComponent("Icon");
+    const _component_CloseButton = vue.resolveComponent("CloseButton");
+    const _component_ProgressBar = vue.resolveComponent("ProgressBar");
+    return vue.openBlock(), vue.createElementBlock("div", {
+      class: vue.normalizeClass(_ctx.classes),
+      style: vue.normalizeStyle(_ctx.draggableStyle),
+      onClick: _cache[0] || (_cache[0] = (...args) => _ctx.clickHandler && _ctx.clickHandler(...args)),
+      onMouseenter: _cache[1] || (_cache[1] = (...args) => _ctx.hoverPause && _ctx.hoverPause(...args)),
+      onMouseleave: _cache[2] || (_cache[2] = (...args) => _ctx.hoverPlay && _ctx.hoverPlay(...args))
+    }, [
+      _ctx.icon ? (vue.openBlock(), vue.createBlock(_component_Icon, {
+        key: 0,
+        "custom-icon": _ctx.icon,
+        type: _ctx.type
+      }, null, 8, ["custom-icon", "type"])) : vue.createCommentVNode("v-if", true),
+      vue.createElementVNode("div", {
+        role: _ctx.accessibility.toastRole || "alert",
+        class: vue.normalizeClass(_ctx.bodyClasses)
+      }, [
+        typeof _ctx.content === "string" ? (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: 0 }, [
+          vue.createTextVNode(vue.toDisplayString(_ctx.content), 1)
+        ], 2112)) : (vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(_ctx.getVueComponentFromObj(_ctx.content)), vue.mergeProps({
+          key: 1,
+          "toast-id": _ctx.id
+        }, _ctx.hasProp(_ctx.content, "props") ? _ctx.content.props : {}, vue.toHandlers(_ctx.hasProp(_ctx.content, "listeners") ? _ctx.content.listeners : {}), { onCloseToast: _ctx.closeToast }), null, 16, ["toast-id", "onCloseToast"]))
+      ], 10, _hoisted_16$1),
+      !!_ctx.closeButton ? (vue.openBlock(), vue.createBlock(_component_CloseButton, {
+        key: 1,
+        component: _ctx.closeButton,
+        "class-names": _ctx.closeButtonClassName,
+        "show-on-hover": _ctx.showCloseButtonOnHover,
+        "aria-label": _ctx.accessibility.closeButtonLabel,
+        onClick: vue.withModifiers(_ctx.closeToast, ["stop"])
+      }, null, 8, ["component", "class-names", "show-on-hover", "aria-label", "onClick"])) : vue.createCommentVNode("v-if", true),
+      _ctx.timeout ? (vue.openBlock(), vue.createBlock(_component_ProgressBar, {
+        key: 2,
+        "is-running": _ctx.isRunning,
+        "hide-progress-bar": _ctx.hideProgressBar,
+        timeout: _ctx.timeout,
+        onCloseToast: _ctx.timeoutHandler
+      }, null, 8, ["is-running", "hide-progress-bar", "timeout", "onCloseToast"])) : vue.createCommentVNode("v-if", true)
+    ], 38);
+  }
+  VtToast_default.render = render8;
+  var VtToast_default2 = VtToast_default;
+  var VtTransition_default = vue.defineComponent({
+    name: "VtTransition",
+    props: propValidators_default.TRANSITION,
+    emits: ["leave"],
+    methods: {
+      hasProp,
+      leave(el) {
+        if (el instanceof HTMLElement) {
+          el.style.left = el.offsetLeft + "px";
+          el.style.top = el.offsetTop + "px";
+          el.style.width = getComputedStyle(el).width;
+          el.style.position = "absolute";
+        }
+      }
+    }
+  });
+  function render9(_ctx, _cache) {
+    return vue.openBlock(), vue.createBlock(vue.TransitionGroup, {
+      tag: "div",
+      "enter-active-class": _ctx.transition.enter ? _ctx.transition.enter : `${_ctx.transition}-enter-active`,
+      "move-class": _ctx.transition.move ? _ctx.transition.move : `${_ctx.transition}-move`,
+      "leave-active-class": _ctx.transition.leave ? _ctx.transition.leave : `${_ctx.transition}-leave-active`,
+      onLeave: _ctx.leave
+    }, {
+      default: vue.withCtx(() => [
+        vue.renderSlot(_ctx.$slots, "default")
+      ]),
+      _: 3
+    }, 8, ["enter-active-class", "move-class", "leave-active-class", "onLeave"]);
+  }
+  VtTransition_default.render = render9;
+  var VtTransition_default2 = VtTransition_default;
+  var VtToastContainer_default = vue.defineComponent({
+    name: "VueToastification",
+    devtools: {
+      hide: true
+    },
+    components: { Toast: VtToast_default2, VtTransition: VtTransition_default2 },
+    props: Object.assign({}, propValidators_default.CORE_TOAST, propValidators_default.CONTAINER, propValidators_default.TRANSITION),
+    data() {
+      const data = {
+        count: 0,
+        positions: Object.values(POSITION),
+        toasts: {},
+        defaults: {}
+      };
+      return data;
+    },
+    computed: {
+      toastArray() {
+        return Object.values(this.toasts);
+      },
+      filteredToasts() {
+        return this.defaults.filterToasts(this.toastArray);
+      }
+    },
+    beforeMount() {
+      const events = this.eventBus;
+      events.on(EVENTS.ADD, this.addToast);
+      events.on(EVENTS.CLEAR, this.clearToasts);
+      events.on(EVENTS.DISMISS, this.dismissToast);
+      events.on(EVENTS.UPDATE, this.updateToast);
+      events.on(EVENTS.UPDATE_DEFAULTS, this.updateDefaults);
+      this.defaults = this.$props;
+    },
+    mounted() {
+      this.setup(this.container);
+    },
+    methods: {
+      async setup(container) {
+        if (isFunction$1(container)) {
+          container = await container();
+        }
+        removeElement(this.$el);
+        container.appendChild(this.$el);
+      },
+      setToast(props) {
+        if (!isUndefined(props.id)) {
+          this.toasts[props.id] = props;
+        }
+      },
+      addToast(params) {
+        params.content = normalizeToastComponent(params.content);
+        const props = Object.assign({}, this.defaults, params.type && this.defaults.toastDefaults && this.defaults.toastDefaults[params.type], params);
+        const toast2 = this.defaults.filterBeforeCreate(props, this.toastArray);
+        toast2 && this.setToast(toast2);
+      },
+      dismissToast(id) {
+        const toast2 = this.toasts[id];
+        if (!isUndefined(toast2) && !isUndefined(toast2.onClose)) {
+          toast2.onClose();
+        }
+        delete this.toasts[id];
+      },
+      clearToasts() {
+        Object.keys(this.toasts).forEach((id) => {
+          this.dismissToast(id);
+        });
+      },
+      getPositionToasts(position) {
+        const toasts = this.filteredToasts.filter((toast2) => toast2.position === position).slice(0, this.defaults.maxToasts);
+        return this.defaults.newestOnTop ? toasts.reverse() : toasts;
+      },
+      updateDefaults(update) {
+        if (!isUndefined(update.container)) {
+          this.setup(update.container);
+        }
+        this.defaults = Object.assign({}, this.defaults, update);
+      },
+      updateToast({
+        id,
+        options,
+        create
+      }) {
+        if (this.toasts[id]) {
+          if (options.timeout && options.timeout === this.toasts[id].timeout) {
+            options.timeout++;
+          }
+          this.setToast(Object.assign({}, this.toasts[id], options));
+        } else if (create) {
+          this.addToast(Object.assign({}, { id }, options));
+        }
+      },
+      getClasses(position) {
+        const classes = [`${VT_NAMESPACE}__container`, position];
+        return classes.concat(this.defaults.containerClassName);
+      }
+    }
+  });
+  function render10(_ctx, _cache) {
+    const _component_Toast = vue.resolveComponent("Toast");
+    const _component_VtTransition = vue.resolveComponent("VtTransition");
+    return vue.openBlock(), vue.createElementBlock("div", null, [
+      (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(_ctx.positions, (pos) => {
+        return vue.openBlock(), vue.createElementBlock("div", { key: pos }, [
+          vue.createVNode(_component_VtTransition, {
+            transition: _ctx.defaults.transition,
+            class: vue.normalizeClass(_ctx.getClasses(pos))
+          }, {
+            default: vue.withCtx(() => [
+              (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(_ctx.getPositionToasts(pos), (toast2) => {
+                return vue.openBlock(), vue.createBlock(_component_Toast, vue.mergeProps({
+                  key: toast2.id
+                }, toast2), null, 16);
+              }), 128))
+            ]),
+            _: 2
+          }, 1032, ["transition", "class"])
+        ]);
+      }), 128))
+    ]);
+  }
+  VtToastContainer_default.render = render10;
+  var VtToastContainer_default2 = VtToastContainer_default;
+  var buildInterface = (globalOptions = {}, mountContainer = true) => {
+    const events = globalOptions.eventBus = globalOptions.eventBus || new EventBus();
+    if (mountContainer) {
+      vue.nextTick(() => {
+        const app2 = vue.createApp(VtToastContainer_default2, __spreadValues$1({}, globalOptions));
+        const component = app2.mount(document.createElement("div"));
+        const onMounted = globalOptions.onMounted;
+        if (!isUndefined(onMounted)) {
+          onMounted(component, app2);
+        }
+        if (globalOptions.shareAppContext) {
+          const baseApp = globalOptions.shareAppContext;
+          if (baseApp === true) {
+            console.warn(`[${VT_NAMESPACE}] App to share context with was not provided.`);
+          } else {
+            app2._context.components = baseApp._context.components;
+            app2._context.directives = baseApp._context.directives;
+            app2._context.mixins = baseApp._context.mixins;
+            app2._context.provides = baseApp._context.provides;
+            app2.config.globalProperties = baseApp.config.globalProperties;
+          }
+        }
+      });
+    }
+    const toast2 = (content, options) => {
+      const props = Object.assign({}, { id: getId(), type: TYPE.DEFAULT }, options, {
+        content
+      });
+      events.emit(EVENTS.ADD, props);
+      return props.id;
+    };
+    toast2.clear = () => events.emit(EVENTS.CLEAR, void 0);
+    toast2.updateDefaults = (update) => {
+      events.emit(EVENTS.UPDATE_DEFAULTS, update);
+    };
+    toast2.dismiss = (id) => {
+      events.emit(EVENTS.DISMISS, id);
+    };
+    function updateToast(id, { content, options }, create = false) {
+      const opt = Object.assign({}, options, { content });
+      events.emit(EVENTS.UPDATE, {
+        id,
+        options: opt,
+        create
+      });
+    }
+    toast2.update = updateToast;
+    toast2.success = (content, options) => toast2(content, Object.assign({}, options, { type: TYPE.SUCCESS }));
+    toast2.info = (content, options) => toast2(content, Object.assign({}, options, { type: TYPE.INFO }));
+    toast2.error = (content, options) => toast2(content, Object.assign({}, options, { type: TYPE.ERROR }));
+    toast2.warning = (content, options) => toast2(content, Object.assign({}, options, { type: TYPE.WARNING }));
+    return toast2;
+  };
+  var createMockToastInterface = () => {
+    const toast2 = () => console.warn(`[${VT_NAMESPACE}] This plugin does not support SSR!`);
+    return new Proxy(toast2, {
+      get() {
+        return toast2;
+      }
+    });
+  };
+  function createToastInterface(optionsOrEventBus) {
+    if (!isBrowser()) {
+      return createMockToastInterface();
+    }
+    if (isEventBusInterface(optionsOrEventBus)) {
+      return buildInterface({ eventBus: optionsOrEventBus }, false);
+    }
+    return buildInterface(optionsOrEventBus, true);
+  }
+  var toastInjectionKey = Symbol("VueToastification");
+  var globalEventBus = new EventBus();
+  var VueToastificationPlugin = (App, options) => {
+    if ((options == null ? void 0 : options.shareAppContext) === true) {
+      options.shareAppContext = App;
+    }
+    const inter = createToastInterface(__spreadValues$1({
+      eventBus: globalEventBus
+    }, options));
+    App.provide(toastInjectionKey, inter);
+  };
+  var useToast = (eventBus) => {
+    if (eventBus) {
+      return createToastInterface(eventBus);
+    }
+    const toast2 = vue.getCurrentInstance() ? vue.inject(toastInjectionKey, void 0) : void 0;
+    return toast2 ? toast2 : createToastInterface(globalEventBus);
+  };
+  var src_default = VueToastificationPlugin;
   const index = "";
   var monkeyWindow = window;
   var GM = /* @__PURE__ */ (() => monkeyWindow.GM)();
@@ -441,13 +1408,15 @@ var __publicField = (obj, key, value) => {
   const isString = (val) => typeof val === "string";
   const noop = () => {
   };
-  isClient && ((_a = window == null ? void 0 : window.navigator) == null ? void 0 : _a.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
+  const isIOS = isClient && ((_a = window == null ? void 0 : window.navigator) == null ? void 0 : _a.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
   function resolveUnref(r) {
     return typeof r === "function" ? r() : vue.unref(r);
   }
   function createFilterWrapper(filter, fn) {
     function wrapper(...args) {
-      filter(() => fn.apply(this, args), { fn, thisArg: this, args });
+      return new Promise((resolve, reject) => {
+        Promise.resolve(filter(() => fn.apply(this, args), { fn, thisArg: this, args })).then(resolve).catch(reject);
+      });
     }
     return wrapper;
   }
@@ -466,7 +1435,7 @@ var __publicField = (obj, key, value) => {
       if (isActive.value)
         extendFilter(...args);
     };
-    return { isActive, pause, resume, eventFilter };
+    return { isActive: vue.readonly(isActive), pause, resume, eventFilter };
   }
   function identity(arg) {
     return arg;
@@ -559,8 +1528,6 @@ var __publicField = (obj, key, value) => {
   }
   const defaultWindow = isClient ? window : void 0;
   const defaultDocument = isClient ? window.document : void 0;
-  isClient ? window.navigator : void 0;
-  isClient ? window.location : void 0;
   function useEventListener(...args) {
     let target;
     let events;
@@ -583,16 +1550,16 @@ var __publicField = (obj, key, value) => {
       cleanups.forEach((fn) => fn());
       cleanups.length = 0;
     };
-    const register = (el, event, listener) => {
-      el.addEventListener(event, listener, options);
-      return () => el.removeEventListener(event, listener, options);
+    const register = (el, event, listener, options2) => {
+      el.addEventListener(event, listener, options2);
+      return () => el.removeEventListener(event, listener, options2);
     };
-    const stopWatch = vue.watch(() => unrefElement(target), (el) => {
+    const stopWatch = vue.watch(() => [unrefElement(target), resolveUnref(options)], ([el, options2]) => {
       cleanup();
       if (!el)
         return;
       cleanups.push(...events.flatMap((event) => {
-        return listeners.map((listener) => register(el, event, listener));
+        return listeners.map((listener) => register(el, event, listener, options2));
       }));
     }, { immediate: true, flush: "post" });
     const stop = () => {
@@ -602,28 +1569,37 @@ var __publicField = (obj, key, value) => {
     tryOnScopeDispose(stop);
     return stop;
   }
+  let _iOSWorkaround = false;
   function onClickOutside(target, handler, options = {}) {
-    const { window: window2 = defaultWindow, ignore, capture = true, detectIframe = false } = options;
+    const { window: window2 = defaultWindow, ignore = [], capture = true, detectIframe = false } = options;
     if (!window2)
       return;
+    if (isIOS && !_iOSWorkaround) {
+      _iOSWorkaround = true;
+      Array.from(window2.document.body.children).forEach((el) => el.addEventListener("click", noop));
+    }
     let shouldListen = true;
-    let fallback;
+    const shouldIgnore = (event) => {
+      return ignore.some((target2) => {
+        if (typeof target2 === "string") {
+          return Array.from(window2.document.querySelectorAll(target2)).some((el) => el === event.target || event.composedPath().includes(el));
+        } else {
+          const el = unrefElement(target2);
+          return el && (event.target === el || event.composedPath().includes(el));
+        }
+      });
+    };
     const listener = (event) => {
-      window2.clearTimeout(fallback);
       const el = unrefElement(target);
       if (!el || el === event.target || event.composedPath().includes(el))
         return;
+      if (event.detail === 0)
+        shouldListen = !shouldIgnore(event);
       if (!shouldListen) {
         shouldListen = true;
         return;
       }
       handler(event);
-    };
-    const shouldIgnore = (event) => {
-      return ignore && ignore.some((target2) => {
-        const el = unrefElement(target2);
-        return el && (event.target === el || event.composedPath().includes(el));
-      });
     };
     const cleanup = [
       useEventListener(window2, "click", listener, { passive: true, capture }),
@@ -631,13 +1607,6 @@ var __publicField = (obj, key, value) => {
         const el = unrefElement(target);
         if (el)
           shouldListen = !e.composedPath().includes(el) && !shouldIgnore(e);
-      }, { passive: true }),
-      useEventListener(window2, "pointerup", (e) => {
-        if (e.button === 0) {
-          const path = e.composedPath();
-          e.composedPath = () => path;
-          fallback = window2.setTimeout(() => listener(e), 50);
-        }
       }, { passive: true }),
       detectIframe && useEventListener(window2, "blur", (event) => {
         var _a3;
@@ -692,19 +1661,19 @@ var __publicField = (obj, key, value) => {
   function guessSerializerType(rawInit) {
     return rawInit == null ? "any" : rawInit instanceof Set ? "set" : rawInit instanceof Map ? "map" : rawInit instanceof Date ? "date" : typeof rawInit === "boolean" ? "boolean" : typeof rawInit === "string" ? "string" : typeof rawInit === "object" ? "object" : !Number.isNaN(rawInit) ? "number" : "any";
   }
-  var __defProp$j = Object.defineProperty;
-  var __getOwnPropSymbols$l = Object.getOwnPropertySymbols;
-  var __hasOwnProp$l = Object.prototype.hasOwnProperty;
-  var __propIsEnum$l = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp$j = (obj, key, value) => key in obj ? __defProp$j(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-  var __spreadValues$j = (a, b) => {
+  var __defProp$k = Object.defineProperty;
+  var __getOwnPropSymbols$m = Object.getOwnPropertySymbols;
+  var __hasOwnProp$m = Object.prototype.hasOwnProperty;
+  var __propIsEnum$m = Object.prototype.propertyIsEnumerable;
+  var __defNormalProp$k = (obj, key, value) => key in obj ? __defProp$k(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+  var __spreadValues$k = (a, b) => {
     for (var prop in b || (b = {}))
-      if (__hasOwnProp$l.call(b, prop))
-        __defNormalProp$j(a, prop, b[prop]);
-    if (__getOwnPropSymbols$l)
-      for (var prop of __getOwnPropSymbols$l(b)) {
-        if (__propIsEnum$l.call(b, prop))
-          __defNormalProp$j(a, prop, b[prop]);
+      if (__hasOwnProp$m.call(b, prop))
+        __defNormalProp$k(a, prop, b[prop]);
+    if (__getOwnPropSymbols$m)
+      for (var prop of __getOwnPropSymbols$m(b)) {
+        if (__propIsEnum$m.call(b, prop))
+          __defNormalProp$k(a, prop, b[prop]);
       }
     return a;
   };
@@ -742,6 +1711,7 @@ var __publicField = (obj, key, value) => {
       write: (v) => v.toISOString()
     }
   };
+  const customStorageEventName = "vueuse-storage";
   function useStorage(key, defaults, storage, options = {}) {
     var _a3;
     const {
@@ -774,56 +1744,79 @@ var __publicField = (obj, key, value) => {
     const type = guessSerializerType(rawInit);
     const serializer = (_a3 = options.serializer) != null ? _a3 : StorageSerializers[type];
     const { pause: pauseWatch, resume: resumeWatch } = watchPausable(data, () => write(data.value), { flush, deep, eventFilter });
-    if (window2 && listenToStorageChanges)
+    if (window2 && listenToStorageChanges) {
       useEventListener(window2, "storage", update);
+      useEventListener(window2, customStorageEventName, updateFromCustomEvent);
+    }
     update();
     return data;
     function write(v) {
       try {
-        if (v == null)
+        if (v == null) {
           storage.removeItem(key);
-        else
-          storage.setItem(key, serializer.write(v));
+        } else {
+          const serialized = serializer.write(v);
+          const oldValue = storage.getItem(key);
+          if (oldValue !== serialized) {
+            storage.setItem(key, serialized);
+            if (window2) {
+              window2.dispatchEvent(new CustomEvent(customStorageEventName, {
+                detail: {
+                  key,
+                  oldValue,
+                  newValue: serialized,
+                  storageArea: storage
+                }
+              }));
+            }
+          }
+        }
       } catch (e) {
         onError(e);
       }
     }
     function read(event) {
-      pauseWatch();
-      try {
-        const rawValue = event ? event.newValue : storage.getItem(key);
-        if (rawValue == null) {
-          if (writeDefaults && rawInit !== null)
-            storage.setItem(key, serializer.write(rawInit));
-          return rawInit;
-        } else if (!event && mergeDefaults) {
-          const value = serializer.read(rawValue);
-          if (isFunction(mergeDefaults))
-            return mergeDefaults(value, rawInit);
-          else if (type === "object" && !Array.isArray(value))
-            return __spreadValues$j(__spreadValues$j({}, rawInit), value);
-          return value;
-        } else if (typeof rawValue !== "string") {
-          return rawValue;
-        } else {
-          return serializer.read(rawValue);
-        }
-      } catch (e) {
-        onError(e);
-      } finally {
-        resumeWatch();
+      const rawValue = event ? event.newValue : storage.getItem(key);
+      if (rawValue == null) {
+        if (writeDefaults && rawInit !== null)
+          storage.setItem(key, serializer.write(rawInit));
+        return rawInit;
+      } else if (!event && mergeDefaults) {
+        const value = serializer.read(rawValue);
+        if (isFunction(mergeDefaults))
+          return mergeDefaults(value, rawInit);
+        else if (type === "object" && !Array.isArray(value))
+          return __spreadValues$k(__spreadValues$k({}, rawInit), value);
+        return value;
+      } else if (typeof rawValue !== "string") {
+        return rawValue;
+      } else {
+        return serializer.read(rawValue);
       }
+    }
+    function updateFromCustomEvent(event) {
+      update(event.detail);
     }
     function update(event) {
       if (event && event.storageArea !== storage)
         return;
-      if (event && event.key === null) {
+      if (event && event.key == null) {
         data.value = rawInit;
         return;
       }
       if (event && event.key !== key)
         return;
-      data.value = read(event);
+      pauseWatch();
+      try {
+        data.value = read(event);
+      } catch (e) {
+        onError(e);
+      } finally {
+        if (event)
+          vue.nextTick(resumeWatch);
+        else
+          resumeWatch();
+      }
     }
   }
   const functionsMap = [
@@ -1052,7 +2045,7 @@ var __publicField = (obj, key, value) => {
     return target;
   };
   const PopupTorrent = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-1f3b346f"]]);
-  const toast = Toast.useToast();
+  const toast = useToast();
   function useDownloadEvent() {
     function setHentaiAtHomeEvent() {
       var _a3, _b, _c;
@@ -1183,7 +2176,7 @@ var __publicField = (obj, key, value) => {
     },
     setup(__props) {
       const popup = vue.ref();
-      const toast2 = Toast.useToast();
+      const toast2 = useToast();
       const { archiveLinkAnchor: archiveLinkAnchor2 } = useElement();
       const { setHentaiAtHomeEvent, setDirectDownloadEvent } = useDownloadEvent();
       const { isShow } = useDownloadArchive();
@@ -1340,10 +2333,10 @@ var __publicField = (obj, key, value) => {
         const index2 = target.id.split("image_")[1];
         const captionElement = getElement(".mi4", target);
         const captionText = captionElement == null ? void 0 : captionElement.innerText;
-        if (!captionText || (captionText == null ? void 0 : captionText.includes(" \uFF0F "))) {
+        if (!captionText || (captionText == null ? void 0 : captionText.includes(" ／ "))) {
           return;
         }
-        captionElement.innerText = `${captionText}\u3000-\u3000${index2} \uFF0F ${pageCount22}`;
+        captionElement.innerText = `${captionText}　-　${index2} ／ ${pageCount22}`;
       });
       const config = { attributes: true };
       imageContainers.forEach((container) => {
@@ -1890,7 +2883,7 @@ var __publicField = (obj, key, value) => {
   const _withScopeId$2 = (n) => (vue.pushScopeId("data-v-8b2bf6b6"), n = n(), vue.popScopeId(), n);
   const _hoisted_1$5 = { class: "page-elevator" };
   const _hoisted_2$4 = ["value"];
-  const _hoisted_3$2 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ vue.createElementVNode("span", { class: "page-elevator__slash" }, "\uFF0F", -1));
+  const _hoisted_3$2 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ vue.createElementVNode("span", { class: "page-elevator__slash" }, "／", -1));
   const _hoisted_4$1 = ["textContent"];
   const _sfc_main$6 = /* @__PURE__ */ vue.defineComponent({
     __name: "PageElevator",
@@ -2136,6 +3129,7 @@ var __publicField = (obj, key, value) => {
         return vue.openBlock(), vue.createElementBlock("div", {
           class: "enhancer-features",
           onWheel: _cache[0] || (_cache[0] = vue.withModifiers(
+            //@ts-ignore
             (...args) => vue.unref(changePageOnWheel) && vue.unref(changePageOnWheel)(...args),
             ["stop"]
           ))
@@ -2413,7 +3407,7 @@ var __publicField = (obj, key, value) => {
     }
   });
   const app = vue.createApp(_sfc_main);
-  app.use(Toast__default.default, {
+  app.use(src_default, {
     transition: "Vue-Toastification__fade",
     maxToasts: 2,
     newestOnTop: true,
@@ -2433,4 +3427,4 @@ var __publicField = (obj, key, value) => {
       })()
     );
   })();
-})(Vue, VueToastification);
+})(Vue);
