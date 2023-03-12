@@ -37,10 +37,6 @@ export default defineConfig({
         metaFileName: true,
         externalGlobals: {
           'vue': cdn.jsdelivr('Vue', 'dist/vue.global.prod.js'),
-          'vue-toastification': [
-            'VueToastification',
-            (version, name) => `https://unpkg.com/pkg-cdn/dist/${name}/v${version}.iife.js`,
-          ],
         },
       },
     }),
