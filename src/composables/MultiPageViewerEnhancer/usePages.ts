@@ -9,7 +9,7 @@ import useElements from './useElements'
 const { paneImagesDiv } = useElements()
 
 const location = useBrowserLocation()
-const currentPage = ref(Number(location.value.hash?.replace('#page', '')))
+const currentPage = ref(Number(location.value.hash?.replace('#page', '')) || 1)
 
 export default function() {
   const pageCount = unsafeWindow.pagecount
