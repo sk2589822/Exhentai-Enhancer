@@ -10,12 +10,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { nextTick, onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import useElements from '@/composables/GalleryEnhancer/useElements'
-import { getFavoritesLink } from '@/composables/GalleryEnhancer/usePreloadPopups'
+import usePreloadPopups, { getFavoritesLink, preloadFavoritesLink } from '@/composables/GalleryEnhancer/usePreloadPopups'
 import { getElement } from '@/utils/commons'
 
 defineProps({
@@ -28,6 +28,7 @@ defineProps({
 const popup = ref<HTMLElement>()
 
 const { favoritesLinkAnchor, favoritesLinkDiv } = useElements()
+const { favoritesInnerHtml } = usePreloadPopups()
 
 const isShow = ref(false)
 
@@ -71,6 +72,7 @@ function setRequestEvents() {
     for (const option of categoryOptions) {
       option.addEventListener('dblclick', async event => {
         event.preventDefault()
+        console.log(123)
 
         const category = option.querySelector<HTMLInputElement>('[name=favcat]')?.value as string
         await setFavorite(category)
@@ -108,6 +110,10 @@ async function setFavorite(category: string) {
   Function(script)()
 
   isShow.value = false
+
+  favoritesInnerHtml.value = await preloadFavoritesLink()
+  await nextTick()
+  setRequestEvents()
 }
 
 </script>
