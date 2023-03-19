@@ -31,7 +31,7 @@ export const infiniteScrollSwitch = reactive(new GMVariable<boolean>(GMKey.Infin
 
 // Gallery enhancer
 export const scrollByRowSwitch = reactive(new GMVariable<boolean>(GMKey.ScrollByRow, true))
-export const betterDownloadPopupSwitch = reactive(new GMVariable<boolean>(GMKey.BetterDownloadPopup, true))
+export const betterPopupSwitch = reactive(new GMVariable<boolean>(GMKey.BetterPopup, true))
 export const quickDownloadMethod = reactive(new GMVariable<DownloadMethod>(GMKey.QuickDownloadMethod, DownloadMethod.Manual))
 export const loadAllGalleryImagesSwitch = reactive(new GMVariable<boolean>(GMKey.LoadAllGalleryImages, true))
 
@@ -44,7 +44,7 @@ export async function initializeMonkeySwitches() {
   await Promise.all([
     infiniteScrollSwitch.initialize(),
     scrollByRowSwitch.initialize(),
-    betterDownloadPopupSwitch.initialize(),
+    betterPopupSwitch.initialize(),
     quickDownloadMethod.initialize(),
     loadAllGalleryImagesSwitch.initialize(),
     multipageViewerEnhancerSwitch.initialize(),

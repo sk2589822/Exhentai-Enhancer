@@ -1,15 +1,9 @@
-import { ref } from 'vue'
-
 import useElement from './useElements'
 
 export default function() {
-  const { archiveLinkAnchor, torrentLinkAnchor, infoDiv } = useElement()
+  const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor, infoDiv } = useElement()
 
-  const popupRight = ref(getPopupRight())
-  const archiveTop = ref(getArchiveTop())
-  const torrentTop = ref(getTorrentTop())
-
-  function getPopupRight(): number {
+  function getDownloadPopupRight(): number {
     return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2
   }
 
@@ -23,9 +17,24 @@ export default function() {
     return top + height + window.scrollY + 5
   }
 
+  function getFavoritesPosition() {
+    const { top, height, left } = favoritesLinkAnchor.getBoundingClientRect()
+
+    return {
+      top: `${top + height + window.scrollY + 5}px`,
+      left: `${left}px`,
+    }
+  }
+
   return {
-    popupRight,
-    archiveTop,
-    torrentTop,
+    archive: {
+      top: `${getArchiveTop()}px`,
+      right: `${getDownloadPopupRight()}px`,
+    },
+    torrent: {
+      top: `${getTorrentTop()}px`,
+      right: `${getDownloadPopupRight()}px`,
+    },
+    favorites: getFavoritesPosition(),
   }
 }

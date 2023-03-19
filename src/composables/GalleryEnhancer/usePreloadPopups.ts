@@ -5,30 +5,37 @@ import { Logger, LoggerScopeDecorator } from '@/utils/logger'
 
 import useElement from './useElements'
 
-const baseLogger = new Logger('Preload Download Links')
-
 const torrentInnerHtml = ref<string>('')
 const archiveInnerHtml = ref<string>('')
+const favoritesInnerHtml = ref<string>('')
 
-const { archiveLinkAnchor, torrentLinkAnchor } = useElement()
+const {
+  archiveLinkAnchor,
+  torrentLinkAnchor,
+} = useElement()
 
 /**
-* 預先載入 Torrent 和 Archive 視窗
+* 預先載入 Torrent, Archive 和 Favorites 視窗
 * 同時把原先的 window.open() popup 改為在同一個頁面內的 popup
 */
 export default function() {
-  async function preloadDownloadLinks() {
-    [archiveInnerHtml.value, torrentInnerHtml.value] = await Promise.all([
+  async function preloadLinks() {
+    [
+      archiveInnerHtml.value,
+      torrentInnerHtml.value,
+      favoritesInnerHtml.value,
+    ] = await Promise.all([
       preloadArchiveLink(),
       preloadTorrentLink(),
+      preloadFavoritesLink(),
     ])
   }
 
   async function preloadTorrentLink() {
-    const logger = new LoggerScopeDecorator(baseLogger, 'Torrent')
+    const logger = new LoggerScopeDecorator(new Logger('Preload Links'), 'Torrent')
     logger.log('Start')
 
-    const link = getLink(torrentLinkAnchor as HTMLElement)
+    const link = getDownloadLink(torrentLinkAnchor as HTMLElement)
     if (!link) {
       logger.error('link not found.')
       return ''
@@ -47,10 +54,10 @@ export default function() {
   }
 
   async function preloadArchiveLink() {
-    const logger = new Logger('Archive')
+    const logger = new LoggerScopeDecorator(new Logger('Preload Links'), 'Archive')
     logger.log('Start')
 
-    const link = getLink(archiveLinkAnchor)
+    const link = getDownloadLink(archiveLinkAnchor)
     if (!link) {
       logger.error('link not found.')
       return ''
@@ -68,7 +75,29 @@ export default function() {
     return popupContent.innerHTML
   }
 
-  function getLink(linkElement: HTMLElement) {
+  async function preloadFavoritesLink() {
+    const logger = new LoggerScopeDecorator(new Logger('Preload Links'), 'Favorites')
+    logger.log('Start')
+
+    const link = getFavoritesLink()
+    if (!link) {
+      logger.error('link not found.')
+      return ''
+    }
+
+    const doc = await getDoc(link)
+    const popupContent = getPopupContent(doc, '.stuffbox')
+    if (!popupContent) {
+      logger.error('popup content not found.')
+      return ''
+    }
+
+    logger.log('End')
+
+    return popupContent.innerHTML
+  }
+
+  function getDownloadLink(linkElement: HTMLElement) {
     const onClick = linkElement.getAttribute('onclick')
     if (!onClick) {
       return null
@@ -89,8 +118,21 @@ export default function() {
   }
 
   return {
-    preloadDownloadLinks,
+    preloadLinks,
     torrentInnerHtml,
     archiveInnerHtml,
+    favoritesInnerHtml,
   }
+}
+
+export function getFavoritesLink() {
+  return `${location.origin}/gallerypopups.php?gid=${getGID()}&t=${getGalleryVersion()}&act=addfav`
+}
+
+export function getGID() {
+  return location.pathname.split('/')[2]
+}
+
+export function getGalleryVersion() {
+  return location.pathname.split('/')[3]
 }

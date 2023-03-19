@@ -26,6 +26,9 @@ interface Window {
   preload_scroll_images: () => void; // preload images & set currentpage
   action_reload: (page) => void; // reload image
   preload_generic: (a, b, c) => void; // HTML nodes operation
+
+  // Favorites
+  clicked_fav: () => void; // set it to () => {} in order to prevent undefined error
 }
 
 interface Document {
