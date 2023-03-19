@@ -32,89 +32,81 @@ const popup = ref<HTMLElement>()
 const toast = useToast()
 const { archiveLinkAnchor } = useElements()
 const { setHentaiAtHomeEvent, setDirectDownloadEvent } = useDownloadEvent()
-const { isShow } = useDownloadArchive()
+const isShow = ref(false)
 
-function useDownloadArchive() {
-  const isShow = ref(false)
+onMounted(() => {
+  archiveLinkAnchor.removeAttribute('onclick')
+  archiveLinkAnchor.classList.add('is-ready')
 
-  onMounted(() => {
-    archiveLinkAnchor.removeAttribute('onclick')
-    archiveLinkAnchor.classList.add('is-ready')
+  setHentaiAtHomeEvent()
+  setDirectDownloadEvent()
 
-    setHentaiAtHomeEvent()
-    setDirectDownloadEvent()
+  if (quickDownloadMethod.value === DownloadMethod.Manual) {
+    setToggleEvent()
+  } else {
+    setQuickDownloadEvent()
+  }
 
-    if (quickDownloadMethod.value === DownloadMethod.Manual) {
-      setToggleEvent()
-    } else {
-      setQuickDownloadEvent()
+  onClickOutside(popup, event => {
+    if (event.target === archiveLinkAnchor) {
+      return
     }
 
-    onClickOutside(popup, event => {
-      if (event.target === archiveLinkAnchor) {
-        return
-      }
-
-      isShow.value = false
-    })
+    isShow.value = false
   })
+})
 
-  function setToggleEvent() {
-    archiveLinkAnchor.addEventListener('click', event => {
-      event.preventDefault()
-      event.stopPropagation()
-      isShow.value = !isShow.value
-    })
-  }
+function setToggleEvent() {
+  archiveLinkAnchor.addEventListener('click', event => {
+    event.preventDefault()
+    event.stopPropagation()
+    isShow.value = !isShow.value
+  })
+}
 
-  // TODO: 直接 send request 而非操作 DOM
-  function setQuickDownloadEvent() {
-    archiveLinkAnchor.addEventListener('click', event => {
-      event.preventDefault()
-      event.stopPropagation()
+// TODO: 直接 send request 而非操作 DOM
+function setQuickDownloadEvent() {
+  archiveLinkAnchor.addEventListener('click', event => {
+    event.preventDefault()
+    event.stopPropagation()
 
-      if (!popup.value || isShow.value) {
-        isShow.value = false
-        return
-      }
-
-      switch (quickDownloadMethod.value) {
-        case DownloadMethod.HaH_Original:
-        case DownloadMethod.HaH_2400: {
-          const downloadLinkElement = getHaHDownloadLinkElement(quickDownloadMethod.value)
-
-          if (downloadLinkElement) {
-            downloadLinkElement.click()
-          } else {
-            toast.warning(`Failed ${quickDownloadMethod.value}. The link might not exists.\n Open popup`)
-            isShow.value = true
-          }
-
-          break
-        }
-        case DownloadMethod.Direct_Origin:
-          (getElement('input[value="Download Original Archive"]', popup.value) as HTMLElement).click()
-          break
-        case DownloadMethod.Direct_Resample:
-          (getElement('input[value="Download Resample Archive"]', popup.value) as HTMLElement).click()
-          break
-      }
-    })
-  }
-
-  function getHaHDownloadLinkElement(downloadMethod: DownloadMethod.HaH_Original | DownloadMethod.HaH_2400) {
-    const indexMap = {
-      [DownloadMethod.HaH_Original]: 6,
-      [DownloadMethod.HaH_2400]: 5,
+    if (!popup.value || isShow.value) {
+      isShow.value = false
+      return
     }
-    const index = indexMap[downloadMethod]
 
-    return getElement(`td:nth-child(${index}) > p > a`, popup.value)
-  }
+    switch (quickDownloadMethod.value) {
+      case DownloadMethod.HaH_Original:
+      case DownloadMethod.HaH_2400: {
+        const downloadLinkElement = getHaHDownloadLinkElement(quickDownloadMethod.value)
 
-  return {
-    isShow,
+        if (downloadLinkElement) {
+          downloadLinkElement.click()
+        } else {
+          toast.warning(`Failed ${quickDownloadMethod.value}. The link might not exists.\n Open popup`)
+          isShow.value = true
+        }
+
+        break
+      }
+      case DownloadMethod.Direct_Origin:
+        (getElement('input[value="Download Original Archive"]', popup.value) as HTMLElement).click()
+        break
+      case DownloadMethod.Direct_Resample:
+        (getElement('input[value="Download Resample Archive"]', popup.value) as HTMLElement).click()
+        break
+    }
+  })
+}
+
+function getHaHDownloadLinkElement(downloadMethod: DownloadMethod.HaH_Original | DownloadMethod.HaH_2400) {
+  const indexMap = {
+    [DownloadMethod.HaH_Original]: 6,
+    [DownloadMethod.HaH_2400]: 5,
   }
+  const index = indexMap[downloadMethod]
+
+  return getElement(`td:nth-child(${index}) > p > a`, popup.value)
 }
 
 </script>

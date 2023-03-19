@@ -27,46 +27,40 @@ const popup = ref<HTMLElement>()
 
 const { torrentLinkAnchor } = useElements()
 
-function useDownloadTorrent() {
-  const isShow = ref(false)
+const isShow = ref(false)
 
-  onMounted(() => {
-    torrentLinkAnchor.removeAttribute('onclick')
-    torrentLinkAnchor.classList.add('is-ready')
+onMounted(() => {
+  torrentLinkAnchor.removeAttribute('onclick')
+  torrentLinkAnchor.classList.add('is-ready')
 
-    if (torrentLinkAnchor.innerText === 'Torrent Download (1)') {
-      setDownloadEvent()
-    } else {
-      setToggleEvent()
-    }
+  if (torrentLinkAnchor.innerText === 'Torrent Download (1)') {
+    setDownloadEvent()
+  } else {
+    setToggleEvent()
+  }
+})
+
+function setDownloadEvent() {
+  torrentLinkAnchor.addEventListener('click', event => {
+    event.preventDefault()
+    getElement('a', popup.value)?.click()
+  })
+}
+
+function setToggleEvent() {
+  torrentLinkAnchor.addEventListener('click', event => {
+    event.preventDefault()
+    event.stopPropagation()
+
+    isShow.value = !isShow.value
   })
 
-  function setDownloadEvent() {
-    torrentLinkAnchor.addEventListener('click', event => {
-      event.preventDefault()
-      getElement('a', popup.value)?.click()
-    })
-  }
-
-  function setToggleEvent() {
-    torrentLinkAnchor.addEventListener('click', event => {
-      event.preventDefault()
-      event.stopPropagation()
-
-      isShow.value = !isShow.value
-    })
-
-    onClickOutside(popup, event => {
-      if (event.target === torrentLinkAnchor) {
-        return
-      }
-      isShow.value = false
-    })
-  }
-
-  return {
-    isShow,
-  }
+  onClickOutside(popup, event => {
+    if (event.target === torrentLinkAnchor) {
+      return
+    }
+    isShow.value = false
+  })
 }
 </script>
 
