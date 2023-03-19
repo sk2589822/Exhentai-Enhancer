@@ -3,7 +3,7 @@
     <div
       v-show="isShow"
       ref="popup"
-      class="popup popup--torrent"
+      class="popup"
       v-html="innerHTML"
     />
   </transition>
