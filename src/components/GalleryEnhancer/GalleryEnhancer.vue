@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import useWheelStep from '@/composables/useWheelStep'
-import usePreloadLinks from '@/composables/GalleryEnhancer/usePreloadPopups'
+import usePreloadLinks, { preloadLinks } from '@/composables/GalleryEnhancer/usePreloadPopups'
 import usePosition from '@/composables/GalleryEnhancer/usePositions'
 import { scrollByRowSwitch, betterPopupSwitch, loadAllGalleryImagesSwitch } from '@/utils/GMVariables'
 import { fetchAllImages } from '@/utils/fetchImages'
@@ -32,7 +32,6 @@ if (loadAllGalleryImagesSwitch.value) {
 }
 
 const {
-  preloadLinks,
   archiveInnerHtml,
   torrentInnerHtml,
   favoritesInnerHtml,
