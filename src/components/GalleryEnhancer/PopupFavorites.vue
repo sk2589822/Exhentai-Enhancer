@@ -10,12 +10,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import useElements from '@/composables/GalleryEnhancer/useElements'
-import { getGID, getGalleryVersion, getFavoritesLink } from '@/composables/GalleryEnhancer/usePreloadPopups'
+import { getFavoritesLink } from '@/composables/GalleryEnhancer/usePreloadPopups'
 import { getElement } from '@/utils/commons'
 
 defineProps({
@@ -36,7 +36,7 @@ onMounted(() => {
   favoritesLinkAnchor.classList.add('is-ready')
 
   setToggleEvent()
-  setRequestEvent()
+  setRequestEvents()
 
   onClickOutside(popup, event => {
     if (event.target === favoritesLinkAnchor) {
@@ -55,34 +55,49 @@ function setToggleEvent() {
   })
 }
 
-function setRequestEvent() {
+function setRequestEvents() {
+  // set submit event
   const submitButton = popup.value?.querySelector('input[type=submit]')
-
   submitButton?.addEventListener('click', async event => {
     event.preventDefault()
 
-    const formData = new FormData()
     const favoriteCategory = getElement<HTMLInputElement>('[name=favcat]:checked')?.value as string
-    const favoriteNote = (getElement<HTMLTextAreaElement>('[name=favnote]')?.value) as string
-    const apply = favoriteCategory === 'favdel'
-      ? 'Apply Changes'
-      : 'Add to Favorites'
-
-    formData.append('favcat', favoriteCategory)
-    formData.append('favnote', favoriteNote)
-    formData.append('apply', apply)
-    formData.append('update', '1')
-
-    await fetch(getFavoritesLink(), {
-      method: 'POST',
-      body: formData,
-    })
-
-    location.reload()
+    await setFavorite(favoriteCategory)
   })
+
+  // set double click event
+  const categoryOptions = popup.value?.querySelectorAll('#galpop .nosel > div')
+  if (categoryOptions?.length) {
+    for (const option of categoryOptions) {
+      option.addEventListener('dblclick', async event => {
+        event.preventDefault()
+
+        const category = option.querySelector<HTMLInputElement>('[name=favcat]')?.value as string
+        await setFavorite(category)
+      })
+    }
+  }
 
   // 原本是 Favorite 頁面的 function，改成 popup 後不宣告的話會因為抓不到這個 function 而報錯
   unsafeWindow.clicked_fav = () => null
+}
+
+async function setFavorite(category: string) {
+  const formData = new FormData()
+  const favoriteNote = (getElement<HTMLTextAreaElement>('[name=favnote]')?.value) as string
+  const apply = category === 'favdel'
+    ? 'Apply Changes'
+    : 'Add to Favorites'
+
+  formData.append('favcat', category)
+  formData.append('favnote', favoriteNote)
+  formData.append('apply', apply)
+  formData.append('update', '1')
+
+  await fetch(getFavoritesLink(), {
+    method: 'POST',
+    body: formData,
+  })
 }
 
 </script>
