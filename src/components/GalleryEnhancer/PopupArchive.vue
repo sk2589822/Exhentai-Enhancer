@@ -14,7 +14,7 @@ import { onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import { useToast } from 'vue-toastification'
 
-import useElement from '@/composables/GalleryEnhancer/useElements'
+import useElements from '@/composables/GalleryEnhancer/useElements'
 import useDownloadEvent from '@/composables/GalleryEnhancer/useDownloadEvents'
 import { quickDownloadMethod } from '@/utils/GMVariables'
 import { DownloadMethod } from '@/constants/monkey'
@@ -30,7 +30,7 @@ defineProps({
 const popup = ref<HTMLElement>()
 
 const toast = useToast()
-const { archiveLinkAnchor } = useElement()
+const { archiveLinkAnchor } = useElements()
 const { setHentaiAtHomeEvent, setDirectDownloadEvent } = useDownloadEvent()
 const { isShow } = useDownloadArchive()
 

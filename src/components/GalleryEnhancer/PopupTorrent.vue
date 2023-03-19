@@ -13,7 +13,7 @@
 import { onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
-import useElement from '@/composables/GalleryEnhancer/useElements'
+import useElements from '@/composables/GalleryEnhancer/useElements'
 import { getElement } from '@/utils/commons'
 
 defineProps({
@@ -25,8 +25,7 @@ defineProps({
 
 const popup = ref<HTMLElement>()
 
-const { torrentLinkAnchor } = useElement()
-const { isShow } = useDownloadTorrent()
+const { torrentLinkAnchor } = useElements()
 
 function useDownloadTorrent() {
   const isShow = ref(false)
