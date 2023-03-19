@@ -3,7 +3,7 @@
     <div
       v-show="isShow"
       ref="popup"
-      class="popup popup--torrent"
+      class="popup"
       v-html="innerHTML"
     />
   </transition>
@@ -13,7 +13,7 @@
 import { onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
-import useElement from '@/composables/GalleryEnhancer/useElements'
+import useElements from '@/composables/GalleryEnhancer/useElements'
 import { getElement } from '@/utils/commons'
 
 defineProps({
@@ -25,49 +25,42 @@ defineProps({
 
 const popup = ref<HTMLElement>()
 
-const { torrentLinkAnchor } = useElement()
-const { isShow } = useDownloadTorrent()
+const { torrentLinkAnchor } = useElements()
 
-function useDownloadTorrent() {
-  const isShow = ref(false)
+const isShow = ref(false)
 
-  onMounted(() => {
-    torrentLinkAnchor.removeAttribute('onclick')
-    torrentLinkAnchor.classList.add('is-ready')
+onMounted(() => {
+  torrentLinkAnchor.removeAttribute('onclick')
+  torrentLinkAnchor.classList.add('is-ready')
 
-    if (torrentLinkAnchor.innerText === 'Torrent Download (1)') {
-      setDownloadEvent()
-    } else {
-      setToggleEvent()
-    }
+  if (torrentLinkAnchor.innerText === 'Torrent Download (1)') {
+    setDownloadEvent()
+  } else {
+    setToggleEvent()
+  }
+})
+
+function setDownloadEvent() {
+  torrentLinkAnchor.addEventListener('click', event => {
+    event.preventDefault()
+    getElement('a', popup.value)?.click()
+  })
+}
+
+function setToggleEvent() {
+  torrentLinkAnchor.addEventListener('click', event => {
+    event.preventDefault()
+    event.stopPropagation()
+
+    isShow.value = !isShow.value
   })
 
-  function setDownloadEvent() {
-    torrentLinkAnchor.addEventListener('click', event => {
-      event.preventDefault()
-      getElement('a', popup.value)?.click()
-    })
-  }
-
-  function setToggleEvent() {
-    torrentLinkAnchor.addEventListener('click', event => {
-      event.preventDefault()
-      event.stopPropagation()
-
-      isShow.value = !isShow.value
-    })
-
-    onClickOutside(popup, event => {
-      if (event.target === torrentLinkAnchor) {
-        return
-      }
-      isShow.value = false
-    })
-  }
-
-  return {
-    isShow,
-  }
+  onClickOutside(popup, event => {
+    if (event.target === torrentLinkAnchor) {
+      return
+    }
+    isShow.value = false
+  })
 }
 </script>
 

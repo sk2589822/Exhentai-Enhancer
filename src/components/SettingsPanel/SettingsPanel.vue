@@ -24,9 +24,9 @@
             </div>
 
             <div class="settings">
-              <ToggleSwitch v-model="betterDownloadPopupSwitch.value" />
+              <ToggleSwitch v-model="betterPopupSwitch.value" />
               <h3 class="settings__name">
-                Better Download Popup
+                Better Popup
               </h3>
 
               <select v-model="quickDownloadMethod.value">
@@ -149,7 +149,7 @@ import { DownloadMethod } from '@/constants/monkey'
 import {
   infiniteScrollSwitch,
   scrollByRowSwitch,
-  betterDownloadPopupSwitch,
+  betterPopupSwitch,
   quickDownloadMethod,
   loadAllGalleryImagesSwitch,
   multipageViewerEnhancerSwitch,
@@ -173,10 +173,7 @@ function reload() {
 <style lang="scss" scoped>
 .popup {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;

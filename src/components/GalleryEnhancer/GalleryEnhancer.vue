@@ -1,36 +1,45 @@
 <template>
   <PopupArchive
     v-if="archiveInnerHtml"
+    :style="archivePosition"
     :inner-h-t-m-l="archiveInnerHtml"
   />
   <PopupTorrent
     v-if="torrentInnerHtml"
+    :style="torrentPosition"
     :inner-h-t-m-l="torrentInnerHtml"
+  />
+  <PopupFavorites
+    v-if="favoritesInnerHtml"
+    :style="favoritesPosition"
+    :inner-h-t-m-l="favoritesInnerHtml"
   />
 </template>
 
 <script setup lang="ts">
 import useWheelStep from '@/composables/useWheelStep'
-import usePreloadDownloadLinks from '@/composables/GalleryEnhancer/usePreloadDownloadLinks'
+import usePreloadLinks from '@/composables/GalleryEnhancer/usePreloadPopups'
 import usePosition from '@/composables/GalleryEnhancer/usePositions'
-import { scrollByRowSwitch, betterDownloadPopupSwitch, loadAllGalleryImagesSwitch } from '@/utils/GMVariables'
+import { scrollByRowSwitch, betterPopupSwitch, loadAllGalleryImagesSwitch } from '@/utils/GMVariables'
 import { fetchAllImages } from '@/utils/fetchImages'
 
 import PopupTorrent from './PopupTorrent.vue'
 import PopupArchive from './PopupArchive.vue'
+import PopupFavorites from './PopupFavorites.vue'
 
 if (loadAllGalleryImagesSwitch.value) {
   fetchAllImages({ delayInMs: 1000 })
 }
 
 const {
-  preloadDownloadLinks,
+  preloadLinks,
   archiveInnerHtml,
   torrentInnerHtml,
-} = usePreloadDownloadLinks()
+  favoritesInnerHtml,
+} = usePreloadLinks()
 
-if (betterDownloadPopupSwitch.value) {
-  preloadDownloadLinks()
+if (betterPopupSwitch.value) {
+  preloadLinks()
 }
 
 if (scrollByRowSwitch.value) {
@@ -41,9 +50,9 @@ if (scrollByRowSwitch.value) {
 }
 
 const {
-  popupRight,
-  archiveTop,
-  torrentTop,
+  archive: archivePosition,
+  torrent: torrentPosition,
+  favorites: favoritesPosition,
 } = usePosition()
 </script>
 
@@ -60,19 +69,10 @@ div#gd5 {
 
 .popup {
   position: absolute;
-  right: calc(v-bind(popupRight) * 1px);
-
-  &--archive {
-    top: calc(v-bind(archiveTop) * 1px);
-  }
-
-  &--torrent {
-    top: calc(v-bind(torrentTop) * 1px);
-  }
 }
 
 .is-ready::after {
-  content: "✔️";
+  content: " ✔️";
 }
 
 .is-fetching {
