@@ -94,10 +94,20 @@ async function setFavorite(category: string) {
   formData.append('apply', apply)
   formData.append('update', '1')
 
-  await fetch(getFavoritesLink(), {
+  const response = await fetch(getFavoritesLink(), {
     method: 'POST',
     body: formData,
   })
+
+  const html = await response.text()
+
+  // 原本 submit favorites 後，會回傳一段 js 修改 opener 的 HTML：「將 Add to Favorites 改成所選的 category」
+  // 但這邊的 js 和 HTML 太醜了，不想改，直接抓回傳的 js 來執行
+  const originalScript = html.match(/(if\(window\.opener\.document\.getElementById\("favoritelink"\)).*/)?.[0]
+  const script = originalScript?.replaceAll('.opener', '') as string
+  Function(script)()
+
+  isShow.value = false
 }
 
 </script>
