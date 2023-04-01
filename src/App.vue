@@ -49,7 +49,7 @@ function useEnhancer() {
 
 function useRedirect() {
   function redirectIfSinglePageViewer() {
-    const isSinglePageViewer = /https:\/\/exhentai\.org\/s\/\w+\/\w+/.test(href)
+    const isSinglePageViewer = /https:\/\/e[-x]hentai\.org\/s\/\w+\/\w+/.test(href)
     if (isSinglePageViewer) {
       onMounted(() => {
         const page = location.pathname.split('-')[1]
