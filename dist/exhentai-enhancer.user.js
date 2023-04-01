@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.9.2
+// @version            1.9.3
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -3506,7 +3506,7 @@
       }
       function useRedirect() {
         function redirectIfSinglePageViewer2() {
-          const isSinglePageViewer = /https:\/\/exhentai\.org\/s\/\w+\/\w+/.test(href);
+          const isSinglePageViewer = /https:\/\/e[-x]hentai\.org\/s\/\w+\/\w+/.test(href);
           if (isSinglePageViewer) {
             vue.onMounted(() => {
               const page = location.pathname.split("-")[1];
