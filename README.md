@@ -60,6 +60,13 @@ works on:
 
 2. Go to next/prev row if mouse wheel on images container.   
    \*Could disable by unticking `Enable scroll by row` in tampermonkey menu
+
+
+## Settings Panel
+
+   You can change the action when click "Archive Download" or disable any features you don't want here.  
+   ![](https://imgur.com/US4QkAb.jpg)
+
 ## Shortcuts
 
 | Key / Mouse | Feature |
