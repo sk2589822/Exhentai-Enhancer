@@ -29,23 +29,28 @@
                 Better Popup
               </h3>
 
-              <select v-model="quickDownloadMethod.value">
-                <option>
-                  {{ DownloadMethod.Manual }}
-                </option>
-                <option>
-                  {{ DownloadMethod.HaH_Original }}
-                </option>
-                <option>
-                  {{ DownloadMethod.HaH_2400 }}
-                </option>
-                <option>
-                  {{ DownloadMethod.Direct_Origin }}
-                </option>
-                <option>
-                  {{ DownloadMethod.Direct_Resample }}
-                </option>
-              </select>
+              <div class="settings__intro">
+                <span>
+                  Action when clicking "Archive Download":
+                </span>
+                <select v-model="quickDownloadMethod.value">
+                  <option>
+                    {{ DownloadMethod.Manual }}
+                  </option>
+                  <option>
+                    {{ DownloadMethod.HaH_Original }}
+                  </option>
+                  <option>
+                    {{ DownloadMethod.HaH_2400 }}
+                  </option>
+                  <option>
+                    {{ DownloadMethod.Direct_Origin }}
+                  </option>
+                  <option>
+                    {{ DownloadMethod.Direct_Resample }}
+                  </option>
+                </select>
+              </div>
             </div>
 
             <div class="settings">
@@ -239,6 +244,7 @@ function reload() {
 
   &__intro {
     margin-left: 60px;
+    width: 100%;
     font-size: 14px;
     text-align: left;
   }
