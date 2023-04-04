@@ -50,6 +50,22 @@
                     {{ DownloadMethod.Direct_Resample }}
                   </option>
                 </select>
+                <p>
+                  *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual Start (Default)" in the setting page:
+                  <a
+                    href="https://e-hentai.org/uconfig.php"
+                    rel="noreferrer noopener"
+                  >
+                    e-hentai
+                  </a>
+                  ,
+                  <a
+                    href="https://exhentai.org/uconfig.php"
+                    rel="noreferrer noopener"
+                  >
+                    exhentai
+                  </a>
+                </p>
               </div>
             </div>
 
