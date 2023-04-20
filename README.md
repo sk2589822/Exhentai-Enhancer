@@ -40,7 +40,6 @@ works on:
   > The original script of exhentai would remove the images which are too far from your current scroll.  
     So if you scroll back to the images that have been removed. It might be flashing because although your browser has cached the image but still have to re-render it.
    
-
 7. Auto redirect to Multi-Page Viewer if in Single-Page Viewer(url match `https://exhentai.org/s/*/*`)  
 
 
@@ -55,12 +54,13 @@ works on:
 
 ### Features
 
-1. Load galleries next page when scroll to bottom of page.  
-   \*Could disable by unticking `Enable infinite scroll in Front page` in tampermonkey menu
+1. Infinite Scroll
 
-2. Go to next/prev row if mouse wheel on images container.   
-   \*Could disable by unticking `Enable scroll by row` in tampermonkey menu
+2. Go to next/prev row if mouse wheel on images container.
 
+
+## Other Features
+1. Change browser title to Japanese (effect on browser/tab title)
 
 ## Settings Panel
 

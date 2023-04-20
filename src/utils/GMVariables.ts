@@ -40,6 +40,9 @@ export const multipageViewerEnhancerSwitch = reactive(new GMVariable<boolean>(GM
 export const autoRedirectSwitch = reactive(new GMVariable<boolean>(GMKey.AutoRedirect, false))
 export const preventImageRemovalSwitch = reactive(new GMVariable<boolean>(GMKey.PreventImageRemoval, false))
 
+// Common
+export const showJapaneseTitle = reactive(new GMVariable<boolean>(GMKey.ShowJapaneseTitle, true))
+
 export async function initializeMonkeySwitches() {
   await Promise.all([
     infiniteScrollSwitch.initialize(),
@@ -50,5 +53,6 @@ export async function initializeMonkeySwitches() {
     multipageViewerEnhancerSwitch.initialize(),
     preventImageRemovalSwitch.initialize(),
     autoRedirectSwitch.initialize(),
+    showJapaneseTitle.initialize(),
   ])
 }

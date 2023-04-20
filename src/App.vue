@@ -11,7 +11,9 @@ import FrontPageEnhancer from '@/components/FrontPageEnhancer/FrontPageEnhancer.
 import GalleryEnhancer from '@/components/GalleryEnhancer/GalleryEnhancer.vue'
 import MultipageViewerEnhancer from '@/components/MultiPageViewerEnhancer/MultiPageViewerEnhancer.vue'
 import SettingsPanel from '@/components/SettingsPanel/SettingsPanel.vue'
-import { autoRedirectSwitch, multipageViewerEnhancerSwitch } from '@/utils/GMVariables'
+import { autoRedirectSwitch, multipageViewerEnhancerSwitch, showJapaneseTitle } from '@/utils/GMVariables'
+
+import { changeTitleToJapanese } from './utils/eHentaiApi'
 
 const { href } = window.location
 
@@ -20,6 +22,10 @@ const { redirectIfSinglePageViewer } = useRedirect()
 
 if (autoRedirectSwitch.value) {
   redirectIfSinglePageViewer()
+}
+
+if (showJapaneseTitle.value) {
+  changeTitleToJapanese()
 }
 
 function useEnhancer() {
