@@ -8,7 +8,9 @@ export const enum GMKey {
 
   MultipageViewerEnhancer = 'MultipageViewerEnhancer',
   AutoRedirect = 'AutoRedirect',
-  PreventImageRemoval = 'PreventImageRemoval'
+  PreventImageRemoval = 'PreventImageRemoval',
+
+  ShowJapaneseTitle = 'ShowJapaneseTitle'
 }
 
 export const enum DownloadMethod {
