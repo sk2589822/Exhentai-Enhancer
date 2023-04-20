@@ -53,6 +53,7 @@
                 <p>
                   *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual Start (Default)" in the setting page:
                   <a
+                    target="_blank"
                     href="https://e-hentai.org/uconfig.php"
                     rel="noreferrer noopener"
                   >
@@ -60,6 +61,7 @@
                   </a>
                   ,
                   <a
+                    target="_blank"
                     href="https://exhentai.org/uconfig.php"
                     rel="noreferrer noopener"
                   >
