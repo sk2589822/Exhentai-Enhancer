@@ -288,14 +288,21 @@ export default function() {
 
   async function toggleFullScreen() {
     const relativeToViewport = getRelativeToViewport()
-    await toggle()
+    const page = currentPage.value
     document.body.addEventListener('reflow', () => {
       if (relativeToViewport) {
-        scrollToProperPosition(relativeToViewport)
+        setTimeout(() => {
+          goToPage(page)
+          setTimeout(() => {
+            scrollToProperPosition(relativeToViewport)
+          }, 0)
+        }, 100)
       }
     }, {
       once: true,
     })
+
+    await toggle()
   }
 
   function rotate(degree: number) {
