@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.10.1
+// @version            1.10.2
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -3567,7 +3567,10 @@
   async function changeTitleToJapanese() {
     const galleryData = await fetchGalleryData();
     if (galleryData) {
-      document.title = galleryData.gmetadata[0].title_jpn;
+      const japaneseTitle = galleryData.gmetadata[0].title_jpn;
+      if (japaneseTitle) {
+        document.title = japaneseTitle;
+      }
     }
   }
   const _sfc_main = /* @__PURE__ */ vue.defineComponent({
