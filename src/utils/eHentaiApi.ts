@@ -46,6 +46,9 @@ function fetchGalleryData() {
 export async function changeTitleToJapanese() {
   const galleryData = await fetchGalleryData()
   if (galleryData) {
-    document.title = galleryData.gmetadata[0].title_jpn
+    const japaneseTitle = galleryData.gmetadata[0].title_jpn
+    if (japaneseTitle) {
+      document.title = japaneseTitle
+    }
   }
 }
