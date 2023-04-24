@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.10.0
+// @version            1.10.1
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -2981,14 +2981,20 @@
     const { toggle } = useFullscreen(document.body);
     async function toggleFullScreen() {
       const relativeToViewport = getRelativeToViewport();
-      await toggle();
+      const page = currentPage.value;
       document.body.addEventListener("reflow", () => {
         if (relativeToViewport) {
-          scrollToProperPosition(relativeToViewport);
+          setTimeout(() => {
+            goToPage(page);
+            setTimeout(() => {
+              scrollToProperPosition(relativeToViewport);
+            }, 0);
+          }, 100);
         }
       }, {
         once: true
       });
+      await toggle();
     }
     function rotate(degree) {
       const currentImage = getCurrentImage();
