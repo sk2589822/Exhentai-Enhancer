@@ -65,7 +65,7 @@ function useInfiniteScroll() {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  margin: 0 auto 864px;
   width: 30px;
   height: 30px;
   line-height: 30px;
