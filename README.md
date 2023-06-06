@@ -63,9 +63,10 @@ works on:
 1. Change browser title to Japanese (effect on browser/tab title)
 
 ## Settings Panel
-
-   You can change the action when click "Archive Download" or disable any features you don't want here.  
-   ![](https://imgur.com/US4QkAb.jpg)
+   You can open settings panel by clicking the Tampermonkey icon first, then select "Open settings panel".  
+   ![](https://imgur.com/QyUSmq2.jpg)  
+   Then you can disable any features you don't want, or change the action when click "Archive Download" here.  
+   ![](https://imgur.com/DLWcMW7.jpg)
 
 ## Shortcuts
 
