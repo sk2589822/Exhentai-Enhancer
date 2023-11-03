@@ -171,7 +171,7 @@ export default function() {
             const target = event.target as HTMLElement
 
             // 點擊資訊列不動作
-            if (target.closest('.mi1')) {
+            if (target.closest('.mbar')) {
               return
             }
 

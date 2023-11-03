@@ -166,15 +166,20 @@ function useImageResizer() {
 <style lang="scss">
 /* stylelint-disable-next-line selector-id-pattern */
 div#pane_images {
-  .mi0 {
-    width: max-content !important;
+  .mimg {
+    width: min-content !important;
     min-width: unset;
     max-height: calc(var(--image-size) + 24px) !important;
-  }
 
-  img[id^="imgsrc_"] {
-    width: auto !important;
-    max-height: var(--image-size);
+    > a {
+      user-select: none;
+
+      > img {
+        width: auto !important;
+        max-height: var(--image-size);
+        pointer-events: none;
+      }
+    }
   }
 }
 </style>
@@ -206,5 +211,4 @@ div#pane_images {
     }
   }
 }
-
 </style>

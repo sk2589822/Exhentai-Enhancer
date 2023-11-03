@@ -94,7 +94,7 @@ onMounted(() => {
               e ? load_image(f) : load_thumb(f),
               g.style.visibility = "visible";
       }
-    `) as (a: any, b: any, c: any) => void
+    `) as (a: unknown, b: unknown, c: unknown) => void
   }, { immediate: true })
 
   watch(currentPage, index => {
@@ -113,9 +113,7 @@ onMounted(() => {
  * Override
  */
 html,
-body,
-div#pane_outer,
-div#pane_images {
+body {
   padding: 0;
   width: 100% !important;
   height: 100% !important;
@@ -147,42 +145,6 @@ div#bar3 {
   > img {
     cursor: pointer;
   }
-}
-
-.mi0 > a {
-  user-select: none;
-
-  > img {
-    pointer-events: none;
-  }
-}
-
-div.mi1 {
-  display: flex;
-
-  img {
-    display: block;
-    margin: 0;
-  }
-}
-
-div.mi2 {
-  display: flex;
-  flex-direction: row;
-  float: initial;
-  margin-top: initial;
-}
-
-div.mi3 {
-  display: flex;
-  flex-direction: row;
-  float: initial;
-  margin-top: initial;
-  order: 3;
-}
-
-div.mi4 {
-  position: initial;
 }
 
 div#pane_thumbs {
