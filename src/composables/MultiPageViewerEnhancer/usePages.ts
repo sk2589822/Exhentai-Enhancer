@@ -18,13 +18,13 @@ export default function() {
    * 於圖片資訊欄新增目前頁數/總共頁數
    */
   function appendPageIndex() {
-    const imageContainers = getElements('.mi0') as NodeListOf<HTMLElement>
+    const imageContainers = getElements('.mimg') as NodeListOf<HTMLElement>
     const pageCount = imageContainers.length
 
     const mutationObserver = new MutationObserver(([mutation]) => {
       const target = mutation.target as HTMLElement
       const index = target.id.split('image_')[1]
-      const captionElement = getElement('.mi4', target)
+      const captionElement = getElement('.mbar > *:nth-child(3)', target)
       const captionText = captionElement?.innerText
 
       if (!captionText || captionText?.includes(' ／ ')) {
@@ -123,7 +123,7 @@ export default function() {
   }
 
   function syncCurrentImageOnScroll() {
-    const imageContainers = getElements('.mi0') as NodeListOf<HTMLElement>
+    const imageContainers = getElements('.mimg') as NodeListOf<HTMLElement>
 
     let firstIntersectingIndex = 1
 

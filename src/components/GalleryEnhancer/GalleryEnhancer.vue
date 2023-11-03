@@ -59,11 +59,11 @@ const {
 @use "@/styles/animations/spin.scss";
 
 div#gmid {
-  width: 931px;
+  width: auto;
 }
 
 div#gd5 {
-  width: 158px;
+  width: auto;
 }
 
 .popup {
@@ -116,6 +116,4 @@ input[name="dltype"] + .is-fetching {
     line-height: 8px;
   }
 }
-
 </style>
-
