@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.10.3
+// @version            1.11.0
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -15,14 +15,15 @@
 // @supportURL         https://github.com/sk2589822/Exhentai-Enhancer/issues
 // @match              https://exhentai.org/*
 // @match              https://e-hentai.org/*
-// @require            https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.prod.js
+// @require            https://cdn.jsdelivr.net/npm/vue@3.3.7/dist/vue.global.prod.js
 // @grant              GM.getValue
 // @grant              GM.registerMenuCommand
 // @grant              GM.setValue
+// @grant              GM_addStyle
 // @grant              unsafeWindow
 // ==/UserScript==
 
-(a=>{const t=document.createElement("style");t.dataset.source="vite-plugin-monkey",t.textContent=a,document.head.append(t)})(' @charset "UTF-8";.Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width : 600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width : 600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width : 600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:0 auto 864px;width:30px;height:30px;line-height:30px;content:"\\231b";animation:spin ease-in-out 1s infinite}.popup[data-v-0f43299d]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-0f43299d]{text-decoration:underline}.fade-enter-active[data-v-0f43299d],.fade-leave-active[data-v-0f43299d]{transition:opacity .3s ease}.fade-enter-from[data-v-0f43299d],.fade-leave-to[data-v-0f43299d]{opacity:0}.popup[data-v-6ae53e87]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-6ae53e87]{text-decoration:underline}.fade-enter-active[data-v-6ae53e87],.fade-leave-active[data-v-6ae53e87]{transition:opacity .3s ease}.fade-enter-from[data-v-6ae53e87],.fade-leave-to[data-v-6ae53e87]{opacity:0}.popup[data-v-f8bd8db2]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-f8bd8db2]{text-decoration:underline}.fade-enter-active[data-v-f8bd8db2],.fade-leave-active[data-v-f8bd8db2]{transition:opacity .3s ease}.fade-enter-from[data-v-f8bd8db2],.fade-leave-to[data-v-f8bd8db2]{opacity:0}@keyframes spin{0%{rotate:0}to{rotate:360deg}}div#gmid{width:931px}div#gd5{width:158px}.popup{position:absolute}.is-ready:after{content:" \\2714\\fe0f"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\\231b";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.is-finished{font-size:0;pointer-events:none;text-decoration:none}.is-finished:after{content:"\\2714\\fe0f";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-8b2bf6b6]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-8b2bf6b6]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-8b2bf6b6]{line-height:100%}:fullscreen .page-elevator[data-v-8b2bf6b6]{opacity:0}:fullscreen .page-elevator[data-v-8b2bf6b6]:hover{opacity:1}div#pane_images .mi0{width:max-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}div#pane_images img[id^=imgsrc_]{width:auto!important;max-height:var(--image-size)}.image-resizer[data-v-4ba11677]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-4ba11677]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-4ba11677]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-4ba11677],.image-resizer__button--active[data-v-4ba11677]:hover{background-color:orange}html,body,div#pane_outer,div#pane_images{padding:0;width:100%!important;height:100%!important}div#bar3{display:none}.hide-cursor,.hide-cursor *{cursor:none}.original-functions{position:absolute;top:0;right:0;display:block;width:35px;height:270px;opacity:0;transition:opacity .3s ease}.original-functions:hover{opacity:1}.original-functions>img{cursor:pointer}.mi0>a{user-select:none}.mi0>a>img{pointer-events:none}div.mi1{display:flex}div.mi1 img{display:block;margin:0}div.mi2{display:flex;flex-direction:row;float:initial;margin-top:initial}div.mi3{display:flex;flex-direction:row;float:initial;margin-top:initial;order:3}div.mi4{position:initial}div#pane_thumbs{display:block;opacity:0;z-index:1;transition:opacity .3s}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:rgba(119,119,119,.4666666667);border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-894c8e09]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-894c8e09]{width:0;height:0;opacity:0}.switch__slider[data-v-894c8e09]{position:absolute;top:0;bottom:0;right:0;left:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-894c8e09]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-894c8e09]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-894c8e09]:before{transform:translate(26px)}.popup[data-v-ddd293d0]{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background-color:#00000080;z-index:99999}.settings-panel[data-v-ddd293d0]{position:relative;display:flex;margin:32px;padding:32px;width:80%;max-width:1000px;height:90%;background-color:#34353b;border-radius:4px;flex-direction:column;row-gap:16px}.settings-panel__inner[data-v-ddd293d0]{overflow-y:auto;padding-right:16px;height:100%}.settings-panel__section[data-v-ddd293d0]{background-color:#4f535b;border-radius:4px}.settings-panel__section-name[data-v-ddd293d0]{margin:16px 32px;padding-top:16px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button[data-v-ddd293d0]{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button[data-v-ddd293d0] svg{width:16px;height:16px}.settings[data-v-ddd293d0]{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name[data-v-ddd293d0]{font-size:16px}.settings__notice[data-v-ddd293d0]{font-size:12px}.settings__intro[data-v-ddd293d0]{margin-left:60px;width:100%;font-size:14px;text-align:left}.actions[data-v-ddd293d0]{display:flex;align-items:center;justify-content:flex-end}.actions__button[data-v-ddd293d0]{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer}.v-enter-active[data-v-ddd293d0],.v-leave-active[data-v-ddd293d0]{transition:opacity .2s ease}.v-enter-from[data-v-ddd293d0],.v-leave-to[data-v-ddd293d0]{opacity:0} ');
+(t=>{if(typeof GM_addStyle=="function"){GM_addStyle(t);return}const a=document.createElement("style");a.textContent=t,document.head.append(a)})(' @charset "UTF-8";.Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width : 600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width : 600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width : 600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:0 auto 864px;width:30px;height:30px;line-height:30px;content:"\u231B";animation:spin ease-in-out 1s infinite}.popup[data-v-0f43299d]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-0f43299d]{text-decoration:underline}.fade-enter-active[data-v-0f43299d],.fade-leave-active[data-v-0f43299d]{transition:opacity .3s ease}.fade-enter-from[data-v-0f43299d],.fade-leave-to[data-v-0f43299d]{opacity:0}.popup[data-v-6ae53e87]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-6ae53e87]{text-decoration:underline}.fade-enter-active[data-v-6ae53e87],.fade-leave-active[data-v-6ae53e87]{transition:opacity .3s ease}.fade-enter-from[data-v-6ae53e87],.fade-leave-to[data-v-6ae53e87]{opacity:0}.popup[data-v-f8bd8db2]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-f8bd8db2]{text-decoration:underline}.fade-enter-active[data-v-f8bd8db2],.fade-leave-active[data-v-f8bd8db2]{transition:opacity .3s ease}.fade-enter-from[data-v-f8bd8db2],.fade-leave-to[data-v-f8bd8db2]{opacity:0}@keyframes spin{0%{rotate:0}to{rotate:360deg}}div#gmid,div#gd5{width:auto}.popup{position:absolute}.is-ready:after{content:" \u2714\uFE0F"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\u231B";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.is-finished{font-size:0;pointer-events:none;text-decoration:none}.is-finished:after{content:"\u2714\uFE0F";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-8b2bf6b6]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-8b2bf6b6]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-8b2bf6b6]{line-height:100%}:fullscreen .page-elevator[data-v-8b2bf6b6]{opacity:0}:fullscreen .page-elevator[data-v-8b2bf6b6]:hover{opacity:1}div#pane_images .mimg{width:min-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}div#pane_images .mimg>a{-webkit-user-select:none;user-select:none}div#pane_images .mimg>a>img{width:auto!important;max-height:var(--image-size);pointer-events:none}.image-resizer[data-v-572fe08a]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-572fe08a]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-572fe08a]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-572fe08a],.image-resizer__button--active[data-v-572fe08a]:hover{background-color:orange}html,body{padding:0;width:100%!important;height:100%!important}div#bar3{display:none}.hide-cursor,.hide-cursor *{cursor:none}.original-functions{position:absolute;top:0;right:0;display:block;width:35px;height:270px;opacity:0;transition:opacity .3s ease}.original-functions:hover{opacity:1}.original-functions>img{cursor:pointer}div#pane_thumbs{display:block;opacity:0;z-index:1;transition:opacity .3s}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:rgba(119,119,119,.4666666667);border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-894c8e09]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-894c8e09]{width:0;height:0;opacity:0}.switch__slider[data-v-894c8e09]{position:absolute;top:0;bottom:0;right:0;left:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-894c8e09]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-894c8e09]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-894c8e09]:before{transform:translate(26px)}.popup[data-v-ddd293d0]{position:fixed;top:0;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background-color:#00000080;z-index:99999}.settings-panel[data-v-ddd293d0]{position:relative;display:flex;margin:32px;padding:32px;width:80%;max-width:1000px;height:90%;background-color:#34353b;border-radius:4px;flex-direction:column;row-gap:16px}.settings-panel__inner[data-v-ddd293d0]{overflow-y:auto;padding-right:16px;height:100%}.settings-panel__section[data-v-ddd293d0]{background-color:#4f535b;border-radius:4px}.settings-panel__section-name[data-v-ddd293d0]{margin:16px 32px;padding-top:16px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button[data-v-ddd293d0]{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button[data-v-ddd293d0] svg{width:16px;height:16px}.settings[data-v-ddd293d0]{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name[data-v-ddd293d0]{font-size:16px}.settings__notice[data-v-ddd293d0]{font-size:12px}.settings__intro[data-v-ddd293d0]{margin-left:60px;width:100%;font-size:14px;text-align:left}.actions[data-v-ddd293d0]{display:flex;align-items:center;justify-content:flex-end}.actions__button[data-v-ddd293d0]{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer}.v-enter-active[data-v-ddd293d0],.v-leave-active[data-v-ddd293d0]{transition:opacity .2s ease}.v-enter-from[data-v-ddd293d0],.v-leave-to[data-v-ddd293d0]{opacity:0} ');
 
 (function (vue) {
   'use strict';
@@ -33,36 +34,36 @@
     __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
     return value;
   };
-  var _a2;
-  var __defProp$1 = Object.defineProperty;
-  var __getOwnPropSymbols$1 = Object.getOwnPropertySymbols;
-  var __hasOwnProp$1 = Object.prototype.hasOwnProperty;
-  var __propIsEnum$1 = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp$1 = (obj, key, value) => key in obj ? __defProp$1(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-  var __spreadValues$1 = (a, b) => {
+  var _a;
+  var __defProp2 = Object.defineProperty;
+  var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __propIsEnum = Object.prototype.propertyIsEnumerable;
+  var __defNormalProp2 = (obj, key, value) => key in obj ? __defProp2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+  var __spreadValues = (a, b) => {
     for (var prop in b || (b = {}))
-      if (__hasOwnProp$1.call(b, prop))
-        __defNormalProp$1(a, prop, b[prop]);
-    if (__getOwnPropSymbols$1)
-      for (var prop of __getOwnPropSymbols$1(b)) {
-        if (__propIsEnum$1.call(b, prop))
-          __defNormalProp$1(a, prop, b[prop]);
+      if (__hasOwnProp.call(b, prop))
+        __defNormalProp2(a, prop, b[prop]);
+    if (__getOwnPropSymbols)
+      for (var prop of __getOwnPropSymbols(b)) {
+        if (__propIsEnum.call(b, prop))
+          __defNormalProp2(a, prop, b[prop]);
       }
     return a;
   };
-  var isFunction$1 = (value) => typeof value === "function";
-  var isString$1 = (value) => typeof value === "string";
-  var isNonEmptyString = (value) => isString$1(value) && value.trim().length > 0;
+  var isFunction = (value) => typeof value === "function";
+  var isString = (value) => typeof value === "string";
+  var isNonEmptyString = (value) => isString(value) && value.trim().length > 0;
   var isNumber = (value) => typeof value === "number";
   var isUndefined = (value) => typeof value === "undefined";
-  var isObject$1 = (value) => typeof value === "object" && value !== null;
+  var isObject$2 = (value) => typeof value === "object" && value !== null;
   var isJSX = (obj) => hasProp(obj, "tag") && isNonEmptyString(obj.tag);
   var isTouchEvent = (event) => window.TouchEvent && event instanceof TouchEvent;
   var isToastComponent = (obj) => hasProp(obj, "component") && isToastContent(obj.component);
-  var isVueComponent = (c) => isFunction$1(c) || isObject$1(c);
-  var isToastContent = (obj) => !isUndefined(obj) && (isString$1(obj) || isVueComponent(obj) || isToastComponent(obj));
-  var isDOMRect = (obj) => isObject$1(obj) && ["height", "width", "right", "left", "top", "bottom"].every((p) => isNumber(obj[p]));
-  var hasProp = (obj, propKey) => (isObject$1(obj) || isFunction$1(obj)) && propKey in obj;
+  var isVueComponent = (c) => isFunction(c) || isObject$2(c);
+  var isToastContent = (obj) => !isUndefined(obj) && (isString(obj) || isVueComponent(obj) || isToastComponent(obj));
+  var isDOMRect = (obj) => isObject$2(obj) && ["height", "width", "right", "left", "top", "bottom"].every((p) => isNumber(obj[p]));
+  var hasProp = (obj, propKey) => (isObject$2(obj) || isFunction(obj)) && propKey in obj;
   var getId = ((i) => () => i++)(0);
   function getX(event) {
     return isTouchEvent(event) ? event.targetTouches[0].clientX : event.clientX;
@@ -94,8 +95,8 @@
     if (typeof obj === "string") {
       return obj;
     }
-    const props = hasProp(obj, "props") && isObject$1(obj.props) ? obj.props : {};
-    const listeners = hasProp(obj, "listeners") && isObject$1(obj.listeners) ? obj.listeners : {};
+    const props = hasProp(obj, "props") && isObject$2(obj.props) ? obj.props : {};
+    const listeners = hasProp(obj, "listeners") && isObject$2(obj.listeners) ? obj.listeners : {};
     return { component: getVueComponentFromObj(obj), props, listeners };
   };
   var isBrowser = () => typeof window !== "undefined";
@@ -120,7 +121,7 @@
       handlers2.forEach((handler) => handler(event));
     }
   };
-  var isEventBusInterface = (e) => ["on", "off", "emit"].every((f) => hasProp(e, f) && isFunction$1(e[f]));
+  var isEventBusInterface = (e) => ["on", "off", "emit"].every((f) => hasProp(e, f) && isFunction(e[f]));
   var TYPE;
   (function(TYPE2) {
     TYPE2["SUCCESS"] = "success";
@@ -477,7 +478,7 @@
         return hasProp(this.customIcon, "iconChildren") ? this.trimValue(this.customIcon.iconChildren) : "";
       },
       customIconClass() {
-        if (isString$1(this.customIcon)) {
+        if (isString(this.customIcon)) {
           return this.trimValue(this.customIcon);
         } else if (hasProp(this.customIcon, "iconClass")) {
           return this.trimValue(this.customIcon.iconClass);
@@ -571,7 +572,7 @@
       },
       bodyClasses() {
         const classes = [
-          `${VT_NAMESPACE}__toast-${isString$1(this.content) ? "body" : "component-body"}`
+          `${VT_NAMESPACE}__toast-${isString(this.content) ? "body" : "component-body"}`
         ].concat(this.bodyClassName);
         return classes;
       },
@@ -831,7 +832,7 @@
     },
     methods: {
       async setup(container) {
-        if (isFunction$1(container)) {
+        if (isFunction(container)) {
           container = await container();
         }
         removeElement(this.$el);
@@ -919,7 +920,7 @@
     const events = globalOptions.eventBus = globalOptions.eventBus || new EventBus();
     if (mountContainer) {
       vue.nextTick(() => {
-        const app2 = vue.createApp(VtToastContainer_default2, __spreadValues$1({}, globalOptions));
+        const app2 = vue.createApp(VtToastContainer_default2, __spreadValues({}, globalOptions));
         const component = app2.mount(document.createElement("div"));
         const onMounted2 = globalOptions.onMounted;
         if (!isUndefined(onMounted2)) {
@@ -991,7 +992,7 @@
     if ((options == null ? void 0 : options.shareAppContext) === true) {
       options.shareAppContext = App;
     }
-    const inter = createToastInterface(__spreadValues$1({
+    const inter = createToastInterface(__spreadValues({
       eventBus: globalEventBus
     }, options));
     App.provide(toastInjectionKey, inter);
@@ -1151,13 +1152,13 @@
         useInfiniteScroll();
       }
       function useInfiniteScroll() {
-        var _a3, _b;
+        var _a2, _b;
         const galleryContainer = getElement(".itg.gld");
-        const bottomPagination = (_a3 = getElements(".searchnav")) == null ? void 0 : _a3[1];
+        const bottomPagination = (_a2 = getElements(".searchnav")) == null ? void 0 : _a2[1];
         let nextPageUrl = (_b = getElement("#dnext")) == null ? void 0 : _b.getAttribute("href");
         let isFetching = false;
         const intersectionObserver = new IntersectionObserver(async ([bottomPagination2]) => {
-          var _a4;
+          var _a3;
           if (!bottomPagination2.isIntersecting || isFetching) {
             return;
           }
@@ -1174,7 +1175,7 @@
           galleryContainer == null ? void 0 : galleryContainer.append(...galleriesOfNextPage);
           isFetching = false;
           galleryContainer == null ? void 0 : galleryContainer.classList.remove("is-fetching");
-          nextPageUrl = (_a4 = getElement("#dnext", doc)) == null ? void 0 : _a4.getAttribute("href");
+          nextPageUrl = (_a3 = getElement("#dnext", doc)) == null ? void 0 : _a3.getAttribute("href");
           history.pushState(void 0, doc.title, nextPageUrl);
         });
         if (bottomPagination) {
@@ -1334,12 +1335,12 @@
     return popupContent.innerHTML;
   }
   function getDownloadLink(linkElement) {
-    var _a3;
+    var _a2;
     const onClick = linkElement.getAttribute("onclick");
     if (!onClick) {
       return null;
     }
-    return (_a3 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a3[1];
+    return (_a2 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a2[1];
   }
   function getPopupContent(doc, selector) {
     const content = getElement(selector, doc);
@@ -1425,8 +1426,8 @@
     }
     logger.log("Done");
     function isFirstPage() {
-      var _a3;
-      return ((_a3 = getElement(".ptds")) == null ? void 0 : _a3.innerText) === "1";
+      var _a2;
+      return ((_a2 = getElement(".ptds")) == null ? void 0 : _a2.innerText) === "1";
     }
     function getImageElements(doc) {
       return getElements(".gdtl", doc);
@@ -1445,19 +1446,29 @@
       return Array(pageCount2 - 1).fill("").map((_, index2) => `${href}?p=${index2 + 1}`);
     }
     function appendImages(elements) {
-      var _a3;
-      (_a3 = getElement("#gdt > .c")) == null ? void 0 : _a3.before(...elements);
+      var _a2;
+      (_a2 = getElement("#gdt > .c")) == null ? void 0 : _a2.before(...elements);
     }
   }
-  var _a;
-  const isClient = typeof window !== "undefined";
-  const isFunction = (val) => typeof val === "function";
-  const isString = (val) => typeof val === "string";
+  function tryOnScopeDispose(fn) {
+    if (vue.getCurrentScope()) {
+      vue.onScopeDispose(fn);
+      return true;
+    }
+    return false;
+  }
+  function toValue(r) {
+    return typeof r === "function" ? r() : vue.unref(r);
+  }
+  const isClient = typeof window !== "undefined" && typeof document !== "undefined";
+  const toString = Object.prototype.toString;
+  const isObject$1 = (val) => toString.call(val) === "[object Object]";
   const noop = () => {
   };
-  const isIOS = isClient && ((_a = window == null ? void 0 : window.navigator) == null ? void 0 : _a.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
-  function resolveUnref(r) {
-    return typeof r === "function" ? r() : vue.unref(r);
+  const isIOS = /* @__PURE__ */ getIsIOS();
+  function getIsIOS() {
+    var _a2;
+    return isClient && ((_a2 = window == null ? void 0 : window.navigator) == null ? void 0 : _a2.userAgent) && /* @__PURE__ */ /iP(ad|hone|od)/.test(window.navigator.userAgent);
   }
   function createFilterWrapper(filter, fn) {
     function wrapper(...args) {
@@ -1484,94 +1495,43 @@
     };
     return { isActive: vue.readonly(isActive), pause, resume, eventFilter };
   }
-  function identity(arg) {
-    return arg;
+  function objectEntries(obj) {
+    return Object.entries(obj);
   }
-  function tryOnScopeDispose(fn) {
-    if (vue.getCurrentScope()) {
-      vue.onScopeDispose(fn);
-      return true;
-    }
-    return false;
-  }
-  function tryOnMounted(fn, sync = true) {
-    if (vue.getCurrentInstance())
-      vue.onMounted(fn);
-    else if (sync)
-      fn();
-    else
-      vue.nextTick(fn);
-  }
-  var __getOwnPropSymbols$6 = Object.getOwnPropertySymbols;
-  var __hasOwnProp$6 = Object.prototype.hasOwnProperty;
-  var __propIsEnum$6 = Object.prototype.propertyIsEnumerable;
-  var __objRest$5 = (source, exclude) => {
-    var target = {};
-    for (var prop in source)
-      if (__hasOwnProp$6.call(source, prop) && exclude.indexOf(prop) < 0)
-        target[prop] = source[prop];
-    if (source != null && __getOwnPropSymbols$6)
-      for (var prop of __getOwnPropSymbols$6(source)) {
-        if (exclude.indexOf(prop) < 0 && __propIsEnum$6.call(source, prop))
-          target[prop] = source[prop];
-      }
-    return target;
-  };
   function watchWithFilter(source, cb, options = {}) {
-    const _a3 = options, {
-      eventFilter = bypassFilter
-    } = _a3, watchOptions = __objRest$5(_a3, [
-      "eventFilter"
-    ]);
-    return vue.watch(source, createFilterWrapper(eventFilter, cb), watchOptions);
+    const {
+      eventFilter = bypassFilter,
+      ...watchOptions
+    } = options;
+    return vue.watch(
+      source,
+      createFilterWrapper(
+        eventFilter,
+        cb
+      ),
+      watchOptions
+    );
   }
-  var __defProp$2 = Object.defineProperty;
-  var __defProps$2 = Object.defineProperties;
-  var __getOwnPropDescs$2 = Object.getOwnPropertyDescriptors;
-  var __getOwnPropSymbols$2 = Object.getOwnPropertySymbols;
-  var __hasOwnProp$2 = Object.prototype.hasOwnProperty;
-  var __propIsEnum$2 = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp$2 = (obj, key, value) => key in obj ? __defProp$2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-  var __spreadValues$2 = (a, b) => {
-    for (var prop in b || (b = {}))
-      if (__hasOwnProp$2.call(b, prop))
-        __defNormalProp$2(a, prop, b[prop]);
-    if (__getOwnPropSymbols$2)
-      for (var prop of __getOwnPropSymbols$2(b)) {
-        if (__propIsEnum$2.call(b, prop))
-          __defNormalProp$2(a, prop, b[prop]);
-      }
-    return a;
-  };
-  var __spreadProps$2 = (a, b) => __defProps$2(a, __getOwnPropDescs$2(b));
-  var __objRest$1 = (source, exclude) => {
-    var target = {};
-    for (var prop in source)
-      if (__hasOwnProp$2.call(source, prop) && exclude.indexOf(prop) < 0)
-        target[prop] = source[prop];
-    if (source != null && __getOwnPropSymbols$2)
-      for (var prop of __getOwnPropSymbols$2(source)) {
-        if (exclude.indexOf(prop) < 0 && __propIsEnum$2.call(source, prop))
-          target[prop] = source[prop];
-      }
-    return target;
-  };
   function watchPausable(source, cb, options = {}) {
-    const _a3 = options, {
-      eventFilter: filter
-    } = _a3, watchOptions = __objRest$1(_a3, [
-      "eventFilter"
-    ]);
+    const {
+      eventFilter: filter,
+      ...watchOptions
+    } = options;
     const { eventFilter, pause, resume, isActive } = pausableFilter(filter);
-    const stop = watchWithFilter(source, cb, __spreadProps$2(__spreadValues$2({}, watchOptions), {
-      eventFilter
-    }));
+    const stop = watchWithFilter(
+      source,
+      cb,
+      {
+        ...watchOptions,
+        eventFilter
+      }
+    );
     return { stop, pause, resume, isActive };
   }
   function unrefElement(elRef) {
-    var _a3;
-    const plain = resolveUnref(elRef);
-    return (_a3 = plain == null ? void 0 : plain.$el) != null ? _a3 : plain;
+    var _a2;
+    const plain = toValue(elRef);
+    return (_a2 = plain == null ? void 0 : plain.$el) != null ? _a2 : plain;
   }
   const defaultWindow = isClient ? window : void 0;
   const defaultDocument = isClient ? window.document : void 0;
@@ -1580,7 +1540,7 @@
     let events;
     let listeners;
     let options;
-    if (isString(args[0]) || Array.isArray(args[0])) {
+    if (typeof args[0] === "string" || Array.isArray(args[0])) {
       [events, listeners, options] = args;
       target = defaultWindow;
     } else {
@@ -1601,14 +1561,21 @@
       el.addEventListener(event, listener, options2);
       return () => el.removeEventListener(event, listener, options2);
     };
-    const stopWatch = vue.watch(() => [unrefElement(target), resolveUnref(options)], ([el, options2]) => {
-      cleanup();
-      if (!el)
-        return;
-      cleanups.push(...events.flatMap((event) => {
-        return listeners.map((listener) => register(el, event, listener, options2));
-      }));
-    }, { immediate: true, flush: "post" });
+    const stopWatch = vue.watch(
+      () => [unrefElement(target), toValue(options)],
+      ([el, options2]) => {
+        cleanup();
+        if (!el)
+          return;
+        const optionsClone = isObject$1(options2) ? { ...options2 } : options2;
+        cleanups.push(
+          ...events.flatMap((event) => {
+            return listeners.map((listener) => register(el, event, listener, optionsClone));
+          })
+        );
+      },
+      { immediate: true, flush: "post" }
+    );
     const stop = () => {
       stopWatch();
       cleanup();
@@ -1624,6 +1591,7 @@
     if (isIOS && !_iOSWorkaround) {
       _iOSWorkaround = true;
       Array.from(window2.document.body.children).forEach((el) => el.addEventListener("click", noop));
+      window2.document.documentElement.addEventListener("click", noop);
     }
     let shouldListen = true;
     const shouldIgnore = (event) => {
@@ -1656,40 +1624,68 @@
           shouldListen = !e.composedPath().includes(el) && !shouldIgnore(e);
       }, { passive: true }),
       detectIframe && useEventListener(window2, "blur", (event) => {
-        var _a3;
-        const el = unrefElement(target);
-        if (((_a3 = window2.document.activeElement) == null ? void 0 : _a3.tagName) === "IFRAME" && !(el == null ? void 0 : el.contains(window2.document.activeElement)))
-          handler(event);
+        setTimeout(() => {
+          var _a2;
+          const el = unrefElement(target);
+          if (((_a2 = window2.document.activeElement) == null ? void 0 : _a2.tagName) === "IFRAME" && !(el == null ? void 0 : el.contains(window2.document.activeElement)))
+            handler(event);
+        }, 0);
       })
     ].filter(Boolean);
     const stop = () => cleanup.forEach((fn) => fn());
     return stop;
   }
-  function useSupported(callback, sync = false) {
-    const isSupported = vue.ref();
-    const update = () => isSupported.value = Boolean(callback());
-    update();
-    tryOnMounted(update, sync);
-    return isSupported;
+  function useMounted() {
+    const isMounted = vue.ref(false);
+    if (vue.getCurrentInstance()) {
+      vue.onMounted(() => {
+        isMounted.value = true;
+      });
+    }
+    return isMounted;
   }
-  function useBrowserLocation({ window: window2 = defaultWindow } = {}) {
+  function useSupported(callback) {
+    const isMounted = useMounted();
+    return vue.computed(() => {
+      isMounted.value;
+      return Boolean(callback());
+    });
+  }
+  const WRITABLE_PROPERTIES = [
+    "hash",
+    "host",
+    "hostname",
+    "href",
+    "pathname",
+    "port",
+    "protocol",
+    "search"
+  ];
+  function useBrowserLocation(options = {}) {
+    const { window: window2 = defaultWindow } = options;
+    const refs = Object.fromEntries(
+      WRITABLE_PROPERTIES.map((key) => [key, vue.ref()])
+    );
+    for (const [key, ref2] of objectEntries(refs)) {
+      vue.watch(ref2, (value) => {
+        if (!(window2 == null ? void 0 : window2.location) || window2.location[key] === value)
+          return;
+        window2.location[key] = value;
+      });
+    }
     const buildState = (trigger) => {
+      var _a2;
       const { state: state2, length } = (window2 == null ? void 0 : window2.history) || {};
-      const { hash, host, hostname, href, origin, pathname, port, protocol, search } = (window2 == null ? void 0 : window2.location) || {};
-      return {
+      const { origin } = (window2 == null ? void 0 : window2.location) || {};
+      for (const key of WRITABLE_PROPERTIES)
+        refs[key].value = (_a2 = window2 == null ? void 0 : window2.location) == null ? void 0 : _a2[key];
+      return vue.reactive({
         trigger,
         state: state2,
         length,
-        hash,
-        host,
-        hostname,
-        href,
         origin,
-        pathname,
-        port,
-        protocol,
-        search
-      };
+        ...refs
+      });
     };
     const state = vue.ref(buildState("load"));
     if (window2) {
@@ -1700,30 +1696,18 @@
   }
   const _global = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
   const globalKey = "__vueuse_ssr_handlers__";
-  _global[globalKey] = _global[globalKey] || {};
-  const handlers = _global[globalKey];
+  const handlers = /* @__PURE__ */ getHandlers();
+  function getHandlers() {
+    if (!(globalKey in _global))
+      _global[globalKey] = _global[globalKey] || {};
+    return _global[globalKey];
+  }
   function getSSRHandler(key, fallback) {
     return handlers[key] || fallback;
   }
   function guessSerializerType(rawInit) {
     return rawInit == null ? "any" : rawInit instanceof Set ? "set" : rawInit instanceof Map ? "map" : rawInit instanceof Date ? "date" : typeof rawInit === "boolean" ? "boolean" : typeof rawInit === "string" ? "string" : typeof rawInit === "object" ? "object" : !Number.isNaN(rawInit) ? "number" : "any";
   }
-  var __defProp$k = Object.defineProperty;
-  var __getOwnPropSymbols$m = Object.getOwnPropertySymbols;
-  var __hasOwnProp$m = Object.prototype.hasOwnProperty;
-  var __propIsEnum$m = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp$k = (obj, key, value) => key in obj ? __defProp$k(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-  var __spreadValues$k = (a, b) => {
-    for (var prop in b || (b = {}))
-      if (__hasOwnProp$m.call(b, prop))
-        __defNormalProp$k(a, prop, b[prop]);
-    if (__getOwnPropSymbols$m)
-      for (var prop of __getOwnPropSymbols$m(b)) {
-        if (__propIsEnum$m.call(b, prop))
-          __defNormalProp$k(a, prop, b[prop]);
-      }
-    return a;
-  };
   const StorageSerializers = {
     boolean: {
       read: (v) => v === "true",
@@ -1760,7 +1744,7 @@
   };
   const customStorageEventName = "vueuse-storage";
   function useStorage(key, defaults, storage, options = {}) {
-    var _a3;
+    var _a2;
     const {
       flush = "pre",
       deep = true,
@@ -1787,10 +1771,14 @@
     }
     if (!storage)
       return data;
-    const rawInit = resolveUnref(defaults);
+    const rawInit = toValue(defaults);
     const type = guessSerializerType(rawInit);
-    const serializer = (_a3 = options.serializer) != null ? _a3 : StorageSerializers[type];
-    const { pause: pauseWatch, resume: resumeWatch } = watchPausable(data, () => write(data.value), { flush, deep, eventFilter });
+    const serializer = (_a2 = options.serializer) != null ? _a2 : StorageSerializers[type];
+    const { pause: pauseWatch, resume: resumeWatch } = watchPausable(
+      data,
+      () => write(data.value),
+      { flush, deep, eventFilter }
+    );
     if (window2 && listenToStorageChanges) {
       useEventListener(window2, "storage", update);
       useEventListener(window2, customStorageEventName, updateFromCustomEvent);
@@ -1830,10 +1818,10 @@
         return rawInit;
       } else if (!event && mergeDefaults) {
         const value = serializer.read(rawValue);
-        if (isFunction(mergeDefaults))
+        if (typeof mergeDefaults === "function")
           return mergeDefaults(value, rawInit);
         else if (type === "object" && !Array.isArray(value))
-          return __spreadValues$k(__spreadValues$k({}, rawInit), value);
+          return { ...rawInit, ...value };
         return value;
       } else if (typeof rawValue !== "string") {
         return rawValue;
@@ -1855,7 +1843,8 @@
         return;
       pauseWatch();
       try {
-        data.value = read(event);
+        if ((event == null ? void 0 : event.newValue) !== serializer.write(data.value))
+          data.value = read(event);
       } catch (e) {
         onError(e);
       } finally {
@@ -1866,95 +1855,113 @@
       }
     }
   }
-  const functionsMap = [
-    [
-      "requestFullscreen",
-      "exitFullscreen",
-      "fullscreenElement",
-      "fullscreenEnabled",
-      "fullscreenchange",
-      "fullscreenerror"
-    ],
-    [
-      "webkitRequestFullscreen",
-      "webkitExitFullscreen",
-      "webkitFullscreenElement",
-      "webkitFullscreenEnabled",
-      "webkitfullscreenchange",
-      "webkitfullscreenerror"
-    ],
-    [
-      "webkitRequestFullScreen",
-      "webkitCancelFullScreen",
-      "webkitCurrentFullScreenElement",
-      "webkitCancelFullScreen",
-      "webkitfullscreenchange",
-      "webkitfullscreenerror"
-    ],
-    [
-      "mozRequestFullScreen",
-      "mozCancelFullScreen",
-      "mozFullScreenElement",
-      "mozFullScreenEnabled",
-      "mozfullscreenchange",
-      "mozfullscreenerror"
-    ],
-    [
-      "msRequestFullscreen",
-      "msExitFullscreen",
-      "msFullscreenElement",
-      "msFullscreenEnabled",
-      "MSFullscreenChange",
-      "MSFullscreenError"
-    ]
+  const eventHandlers = [
+    "fullscreenchange",
+    "webkitfullscreenchange",
+    "webkitendfullscreen",
+    "mozfullscreenchange",
+    "MSFullscreenChange"
   ];
   function useFullscreen(target, options = {}) {
-    const { document: document2 = defaultDocument, autoExit = false } = options;
-    const targetRef = target || (document2 == null ? void 0 : document2.querySelector("html"));
+    const {
+      document: document2 = defaultDocument,
+      autoExit = false
+    } = options;
+    const targetRef = vue.computed(() => {
+      var _a2;
+      return (_a2 = unrefElement(target)) != null ? _a2 : document2 == null ? void 0 : document2.querySelector("html");
+    });
     const isFullscreen = vue.ref(false);
-    let map = functionsMap[0];
-    const isSupported = useSupported(() => {
-      if (!document2) {
-        return false;
-      } else {
-        for (const m of functionsMap) {
-          if (m[1] in document2) {
-            map = m;
-            return true;
+    const requestMethod = vue.computed(() => {
+      return [
+        "requestFullscreen",
+        "webkitRequestFullscreen",
+        "webkitEnterFullscreen",
+        "webkitEnterFullScreen",
+        "webkitRequestFullScreen",
+        "mozRequestFullScreen",
+        "msRequestFullscreen"
+      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
+    });
+    const exitMethod = vue.computed(() => {
+      return [
+        "exitFullscreen",
+        "webkitExitFullscreen",
+        "webkitExitFullScreen",
+        "webkitCancelFullScreen",
+        "mozCancelFullScreen",
+        "msExitFullscreen"
+      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
+    });
+    const fullscreenEnabled = vue.computed(() => {
+      return [
+        "fullScreen",
+        "webkitIsFullScreen",
+        "webkitDisplayingFullscreen",
+        "mozFullScreen",
+        "msFullscreenElement"
+      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
+    });
+    const fullscreenElementMethod = [
+      "fullscreenElement",
+      "webkitFullscreenElement",
+      "mozFullScreenElement",
+      "msFullscreenElement"
+    ].find((m) => document2 && m in document2);
+    const isSupported = useSupported(() => targetRef.value && document2 && requestMethod.value !== void 0 && exitMethod.value !== void 0 && fullscreenEnabled.value !== void 0);
+    const isCurrentElementFullScreen = () => {
+      if (fullscreenElementMethod)
+        return (document2 == null ? void 0 : document2[fullscreenElementMethod]) === targetRef.value;
+      return false;
+    };
+    const isElementFullScreen = () => {
+      if (fullscreenEnabled.value) {
+        if (document2 && document2[fullscreenEnabled.value] != null) {
+          return document2[fullscreenEnabled.value];
+        } else {
+          const target2 = targetRef.value;
+          if ((target2 == null ? void 0 : target2[fullscreenEnabled.value]) != null) {
+            return Boolean(target2[fullscreenEnabled.value]);
           }
         }
       }
       return false;
-    });
-    const [REQUEST, EXIT, ELEMENT, , EVENT] = map;
+    };
     async function exit() {
-      if (!isSupported.value)
+      if (!isSupported.value || !isFullscreen.value)
         return;
-      if (document2 == null ? void 0 : document2[ELEMENT])
-        await document2[EXIT]();
+      if (exitMethod.value) {
+        if ((document2 == null ? void 0 : document2[exitMethod.value]) != null) {
+          await document2[exitMethod.value]();
+        } else {
+          const target2 = targetRef.value;
+          if ((target2 == null ? void 0 : target2[exitMethod.value]) != null)
+            await target2[exitMethod.value]();
+        }
+      }
       isFullscreen.value = false;
     }
     async function enter() {
-      if (!isSupported.value)
+      if (!isSupported.value || isFullscreen.value)
         return;
-      await exit();
-      const target2 = unrefElement(targetRef);
-      if (target2) {
-        await target2[REQUEST]();
+      if (isElementFullScreen())
+        await exit();
+      const target2 = targetRef.value;
+      if (requestMethod.value && (target2 == null ? void 0 : target2[requestMethod.value]) != null) {
+        await target2[requestMethod.value]();
         isFullscreen.value = true;
       }
     }
     async function toggle() {
-      if (isFullscreen.value)
-        await exit();
-      else
-        await enter();
+      await (isFullscreen.value ? exit() : enter());
     }
-    if (document2) {
-      useEventListener(document2, EVENT, () => {
-        isFullscreen.value = !!(document2 == null ? void 0 : document2[ELEMENT]);
-      }, false);
-    }
+    const handlerCallback = () => {
+      const isElementFullScreenValue = isElementFullScreen();
+      if (!isElementFullScreenValue || isElementFullScreenValue && isCurrentElementFullScreen())
+        isFullscreen.value = isElementFullScreenValue;
+    };
+    useEventListener(document2, eventHandlers, handlerCallback, false);
+    useEventListener(() => unrefElement(targetRef), eventHandlers, handlerCallback, false);
     if (autoExit)
       tryOnScopeDispose(exit);
     return {
@@ -1965,59 +1972,6 @@
       toggle
     };
   }
-  var SwipeDirection;
-  (function(SwipeDirection2) {
-    SwipeDirection2["UP"] = "UP";
-    SwipeDirection2["RIGHT"] = "RIGHT";
-    SwipeDirection2["DOWN"] = "DOWN";
-    SwipeDirection2["LEFT"] = "LEFT";
-    SwipeDirection2["NONE"] = "NONE";
-  })(SwipeDirection || (SwipeDirection = {}));
-  var __defProp2 = Object.defineProperty;
-  var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-  var __hasOwnProp = Object.prototype.hasOwnProperty;
-  var __propIsEnum = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp2 = (obj, key, value) => key in obj ? __defProp2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-  var __spreadValues = (a, b) => {
-    for (var prop in b || (b = {}))
-      if (__hasOwnProp.call(b, prop))
-        __defNormalProp2(a, prop, b[prop]);
-    if (__getOwnPropSymbols)
-      for (var prop of __getOwnPropSymbols(b)) {
-        if (__propIsEnum.call(b, prop))
-          __defNormalProp2(a, prop, b[prop]);
-      }
-    return a;
-  };
-  const _TransitionPresets = {
-    easeInSine: [0.12, 0, 0.39, 0],
-    easeOutSine: [0.61, 1, 0.88, 1],
-    easeInOutSine: [0.37, 0, 0.63, 1],
-    easeInQuad: [0.11, 0, 0.5, 0],
-    easeOutQuad: [0.5, 1, 0.89, 1],
-    easeInOutQuad: [0.45, 0, 0.55, 1],
-    easeInCubic: [0.32, 0, 0.67, 0],
-    easeOutCubic: [0.33, 1, 0.68, 1],
-    easeInOutCubic: [0.65, 0, 0.35, 1],
-    easeInQuart: [0.5, 0, 0.75, 0],
-    easeOutQuart: [0.25, 1, 0.5, 1],
-    easeInOutQuart: [0.76, 0, 0.24, 1],
-    easeInQuint: [0.64, 0, 0.78, 0],
-    easeOutQuint: [0.22, 1, 0.36, 1],
-    easeInOutQuint: [0.83, 0, 0.17, 1],
-    easeInExpo: [0.7, 0, 0.84, 0],
-    easeOutExpo: [0.16, 1, 0.3, 1],
-    easeInOutExpo: [0.87, 0, 0.13, 1],
-    easeInCirc: [0.55, 0, 1, 0.45],
-    easeOutCirc: [0, 0.55, 0.45, 1],
-    easeInOutCirc: [0.85, 0, 0.15, 1],
-    easeInBack: [0.36, 0, 0.66, -0.56],
-    easeOutBack: [0.34, 1.56, 0.64, 1],
-    easeInOutBack: [0.68, -0.6, 0.32, 1.6]
-  };
-  __spreadValues({
-    linear: identity
-  }, _TransitionPresets);
   const _hoisted_1$8 = ["innerHTML"];
   const _sfc_main$a = /* @__PURE__ */ vue.defineComponent({
     __name: "PopupTorrent",
@@ -2042,9 +1996,9 @@
       });
       function setDownloadEvent() {
         torrentLinkAnchor2.addEventListener("click", (event) => {
-          var _a3;
+          var _a2;
           event.preventDefault();
-          (_a3 = getElement("a", popup.value)) == null ? void 0 : _a3.click();
+          (_a2 = getElement("a", popup.value)) == null ? void 0 : _a2.click();
         });
       }
       function setToggleEvent() {
@@ -2088,14 +2042,14 @@
   const toast = useToast();
   function useDownloadEvent() {
     function setHentaiAtHomeEvent() {
-      var _a3, _b, _c;
+      var _a2, _b, _c;
       const logger = new Logger("Hentai At Home Event");
       const hentaiAtHomeLinks = getElements(".popup--archive table td a");
       if (!(hentaiAtHomeLinks == null ? void 0 : hentaiAtHomeLinks.length)) {
         logger.error("hentai@Home Links not found.");
         return;
       }
-      const postUrl = (_a3 = getElement("#hathdl_form")) == null ? void 0 : _a3.getAttribute("action");
+      const postUrl = (_a2 = getElement("#hathdl_form")) == null ? void 0 : _a2.getAttribute("action");
       if (!postUrl) {
         logger.error("postUrl not found.");
         return;
@@ -2157,9 +2111,9 @@
       }
       for (const button of downloadButtons) {
         button.addEventListener("click", async (event) => {
-          var _a3;
+          var _a2;
           event.preventDefault();
-          const form = (_a3 = button == null ? void 0 : button.parentElement) == null ? void 0 : _a3.parentElement;
+          const form = (_a2 = button == null ? void 0 : button.parentElement) == null ? void 0 : _a2.parentElement;
           if (!form) {
             logger.error("form not found.");
             return;
@@ -2334,22 +2288,22 @@
         });
       }
       function setRequestEvents() {
-        var _a3, _b;
-        const submitButton = (_a3 = popup.value) == null ? void 0 : _a3.querySelector("input[type=submit]");
+        var _a2, _b;
+        const submitButton = (_a2 = popup.value) == null ? void 0 : _a2.querySelector("input[type=submit]");
         submitButton == null ? void 0 : submitButton.addEventListener("click", async (event) => {
-          var _a4;
+          var _a3;
           event.preventDefault();
-          const favoriteCategory = (_a4 = getElement("[name=favcat]:checked")) == null ? void 0 : _a4.value;
+          const favoriteCategory = (_a3 = getElement("[name=favcat]:checked")) == null ? void 0 : _a3.value;
           await setFavorite(favoriteCategory);
         });
         const categoryOptions = (_b = popup.value) == null ? void 0 : _b.querySelectorAll("#galpop .nosel > div");
         if (categoryOptions == null ? void 0 : categoryOptions.length) {
           for (const option of categoryOptions) {
             option.addEventListener("dblclick", async (event) => {
-              var _a4;
+              var _a3;
               event.preventDefault();
               console.log(123);
-              const category = (_a4 = option.querySelector("[name=favcat]")) == null ? void 0 : _a4.value;
+              const category = (_a3 = option.querySelector("[name=favcat]")) == null ? void 0 : _a3.value;
               await setFavorite(category);
             });
           }
@@ -2357,9 +2311,9 @@
         _unsafeWindow.clicked_fav = () => null;
       }
       async function setFavorite(category) {
-        var _a3, _b;
+        var _a2, _b;
         const formData = new FormData();
-        const favoriteNote = (_a3 = getElement("[name=favnote]")) == null ? void 0 : _a3.value;
+        const favoriteNote = (_a2 = getElement("[name=favnote]")) == null ? void 0 : _a2.value;
         const apply = category === "favdel" ? "Apply Changes" : "Add to Favorites";
         formData.append("favcat", category);
         formData.append("favnote", favoriteNote);
@@ -2452,16 +2406,16 @@
   }
   const { paneImagesDiv: paneImagesDiv$1 } = useElements();
   const location$1 = useBrowserLocation();
-  const currentPage$1 = vue.ref(Number((_a2 = location$1.value.hash) == null ? void 0 : _a2.replace("#page", "")) || 1);
+  const currentPage$1 = vue.ref(Number((_a = location$1.value.hash) == null ? void 0 : _a.replace("#page", "")) || 1);
   function usePages() {
     const pageCount2 = _unsafeWindow.pagecount;
     function appendPageIndex() {
-      const imageContainers = getElements(".mi0");
+      const imageContainers = getElements(".mimg");
       const pageCount22 = imageContainers.length;
       const mutationObserver = new MutationObserver(([mutation]) => {
         const target = mutation.target;
         const index2 = target.id.split("image_")[1];
-        const captionElement = getElement(".mi4", target);
+        const captionElement = getElement(".mbar > *:nth-child(3)", target);
         const captionText = captionElement == null ? void 0 : captionElement.innerText;
         if (!captionText || (captionText == null ? void 0 : captionText.includes(" ／ "))) {
           return;
@@ -2537,7 +2491,7 @@
       return getElement(`img[id^=imgsrc_${currentPage$1.value}]`);
     }
     function syncCurrentImageOnScroll() {
-      const imageContainers = getElements(".mi0");
+      const imageContainers = getElements(".mimg");
       let firstIntersectingIndex = 1;
       const observer = new IntersectionObserver((entries) => {
         firstIntersectingIndex = Number(entries[0].target.id.replace("image_", ""));
@@ -2793,8 +2747,8 @@
       for (const entry of entries) {
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
-            var _a3;
-            (_a3 = entry.target) == null ? void 0 : _a3.dispatchEvent(new CustomEvent("reflow"));
+            var _a2;
+            (_a2 = entry.target) == null ? void 0 : _a2.dispatchEvent(new CustomEvent("reflow"));
           });
         });
       }
@@ -2902,7 +2856,7 @@
         for (const [event, action] of Object.entries(config)) {
           paneImagesDiv.addEventListener(event, (event2) => {
             const target = event2.target;
-            if (target.closest(".mi1")) {
+            if (target.closest(".mbar")) {
               return;
             }
             event2.preventDefault();
@@ -2930,9 +2884,9 @@
       }
       function setThumbsClickEvent() {
         paneThumbsDiv.addEventListener("click", (event) => {
-          var _a3;
+          var _a2;
           const index2 = Number(
-            (_a3 = event.target.closest("div")) == null ? void 0 : _a3.id.replace("thumb_", "")
+            (_a2 = event.target.closest("div")) == null ? void 0 : _a2.id.replace("thumb_", "")
           );
           currentPage.value = index2;
         });
@@ -3115,7 +3069,7 @@
         }
         function setResizeShortcuts2() {
           window.addEventListener("keydown", (event) => {
-            var _a3;
+            var _a2;
             const relativeToViewport = getRelativeToViewport2();
             const isCtrlPressed = event.ctrlKey;
             if (isCtrlPressed) {
@@ -3124,7 +3078,7 @@
               if (!matchResult) {
                 return;
               }
-              const index2 = Number((_a3 = matchResult.groups) == null ? void 0 : _a3.index);
+              const index2 = Number((_a2 = matchResult.groups) == null ? void 0 : _a2.index);
               setImageSize2(index2 - 1);
             } else {
               switch (event.code) {
@@ -3185,7 +3139,7 @@
       };
     }
   });
-  const ImageResizer = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-4ba11677"]]);
+  const ImageResizer = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-572fe08a"]]);
   const _hoisted_1$3 = ["innerHTML"];
   const _sfc_main$4 = /* @__PURE__ */ vue.defineComponent({
     __name: "MultiPageViewerEnhancer",
@@ -3221,7 +3175,7 @@
         exhentaiButtons.value = replaceOriginalFunctions();
       });
       function replaceOriginalFunctions() {
-        var _a3;
+        var _a2;
         const originalFunctions = getElement("#bar3");
         const closeButton = originalFunctions.querySelector("img:first-child");
         if (!closeButton) {
@@ -3229,7 +3183,7 @@
         }
         const link = document.createElement("a");
         link.href = window.location.origin + window.location.pathname.replace("mpv", "g");
-        (_a3 = closeButton.parentNode) == null ? void 0 : _a3.insertBefore(link, closeButton);
+        (_a2 = closeButton.parentNode) == null ? void 0 : _a2.insertBefore(link, closeButton);
         link.append(closeButton);
         return originalFunctions.innerHTML;
       }
@@ -3252,8 +3206,8 @@
     `);
         }, { immediate: true });
         vue.watch(currentPage2, (index2) => {
-          var _a3;
-          (_a3 = getElement(`#thumb_${index2}`)) == null ? void 0 : _a3.scrollIntoView({
+          var _a2;
+          (_a2 = getElement(`#thumb_${index2}`)) == null ? void 0 : _a2.scrollIntoView({
             block: "center"
           });
         });
@@ -3307,8 +3261,9 @@
       modelValue: { type: Boolean }
     },
     emits: ["update:modelValue", "toggle"],
-    setup(__props, { emit }) {
+    setup(__props, { emit: __emit }) {
       const props = __props;
+      const emit = __emit;
       const modelValueProxy = vue.computed({
         get: () => props.modelValue,
         set: (value) => {
@@ -3319,11 +3274,11 @@
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock("label", _hoisted_1$1, [
           vue.withDirectives(vue.createElementVNode("input", {
-            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => vue.isRef(modelValueProxy) ? modelValueProxy.value = $event : null),
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => modelValueProxy.value = $event),
             type: "checkbox",
             class: "switch__input"
           }, null, 512), [
-            [vue.vModelCheckbox, vue.unref(modelValueProxy)]
+            [vue.vModelCheckbox, modelValueProxy.value]
           ]),
           _hoisted_2$1
         ]);
@@ -3536,8 +3491,8 @@
     });
   }
   function getGalleryIDandToken() {
-    var _a3;
-    const groups = (_a3 = _unsafeWindow.location.pathname.match(/(mpv|g)\/(?<id>\d+)\/(?<token>\w+)/)) == null ? void 0 : _a3.groups;
+    var _a2;
+    const groups = (_a2 = _unsafeWindow.location.pathname.match(/(mpv|g)\/(?<id>\d+)\/(?<token>\w+)/)) == null ? void 0 : _a2.groups;
     if (!groups) {
       return {
         id: null,
