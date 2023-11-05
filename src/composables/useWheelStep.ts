@@ -41,9 +41,11 @@ export default function({
       const boundingTop = Math.floor(firstVisibleItem.getBoundingClientRect().top)
 
       let nextIndex = firstVisibleItemIndex
+
+      // Note: Windows 系統縮放大小若為 125%/150%/175%，boundingTop 有可能為 -1
       if (Math.sign(event.deltaY) === 1 && boundingTop <= 0) {
         nextIndex++
-      } else if (Math.sign(event.deltaY) === -1 && boundingTop >= 0) {
+      } else if (Math.sign(event.deltaY) === -1 && boundingTop >= -1) {
         nextIndex--
       }
 
