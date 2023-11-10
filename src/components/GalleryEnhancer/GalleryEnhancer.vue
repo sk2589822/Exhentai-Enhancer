@@ -58,11 +58,8 @@ const {
 <style lang="scss">
 @use "@/styles/animations/spin.scss";
 
-div#gmid {
-  width: auto;
-}
-
 div#gd5 {
+  float: unset;
   width: auto;
 }
 
