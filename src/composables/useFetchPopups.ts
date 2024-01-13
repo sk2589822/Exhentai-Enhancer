@@ -66,7 +66,6 @@ export function useFetchPopups() {
     logger.log('Start')
 
     const link = url || getDownloadLink(archiveLinkAnchor)
-    console.log('🚀 ~ fetchArchive ~ link:', link)
     if (!link) {
       logger.error('link not found.')
       return ''
