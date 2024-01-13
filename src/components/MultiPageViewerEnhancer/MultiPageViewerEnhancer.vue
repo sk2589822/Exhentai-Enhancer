@@ -16,9 +16,9 @@
 import { ref, onMounted, watch } from 'vue'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
-import usePages from '@/composables/MultiPageViewerEnhancer/usePages'
-import useEvents from '@/composables/MultiPageViewerEnhancer/useEvents'
-import useWheelStep from '@/composables/useWheelStep'
+import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
+import { useEvents } from '@/composables/MultiPageViewerEnhancer/useEvents'
+import { useWheelStep } from '@/composables/useWheelStep'
 import { getElement } from '@/utils/commons'
 import { preventImageRemovalSwitch } from '@/utils/GMVariables'
 

@@ -10,8 +10,8 @@ function getGalleryMetadataBody(id: number, token: string) {
   })
 }
 
-function getGalleryIDandToken() {
-  const groups = unsafeWindow.location.pathname.match(/(mpv|g)\/(?<id>\d+)\/(?<token>\w+)/)?.groups
+function getGalleryIDandToken(pathname: string) {
+  const groups = pathname.match(/(mpv|g)\/(?<id>\d+)\/(?<token>\w+)/)?.groups
   if (!groups) {
     return {
       id: null,
@@ -19,20 +19,14 @@ function getGalleryIDandToken() {
     }
   }
 
-  const { id, token } = groups
   return {
-    id: Number(id),
-    token,
+    id: Number(groups.id),
+    token: groups.token,
   }
 }
 
-function fetchGalleryData() {
-  const apiURL = 'https://api.e-hentai.org/api.php'
-
-  const { id, token } = getGalleryIDandToken()
-  if (!id || !token) {
-    return null
-  }
+async function fetchGalleryData({ id, token }: { id: number, token: string }) {
+  const apiURL = 'https://exhentai.org/api.php'
 
   return fetch(apiURL,
     {
@@ -44,11 +38,33 @@ function fetchGalleryData() {
 }
 
 export async function changeTitleToJapanese() {
-  const galleryData = await fetchGalleryData()
+  const { id, token } = getGalleryIDandToken(unsafeWindow.location.pathname)
+  if (!id || !token) {
+    return
+  }
+
+  const galleryData = await fetchGalleryData({
+    id,
+    token,
+  })
   if (galleryData) {
     const japaneseTitle = galleryData.gmetadata[0].title_jpn
     if (japaneseTitle) {
       document.title = japaneseTitle
     }
   }
+}
+
+export async function getArchiveLink(url: string) {
+  const { id, token } = getGalleryIDandToken(url)
+  if (!id || !token) {
+    return
+  }
+
+  const galleryData = await fetchGalleryData({
+    id,
+    token,
+  })
+
+  return `${unsafeWindow.location.origin}/archiver.php?gid=${id}&token=${token}&or=${galleryData.gmetadata[0].archiver_key}`
 }

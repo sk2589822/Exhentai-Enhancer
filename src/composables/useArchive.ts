@@ -1,11 +1,14 @@
 import { useToast } from 'vue-toastification'
+import { Ref } from 'vue'
 
 import { getElement, getElements, getDoc } from '@/utils/commons'
 import { Logger } from '@/utils/logger'
+import { DownloadMethod } from '@/constants/monkey'
+import { quickDownloadMethod } from '@/utils/GMVariables'
 
 const toast = useToast()
 
-export default function() {
+export function useArchive() {
   /**
    * 重新實作 Hentai@Home 的下載事件
    *
@@ -152,8 +155,48 @@ export default function() {
     }
   }
 
+  // TODO: 直接 send request 而非操作 DOM
+  function quickDownload(popup: Ref<HTMLElement | undefined>) {
+    function getHaHDownloadLinkElement(downloadMethod: DownloadMethod.HaH_Original | DownloadMethod.HaH_2400) {
+      const indexMap = {
+        [DownloadMethod.HaH_Original]: 6,
+        [DownloadMethod.HaH_2400]: 5,
+      }
+      const index = indexMap[downloadMethod]
+
+      return getElement(`td:nth-child(${index}) > p > a`, popup.value)
+    }
+
+    switch (quickDownloadMethod.value) {
+      case DownloadMethod.HaH_Original:
+      case DownloadMethod.HaH_2400: {
+        const downloadLinkElement = getHaHDownloadLinkElement(quickDownloadMethod.value)
+
+        if (downloadLinkElement) {
+          downloadLinkElement.click()
+        } else {
+          toast.warning(`Failed ${quickDownloadMethod.value}. The link might not exists.\n Open popup`)
+          return false
+        }
+
+        break
+      }
+
+      case DownloadMethod.Direct_Origin:
+        (getElement('input[value="Download Original Archive"]', popup.value) as HTMLElement).click()
+        break
+
+      case DownloadMethod.Direct_Resample:
+        (getElement('input[value="Download Resample Archive"]', popup.value) as HTMLElement).click()
+        break
+    }
+
+    return true
+  }
+
   return {
     setHentaiAtHomeEvent,
     setDirectDownloadEvent,
+    quickDownload,
   }
 }

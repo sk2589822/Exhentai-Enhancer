@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import usePages from '@/composables/MultiPageViewerEnhancer/usePages'
+import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
 
 const {
   pageCount,

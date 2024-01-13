@@ -2,7 +2,7 @@
 <template />
 
 <script setup lang="ts">
-import useWheelStep from '@/composables/useWheelStep'
+import { useWheelStep } from '@/composables/useWheelStep'
 import { getDoc, getElement, getElements } from '@/utils/commons'
 import { scrollByRowSwitch, infiniteScrollSwitch } from '@/utils/GMVariables'
 

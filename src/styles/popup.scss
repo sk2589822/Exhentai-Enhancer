@@ -1,7 +1,8 @@
 .popup {
+  position: absolute !important;
   padding: 20px;
   text-align: center;
-  background-color: inherit;
+  background-color: var(--bg-color);
   border: white solid 3px;
   border-radius: 20px;
   z-index: 100;
@@ -10,14 +11,4 @@
 
 .popup a {
   text-decoration: underline;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }

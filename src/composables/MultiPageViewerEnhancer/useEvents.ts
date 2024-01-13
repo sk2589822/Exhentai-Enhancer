@@ -3,9 +3,8 @@ import { useFullscreen } from '@vueuse/core'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { scrollElement } from '@/utils/commons'
-
-import usePages from './usePages'
-import useElements from './useElements'
+import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
+import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
 
 const {
   pageCount,
@@ -22,7 +21,7 @@ const {
 const {
   paneImagesDiv,
   paneThumbsDiv,
-} = useElements()
+} = useMultiPageViewerElements()
 
 setReflowTrigger()
 
@@ -42,7 +41,7 @@ function setReflowTrigger() {
   observer.observe(document.body)
 }
 
-export default function() {
+export function useEvents() {
   function setKeyBoardEvent() {
     document.onkeydown = null
 

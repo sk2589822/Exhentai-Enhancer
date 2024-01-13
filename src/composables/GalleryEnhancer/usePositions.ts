@@ -1,40 +1,31 @@
-import useElement from './useElements'
+import { useElementBounding } from '@vueuse/core'
+import { computed } from 'vue'
 
-export default function() {
-  const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor, infoDiv } = useElement()
+import { useGalleryElements } from '@/composables/GalleryEnhancer/useGalleryElements'
+
+export function usePositions() {
+  const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor, infoDiv } = useGalleryElements()
+
+  const archiveLinkRect = useElementBounding(archiveLinkAnchor)
+  const torrentLinkRect = useElementBounding(torrentLinkAnchor)
+  const favoriteLinkRect = useElementBounding(favoritesLinkAnchor)
 
   function getDownloadPopupRight(): number {
     return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2
   }
 
-  function getArchiveTop(): number {
-    const { top, height } = archiveLinkAnchor.getBoundingClientRect()
-    return top + height + window.scrollY + 5
-  }
-
-  function getTorrentTop(): number {
-    const { top, height } = torrentLinkAnchor.getBoundingClientRect()
-    return top + height + window.scrollY + 5
-  }
-
-  function getFavoritesPosition() {
-    const { top, height, left } = favoritesLinkAnchor.getBoundingClientRect()
-
-    return {
-      top: `${top + height + window.scrollY + 5}px`,
-      left: `${left}px`,
-    }
-  }
-
   return {
-    archive: {
-      top: `${getArchiveTop()}px`,
+    archive: computed(() => ({
+      top: `${archiveLinkRect.bottom.value + 5}px`,
       right: `${getDownloadPopupRight()}px`,
-    },
-    torrent: {
-      top: `${getTorrentTop()}px`,
+    })),
+    torrent: computed(() => ({
+      top: `${torrentLinkRect.bottom.value + 5}px`,
       right: `${getDownloadPopupRight()}px`,
-    },
-    favorites: getFavoritesPosition(),
+    })),
+    favorite: computed(() => ({
+      top: `${favoriteLinkRect.bottom.value + 5}px`,
+      right: `${favoriteLinkRect.left.value}px`,
+    })),
   }
 }
