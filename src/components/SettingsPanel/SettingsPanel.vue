@@ -155,6 +155,13 @@
             *sync with "Gallery Enhancer - Scroll by Row"
           </span>
         </div>
+
+        <div class="settings">
+          <ToggleSwitch v-model="archiveButtonSwitch.value" />
+          <h3 class="settings__name">
+            Insert archiver buttons to galleries on the front page.
+          </h3>
+        </div>
       </section>
     </div>
     <span
@@ -184,6 +191,7 @@ import CrossButton from '@/components/Icon/CrossButton.vue'
 import { DownloadMethod } from '@/constants/monkey'
 import {
   infiniteScrollSwitch,
+  archiveButtonSwitch,
   scrollByRowSwitch,
   betterPopupSwitch,
   quickDownloadMethod,

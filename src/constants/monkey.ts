@@ -1,6 +1,7 @@
 export const enum GMKey {
   InfiniteScroll = 'InfiniteScroll',
   ScrollByRow = 'ScrollByRow',
+  archiveButton = 'archiveButton',
 
   BetterPopup = 'BetterPopup',
   QuickDownloadMethod = 'QuickDownloadMethod',
