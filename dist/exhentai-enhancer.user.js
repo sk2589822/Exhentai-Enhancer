@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.11.2
+// @version            1.12.0
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -23,7 +23,7 @@
 // @grant              unsafeWindow
 // ==/UserScript==
 
-(t=>{if(typeof GM_addStyle=="function"){GM_addStyle(t);return}const a=document.createElement("style");a.textContent=t,document.head.append(a)})(' @charset "UTF-8";.Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width : 600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width : 600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width : 600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:0 auto 864px;width:30px;height:30px;line-height:30px;content:"\u231B";animation:spin ease-in-out 1s infinite}.popup[data-v-0f43299d]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-0f43299d]{text-decoration:underline}.fade-enter-active[data-v-0f43299d],.fade-leave-active[data-v-0f43299d]{transition:opacity .3s ease}.fade-enter-from[data-v-0f43299d],.fade-leave-to[data-v-0f43299d]{opacity:0}.popup[data-v-6ae53e87]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-6ae53e87]{text-decoration:underline}.fade-enter-active[data-v-6ae53e87],.fade-leave-active[data-v-6ae53e87]{transition:opacity .3s ease}.fade-enter-from[data-v-6ae53e87],.fade-leave-to[data-v-6ae53e87]{opacity:0}.popup[data-v-f8bd8db2]{padding:20px;text-align:center;background-color:inherit;border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a[data-v-f8bd8db2]{text-decoration:underline}.fade-enter-active[data-v-f8bd8db2],.fade-leave-active[data-v-f8bd8db2]{transition:opacity .3s ease}.fade-enter-from[data-v-f8bd8db2],.fade-leave-to[data-v-f8bd8db2]{opacity:0}@keyframes spin{0%{rotate:0}to{rotate:360deg}}div#gd5{float:unset;width:auto}.popup{position:absolute}.is-ready:after{content:" \u2714\uFE0F"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\u231B";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.is-finished{font-size:0;pointer-events:none;text-decoration:none}.is-finished:after{content:"\u2714\uFE0F";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-8b2bf6b6]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-8b2bf6b6]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-8b2bf6b6]{line-height:100%}:fullscreen .page-elevator[data-v-8b2bf6b6]{opacity:0}:fullscreen .page-elevator[data-v-8b2bf6b6]:hover{opacity:1}div#pane_images .mimg{width:min-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}div#pane_images .mimg>a{-webkit-user-select:none;user-select:none}div#pane_images .mimg>a>img{width:auto!important;max-height:var(--image-size);pointer-events:none}.image-resizer[data-v-572fe08a]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-572fe08a]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-572fe08a]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-572fe08a],.image-resizer__button--active[data-v-572fe08a]:hover{background-color:orange}html,body{padding:0;width:100%!important;height:100%!important}div#bar3{display:none}.hide-cursor,.hide-cursor *{cursor:none}.original-functions{position:absolute;top:0;right:0;display:block;width:35px;height:270px;opacity:0;transition:opacity .3s ease}.original-functions:hover{opacity:1}.original-functions>img{cursor:pointer}div#pane_thumbs{display:block;opacity:0;z-index:1;transition:opacity .3s}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:rgba(119,119,119,.4666666667);border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-894c8e09]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-894c8e09]{width:0;height:0;opacity:0}.switch__slider[data-v-894c8e09]{position:absolute;top:0;bottom:0;right:0;left:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-894c8e09]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-894c8e09]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-894c8e09]:before{transform:translate(26px)}.popup[data-v-ddd293d0]{position:fixed;top:0;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background-color:#00000080;z-index:99999}.settings-panel[data-v-ddd293d0]{position:relative;display:flex;margin:32px;padding:32px;width:80%;max-width:1000px;height:90%;background-color:#34353b;border-radius:4px;flex-direction:column;row-gap:16px}.settings-panel__inner[data-v-ddd293d0]{overflow-y:auto;padding-right:16px;height:100%}.settings-panel__section[data-v-ddd293d0]{background-color:#4f535b;border-radius:4px}.settings-panel__section-name[data-v-ddd293d0]{margin:16px 32px;padding-top:16px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button[data-v-ddd293d0]{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button[data-v-ddd293d0] svg{width:16px;height:16px}.settings[data-v-ddd293d0]{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name[data-v-ddd293d0]{font-size:16px}.settings__notice[data-v-ddd293d0]{font-size:12px}.settings__intro[data-v-ddd293d0]{margin-left:60px;width:100%;font-size:14px;text-align:left}.actions[data-v-ddd293d0]{display:flex;align-items:center;justify-content:flex-end}.actions__button[data-v-ddd293d0]{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer}.v-enter-active[data-v-ddd293d0],.v-leave-active[data-v-ddd293d0]{transition:opacity .2s ease}.v-enter-from[data-v-ddd293d0],.v-leave-to[data-v-ddd293d0]{opacity:0} ');
+(t=>{if(typeof GM_addStyle=="function"){GM_addStyle(t);return}const e=document.createElement("style");e.textContent=t,document.head.append(e)})(' @charset "UTF-8";.Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width : 600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width : 600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width : 600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:0 auto 864px;width:30px;height:30px;line-height:30px;content:"\u231B";animation:spin ease-in-out 1s infinite}.gldown{display:flex}.archive-button{display:flex;justify-content:center;align-items:center;flex-shrink:0;margin-left:4px;width:16px;scale:.8;border-radius:9999px;background-color:#5fa9cf;cursor:pointer}@keyframes spin{0%{rotate:0}to{rotate:360deg}}.popup{position:absolute!important;padding:20px;text-align:center;background-color:var(--bg-color);border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a{text-decoration:underline}div#gd5{float:unset;width:auto}.is-ready:after{content:" \u2714\uFE0F"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\u231B";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.is-finished{font-size:0;pointer-events:none;text-decoration:none}.is-finished:after{content:"\u2714\uFE0F";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-c3f8cb4a]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-c3f8cb4a]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-c3f8cb4a]{line-height:100%}:fullscreen .page-elevator[data-v-c3f8cb4a]{opacity:0}:fullscreen .page-elevator[data-v-c3f8cb4a]:hover{opacity:1}div#pane_images .mimg{width:min-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}div#pane_images .mimg>a{-webkit-user-select:none;user-select:none}div#pane_images .mimg>a>img{width:auto!important;max-height:var(--image-size);pointer-events:none}.image-resizer[data-v-507e1be8]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-507e1be8]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-507e1be8]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-507e1be8],.image-resizer__button--active[data-v-507e1be8]:hover{background-color:orange}html,body{padding:0;width:100%!important;height:100%!important}div#bar3{display:none}.hide-cursor,.hide-cursor *{cursor:none}.original-functions{position:absolute;top:0;right:0;display:block;width:35px;height:270px;opacity:0;transition:opacity .3s ease}.original-functions:hover{opacity:1}.original-functions>img{cursor:pointer}div#pane_thumbs{display:block;opacity:0;z-index:1;transition:opacity .3s}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:rgba(119,119,119,.4666666667);border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-894c8e09]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-894c8e09]{width:0;height:0;opacity:0}.switch__slider[data-v-894c8e09]{position:absolute;top:0;bottom:0;right:0;left:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-894c8e09]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-894c8e09]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-894c8e09]:before{transform:translate(26px)}.settings-panel-wrap{display:flex;justify-content:center;align-items:center}.settings-panel{box-sizing:border-box;position:relative;display:flex;margin:32px;padding:32px;max-width:1000px;max-height:calc(100vh - 64px);background-color:#34353b;border-radius:4px;flex-direction:column;row-gap:16px}.settings-panel__inner{overflow-y:auto;padding-right:16px;height:100%}.settings-panel__section{background-color:#4f535b;border-radius:4px}.settings-panel__section-name{margin:16px 32px;padding-top:16px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button svg{width:16px;height:16px}.settings{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name{font-size:16px}.settings__notice{font-size:12px}.settings__intro{margin-left:60px;width:100%;font-size:14px;text-align:left}.actions{display:flex;align-items:center;justify-content:flex-end}.actions__button{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer}.vfm--fixed{position:fixed}.vfm--absolute{position:absolute}.vfm--inset{top:0;right:0;bottom:0;left:0}.vfm--overlay{z-index:-1;background-color:#00000080}.vfm--prevent-none{pointer-events:none}.vfm--prevent-auto{pointer-events:auto}.vfm--outline-none:focus{outline:none}@keyframes fade-in{0%{opacity:0}to{opacity:1}}@keyframes fade-out{0%{opacity:1}to{opacity:0}}.vfm-fade-enter-active{animation:fade-in .3s ease}.vfm-fade-leave-active{animation:fade-out .3s ease}.vfm-bounce-back{transition-property:transform;transition-duration:.3s}.vfm-slide-up-enter-active,.vfm-slide-up-leave-active,.vfm-slide-down-enter-active,.vfm-slide-down-leave-active{transition:transform .3s ease}.vfm-slide-down-enter-from,.vfm-slide-down-leave-to{transform:translateY(100vh)!important}.vfm-slide-up-enter-from,.vfm-slide-up-leave-to{transform:translateY(-100vh)!important}.vfm-slide-right-enter-active,.vfm-slide-right-leave-active,.vfm-slide-left-enter-active,.vfm-slide-left-leave-active{transition:transform .3s ease}.vfm-slide-right-enter-from,.vfm-slide-right-leave-to{transform:translate(100vw)!important}.vfm-slide-left-enter-from,.vfm-slide-left-leave-to{transform:translate(-100vw)!important}.vfm-swipe-banner-back,.vfm-swipe-banner-forward{position:fixed;top:0;bottom:0;width:27px;z-index:10}.vfm-swipe-banner-back{left:0}.vfm-swipe-banner-forward{right:0} ');
 
 (function (vue) {
   'use strict';
@@ -35,6 +35,2606 @@
     return value;
   };
   var _a;
+  function tryOnScopeDispose$1(fn) {
+    if (vue.getCurrentScope()) {
+      vue.onScopeDispose(fn);
+      return true;
+    }
+    return false;
+  }
+  function toValue$1(r) {
+    return typeof r === "function" ? r() : vue.unref(r);
+  }
+  const isClient = typeof window !== "undefined" && typeof document !== "undefined";
+  const toString = Object.prototype.toString;
+  const isObject$2 = (val) => toString.call(val) === "[object Object]";
+  const noop = () => {
+  };
+  function createFilterWrapper(filter, fn) {
+    function wrapper(...args) {
+      return new Promise((resolve, reject) => {
+        Promise.resolve(filter(() => fn.apply(this, args), { fn, thisArg: this, args })).then(resolve).catch(reject);
+      });
+    }
+    return wrapper;
+  }
+  const bypassFilter = (invoke) => {
+    return invoke();
+  };
+  function pausableFilter(extendFilter = bypassFilter) {
+    const isActive = vue.ref(true);
+    function pause() {
+      isActive.value = false;
+    }
+    function resume() {
+      isActive.value = true;
+    }
+    const eventFilter = (...args) => {
+      if (isActive.value)
+        extendFilter(...args);
+    };
+    return { isActive: vue.readonly(isActive), pause, resume, eventFilter };
+  }
+  function objectEntries(obj) {
+    return Object.entries(obj);
+  }
+  function watchWithFilter(source, cb, options = {}) {
+    const {
+      eventFilter = bypassFilter,
+      ...watchOptions
+    } = options;
+    return vue.watch(
+      source,
+      createFilterWrapper(
+        eventFilter,
+        cb
+      ),
+      watchOptions
+    );
+  }
+  function watchPausable(source, cb, options = {}) {
+    const {
+      eventFilter: filter,
+      ...watchOptions
+    } = options;
+    const { eventFilter, pause, resume, isActive } = pausableFilter(filter);
+    const stop = watchWithFilter(
+      source,
+      cb,
+      {
+        ...watchOptions,
+        eventFilter
+      }
+    );
+    return { stop, pause, resume, isActive };
+  }
+  function tryOnMounted(fn, sync = true) {
+    if (vue.getCurrentInstance())
+      vue.onMounted(fn);
+    else if (sync)
+      fn();
+    else
+      vue.nextTick(fn);
+  }
+  function unrefElement$1(elRef) {
+    var _a2;
+    const plain = toValue$1(elRef);
+    return (_a2 = plain == null ? void 0 : plain.$el) != null ? _a2 : plain;
+  }
+  const defaultWindow = isClient ? window : void 0;
+  const defaultDocument = isClient ? window.document : void 0;
+  function useEventListener(...args) {
+    let target;
+    let events;
+    let listeners;
+    let options;
+    if (typeof args[0] === "string" || Array.isArray(args[0])) {
+      [events, listeners, options] = args;
+      target = defaultWindow;
+    } else {
+      [target, events, listeners, options] = args;
+    }
+    if (!target)
+      return noop;
+    if (!Array.isArray(events))
+      events = [events];
+    if (!Array.isArray(listeners))
+      listeners = [listeners];
+    const cleanups = [];
+    const cleanup = () => {
+      cleanups.forEach((fn) => fn());
+      cleanups.length = 0;
+    };
+    const register = (el, event, listener, options2) => {
+      el.addEventListener(event, listener, options2);
+      return () => el.removeEventListener(event, listener, options2);
+    };
+    const stopWatch = vue.watch(
+      () => [unrefElement$1(target), toValue$1(options)],
+      ([el, options2]) => {
+        cleanup();
+        if (!el)
+          return;
+        const optionsClone = isObject$2(options2) ? { ...options2 } : options2;
+        cleanups.push(
+          ...events.flatMap((event) => {
+            return listeners.map((listener) => register(el, event, listener, optionsClone));
+          })
+        );
+      },
+      { immediate: true, flush: "post" }
+    );
+    const stop = () => {
+      stopWatch();
+      cleanup();
+    };
+    tryOnScopeDispose$1(stop);
+    return stop;
+  }
+  function useMounted() {
+    const isMounted = vue.ref(false);
+    if (vue.getCurrentInstance()) {
+      vue.onMounted(() => {
+        isMounted.value = true;
+      });
+    }
+    return isMounted;
+  }
+  function useSupported(callback) {
+    const isMounted = useMounted();
+    return vue.computed(() => {
+      isMounted.value;
+      return Boolean(callback());
+    });
+  }
+  const WRITABLE_PROPERTIES = [
+    "hash",
+    "host",
+    "hostname",
+    "href",
+    "pathname",
+    "port",
+    "protocol",
+    "search"
+  ];
+  function useBrowserLocation(options = {}) {
+    const { window: window2 = defaultWindow } = options;
+    const refs = Object.fromEntries(
+      WRITABLE_PROPERTIES.map((key) => [key, vue.ref()])
+    );
+    for (const [key, ref2] of objectEntries(refs)) {
+      vue.watch(ref2, (value) => {
+        if (!(window2 == null ? void 0 : window2.location) || window2.location[key] === value)
+          return;
+        window2.location[key] = value;
+      });
+    }
+    const buildState = (trigger) => {
+      var _a2;
+      const { state: state2, length } = (window2 == null ? void 0 : window2.history) || {};
+      const { origin } = (window2 == null ? void 0 : window2.location) || {};
+      for (const key of WRITABLE_PROPERTIES)
+        refs[key].value = (_a2 = window2 == null ? void 0 : window2.location) == null ? void 0 : _a2[key];
+      return vue.reactive({
+        trigger,
+        state: state2,
+        length,
+        origin,
+        ...refs
+      });
+    };
+    const state = vue.ref(buildState("load"));
+    if (window2) {
+      useEventListener(window2, "popstate", () => state.value = buildState("popstate"), { passive: true });
+      useEventListener(window2, "hashchange", () => state.value = buildState("hashchange"), { passive: true });
+    }
+    return state;
+  }
+  const _global = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+  const globalKey = "__vueuse_ssr_handlers__";
+  const handlers = /* @__PURE__ */ getHandlers();
+  function getHandlers() {
+    if (!(globalKey in _global))
+      _global[globalKey] = _global[globalKey] || {};
+    return _global[globalKey];
+  }
+  function getSSRHandler(key, fallback) {
+    return handlers[key] || fallback;
+  }
+  function guessSerializerType(rawInit) {
+    return rawInit == null ? "any" : rawInit instanceof Set ? "set" : rawInit instanceof Map ? "map" : rawInit instanceof Date ? "date" : typeof rawInit === "boolean" ? "boolean" : typeof rawInit === "string" ? "string" : typeof rawInit === "object" ? "object" : !Number.isNaN(rawInit) ? "number" : "any";
+  }
+  const StorageSerializers = {
+    boolean: {
+      read: (v) => v === "true",
+      write: (v) => String(v)
+    },
+    object: {
+      read: (v) => JSON.parse(v),
+      write: (v) => JSON.stringify(v)
+    },
+    number: {
+      read: (v) => Number.parseFloat(v),
+      write: (v) => String(v)
+    },
+    any: {
+      read: (v) => v,
+      write: (v) => String(v)
+    },
+    string: {
+      read: (v) => v,
+      write: (v) => String(v)
+    },
+    map: {
+      read: (v) => new Map(JSON.parse(v)),
+      write: (v) => JSON.stringify(Array.from(v.entries()))
+    },
+    set: {
+      read: (v) => new Set(JSON.parse(v)),
+      write: (v) => JSON.stringify(Array.from(v))
+    },
+    date: {
+      read: (v) => new Date(v),
+      write: (v) => v.toISOString()
+    }
+  };
+  const customStorageEventName = "vueuse-storage";
+  function useStorage(key, defaults, storage, options = {}) {
+    var _a2;
+    const {
+      flush = "pre",
+      deep = true,
+      listenToStorageChanges = true,
+      writeDefaults = true,
+      mergeDefaults = false,
+      shallow,
+      window: window2 = defaultWindow,
+      eventFilter,
+      onError = (e) => {
+        console.error(e);
+      }
+    } = options;
+    const data = (shallow ? vue.shallowRef : vue.ref)(defaults);
+    if (!storage) {
+      try {
+        storage = getSSRHandler("getDefaultStorage", () => {
+          var _a22;
+          return (_a22 = defaultWindow) == null ? void 0 : _a22.localStorage;
+        })();
+      } catch (e) {
+        onError(e);
+      }
+    }
+    if (!storage)
+      return data;
+    const rawInit = toValue$1(defaults);
+    const type = guessSerializerType(rawInit);
+    const serializer = (_a2 = options.serializer) != null ? _a2 : StorageSerializers[type];
+    const { pause: pauseWatch, resume: resumeWatch } = watchPausable(
+      data,
+      () => write(data.value),
+      { flush, deep, eventFilter }
+    );
+    if (window2 && listenToStorageChanges) {
+      useEventListener(window2, "storage", update);
+      useEventListener(window2, customStorageEventName, updateFromCustomEvent);
+    }
+    update();
+    return data;
+    function write(v) {
+      try {
+        if (v == null) {
+          storage.removeItem(key);
+        } else {
+          const serialized = serializer.write(v);
+          const oldValue = storage.getItem(key);
+          if (oldValue !== serialized) {
+            storage.setItem(key, serialized);
+            if (window2) {
+              window2.dispatchEvent(new CustomEvent(customStorageEventName, {
+                detail: {
+                  key,
+                  oldValue,
+                  newValue: serialized,
+                  storageArea: storage
+                }
+              }));
+            }
+          }
+        }
+      } catch (e) {
+        onError(e);
+      }
+    }
+    function read(event) {
+      const rawValue = event ? event.newValue : storage.getItem(key);
+      if (rawValue == null) {
+        if (writeDefaults && rawInit !== null)
+          storage.setItem(key, serializer.write(rawInit));
+        return rawInit;
+      } else if (!event && mergeDefaults) {
+        const value = serializer.read(rawValue);
+        if (typeof mergeDefaults === "function")
+          return mergeDefaults(value, rawInit);
+        else if (type === "object" && !Array.isArray(value))
+          return { ...rawInit, ...value };
+        return value;
+      } else if (typeof rawValue !== "string") {
+        return rawValue;
+      } else {
+        return serializer.read(rawValue);
+      }
+    }
+    function updateFromCustomEvent(event) {
+      update(event.detail);
+    }
+    function update(event) {
+      if (event && event.storageArea !== storage)
+        return;
+      if (event && event.key == null) {
+        data.value = rawInit;
+        return;
+      }
+      if (event && event.key !== key)
+        return;
+      pauseWatch();
+      try {
+        if ((event == null ? void 0 : event.newValue) !== serializer.write(data.value))
+          data.value = read(event);
+      } catch (e) {
+        onError(e);
+      } finally {
+        if (event)
+          vue.nextTick(resumeWatch);
+        else
+          resumeWatch();
+      }
+    }
+  }
+  function useResizeObserver(target, callback, options = {}) {
+    const { window: window2 = defaultWindow, ...observerOptions } = options;
+    let observer;
+    const isSupported = useSupported(() => window2 && "ResizeObserver" in window2);
+    const cleanup = () => {
+      if (observer) {
+        observer.disconnect();
+        observer = void 0;
+      }
+    };
+    const targets = vue.computed(() => Array.isArray(target) ? target.map((el) => unrefElement$1(el)) : [unrefElement$1(target)]);
+    const stopWatch = vue.watch(
+      targets,
+      (els) => {
+        cleanup();
+        if (isSupported.value && window2) {
+          observer = new ResizeObserver(callback);
+          for (const _el of els)
+            _el && observer.observe(_el, observerOptions);
+        }
+      },
+      { immediate: true, flush: "post", deep: true }
+    );
+    const stop = () => {
+      cleanup();
+      stopWatch();
+    };
+    tryOnScopeDispose$1(stop);
+    return {
+      isSupported,
+      stop
+    };
+  }
+  function useElementBounding(target, options = {}) {
+    const {
+      reset = true,
+      windowResize = true,
+      windowScroll = true,
+      immediate = true
+    } = options;
+    const height = vue.ref(0);
+    const bottom = vue.ref(0);
+    const left = vue.ref(0);
+    const right = vue.ref(0);
+    const top = vue.ref(0);
+    const width = vue.ref(0);
+    const x = vue.ref(0);
+    const y = vue.ref(0);
+    function update() {
+      const el = unrefElement$1(target);
+      if (!el) {
+        if (reset) {
+          height.value = 0;
+          bottom.value = 0;
+          left.value = 0;
+          right.value = 0;
+          top.value = 0;
+          width.value = 0;
+          x.value = 0;
+          y.value = 0;
+        }
+        return;
+      }
+      const rect = el.getBoundingClientRect();
+      height.value = rect.height;
+      bottom.value = rect.bottom;
+      left.value = rect.left;
+      right.value = rect.right;
+      top.value = rect.top;
+      width.value = rect.width;
+      x.value = rect.x;
+      y.value = rect.y;
+    }
+    useResizeObserver(target, update);
+    vue.watch(() => unrefElement$1(target), (ele) => !ele && update());
+    if (windowScroll)
+      useEventListener("scroll", update, { capture: true, passive: true });
+    if (windowResize)
+      useEventListener("resize", update, { passive: true });
+    tryOnMounted(() => {
+      if (immediate)
+        update();
+    });
+    return {
+      height,
+      bottom,
+      left,
+      right,
+      top,
+      width,
+      x,
+      y,
+      update
+    };
+  }
+  const eventHandlers = [
+    "fullscreenchange",
+    "webkitfullscreenchange",
+    "webkitendfullscreen",
+    "mozfullscreenchange",
+    "MSFullscreenChange"
+  ];
+  function useFullscreen(target, options = {}) {
+    const {
+      document: document2 = defaultDocument,
+      autoExit = false
+    } = options;
+    const targetRef = vue.computed(() => {
+      var _a2;
+      return (_a2 = unrefElement$1(target)) != null ? _a2 : document2 == null ? void 0 : document2.querySelector("html");
+    });
+    const isFullscreen = vue.ref(false);
+    const requestMethod = vue.computed(() => {
+      return [
+        "requestFullscreen",
+        "webkitRequestFullscreen",
+        "webkitEnterFullscreen",
+        "webkitEnterFullScreen",
+        "webkitRequestFullScreen",
+        "mozRequestFullScreen",
+        "msRequestFullscreen"
+      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
+    });
+    const exitMethod = vue.computed(() => {
+      return [
+        "exitFullscreen",
+        "webkitExitFullscreen",
+        "webkitExitFullScreen",
+        "webkitCancelFullScreen",
+        "mozCancelFullScreen",
+        "msExitFullscreen"
+      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
+    });
+    const fullscreenEnabled = vue.computed(() => {
+      return [
+        "fullScreen",
+        "webkitIsFullScreen",
+        "webkitDisplayingFullscreen",
+        "mozFullScreen",
+        "msFullscreenElement"
+      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
+    });
+    const fullscreenElementMethod = [
+      "fullscreenElement",
+      "webkitFullscreenElement",
+      "mozFullScreenElement",
+      "msFullscreenElement"
+    ].find((m) => document2 && m in document2);
+    const isSupported = useSupported(() => targetRef.value && document2 && requestMethod.value !== void 0 && exitMethod.value !== void 0 && fullscreenEnabled.value !== void 0);
+    const isCurrentElementFullScreen = () => {
+      if (fullscreenElementMethod)
+        return (document2 == null ? void 0 : document2[fullscreenElementMethod]) === targetRef.value;
+      return false;
+    };
+    const isElementFullScreen = () => {
+      if (fullscreenEnabled.value) {
+        if (document2 && document2[fullscreenEnabled.value] != null) {
+          return document2[fullscreenEnabled.value];
+        } else {
+          const target2 = targetRef.value;
+          if ((target2 == null ? void 0 : target2[fullscreenEnabled.value]) != null) {
+            return Boolean(target2[fullscreenEnabled.value]);
+          }
+        }
+      }
+      return false;
+    };
+    async function exit() {
+      if (!isSupported.value || !isFullscreen.value)
+        return;
+      if (exitMethod.value) {
+        if ((document2 == null ? void 0 : document2[exitMethod.value]) != null) {
+          await document2[exitMethod.value]();
+        } else {
+          const target2 = targetRef.value;
+          if ((target2 == null ? void 0 : target2[exitMethod.value]) != null)
+            await target2[exitMethod.value]();
+        }
+      }
+      isFullscreen.value = false;
+    }
+    async function enter() {
+      if (!isSupported.value || isFullscreen.value)
+        return;
+      if (isElementFullScreen())
+        await exit();
+      const target2 = targetRef.value;
+      if (requestMethod.value && (target2 == null ? void 0 : target2[requestMethod.value]) != null) {
+        await target2[requestMethod.value]();
+        isFullscreen.value = true;
+      }
+    }
+    async function toggle() {
+      await (isFullscreen.value ? exit() : enter());
+    }
+    const handlerCallback = () => {
+      const isElementFullScreenValue = isElementFullScreen();
+      if (!isElementFullScreenValue || isElementFullScreenValue && isCurrentElementFullScreen())
+        isFullscreen.value = isElementFullScreenValue;
+    };
+    useEventListener(document2, eventHandlers, handlerCallback, false);
+    useEventListener(() => unrefElement$1(targetRef), eventHandlers, handlerCallback, false);
+    if (autoExit)
+      tryOnScopeDispose$1(exit);
+    return {
+      isSupported,
+      isFullscreen,
+      enter,
+      exit,
+      toggle
+    };
+  }
+  function tryOnScopeDispose(fn) {
+    if (vue.getCurrentScope()) {
+      vue.onScopeDispose(fn);
+      return true;
+    }
+    return false;
+  }
+  function toValue(r) {
+    return typeof r === "function" ? r() : vue.unref(r);
+  }
+  typeof WorkerGlobalScope !== "undefined" && globalThis instanceof WorkerGlobalScope;
+  function unrefElement(elRef) {
+    var _a2;
+    const plain = toValue(elRef);
+    return (_a2 = plain == null ? void 0 : plain.$el) != null ? _a2 : plain;
+  }
+  /*!
+  * tabbable 6.2.0
+  * @license MIT, https://github.com/focus-trap/tabbable/blob/master/LICENSE
+  */
+  var candidateSelectors = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", "a[href]:not([inert])", "button:not([inert])", "[tabindex]:not(slot):not([inert])", "audio[controls]:not([inert])", "video[controls]:not([inert])", '[contenteditable]:not([contenteditable="false"]):not([inert])', "details>summary:first-of-type:not([inert])", "details:not([inert])"];
+  var candidateSelector = /* @__PURE__ */ candidateSelectors.join(",");
+  var NoElement = typeof Element === "undefined";
+  var matches = NoElement ? function() {
+  } : Element.prototype.matches || Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+  var getRootNode = !NoElement && Element.prototype.getRootNode ? function(element) {
+    var _element$getRootNode;
+    return element === null || element === void 0 ? void 0 : (_element$getRootNode = element.getRootNode) === null || _element$getRootNode === void 0 ? void 0 : _element$getRootNode.call(element);
+  } : function(element) {
+    return element === null || element === void 0 ? void 0 : element.ownerDocument;
+  };
+  var isInert = function isInert2(node, lookUp) {
+    var _node$getAttribute;
+    if (lookUp === void 0) {
+      lookUp = true;
+    }
+    var inertAtt = node === null || node === void 0 ? void 0 : (_node$getAttribute = node.getAttribute) === null || _node$getAttribute === void 0 ? void 0 : _node$getAttribute.call(node, "inert");
+    var inert = inertAtt === "" || inertAtt === "true";
+    var result = inert || lookUp && node && isInert2(node.parentNode);
+    return result;
+  };
+  var isContentEditable = function isContentEditable2(node) {
+    var _node$getAttribute2;
+    var attValue = node === null || node === void 0 ? void 0 : (_node$getAttribute2 = node.getAttribute) === null || _node$getAttribute2 === void 0 ? void 0 : _node$getAttribute2.call(node, "contenteditable");
+    return attValue === "" || attValue === "true";
+  };
+  var getCandidates = function getCandidates2(el, includeContainer, filter) {
+    if (isInert(el)) {
+      return [];
+    }
+    var candidates = Array.prototype.slice.apply(el.querySelectorAll(candidateSelector));
+    if (includeContainer && matches.call(el, candidateSelector)) {
+      candidates.unshift(el);
+    }
+    candidates = candidates.filter(filter);
+    return candidates;
+  };
+  var getCandidatesIteratively = function getCandidatesIteratively2(elements, includeContainer, options) {
+    var candidates = [];
+    var elementsToCheck = Array.from(elements);
+    while (elementsToCheck.length) {
+      var element = elementsToCheck.shift();
+      if (isInert(element, false)) {
+        continue;
+      }
+      if (element.tagName === "SLOT") {
+        var assigned = element.assignedElements();
+        var content = assigned.length ? assigned : element.children;
+        var nestedCandidates = getCandidatesIteratively2(content, true, options);
+        if (options.flatten) {
+          candidates.push.apply(candidates, nestedCandidates);
+        } else {
+          candidates.push({
+            scopeParent: element,
+            candidates: nestedCandidates
+          });
+        }
+      } else {
+        var validCandidate = matches.call(element, candidateSelector);
+        if (validCandidate && options.filter(element) && (includeContainer || !elements.includes(element))) {
+          candidates.push(element);
+        }
+        var shadowRoot = element.shadowRoot || // check for an undisclosed shadow
+        typeof options.getShadowRoot === "function" && options.getShadowRoot(element);
+        var validShadowRoot = !isInert(shadowRoot, false) && (!options.shadowRootFilter || options.shadowRootFilter(element));
+        if (shadowRoot && validShadowRoot) {
+          var _nestedCandidates = getCandidatesIteratively2(shadowRoot === true ? element.children : shadowRoot.children, true, options);
+          if (options.flatten) {
+            candidates.push.apply(candidates, _nestedCandidates);
+          } else {
+            candidates.push({
+              scopeParent: element,
+              candidates: _nestedCandidates
+            });
+          }
+        } else {
+          elementsToCheck.unshift.apply(elementsToCheck, element.children);
+        }
+      }
+    }
+    return candidates;
+  };
+  var hasTabIndex = function hasTabIndex2(node) {
+    return !isNaN(parseInt(node.getAttribute("tabindex"), 10));
+  };
+  var getTabIndex = function getTabIndex2(node) {
+    if (!node) {
+      throw new Error("No node provided");
+    }
+    if (node.tabIndex < 0) {
+      if ((/^(AUDIO|VIDEO|DETAILS)$/.test(node.tagName) || isContentEditable(node)) && !hasTabIndex(node)) {
+        return 0;
+      }
+    }
+    return node.tabIndex;
+  };
+  var getSortOrderTabIndex = function getSortOrderTabIndex2(node, isScope) {
+    var tabIndex = getTabIndex(node);
+    if (tabIndex < 0 && isScope && !hasTabIndex(node)) {
+      return 0;
+    }
+    return tabIndex;
+  };
+  var sortOrderedTabbables = function sortOrderedTabbables2(a, b) {
+    return a.tabIndex === b.tabIndex ? a.documentOrder - b.documentOrder : a.tabIndex - b.tabIndex;
+  };
+  var isInput = function isInput2(node) {
+    return node.tagName === "INPUT";
+  };
+  var isHiddenInput = function isHiddenInput2(node) {
+    return isInput(node) && node.type === "hidden";
+  };
+  var isDetailsWithSummary = function isDetailsWithSummary2(node) {
+    var r = node.tagName === "DETAILS" && Array.prototype.slice.apply(node.children).some(function(child) {
+      return child.tagName === "SUMMARY";
+    });
+    return r;
+  };
+  var getCheckedRadio = function getCheckedRadio2(nodes, form) {
+    for (var i = 0; i < nodes.length; i++) {
+      if (nodes[i].checked && nodes[i].form === form) {
+        return nodes[i];
+      }
+    }
+  };
+  var isTabbableRadio = function isTabbableRadio2(node) {
+    if (!node.name) {
+      return true;
+    }
+    var radioScope = node.form || getRootNode(node);
+    var queryRadios = function queryRadios2(name) {
+      return radioScope.querySelectorAll('input[type="radio"][name="' + name + '"]');
+    };
+    var radioSet;
+    if (typeof window !== "undefined" && typeof window.CSS !== "undefined" && typeof window.CSS.escape === "function") {
+      radioSet = queryRadios(window.CSS.escape(node.name));
+    } else {
+      try {
+        radioSet = queryRadios(node.name);
+      } catch (err) {
+        console.error("Looks like you have a radio button with a name attribute containing invalid CSS selector characters and need the CSS.escape polyfill: %s", err.message);
+        return false;
+      }
+    }
+    var checked = getCheckedRadio(radioSet, node.form);
+    return !checked || checked === node;
+  };
+  var isRadio = function isRadio2(node) {
+    return isInput(node) && node.type === "radio";
+  };
+  var isNonTabbableRadio = function isNonTabbableRadio2(node) {
+    return isRadio(node) && !isTabbableRadio(node);
+  };
+  var isNodeAttached = function isNodeAttached2(node) {
+    var _nodeRoot;
+    var nodeRoot = node && getRootNode(node);
+    var nodeRootHost = (_nodeRoot = nodeRoot) === null || _nodeRoot === void 0 ? void 0 : _nodeRoot.host;
+    var attached = false;
+    if (nodeRoot && nodeRoot !== node) {
+      var _nodeRootHost, _nodeRootHost$ownerDo, _node$ownerDocument;
+      attached = !!((_nodeRootHost = nodeRootHost) !== null && _nodeRootHost !== void 0 && (_nodeRootHost$ownerDo = _nodeRootHost.ownerDocument) !== null && _nodeRootHost$ownerDo !== void 0 && _nodeRootHost$ownerDo.contains(nodeRootHost) || node !== null && node !== void 0 && (_node$ownerDocument = node.ownerDocument) !== null && _node$ownerDocument !== void 0 && _node$ownerDocument.contains(node));
+      while (!attached && nodeRootHost) {
+        var _nodeRoot2, _nodeRootHost2, _nodeRootHost2$ownerD;
+        nodeRoot = getRootNode(nodeRootHost);
+        nodeRootHost = (_nodeRoot2 = nodeRoot) === null || _nodeRoot2 === void 0 ? void 0 : _nodeRoot2.host;
+        attached = !!((_nodeRootHost2 = nodeRootHost) !== null && _nodeRootHost2 !== void 0 && (_nodeRootHost2$ownerD = _nodeRootHost2.ownerDocument) !== null && _nodeRootHost2$ownerD !== void 0 && _nodeRootHost2$ownerD.contains(nodeRootHost));
+      }
+    }
+    return attached;
+  };
+  var isZeroArea = function isZeroArea2(node) {
+    var _node$getBoundingClie = node.getBoundingClientRect(), width = _node$getBoundingClie.width, height = _node$getBoundingClie.height;
+    return width === 0 && height === 0;
+  };
+  var isHidden = function isHidden2(node, _ref) {
+    var displayCheck = _ref.displayCheck, getShadowRoot = _ref.getShadowRoot;
+    if (getComputedStyle(node).visibility === "hidden") {
+      return true;
+    }
+    var isDirectSummary = matches.call(node, "details>summary:first-of-type");
+    var nodeUnderDetails = isDirectSummary ? node.parentElement : node;
+    if (matches.call(nodeUnderDetails, "details:not([open]) *")) {
+      return true;
+    }
+    if (!displayCheck || displayCheck === "full" || displayCheck === "legacy-full") {
+      if (typeof getShadowRoot === "function") {
+        var originalNode = node;
+        while (node) {
+          var parentElement = node.parentElement;
+          var rootNode = getRootNode(node);
+          if (parentElement && !parentElement.shadowRoot && getShadowRoot(parentElement) === true) {
+            return isZeroArea(node);
+          } else if (node.assignedSlot) {
+            node = node.assignedSlot;
+          } else if (!parentElement && rootNode !== node.ownerDocument) {
+            node = rootNode.host;
+          } else {
+            node = parentElement;
+          }
+        }
+        node = originalNode;
+      }
+      if (isNodeAttached(node)) {
+        return !node.getClientRects().length;
+      }
+      if (displayCheck !== "legacy-full") {
+        return true;
+      }
+    } else if (displayCheck === "non-zero-area") {
+      return isZeroArea(node);
+    }
+    return false;
+  };
+  var isDisabledFromFieldset = function isDisabledFromFieldset2(node) {
+    if (/^(INPUT|BUTTON|SELECT|TEXTAREA)$/.test(node.tagName)) {
+      var parentNode = node.parentElement;
+      while (parentNode) {
+        if (parentNode.tagName === "FIELDSET" && parentNode.disabled) {
+          for (var i = 0; i < parentNode.children.length; i++) {
+            var child = parentNode.children.item(i);
+            if (child.tagName === "LEGEND") {
+              return matches.call(parentNode, "fieldset[disabled] *") ? true : !child.contains(node);
+            }
+          }
+          return true;
+        }
+        parentNode = parentNode.parentElement;
+      }
+    }
+    return false;
+  };
+  var isNodeMatchingSelectorFocusable = function isNodeMatchingSelectorFocusable2(options, node) {
+    if (node.disabled || // we must do an inert look up to filter out any elements inside an inert ancestor
+    //  because we're limited in the type of selectors we can use in JSDom (see related
+    //  note related to `candidateSelectors`)
+    isInert(node) || isHiddenInput(node) || isHidden(node, options) || // For a details element with a summary, the summary element gets the focus
+    isDetailsWithSummary(node) || isDisabledFromFieldset(node)) {
+      return false;
+    }
+    return true;
+  };
+  var isNodeMatchingSelectorTabbable = function isNodeMatchingSelectorTabbable2(options, node) {
+    if (isNonTabbableRadio(node) || getTabIndex(node) < 0 || !isNodeMatchingSelectorFocusable(options, node)) {
+      return false;
+    }
+    return true;
+  };
+  var isValidShadowRootTabbable = function isValidShadowRootTabbable2(shadowHostNode) {
+    var tabIndex = parseInt(shadowHostNode.getAttribute("tabindex"), 10);
+    if (isNaN(tabIndex) || tabIndex >= 0) {
+      return true;
+    }
+    return false;
+  };
+  var sortByOrder = function sortByOrder2(candidates) {
+    var regularTabbables = [];
+    var orderedTabbables = [];
+    candidates.forEach(function(item, i) {
+      var isScope = !!item.scopeParent;
+      var element = isScope ? item.scopeParent : item;
+      var candidateTabindex = getSortOrderTabIndex(element, isScope);
+      var elements = isScope ? sortByOrder2(item.candidates) : element;
+      if (candidateTabindex === 0) {
+        isScope ? regularTabbables.push.apply(regularTabbables, elements) : regularTabbables.push(element);
+      } else {
+        orderedTabbables.push({
+          documentOrder: i,
+          tabIndex: candidateTabindex,
+          item,
+          isScope,
+          content: elements
+        });
+      }
+    });
+    return orderedTabbables.sort(sortOrderedTabbables).reduce(function(acc, sortable) {
+      sortable.isScope ? acc.push.apply(acc, sortable.content) : acc.push(sortable.content);
+      return acc;
+    }, []).concat(regularTabbables);
+  };
+  var tabbable = function tabbable2(container, options) {
+    options = options || {};
+    var candidates;
+    if (options.getShadowRoot) {
+      candidates = getCandidatesIteratively([container], options.includeContainer, {
+        filter: isNodeMatchingSelectorTabbable.bind(null, options),
+        flatten: false,
+        getShadowRoot: options.getShadowRoot,
+        shadowRootFilter: isValidShadowRootTabbable
+      });
+    } else {
+      candidates = getCandidates(container, options.includeContainer, isNodeMatchingSelectorTabbable.bind(null, options));
+    }
+    return sortByOrder(candidates);
+  };
+  var focusable = function focusable2(container, options) {
+    options = options || {};
+    var candidates;
+    if (options.getShadowRoot) {
+      candidates = getCandidatesIteratively([container], options.includeContainer, {
+        filter: isNodeMatchingSelectorFocusable.bind(null, options),
+        flatten: true,
+        getShadowRoot: options.getShadowRoot
+      });
+    } else {
+      candidates = getCandidates(container, options.includeContainer, isNodeMatchingSelectorFocusable.bind(null, options));
+    }
+    return candidates;
+  };
+  var isTabbable = function isTabbable2(node, options) {
+    options = options || {};
+    if (!node) {
+      throw new Error("No node provided");
+    }
+    if (matches.call(node, candidateSelector) === false) {
+      return false;
+    }
+    return isNodeMatchingSelectorTabbable(options, node);
+  };
+  var focusableCandidateSelector = /* @__PURE__ */ candidateSelectors.concat("iframe").join(",");
+  var isFocusable = function isFocusable2(node, options) {
+    options = options || {};
+    if (!node) {
+      throw new Error("No node provided");
+    }
+    if (matches.call(node, focusableCandidateSelector) === false) {
+      return false;
+    }
+    return isNodeMatchingSelectorFocusable(options, node);
+  };
+  /*!
+  * focus-trap 7.5.4
+  * @license MIT, https://github.com/focus-trap/focus-trap/blob/master/LICENSE
+  */
+  function ownKeys(e, r) {
+    var t = Object.keys(e);
+    if (Object.getOwnPropertySymbols) {
+      var o = Object.getOwnPropertySymbols(e);
+      r && (o = o.filter(function(r2) {
+        return Object.getOwnPropertyDescriptor(e, r2).enumerable;
+      })), t.push.apply(t, o);
+    }
+    return t;
+  }
+  function _objectSpread2(e) {
+    for (var r = 1; r < arguments.length; r++) {
+      var t = null != arguments[r] ? arguments[r] : {};
+      r % 2 ? ownKeys(Object(t), true).forEach(function(r2) {
+        _defineProperty(e, r2, t[r2]);
+      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r2) {
+        Object.defineProperty(e, r2, Object.getOwnPropertyDescriptor(t, r2));
+      });
+    }
+    return e;
+  }
+  function _defineProperty(obj, key, value) {
+    key = _toPropertyKey(key);
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  }
+  function _toPrimitive(input, hint) {
+    if (typeof input !== "object" || input === null)
+      return input;
+    var prim = input[Symbol.toPrimitive];
+    if (prim !== void 0) {
+      var res = prim.call(input, hint || "default");
+      if (typeof res !== "object")
+        return res;
+      throw new TypeError("@@toPrimitive must return a primitive value.");
+    }
+    return (hint === "string" ? String : Number)(input);
+  }
+  function _toPropertyKey(arg) {
+    var key = _toPrimitive(arg, "string");
+    return typeof key === "symbol" ? key : String(key);
+  }
+  var activeFocusTraps = {
+    activateTrap: function activateTrap(trapStack, trap) {
+      if (trapStack.length > 0) {
+        var activeTrap = trapStack[trapStack.length - 1];
+        if (activeTrap !== trap) {
+          activeTrap.pause();
+        }
+      }
+      var trapIndex = trapStack.indexOf(trap);
+      if (trapIndex === -1) {
+        trapStack.push(trap);
+      } else {
+        trapStack.splice(trapIndex, 1);
+        trapStack.push(trap);
+      }
+    },
+    deactivateTrap: function deactivateTrap(trapStack, trap) {
+      var trapIndex = trapStack.indexOf(trap);
+      if (trapIndex !== -1) {
+        trapStack.splice(trapIndex, 1);
+      }
+      if (trapStack.length > 0) {
+        trapStack[trapStack.length - 1].unpause();
+      }
+    }
+  };
+  var isSelectableInput = function isSelectableInput2(node) {
+    return node.tagName && node.tagName.toLowerCase() === "input" && typeof node.select === "function";
+  };
+  var isEscapeEvent = function isEscapeEvent2(e) {
+    return (e === null || e === void 0 ? void 0 : e.key) === "Escape" || (e === null || e === void 0 ? void 0 : e.key) === "Esc" || (e === null || e === void 0 ? void 0 : e.keyCode) === 27;
+  };
+  var isTabEvent = function isTabEvent2(e) {
+    return (e === null || e === void 0 ? void 0 : e.key) === "Tab" || (e === null || e === void 0 ? void 0 : e.keyCode) === 9;
+  };
+  var isKeyForward = function isKeyForward2(e) {
+    return isTabEvent(e) && !e.shiftKey;
+  };
+  var isKeyBackward = function isKeyBackward2(e) {
+    return isTabEvent(e) && e.shiftKey;
+  };
+  var delay$1 = function delay(fn) {
+    return setTimeout(fn, 0);
+  };
+  var findIndex = function findIndex2(arr, fn) {
+    var idx = -1;
+    arr.every(function(value, i) {
+      if (fn(value)) {
+        idx = i;
+        return false;
+      }
+      return true;
+    });
+    return idx;
+  };
+  var valueOrHandler = function valueOrHandler2(value) {
+    for (var _len = arguments.length, params = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      params[_key - 1] = arguments[_key];
+    }
+    return typeof value === "function" ? value.apply(void 0, params) : value;
+  };
+  var getActualTarget = function getActualTarget2(event) {
+    return event.target.shadowRoot && typeof event.composedPath === "function" ? event.composedPath()[0] : event.target;
+  };
+  var internalTrapStack = [];
+  var createFocusTrap = function createFocusTrap2(elements, userOptions) {
+    var doc = (userOptions === null || userOptions === void 0 ? void 0 : userOptions.document) || document;
+    var trapStack = (userOptions === null || userOptions === void 0 ? void 0 : userOptions.trapStack) || internalTrapStack;
+    var config = _objectSpread2({
+      returnFocusOnDeactivate: true,
+      escapeDeactivates: true,
+      delayInitialFocus: true,
+      isKeyForward,
+      isKeyBackward
+    }, userOptions);
+    var state = {
+      // containers given to createFocusTrap()
+      // @type {Array<HTMLElement>}
+      containers: [],
+      // list of objects identifying tabbable nodes in `containers` in the trap
+      // NOTE: it's possible that a group has no tabbable nodes if nodes get removed while the trap
+      //  is active, but the trap should never get to a state where there isn't at least one group
+      //  with at least one tabbable node in it (that would lead to an error condition that would
+      //  result in an error being thrown)
+      // @type {Array<{
+      //   container: HTMLElement,
+      //   tabbableNodes: Array<HTMLElement>, // empty if none
+      //   focusableNodes: Array<HTMLElement>, // empty if none
+      //   posTabIndexesFound: boolean,
+      //   firstTabbableNode: HTMLElement|undefined,
+      //   lastTabbableNode: HTMLElement|undefined,
+      //   firstDomTabbableNode: HTMLElement|undefined,
+      //   lastDomTabbableNode: HTMLElement|undefined,
+      //   nextTabbableNode: (node: HTMLElement, forward: boolean) => HTMLElement|undefined
+      // }>}
+      containerGroups: [],
+      // same order/length as `containers` list
+      // references to objects in `containerGroups`, but only those that actually have
+      //  tabbable nodes in them
+      // NOTE: same order as `containers` and `containerGroups`, but __not necessarily__
+      //  the same length
+      tabbableGroups: [],
+      nodeFocusedBeforeActivation: null,
+      mostRecentlyFocusedNode: null,
+      active: false,
+      paused: false,
+      // timer ID for when delayInitialFocus is true and initial focus in this trap
+      //  has been delayed during activation
+      delayInitialFocusTimer: void 0,
+      // the most recent KeyboardEvent for the configured nav key (typically [SHIFT+]TAB), if any
+      recentNavEvent: void 0
+    };
+    var trap;
+    var getOption = function getOption2(configOverrideOptions, optionName, configOptionName) {
+      return configOverrideOptions && configOverrideOptions[optionName] !== void 0 ? configOverrideOptions[optionName] : config[configOptionName || optionName];
+    };
+    var findContainerIndex = function findContainerIndex2(element, event) {
+      var composedPath = typeof (event === null || event === void 0 ? void 0 : event.composedPath) === "function" ? event.composedPath() : void 0;
+      return state.containerGroups.findIndex(function(_ref) {
+        var container = _ref.container, tabbableNodes = _ref.tabbableNodes;
+        return container.contains(element) || // fall back to explicit tabbable search which will take into consideration any
+        //  web components if the `tabbableOptions.getShadowRoot` option was used for
+        //  the trap, enabling shadow DOM support in tabbable (`Node.contains()` doesn't
+        //  look inside web components even if open)
+        (composedPath === null || composedPath === void 0 ? void 0 : composedPath.includes(container)) || tabbableNodes.find(function(node) {
+          return node === element;
+        });
+      });
+    };
+    var getNodeForOption = function getNodeForOption2(optionName) {
+      var optionValue = config[optionName];
+      if (typeof optionValue === "function") {
+        for (var _len2 = arguments.length, params = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+          params[_key2 - 1] = arguments[_key2];
+        }
+        optionValue = optionValue.apply(void 0, params);
+      }
+      if (optionValue === true) {
+        optionValue = void 0;
+      }
+      if (!optionValue) {
+        if (optionValue === void 0 || optionValue === false) {
+          return optionValue;
+        }
+        throw new Error("`".concat(optionName, "` was specified but was not a node, or did not return a node"));
+      }
+      var node = optionValue;
+      if (typeof optionValue === "string") {
+        node = doc.querySelector(optionValue);
+        if (!node) {
+          throw new Error("`".concat(optionName, "` as selector refers to no known node"));
+        }
+      }
+      return node;
+    };
+    var getInitialFocusNode = function getInitialFocusNode2() {
+      var node = getNodeForOption("initialFocus");
+      if (node === false) {
+        return false;
+      }
+      if (node === void 0 || !isFocusable(node, config.tabbableOptions)) {
+        if (findContainerIndex(doc.activeElement) >= 0) {
+          node = doc.activeElement;
+        } else {
+          var firstTabbableGroup = state.tabbableGroups[0];
+          var firstTabbableNode = firstTabbableGroup && firstTabbableGroup.firstTabbableNode;
+          node = firstTabbableNode || getNodeForOption("fallbackFocus");
+        }
+      }
+      if (!node) {
+        throw new Error("Your focus-trap needs to have at least one focusable element");
+      }
+      return node;
+    };
+    var updateTabbableNodes = function updateTabbableNodes2() {
+      state.containerGroups = state.containers.map(function(container) {
+        var tabbableNodes = tabbable(container, config.tabbableOptions);
+        var focusableNodes = focusable(container, config.tabbableOptions);
+        var firstTabbableNode = tabbableNodes.length > 0 ? tabbableNodes[0] : void 0;
+        var lastTabbableNode = tabbableNodes.length > 0 ? tabbableNodes[tabbableNodes.length - 1] : void 0;
+        var firstDomTabbableNode = focusableNodes.find(function(node) {
+          return isTabbable(node);
+        });
+        var lastDomTabbableNode = focusableNodes.slice().reverse().find(function(node) {
+          return isTabbable(node);
+        });
+        var posTabIndexesFound = !!tabbableNodes.find(function(node) {
+          return getTabIndex(node) > 0;
+        });
+        return {
+          container,
+          tabbableNodes,
+          focusableNodes,
+          /** True if at least one node with positive `tabindex` was found in this container. */
+          posTabIndexesFound,
+          /** First tabbable node in container, __tabindex__ order; `undefined` if none. */
+          firstTabbableNode,
+          /** Last tabbable node in container, __tabindex__ order; `undefined` if none. */
+          lastTabbableNode,
+          // NOTE: DOM order is NOT NECESSARILY "document position" order, but figuring that out
+          //  would require more than just https://developer.mozilla.org/en-US/docs/Web/API/Node/compareDocumentPosition
+          //  because that API doesn't work with Shadow DOM as well as it should (@see
+          //  https://github.com/whatwg/dom/issues/320) and since this first/last is only needed, so far,
+          //  to address an edge case related to positive tabindex support, this seems like a much easier,
+          //  "close enough most of the time" alternative for positive tabindexes which should generally
+          //  be avoided anyway...
+          /** First tabbable node in container, __DOM__ order; `undefined` if none. */
+          firstDomTabbableNode,
+          /** Last tabbable node in container, __DOM__ order; `undefined` if none. */
+          lastDomTabbableNode,
+          /**
+           * Finds the __tabbable__ node that follows the given node in the specified direction,
+           *  in this container, if any.
+           * @param {HTMLElement} node
+           * @param {boolean} [forward] True if going in forward tab order; false if going
+           *  in reverse.
+           * @returns {HTMLElement|undefined} The next tabbable node, if any.
+           */
+          nextTabbableNode: function nextTabbableNode(node) {
+            var forward = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : true;
+            var nodeIdx = tabbableNodes.indexOf(node);
+            if (nodeIdx < 0) {
+              if (forward) {
+                return focusableNodes.slice(focusableNodes.indexOf(node) + 1).find(function(el) {
+                  return isTabbable(el);
+                });
+              }
+              return focusableNodes.slice(0, focusableNodes.indexOf(node)).reverse().find(function(el) {
+                return isTabbable(el);
+              });
+            }
+            return tabbableNodes[nodeIdx + (forward ? 1 : -1)];
+          }
+        };
+      });
+      state.tabbableGroups = state.containerGroups.filter(function(group) {
+        return group.tabbableNodes.length > 0;
+      });
+      if (state.tabbableGroups.length <= 0 && !getNodeForOption("fallbackFocus")) {
+        throw new Error("Your focus-trap must have at least one container with at least one tabbable node in it at all times");
+      }
+      if (state.containerGroups.find(function(g) {
+        return g.posTabIndexesFound;
+      }) && state.containerGroups.length > 1) {
+        throw new Error("At least one node with a positive tabindex was found in one of your focus-trap's multiple containers. Positive tabindexes are only supported in single-container focus-traps.");
+      }
+    };
+    var getActiveElement = function getActiveElement2(el) {
+      var activeElement = el.activeElement;
+      if (!activeElement) {
+        return;
+      }
+      if (activeElement.shadowRoot && activeElement.shadowRoot.activeElement !== null) {
+        return getActiveElement2(activeElement.shadowRoot);
+      }
+      return activeElement;
+    };
+    var tryFocus = function tryFocus2(node) {
+      if (node === false) {
+        return;
+      }
+      if (node === getActiveElement(document)) {
+        return;
+      }
+      if (!node || !node.focus) {
+        tryFocus2(getInitialFocusNode());
+        return;
+      }
+      node.focus({
+        preventScroll: !!config.preventScroll
+      });
+      state.mostRecentlyFocusedNode = node;
+      if (isSelectableInput(node)) {
+        node.select();
+      }
+    };
+    var getReturnFocusNode = function getReturnFocusNode2(previousActiveElement) {
+      var node = getNodeForOption("setReturnFocus", previousActiveElement);
+      return node ? node : node === false ? false : previousActiveElement;
+    };
+    var findNextNavNode = function findNextNavNode2(_ref2) {
+      var target = _ref2.target, event = _ref2.event, _ref2$isBackward = _ref2.isBackward, isBackward = _ref2$isBackward === void 0 ? false : _ref2$isBackward;
+      target = target || getActualTarget(event);
+      updateTabbableNodes();
+      var destinationNode = null;
+      if (state.tabbableGroups.length > 0) {
+        var containerIndex = findContainerIndex(target, event);
+        var containerGroup = containerIndex >= 0 ? state.containerGroups[containerIndex] : void 0;
+        if (containerIndex < 0) {
+          if (isBackward) {
+            destinationNode = state.tabbableGroups[state.tabbableGroups.length - 1].lastTabbableNode;
+          } else {
+            destinationNode = state.tabbableGroups[0].firstTabbableNode;
+          }
+        } else if (isBackward) {
+          var startOfGroupIndex = findIndex(state.tabbableGroups, function(_ref3) {
+            var firstTabbableNode = _ref3.firstTabbableNode;
+            return target === firstTabbableNode;
+          });
+          if (startOfGroupIndex < 0 && (containerGroup.container === target || isFocusable(target, config.tabbableOptions) && !isTabbable(target, config.tabbableOptions) && !containerGroup.nextTabbableNode(target, false))) {
+            startOfGroupIndex = containerIndex;
+          }
+          if (startOfGroupIndex >= 0) {
+            var destinationGroupIndex = startOfGroupIndex === 0 ? state.tabbableGroups.length - 1 : startOfGroupIndex - 1;
+            var destinationGroup = state.tabbableGroups[destinationGroupIndex];
+            destinationNode = getTabIndex(target) >= 0 ? destinationGroup.lastTabbableNode : destinationGroup.lastDomTabbableNode;
+          } else if (!isTabEvent(event)) {
+            destinationNode = containerGroup.nextTabbableNode(target, false);
+          }
+        } else {
+          var lastOfGroupIndex = findIndex(state.tabbableGroups, function(_ref4) {
+            var lastTabbableNode = _ref4.lastTabbableNode;
+            return target === lastTabbableNode;
+          });
+          if (lastOfGroupIndex < 0 && (containerGroup.container === target || isFocusable(target, config.tabbableOptions) && !isTabbable(target, config.tabbableOptions) && !containerGroup.nextTabbableNode(target))) {
+            lastOfGroupIndex = containerIndex;
+          }
+          if (lastOfGroupIndex >= 0) {
+            var _destinationGroupIndex = lastOfGroupIndex === state.tabbableGroups.length - 1 ? 0 : lastOfGroupIndex + 1;
+            var _destinationGroup = state.tabbableGroups[_destinationGroupIndex];
+            destinationNode = getTabIndex(target) >= 0 ? _destinationGroup.firstTabbableNode : _destinationGroup.firstDomTabbableNode;
+          } else if (!isTabEvent(event)) {
+            destinationNode = containerGroup.nextTabbableNode(target);
+          }
+        }
+      } else {
+        destinationNode = getNodeForOption("fallbackFocus");
+      }
+      return destinationNode;
+    };
+    var checkPointerDown = function checkPointerDown2(e) {
+      var target = getActualTarget(e);
+      if (findContainerIndex(target, e) >= 0) {
+        return;
+      }
+      if (valueOrHandler(config.clickOutsideDeactivates, e)) {
+        trap.deactivate({
+          // NOTE: by setting `returnFocus: false`, deactivate() will do nothing,
+          //  which will result in the outside click setting focus to the node
+          //  that was clicked (and if not focusable, to "nothing"); by setting
+          //  `returnFocus: true`, we'll attempt to re-focus the node originally-focused
+          //  on activation (or the configured `setReturnFocus` node), whether the
+          //  outside click was on a focusable node or not
+          returnFocus: config.returnFocusOnDeactivate
+        });
+        return;
+      }
+      if (valueOrHandler(config.allowOutsideClick, e)) {
+        return;
+      }
+      e.preventDefault();
+    };
+    var checkFocusIn = function checkFocusIn2(event) {
+      var target = getActualTarget(event);
+      var targetContained = findContainerIndex(target, event) >= 0;
+      if (targetContained || target instanceof Document) {
+        if (targetContained) {
+          state.mostRecentlyFocusedNode = target;
+        }
+      } else {
+        event.stopImmediatePropagation();
+        var nextNode;
+        var navAcrossContainers = true;
+        if (state.mostRecentlyFocusedNode) {
+          if (getTabIndex(state.mostRecentlyFocusedNode) > 0) {
+            var mruContainerIdx = findContainerIndex(state.mostRecentlyFocusedNode);
+            var tabbableNodes = state.containerGroups[mruContainerIdx].tabbableNodes;
+            if (tabbableNodes.length > 0) {
+              var mruTabIdx = tabbableNodes.findIndex(function(node) {
+                return node === state.mostRecentlyFocusedNode;
+              });
+              if (mruTabIdx >= 0) {
+                if (config.isKeyForward(state.recentNavEvent)) {
+                  if (mruTabIdx + 1 < tabbableNodes.length) {
+                    nextNode = tabbableNodes[mruTabIdx + 1];
+                    navAcrossContainers = false;
+                  }
+                } else {
+                  if (mruTabIdx - 1 >= 0) {
+                    nextNode = tabbableNodes[mruTabIdx - 1];
+                    navAcrossContainers = false;
+                  }
+                }
+              }
+            }
+          } else {
+            if (!state.containerGroups.some(function(g) {
+              return g.tabbableNodes.some(function(n) {
+                return getTabIndex(n) > 0;
+              });
+            })) {
+              navAcrossContainers = false;
+            }
+          }
+        } else {
+          navAcrossContainers = false;
+        }
+        if (navAcrossContainers) {
+          nextNode = findNextNavNode({
+            // move FROM the MRU node, not event-related node (which will be the node that is
+            //  outside the trap causing the focus escape we're trying to fix)
+            target: state.mostRecentlyFocusedNode,
+            isBackward: config.isKeyBackward(state.recentNavEvent)
+          });
+        }
+        if (nextNode) {
+          tryFocus(nextNode);
+        } else {
+          tryFocus(state.mostRecentlyFocusedNode || getInitialFocusNode());
+        }
+      }
+      state.recentNavEvent = void 0;
+    };
+    var checkKeyNav = function checkKeyNav2(event) {
+      var isBackward = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : false;
+      state.recentNavEvent = event;
+      var destinationNode = findNextNavNode({
+        event,
+        isBackward
+      });
+      if (destinationNode) {
+        if (isTabEvent(event)) {
+          event.preventDefault();
+        }
+        tryFocus(destinationNode);
+      }
+    };
+    var checkKey = function checkKey2(event) {
+      if (isEscapeEvent(event) && valueOrHandler(config.escapeDeactivates, event) !== false) {
+        event.preventDefault();
+        trap.deactivate();
+        return;
+      }
+      if (config.isKeyForward(event) || config.isKeyBackward(event)) {
+        checkKeyNav(event, config.isKeyBackward(event));
+      }
+    };
+    var checkClick = function checkClick2(e) {
+      var target = getActualTarget(e);
+      if (findContainerIndex(target, e) >= 0) {
+        return;
+      }
+      if (valueOrHandler(config.clickOutsideDeactivates, e)) {
+        return;
+      }
+      if (valueOrHandler(config.allowOutsideClick, e)) {
+        return;
+      }
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    };
+    var addListeners = function addListeners2() {
+      if (!state.active) {
+        return;
+      }
+      activeFocusTraps.activateTrap(trapStack, trap);
+      state.delayInitialFocusTimer = config.delayInitialFocus ? delay$1(function() {
+        tryFocus(getInitialFocusNode());
+      }) : tryFocus(getInitialFocusNode());
+      doc.addEventListener("focusin", checkFocusIn, true);
+      doc.addEventListener("mousedown", checkPointerDown, {
+        capture: true,
+        passive: false
+      });
+      doc.addEventListener("touchstart", checkPointerDown, {
+        capture: true,
+        passive: false
+      });
+      doc.addEventListener("click", checkClick, {
+        capture: true,
+        passive: false
+      });
+      doc.addEventListener("keydown", checkKey, {
+        capture: true,
+        passive: false
+      });
+      return trap;
+    };
+    var removeListeners = function removeListeners2() {
+      if (!state.active) {
+        return;
+      }
+      doc.removeEventListener("focusin", checkFocusIn, true);
+      doc.removeEventListener("mousedown", checkPointerDown, true);
+      doc.removeEventListener("touchstart", checkPointerDown, true);
+      doc.removeEventListener("click", checkClick, true);
+      doc.removeEventListener("keydown", checkKey, true);
+      return trap;
+    };
+    var checkDomRemoval = function checkDomRemoval2(mutations) {
+      var isFocusedNodeRemoved = mutations.some(function(mutation) {
+        var removedNodes = Array.from(mutation.removedNodes);
+        return removedNodes.some(function(node) {
+          return node === state.mostRecentlyFocusedNode;
+        });
+      });
+      if (isFocusedNodeRemoved) {
+        tryFocus(getInitialFocusNode());
+      }
+    };
+    var mutationObserver = typeof window !== "undefined" && "MutationObserver" in window ? new MutationObserver(checkDomRemoval) : void 0;
+    var updateObservedNodes = function updateObservedNodes2() {
+      if (!mutationObserver) {
+        return;
+      }
+      mutationObserver.disconnect();
+      if (state.active && !state.paused) {
+        state.containers.map(function(container) {
+          mutationObserver.observe(container, {
+            subtree: true,
+            childList: true
+          });
+        });
+      }
+    };
+    trap = {
+      get active() {
+        return state.active;
+      },
+      get paused() {
+        return state.paused;
+      },
+      activate: function activate(activateOptions) {
+        if (state.active) {
+          return this;
+        }
+        var onActivate = getOption(activateOptions, "onActivate");
+        var onPostActivate = getOption(activateOptions, "onPostActivate");
+        var checkCanFocusTrap = getOption(activateOptions, "checkCanFocusTrap");
+        if (!checkCanFocusTrap) {
+          updateTabbableNodes();
+        }
+        state.active = true;
+        state.paused = false;
+        state.nodeFocusedBeforeActivation = doc.activeElement;
+        onActivate === null || onActivate === void 0 || onActivate();
+        var finishActivation = function finishActivation2() {
+          if (checkCanFocusTrap) {
+            updateTabbableNodes();
+          }
+          addListeners();
+          updateObservedNodes();
+          onPostActivate === null || onPostActivate === void 0 || onPostActivate();
+        };
+        if (checkCanFocusTrap) {
+          checkCanFocusTrap(state.containers.concat()).then(finishActivation, finishActivation);
+          return this;
+        }
+        finishActivation();
+        return this;
+      },
+      deactivate: function deactivate(deactivateOptions) {
+        if (!state.active) {
+          return this;
+        }
+        var options = _objectSpread2({
+          onDeactivate: config.onDeactivate,
+          onPostDeactivate: config.onPostDeactivate,
+          checkCanReturnFocus: config.checkCanReturnFocus
+        }, deactivateOptions);
+        clearTimeout(state.delayInitialFocusTimer);
+        state.delayInitialFocusTimer = void 0;
+        removeListeners();
+        state.active = false;
+        state.paused = false;
+        updateObservedNodes();
+        activeFocusTraps.deactivateTrap(trapStack, trap);
+        var onDeactivate = getOption(options, "onDeactivate");
+        var onPostDeactivate = getOption(options, "onPostDeactivate");
+        var checkCanReturnFocus = getOption(options, "checkCanReturnFocus");
+        var returnFocus = getOption(options, "returnFocus", "returnFocusOnDeactivate");
+        onDeactivate === null || onDeactivate === void 0 || onDeactivate();
+        var finishDeactivation = function finishDeactivation2() {
+          delay$1(function() {
+            if (returnFocus) {
+              tryFocus(getReturnFocusNode(state.nodeFocusedBeforeActivation));
+            }
+            onPostDeactivate === null || onPostDeactivate === void 0 || onPostDeactivate();
+          });
+        };
+        if (returnFocus && checkCanReturnFocus) {
+          checkCanReturnFocus(getReturnFocusNode(state.nodeFocusedBeforeActivation)).then(finishDeactivation, finishDeactivation);
+          return this;
+        }
+        finishDeactivation();
+        return this;
+      },
+      pause: function pause(pauseOptions) {
+        if (state.paused || !state.active) {
+          return this;
+        }
+        var onPause = getOption(pauseOptions, "onPause");
+        var onPostPause = getOption(pauseOptions, "onPostPause");
+        state.paused = true;
+        onPause === null || onPause === void 0 || onPause();
+        removeListeners();
+        updateObservedNodes();
+        onPostPause === null || onPostPause === void 0 || onPostPause();
+        return this;
+      },
+      unpause: function unpause(unpauseOptions) {
+        if (!state.paused || !state.active) {
+          return this;
+        }
+        var onUnpause = getOption(unpauseOptions, "onUnpause");
+        var onPostUnpause = getOption(unpauseOptions, "onPostUnpause");
+        state.paused = false;
+        onUnpause === null || onUnpause === void 0 || onUnpause();
+        updateTabbableNodes();
+        addListeners();
+        updateObservedNodes();
+        onPostUnpause === null || onPostUnpause === void 0 || onPostUnpause();
+        return this;
+      },
+      updateContainerElements: function updateContainerElements(containerElements) {
+        var elementsAsArray = [].concat(containerElements).filter(Boolean);
+        state.containers = elementsAsArray.map(function(element) {
+          return typeof element === "string" ? doc.querySelector(element) : element;
+        });
+        if (state.active) {
+          updateTabbableNodes();
+        }
+        updateObservedNodes();
+        return this;
+      }
+    };
+    trap.updateContainerElements(elements);
+    return trap;
+  };
+  function useFocusTrap(target, options = {}) {
+    let trap;
+    const { immediate, ...focusTrapOptions } = options;
+    const hasFocus = vue.ref(false);
+    const isPaused = vue.ref(false);
+    const activate = (opts) => trap && trap.activate(opts);
+    const deactivate = (opts) => trap && trap.deactivate(opts);
+    const pause = () => {
+      if (trap) {
+        trap.pause();
+        isPaused.value = true;
+      }
+    };
+    const unpause = () => {
+      if (trap) {
+        trap.unpause();
+        isPaused.value = false;
+      }
+    };
+    vue.watch(
+      () => unrefElement(target),
+      (el) => {
+        if (!el)
+          return;
+        trap = createFocusTrap(el, {
+          ...focusTrapOptions,
+          onActivate() {
+            hasFocus.value = true;
+            if (options.onActivate)
+              options.onActivate();
+          },
+          onDeactivate() {
+            hasFocus.value = false;
+            if (options.onDeactivate)
+              options.onDeactivate();
+          }
+        });
+        if (immediate)
+          activate();
+      },
+      { flush: "post" }
+    );
+    tryOnScopeDispose(() => deactivate());
+    return {
+      hasFocus,
+      isPaused,
+      activate,
+      deactivate,
+      pause,
+      unpause
+    };
+  }
+  const ao = (e) => (...o) => {
+    e && (e == null || e(...o), e = null);
+  }, q = () => {
+  };
+  function oe(e, o, l) {
+    return e > l ? l : e < o ? o : e;
+  }
+  function fe(e, o) {
+    var s;
+    const l = ((s = $(e, o)) == null ? void 0 : s[0]) || o;
+    e.push(l);
+  }
+  function $(e, o) {
+    const l = e.indexOf(o);
+    if (l !== -1)
+      return e.splice(l, 1);
+  }
+  const uo = {
+    /**
+     * @description Set `null | false` to disable teleport.
+     * @default `'body'`
+     * @example
+     * ```js
+     * teleportTo: '#modals'
+     * ```
+     */
+    teleportTo: {
+      type: [String, null, Boolean, Object],
+      default: "body"
+    },
+    /**
+     * @description An uniq name for the open/close a modal via vfm.open/vfm.close APIs.
+     * @default `undefined`
+     * @example Symbol: `Symbol('MyModal')`
+     * @example String: `'AUniqString'`
+     * @example Number: `300`
+     */
+    modalId: {
+      type: [String, Number, Symbol],
+      default: void 0
+    },
+    /**
+     * @description Display the modal or not.
+     * @default `undefined`
+     * @example
+     * ```js
+     * const showModal = ref(false)
+     * v-model="showModal"
+     * ```
+     */
+    modelValue: {
+      type: Boolean,
+      default: void 0
+    },
+    /**
+     * @description Render the modal via `if` or `show`.
+     * @default `'if'`
+     * @example
+     * ```js
+     * displayDirective: 'if'
+     * ```
+     * @example
+     * ```js
+     * displayDirective: 'show'
+     * ```
+     */
+    displayDirective: {
+      type: String,
+      default: "if",
+      validator: (e) => ["if", "show", "visible"].includes(e)
+    },
+    /**
+     * @description Hide the overlay or not.
+     * @default `undefined`
+     * @example
+     * ```js
+     * hideOverlay="true"
+     * ```
+     */
+    hideOverlay: {
+      type: Boolean,
+      default: void 0
+    },
+    /**
+     * @description Customize the overlay behavior.
+     */
+    overlayBehavior: {
+      type: String,
+      default: "auto",
+      validator: (e) => ["auto", "persist"].includes(e)
+    },
+    /**
+     * @description Customize the overlay transition.
+     * @default `undefined`
+     */
+    overlayTransition: {
+      type: [String, Object],
+      default: void 0
+    },
+    /**
+     * @description Customize the content transition.
+     * @default `undefined`
+     */
+    contentTransition: {
+      type: [String, Object],
+      default: void 0
+    },
+    /**
+     * @description Bind class to vfm__overlay.
+     * @default `undefined`
+     */
+    overlayClass: {
+      type: void 0,
+      default: void 0
+    },
+    /**
+     * @description Bind class to vfm__content.
+     * @default `undefined`
+     */
+    contentClass: {
+      type: void 0,
+      default: void 0
+    },
+    /**
+     * @description Bind style to vfm__overlay.
+     * @default `undefined`
+     */
+    overlayStyle: {
+      type: [String, Object, Array],
+      default: void 0
+    },
+    /**
+     * @description Bind style to vfm__content.
+     * @default `undefined`
+     */
+    contentStyle: {
+      type: [String, Object, Array],
+      default: void 0
+    },
+    /**
+     * @description Is it allow to close the modal by clicking the overlay.
+     * @default `true`
+     */
+    clickToClose: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * @description Is it allow to close the modal by keypress `esc`.
+     * @default `true`
+     */
+    escToClose: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * @description Is it allow to click outside of the vfm__content when the modal is opened
+     * @default `'non-interactive'`
+     */
+    background: {
+      type: String,
+      default: "non-interactive",
+      validator: (e) => ["interactive", "non-interactive"].includes(e)
+    },
+    /**
+     * @description
+     * * Use `{ disabled: true }` to disable the focusTrap.
+     * * Checkout the createOptions type here https://github.com/focus-trap/focus-trap for more.
+     * @default `{ allowOutsideClick: true }`
+     */
+    focusTrap: {
+      type: [Boolean, Object],
+      default: () => ({
+        allowOutsideClick: true
+      })
+    },
+    /**
+     * @description Lock body scroll or not when the modal is opened.
+     * @default `true`
+     */
+    lockScroll: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * @description Creates a padding-right when scroll is locked to prevent the page from jumping
+     * @default `true`
+     */
+    reserveScrollBarGap: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * @description Define how to increase the zIndex when there are nested modals
+     * @default `({ index }) => 1000 + 2 * index`
+     */
+    zIndexFn: {
+      type: Function,
+      default: ({ index: e }) => 1e3 + 2 * e
+    },
+    /**
+     * @description The direction of swiping to close the modal
+     * @default `none`
+     * @example
+     * Set swipeToClose="none" to disable swiping to close
+     * ```js
+     * swipeToClose="none"
+     * ```
+     */
+    swipeToClose: {
+      type: String,
+      default: "none",
+      validator: (e) => ["none", "up", "right", "down", "left"].includes(e)
+    },
+    /**
+     * @description Threshold for swipe to close
+     * @default `0`
+     */
+    threshold: {
+      type: Number,
+      default: 0
+    },
+    /**
+     * @description If set `:showSwipeBanner="true"`, only allow clicking `swipe-banner` slot to swipe to close
+     * @default `undefined`
+     * @example
+     * ```js
+     * swipeToClose="right"
+     * :showSwipeBanner="true"
+     * ```
+     * ```html
+     * <VueFinalModal
+     *   ...
+     *   swipeToClose="right"
+     *   :showSwipeBanner="true"
+     * >
+     *   <template #swipe-banner>
+     *     <div style="position: absolute; height: 100%; top: 0; left: 0; width: 10px;" />
+     *   </template>
+     *   ...modal content
+     * </VueFinalModal>
+     * ```
+     */
+    showSwipeBanner: {
+      type: Boolean,
+      default: void 0
+    },
+    /**
+     * @description When set `:preventNavigationGestures="true"`, there will be two invisible bars for prevent navigation gestures including swiping back/forward on mobile webkit. For example: Safari mobile.
+     * @default `undefined`
+     * @example
+     * Set preventNavigationGestures="true" to prevent Safari navigation gestures including swiping back/forward.
+     * ```js
+     * :preventNavigationGestures="true"
+     * ```
+     */
+    preventNavigationGestures: {
+      type: Boolean,
+      default: void 0
+    }
+  };
+  function De(e = false) {
+    const o = vue.ref(e), l = vue.ref(o.value ? 0 : void 0);
+    return [o, l, {
+      beforeEnter() {
+        l.value = 1;
+      },
+      afterEnter() {
+        l.value = 0;
+      },
+      beforeLeave() {
+        l.value = 3;
+      },
+      afterLeave() {
+        l.value = 2;
+      }
+    }];
+  }
+  function co(e, o) {
+    const { modelValueLocal: l, onEntering: s, onEnter: u, onLeaving: c, onLeave: a } = o, n = vue.ref(l.value), [t, r, m] = De(n.value), [f, M, S] = De(n.value), V = vue.computed(() => typeof e.contentTransition == "string" ? { name: e.contentTransition, appear: true } : { appear: true, ...e.contentTransition }), O = vue.computed(() => typeof e.overlayTransition == "string" ? { name: e.overlayTransition, appear: true } : { appear: true, ...e.overlayTransition }), E = vue.computed(
+      () => (e.hideOverlay || M.value === 2) && r.value === 2
+      /* Leave */
+    );
+    vue.watch(
+      E,
+      (k) => {
+        k && (n.value = false);
+      }
+    ), vue.watch(r, (k) => {
+      if (k === 1) {
+        if (!n.value)
+          return;
+        s == null || s();
+      } else if (k === 0) {
+        if (!n.value)
+          return;
+        u == null || u();
+      } else
+        k === 3 ? c == null || c() : k === 2 && (a == null || a());
+    });
+    async function T() {
+      n.value = true, await vue.nextTick(), t.value = true, f.value = true;
+    }
+    function D() {
+      t.value = false, f.value = false;
+    }
+    return {
+      visible: n,
+      contentVisible: t,
+      contentListeners: m,
+      contentTransition: V,
+      overlayVisible: f,
+      overlayListeners: S,
+      overlayTransition: O,
+      enterTransition: T,
+      leaveTransition: D
+    };
+  }
+  function fo(e, o, l) {
+    const { vfmRootEl: s, vfmContentEl: u, visible: c, modelValueLocal: a } = l, n = vue.ref();
+    function t() {
+      c.value && e.escToClose && (a.value = false);
+    }
+    function r(f) {
+      n.value = f == null ? void 0 : f.target;
+    }
+    function m() {
+      var f;
+      n.value === s.value && (e.clickToClose ? a.value = false : ((f = u.value) == null || f.focus(), o("clickOutside")));
+    }
+    return {
+      onEsc: t,
+      onMouseupRoot: m,
+      onMousedown: r
+    };
+  }
+  function vo(e, o, l) {
+    let s = false;
+    const { open: u, close: c } = l, a = vue.ref(false), n = {
+      get value() {
+        return a.value;
+      },
+      set value(r) {
+        t(r);
+      }
+    };
+    function t(r) {
+      (r ? u() : c()) ? (a.value = r, r !== e.modelValue && o("update:modelValue", r)) : (s = true, o("update:modelValue", !r), vue.nextTick(() => {
+        s = false;
+      }));
+    }
+    return vue.watch(() => e.modelValue, (r) => {
+      s || (n.value = !!r);
+    }), {
+      modelValueLocal: n
+    };
+  }
+  function po(e, o) {
+    if (e.focusTrap === false)
+      return {
+        focus() {
+        },
+        blur() {
+        }
+      };
+    const { focusEl: l } = o, { hasFocus: s, activate: u, deactivate: c } = useFocusTrap(l, e.focusTrap);
+    function a() {
+      requestAnimationFrame(() => {
+        u();
+      });
+    }
+    function n() {
+      s.value && c();
+    }
+    return { focus: a, blur: n };
+  }
+  let be = false;
+  if (typeof window < "u") {
+    const e = {
+      get passive() {
+        be = true;
+      }
+    };
+    window.addEventListener("testPassive", null, e), window.removeEventListener("testPassive", null, e);
+  }
+  const je = typeof window < "u" && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
+  let j = [], le = false, ne = 0, Ne = -1, W, X;
+  const yo = (e) => {
+    if (!e || e.nodeType !== Node.ELEMENT_NODE)
+      return false;
+    const o = window.getComputedStyle(e);
+    return ["auto", "scroll"].includes(o.overflowY) && e.scrollHeight > e.clientHeight;
+  }, ho = (e, o) => !(e.scrollTop === 0 && o < 0 || e.scrollTop + e.clientHeight + o >= e.scrollHeight && o > 0), mo = (e) => {
+    const o = [];
+    for (; e; ) {
+      if (o.push(e), e.classList.contains("vfm"))
+        return o;
+      e = e.parentElement;
+    }
+    return o;
+  }, wo = (e, o) => {
+    let l = false;
+    return mo(e).forEach((u) => {
+      yo(u) && ho(u, o) && (l = true);
+    }), l;
+  }, Ye = (e) => j.some(() => wo(e, -ne)), se = (e) => {
+    const o = e || window.event;
+    return Ye(o.target) || o.touches.length > 1 ? true : (o.preventDefault && o.preventDefault(), false);
+  }, bo = (e) => {
+    if (X === void 0) {
+      const o = !!e && e.reserveScrollBarGap === true, l = window.innerWidth - document.documentElement.clientWidth;
+      if (o && l > 0) {
+        const s = parseInt(getComputedStyle(document.body).getPropertyValue("padding-right"), 10);
+        X = document.body.style.paddingRight, document.body.style.paddingRight = `${s + l}px`;
+      }
+    }
+    W === void 0 && (W = document.body.style.overflow, document.body.style.overflow = "hidden");
+  }, To = () => {
+    X !== void 0 && (document.body.style.paddingRight = X, X = void 0), W !== void 0 && (document.body.style.overflow = W, W = void 0);
+  }, So = (e) => e ? e.scrollHeight - e.scrollTop <= e.clientHeight : false, Mo = (e, o) => (ne = e.targetTouches[0].clientY - Ne, Ye(e.target) ? false : o && o.scrollTop === 0 && ne > 0 || So(o) && ne < 0 ? se(e) : (e.stopPropagation(), true)), go = (e, o) => {
+    if (!e) {
+      console.error(
+        "disableBodyScroll unsuccessful - targetElement must be provided when calling disableBodyScroll on IOS devices."
+      );
+      return;
+    }
+    if (j.some((s) => s.targetElement === e))
+      return;
+    const l = {
+      targetElement: e,
+      options: o || {}
+    };
+    j = [...j, l], je ? (e.ontouchstart = (s) => {
+      s.targetTouches.length === 1 && (Ne = s.targetTouches[0].clientY);
+    }, e.ontouchmove = (s) => {
+      s.targetTouches.length === 1 && Mo(s, e);
+    }, le || (document.addEventListener("touchmove", se, be ? { passive: false } : void 0), le = true)) : bo(o);
+  }, Co = (e) => {
+    if (!e) {
+      console.error(
+        "enableBodyScroll unsuccessful - targetElement must be provided when calling enableBodyScroll on IOS devices."
+      );
+      return;
+    }
+    j = j.filter((o) => o.targetElement !== e), je ? (e.ontouchstart = null, e.ontouchmove = null, le && j.length === 0 && (document.removeEventListener("touchmove", se, be ? { passive: false } : void 0), le = false)) : j.length || To();
+  };
+  function ko(e, o) {
+    const { lockScrollEl: l, modelValueLocal: s } = o;
+    let u;
+    vue.watch(l, (n) => {
+      n && (u = n);
+    }, { immediate: true }), vue.watch(() => e.lockScroll, (n) => {
+      n ? a() : c();
+    }), vue.onBeforeUnmount(() => {
+      c();
+    });
+    function c() {
+      u && Co(u);
+    }
+    function a() {
+      s.value && e.lockScroll && u && go(u, {
+        reserveScrollBarGap: e.reserveScrollBarGap,
+        allowTouchMove: (n) => {
+          for (; n && n !== document.body; ) {
+            if (n.getAttribute("vfm-scroll-lock-ignore") !== null)
+              return true;
+            n = n.parentElement;
+          }
+          return false;
+        }
+      });
+    }
+    return {
+      enableBodyScroll: c,
+      disableBodyScroll: a
+    };
+  }
+  function Vo(e) {
+    const o = vue.ref();
+    function l(u) {
+      var c;
+      o.value = (c = e.zIndexFn) == null ? void 0 : c.call(e, { index: u <= -1 ? 0 : u });
+    }
+    function s() {
+      o.value = void 0;
+    }
+    return {
+      zIndex: o,
+      refreshZIndex: l,
+      resetZIndex: s
+    };
+  }
+  const ve = {
+    beforeMount(e, { value: o }, { transition: l }) {
+      e._vov = e.style.visibility === "hidden" ? "" : e.style.visibility, l && o ? l.beforeEnter(e) : G(e, o);
+    },
+    mounted(e, { value: o }, { transition: l }) {
+      l && o && l.enter(e);
+    },
+    updated(e, { value: o, oldValue: l }, { transition: s }) {
+      !o != !l && (s ? o ? (s.beforeEnter(e), G(e, true), s.enter(e)) : s.leave(e, () => {
+        G(e, false);
+      }) : G(e, o));
+    },
+    beforeUnmount(e, { value: o }) {
+      G(e, o);
+    }
+  };
+  function G(e, o) {
+    e.style.visibility = o ? e._vov : "hidden";
+  }
+  const Le = (e) => {
+    if (e instanceof MouseEvent) {
+      const { clientX: o, clientY: l } = e;
+      return { x: o, y: l };
+    } else {
+      const { clientX: o, clientY: l } = e.targetTouches[0];
+      return { x: o, y: l };
+    }
+  };
+  function Eo(e) {
+    if (!e)
+      return false;
+    let o = false;
+    const l = {
+      get passive() {
+        return o = true, false;
+      }
+    };
+    return e.addEventListener("x", q, l), e.removeEventListener("x", q), o;
+  }
+  function Bo(e, {
+    threshold: o = 0,
+    onSwipeStart: l,
+    onSwipe: s,
+    onSwipeEnd: u,
+    passive: c = true
+  }) {
+    const a = vue.reactive({ x: 0, y: 0 }), n = vue.reactive({ x: 0, y: 0 }), t = vue.computed(() => a.x - n.x), r = vue.computed(() => a.y - n.y), { max: m, abs: f } = Math, M = vue.computed(
+      () => m(f(t.value), f(r.value)) >= o
+    ), S = vue.ref(false), V = vue.computed(() => M.value ? f(t.value) > f(r.value) ? t.value > 0 ? "left" : "right" : r.value > 0 ? "up" : "down" : "none"), O = (p, h) => {
+      a.x = p, a.y = h;
+    }, E = (p, h) => {
+      n.x = p, n.y = h;
+    };
+    let T, D;
+    function k(p) {
+      T.capture && !T.passive && p.preventDefault();
+      const { x: h, y: R } = Le(p);
+      O(h, R), E(h, R), l == null || l(p), D = [
+        useEventListener(e, "mousemove", P, T),
+        useEventListener(e, "touchmove", P, T),
+        useEventListener(e, "mouseup", i, T),
+        useEventListener(e, "touchend", i, T),
+        useEventListener(e, "touchcancel", i, T)
+      ];
+    }
+    function P(p) {
+      const { x: h, y: R } = Le(p);
+      E(h, R), !S.value && M.value && (S.value = true), S.value && (s == null || s(p));
+    }
+    function i(p) {
+      S.value && (u == null || u(p, V.value)), S.value = false, D.forEach((h) => h());
+    }
+    let w = [];
+    return vue.onMounted(() => {
+      const p = Eo(window == null ? void 0 : window.document);
+      c ? T = p ? { passive: true } : { capture: false } : T = p ? { passive: false, capture: true } : { capture: true }, w = [
+        useEventListener(e, "mousedown", k, T),
+        useEventListener(e, "touchstart", k, T)
+      ];
+    }), {
+      isSwiping: S,
+      direction: V,
+      coordsStart: a,
+      coordsEnd: n,
+      lengthX: t,
+      lengthY: r,
+      stop: () => {
+        w.forEach((p) => p()), D.forEach((p) => p());
+      }
+    };
+  }
+  function Oo(e, o) {
+    const { vfmContentEl: l, modelValueLocal: s } = o, u = 0.1, c = 300, a = vue.ref(), n = vue.computed(() => {
+      if (!(e.swipeToClose === void 0 || e.swipeToClose === "none"))
+        return e.showSwipeBanner ? a.value : l.value;
+    }), t = vue.ref(0), r = vue.ref(true);
+    let m = q, f = true, M, S = false;
+    const { lengthX: V, lengthY: O, direction: E, isSwiping: T } = Bo(n, {
+      threshold: e.threshold,
+      onSwipeStart(i) {
+        m = useEventListener(document, "selectionchange", () => {
+          var w;
+          r.value = (w = window.getSelection()) == null ? void 0 : w.isCollapsed;
+        }), M = (/* @__PURE__ */ new Date()).getTime(), S = P(i == null ? void 0 : i.target);
+      },
+      onSwipe() {
+        var i, w, L, p;
+        if (S && r.value && E.value === e.swipeToClose) {
+          if (E.value === "up") {
+            const h = oe(Math.abs(O.value || 0), 0, ((i = n.value) == null ? void 0 : i.offsetHeight) || 0) - (e.threshold || 0);
+            t.value = h;
+          } else if (E.value === "down") {
+            const h = oe(Math.abs(O.value || 0), 0, ((w = n.value) == null ? void 0 : w.offsetHeight) || 0) - (e.threshold || 0);
+            t.value = -h;
+          } else if (E.value === "right") {
+            const h = oe(Math.abs(V.value || 0), 0, ((L = n.value) == null ? void 0 : L.offsetWidth) || 0) - (e.threshold || 0);
+            t.value = -h;
+          } else if (E.value === "left") {
+            const h = oe(Math.abs(V.value || 0), 0, ((p = n.value) == null ? void 0 : p.offsetWidth) || 0) - (e.threshold || 0);
+            t.value = h;
+          }
+        }
+      },
+      onSwipeEnd(i, w) {
+        if (m(), !r.value) {
+          r.value = true;
+          return;
+        }
+        const L = (/* @__PURE__ */ new Date()).getTime(), p = w === e.swipeToClose, h = (() => {
+          var J, Q;
+          if (w === "up" || w === "down")
+            return Math.abs((O == null ? void 0 : O.value) || 0) > u * (((J = n.value) == null ? void 0 : J.offsetHeight) || 0);
+          if (w === "left" || w === "right")
+            return Math.abs((V == null ? void 0 : V.value) || 0) > u * (((Q = n.value) == null ? void 0 : Q.offsetWidth) || 0);
+        })(), R = L - M <= c;
+        if (f && S && p && (h || R)) {
+          s.value = false;
+          return;
+        }
+        t.value = 0;
+      }
+    }), D = vue.computed(() => {
+      if (e.swipeToClose === "none")
+        return;
+      const i = (() => {
+        switch (e.swipeToClose) {
+          case "up":
+          case "down":
+            return "translateY";
+          case "left":
+          case "right":
+            return "translateX";
+        }
+      })();
+      return {
+        class: { "vfm-bounce-back": !T.value },
+        style: { transform: `${i}(${-t.value}px)` }
+      };
+    });
+    vue.watch(
+      () => r.value,
+      (i) => {
+        i || (t.value = 0);
+      }
+    ), vue.watch(
+      () => s.value,
+      (i) => {
+        i && (t.value = 0);
+      }
+    ), vue.watch(
+      () => t.value,
+      (i, w) => {
+        switch (e.swipeToClose) {
+          case "down":
+          case "right":
+            f = i < w;
+            break;
+          case "up":
+          case "left":
+            f = i > w;
+            break;
+        }
+      }
+    );
+    function k(i) {
+      e.preventNavigationGestures && i.preventDefault();
+    }
+    function P(i) {
+      const w = i == null ? void 0 : i.tagName;
+      if (!w || ["INPUT", "TEXTAREA"].includes(w))
+        return false;
+      const L = (() => {
+        switch (e.swipeToClose) {
+          case "up":
+            return (i == null ? void 0 : i.scrollTop) + (i == null ? void 0 : i.clientHeight) === (i == null ? void 0 : i.scrollHeight);
+          case "left":
+            return (i == null ? void 0 : i.scrollLeft) + (i == null ? void 0 : i.clientWidth) === (i == null ? void 0 : i.scrollWidth);
+          case "down":
+            return (i == null ? void 0 : i.scrollTop) === 0;
+          case "right":
+            return (i == null ? void 0 : i.scrollLeft) === 0;
+          default:
+            return false;
+        }
+      })();
+      return i === n.value ? L : L && P(i == null ? void 0 : i.parentElement);
+    }
+    return {
+      vfmContentEl: l,
+      swipeBannerEl: a,
+      bindSwipe: D,
+      onTouchStartSwipeBanner: k
+    };
+  }
+  const xe = Symbol("vfm");
+  let H;
+  const Do = (e) => H = e, Lo = {
+    install: q,
+    modals: [],
+    openedModals: [],
+    openedModalOverlays: [],
+    dynamicModals: [],
+    modalsContainers: vue.ref([]),
+    get: () => {
+    },
+    toggle: () => {
+    },
+    open: () => {
+    },
+    close: () => {
+    },
+    closeAll: () => Promise.allSettled([])
+  }, Po = () => vue.getCurrentInstance() && vue.inject(xe, Lo) || H;
+  function xo() {
+    const e = vue.shallowReactive([]), o = vue.shallowReactive([]), l = vue.shallowReactive([]), s = vue.shallowReactive([]), u = vue.ref([]), c = vue.markRaw({
+      install(a) {
+        a.provide(xe, c), a.config.globalProperties.$vfm = c;
+      },
+      modals: e,
+      openedModals: o,
+      openedModalOverlays: l,
+      dynamicModals: s,
+      modalsContainers: u,
+      get(a) {
+        return e.find((n) => {
+          var t, r;
+          return ((r = (t = Z(n)) == null ? void 0 : t.value.modalId) == null ? void 0 : r.value) === a;
+        });
+      },
+      toggle(a, n) {
+        var r;
+        const t = c.get(a);
+        return (r = Z(t)) == null ? void 0 : r.value.toggle(n);
+      },
+      open(a) {
+        return c.toggle(a, true);
+      },
+      close(a) {
+        return c.toggle(a, false);
+      },
+      closeAll() {
+        return Promise.allSettled(
+          o.reduce((a, n) => {
+            const t = Z(n), r = t == null ? void 0 : t.value.toggle(false);
+            return r && a.push(r), a;
+          }, [])
+        );
+      }
+    });
+    return Do(c), c;
+  }
+  function Z(e) {
+    var o;
+    return (o = e == null ? void 0 : e.exposed) == null ? void 0 : o.modalExposed;
+  }
+  const Ao = vue.defineComponent({ inheritAttrs: false }), Io = /* @__PURE__ */ vue.defineComponent({
+    ...Ao,
+    __name: "VueFinalModal",
+    props: uo,
+    emits: ["update:modelValue", "beforeOpen", "opened", "beforeClose", "closed", "clickOutside"],
+    setup(e, { expose: o, emit: l }) {
+      const s = e, u = l, c = vue.useAttrs(), a = vue.getCurrentInstance(), { modals: n, openedModals: t, openedModalOverlays: r } = K(), m = vue.ref(), f = vue.ref(), { focus: M, blur: S } = po(s, { focusEl: m }), { zIndex: V, refreshZIndex: O, resetZIndex: E } = Vo(s), { modelValueLocal: T } = vo(s, u, { open: Xe, close: ge }), { enableBodyScroll: D, disableBodyScroll: k } = ko(s, {
+        lockScrollEl: m,
+        modelValueLocal: T
+      });
+      let P = q;
+      const {
+        visible: i,
+        contentVisible: w,
+        contentListeners: L,
+        contentTransition: p,
+        overlayVisible: h,
+        overlayListeners: R,
+        overlayTransition: J,
+        enterTransition: Q,
+        leaveTransition: ze
+      } = co(s, {
+        modelValueLocal: T,
+        onEntering() {
+          vue.nextTick(() => {
+            k(), M();
+          });
+        },
+        onEnter() {
+          u("opened"), P("opened");
+        },
+        onLeave() {
+          $(t, a), E(), D(), u("closed"), P("closed");
+        }
+      }), { onEsc: Ge, onMouseupRoot: $e, onMousedown: Te } = fo(s, u, { vfmRootEl: m, vfmContentEl: f, visible: i, modelValueLocal: T }), {
+        swipeBannerEl: Ue,
+        bindSwipe: We,
+        onTouchStartSwipeBanner: Se
+      } = Oo(s, { vfmContentEl: f, modelValueLocal: T }), Me = vue.computed(() => a ? t.indexOf(a) : -1);
+      vue.watch([() => s.zIndexFn, Me], () => {
+        i.value && O(Me.value);
+      }), vue.onMounted(() => {
+        fe(n, a);
+      }), s.modelValue && (T.value = true);
+      function Xe() {
+        let d = false;
+        return u("beforeOpen", { stop: () => d = true }), d ? false : (fe(t, a), fe(r, a), ie(), Q(), true);
+      }
+      function ge() {
+        let d = false;
+        return u("beforeClose", { stop: () => d = true }), d ? false : ($(r, a), ie(), S(), ze(), true);
+      }
+      vue.onBeforeUnmount(() => {
+        D(), $(n, a), $(t, a), S(), ie();
+      });
+      async function ie() {
+        await vue.nextTick();
+        const d = r.filter((y) => {
+          var A;
+          const b = Z(y);
+          return (b == null ? void 0 : b.value.overlayBehavior.value) === "auto" && !((A = b == null ? void 0 : b.value.hideOverlay) != null && A.value);
+        });
+        d.forEach((y, b) => {
+          const A = Z(y);
+          A != null && A.value && (A.value.overlayVisible.value = b === d.length - 1);
+        });
+      }
+      const Ze = vue.toRef(() => s.modalId), Ce = vue.toRef(() => s.hideOverlay), Ke = vue.toRef(() => s.overlayBehavior), qe = vue.computed(() => ({
+        modalId: Ze,
+        hideOverlay: Ce,
+        overlayBehavior: Ke,
+        overlayVisible: h,
+        toggle(d) {
+          return new Promise((y) => {
+            P = ao((A) => y(A));
+            const b = typeof d == "boolean" ? d : !T.value;
+            T.value = b;
+          });
+        }
+      }));
+      return o({
+        modalExposed: qe
+      }), (d, y) => (vue.openBlock(), vue.createBlock(vue.Teleport, {
+        to: d.teleportTo ? d.teleportTo : void 0,
+        disabled: !d.teleportTo
+      }, [
+        d.displayDirective !== "if" || vue.unref(i) ? vue.withDirectives((vue.openBlock(), vue.createElementBlock("div", vue.mergeProps({ key: 0 }, vue.unref(c), {
+          ref_key: "vfmRootEl",
+          ref: m,
+          class: ["vfm vfm--fixed vfm--inset", { "vfm--prevent-none": d.background === "interactive" }],
+          style: { zIndex: vue.unref(V) },
+          role: "dialog",
+          "aria-modal": "true",
+          onKeydown: y[7] || (y[7] = vue.withKeys(() => vue.unref(Ge)(), ["esc"])),
+          onMouseup: y[8] || (y[8] = vue.withModifiers(() => vue.unref($e)(), ["self"])),
+          onMousedown: y[9] || (y[9] = vue.withModifiers((b) => vue.unref(Te)(b), ["self"]))
+        }), [
+          Ce.value ? vue.createCommentVNode("", true) : (vue.openBlock(), vue.createBlock(vue.Transition, vue.mergeProps({ key: 0 }, vue.unref(J), vue.toHandlers(vue.unref(R))), {
+            default: vue.withCtx(() => [
+              d.displayDirective !== "if" || vue.unref(h) ? vue.withDirectives((vue.openBlock(), vue.createElementBlock("div", {
+                key: 0,
+                class: vue.normalizeClass(["vfm__overlay vfm--overlay vfm--absolute vfm--inset vfm--prevent-none", d.overlayClass]),
+                style: vue.normalizeStyle(d.overlayStyle),
+                "aria-hidden": "true"
+              }, null, 6)), [
+                [vue.vShow, d.displayDirective !== "show" || vue.unref(h)],
+                [vue.unref(ve), d.displayDirective !== "visible" || vue.unref(h)]
+              ]) : vue.createCommentVNode("", true)
+            ]),
+            _: 1
+          }, 16)),
+          vue.createVNode(vue.Transition, vue.mergeProps(vue.unref(p), vue.toHandlers(vue.unref(L))), {
+            default: vue.withCtx(() => [
+              d.displayDirective !== "if" || vue.unref(w) ? vue.withDirectives((vue.openBlock(), vue.createElementBlock("div", vue.mergeProps({
+                key: 0,
+                ref_key: "vfmContentEl",
+                ref: f,
+                class: ["vfm__content vfm--outline-none", [d.contentClass, { "vfm--prevent-auto": d.background === "interactive" }]],
+                style: d.contentStyle,
+                tabindex: "0"
+              }, vue.unref(We), {
+                onMousedown: y[6] || (y[6] = () => vue.unref(Te)())
+              }), [
+                vue.renderSlot(d.$slots, "default", vue.normalizeProps(vue.guardReactiveProps({ close: ge }))),
+                d.showSwipeBanner ? (vue.openBlock(), vue.createElementBlock("div", {
+                  key: 0,
+                  ref_key: "swipeBannerEl",
+                  ref: Ue,
+                  class: "vfm-swipe-banner-container",
+                  onTouchstart: y[2] || (y[2] = (b) => vue.unref(Se)(b))
+                }, [
+                  vue.renderSlot(d.$slots, "swipe-banner", {}, () => [
+                    vue.createElementVNode("div", {
+                      class: "vfm-swipe-banner-back",
+                      onTouchstart: y[0] || (y[0] = (b) => d.swipeToClose === "left" && b.preventDefault())
+                    }, null, 32),
+                    vue.createElementVNode("div", {
+                      class: "vfm-swipe-banner-forward",
+                      onTouchstart: y[1] || (y[1] = (b) => d.swipeToClose === "right" && b.preventDefault())
+                    }, null, 32)
+                  ])
+                ], 544)) : !d.showSwipeBanner && d.preventNavigationGestures ? (vue.openBlock(), vue.createElementBlock("div", {
+                  key: 1,
+                  class: "vfm-swipe-banner-container",
+                  onTouchstart: y[5] || (y[5] = (b) => vue.unref(Se)(b))
+                }, [
+                  vue.createElementVNode("div", {
+                    class: "vfm-swipe-banner-back",
+                    onTouchstart: y[3] || (y[3] = (b) => d.swipeToClose === "left" && b.preventDefault())
+                  }, null, 32),
+                  vue.createElementVNode("div", {
+                    class: "vfm-swipe-banner-forward",
+                    onTouchstart: y[4] || (y[4] = (b) => d.swipeToClose === "right" && b.preventDefault())
+                  }, null, 32)
+                ], 32)) : vue.createCommentVNode("", true)
+              ], 16)), [
+                [vue.vShow, d.displayDirective !== "show" || vue.unref(w)],
+                [vue.unref(ve), d.displayDirective !== "visible" || vue.unref(w)]
+              ]) : vue.createCommentVNode("", true)
+            ]),
+            _: 3
+          }, 16)
+        ], 16)), [
+          [vue.vShow, d.displayDirective !== "show" || vue.unref(i)],
+          [vue.unref(ve), d.displayDirective !== "visible" || vue.unref(i)]
+        ]) : vue.createCommentVNode("", true)
+      ], 8, ["to", "disabled"]));
+    }
+  });
+  function K() {
+    const e = Po();
+    if (!e)
+      throw new Error(
+        `[Vue Final Modal]: getActiveVfm was called with no active Vfm. Did you forget to install vfm?
+	const vfm = createVfm()
+	app.use(vfm)
+This will fail in production.`
+      );
+    return e;
+  }
   var __defProp2 = Object.defineProperty;
   var __getOwnPropSymbols = Object.getOwnPropertySymbols;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
@@ -56,14 +2656,14 @@
   var isNonEmptyString = (value) => isString(value) && value.trim().length > 0;
   var isNumber = (value) => typeof value === "number";
   var isUndefined = (value) => typeof value === "undefined";
-  var isObject$2 = (value) => typeof value === "object" && value !== null;
+  var isObject$1 = (value) => typeof value === "object" && value !== null;
   var isJSX = (obj) => hasProp(obj, "tag") && isNonEmptyString(obj.tag);
   var isTouchEvent = (event) => window.TouchEvent && event instanceof TouchEvent;
   var isToastComponent = (obj) => hasProp(obj, "component") && isToastContent(obj.component);
-  var isVueComponent = (c) => isFunction(c) || isObject$2(c);
+  var isVueComponent = (c) => isFunction(c) || isObject$1(c);
   var isToastContent = (obj) => !isUndefined(obj) && (isString(obj) || isVueComponent(obj) || isToastComponent(obj));
-  var isDOMRect = (obj) => isObject$2(obj) && ["height", "width", "right", "left", "top", "bottom"].every((p) => isNumber(obj[p]));
-  var hasProp = (obj, propKey) => (isObject$2(obj) || isFunction(obj)) && propKey in obj;
+  var isDOMRect = (obj) => isObject$1(obj) && ["height", "width", "right", "left", "top", "bottom"].every((p) => isNumber(obj[p]));
+  var hasProp = (obj, propKey) => (isObject$1(obj) || isFunction(obj)) && propKey in obj;
   var getId = ((i) => () => i++)(0);
   function getX(event) {
     return isTouchEvent(event) ? event.targetTouches[0].clientX : event.clientX;
@@ -95,8 +2695,8 @@
     if (typeof obj === "string") {
       return obj;
     }
-    const props = hasProp(obj, "props") && isObject$2(obj.props) ? obj.props : {};
-    const listeners = hasProp(obj, "listeners") && isObject$2(obj.listeners) ? obj.listeners : {};
+    const props = hasProp(obj, "props") && isObject$1(obj.props) ? obj.props : {};
+    const listeners = hasProp(obj, "listeners") && isObject$1(obj.listeners) ? obj.listeners : {};
     return { component: getVueComponentFromObj(obj), props, listeners };
   };
   var isBrowser = () => typeof window !== "undefined";
@@ -364,14 +2964,14 @@
       }
     }
   });
-  var _hoisted_1$9 = /* @__PURE__ */ vue.createTextVNode(" × ");
+  var _hoisted_1$8 = /* @__PURE__ */ vue.createTextVNode(" × ");
   function render2(_ctx, _cache) {
     return vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(_ctx.buttonComponent), vue.mergeProps({
       "aria-label": _ctx.ariaLabel,
       class: _ctx.classes
     }, _ctx.$attrs), {
       default: vue.withCtx(() => [
-        _hoisted_1$9
+        _hoisted_1$8
       ]),
       _: 1
     }, 16, ["aria-label", "class"]);
@@ -389,15 +2989,15 @@
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 512 512"
   };
-  var _hoisted_2$5 = /* @__PURE__ */ vue.createElementVNode("path", {
+  var _hoisted_2$6 = /* @__PURE__ */ vue.createElementVNode("path", {
     fill: "currentColor",
     d: "M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
   }, null, -1);
-  var _hoisted_3$3 = [
-    _hoisted_2$5
+  var _hoisted_3$4 = [
+    _hoisted_2$6
   ];
   function render3(_ctx, _cache) {
-    return vue.openBlock(), vue.createElementBlock("svg", _hoisted_12$1, _hoisted_3$3);
+    return vue.openBlock(), vue.createElementBlock("svg", _hoisted_12$1, _hoisted_3$4);
   }
   VtSuccessIcon_default.render = render3;
   var VtSuccessIcon_default2 = VtSuccessIcon_default;
@@ -1010,6 +3610,7 @@
   var GMKey = /* @__PURE__ */ ((GMKey2) => {
     GMKey2["InfiniteScroll"] = "InfiniteScroll";
     GMKey2["ScrollByRow"] = "ScrollByRow";
+    GMKey2["archiveButton"] = "archiveButton";
     GMKey2["BetterPopup"] = "BetterPopup";
     GMKey2["QuickDownloadMethod"] = "QuickDownloadMethod";
     GMKey2["LoadAllGalleryImages"] = "LoadAllGalleryImages";
@@ -1046,6 +3647,7 @@
     }
   }
   const infiniteScrollSwitch = vue.reactive(new GMVariable(GMKey.InfiniteScroll, true));
+  const archiveButtonSwitch = vue.reactive(new GMVariable(GMKey.archiveButton, true));
   const scrollByRowSwitch = vue.reactive(new GMVariable(GMKey.ScrollByRow, true));
   const betterPopupSwitch = vue.reactive(new GMVariable(GMKey.BetterPopup, true));
   const quickDownloadMethod = vue.reactive(new GMVariable(GMKey.QuickDownloadMethod, DownloadMethod.Manual));
@@ -1057,6 +3659,7 @@
   async function initializeMonkeySwitches() {
     await Promise.all([
       infiniteScrollSwitch.initialize(),
+      archiveButtonSwitch.initialize(),
       scrollByRowSwitch.initialize(),
       betterPopupSwitch.initialize(),
       quickDownloadMethod.initialize(),
@@ -1067,7 +3670,7 @@
       showJapaneseTitle.initialize()
     ]);
   }
-  function delay(ms) {
+  function delay2(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
   function getElement(selector, root2 = document) {
@@ -1139,54 +3742,6 @@
     }
     return;
   }
-  const _sfc_main$b = /* @__PURE__ */ vue.defineComponent({
-    __name: "FrontPageEnhancer",
-    setup(__props) {
-      if (scrollByRowSwitch.value) {
-        useWheelStep({
-          containerSelector: ".itg.gld",
-          itemsSelector: ".gl1t"
-        });
-      }
-      if (infiniteScrollSwitch.value) {
-        useInfiniteScroll();
-      }
-      function useInfiniteScroll() {
-        var _a2, _b;
-        const galleryContainer = getElement(".itg.gld");
-        const bottomPagination = (_a2 = getElements(".searchnav")) == null ? void 0 : _a2[1];
-        let nextPageUrl = (_b = getElement("#dnext")) == null ? void 0 : _b.getAttribute("href");
-        let isFetching = false;
-        const intersectionObserver = new IntersectionObserver(async ([bottomPagination2]) => {
-          var _a3;
-          if (!bottomPagination2.isIntersecting || isFetching) {
-            return;
-          }
-          if (!nextPageUrl) {
-            return;
-          }
-          isFetching = true;
-          galleryContainer == null ? void 0 : galleryContainer.classList.add("is-fetching");
-          const doc = await getDoc(nextPageUrl);
-          const galleriesOfNextPage = getElements(".itg.gld > .gl1t", doc);
-          if (!galleriesOfNextPage) {
-            return;
-          }
-          galleryContainer == null ? void 0 : galleryContainer.append(...galleriesOfNextPage);
-          isFetching = false;
-          galleryContainer == null ? void 0 : galleryContainer.classList.remove("is-fetching");
-          nextPageUrl = (_a3 = getElement("#dnext", doc)) == null ? void 0 : _a3.getAttribute("href");
-          history.pushState(void 0, doc.title, nextPageUrl);
-        });
-        if (bottomPagination) {
-          intersectionObserver.observe(bottomPagination);
-        }
-      }
-      return (_ctx, _cache) => {
-        return null;
-      };
-    }
-  });
   class Logger {
     constructor(feature, scope) {
       __publicField(this, "_feature");
@@ -1209,11 +3764,11 @@
       return prefix;
     }
     get style() {
-      const style = [this._featureStyle];
+      const style2 = [this._featureStyle];
       if (this._scope) {
-        style.push(this._scopeStyle);
+        style2.push(this._scopeStyle);
       }
-      return style;
+      return style2;
     }
     log(message) {
       console.log(
@@ -1244,803 +3799,199 @@
       this._logger.error(message, error);
     }
   }
-  function useElements$1() {
+  function useGalleryElements() {
     const infoDiv = getElement(".gm");
-    const archiveLinkAnchor2 = getElement("#gd5 > p:nth-child(2) a");
-    const torrentLinkAnchor2 = getElement("#gd5 > p:nth-child(3) a");
+    const archiveLinkAnchor = getElement("#gd5 > p:nth-child(2) a");
+    const torrentLinkAnchor = getElement("#gd5 > p:nth-child(3) a");
     const favoritesLinkAnchor = getElement("#favoritelink");
     const favoritesLinkDiv = getElement("#gdf");
     return {
       infoDiv,
-      archiveLinkAnchor: archiveLinkAnchor2,
-      torrentLinkAnchor: torrentLinkAnchor2,
+      archiveLinkAnchor,
+      torrentLinkAnchor,
       favoritesLinkAnchor,
       favoritesLinkDiv
     };
   }
   const torrentInnerHtml = vue.ref("");
   const archiveInnerHtml = vue.ref("");
-  const favoritesInnerHtml = vue.ref("");
-  const {
-    archiveLinkAnchor,
-    torrentLinkAnchor
-  } = useElements$1();
-  function usePreloadLinks() {
-    return {
-      torrentInnerHtml,
-      archiveInnerHtml,
-      favoritesInnerHtml
-    };
-  }
-  async function preloadLinks() {
-    [
-      archiveInnerHtml.value,
-      torrentInnerHtml.value,
-      favoritesInnerHtml.value
-    ] = await Promise.all([
-      preloadArchiveLink(),
-      preloadTorrentLink(),
-      preloadFavoritesLink()
-    ]);
-  }
-  async function preloadTorrentLink() {
-    const logger = new LoggerScopeDecorator(new Logger("Preload Links"), "Torrent");
-    logger.log("Start");
-    const link = getDownloadLink(torrentLinkAnchor);
-    if (!link) {
-      logger.error("link not found.");
-      return "";
-    }
-    const doc = await getDoc(link);
-    const popupContent = getPopupContent(doc, "#torrentinfo > div:first-child");
-    if (!popupContent) {
-      logger.error("popup content not found.");
-      return "";
-    }
-    logger.log("End");
-    return popupContent.innerHTML;
-  }
-  async function preloadArchiveLink() {
-    const logger = new LoggerScopeDecorator(new Logger("Preload Links"), "Archive");
-    logger.log("Start");
-    const link = getDownloadLink(archiveLinkAnchor);
-    if (!link) {
-      logger.error("link not found.");
-      return "";
-    }
-    const doc = await getDoc(link);
-    const popupContent = getPopupContent(doc, "#db");
-    if (!popupContent) {
-      logger.error("popup content not found.");
-      return "";
-    }
-    logger.log("End");
-    return popupContent.innerHTML;
-  }
-  async function preloadFavoritesLink() {
-    const logger = new LoggerScopeDecorator(new Logger("Preload Links"), "Favorites");
-    logger.log("Start");
-    const link = getFavoritesLink();
-    if (!link) {
-      logger.error("link not found.");
-      return "";
-    }
-    const doc = await getDoc(link);
-    const popupContent = getPopupContent(doc, ".stuffbox");
-    if (!popupContent) {
-      logger.error("popup content not found.");
-      return "";
-    }
-    logger.log("End");
-    return popupContent.innerHTML;
-  }
-  function getDownloadLink(linkElement) {
-    var _a2;
-    const onClick = linkElement.getAttribute("onclick");
-    if (!onClick) {
-      return null;
-    }
-    return (_a2 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a2[1];
-  }
-  function getPopupContent(doc, selector) {
-    const content = getElement(selector, doc);
-    if (!content) {
-      return null;
-    }
-    content.removeAttribute("style");
-    content.classList.add("popup");
-    return content;
-  }
-  function getFavoritesLink() {
-    return `${location.origin}/gallerypopups.php?gid=${getGID()}&t=${getGalleryVersion()}&act=addfav`;
-  }
-  function getGID() {
-    return location.pathname.split("/")[2];
-  }
-  function getGalleryVersion() {
-    return location.pathname.split("/")[3];
-  }
-  function usePosition() {
-    const { archiveLinkAnchor: archiveLinkAnchor2, torrentLinkAnchor: torrentLinkAnchor2, favoritesLinkAnchor, infoDiv } = useElements$1();
-    function getDownloadPopupRight() {
-      return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2;
-    }
-    function getArchiveTop() {
-      const { top, height } = archiveLinkAnchor2.getBoundingClientRect();
-      return top + height + window.scrollY + 5;
-    }
-    function getTorrentTop() {
-      const { top, height } = torrentLinkAnchor2.getBoundingClientRect();
-      return top + height + window.scrollY + 5;
-    }
-    function getFavoritesPosition() {
-      const { top, height, left } = favoritesLinkAnchor.getBoundingClientRect();
+  const favoriteInnerHtml = vue.ref("");
+  function useFetchPopups() {
+    const {
+      archiveLinkAnchor,
+      torrentLinkAnchor
+    } = useGalleryElements();
+    function getInnerHTMLs() {
       return {
-        top: `${top + height + window.scrollY + 5}px`,
-        left: `${left}px`
+        torrentInnerHtml,
+        archiveInnerHtml,
+        favoriteInnerHtml
+      };
+    }
+    async function preloadLinks() {
+      [
+        archiveInnerHtml.value,
+        torrentInnerHtml.value,
+        favoriteInnerHtml.value
+      ] = await Promise.all([
+        fetchArchive(),
+        fetchTorrents(),
+        fetchFavorites()
+      ]);
+    }
+    async function fetchTorrents() {
+      const logger = new LoggerScopeDecorator(new Logger("Preload Links"), "Torrent");
+      logger.log("Start");
+      const link = getDownloadLink(torrentLinkAnchor);
+      if (!link) {
+        logger.error("link not found.");
+        return "";
+      }
+      const doc = await getDoc(link);
+      const popupContent = getPopupContent(doc, "#torrentinfo > div:first-child");
+      if (!popupContent) {
+        logger.error("popup content not found.");
+        return "";
+      }
+      logger.log("End");
+      return popupContent.innerHTML;
+    }
+    async function fetchArchive(url) {
+      const logger = new LoggerScopeDecorator(new Logger("Preload Links"), "Archive");
+      logger.log("Start");
+      const link = url || getDownloadLink(archiveLinkAnchor);
+      console.log("🚀 ~ fetchArchive ~ link:", link);
+      if (!link) {
+        logger.error("link not found.");
+        return "";
+      }
+      const doc = await getDoc(link);
+      const popupContent = getPopupContent(doc, "#db");
+      if (!popupContent) {
+        logger.error("popup content not found.");
+        return "";
+      }
+      logger.log("End");
+      return popupContent.innerHTML;
+    }
+    async function fetchFavorites() {
+      const logger = new LoggerScopeDecorator(new Logger("Preload Links"), "Favorites");
+      logger.log("Start");
+      const link = getFavoritesLink();
+      if (!link) {
+        logger.error("link not found.");
+        return "";
+      }
+      const doc = await getDoc(link);
+      const popupContent = getPopupContent(doc, ".stuffbox");
+      if (!popupContent) {
+        logger.error("popup content not found.");
+        return "";
+      }
+      logger.log("End");
+      return popupContent.innerHTML;
+    }
+    function getDownloadLink(linkElement) {
+      var _a2;
+      const onClick = linkElement.getAttribute("onclick");
+      if (!onClick) {
+        return null;
+      }
+      return (_a2 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a2[1];
+    }
+    function getPopupContent(doc, selector) {
+      const content = getElement(selector, doc);
+      if (!content) {
+        return null;
+      }
+      content.removeAttribute("style");
+      content.classList.add("popup");
+      return content;
+    }
+    function getFavoritesLink() {
+      return `${location.origin}/gallerypopups.php?gid=${getGID()}&t=${getGalleryVersion()}&act=addfav`;
+    }
+    function getGID() {
+      return location.pathname.split("/")[2];
+    }
+    function getGalleryVersion() {
+      return location.pathname.split("/")[3];
+    }
+    return {
+      getInnerHTMLs,
+      preloadLinks,
+      fetchTorrents,
+      fetchArchive,
+      fetchFavorites,
+      getDownloadLink,
+      getPopupContent,
+      getFavoritesLink,
+      getGID,
+      getGalleryVersion
+    };
+  }
+  function getGalleryMetadataBody(id, token) {
+    return JSON.stringify({
+      "method": "gdata",
+      "gidlist": [
+        [id, token]
+      ],
+      "namespace": 1
+    });
+  }
+  function getGalleryIDandToken(pathname) {
+    var _a2;
+    const groups = (_a2 = pathname.match(/(mpv|g)\/(?<id>\d+)\/(?<token>\w+)/)) == null ? void 0 : _a2.groups;
+    if (!groups) {
+      return {
+        id: null,
+        token: null
       };
     }
     return {
-      archive: {
-        top: `${getArchiveTop()}px`,
-        right: `${getDownloadPopupRight()}px`
-      },
-      torrent: {
-        top: `${getTorrentTop()}px`,
-        right: `${getDownloadPopupRight()}px`
-      },
-      favorites: getFavoritesPosition()
+      id: Number(groups.id),
+      token: groups.token
     };
   }
-  const baseLogger = new Logger("Images");
-  async function fetchAllImages({ delayInMs = 3e3 }) {
-    const logger = new LoggerScopeDecorator(baseLogger, "Fetch All");
-    if (!isFirstPage()) {
-      logger.log("Not first page, do nothing");
-      return;
-    }
-    logger.log("Start");
-    const pageUrls = getPageUrls();
-    if (!pageUrls) {
-      return;
-    }
-    if (pageUrls.length === 0) {
-      logger.log("Only one page, do nothing");
-      return;
-    }
-    for (const url of pageUrls) {
-      try {
-        await delay(delayInMs);
-        logger.log(`fetching ${url}`);
-        const doc = await getDoc(url);
-        const imageElements = getImageElements(doc);
-        if (!imageElements) {
-          return;
-        }
-        appendImages(imageElements);
-      } catch (error) {
-        if (error instanceof Error) {
-          logger.error(`fetch ${url} failed`, error);
-        }
-      }
-    }
-    logger.log("Done");
-    function isFirstPage() {
-      var _a2;
-      return ((_a2 = getElement(".ptds")) == null ? void 0 : _a2.innerText) === "1";
-    }
-    function getImageElements(doc) {
-      return getElements(".gdtl", doc);
-    }
-    function getPageUrls() {
-      const lastPageElement = getElement(".ptt td:nth-last-child(2)");
-      if (!lastPageElement) {
-        logger.error("Get last page element failed");
-        return;
-      }
-      const pageCount2 = Number(lastPageElement.innerText);
-      if (pageCount2 === 1) {
-        return [];
-      }
-      const { href } = window.location;
-      return Array(pageCount2 - 1).fill("").map((_, index2) => `${href}?p=${index2 + 1}`);
-    }
-    function appendImages(elements) {
-      var _a2;
-      (_a2 = getElement("#gdt > .c")) == null ? void 0 : _a2.before(...elements);
-    }
-  }
-  function tryOnScopeDispose(fn) {
-    if (vue.getCurrentScope()) {
-      vue.onScopeDispose(fn);
-      return true;
-    }
-    return false;
-  }
-  function toValue(r) {
-    return typeof r === "function" ? r() : vue.unref(r);
-  }
-  const isClient = typeof window !== "undefined" && typeof document !== "undefined";
-  const toString = Object.prototype.toString;
-  const isObject$1 = (val) => toString.call(val) === "[object Object]";
-  const noop = () => {
-  };
-  const isIOS = /* @__PURE__ */ getIsIOS();
-  function getIsIOS() {
-    var _a2;
-    return isClient && ((_a2 = window == null ? void 0 : window.navigator) == null ? void 0 : _a2.userAgent) && /* @__PURE__ */ /iP(ad|hone|od)/.test(window.navigator.userAgent);
-  }
-  function createFilterWrapper(filter, fn) {
-    function wrapper(...args) {
-      return new Promise((resolve, reject) => {
-        Promise.resolve(filter(() => fn.apply(this, args), { fn, thisArg: this, args })).then(resolve).catch(reject);
-      });
-    }
-    return wrapper;
-  }
-  const bypassFilter = (invoke) => {
-    return invoke();
-  };
-  function pausableFilter(extendFilter = bypassFilter) {
-    const isActive = vue.ref(true);
-    function pause() {
-      isActive.value = false;
-    }
-    function resume() {
-      isActive.value = true;
-    }
-    const eventFilter = (...args) => {
-      if (isActive.value)
-        extendFilter(...args);
-    };
-    return { isActive: vue.readonly(isActive), pause, resume, eventFilter };
-  }
-  function objectEntries(obj) {
-    return Object.entries(obj);
-  }
-  function watchWithFilter(source, cb, options = {}) {
-    const {
-      eventFilter = bypassFilter,
-      ...watchOptions
-    } = options;
-    return vue.watch(
-      source,
-      createFilterWrapper(
-        eventFilter,
-        cb
-      ),
-      watchOptions
-    );
-  }
-  function watchPausable(source, cb, options = {}) {
-    const {
-      eventFilter: filter,
-      ...watchOptions
-    } = options;
-    const { eventFilter, pause, resume, isActive } = pausableFilter(filter);
-    const stop = watchWithFilter(
-      source,
-      cb,
+  async function fetchGalleryData({ id, token }) {
+    const apiURL = "https://exhentai.org/api.php";
+    return fetch(
+      apiURL,
       {
-        ...watchOptions,
-        eventFilter
+        method: "POST",
+        body: getGalleryMetadataBody(id, token)
       }
-    );
-    return { stop, pause, resume, isActive };
+    ).then((response) => response.json());
   }
-  function unrefElement(elRef) {
-    var _a2;
-    const plain = toValue(elRef);
-    return (_a2 = plain == null ? void 0 : plain.$el) != null ? _a2 : plain;
-  }
-  const defaultWindow = isClient ? window : void 0;
-  const defaultDocument = isClient ? window.document : void 0;
-  function useEventListener(...args) {
-    let target;
-    let events;
-    let listeners;
-    let options;
-    if (typeof args[0] === "string" || Array.isArray(args[0])) {
-      [events, listeners, options] = args;
-      target = defaultWindow;
-    } else {
-      [target, events, listeners, options] = args;
-    }
-    if (!target)
-      return noop;
-    if (!Array.isArray(events))
-      events = [events];
-    if (!Array.isArray(listeners))
-      listeners = [listeners];
-    const cleanups = [];
-    const cleanup = () => {
-      cleanups.forEach((fn) => fn());
-      cleanups.length = 0;
-    };
-    const register = (el, event, listener, options2) => {
-      el.addEventListener(event, listener, options2);
-      return () => el.removeEventListener(event, listener, options2);
-    };
-    const stopWatch = vue.watch(
-      () => [unrefElement(target), toValue(options)],
-      ([el, options2]) => {
-        cleanup();
-        if (!el)
-          return;
-        const optionsClone = isObject$1(options2) ? { ...options2 } : options2;
-        cleanups.push(
-          ...events.flatMap((event) => {
-            return listeners.map((listener) => register(el, event, listener, optionsClone));
-          })
-        );
-      },
-      { immediate: true, flush: "post" }
-    );
-    const stop = () => {
-      stopWatch();
-      cleanup();
-    };
-    tryOnScopeDispose(stop);
-    return stop;
-  }
-  let _iOSWorkaround = false;
-  function onClickOutside(target, handler, options = {}) {
-    const { window: window2 = defaultWindow, ignore = [], capture = true, detectIframe = false } = options;
-    if (!window2)
+  async function changeTitleToJapanese() {
+    const { id, token } = getGalleryIDandToken(_unsafeWindow.location.pathname);
+    if (!id || !token) {
       return;
-    if (isIOS && !_iOSWorkaround) {
-      _iOSWorkaround = true;
-      Array.from(window2.document.body.children).forEach((el) => el.addEventListener("click", noop));
-      window2.document.documentElement.addEventListener("click", noop);
     }
-    let shouldListen = true;
-    const shouldIgnore = (event) => {
-      return ignore.some((target2) => {
-        if (typeof target2 === "string") {
-          return Array.from(window2.document.querySelectorAll(target2)).some((el) => el === event.target || event.composedPath().includes(el));
-        } else {
-          const el = unrefElement(target2);
-          return el && (event.target === el || event.composedPath().includes(el));
-        }
-      });
-    };
-    const listener = (event) => {
-      const el = unrefElement(target);
-      if (!el || el === event.target || event.composedPath().includes(el))
-        return;
-      if (event.detail === 0)
-        shouldListen = !shouldIgnore(event);
-      if (!shouldListen) {
-        shouldListen = true;
-        return;
-      }
-      handler(event);
-    };
-    const cleanup = [
-      useEventListener(window2, "click", listener, { passive: true, capture }),
-      useEventListener(window2, "pointerdown", (e) => {
-        const el = unrefElement(target);
-        if (el)
-          shouldListen = !e.composedPath().includes(el) && !shouldIgnore(e);
-      }, { passive: true }),
-      detectIframe && useEventListener(window2, "blur", (event) => {
-        setTimeout(() => {
-          var _a2;
-          const el = unrefElement(target);
-          if (((_a2 = window2.document.activeElement) == null ? void 0 : _a2.tagName) === "IFRAME" && !(el == null ? void 0 : el.contains(window2.document.activeElement)))
-            handler(event);
-        }, 0);
-      })
-    ].filter(Boolean);
-    const stop = () => cleanup.forEach((fn) => fn());
-    return stop;
-  }
-  function useMounted() {
-    const isMounted = vue.ref(false);
-    if (vue.getCurrentInstance()) {
-      vue.onMounted(() => {
-        isMounted.value = true;
-      });
-    }
-    return isMounted;
-  }
-  function useSupported(callback) {
-    const isMounted = useMounted();
-    return vue.computed(() => {
-      isMounted.value;
-      return Boolean(callback());
+    const galleryData = await fetchGalleryData({
+      id,
+      token
     });
-  }
-  const WRITABLE_PROPERTIES = [
-    "hash",
-    "host",
-    "hostname",
-    "href",
-    "pathname",
-    "port",
-    "protocol",
-    "search"
-  ];
-  function useBrowserLocation(options = {}) {
-    const { window: window2 = defaultWindow } = options;
-    const refs = Object.fromEntries(
-      WRITABLE_PROPERTIES.map((key) => [key, vue.ref()])
-    );
-    for (const [key, ref2] of objectEntries(refs)) {
-      vue.watch(ref2, (value) => {
-        if (!(window2 == null ? void 0 : window2.location) || window2.location[key] === value)
-          return;
-        window2.location[key] = value;
-      });
-    }
-    const buildState = (trigger) => {
-      var _a2;
-      const { state: state2, length } = (window2 == null ? void 0 : window2.history) || {};
-      const { origin } = (window2 == null ? void 0 : window2.location) || {};
-      for (const key of WRITABLE_PROPERTIES)
-        refs[key].value = (_a2 = window2 == null ? void 0 : window2.location) == null ? void 0 : _a2[key];
-      return vue.reactive({
-        trigger,
-        state: state2,
-        length,
-        origin,
-        ...refs
-      });
-    };
-    const state = vue.ref(buildState("load"));
-    if (window2) {
-      useEventListener(window2, "popstate", () => state.value = buildState("popstate"), { passive: true });
-      useEventListener(window2, "hashchange", () => state.value = buildState("hashchange"), { passive: true });
-    }
-    return state;
-  }
-  const _global = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-  const globalKey = "__vueuse_ssr_handlers__";
-  const handlers = /* @__PURE__ */ getHandlers();
-  function getHandlers() {
-    if (!(globalKey in _global))
-      _global[globalKey] = _global[globalKey] || {};
-    return _global[globalKey];
-  }
-  function getSSRHandler(key, fallback) {
-    return handlers[key] || fallback;
-  }
-  function guessSerializerType(rawInit) {
-    return rawInit == null ? "any" : rawInit instanceof Set ? "set" : rawInit instanceof Map ? "map" : rawInit instanceof Date ? "date" : typeof rawInit === "boolean" ? "boolean" : typeof rawInit === "string" ? "string" : typeof rawInit === "object" ? "object" : !Number.isNaN(rawInit) ? "number" : "any";
-  }
-  const StorageSerializers = {
-    boolean: {
-      read: (v) => v === "true",
-      write: (v) => String(v)
-    },
-    object: {
-      read: (v) => JSON.parse(v),
-      write: (v) => JSON.stringify(v)
-    },
-    number: {
-      read: (v) => Number.parseFloat(v),
-      write: (v) => String(v)
-    },
-    any: {
-      read: (v) => v,
-      write: (v) => String(v)
-    },
-    string: {
-      read: (v) => v,
-      write: (v) => String(v)
-    },
-    map: {
-      read: (v) => new Map(JSON.parse(v)),
-      write: (v) => JSON.stringify(Array.from(v.entries()))
-    },
-    set: {
-      read: (v) => new Set(JSON.parse(v)),
-      write: (v) => JSON.stringify(Array.from(v))
-    },
-    date: {
-      read: (v) => new Date(v),
-      write: (v) => v.toISOString()
-    }
-  };
-  const customStorageEventName = "vueuse-storage";
-  function useStorage(key, defaults, storage, options = {}) {
-    var _a2;
-    const {
-      flush = "pre",
-      deep = true,
-      listenToStorageChanges = true,
-      writeDefaults = true,
-      mergeDefaults = false,
-      shallow,
-      window: window2 = defaultWindow,
-      eventFilter,
-      onError = (e) => {
-        console.error(e);
-      }
-    } = options;
-    const data = (shallow ? vue.shallowRef : vue.ref)(defaults);
-    if (!storage) {
-      try {
-        storage = getSSRHandler("getDefaultStorage", () => {
-          var _a22;
-          return (_a22 = defaultWindow) == null ? void 0 : _a22.localStorage;
-        })();
-      } catch (e) {
-        onError(e);
-      }
-    }
-    if (!storage)
-      return data;
-    const rawInit = toValue(defaults);
-    const type = guessSerializerType(rawInit);
-    const serializer = (_a2 = options.serializer) != null ? _a2 : StorageSerializers[type];
-    const { pause: pauseWatch, resume: resumeWatch } = watchPausable(
-      data,
-      () => write(data.value),
-      { flush, deep, eventFilter }
-    );
-    if (window2 && listenToStorageChanges) {
-      useEventListener(window2, "storage", update);
-      useEventListener(window2, customStorageEventName, updateFromCustomEvent);
-    }
-    update();
-    return data;
-    function write(v) {
-      try {
-        if (v == null) {
-          storage.removeItem(key);
-        } else {
-          const serialized = serializer.write(v);
-          const oldValue = storage.getItem(key);
-          if (oldValue !== serialized) {
-            storage.setItem(key, serialized);
-            if (window2) {
-              window2.dispatchEvent(new CustomEvent(customStorageEventName, {
-                detail: {
-                  key,
-                  oldValue,
-                  newValue: serialized,
-                  storageArea: storage
-                }
-              }));
-            }
-          }
-        }
-      } catch (e) {
-        onError(e);
-      }
-    }
-    function read(event) {
-      const rawValue = event ? event.newValue : storage.getItem(key);
-      if (rawValue == null) {
-        if (writeDefaults && rawInit !== null)
-          storage.setItem(key, serializer.write(rawInit));
-        return rawInit;
-      } else if (!event && mergeDefaults) {
-        const value = serializer.read(rawValue);
-        if (typeof mergeDefaults === "function")
-          return mergeDefaults(value, rawInit);
-        else if (type === "object" && !Array.isArray(value))
-          return { ...rawInit, ...value };
-        return value;
-      } else if (typeof rawValue !== "string") {
-        return rawValue;
-      } else {
-        return serializer.read(rawValue);
-      }
-    }
-    function updateFromCustomEvent(event) {
-      update(event.detail);
-    }
-    function update(event) {
-      if (event && event.storageArea !== storage)
-        return;
-      if (event && event.key == null) {
-        data.value = rawInit;
-        return;
-      }
-      if (event && event.key !== key)
-        return;
-      pauseWatch();
-      try {
-        if ((event == null ? void 0 : event.newValue) !== serializer.write(data.value))
-          data.value = read(event);
-      } catch (e) {
-        onError(e);
-      } finally {
-        if (event)
-          vue.nextTick(resumeWatch);
-        else
-          resumeWatch();
+    if (galleryData) {
+      const japaneseTitle = galleryData.gmetadata[0].title_jpn;
+      if (japaneseTitle) {
+        document.title = japaneseTitle;
       }
     }
   }
-  const eventHandlers = [
-    "fullscreenchange",
-    "webkitfullscreenchange",
-    "webkitendfullscreen",
-    "mozfullscreenchange",
-    "MSFullscreenChange"
-  ];
-  function useFullscreen(target, options = {}) {
-    const {
-      document: document2 = defaultDocument,
-      autoExit = false
-    } = options;
-    const targetRef = vue.computed(() => {
-      var _a2;
-      return (_a2 = unrefElement(target)) != null ? _a2 : document2 == null ? void 0 : document2.querySelector("html");
+  async function getArchiveLink(url) {
+    const { id, token } = getGalleryIDandToken(url);
+    if (!id || !token) {
+      return;
+    }
+    const galleryData = await fetchGalleryData({
+      id,
+      token
     });
-    const isFullscreen = vue.ref(false);
-    const requestMethod = vue.computed(() => {
-      return [
-        "requestFullscreen",
-        "webkitRequestFullscreen",
-        "webkitEnterFullscreen",
-        "webkitEnterFullScreen",
-        "webkitRequestFullScreen",
-        "mozRequestFullScreen",
-        "msRequestFullscreen"
-      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
-    });
-    const exitMethod = vue.computed(() => {
-      return [
-        "exitFullscreen",
-        "webkitExitFullscreen",
-        "webkitExitFullScreen",
-        "webkitCancelFullScreen",
-        "mozCancelFullScreen",
-        "msExitFullscreen"
-      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
-    });
-    const fullscreenEnabled = vue.computed(() => {
-      return [
-        "fullScreen",
-        "webkitIsFullScreen",
-        "webkitDisplayingFullscreen",
-        "mozFullScreen",
-        "msFullscreenElement"
-      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
-    });
-    const fullscreenElementMethod = [
-      "fullscreenElement",
-      "webkitFullscreenElement",
-      "mozFullScreenElement",
-      "msFullscreenElement"
-    ].find((m) => document2 && m in document2);
-    const isSupported = useSupported(() => targetRef.value && document2 && requestMethod.value !== void 0 && exitMethod.value !== void 0 && fullscreenEnabled.value !== void 0);
-    const isCurrentElementFullScreen = () => {
-      if (fullscreenElementMethod)
-        return (document2 == null ? void 0 : document2[fullscreenElementMethod]) === targetRef.value;
-      return false;
-    };
-    const isElementFullScreen = () => {
-      if (fullscreenEnabled.value) {
-        if (document2 && document2[fullscreenEnabled.value] != null) {
-          return document2[fullscreenEnabled.value];
-        } else {
-          const target2 = targetRef.value;
-          if ((target2 == null ? void 0 : target2[fullscreenEnabled.value]) != null) {
-            return Boolean(target2[fullscreenEnabled.value]);
-          }
-        }
-      }
-      return false;
-    };
-    async function exit() {
-      if (!isSupported.value || !isFullscreen.value)
-        return;
-      if (exitMethod.value) {
-        if ((document2 == null ? void 0 : document2[exitMethod.value]) != null) {
-          await document2[exitMethod.value]();
-        } else {
-          const target2 = targetRef.value;
-          if ((target2 == null ? void 0 : target2[exitMethod.value]) != null)
-            await target2[exitMethod.value]();
-        }
-      }
-      isFullscreen.value = false;
-    }
-    async function enter() {
-      if (!isSupported.value || isFullscreen.value)
-        return;
-      if (isElementFullScreen())
-        await exit();
-      const target2 = targetRef.value;
-      if (requestMethod.value && (target2 == null ? void 0 : target2[requestMethod.value]) != null) {
-        await target2[requestMethod.value]();
-        isFullscreen.value = true;
-      }
-    }
-    async function toggle() {
-      await (isFullscreen.value ? exit() : enter());
-    }
-    const handlerCallback = () => {
-      const isElementFullScreenValue = isElementFullScreen();
-      if (!isElementFullScreenValue || isElementFullScreenValue && isCurrentElementFullScreen())
-        isFullscreen.value = isElementFullScreenValue;
-    };
-    useEventListener(document2, eventHandlers, handlerCallback, false);
-    useEventListener(() => unrefElement(targetRef), eventHandlers, handlerCallback, false);
-    if (autoExit)
-      tryOnScopeDispose(exit);
-    return {
-      isSupported,
-      isFullscreen,
-      enter,
-      exit,
-      toggle
-    };
+    return `${_unsafeWindow.location.origin}/archiver.php?gid=${id}&token=${token}&or=${galleryData.gmetadata[0].archiver_key}`;
   }
-  const _hoisted_1$8 = ["innerHTML"];
-  const _sfc_main$a = /* @__PURE__ */ vue.defineComponent({
-    __name: "PopupTorrent",
-    props: {
-      innerHTML: {
-        type: String,
-        required: true
-      }
-    },
-    setup(__props) {
-      const popup = vue.ref();
-      const { torrentLinkAnchor: torrentLinkAnchor2 } = useElements$1();
-      const isShow = vue.ref(false);
-      vue.onMounted(() => {
-        torrentLinkAnchor2.removeAttribute("onclick");
-        torrentLinkAnchor2.classList.add("is-ready");
-        if (torrentLinkAnchor2.innerText === "Torrent Download (1)") {
-          setDownloadEvent();
-        } else {
-          setToggleEvent();
-        }
-      });
-      function setDownloadEvent() {
-        torrentLinkAnchor2.addEventListener("click", (event) => {
-          var _a2;
-          event.preventDefault();
-          (_a2 = getElement("a", popup.value)) == null ? void 0 : _a2.click();
-        });
-      }
-      function setToggleEvent() {
-        torrentLinkAnchor2.addEventListener("click", (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          isShow.value = !isShow.value;
-        });
-        onClickOutside(popup, (event) => {
-          if (event.target === torrentLinkAnchor2) {
-            return;
-          }
-          isShow.value = false;
-        });
-      }
-      return (_ctx, _cache) => {
-        return vue.openBlock(), vue.createBlock(vue.Transition, { name: "fade" }, {
-          default: vue.withCtx(() => [
-            vue.withDirectives(vue.createElementVNode("div", {
-              ref_key: "popup",
-              ref: popup,
-              class: "popup",
-              innerHTML: __props.innerHTML
-            }, null, 8, _hoisted_1$8), [
-              [vue.vShow, isShow.value]
-            ])
-          ]),
-          _: 1
-        });
-      };
-    }
-  });
-  const _export_sfc = (sfc, props) => {
-    const target = sfc.__vccOpts || sfc;
-    for (const [key, val] of props) {
-      target[key] = val;
-    }
-    return target;
-  };
-  const PopupTorrent = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-0f43299d"]]);
   const toast = useToast();
-  function useDownloadEvent() {
+  function useArchive() {
     function setHentaiAtHomeEvent() {
       var _a2, _b, _c;
       const logger = new Logger("Hentai At Home Event");
@@ -2144,90 +4095,17 @@
           console.warn("Download failed, response HTML:", html);
           return;
         }
-        const matches = html.match(/document\.location = "(.*)"/);
-        if (!matches || (matches == null ? void 0 : matches.length) !== 2) {
+        const matches2 = html.match(/document\.location = "(.*)"/);
+        if (!matches2 || (matches2 == null ? void 0 : matches2.length) !== 2) {
           toast.error("something went wrong. Open your console to see the response");
           console.warn("Download failed, response HTML:", html);
           return;
         }
-        const downloadLink = `${matches[1]}?start=1`;
+        const downloadLink = `${matches2[1]}?start=1`;
         window.location.href = downloadLink;
       }
     }
-    return {
-      setHentaiAtHomeEvent,
-      setDirectDownloadEvent
-    };
-  }
-  const _hoisted_1$7 = ["innerHTML"];
-  const _sfc_main$9 = /* @__PURE__ */ vue.defineComponent({
-    __name: "PopupArchive",
-    props: {
-      innerHTML: {
-        type: String,
-        required: true
-      }
-    },
-    setup(__props) {
-      const popup = vue.ref();
-      const toast2 = useToast();
-      const { archiveLinkAnchor: archiveLinkAnchor2 } = useElements$1();
-      const { setHentaiAtHomeEvent, setDirectDownloadEvent } = useDownloadEvent();
-      const isShow = vue.ref(false);
-      vue.onMounted(() => {
-        archiveLinkAnchor2.removeAttribute("onclick");
-        archiveLinkAnchor2.classList.add("is-ready");
-        setHentaiAtHomeEvent();
-        setDirectDownloadEvent();
-        if (quickDownloadMethod.value === DownloadMethod.Manual) {
-          setToggleEvent();
-        } else {
-          setQuickDownloadEvent();
-        }
-        onClickOutside(popup, (event) => {
-          if (event.target === archiveLinkAnchor2) {
-            return;
-          }
-          isShow.value = false;
-        });
-      });
-      function setToggleEvent() {
-        archiveLinkAnchor2.addEventListener("click", (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          isShow.value = !isShow.value;
-        });
-      }
-      function setQuickDownloadEvent() {
-        archiveLinkAnchor2.addEventListener("click", (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          if (!popup.value || isShow.value) {
-            isShow.value = false;
-            return;
-          }
-          switch (quickDownloadMethod.value) {
-            case DownloadMethod.HaH_Original:
-            case DownloadMethod.HaH_2400: {
-              const downloadLinkElement = getHaHDownloadLinkElement(quickDownloadMethod.value);
-              if (downloadLinkElement) {
-                downloadLinkElement.click();
-              } else {
-                toast2.warning(`Failed ${quickDownloadMethod.value}. The link might not exists.
- Open popup`);
-                isShow.value = true;
-              }
-              break;
-            }
-            case DownloadMethod.Direct_Origin:
-              getElement('input[value="Download Original Archive"]', popup.value).click();
-              break;
-            case DownloadMethod.Direct_Resample:
-              getElement('input[value="Download Resample Archive"]', popup.value).click();
-              break;
-          }
-        });
-      }
+    function quickDownload(popup) {
       function getHaHDownloadLinkElement(downloadMethod) {
         const indexMap = {
           [DownloadMethod.HaH_Original]: 6,
@@ -2236,84 +4114,281 @@
         const index2 = indexMap[downloadMethod];
         return getElement(`td:nth-child(${index2}) > p > a`, popup.value);
       }
+      switch (quickDownloadMethod.value) {
+        case DownloadMethod.HaH_Original:
+        case DownloadMethod.HaH_2400: {
+          const downloadLinkElement = getHaHDownloadLinkElement(quickDownloadMethod.value);
+          if (downloadLinkElement) {
+            downloadLinkElement.click();
+          } else {
+            toast.warning(`Failed ${quickDownloadMethod.value}. The link might not exists.
+ Open popup`);
+            return false;
+          }
+          break;
+        }
+        case DownloadMethod.Direct_Origin:
+          getElement('input[value="Download Original Archive"]', popup.value).click();
+          break;
+        case DownloadMethod.Direct_Resample:
+          getElement('input[value="Download Resample Archive"]', popup.value).click();
+          break;
+      }
+      return true;
+    }
+    return {
+      setHentaiAtHomeEvent,
+      setDirectDownloadEvent,
+      quickDownload
+    };
+  }
+  const _hoisted_1$7 = ["innerHTML"];
+  const _sfc_main$8 = /* @__PURE__ */ vue.defineComponent({
+    __name: "FrontPageEnhancer",
+    setup(__props) {
+      if (scrollByRowSwitch.value) {
+        useWheelStep({
+          containerSelector: ".itg.gld",
+          itemsSelector: ".gl1t"
+        });
+      }
+      if (infiniteScrollSwitch.value) {
+        useInfiniteScroll({
+          onFetched: appendArchiveButtons
+        });
+      }
+      function useInfiniteScroll({
+        onFetched = () => {
+        }
+      } = {}) {
+        var _a2, _b;
+        const galleryContainer = getElement(".itg.gld");
+        const bottomPagination = (_a2 = getElements(".searchnav")) == null ? void 0 : _a2[1];
+        let nextPageUrl = (_b = getElement("#dnext")) == null ? void 0 : _b.getAttribute("href");
+        let isFetching = false;
+        const intersectionObserver = new IntersectionObserver(async ([bottomPagination2]) => {
+          var _a3;
+          if (!bottomPagination2.isIntersecting || isFetching) {
+            return;
+          }
+          if (!nextPageUrl) {
+            return;
+          }
+          isFetching = true;
+          galleryContainer == null ? void 0 : galleryContainer.classList.add("is-fetching");
+          const doc = await getDoc(nextPageUrl);
+          const galleriesOfNextPage = getElements(".itg.gld > .gl1t", doc);
+          if (!galleriesOfNextPage) {
+            return;
+          }
+          galleryContainer == null ? void 0 : galleryContainer.append(...galleriesOfNextPage);
+          isFetching = false;
+          galleryContainer == null ? void 0 : galleryContainer.classList.remove("is-fetching");
+          nextPageUrl = (_a3 = getElement("#dnext", doc)) == null ? void 0 : _a3.getAttribute("href");
+          history.pushState(void 0, doc.title, nextPageUrl);
+          onFetched();
+        });
+        if (bottomPagination) {
+          intersectionObserver.observe(bottomPagination);
+        }
+      }
+      const { getInnerHTMLs, fetchArchive } = useFetchPopups();
+      const { archiveInnerHtml: archiveInnerHtml2 } = getInnerHTMLs();
+      const archivePopup = vue.ref();
+      const activeButton = vue.ref();
+      async function appendArchiveButtons() {
+        const galleries = getElements(".gl1t");
+        galleries == null ? void 0 : galleries.forEach((gallery) => {
+          if (getElement(".archive-button", gallery)) {
+            return;
+          }
+          const button = document.createElement("span");
+          button.classList.add("archive-button");
+          button.textContent = "A";
+          button.title = "Show Archive";
+          button.onclick = async () => {
+            isArchivePopupShow.value = !isArchivePopupShow.value;
+            archiveInnerHtml2.value = "Fetching...";
+            activeButton.value = button;
+            const link = getElement("a", gallery);
+            const archiveLink = await getArchiveLink(link.href);
+            archiveInnerHtml2.value = await fetchArchive(archiveLink);
+            setTimeout(() => {
+              setArchiveEvent();
+            }, 0);
+          };
+          const downloadDiv = getElement(".gldown", gallery);
+          downloadDiv == null ? void 0 : downloadDiv.appendChild(button);
+        });
+      }
+      const borderRect = useElementBounding(getElement(".itg.gld"));
+      const popupRect = useElementBounding(archivePopup);
+      const targetRect = useElementBounding(activeButton);
+      const archivePopupPosition = vue.computed(() => {
+        let left = targetRect.left.value - popupRect.width.value / 2;
+        const right = left + popupRect.width.value;
+        if (left < borderRect.left.value) {
+          left = borderRect.left.value;
+        } else if (right > borderRect.right.value) {
+          left = borderRect.right.value - popupRect.width.value;
+        }
+        return {
+          top: `${targetRect.bottom.value + 5}px`,
+          left: `${left}px`,
+          // 防止 popup right 超出邊界時，瀏覽器自動 shrink popup
+          marginRight: "-9999px"
+        };
+      });
+      if (archiveButtonSwitch.value) {
+        appendArchiveButtons();
+      }
+      const modalOptions = vue.ref({
+        teleportTo: ".enhancer-container",
+        displayDirective: "show",
+        hideOverlay: true,
+        contentTransition: "vfm-fade",
+        lockScroll: false
+      });
+      const isArchivePopupShow = vue.ref(false);
+      const { setHentaiAtHomeEvent, setDirectDownloadEvent, quickDownload } = useArchive();
+      const isQuickDownload = vue.computed(() => quickDownloadMethod.value !== DownloadMethod.Manual);
+      function setArchiveEvent() {
+        setHentaiAtHomeEvent();
+        setDirectDownloadEvent();
+        if (isQuickDownload.value) {
+          const succeed = quickDownload(archivePopup);
+          if (!succeed) {
+            isArchivePopupShow.value = true;
+          }
+        }
+      }
       return (_ctx, _cache) => {
-        return vue.openBlock(), vue.createBlock(vue.Transition, { name: "fade" }, {
+        return vue.openBlock(), vue.createBlock(vue.unref(Io), vue.mergeProps({
+          modelValue: isArchivePopupShow.value,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isArchivePopupShow.value = $event)
+        }, modalOptions.value), {
           default: vue.withCtx(() => [
-            vue.withDirectives(vue.createElementVNode("div", {
-              ref_key: "popup",
-              ref: popup,
+            vue.createElementVNode("div", {
+              ref_key: "archivePopup",
+              ref: archivePopup,
               class: "popup popup--archive",
-              innerHTML: __props.innerHTML
-            }, null, 8, _hoisted_1$7), [
-              [vue.vShow, isShow.value]
-            ])
+              style: vue.normalizeStyle(archivePopupPosition.value),
+              innerHTML: vue.unref(archiveInnerHtml2)
+            }, null, 12, _hoisted_1$7)
           ]),
           _: 1
-        });
+        }, 16, ["modelValue"]);
       };
     }
   });
-  const PopupArchive = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-6ae53e87"]]);
-  const _hoisted_1$6 = ["innerHTML"];
-  const _sfc_main$8 = /* @__PURE__ */ vue.defineComponent({
-    __name: "PopupFavorites",
-    props: {
-      innerHTML: {
-        type: String,
-        required: true
-      }
-    },
-    setup(__props) {
-      const popup = vue.ref();
-      const { favoritesLinkAnchor, favoritesLinkDiv } = useElements$1();
-      const { favoritesInnerHtml: favoritesInnerHtml2 } = usePreloadLinks();
-      const isShow = vue.ref(false);
-      vue.onMounted(() => {
-        favoritesLinkDiv.removeAttribute("onclick");
-        favoritesLinkAnchor.classList.add("is-ready");
-        setToggleEvent();
-        setRequestEvents();
-        onClickOutside(popup, (event) => {
-          if (event.target === favoritesLinkAnchor) {
-            return;
-          }
-          isShow.value = false;
-        });
-      });
-      function setToggleEvent() {
-        favoritesLinkAnchor.addEventListener("click", (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          isShow.value = !isShow.value;
-        });
-      }
-      function setRequestEvents() {
-        var _a2, _b;
-        const submitButton = (_a2 = popup.value) == null ? void 0 : _a2.querySelector("input[type=submit]");
-        submitButton == null ? void 0 : submitButton.addEventListener("click", async (event) => {
-          var _a3;
-          event.preventDefault();
-          const favoriteCategory = (_a3 = getElement("[name=favcat]:checked")) == null ? void 0 : _a3.value;
-          await setFavorite(favoriteCategory);
-        });
-        const categoryOptions = (_b = popup.value) == null ? void 0 : _b.querySelectorAll("#galpop .nosel > div");
-        if (categoryOptions == null ? void 0 : categoryOptions.length) {
-          for (const option of categoryOptions) {
-            option.addEventListener("dblclick", async (event) => {
-              var _a3;
-              event.preventDefault();
-              console.log(123);
-              const category = (_a3 = option.querySelector("[name=favcat]")) == null ? void 0 : _a3.value;
-              await setFavorite(category);
-            });
-          }
+  function usePositions() {
+    const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor, infoDiv } = useGalleryElements();
+    const archiveLinkRect = useElementBounding(archiveLinkAnchor);
+    const torrentLinkRect = useElementBounding(torrentLinkAnchor);
+    const favoriteLinkRect = useElementBounding(favoritesLinkAnchor);
+    function getDownloadPopupRight() {
+      return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2;
+    }
+    return {
+      archive: vue.computed(() => ({
+        top: `${archiveLinkRect.bottom.value + 5}px`,
+        right: `${getDownloadPopupRight()}px`
+      })),
+      torrent: vue.computed(() => ({
+        top: `${torrentLinkRect.bottom.value + 5}px`,
+        right: `${getDownloadPopupRight()}px`
+      })),
+      favorite: vue.computed(() => ({
+        top: `${favoriteLinkRect.bottom.value + 5}px`,
+        right: `${favoriteLinkRect.left.value}px`
+      }))
+    };
+  }
+  const baseLogger = new Logger("Images");
+  async function fetchAllImages({ delayInMs = 3e3 }) {
+    const logger = new LoggerScopeDecorator(baseLogger, "Fetch All");
+    if (!isFirstPage()) {
+      logger.log("Not first page, do nothing");
+      return;
+    }
+    logger.log("Start");
+    const pageUrls = getPageUrls();
+    if (!pageUrls) {
+      return;
+    }
+    if (pageUrls.length === 0) {
+      logger.log("Only one page, do nothing");
+      return;
+    }
+    for (const url of pageUrls) {
+      try {
+        await delay2(delayInMs);
+        logger.log(`fetching ${url}`);
+        const doc = await getDoc(url);
+        const imageElements = getImageElements(doc);
+        if (!imageElements) {
+          return;
         }
-        _unsafeWindow.clicked_fav = () => null;
+        appendImages(imageElements);
+      } catch (error) {
+        if (error instanceof Error) {
+          logger.error(`fetch ${url} failed`, error);
+        }
       }
+    }
+    logger.log("Done");
+    function isFirstPage() {
+      var _a2;
+      return ((_a2 = getElement(".ptds")) == null ? void 0 : _a2.innerText) === "1";
+    }
+    function getImageElements(doc) {
+      return getElements(".gdtl", doc);
+    }
+    function getPageUrls() {
+      const lastPageElement = getElement(".ptt td:nth-last-child(2)");
+      if (!lastPageElement) {
+        logger.error("Get last page element failed");
+        return;
+      }
+      const pageCount2 = Number(lastPageElement.innerText);
+      if (pageCount2 === 1) {
+        return [];
+      }
+      const { href } = window.location;
+      return Array(pageCount2 - 1).fill("").map((_, index2) => `${href}?p=${index2 + 1}`);
+    }
+    function appendImages(elements) {
+      var _a2;
+      (_a2 = getElement("#gdt > .c")) == null ? void 0 : _a2.before(...elements);
+    }
+  }
+  function useFavorite(favoriteInnerHtml2) {
+    const { fetchFavorites, getFavoritesLink } = useFetchPopups();
+    function setRequestEvents(target, popup, isPopupShow) {
+      var _a2, _b;
+      const submitButton = (_a2 = popup.value) == null ? void 0 : _a2.querySelector("input[type=submit]");
+      submitButton == null ? void 0 : submitButton.addEventListener("click", async (event) => {
+        var _a3;
+        event.preventDefault();
+        const favoriteCategory = (_a3 = getElement("[name=favcat]:checked")) == null ? void 0 : _a3.value;
+        await setFavorite(favoriteCategory);
+      });
+      const categoryOptions = (_b = popup.value) == null ? void 0 : _b.querySelectorAll("#galpop .nosel > div");
+      if (categoryOptions == null ? void 0 : categoryOptions.length) {
+        for (const option of categoryOptions) {
+          option.addEventListener("dblclick", async (event) => {
+            var _a3;
+            event.preventDefault();
+            const category = (_a3 = option.querySelector("[name=favcat]")) == null ? void 0 : _a3.value;
+            await setFavorite(category);
+          });
+        }
+      }
+      _unsafeWindow.clicked_fav = () => null;
       async function setFavorite(category) {
-        var _a2, _b;
+        var _a3, _b2;
         const formData = new FormData();
-        const favoriteNote = (_a2 = getElement("[name=favnote]")) == null ? void 0 : _a2.value;
+        const favoriteNote = (_a3 = getElement("[name=favnote]")) == null ? void 0 : _a3.value;
         const apply = category === "favdel" ? "Apply Changes" : "Add to Favorites";
         formData.append("favcat", category);
         formData.append("favnote", favoriteNote);
@@ -2324,45 +4399,37 @@
           body: formData
         });
         const html = await response.text();
-        const originalScript = (_b = html.match(/(if\(window\.opener\.document\.getElementById\("favoritelink"\)).*/)) == null ? void 0 : _b[0];
+        const originalScript = (_b2 = html.match(/(if\(window\.opener\.document\.getElementById\("favoritelink"\)).*/)) == null ? void 0 : _b2[0];
         const script = originalScript == null ? void 0 : originalScript.replaceAll(".opener", "");
         Function(script)();
-        isShow.value = false;
-        favoritesInnerHtml2.value = await preloadFavoritesLink();
+        isPopupShow.value = false;
+        favoriteInnerHtml2.value = await fetchFavorites();
         await vue.nextTick();
-        setRequestEvents();
+        setRequestEvents(target, popup, isPopupShow);
       }
-      return (_ctx, _cache) => {
-        return vue.openBlock(), vue.createBlock(vue.Transition, { name: "fade" }, {
-          default: vue.withCtx(() => [
-            vue.withDirectives(vue.createElementVNode("div", {
-              ref_key: "popup",
-              ref: popup,
-              class: "popup",
-              innerHTML: __props.innerHTML
-            }, null, 8, _hoisted_1$6), [
-              [vue.vShow, isShow.value]
-            ])
-          ]),
-          _: 1
-        });
-      };
     }
-  });
-  const PopupFavorites = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-f8bd8db2"]]);
+    return {
+      setRequestEvents
+    };
+  }
+  function useTorrent() {
+    function downloadTorrent(popup) {
+      var _a2;
+      (_a2 = getElement("a", popup.value)) == null ? void 0 : _a2.click();
+    }
+    return {
+      downloadTorrent
+    };
+  }
+  const _hoisted_1$6 = ["innerHTML"];
+  const _hoisted_2$5 = ["innerHTML"];
+  const _hoisted_3$3 = ["innerHTML"];
   const _sfc_main$7 = /* @__PURE__ */ vue.defineComponent({
     __name: "GalleryEnhancer",
-    setup(__props) {
+    async setup(__props) {
+      let __temp, __restore;
       if (loadAllGalleryImagesSwitch.value) {
         fetchAllImages({ delayInMs: 1e3 });
-      }
-      const {
-        archiveInnerHtml: archiveInnerHtml2,
-        torrentInnerHtml: torrentInnerHtml2,
-        favoritesInnerHtml: favoritesInnerHtml2
-      } = usePreloadLinks();
-      if (betterPopupSwitch.value) {
-        preloadLinks();
       }
       if (scrollByRowSwitch.value) {
         useWheelStep({
@@ -2370,33 +4437,138 @@
           itemsSelector: ".gdtl"
         });
       }
+      const modalOptions = vue.ref({
+        teleportTo: ".enhancer-container",
+        displayDirective: "show",
+        hideOverlay: true,
+        contentTransition: "vfm-fade",
+        lockScroll: false
+      });
+      const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor } = useGalleryElements();
+      const archivePopup = vue.ref();
+      const torrentPopup = vue.ref();
+      const favoritePopup = vue.ref();
+      const { getInnerHTMLs, preloadLinks } = useFetchPopups();
+      const {
+        archiveInnerHtml: archiveInnerHtml2,
+        torrentInnerHtml: torrentInnerHtml2,
+        favoriteInnerHtml: favoriteInnerHtml2
+      } = getInnerHTMLs();
+      const isArchivePopupShow = vue.ref(false);
+      const isTorrentPopupShow = vue.ref(false);
+      const isFavoritePopupShow = vue.ref(false);
       const {
         archive: archivePosition,
         torrent: torrentPosition,
-        favorites: favoritesPosition
-      } = usePosition();
+        favorite: favoritePosition
+      } = usePositions();
+      const { setHentaiAtHomeEvent, setDirectDownloadEvent, quickDownload } = useArchive();
+      const { downloadTorrent } = useTorrent();
+      const { setRequestEvents } = useFavorite(favoriteInnerHtml2);
+      if (betterPopupSwitch.value) {
+        [__temp, __restore] = vue.withAsyncContext(() => preloadLinks()), await __temp, __restore();
+        setTimeout(() => {
+          setArchiveClickEvent();
+          setTorrentClickEvent();
+          setFavoriteClickEvent();
+        }, 0);
+      }
+      const isQuickDownload = vue.computed(() => quickDownloadMethod.value !== DownloadMethod.Manual);
+      function setArchiveClickEvent() {
+        setHentaiAtHomeEvent();
+        setDirectDownloadEvent();
+        archiveLinkAnchor.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          if (isQuickDownload.value) {
+            const succeed = quickDownload(archivePopup);
+            if (!succeed) {
+              isArchivePopupShow.value = true;
+            }
+          } else {
+            isArchivePopupShow.value = !isArchivePopupShow.value;
+          }
+        });
+        setReady(archiveLinkAnchor);
+      }
+      function setTorrentClickEvent() {
+        setRequestEvents(archiveLinkAnchor, favoritePopup, isFavoritePopupShow);
+        const isOnlyOneTorrent = torrentLinkAnchor.innerText === "Torrent Download (1)";
+        torrentLinkAnchor.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          if (isOnlyOneTorrent) {
+            downloadTorrent(torrentPopup);
+          } else {
+            isTorrentPopupShow.value = !isTorrentPopupShow.value;
+          }
+        });
+        setReady(torrentLinkAnchor);
+      }
+      function setFavoriteClickEvent() {
+        favoritesLinkAnchor.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          isFavoritePopupShow.value = !isFavoritePopupShow.value;
+        });
+        setReady(favoritesLinkAnchor);
+      }
+      function setReady(element) {
+        element.removeAttribute("onclick");
+        element.classList.add("is-ready");
+      }
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock(vue.Fragment, null, [
-          vue.unref(archiveInnerHtml2) ? (vue.openBlock(), vue.createBlock(PopupArchive, {
-            key: 0,
-            style: vue.normalizeStyle(vue.unref(archivePosition)),
-            "inner-h-t-m-l": vue.unref(archiveInnerHtml2)
-          }, null, 8, ["style", "inner-h-t-m-l"])) : vue.createCommentVNode("", true),
-          vue.unref(torrentInnerHtml2) ? (vue.openBlock(), vue.createBlock(PopupTorrent, {
-            key: 1,
-            style: vue.normalizeStyle(vue.unref(torrentPosition)),
-            "inner-h-t-m-l": vue.unref(torrentInnerHtml2)
-          }, null, 8, ["style", "inner-h-t-m-l"])) : vue.createCommentVNode("", true),
-          vue.unref(favoritesInnerHtml2) ? (vue.openBlock(), vue.createBlock(PopupFavorites, {
-            key: 2,
-            style: vue.normalizeStyle(vue.unref(favoritesPosition)),
-            "inner-h-t-m-l": vue.unref(favoritesInnerHtml2)
-          }, null, 8, ["style", "inner-h-t-m-l"])) : vue.createCommentVNode("", true)
+          vue.createVNode(vue.unref(Io), vue.mergeProps({
+            modelValue: isArchivePopupShow.value,
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isArchivePopupShow.value = $event)
+          }, modalOptions.value), {
+            default: vue.withCtx(() => [
+              vue.createElementVNode("div", {
+                ref_key: "archivePopup",
+                ref: archivePopup,
+                class: "popup popup--archive",
+                style: vue.normalizeStyle(vue.unref(archivePosition)),
+                innerHTML: vue.unref(archiveInnerHtml2)
+              }, null, 12, _hoisted_1$6)
+            ]),
+            _: 1
+          }, 16, ["modelValue"]),
+          vue.createVNode(vue.unref(Io), vue.mergeProps({
+            modelValue: isTorrentPopupShow.value,
+            "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => isTorrentPopupShow.value = $event)
+          }, modalOptions.value), {
+            default: vue.withCtx(() => [
+              vue.createElementVNode("div", {
+                ref_key: "torrentPopup",
+                ref: torrentPopup,
+                class: "popup popup--torrent",
+                style: vue.normalizeStyle(vue.unref(torrentPosition)),
+                innerHTML: vue.unref(torrentInnerHtml2)
+              }, null, 12, _hoisted_2$5)
+            ]),
+            _: 1
+          }, 16, ["modelValue"]),
+          vue.createVNode(vue.unref(Io), vue.mergeProps({
+            modelValue: isFavoritePopupShow.value,
+            "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => isFavoritePopupShow.value = $event)
+          }, modalOptions.value), {
+            default: vue.withCtx(() => [
+              vue.createElementVNode("div", {
+                ref_key: "favoritePopup",
+                ref: favoritePopup,
+                class: "popup",
+                style: vue.normalizeStyle(vue.unref(favoritePosition)),
+                innerHTML: vue.unref(favoriteInnerHtml2)
+              }, null, 12, _hoisted_3$3)
+            ]),
+            _: 1
+          }, 16, ["modelValue"])
         ], 64);
       };
     }
   });
-  function useElements() {
+  function useMultiPageViewerElements() {
     const paneImagesDiv2 = getElement("#pane_images");
     const paneThumbsDiv2 = getElement("#pane_thumbs");
     return {
@@ -2404,7 +4576,7 @@
       paneThumbsDiv: paneThumbsDiv2
     };
   }
-  const { paneImagesDiv: paneImagesDiv$1 } = useElements();
+  const { paneImagesDiv: paneImagesDiv$1 } = useMultiPageViewerElements();
   const location$1 = useBrowserLocation();
   const currentPage$1 = vue.ref(Number((_a = location$1.value.hash) == null ? void 0 : _a.replace("#page", "")) || 1);
   function usePages() {
@@ -2740,7 +4912,7 @@
   const {
     paneImagesDiv,
     paneThumbsDiv
-  } = useElements();
+  } = useMultiPageViewerElements();
   setReflowTrigger();
   function setReflowTrigger() {
     const observer = new ResizeObserver((entries) => {
@@ -2970,10 +5142,10 @@
       setShowThumbsEvent
     };
   }
-  const _withScopeId$2 = (n) => (vue.pushScopeId("data-v-8b2bf6b6"), n = n(), vue.popScopeId(), n);
+  const _withScopeId$1 = (n) => (vue.pushScopeId("data-v-c3f8cb4a"), n = n(), vue.popScopeId(), n);
   const _hoisted_1$5 = { class: "page-elevator" };
   const _hoisted_2$4 = ["value"];
-  const _hoisted_3$2 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ vue.createElementVNode("span", { class: "page-elevator__slash" }, "／", -1));
+  const _hoisted_3$2 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ vue.createElementVNode("span", { class: "page-elevator__slash" }, "／", -1));
   const _hoisted_4$1 = ["textContent"];
   const _sfc_main$6 = /* @__PURE__ */ vue.defineComponent({
     __name: "PageElevator",
@@ -3003,7 +5175,14 @@
       };
     }
   });
-  const PageElevator = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-8b2bf6b6"]]);
+  const _export_sfc = (sfc, props) => {
+    const target = sfc.__vccOpts || sfc;
+    for (const [key, val] of props) {
+      target[key] = val;
+    }
+    return target;
+  };
+  const PageElevator = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-c3f8cb4a"]]);
   const _hoisted_1$4 = { class: "image-resizer" };
   const _hoisted_2$3 = ["onClick", "textContent"];
   const _sfc_main$5 = /* @__PURE__ */ vue.defineComponent({
@@ -3014,7 +5193,7 @@
         getRelativeToViewport: getRelativeToViewport2,
         scrollToProperPosition: scrollToProperPosition2
       } = usePages();
-      const { paneImagesDiv: paneImagesDiv2 } = useElements();
+      const { paneImagesDiv: paneImagesDiv2 } = useMultiPageViewerElements();
       const {
         sizeList,
         currentIndex,
@@ -3139,7 +5318,7 @@
       };
     }
   });
-  const ImageResizer = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-572fe08a"]]);
+  const ImageResizer = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-507e1be8"]]);
   const _hoisted_1$3 = ["innerHTML"];
   const _sfc_main$4 = /* @__PURE__ */ vue.defineComponent({
     __name: "MultiPageViewerEnhancer",
@@ -3252,9 +5431,9 @@
     return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$2, _hoisted_3$1);
   }
   const CrossButton = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render]]);
-  const _withScopeId$1 = (n) => (vue.pushScopeId("data-v-894c8e09"), n = n(), vue.popScopeId(), n);
+  const _withScopeId = (n) => (vue.pushScopeId("data-v-894c8e09"), n = n(), vue.popScopeId(), n);
   const _hoisted_1$1 = { class: "switch" };
-  const _hoisted_2$1 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ vue.createElementVNode("span", { class: "switch__slider" }, null, -1));
+  const _hoisted_2$1 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("span", { class: "switch__slider" }, null, -1));
   const _sfc_main$2 = /* @__PURE__ */ vue.defineComponent({
     __name: "ToggleSwitch",
     props: {
@@ -3286,26 +5465,23 @@
     }
   });
   const ToggleSwitch = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-894c8e09"]]);
-  const _withScopeId = (n) => (vue.pushScopeId("data-v-ddd293d0"), n = n(), vue.popScopeId(), n);
-  const _hoisted_1 = { class: "popup" };
-  const _hoisted_2 = { class: "settings-panel" };
-  const _hoisted_3 = { class: "settings-panel__inner" };
-  const _hoisted_4 = { class: "settings-panel__section" };
-  const _hoisted_5 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Common ", -1));
-  const _hoisted_6 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("hr", null, null, -1));
-  const _hoisted_7 = { class: "settings" };
-  const _hoisted_8 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Change page title to Japanese (effect on browser/tab title) ", -1));
-  const _hoisted_9 = { class: "settings-panel__section" };
-  const _hoisted_10 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Gallery Enhancer ", -1));
-  const _hoisted_11 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("hr", null, null, -1));
-  const _hoisted_12 = { class: "settings" };
-  const _hoisted_13 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1));
-  const _hoisted_14 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Front Page Enhancer - Scroll by Row" ', -1));
-  const _hoisted_15 = { class: "settings" };
-  const _hoisted_16 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Better Popup ", -1));
-  const _hoisted_17 = { class: "settings__intro" };
-  const _hoisted_18 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("span", null, ' Action when clicking "Archive Download": ', -1));
-  const _hoisted_19 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("p", null, [
+  const _hoisted_1 = { class: "settings-panel__inner" };
+  const _hoisted_2 = { class: "settings-panel__section" };
+  const _hoisted_3 = /* @__PURE__ */ vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Common ", -1);
+  const _hoisted_4 = /* @__PURE__ */ vue.createElementVNode("hr", null, null, -1);
+  const _hoisted_5 = { class: "settings" };
+  const _hoisted_6 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Change page title to Japanese (effect on browser/tab title) ", -1);
+  const _hoisted_7 = { class: "settings-panel__section" };
+  const _hoisted_8 = /* @__PURE__ */ vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Gallery Enhancer ", -1);
+  const _hoisted_9 = /* @__PURE__ */ vue.createElementVNode("hr", null, null, -1);
+  const _hoisted_10 = { class: "settings" };
+  const _hoisted_11 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1);
+  const _hoisted_12 = /* @__PURE__ */ vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Front Page Enhancer - Scroll by Row" ', -1);
+  const _hoisted_13 = { class: "settings" };
+  const _hoisted_14 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Better Popup ", -1);
+  const _hoisted_15 = { class: "settings__intro" };
+  const _hoisted_16 = /* @__PURE__ */ vue.createElementVNode("span", null, ' Action when clicking "Archive Download": ', -1);
+  const _hoisted_17 = /* @__PURE__ */ vue.createElementVNode("p", null, [
     /* @__PURE__ */ vue.createTextVNode(' *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual Start (Default)" in the setting page: '),
     /* @__PURE__ */ vue.createElementVNode("a", {
       target: "_blank",
@@ -3318,30 +5494,32 @@
       href: "https://exhentai.org/uconfig.php",
       rel: "noreferrer noopener"
     }, " exhentai ")
-  ], -1));
-  const _hoisted_20 = { class: "settings" };
-  const _hoisted_21 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Load All Gallery Images ", -1));
-  const _hoisted_22 = { class: "settings-panel__section" };
-  const _hoisted_23 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Multi-Page Viewer Enhancer ", -1));
-  const _hoisted_24 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("hr", null, null, -1));
+  ], -1);
+  const _hoisted_18 = { class: "settings" };
+  const _hoisted_19 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Load All Gallery Images ", -1);
+  const _hoisted_20 = { class: "settings-panel__section" };
+  const _hoisted_21 = /* @__PURE__ */ vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Multi-Page Viewer Enhancer ", -1);
+  const _hoisted_22 = /* @__PURE__ */ vue.createElementVNode("hr", null, null, -1);
+  const _hoisted_23 = { class: "settings" };
+  const _hoisted_24 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Multi-Page Viewer Enhancer ", -1);
   const _hoisted_25 = { class: "settings" };
-  const _hoisted_26 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Multi-Page Viewer Enhancer ", -1));
-  const _hoisted_27 = { class: "settings" };
-  const _hoisted_28 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Prevent Image Removal ", -1));
-  const _hoisted_29 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("div", { class: "settings__intro" }, [
+  const _hoisted_26 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Prevent Image Removal ", -1);
+  const _hoisted_27 = /* @__PURE__ */ vue.createElementVNode("div", { class: "settings__intro" }, [
     /* @__PURE__ */ vue.createElementVNode("p", null, " The original script of exhentai would remove the images which are too far from your current scroll. "),
     /* @__PURE__ */ vue.createElementVNode("p", null, " So if you scroll back to the images that have been removed. It might be flashing because although your browser has cached the image but still have to re-render it. ")
-  ], -1));
-  const _hoisted_30 = { class: "settings" };
-  const _hoisted_31 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Auto Redirect to Multi-Page Viewer ", -1));
-  const _hoisted_32 = { class: "settings-panel__section" };
-  const _hoisted_33 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Front Page Enhancer ", -1));
-  const _hoisted_34 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("hr", null, null, -1));
+  ], -1);
+  const _hoisted_28 = { class: "settings" };
+  const _hoisted_29 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Auto Redirect to Multi-Page Viewer ", -1);
+  const _hoisted_30 = { class: "settings-panel__section" };
+  const _hoisted_31 = /* @__PURE__ */ vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Front Page Enhancer ", -1);
+  const _hoisted_32 = /* @__PURE__ */ vue.createElementVNode("hr", null, null, -1);
+  const _hoisted_33 = { class: "settings" };
+  const _hoisted_34 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Infinite Scroll ", -1);
   const _hoisted_35 = { class: "settings" };
-  const _hoisted_36 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Infinite Scroll ", -1));
-  const _hoisted_37 = { class: "settings" };
-  const _hoisted_38 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1));
-  const _hoisted_39 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Gallery Enhancer - Scroll by Row" ', -1));
+  const _hoisted_36 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1);
+  const _hoisted_37 = /* @__PURE__ */ vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Gallery Enhancer - Scroll by Row" ', -1);
+  const _hoisted_38 = { class: "settings" };
+  const _hoisted_39 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Insert archiver buttons to galleries on the front page. ", -1);
   const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
     __name: "SettingsPanel",
     setup(__props) {
@@ -3353,181 +5531,138 @@
         location.reload();
       }
       return (_ctx, _cache) => {
-        return vue.openBlock(), vue.createBlock(vue.Teleport, { to: "body" }, [
-          vue.createVNode(vue.Transition, null, {
-            default: vue.withCtx(() => [
-              vue.withDirectives(vue.createElementVNode("div", _hoisted_1, [
-                vue.createElementVNode("div", _hoisted_2, [
-                  vue.createElementVNode("div", _hoisted_3, [
-                    vue.createElementVNode("section", _hoisted_4, [
-                      _hoisted_5,
-                      _hoisted_6,
-                      vue.createElementVNode("div", _hoisted_7, [
-                        vue.createVNode(ToggleSwitch, {
-                          modelValue: vue.unref(showJapaneseTitle).value,
-                          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => vue.unref(showJapaneseTitle).value = $event)
-                        }, null, 8, ["modelValue"]),
-                        _hoisted_8
-                      ])
-                    ]),
-                    vue.createElementVNode("section", _hoisted_9, [
-                      _hoisted_10,
-                      _hoisted_11,
-                      vue.createElementVNode("div", _hoisted_12, [
-                        vue.createVNode(ToggleSwitch, {
-                          modelValue: vue.unref(scrollByRowSwitch).value,
-                          "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => vue.unref(scrollByRowSwitch).value = $event)
-                        }, null, 8, ["modelValue"]),
-                        _hoisted_13,
-                        _hoisted_14
-                      ]),
-                      vue.createElementVNode("div", _hoisted_15, [
-                        vue.createVNode(ToggleSwitch, {
-                          modelValue: vue.unref(betterPopupSwitch).value,
-                          "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => vue.unref(betterPopupSwitch).value = $event)
-                        }, null, 8, ["modelValue"]),
-                        _hoisted_16,
-                        vue.createElementVNode("div", _hoisted_17, [
-                          _hoisted_18,
-                          vue.withDirectives(vue.createElementVNode("select", {
-                            "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => vue.unref(quickDownloadMethod).value = $event)
-                          }, [
-                            vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).Manual), 1),
-                            vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).HaH_Original), 1),
-                            vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).HaH_2400), 1),
-                            vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).Direct_Origin), 1),
-                            vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).Direct_Resample), 1)
-                          ], 512), [
-                            [vue.vModelSelect, vue.unref(quickDownloadMethod).value]
-                          ]),
-                          _hoisted_19
-                        ])
-                      ]),
-                      vue.createElementVNode("div", _hoisted_20, [
-                        vue.createVNode(ToggleSwitch, {
-                          modelValue: vue.unref(loadAllGalleryImagesSwitch).value,
-                          "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => vue.unref(loadAllGalleryImagesSwitch).value = $event)
-                        }, null, 8, ["modelValue"]),
-                        _hoisted_21
-                      ])
-                    ]),
-                    vue.createElementVNode("section", _hoisted_22, [
-                      _hoisted_23,
-                      _hoisted_24,
-                      vue.createElementVNode("div", _hoisted_25, [
-                        vue.createVNode(ToggleSwitch, {
-                          modelValue: vue.unref(multipageViewerEnhancerSwitch).value,
-                          "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => vue.unref(multipageViewerEnhancerSwitch).value = $event)
-                        }, null, 8, ["modelValue"]),
-                        _hoisted_26
-                      ]),
-                      vue.createElementVNode("div", _hoisted_27, [
-                        vue.createVNode(ToggleSwitch, {
-                          modelValue: vue.unref(preventImageRemovalSwitch).value,
-                          "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => vue.unref(preventImageRemovalSwitch).value = $event)
-                        }, null, 8, ["modelValue"]),
-                        _hoisted_28,
-                        _hoisted_29
-                      ]),
-                      vue.createElementVNode("div", _hoisted_30, [
-                        vue.createVNode(ToggleSwitch, {
-                          modelValue: vue.unref(autoRedirectSwitch).value,
-                          "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => vue.unref(autoRedirectSwitch).value = $event)
-                        }, null, 8, ["modelValue"]),
-                        _hoisted_31
-                      ])
-                    ]),
-                    vue.createElementVNode("section", _hoisted_32, [
-                      _hoisted_33,
-                      _hoisted_34,
-                      vue.createElementVNode("div", _hoisted_35, [
-                        vue.createVNode(ToggleSwitch, {
-                          modelValue: vue.unref(infiniteScrollSwitch).value,
-                          "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => vue.unref(infiniteScrollSwitch).value = $event)
-                        }, null, 8, ["modelValue"]),
-                        _hoisted_36
-                      ]),
-                      vue.createElementVNode("div", _hoisted_37, [
-                        vue.createVNode(ToggleSwitch, {
-                          modelValue: vue.unref(scrollByRowSwitch).value,
-                          "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => vue.unref(scrollByRowSwitch).value = $event)
-                        }, null, 8, ["modelValue"]),
-                        _hoisted_38,
-                        _hoisted_39
-                      ])
-                    ])
-                  ]),
-                  vue.createElementVNode("span", {
-                    class: "settings-panel__close-button",
-                    onClick: _cache[10] || (_cache[10] = ($event) => isShow.value = false)
-                  }, [
-                    vue.createVNode(CrossButton)
-                  ]),
-                  vue.createElementVNode("div", { class: "actions" }, [
-                    vue.createElementVNode("button", {
-                      class: "actions__button",
-                      onClick: reload
-                    }, " Apply and Reload ")
-                  ])
+        return vue.openBlock(), vue.createBlock(vue.unref(Io), {
+          modelValue: isShow.value,
+          "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => isShow.value = $event),
+          "overlay-transition": "vfm-fade",
+          class: "settings-panel-wrap",
+          "content-class": "settings-panel"
+        }, {
+          default: vue.withCtx(() => [
+            vue.createElementVNode("div", _hoisted_1, [
+              vue.createElementVNode("section", _hoisted_2, [
+                _hoisted_3,
+                _hoisted_4,
+                vue.createElementVNode("div", _hoisted_5, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(showJapaneseTitle).value,
+                    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => vue.unref(showJapaneseTitle).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_6
                 ])
-              ], 512), [
-                [vue.vShow, isShow.value]
+              ]),
+              vue.createElementVNode("section", _hoisted_7, [
+                _hoisted_8,
+                _hoisted_9,
+                vue.createElementVNode("div", _hoisted_10, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(scrollByRowSwitch).value,
+                    "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => vue.unref(scrollByRowSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_11,
+                  _hoisted_12
+                ]),
+                vue.createElementVNode("div", _hoisted_13, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(betterPopupSwitch).value,
+                    "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => vue.unref(betterPopupSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_14,
+                  vue.createElementVNode("div", _hoisted_15, [
+                    _hoisted_16,
+                    vue.withDirectives(vue.createElementVNode("select", {
+                      "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => vue.unref(quickDownloadMethod).value = $event)
+                    }, [
+                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).Manual), 1),
+                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).HaH_Original), 1),
+                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).HaH_2400), 1),
+                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).Direct_Origin), 1),
+                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).Direct_Resample), 1)
+                    ], 512), [
+                      [vue.vModelSelect, vue.unref(quickDownloadMethod).value]
+                    ]),
+                    _hoisted_17
+                  ])
+                ]),
+                vue.createElementVNode("div", _hoisted_18, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(loadAllGalleryImagesSwitch).value,
+                    "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => vue.unref(loadAllGalleryImagesSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_19
+                ])
+              ]),
+              vue.createElementVNode("section", _hoisted_20, [
+                _hoisted_21,
+                _hoisted_22,
+                vue.createElementVNode("div", _hoisted_23, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(multipageViewerEnhancerSwitch).value,
+                    "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => vue.unref(multipageViewerEnhancerSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_24
+                ]),
+                vue.createElementVNode("div", _hoisted_25, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(preventImageRemovalSwitch).value,
+                    "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => vue.unref(preventImageRemovalSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_26,
+                  _hoisted_27
+                ]),
+                vue.createElementVNode("div", _hoisted_28, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(autoRedirectSwitch).value,
+                    "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => vue.unref(autoRedirectSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_29
+                ])
+              ]),
+              vue.createElementVNode("section", _hoisted_30, [
+                _hoisted_31,
+                _hoisted_32,
+                vue.createElementVNode("div", _hoisted_33, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(infiniteScrollSwitch).value,
+                    "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => vue.unref(infiniteScrollSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_34
+                ]),
+                vue.createElementVNode("div", _hoisted_35, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(scrollByRowSwitch).value,
+                    "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => vue.unref(scrollByRowSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_36,
+                  _hoisted_37
+                ]),
+                vue.createElementVNode("div", _hoisted_38, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(archiveButtonSwitch).value,
+                    "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => vue.unref(archiveButtonSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_39
+                ])
               ])
             ]),
-            _: 1
-          })
-        ]);
+            vue.createElementVNode("span", {
+              class: "settings-panel__close-button",
+              onClick: _cache[11] || (_cache[11] = ($event) => isShow.value = false)
+            }, [
+              vue.createVNode(CrossButton)
+            ]),
+            vue.createElementVNode("div", { class: "actions" }, [
+              vue.createElementVNode("button", {
+                class: "actions__button",
+                onClick: reload
+              }, " Apply and Reload ")
+            ])
+          ]),
+          _: 1
+        }, 8, ["modelValue"]);
       };
     }
   });
-  const SettingsPanel = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-ddd293d0"]]);
-  function getGalleryMetadataBody(id, token) {
-    return JSON.stringify({
-      "method": "gdata",
-      "gidlist": [
-        [id, token]
-      ],
-      "namespace": 1
-    });
-  }
-  function getGalleryIDandToken() {
-    var _a2;
-    const groups = (_a2 = _unsafeWindow.location.pathname.match(/(mpv|g)\/(?<id>\d+)\/(?<token>\w+)/)) == null ? void 0 : _a2.groups;
-    if (!groups) {
-      return {
-        id: null,
-        token: null
-      };
-    }
-    const { id, token } = groups;
-    return {
-      id: Number(id),
-      token
-    };
-  }
-  function fetchGalleryData() {
-    const apiURL = "https://api.e-hentai.org/api.php";
-    const { id, token } = getGalleryIDandToken();
-    if (!id || !token) {
-      return null;
-    }
-    return fetch(
-      apiURL,
-      {
-        method: "POST",
-        body: getGalleryMetadataBody(id, token)
-      }
-    ).then((response) => response.json());
-  }
-  async function changeTitleToJapanese() {
-    const galleryData = await fetchGalleryData();
-    if (galleryData) {
-      const japaneseTitle = galleryData.gmetadata[0].title_jpn;
-      if (japaneseTitle) {
-        document.title = japaneseTitle;
-      }
-    }
-  }
   const _sfc_main = /* @__PURE__ */ vue.defineComponent({
     __name: "App",
     setup(__props) {
@@ -3540,10 +5675,11 @@
       if (showJapaneseTitle.value) {
         changeTitleToJapanese();
       }
+      setCSS();
       function useEnhancer() {
         const enhancer2 = vue.computed(() => {
           if (/https:\/\/e[-x]hentai\.org\/(watched|popular)?(\?.+)?$/.test(href) || /https:\/\/e[-x]hentai\.org\/(tag)\/\w+/.test(href)) {
-            return _sfc_main$b;
+            return _sfc_main$8;
           }
           if (/https:\/\/e[-x]hentai\.org\/g\/\w+\/\w+/.test(href)) {
             return _sfc_main$7;
@@ -3572,15 +5708,28 @@
           redirectIfSinglePageViewer: redirectIfSinglePageViewer2
         };
       }
+      function setCSS() {
+        document.documentElement.style.setProperty(
+          "--bg-color",
+          _unsafeWindow.location.origin === "https://exhentai.org" ? "#34353b" : "#E3E0D1"
+        );
+      }
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock(vue.Fragment, null, [
-          (vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(vue.unref(enhancer)))),
-          vue.createVNode(SettingsPanel)
+          (vue.openBlock(), vue.createBlock(vue.Suspense, null, {
+            default: vue.withCtx(() => [
+              (vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(vue.unref(enhancer))))
+            ]),
+            _: 1
+          })),
+          vue.createVNode(_sfc_main$1)
         ], 64);
       };
     }
   });
   const app = vue.createApp(_sfc_main);
+  const vfm = xo();
+  app.use(vfm);
   app.use(src_default, {
     transition: "Vue-Toastification__fade",
     maxToasts: 2,
@@ -3595,7 +5744,6 @@
       (() => {
         const app2 = document.createElement("div");
         app2.classList.add("enhancer-container");
-        app2.style.backgroundColor = "inherit";
         document.body.append(app2);
         return app2;
       })()
