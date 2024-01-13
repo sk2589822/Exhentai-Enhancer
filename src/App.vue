@@ -1,10 +1,13 @@
 <template>
-  <component :is="enhancer" />
+  <Suspense>
+    <component :is="enhancer" />
+  </Suspense>
   <SettingsPanel />
 </template>
 
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
+import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { getElement } from '@/utils/commons'
 import FrontPageEnhancer from '@/components/FrontPageEnhancer/FrontPageEnhancer.vue'
@@ -27,6 +30,8 @@ if (autoRedirectSwitch.value) {
 if (showJapaneseTitle.value) {
   changeTitleToJapanese()
 }
+
+setCSS()
 
 function useEnhancer() {
   const enhancer = computed(() => {
@@ -68,5 +73,14 @@ function useRedirect() {
   return {
     redirectIfSinglePageViewer,
   }
+}
+
+function setCSS() {
+  document.documentElement.style.setProperty(
+    '--bg-color',
+    unsafeWindow.location.origin === 'https://exhentai.org'
+      ? '#34353b'
+      : '#E3E0D1',
+  )
 }
 </script>

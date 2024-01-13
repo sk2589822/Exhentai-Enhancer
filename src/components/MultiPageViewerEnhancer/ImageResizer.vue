@@ -15,15 +15,15 @@
 import { ref, computed, watch } from 'vue'
 import { useStorage } from '@vueuse/core'
 
-import usePages from '@/composables/MultiPageViewerEnhancer/usePages'
-import useElements from '@/composables/MultiPageViewerEnhancer/useElements'
+import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
+import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
 
 const {
   goToCurrentPage,
   getRelativeToViewport,
   scrollToProperPosition,
 } = usePages()
-const { paneImagesDiv } = useElements()
+const { paneImagesDiv } = useMultiPageViewerElements()
 const {
   sizeList,
   currentIndex,

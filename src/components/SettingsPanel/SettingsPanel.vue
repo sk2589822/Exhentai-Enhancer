@@ -1,192 +1,197 @@
 <template>
-  <Teleport to="body">
-    <Transition>
-      <div
-        v-show="isShow"
-        class="popup"
-      >
-        <div class="settings-panel">
-          <div class="settings-panel__inner">
-            <section class="settings-panel__section">
-              <h2 class="settings-panel__section-name">
-                Common
-              </h2>
+  <VueFinalModal
+    v-model="isShow"
+    :overlay-transition="'vfm-fade'"
+    class="settings-panel-wrap"
+    content-class="settings-panel"
+  >
+    <div class="settings-panel__inner">
+      <section class="settings-panel__section">
+        <h2 class="settings-panel__section-name">
+          Common
+        </h2>
 
-              <hr>
+        <hr>
 
-              <div class="settings">
-                <ToggleSwitch v-model="showJapaneseTitle.value" />
-                <h3 class="settings__name">
-                  Change page title to Japanese (effect on browser/tab title)
-                </h3>
-              </div>
-            </section>
+        <div class="settings">
+          <ToggleSwitch v-model="showJapaneseTitle.value" />
+          <h3 class="settings__name">
+            Change page title to Japanese (effect on browser/tab title)
+          </h3>
+        </div>
+      </section>
 
-            <section class="settings-panel__section">
-              <h2 class="settings-panel__section-name">
-                Gallery Enhancer
-              </h2>
+      <section class="settings-panel__section">
+        <h2 class="settings-panel__section-name">
+          Gallery Enhancer
+        </h2>
 
-              <hr>
+        <hr>
 
-              <div class="settings">
-                <ToggleSwitch v-model="scrollByRowSwitch.value" />
-                <h3 class="settings__name">
-                  Scroll by Row
-                </h3>
-                <span class="settings__notice">
-                  *sync with "Front Page Enhancer - Scroll by Row"
-                </span>
-              </div>
-
-              <div class="settings">
-                <ToggleSwitch v-model="betterPopupSwitch.value" />
-                <h3 class="settings__name">
-                  Better Popup
-                </h3>
-
-                <div class="settings__intro">
-                  <span>
-                    Action when clicking "Archive Download":
-                  </span>
-                  <select v-model="quickDownloadMethod.value">
-                    <option>
-                      {{ DownloadMethod.Manual }}
-                    </option>
-                    <option>
-                      {{ DownloadMethod.HaH_Original }}
-                    </option>
-                    <option>
-                      {{ DownloadMethod.HaH_2400 }}
-                    </option>
-                    <option>
-                      {{ DownloadMethod.Direct_Origin }}
-                    </option>
-                    <option>
-                      {{ DownloadMethod.Direct_Resample }}
-                    </option>
-                  </select>
-                  <p>
-                    *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual Start (Default)" in the setting page:
-                    <a
-                      target="_blank"
-                      href="https://e-hentai.org/uconfig.php"
-                      rel="noreferrer noopener"
-                    >
-                      e-hentai
-                    </a>
-                    ,
-                    <a
-                      target="_blank"
-                      href="https://exhentai.org/uconfig.php"
-                      rel="noreferrer noopener"
-                    >
-                      exhentai
-                    </a>
-                  </p>
-                </div>
-              </div>
-
-              <div class="settings">
-                <ToggleSwitch v-model="loadAllGalleryImagesSwitch.value" />
-                <h3 class="settings__name">
-                  Load All Gallery Images
-                </h3>
-              </div>
-            </section>
-
-            <section class="settings-panel__section">
-              <h2 class="settings-panel__section-name">
-                Multi-Page Viewer Enhancer
-              </h2>
-
-              <hr>
-
-              <div class="settings">
-                <ToggleSwitch v-model="multipageViewerEnhancerSwitch.value" />
-                <h3 class="settings__name">
-                  Multi-Page Viewer Enhancer
-                </h3>
-              </div>
-
-              <div class="settings">
-                <ToggleSwitch v-model="preventImageRemovalSwitch.value" />
-                <h3 class="settings__name">
-                  Prevent Image Removal
-                </h3>
-                <div class="settings__intro">
-                  <p>
-                    The original script of exhentai would remove the images which are too far from your current scroll.
-                  </p>
-                  <p>
-                    So if you scroll back to the images that have been removed.
-                    It might be flashing because although your browser has cached the image but still have to re-render it.
-                  </p>
-                </div>
-              </div>
-
-              <div class="settings">
-                <ToggleSwitch v-model="autoRedirectSwitch.value" />
-                <h3 class="settings__name">
-                  Auto Redirect to Multi-Page Viewer
-                </h3>
-              </div>
-            </section>
-
-            <section class="settings-panel__section">
-              <h2 class="settings-panel__section-name">
-                Front Page Enhancer
-              </h2>
-
-              <hr>
-
-              <div class="settings">
-                <ToggleSwitch v-model="infiniteScrollSwitch.value" />
-                <h3 class="settings__name">
-                  Infinite Scroll
-                </h3>
-              </div>
-
-              <div class="settings">
-                <ToggleSwitch v-model="scrollByRowSwitch.value" />
-                <h3 class="settings__name">
-                  Scroll by Row
-                </h3>
-                <span class="settings__notice">
-                  *sync with "Gallery Enhancer - Scroll by Row"
-                </span>
-              </div>
-            </section>
-          </div>
-          <span
-            class="settings-panel__close-button"
-            @click="isShow = false"
-          >
-            <CrossButton />
+        <div class="settings">
+          <ToggleSwitch v-model="scrollByRowSwitch.value" />
+          <h3 class="settings__name">
+            Scroll by Row
+          </h3>
+          <span class="settings__notice">
+            *sync with "Front Page Enhancer - Scroll by Row"
           </span>
+        </div>
 
-          <div class="actions">
-            <button
-              class="actions__button"
-              @click="reload"
-            >
-              Apply and Reload
-            </button>
+        <div class="settings">
+          <ToggleSwitch v-model="betterPopupSwitch.value" />
+          <h3 class="settings__name">
+            Better Popup
+          </h3>
+
+          <div class="settings__intro">
+            <span>
+              Action when clicking "Archive Download":
+            </span>
+            <select v-model="quickDownloadMethod.value">
+              <option>
+                {{ DownloadMethod.Manual }}
+              </option>
+              <option>
+                {{ DownloadMethod.HaH_Original }}
+              </option>
+              <option>
+                {{ DownloadMethod.HaH_2400 }}
+              </option>
+              <option>
+                {{ DownloadMethod.Direct_Origin }}
+              </option>
+              <option>
+                {{ DownloadMethod.Direct_Resample }}
+              </option>
+            </select>
+            <p>
+              *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual Start (Default)" in the setting page:
+              <a
+                target="_blank"
+                href="https://e-hentai.org/uconfig.php"
+                rel="noreferrer noopener"
+              >
+                e-hentai
+              </a>
+              ,
+              <a
+                target="_blank"
+                href="https://exhentai.org/uconfig.php"
+                rel="noreferrer noopener"
+              >
+                exhentai
+              </a>
+            </p>
           </div>
         </div>
-      </div>
-    </Transition>
-  </Teleport>
+
+        <div class="settings">
+          <ToggleSwitch v-model="loadAllGalleryImagesSwitch.value" />
+          <h3 class="settings__name">
+            Load All Gallery Images
+          </h3>
+        </div>
+      </section>
+
+      <section class="settings-panel__section">
+        <h2 class="settings-panel__section-name">
+          Multi-Page Viewer Enhancer
+        </h2>
+
+        <hr>
+
+        <div class="settings">
+          <ToggleSwitch v-model="multipageViewerEnhancerSwitch.value" />
+          <h3 class="settings__name">
+            Multi-Page Viewer Enhancer
+          </h3>
+        </div>
+
+        <div class="settings">
+          <ToggleSwitch v-model="preventImageRemovalSwitch.value" />
+          <h3 class="settings__name">
+            Prevent Image Removal
+          </h3>
+          <div class="settings__intro">
+            <p>
+              The original script of exhentai would remove the images which are too far from your current scroll.
+            </p>
+            <p>
+              So if you scroll back to the images that have been removed.
+              It might be flashing because although your browser has cached the image but still have to re-render it.
+            </p>
+          </div>
+        </div>
+
+        <div class="settings">
+          <ToggleSwitch v-model="autoRedirectSwitch.value" />
+          <h3 class="settings__name">
+            Auto Redirect to Multi-Page Viewer
+          </h3>
+        </div>
+      </section>
+
+      <section class="settings-panel__section">
+        <h2 class="settings-panel__section-name">
+          Front Page Enhancer
+        </h2>
+
+        <hr>
+
+        <div class="settings">
+          <ToggleSwitch v-model="infiniteScrollSwitch.value" />
+          <h3 class="settings__name">
+            Infinite Scroll
+          </h3>
+        </div>
+
+        <div class="settings">
+          <ToggleSwitch v-model="scrollByRowSwitch.value" />
+          <h3 class="settings__name">
+            Scroll by Row
+          </h3>
+          <span class="settings__notice">
+            *sync with "Gallery Enhancer - Scroll by Row"
+          </span>
+        </div>
+
+        <div class="settings">
+          <ToggleSwitch v-model="archiveButtonSwitch.value" />
+          <h3 class="settings__name">
+            Insert archiver buttons to galleries on the front page.
+          </h3>
+        </div>
+      </section>
+    </div>
+    <span
+      class="settings-panel__close-button"
+      @click="isShow = false"
+    >
+      <CrossButton />
+    </span>
+
+    <div class="actions">
+      <button
+        class="actions__button"
+        @click="reload"
+      >
+        Apply and Reload
+      </button>
+    </div>
+  </VueFinalModal>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { VueFinalModal } from 'vue-final-modal'
 import { GM } from 'vite-plugin-monkey/dist/client'
 
 import CrossButton from '@/components/Icon/CrossButton.vue'
 import { DownloadMethod } from '@/constants/monkey'
 import {
   infiniteScrollSwitch,
+  archiveButtonSwitch,
   scrollByRowSwitch,
   betterPopupSwitch,
   quickDownloadMethod,
@@ -210,27 +215,21 @@ function reload() {
 
 </script>
 
-<style lang="scss" scoped>
-.popup {
-  position: fixed;
-  inset: 0;
+<style lang="scss">
+.settings-panel-wrap {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(#000, 50%);
-  z-index: 99999;
+  align-items: center;
 }
 
 .settings-panel {
+  box-sizing: border-box;
   position: relative;
   display: flex;
   margin: 32px;
   padding: 32px;
-  width: 80%;
   max-width: 1000px;
-  height: 90%;
+  max-height: calc(100vh - 64px);
   background-color: #34353b;
   border-radius: 4px;
   flex-direction: column;
@@ -262,7 +261,7 @@ function reload() {
     padding: 8px;
     cursor: pointer;
 
-    :deep(svg) {
+    svg {
       width: 16px;
       height: 16px;
     }
@@ -306,15 +305,5 @@ function reload() {
     border-radius: 4px;
     cursor: pointer;
   }
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
 }
 </style>
