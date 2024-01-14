@@ -1,5 +1,13 @@
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
+function getAipUrl() {
+  if (unsafeWindow.location.origin === 'https://exhentai.org') {
+    return 'https://exhentai.org/api.php'
+  } else {
+    return 'https://api.e-hentai.org/api.php'
+  }
+}
+
 function getGalleryMetadataBody(id: number, token: string) {
   return JSON.stringify({
     'method': 'gdata',
@@ -26,7 +34,7 @@ function getGalleryIDandToken(pathname: string) {
 }
 
 async function fetchGalleryData({ id, token }: { id: number, token: string }) {
-  const apiURL = 'https://exhentai.org/api.php'
+  const apiURL = getAipUrl()
 
   return fetch(apiURL,
     {
