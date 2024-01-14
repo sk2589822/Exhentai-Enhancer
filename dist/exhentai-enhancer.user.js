@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.12.0
+// @version            1.12.1
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -3860,7 +3860,6 @@ This will fail in production.`
       const logger = new LoggerScopeDecorator(new Logger("Preload Links"), "Archive");
       logger.log("Start");
       const link = url || getDownloadLink(archiveLinkAnchor);
-      console.log("🚀 ~ fetchArchive ~ link:", link);
       if (!link) {
         logger.error("link not found.");
         return "";
@@ -3930,6 +3929,13 @@ This will fail in production.`
       getGalleryVersion
     };
   }
+  function getAipUrl() {
+    if (_unsafeWindow.location.origin === "https://exhentai.org") {
+      return "https://exhentai.org/api.php";
+    } else {
+      return "https://api.e-hentai.org/api.php";
+    }
+  }
   function getGalleryMetadataBody(id, token) {
     return JSON.stringify({
       "method": "gdata",
@@ -3954,7 +3960,7 @@ This will fail in production.`
     };
   }
   async function fetchGalleryData({ id, token }) {
-    const apiURL = "https://exhentai.org/api.php";
+    const apiURL = getAipUrl();
     return fetch(
       apiURL,
       {
