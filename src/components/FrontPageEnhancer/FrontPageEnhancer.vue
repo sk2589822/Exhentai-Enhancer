@@ -105,8 +105,11 @@ async function appendArchiveButtons() {
       activeButton.value = button
 
       const link = getElement('a', gallery) as HTMLAnchorElement
+      console.log('🚀 ~ button.onclick= ~ link:', link)
       const archiveLink = await getArchiveLink(link.href)
+      console.log('🚀 ~ button.onclick= ~ archiveLink:', archiveLink)
       archiveInnerHtml.value = await fetchArchive(archiveLink)
+      console.log('🚀 ~ button.onclick= ~ archiveInnerHtml.value:', archiveInnerHtml.value)
 
       // 等 DOM 更新
       setTimeout(() => {
@@ -197,11 +200,14 @@ function setArchiveEvent() {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  position: relative;
+  top: -6px;
   margin-left: 4px;
-  width: 16px;
-  scale: 0.8;
+  width: 24px;
+  height: 24px;
   border-radius: 9999px;
   background-color: #5fa9cf;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 5px;
   cursor: pointer;
 }
 </style>
