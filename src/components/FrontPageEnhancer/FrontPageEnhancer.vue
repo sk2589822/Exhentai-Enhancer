@@ -25,6 +25,7 @@ import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, quickDown
 import { getArchiveLink } from '@/utils/eHentaiApi'
 import { DownloadMethod } from '@/constants/monkey'
 import { useArchive } from '@/composables/useArchive'
+import { useHighlight } from '@/composables/FrontPageEnhancer/useHighlight'
 
 if (scrollByRowSwitch.value) {
   useWheelStep({
@@ -171,6 +172,8 @@ function setArchiveEvent() {
   }
 }
 
+const { highlightAll } = useHighlight()
+highlightAll()
 </script>
 
 <style lang="scss">

@@ -7,9 +7,13 @@ import { Logger } from '@/utils/logger'
 import { DownloadMethod } from '@/constants/monkey'
 import { quickDownloadMethod } from '@/utils/GMVariables'
 
+import { useHighlight } from './FrontPageEnhancer/useHighlight'
+
 const toast = useToast()
 
 export function useArchive() {
+  const { setAsDownloaded } = useHighlight()
+
   /**
    * 重新實作 Hentai@Home 的下載事件
    *
@@ -56,6 +60,9 @@ export function useArchive() {
             toast.error(parsedResponse)
           }
         }
+
+        const gid = Number(new URL(postUrl).searchParams.get('gid'))
+        setAsDownloaded(gid)
       })
     }
   }
@@ -120,6 +127,9 @@ export function useArchive() {
         button.parentElement.classList.add('is-fetching')
         await sendDownloadRequest(url, resolution)
         button.parentElement.classList.remove('is-fetching')
+
+        const gid = Number(new URL(url).searchParams.get('gid'))
+        setAsDownloaded(gid)
       })
     }
 
