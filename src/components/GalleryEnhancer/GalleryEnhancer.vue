@@ -94,7 +94,7 @@ const {
   favorite: favoritePosition,
 } = usePositions()
 
-const { setHentaiAtHomeEvent, setDirectDownloadEvent, quickDownload } = useArchive()
+const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive()
 const { downloadTorrent } = useTorrent()
 const { setRequestEvents } = useFavorite(favoriteInnerHtml)
 
@@ -114,6 +114,7 @@ const isQuickDownload = computed(() => quickDownloadMethod.value !== DownloadMet
 function setArchiveClickEvent() {
   setHentaiAtHomeEvent()
   setDirectDownloadEvent()
+  setCancelArchiveEvent()
 
   archiveLinkAnchor.addEventListener('click', event => {
     event.preventDefault()

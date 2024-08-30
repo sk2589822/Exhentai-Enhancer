@@ -105,11 +105,8 @@ async function appendArchiveButtons() {
       activeButton.value = button
 
       const link = getElement('a', gallery) as HTMLAnchorElement
-      console.log('🚀 ~ button.onclick= ~ link:', link)
       const archiveLink = await getArchiveLink(link.href)
-      console.log('🚀 ~ button.onclick= ~ archiveLink:', archiveLink)
       archiveInnerHtml.value = await fetchArchive(archiveLink)
-      console.log('🚀 ~ button.onclick= ~ archiveInnerHtml.value:', archiveInnerHtml.value)
 
       // 等 DOM 更新
       setTimeout(() => {
@@ -158,12 +155,13 @@ const modalOptions = ref({
 
 const isArchivePopupShow = ref(false)
 
-const { setHentaiAtHomeEvent, setDirectDownloadEvent, quickDownload } = useArchive()
+const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive()
 const isQuickDownload = computed(() => quickDownloadMethod.value !== DownloadMethod.Manual)
 
 function setArchiveEvent() {
   setHentaiAtHomeEvent()
   setDirectDownloadEvent()
+  setCancelArchiveEvent()
 
   if (isQuickDownload.value) {
     const succeed = quickDownload(archivePopup)

@@ -1,6 +1,7 @@
 import { useToast } from 'vue-toastification'
 import { Ref } from 'vue'
 
+import { useFetchPopups } from '@/composables/useFetchPopups'
 import { getElement, getElements, getDoc } from '@/utils/commons'
 import { Logger } from '@/utils/logger'
 import { DownloadMethod } from '@/constants/monkey'
@@ -155,6 +156,50 @@ export function useArchive() {
     }
   }
 
+  const { getInnerHTMLs } = useFetchPopups()
+  const { archiveInnerHtml } = getInnerHTMLs()
+
+  function setCancelArchiveEvent() {
+    const logger = new Logger('Archive Event')
+
+    const invalidateForm = getElement<HTMLElement>('#invalidate_form')
+    if (!invalidateForm) {
+      logger.log('no unlocked archive to invalidate.')
+      return
+    }
+    const cancelButton = invalidateForm?.nextElementSibling?.children?.[2]
+
+    if (!cancelButton || cancelButton.innerHTML !== 'cancel') {
+      logger.log('no unlocked archive to invalidate.')
+      return
+    }
+
+    cancelButton.removeAttribute('onclick')
+    cancelButton.addEventListener('click', event => {
+      event.preventDefault()
+
+      cancelButton.innerHTML = 'canceling...'
+
+      const url = invalidateForm.getAttribute('action') as string
+
+      fetch(url, {
+        method: 'POST',
+        body: 'invalidate_sessions=1',
+        headers: new Headers({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }),
+      })
+        .then(res => res.text())
+        .then(text => {
+          const html = new DOMParser().parseFromString(text, 'text/html')
+          archiveInnerHtml.value = getElement('#db', html)?.innerHTML as string
+          setTimeout(() => {
+            setDirectDownloadEvent()
+          }, 0)
+        })
+    })
+  }
+
   // TODO: 直接 send request 而非操作 DOM
   function quickDownload(popup: Ref<HTMLElement | undefined>) {
     function getHaHDownloadLinkElement(downloadMethod: DownloadMethod.HaH_Original | DownloadMethod.HaH_2400) {
@@ -197,6 +242,7 @@ export function useArchive() {
   return {
     setHentaiAtHomeEvent,
     setDirectDownloadEvent,
+    setCancelArchiveEvent,
     quickDownload,
   }
 }
