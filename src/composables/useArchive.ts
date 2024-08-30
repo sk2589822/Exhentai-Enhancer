@@ -1,14 +1,19 @@
 import { useToast } from 'vue-toastification'
 import { Ref } from 'vue'
 
+import { useFetchPopups } from '@/composables/useFetchPopups'
 import { getElement, getElements, getDoc } from '@/utils/commons'
 import { Logger } from '@/utils/logger'
 import { DownloadMethod } from '@/constants/monkey'
 import { quickDownloadMethod } from '@/utils/GMVariables'
 
+import { useHighlight } from './FrontPageEnhancer/useHighlight'
+
 const toast = useToast()
 
 export function useArchive() {
+  const { setAsDownloaded } = useHighlight()
+
   /**
    * 重新實作 Hentai@Home 的下載事件
    *
@@ -55,6 +60,9 @@ export function useArchive() {
             toast.error(parsedResponse)
           }
         }
+
+        const gid = Number(new URL(postUrl).searchParams.get('gid'))
+        setAsDownloaded(gid)
       })
     }
   }
@@ -119,6 +127,9 @@ export function useArchive() {
         button.parentElement.classList.add('is-fetching')
         await sendDownloadRequest(url, resolution)
         button.parentElement.classList.remove('is-fetching')
+
+        const gid = Number(new URL(url).searchParams.get('gid'))
+        setAsDownloaded(gid)
       })
     }
 
@@ -153,6 +164,50 @@ export function useArchive() {
       // TODO: open in new tab?
       window.location.href = downloadLink
     }
+  }
+
+  const { getInnerHTMLs } = useFetchPopups()
+  const { archiveInnerHtml } = getInnerHTMLs()
+
+  function setCancelArchiveEvent() {
+    const logger = new Logger('Archive Event')
+
+    const invalidateForm = getElement<HTMLElement>('#invalidate_form')
+    if (!invalidateForm) {
+      logger.log('no unlocked archive to invalidate.')
+      return
+    }
+    const cancelButton = invalidateForm?.nextElementSibling?.children?.[2]
+
+    if (!cancelButton || cancelButton.innerHTML !== 'cancel') {
+      logger.log('no unlocked archive to invalidate.')
+      return
+    }
+
+    cancelButton.removeAttribute('onclick')
+    cancelButton.addEventListener('click', event => {
+      event.preventDefault()
+
+      cancelButton.innerHTML = 'canceling...'
+
+      const url = invalidateForm.getAttribute('action') as string
+
+      fetch(url, {
+        method: 'POST',
+        body: 'invalidate_sessions=1',
+        headers: new Headers({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }),
+      })
+        .then(res => res.text())
+        .then(text => {
+          const html = new DOMParser().parseFromString(text, 'text/html')
+          archiveInnerHtml.value = getElement('#db', html)?.innerHTML as string
+          setTimeout(() => {
+            setDirectDownloadEvent()
+          }, 0)
+        })
+    })
   }
 
   // TODO: 直接 send request 而非操作 DOM
@@ -197,6 +252,7 @@ export function useArchive() {
   return {
     setHentaiAtHomeEvent,
     setDirectDownloadEvent,
+    setCancelArchiveEvent,
     quickDownload,
   }
 }

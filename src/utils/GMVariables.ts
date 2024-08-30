@@ -28,7 +28,8 @@ class GMVariable<T extends boolean | DownloadMethod> {
 
 // Front page enhancer
 export const infiniteScrollSwitch = reactive(new GMVariable<boolean>(GMKey.InfiniteScroll, true))
-export const archiveButtonSwitch = reactive(new GMVariable<boolean>(GMKey.archiveButton, true))
+export const archiveButtonSwitch = reactive(new GMVariable<boolean>(GMKey.ArchiveButton, true))
+export const highlightSwitch = reactive(new GMVariable<boolean>(GMKey.Highlight, true))
 
 // Gallery enhancer
 export const scrollByRowSwitch = reactive(new GMVariable<boolean>(GMKey.ScrollByRow, true))
@@ -48,6 +49,7 @@ export async function initializeMonkeySwitches() {
   await Promise.all([
     infiniteScrollSwitch.initialize(),
     archiveButtonSwitch.initialize(),
+    highlightSwitch.initialize(),
 
     scrollByRowSwitch.initialize(),
     betterPopupSwitch.initialize(),

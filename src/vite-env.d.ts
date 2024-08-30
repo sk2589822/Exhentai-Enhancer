@@ -21,6 +21,7 @@ declare module '@/scripts/MultipageViewerEnhancer' {
 
 // ExHentai built-in variables & functions
 interface Window {
+  gid: number;
   pagecount: number; // page Count
   currentpage: number; // current page
   preload_scroll_images: () => void; // preload images & set currentpage
