@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.12.2
+// @version            1.13.0
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -20,6 +20,9 @@
 // @grant              GM.registerMenuCommand
 // @grant              GM.setValue
 // @grant              GM_addStyle
+// @grant              GM_addValueChangeListener
+// @grant              GM_getValue
+// @grant              GM_setValue
 // @grant              unsafeWindow
 // ==/UserScript==
 
@@ -3606,11 +3609,15 @@ This will fail in production.`
   };
   var src_default = VueToastificationPlugin;
   var _GM = /* @__PURE__ */ (() => typeof GM != "undefined" ? GM : void 0)();
+  var _GM_addValueChangeListener = /* @__PURE__ */ (() => typeof GM_addValueChangeListener != "undefined" ? GM_addValueChangeListener : void 0)();
+  var _GM_getValue = /* @__PURE__ */ (() => typeof GM_getValue != "undefined" ? GM_getValue : void 0)();
+  var _GM_setValue = /* @__PURE__ */ (() => typeof GM_setValue != "undefined" ? GM_setValue : void 0)();
   var _unsafeWindow = /* @__PURE__ */ (() => typeof unsafeWindow != "undefined" ? unsafeWindow : void 0)();
   var GMKey = /* @__PURE__ */ ((GMKey2) => {
     GMKey2["InfiniteScroll"] = "InfiniteScroll";
     GMKey2["ScrollByRow"] = "ScrollByRow";
-    GMKey2["archiveButton"] = "archiveButton";
+    GMKey2["ArchiveButton"] = "archiveButton";
+    GMKey2["Highlight"] = "Highlight";
     GMKey2["BetterPopup"] = "BetterPopup";
     GMKey2["QuickDownloadMethod"] = "QuickDownloadMethod";
     GMKey2["LoadAllGalleryImages"] = "LoadAllGalleryImages";
@@ -3647,7 +3654,8 @@ This will fail in production.`
     }
   }
   const infiniteScrollSwitch = vue.reactive(new GMVariable(GMKey.InfiniteScroll, true));
-  const archiveButtonSwitch = vue.reactive(new GMVariable(GMKey.archiveButton, true));
+  const archiveButtonSwitch = vue.reactive(new GMVariable(GMKey.ArchiveButton, true));
+  const highlightSwitch = vue.reactive(new GMVariable(GMKey.Highlight, true));
   const scrollByRowSwitch = vue.reactive(new GMVariable(GMKey.ScrollByRow, true));
   const betterPopupSwitch = vue.reactive(new GMVariable(GMKey.BetterPopup, true));
   const quickDownloadMethod = vue.reactive(new GMVariable(GMKey.QuickDownloadMethod, DownloadMethod.Manual));
@@ -3660,6 +3668,7 @@ This will fail in production.`
     await Promise.all([
       infiniteScrollSwitch.initialize(),
       archiveButtonSwitch.initialize(),
+      highlightSwitch.initialize(),
       scrollByRowSwitch.initialize(),
       betterPopupSwitch.initialize(),
       quickDownloadMethod.initialize(),
@@ -3996,8 +4005,39 @@ This will fail in production.`
     });
     return `${_unsafeWindow.location.origin}/archiver.php?gid=${id}&token=${token}&or=${galleryData.gmetadata[0].archiver_key}`;
   }
+  function useHighlight() {
+    const downloadedGalleriesIDs = _GM_getValue("downloaded-galleries-ids", []);
+    function setAsDownloaded(galleryID) {
+      if (!highlightSwitch.value) {
+        return;
+      }
+      highlight(galleryID);
+      downloadedGalleriesIDs.push(galleryID);
+      _GM_setValue("downloaded-galleries-ids", downloadedGalleriesIDs);
+    }
+    function highlight(galleryID) {
+      const galleryDiv = getElement(`div[gid="${galleryID}"]`);
+      if (galleryDiv) {
+        galleryDiv.style.backgroundColor = "black";
+      }
+    }
+    function highlightAll() {
+      if (!highlightSwitch.value) {
+        return;
+      }
+      downloadedGalleriesIDs.forEach(highlight);
+      _GM_addValueChangeListener("downloaded-galleries-ids", (_key, _oldValue, newValue) => {
+        newValue.forEach(highlight);
+      });
+    }
+    return {
+      highlightAll,
+      setAsDownloaded
+    };
+  }
   const toast = useToast();
   function useArchive() {
+    const { setAsDownloaded } = useHighlight();
     function setHentaiAtHomeEvent() {
       var _a2, _b, _c;
       const logger = new Logger("Hentai At Home Event");
@@ -4031,6 +4071,8 @@ This will fail in production.`
               toast.error(parsedResponse);
             }
           }
+          const gid = Number(new URL(postUrl).searchParams.get("gid"));
+          setAsDownloaded(gid);
         });
       }
     }
@@ -4084,6 +4126,8 @@ This will fail in production.`
           button.parentElement.classList.add("is-fetching");
           await sendDownloadRequest2(url, resolution);
           button.parentElement.classList.remove("is-fetching");
+          const gid = Number(new URL(url).searchParams.get("gid"));
+          setAsDownloaded(gid);
         });
       }
       async function sendDownloadRequest2(url, resolution) {
@@ -4110,6 +4154,42 @@ This will fail in production.`
         const downloadLink = `${matches2[1]}?start=1`;
         window.location.href = downloadLink;
       }
+    }
+    const { getInnerHTMLs } = useFetchPopups();
+    const { archiveInnerHtml: archiveInnerHtml2 } = getInnerHTMLs();
+    function setCancelArchiveEvent() {
+      var _a2, _b;
+      const logger = new Logger("Archive Event");
+      const invalidateForm = getElement("#invalidate_form");
+      if (!invalidateForm) {
+        logger.log("no unlocked archive to invalidate.");
+        return;
+      }
+      const cancelButton = (_b = (_a2 = invalidateForm == null ? void 0 : invalidateForm.nextElementSibling) == null ? void 0 : _a2.children) == null ? void 0 : _b[2];
+      if (!cancelButton || cancelButton.innerHTML !== "cancel") {
+        logger.log("no unlocked archive to invalidate.");
+        return;
+      }
+      cancelButton.removeAttribute("onclick");
+      cancelButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        cancelButton.innerHTML = "canceling...";
+        const url = invalidateForm.getAttribute("action");
+        fetch(url, {
+          method: "POST",
+          body: "invalidate_sessions=1",
+          headers: new Headers({
+            "Content-Type": "application/x-www-form-urlencoded"
+          })
+        }).then((res) => res.text()).then((text) => {
+          var _a3;
+          const html = new DOMParser().parseFromString(text, "text/html");
+          archiveInnerHtml2.value = (_a3 = getElement("#db", html)) == null ? void 0 : _a3.innerHTML;
+          setTimeout(() => {
+            setDirectDownloadEvent();
+          }, 0);
+        });
+      });
     }
     function quickDownload(popup) {
       function getHaHDownloadLinkElement(downloadMethod) {
@@ -4145,6 +4225,7 @@ This will fail in production.`
     return {
       setHentaiAtHomeEvent,
       setDirectDownloadEvent,
+      setCancelArchiveEvent,
       quickDownload
     };
   }
@@ -4217,11 +4298,8 @@ This will fail in production.`
             archiveInnerHtml2.value = "Fetching...";
             activeButton.value = button;
             const link = getElement("a", gallery);
-            console.log("🚀 ~ button.onclick= ~ link:", link);
             const archiveLink = await getArchiveLink(link.href);
-            console.log("🚀 ~ button.onclick= ~ archiveLink:", archiveLink);
             archiveInnerHtml2.value = await fetchArchive(archiveLink);
-            console.log("🚀 ~ button.onclick= ~ archiveInnerHtml.value:", archiveInnerHtml2.value);
             setTimeout(() => {
               setArchiveEvent();
             }, 0);
@@ -4259,11 +4337,12 @@ This will fail in production.`
         lockScroll: false
       });
       const isArchivePopupShow = vue.ref(false);
-      const { setHentaiAtHomeEvent, setDirectDownloadEvent, quickDownload } = useArchive();
+      const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive();
       const isQuickDownload = vue.computed(() => quickDownloadMethod.value !== DownloadMethod.Manual);
       function setArchiveEvent() {
         setHentaiAtHomeEvent();
         setDirectDownloadEvent();
+        setCancelArchiveEvent();
         if (isQuickDownload.value) {
           const succeed = quickDownload(archivePopup);
           if (!succeed) {
@@ -4271,6 +4350,8 @@ This will fail in production.`
           }
         }
       }
+      const { highlightAll } = useHighlight();
+      highlightAll();
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createBlock(vue.unref(Io), vue.mergeProps({
           modelValue: isArchivePopupShow.value,
@@ -4471,7 +4552,7 @@ This will fail in production.`
         torrent: torrentPosition,
         favorite: favoritePosition
       } = usePositions();
-      const { setHentaiAtHomeEvent, setDirectDownloadEvent, quickDownload } = useArchive();
+      const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive();
       const { downloadTorrent } = useTorrent();
       const { setRequestEvents } = useFavorite(favoriteInnerHtml2);
       if (betterPopupSwitch.value) {
@@ -4486,6 +4567,7 @@ This will fail in production.`
       function setArchiveClickEvent() {
         setHentaiAtHomeEvent();
         setDirectDownloadEvent();
+        setCancelArchiveEvent();
         archiveLinkAnchor.addEventListener("click", (event) => {
           event.preventDefault();
           event.stopPropagation();
@@ -4500,9 +4582,18 @@ This will fail in production.`
         });
         setReady(archiveLinkAnchor);
       }
+      const { setAsDownloaded } = useHighlight();
       function setTorrentClickEvent() {
         setRequestEvents(archiveLinkAnchor, favoritePopup, isFavoritePopupShow);
         const isOnlyOneTorrent = torrentLinkAnchor.innerText === "Torrent Download (1)";
+        const torrentDownloadLinks = getElements("a", torrentPopup.value);
+        if (torrentDownloadLinks == null ? void 0 : torrentDownloadLinks.length) {
+          torrentDownloadLinks == null ? void 0 : torrentDownloadLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              setAsDownloaded(_unsafeWindow.gid);
+            });
+          });
+        }
         torrentLinkAnchor.addEventListener("click", (event) => {
           event.preventDefault();
           event.stopPropagation();
@@ -5528,7 +5619,10 @@ This will fail in production.`
   const _hoisted_36 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1);
   const _hoisted_37 = /* @__PURE__ */ vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Gallery Enhancer - Scroll by Row" ', -1);
   const _hoisted_38 = { class: "settings" };
-  const _hoisted_39 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Insert archiver buttons to galleries on the front page. ", -1);
+  const _hoisted_39 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Highlight downloaded gallery ", -1);
+  const _hoisted_40 = /* @__PURE__ */ vue.createElementVNode("div", { class: "settings__intro" }, " Set background color of downloaded Gallery color to black. ", -1);
+  const _hoisted_41 = { class: "settings" };
+  const _hoisted_42 = /* @__PURE__ */ vue.createElementVNode("h3", { class: "settings__name" }, " Insert archiver buttons to galleries on the front page. ", -1);
   const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
     __name: "SettingsPanel",
     setup(__props) {
@@ -5542,7 +5636,7 @@ This will fail in production.`
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createBlock(vue.unref(Io), {
           modelValue: isShow.value,
-          "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => isShow.value = $event),
+          "onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => isShow.value = $event),
           "overlay-transition": "vfm-fade",
           class: "settings-panel-wrap",
           "content-class": "settings-panel"
@@ -5647,16 +5741,24 @@ This will fail in production.`
                 ]),
                 vue.createElementVNode("div", _hoisted_38, [
                   vue.createVNode(ToggleSwitch, {
-                    modelValue: vue.unref(archiveButtonSwitch).value,
-                    "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => vue.unref(archiveButtonSwitch).value = $event)
+                    modelValue: vue.unref(highlightSwitch).value,
+                    "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => vue.unref(highlightSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _hoisted_39
+                  _hoisted_39,
+                  _hoisted_40
+                ]),
+                vue.createElementVNode("div", _hoisted_41, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(archiveButtonSwitch).value,
+                    "onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => vue.unref(archiveButtonSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _hoisted_42
                 ])
               ])
             ]),
             vue.createElementVNode("span", {
               class: "settings-panel__close-button",
-              onClick: _cache[11] || (_cache[11] = ($event) => isShow.value = false)
+              onClick: _cache[12] || (_cache[12] = ($event) => isShow.value = false)
             }, [
               vue.createVNode(CrossButton)
             ]),
