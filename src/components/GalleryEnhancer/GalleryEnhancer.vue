@@ -39,6 +39,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { VueFinalModal } from 'vue-final-modal'
+import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { useGalleryElements } from '@/composables/GalleryEnhancer/useGalleryElements'
 import { usePositions } from '@/composables/GalleryEnhancer/usePositions'
@@ -50,6 +51,8 @@ import { fetchAllImages } from '@/utils/fetchImages'
 import { DownloadMethod } from '@/constants/monkey'
 import { useFavorite } from '@/composables/useFavorite'
 import { useTorrent } from '@/composables/useTorrent'
+import { useHighlight } from '@/composables/FrontPageEnhancer/useHighlight'
+import { getElements } from '@/utils/commons'
 
 if (loadAllGalleryImagesSwitch.value) {
   fetchAllImages({ delayInMs: 1000 })
@@ -132,9 +135,20 @@ function setArchiveClickEvent() {
   setReady(archiveLinkAnchor)
 }
 
+const { setAsDownloaded } = useHighlight()
+
 function setTorrentClickEvent() {
   setRequestEvents(archiveLinkAnchor, favoritePopup, isFavoritePopupShow)
   const isOnlyOneTorrent = torrentLinkAnchor.innerText === 'Torrent Download (1)'
+
+  const torrentDownloadLinks = getElements('a', torrentPopup.value)
+  if (torrentDownloadLinks?.length) {
+    torrentDownloadLinks?.forEach(link => {
+      link.addEventListener('click', () => {
+        setAsDownloaded(unsafeWindow.gid)
+      })
+    })
+  }
 
   torrentLinkAnchor.addEventListener('click', event => {
     event.preventDefault()
@@ -146,6 +160,7 @@ function setTorrentClickEvent() {
       isTorrentPopupShow.value = !isTorrentPopupShow.value
     }
   })
+
   setReady(torrentLinkAnchor)
 }
 
