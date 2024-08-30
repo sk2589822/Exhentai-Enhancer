@@ -157,6 +157,16 @@
         </div>
 
         <div class="settings">
+          <ToggleSwitch v-model="highlightSwitch.value" />
+          <h3 class="settings__name">
+            Highlight downloaded gallery
+          </h3>
+          <div class="settings__intro">
+            Set background color of downloaded Gallery color to black.
+          </div>
+        </div>
+
+        <div class="settings">
           <ToggleSwitch v-model="archiveButtonSwitch.value" />
           <h3 class="settings__name">
             Insert archiver buttons to galleries on the front page.
@@ -200,6 +210,7 @@ import {
   preventImageRemovalSwitch,
   autoRedirectSwitch,
   showJapaneseTitle,
+  highlightSwitch,
 } from '@/utils/GMVariables'
 
 import ToggleSwitch from './ToggleSwitch.vue'
