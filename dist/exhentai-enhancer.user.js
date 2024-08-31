@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.13.0
+// @version            1.14.0
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -4617,6 +4617,9 @@ This will fail in production.`
         element.removeAttribute("onclick");
         element.classList.add("is-ready");
       }
+      vue.onMounted(() => {
+        _unsafeWindow.pop_ren = Function('popUp(popbase + "rename", window.innerWidth * 2 / 3, window.innerHeight * 2 / 3);');
+      });
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock(vue.Fragment, null, [
           vue.createVNode(vue.unref(Io), vue.mergeProps({
