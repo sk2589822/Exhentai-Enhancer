@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { VueFinalModal } from 'vue-final-modal'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
@@ -177,6 +177,10 @@ function setReady(element: HTMLElement) {
   element.removeAttribute('onclick')
   element.classList.add('is-ready')
 }
+
+onMounted(() => {
+  unsafeWindow.pop_ren = Function('popUp(popbase + "rename", window.innerWidth * 2 / 3, window.innerHeight * 2 / 3);') as () => false
+})
 
 </script>
 
