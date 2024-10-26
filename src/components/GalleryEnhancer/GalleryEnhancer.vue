@@ -61,7 +61,7 @@ if (loadAllGalleryImagesSwitch.value) {
 if (scrollByRowSwitch.value) {
   useWheelStep({
     containerSelector: '#gdt',
-    itemsSelector: '.gdtl',
+    itemsSelector: 'a',
   })
 }
 
