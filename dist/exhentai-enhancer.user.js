@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.14.0
+// @version            1.14.1
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -3707,9 +3707,9 @@ This will fail in production.`
     itemsSelector
   }) {
     const container = getElement(containerSelector);
-    let firstItemOfRows = getFirstItemOfRows();
+    let firstItemOfRows = getFirstItemOfRows(itemsSelector, container);
     const mutationObserver = new MutationObserver(() => {
-      firstItemOfRows = getFirstItemOfRows();
+      firstItemOfRows = getFirstItemOfRows(itemsSelector, container);
     });
     mutationObserver.observe(container, {
       childList: true,
@@ -3740,16 +3740,15 @@ This will fail in production.`
         }
       });
     }
-    function getFirstItemOfRows() {
-      const item = getElement(itemsSelector);
-      const itemsPerRow = Math.floor(container.clientWidth / item.clientWidth);
-      const firstItemOfRows2 = getElements(`${itemsSelector}:nth-child(${itemsPerRow}n + 1)`);
-      if (!firstItemOfRows2) {
-        return [];
-      }
-      return [...firstItemOfRows2];
+  }
+  function getFirstItemOfRows(selector, parent) {
+    const item = getElement(selector, parent);
+    const itemsPerRow = Math.floor(parent.clientWidth / item.clientWidth);
+    const firstItemOfRows = getElements(`${selector}:nth-child(${itemsPerRow}n + 1)`, parent);
+    if (!firstItemOfRows) {
+      return [];
     }
-    return;
+    return [...firstItemOfRows];
   }
   class Logger {
     constructor(feature, scope) {
@@ -4524,7 +4523,7 @@ This will fail in production.`
       if (scrollByRowSwitch.value) {
         useWheelStep({
           containerSelector: "#gdt",
-          itemsSelector: ".gdtl"
+          itemsSelector: "a"
         });
       }
       const modalOptions = vue.ref({
@@ -5449,7 +5448,7 @@ This will fail in production.`
       setHideCursorEvent();
       setShowThumbsEvent();
       useWheelStep({
-        containerSelector: "#pane_thumbs_inner",
+        containerSelector: "#pane_thumbs",
         itemsSelector: "[id^=thumb_]"
       });
       const exhentaiButtons = vue.ref("");
