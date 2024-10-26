@@ -52,7 +52,7 @@ setHideCursorEvent()
 setShowThumbsEvent()
 
 useWheelStep({
-  containerSelector: '#pane_thumbs_inner',
+  containerSelector: '#pane_thumbs',
   itemsSelector: '[id^=thumb_]',
 })
 

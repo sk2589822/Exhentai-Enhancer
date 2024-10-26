@@ -12,9 +12,9 @@ export function useWheelStep({
 }) {
   const container = getElement(containerSelector) as HTMLElement
 
-  let firstItemOfRows: HTMLElement[] = getFirstItemOfRows()
+  let firstItemOfRows: HTMLElement[] = getFirstItemOfRows(itemsSelector, container)
   const mutationObserver = new MutationObserver(() => {
-    firstItemOfRows = getFirstItemOfRows()
+    firstItemOfRows = getFirstItemOfRows(itemsSelector, container)
   })
 
   mutationObserver.observe(container, {
@@ -56,19 +56,16 @@ export function useWheelStep({
       }
     }) as EventListener)
   }
-
-  function getFirstItemOfRows(): HTMLElement[] {
-    const item = getElement(itemsSelector) as HTMLDivElement
-    const itemsPerRow = Math.floor(container.clientWidth / item.clientWidth)
-
-    const firstItemOfRows = getElements(`${itemsSelector}:nth-child(${itemsPerRow}n + 1)`)
-    if (!firstItemOfRows) {
-      return []
-    }
-
-    return [...firstItemOfRows]
-  }
-
-  return
 }
 
+function getFirstItemOfRows(selector: string, parent: HTMLElement): HTMLElement[] {
+  const item = getElement(selector, parent) as HTMLDivElement
+  const itemsPerRow = Math.floor(parent.clientWidth / item.clientWidth)
+
+  const firstItemOfRows = getElements(`${selector}:nth-child(${itemsPerRow}n + 1)`, parent)
+  if (!firstItemOfRows) {
+    return []
+  }
+
+  return [...firstItemOfRows]
+}
