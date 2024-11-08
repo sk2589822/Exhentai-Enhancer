@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.15.0
+// @version            1.15.1
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -4381,6 +4381,7 @@ This will fail in production.`
       const popupRect = useElementBounding(archivePopup);
       const targetRect = useElementBounding(activeButton);
       const archivePopupPosition = vue.computed(() => {
+        const top = Math.min(targetRect.bottom.value + 5, borderRect.bottom.value - popupRect.height.value);
         let left = targetRect.left.value - popupRect.width.value / 2;
         const right = left + popupRect.width.value;
         if (left < borderRect.left.value) {
@@ -4389,7 +4390,7 @@ This will fail in production.`
           left = borderRect.right.value - popupRect.width.value;
         }
         return {
-          top: `${targetRect.bottom.value + 5}px`,
+          top: `${top}px`,
           left: `${left}px`,
           // 防止 popup right 超出邊界時，瀏覽器自動 shrink popup
           marginRight: "-9999px"
