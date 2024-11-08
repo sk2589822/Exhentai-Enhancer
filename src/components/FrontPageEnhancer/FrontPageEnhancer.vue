@@ -125,6 +125,8 @@ const popupRect = useElementBounding(archivePopup)
 const targetRect = useElementBounding(activeButton)
 
 const archivePopupPosition = computed(() => {
+  const top = Math.min(targetRect.bottom.value + 5, borderRect.bottom.value - popupRect.height.value)
+
   let left = (targetRect.left.value - popupRect.width.value / 2)
   const right = left + popupRect.width.value
 
@@ -135,7 +137,7 @@ const archivePopupPosition = computed(() => {
   }
 
   return {
-    top: `${targetRect.bottom.value + 5}px`,
+    top: `${top}px`,
     left: `${left}px`,
     // 防止 popup right 超出邊界時，瀏覽器自動 shrink popup
     marginRight: '-9999px',
