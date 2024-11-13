@@ -17,6 +17,7 @@ async function fetchAllImages({ delayInMs = 3000 }: { delayInMs: number }) {
   const pageUrls = getPageUrls()
 
   if (!pageUrls) {
+    logger.error('Page URLs not found.')
     return
   }
 
@@ -51,11 +52,11 @@ async function fetchAllImages({ delayInMs = 3000 }: { delayInMs: number }) {
   }
 
   function getImageElements(doc: Document) {
-    return getElements('.gdtl', doc)
+    return getElements('#gdt > a', doc)
   }
 
   function getPageUrls() {
-    const lastPageElement = getElement('.ptt td:nth-last-child(2)')
+    const lastPageElement = getElement('.ptt td:nth-last-child(2) a')
     if (!lastPageElement) {
       logger.error('Get last page element failed')
       return
@@ -73,8 +74,8 @@ async function fetchAllImages({ delayInMs = 3000 }: { delayInMs: number }) {
   }
 
   function appendImages(elements: NodeListOf<HTMLElement>) {
-    getElement('#gdt > .c')
-      ?.before(...elements)
+    getElement('#gdt')
+      ?.append(...elements)
   }
 }
 
