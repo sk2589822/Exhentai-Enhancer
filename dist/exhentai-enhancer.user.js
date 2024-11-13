@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.15.1
+// @version            1.15.2
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -4474,6 +4474,7 @@ This will fail in production.`
     logger.log("Start");
     const pageUrls = getPageUrls();
     if (!pageUrls) {
+      logger.error("Page URLs not found.");
       return;
     }
     if (pageUrls.length === 0) {
@@ -4502,10 +4503,10 @@ This will fail in production.`
       return ((_a2 = getElement(".ptds")) == null ? void 0 : _a2.innerText) === "1";
     }
     function getImageElements(doc) {
-      return getElements(".gdtl", doc);
+      return getElements("#gdt > a", doc);
     }
     function getPageUrls() {
-      const lastPageElement = getElement(".ptt td:nth-last-child(2)");
+      const lastPageElement = getElement(".ptt td:nth-last-child(2) a");
       if (!lastPageElement) {
         logger.error("Get last page element failed");
         return;
@@ -4519,7 +4520,7 @@ This will fail in production.`
     }
     function appendImages(elements) {
       var _a2;
-      (_a2 = getElement("#gdt > .c")) == null ? void 0 : _a2.before(...elements);
+      (_a2 = getElement("#gdt")) == null ? void 0 : _a2.append(...elements);
     }
   }
   function useFavorite(favoriteInnerHtml2) {
