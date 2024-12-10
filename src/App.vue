@@ -6,10 +6,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, defineAsyncComponent } from 'vue'
+import { computed, onMounted } from 'vue'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { getElement } from '@/utils/commons'
+import FrontPageEnhancer from '@/components/FrontPageEnhancer/FrontPageEnhancer.vue'
+import GalleryEnhancer from '@/components/GalleryEnhancer/GalleryEnhancer.vue'
+import MultipageViewerEnhancer from '@/components/MultiPageViewerEnhancer/MultiPageViewerEnhancer.vue'
 import SettingsPanel from '@/components/SettingsPanel/SettingsPanel.vue'
 import { autoRedirectSwitch, multipageViewerEnhancerSwitch, showJapaneseTitle } from '@/utils/GMVariables'
 
@@ -36,15 +39,15 @@ function useEnhancer() {
       /https:\/\/e[-x]hentai\.org\/(watched|popular)?(\?.+)?$/.test(href) ||
       /https:\/\/e[-x]hentai\.org\/(tag)\/\w+/.test(href)
     ) {
-      return defineAsyncComponent(() => import('@/components/FrontPageEnhancer/FrontPageEnhancer.vue'))
+      return FrontPageEnhancer
     }
 
     if (/https:\/\/e[-x]hentai\.org\/g\/\w+\/\w+/.test(href)) {
-      return defineAsyncComponent(() => import('@/components/GalleryEnhancer/GalleryEnhancer.vue'))
+      return GalleryEnhancer
     }
 
     if (multipageViewerEnhancerSwitch.value && /https:\/\/e[-x]hentai\.org\/mpv\/\w+\/\w+/.test(href)) {
-      return defineAsyncComponent(() => import('@/components/MultiPageViewerEnhancer/MultiPageViewerEnhancer.vue'))
+      return MultipageViewerEnhancer
     }
 
     return null
