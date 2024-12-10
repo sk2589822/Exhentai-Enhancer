@@ -237,14 +237,15 @@ function reload() {
   box-sizing: border-box;
   position: relative;
   display: flex;
+  flex-direction: column;
+  row-gap: 16px;
   margin: 32px;
   padding: 32px;
   max-width: 1000px;
   max-height: calc(100vh - 64px);
   background-color: #34353b;
   border-radius: 4px;
-  flex-direction: column;
-  row-gap: 16px;
+  color: #f1f1f1;
 
   &__inner {
     overflow-y: auto;
@@ -276,6 +277,20 @@ function reload() {
       width: 16px;
       height: 16px;
     }
+  }
+
+  a {
+    color: #DDDDDD;
+  }
+
+  hr {
+    background: #f1f1f1;
+  }
+
+  select {
+    color: #f1f1f1;
+    background-color: #34353b;
+    outline: none;
   }
 }
 
