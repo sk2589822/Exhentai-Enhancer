@@ -14,7 +14,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
-import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
+import {
+  unsafeWindow,
+  GM_addStyle as gmAddStyle,
+} from 'vite-plugin-monkey/dist/client'
 
 import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
 import { useEvents } from '@/composables/MultiPageViewerEnhancer/useEvents'
@@ -78,6 +81,8 @@ function replaceOriginalFunctions() {
 }
 
 onMounted(() => {
+  overrideGlobalCSS()
+
   watch(() => preventImageRemovalSwitch.value, value => {
     if (!value) {
       return
@@ -104,14 +109,9 @@ onMounted(() => {
       })
   })
 })
-</script>
 
-<style lang="scss">
-/* stylelint-disable selector-id-pattern */
-
-/**
- * Override
- */
+function overrideGlobalCSS() {
+  gmAddStyle(`
 html,
 body {
   padding: 0;
@@ -153,7 +153,11 @@ div#pane_thumbs {
   z-index: 1;
   transition: opacity 0.3s;
 }
+  `)
+}
+</script>
 
+<style lang="scss">
 /**
  * Components
  */
