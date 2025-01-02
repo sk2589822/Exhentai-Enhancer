@@ -147,7 +147,12 @@ div#bar3 {
   }
 }
 
-div#pane_thumbs {
+#pane_images {
+  inset: 0 !important;
+  margin: auto;
+}
+
+#pane_thumbs {
   display: block;
   opacity: 0;
   z-index: 1;

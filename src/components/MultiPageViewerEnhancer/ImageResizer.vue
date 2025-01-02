@@ -165,7 +165,7 @@ function useImageResizer() {
 
 <style lang="scss">
 /* stylelint-disable-next-line selector-id-pattern */
-div#pane_images {
+#pane_images {
   .mimg {
     width: min-content !important;
     min-width: unset;
