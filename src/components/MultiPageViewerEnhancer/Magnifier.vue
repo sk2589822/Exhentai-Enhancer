@@ -39,7 +39,7 @@ const magnifierConfig = {
         vertical: 5
     },
     sensitivity: {
-        x: 1,
+        x: 2,
         y: 3
     }
 } as const
