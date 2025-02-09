@@ -173,8 +173,6 @@ export function useMagnifierEvents(
     )
   }
 
-
-  // 輔助函數
   function activateMagnifier(e: MouseEvent) {
     state.isActive = true
     state.position = {
@@ -286,18 +284,20 @@ export function useMagnifierEvents(
     state.currentImage = null
   }
 
-  // 事件綁定
   function bindEvents() {
-    paneImagesDiv.addEventListener('mousedown', handlePress)
+    paneImagesDiv.addEventListener('mousedown', (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest('.mbar')) {
+        handlePress(e)
+      }
+    })
+    
     window.addEventListener('mouseup', handleRelease)
     window.addEventListener('mousemove', updatePosition)
-
-
-    // 阻止默認事件
+    
     const preventDefaultEvents = ['mousedown', 'click', 'contextmenu']
     preventDefaultEvents.forEach(eventName => {
       paneImagesDiv.addEventListener(eventName, (e: Event) => {
-        if (state.isActive) {
+        if (state.isActive && !(e.target as HTMLElement).closest('.mbar')) {
           e.preventDefault()
           e.stopPropagation()
         }
