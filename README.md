@@ -102,43 +102,44 @@ works on:
   ### Gallery Enhancer
 
   Archive download success  
-  ![](https://imgur.com/a8hzlNN.gif)
+  ![download success](https://github.com/user-attachments/assets/d99066ca-b659-45b9-85b9-034653ccc473)
 
   Archive download failed  
-  ![](https://imgur.com/hBmh7A7.gif)
+  ![download failed](https://github.com/user-attachments/assets/7ca83749-74c1-43d6-8ce0-f984c0019cec)
 
   If there is only 1 torrent, download directly  
-  ![](https://imgur.com/kdu3MyP.gif)
+  ![1 torrent](https://github.com/user-attachments/assets/a55e96bc-0978-4bc3-b6b4-02d36278c489)
 
   If there are multiple torrents, show popup  
-  ![](https://imgur.com/bXd1YJH.gif)
+  ![multiple torrents](https://github.com/user-attachments/assets/367a9b28-789c-4e8e-9eca-c97ea85f3f02)
 
   Scroll step by row on images container  
-  ![](https://imgur.com/WdDGu8J.gif)
+  ![scroll by step](https://github.com/user-attachments/assets/3beef0f2-5c5d-4cac-afad-4bfbe3ee9b1c)
 
 
   ### Multi-Page Viewer Enhancer
 
   Page elevator  
-  ![](https://imgur.com/pmwTRuJ.gif)
+  ![elevator](https://github.com/user-attachments/assets/017d1434-de50-411e-9af9-0b995a594d56)
 
   Image resizer  
-  ![](https://imgur.com/Jv2hMgJ.gif)
+  ![resizer](https://github.com/user-attachments/assets/30681d5c-1ac9-4586-8bcd-a8a45680c6e3)
 
   Keyboard shortcuts for image resizer  
-  ![](https://imgur.com/8IRzMkH.gif)
+  ![keyboard shortcut - resizer](https://github.com/user-attachments/assets/68264d53-3845-45c7-a6b5-a07426407066)
 
   Keyboard shortcuts for scroll to top/middle/bottom of current image  
-  ![](https://imgur.com/552vKHC.gif)
+  ![keyboard shortcut - position](https://github.com/user-attachments/assets/65426b45-cbdf-49e6-a8f2-fc3bc754bd21)
 
   Show thumbs when hover  
-  ![](https://imgur.com/RoVA7iX.gif)
+  ![show thumbs when hover](https://github.com/user-attachments/assets/1141773f-8945-4da9-bab2-a904fdf0dd27)
 
   Rotate image  
-  ![](https://imgur.com/LtZJwH4.gif)
-  
+  ![keyboard shortcut - rotate](https://github.com/user-attachments/assets/08f0032d-cc14-40a4-b3bd-4acbae49d64f)
+
   Go to next/previous 10 page by `ctrl + →` `ctrl + ←`  
-  ![](https://imgur.com/5viyiJ8.gif)
+  ![keyboard shortcut - next_prev 10 page](https://github.com/user-attachments/assets/359ab1e2-d3e5-4c22-9db0-9406bf49ecd1)
+
 
 ## Development
 
