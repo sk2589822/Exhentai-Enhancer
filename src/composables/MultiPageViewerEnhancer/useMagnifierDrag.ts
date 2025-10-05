@@ -1,32 +1,38 @@
-import { MagnifierState } from '@/components/MultiPageViewerEnhancer/Magnifier.vue'
-import { useMultiPageViewerElements } from './useMultiPageViewerElements'
+import { MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
 
 /**
  * 虛擬拖拽：在放大鏡啟動後，按住右鍵拖動圖片內容
  * 與正常移動的區別：正常移動是移動視點，拖拽是移動圖片
  */
 export function useMagnifierDrag(
-  state: MagnifierState
+  state: MagnifierState,
 ) {
   function start(e: MouseEvent) {
     state.isVirtualDragging = true
-    state.lastPosition = { x: e.pageX, y: e.pageY }
+    state.lastPosition = {
+      x: e.pageX,
+      y: e.pageY,
+    }
     document.body.style.cursor = 'grabbing'
   }
 
   function update(e: MouseEvent) {
-    if (!state.isVirtualDragging || !state.currentImage) return
+    if (!state.isVirtualDragging || !state.currentImage) {
+      return
+    }
 
     const movementX = e.pageX - state.lastPosition.x
     const movementY = e.pageY - state.lastPosition.y
 
-    // 更新虛擬偏移量
     state.virtualOffset = {
       x: state.virtualOffset.x + movementX,
-      y: state.virtualOffset.y + movementY
+      y: state.virtualOffset.y + movementY,
     }
 
-    state.lastPosition = { x: e.pageX, y: e.pageY }
+    state.lastPosition = {
+      x: e.pageX,
+      y: e.pageY,
+    }
   }
 
   function stop() {
@@ -35,7 +41,10 @@ export function useMagnifierDrag(
   }
 
   function reset() {
-    state.virtualOffset = { x: 0, y: 0 }
+    state.virtualOffset = {
+      x: 0,
+      y: 0,
+    }
     state.isVirtualDragging = false
   }
 
@@ -43,6 +52,6 @@ export function useMagnifierDrag(
     start,
     update,
     stop,
-    reset
+    reset,
   }
 }

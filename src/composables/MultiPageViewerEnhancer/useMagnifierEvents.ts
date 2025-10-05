@@ -1,13 +1,15 @@
 import { ref } from 'vue'
 import { GM_xmlhttpRequest } from 'vite-plugin-monkey/dist/client'
+
 import { getElement } from '@/utils/commons'
+import { MagnifierConfig, MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
+
 import { useMultiPageViewerElements } from './useMultiPageViewerElements'
-import { MagnifierConfig, MagnifierState } from '@/components/MultiPageViewerEnhancer/Magnifier.vue'
 import { useMagnifierDrag } from './useMagnifierDrag'
 
 export function useMagnifierEvents(
   state: MagnifierState,
-  config: MagnifierConfig
+  config: MagnifierConfig,
 ) {
   const { paneImagesDiv } = useMultiPageViewerElements()
   const drag = useMagnifierDrag(state)
@@ -34,9 +36,11 @@ export function useMagnifierEvents(
     updateMouseButtonState(e)
     clearPressTimer()
 
-    if (!state.isActive) return
+    if (!state.isActive) {
+      return
+    }
 
-    // Toggle 模式邏輯  
+    // Toggle 模式邏輯
     if (e.button === 0) {
       if (!isWaitingForToggleEnd.value) {
         isWaitingForToggleEnd.value = true
@@ -84,7 +88,7 @@ export function useMagnifierEvents(
   // ========== Overlay 事件（虛擬拖拽 + 正常移動） ==========
 
   function handleOverlayMouseDown(e: MouseEvent) {
-    if (e.button === 2) {  // 右鍵
+    if (e.button === 2) { // 右鍵
       e.preventDefault()
       e.stopPropagation()
       drag.start(e)
@@ -119,7 +123,9 @@ export function useMagnifierEvents(
   // ========== 位置和縮放 ==========
 
   function updateNormalPosition(e: MouseEvent) {
-    if (!state.isActive) return
+    if (!state.isActive) {
+      return
+    }
 
     const movementX = e.pageX - state.lastPosition.x
     const movementY = e.pageY - state.lastPosition.y
@@ -128,20 +134,25 @@ export function useMagnifierEvents(
 
     state.position = {
       x: state.position.x + (movementX * config.sensitivity.x * speedFactor),
-      y: state.position.y + (movementY * config.sensitivity.y * speedFactor)
+      y: state.position.y + (movementY * config.sensitivity.y * speedFactor),
     }
 
     // 限制移動範圍
     state.position = {
       x: Math.max(0, Math.min(window.innerWidth, state.position.x)),
-      y: Math.max(0, Math.min(window.innerHeight, state.position.y))
+      y: Math.max(0, Math.min(window.innerHeight, state.position.y)),
     }
 
-    state.lastPosition = { x: e.pageX, y: e.pageY }
+    state.lastPosition = {
+      x: e.pageX,
+      y: e.pageY,
+    }
   }
 
   function handleWheel(e: WheelEvent) {
-    if (!state.isActive) return
+    if (!state.isActive) {
+      return
+    }
 
     e.preventDefault()
     e.stopPropagation()
@@ -150,10 +161,12 @@ export function useMagnifierEvents(
   }
 
   function updateScale(delta: number) {
-    if (!state.isActive) return
+    if (!state.isActive) {
+      return
+    }
     state.scale = Math.min(
       Math.max(state.scale + delta, config.scale.min),
-      config.scale.max
+      config.scale.max,
     )
   }
 
@@ -161,8 +174,14 @@ export function useMagnifierEvents(
 
   function activateMagnifier(e: MouseEvent) {
     state.isActive = true
-    state.position = { x: e.pageX, y: e.pageY }
-    state.lastPosition = { x: e.pageX, y: e.pageY }
+    state.position = {
+      x: e.pageX,
+      y: e.pageY,
+    }
+    state.lastPosition = {
+      x: e.pageX,
+      y: e.pageY,
+    }
     state.scale = config.scale.default
 
     updateCurrentImage()
@@ -191,7 +210,7 @@ export function useMagnifierEvents(
     state.currentImage = null
     state.isOriginalMode = false
     state.isLoadingOriginal = false
-    drag.reset()  // 重置拖拽狀態
+    drag.reset() // 重置拖拽狀態
     document.body.classList.remove('hide-cursor')
     getElement('#magnifier-style')?.remove()
   }
@@ -215,24 +234,23 @@ export function useMagnifierEvents(
             method: 'GET',
             url: originalUrl,
             responseType: 'blob',
-            onprogress: (event) => {
+            onprogress: event => {
               state.loadingProgress = (event.loaded / event.total) * 100
             },
-            onload: (response) => {
+            onload: response => {
               const blob = response.response
               const objectUrl = URL.createObjectURL(blob)
               newImage.onload = resolve
               newImage.onerror = reject
               newImage.src = objectUrl
             },
-            onerror: reject
+            onerror: reject,
           })
         })
 
         img.src = newImage.src
         state.isLoadingOriginal = false
         return true
-
       } catch (error) {
         console.error('原圖加載失敗:', error)
         state.isLoadingOriginal = false
@@ -246,7 +264,9 @@ export function useMagnifierEvents(
     const mouseY = state.position.y
     const images = paneImagesDiv.querySelectorAll<HTMLImageElement>('.mimg > a > img')
 
-    if (!images.length) return
+    if (!images.length) {
+      return
+    }
 
     if ((mouseY <= 0 || mouseY >= window.innerHeight) && state.currentImage) {
       return

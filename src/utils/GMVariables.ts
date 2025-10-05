@@ -43,7 +43,6 @@ export const autoRedirectSwitch = reactive(new GMVariable<boolean>(GMKey.AutoRed
 export const preventImageRemovalSwitch = reactive(new GMVariable<boolean>(GMKey.PreventImageRemoval, false))
 export const magnifierSwitch = reactive(new GMVariable<boolean>(GMKey.Magnifier, true))
 
-
 // Common
 export const showJapaneseTitle = reactive(new GMVariable<boolean>(GMKey.ShowJapaneseTitle, true))
 

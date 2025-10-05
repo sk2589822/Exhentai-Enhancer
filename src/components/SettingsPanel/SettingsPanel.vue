@@ -1,6 +1,10 @@
 <template>
-  <VueFinalModal v-model="isShow" :overlay-transition="'vfm-fade'" class="settings-panel-wrap"
-    content-class="settings-panel">
+  <VueFinalModal
+    v-model="isShow"
+    :overlay-transition="'vfm-fade'"
+    class="settings-panel-wrap"
+    content-class="settings-panel"
+  >
     <div class="settings-panel__inner">
       <section class="settings-panel__section">
         <h2 class="settings-panel__section-name">
@@ -64,11 +68,19 @@
             <p>
               *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual
               Start (Default)" in the setting page:
-              <a target="_blank" href="https://e-hentai.org/uconfig.php" rel="noreferrer noopener">
+              <a
+                target="_blank"
+                href="https://e-hentai.org/uconfig.php"
+                rel="noreferrer noopener"
+              >
                 e-hentai
               </a>
               ,
-              <a target="_blank" href="https://exhentai.org/uconfig.php" rel="noreferrer noopener">
+              <a
+                target="_blank"
+                href="https://exhentai.org/uconfig.php"
+                rel="noreferrer noopener"
+              >
                 exhentai
               </a>
             </p>
@@ -176,12 +188,18 @@
         </div>
       </section>
     </div>
-    <span class="settings-panel__close-button" @click="isShow = false">
+    <span
+      class="settings-panel__close-button"
+      @click="isShow = false"
+    >
       <CrossButton />
     </span>
 
     <div class="actions">
-      <button class="actions__button" @click="reload">
+      <button
+        class="actions__button"
+        @click="reload"
+      >
         Apply and Reload
       </button>
     </div>
