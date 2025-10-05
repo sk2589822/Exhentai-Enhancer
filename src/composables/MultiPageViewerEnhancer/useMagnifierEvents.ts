@@ -117,7 +117,8 @@ export function useMagnifierEvents(
    */
   function getSpeedFactor(): number {
     const scale = state.scale
-    return 1 / Math.log2(scale + 1)
+    const decay = 1.5
+    return 1 / Math.pow(scale, decay)
   }
 
   // ========== 位置和縮放 ==========
