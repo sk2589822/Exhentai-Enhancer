@@ -2,6 +2,7 @@
     <div v-show="isShow">
         <div 
             class="magnifier-overlay" 
+            :class="{ 'is-dragging': state.isVirtualDragging }"
             @wheel="handleWheel" 
             @mousedown="handleOverlayMouseDown"
             @mouseup="handleOverlayMouseUp"
@@ -101,7 +102,13 @@ const isShow = computed(() => state.isActive)
     z-index: 999;
     background: transparent;
     cursor: none;
+
+    &.is-dragging {
+        cursor: grabbing;
+    }
 }
+
+
 
 .magnifier {
     z-index: 1000;
@@ -110,7 +117,7 @@ const isShow = computed(() => state.isActive)
         position: absolute;
         inset: 0;
         background-color: rgba(0, 0, 0, 0.5);
-        cursor: none;
+        // cursor: none;
     }
 
     &-image {

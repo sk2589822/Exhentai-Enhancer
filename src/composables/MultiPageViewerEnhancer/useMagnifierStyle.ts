@@ -26,14 +26,6 @@ export function useMagnifierStyle(
       }
     }
 
-    if (state.isVirtualDragging) {
-      return {
-        ...style,
-        opacity: 0.7,
-        filter: 'brightness(1.1)'
-      }
-    }
-
     return style
   })
 
