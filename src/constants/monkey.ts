@@ -12,6 +12,8 @@ export const enum GMKey {
   AutoRedirect = 'AutoRedirect',
   PreventImageRemoval = 'PreventImageRemoval',
   Magnifier = 'Magnifier',
+  MagnifierDefaultScale = 'MagnifierDefaultScale',
+  MagnifierScaleStep = 'MagnifierScaleStep',
 
   ShowJapaneseTitle = 'ShowJapaneseTitle'
 }

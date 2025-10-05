@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 
 import { GMKey, DownloadMethod } from '@/constants/monkey'
 
-class GMVariable<T extends boolean | DownloadMethod> {
+class GMVariable<T extends boolean | DownloadMethod | number> {
   private _key: string
   private _value: T
 
@@ -42,6 +42,8 @@ export const multipageViewerEnhancerSwitch = reactive(new GMVariable<boolean>(GM
 export const autoRedirectSwitch = reactive(new GMVariable<boolean>(GMKey.AutoRedirect, false))
 export const preventImageRemovalSwitch = reactive(new GMVariable<boolean>(GMKey.PreventImageRemoval, false))
 export const magnifierSwitch = reactive(new GMVariable<boolean>(GMKey.Magnifier, true))
+export const magnifierDefaultScale = reactive(new GMVariable<number>(GMKey.MagnifierDefaultScale, 1.5))
+export const magnifierScaleStep = reactive(new GMVariable<number>(GMKey.MagnifierScaleStep, 0.1))
 
 // Common
 export const showJapaneseTitle = reactive(new GMVariable<boolean>(GMKey.ShowJapaneseTitle, true))
@@ -61,6 +63,8 @@ export async function initializeMonkeySwitches() {
     preventImageRemovalSwitch.initialize(),
     autoRedirectSwitch.initialize(),
     magnifierSwitch.initialize(),
+    magnifierDefaultScale.initialize(),
+    magnifierScaleStep.initialize(),
 
     showJapaneseTitle.initialize(),
   ])

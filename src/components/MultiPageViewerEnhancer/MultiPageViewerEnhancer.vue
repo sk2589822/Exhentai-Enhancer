@@ -28,7 +28,7 @@ import { preventImageRemovalSwitch, magnifierSwitch } from '@/utils/GMVariables'
 
 import PageElevator from './PageElevator.vue'
 import ImageResizer from './ImageResizer.vue'
-import Magnifier from './Magnifier.vue'
+import Magnifier from './ImageMagnifier.vue'
 
 const {
   currentPage,

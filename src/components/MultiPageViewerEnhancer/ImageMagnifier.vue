@@ -30,7 +30,7 @@ import { reactive, computed, onMounted, onUnmounted } from 'vue'
 
 import { useMagnifierEvents } from '@/composables/MultiPageViewerEnhancer/useMagnifierEvents'
 import { useMagnifierStyle } from '@/composables/MultiPageViewerEnhancer/useMagnifierStyle'
-import { magnifierSwitch } from '@/utils/GMVariables'
+import { magnifierSwitch, magnifierDefaultScale, magnifierScaleStep } from '@/utils/GMVariables'
 
 export type MagnifierConfig = typeof magnifierConfig
 export type MagnifierState = typeof state
@@ -38,8 +38,8 @@ export type MagnifierState = typeof state
 const magnifierConfig = {
   longPressThreshold: 200,
   scale: {
-    default: 1.5 as number,
-    step: 0.1 as number,
+    default: magnifierDefaultScale.value,
+    step: magnifierScaleStep.value,
     min: 1.1 as number,
     max: 10 as number,
   },

@@ -138,10 +138,26 @@
             Image Magnifier
           </h3>
           <div class="settings__intro">
-            <p>
-              Long press left mouse button to activate magnifier.
-              Hold both left and right buttons to load original resolution image.
-            </p>
+            <label>
+              Default Scale:
+              <input
+                v-model.number="magnifierDefaultScale.value"
+                type="number"
+                min="1"
+                max="10"
+                step="0.1"
+              >
+            </label>
+            <label>
+              Scale Step:
+              <input
+                v-model.number="magnifierScaleStep.value"
+                type="number"
+                min="0.05"
+                max="0.5"
+                step="0.05"
+              >
+            </label>
           </div>
         </div>
       </section>
@@ -226,6 +242,8 @@ import {
   showJapaneseTitle,
   highlightSwitch,
   magnifierSwitch,
+  magnifierDefaultScale,
+  magnifierScaleStep,
 } from '@/utils/GMVariables'
 
 import ToggleSwitch from './ToggleSwitch.vue'
