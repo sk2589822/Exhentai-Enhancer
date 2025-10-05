@@ -47,11 +47,11 @@ export function useMagnifierStyle(
     const magnifierCenter = getCenterPoint(currentImageBounds)
 
     // 計算有效的互動區域（考慮邊緣留白）
-    const interactiveArea = getMappingArea(currentImageBounds, idealImageBounds)
+    const interactiveArea = getMappingArea(currentImageBounds)
 
     // 計算滑鼠在互動區域內的相對位置（0-1 之間）
     const mouseRelativePos = getRelativePosition(position, interactiveArea)
-    
+
     // 計算最終縮放比例（結合 imageresizer 和 magnifier 的縮放）
     const finalScale = currentImageScale * scale
 
@@ -117,14 +117,18 @@ export function useMagnifierStyle(
   - mappingArea.horizontal: 單位爲vw
   - mappingArea.vertical: 單位爲vh
   */
-  function getMappingArea(imgRect: DOMRect, normalizedRect: any) {
+  function getMappingArea(imgRect: DOMRect) {
+    const verticalPadding = imgRect.height * config.mappingArea.vertical / 100
+    const horizontalPadding = imgRect.width * config.mappingArea.horizontal / 100
+
     return {
-      top: normalizedRect.top + (imgRect.height * config.mappingArea.vertical / 100),
-      bottom: normalizedRect.bottom - (imgRect.height * config.mappingArea.vertical / 100),
-      left: imgRect.left + (imgRect.width * config.mappingArea.horizontal / 100),
-      right: imgRect.right - (imgRect.width * config.mappingArea.horizontal / 100)
+      top: imgRect.top > verticalPadding ? imgRect.top : imgRect.top + verticalPadding,
+      bottom: Math.abs(imgRect.top) > verticalPadding ? imgRect.top + imgRect.height : imgRect.top + imgRect.height - verticalPadding,
+      left: imgRect.left + horizontalPadding,
+      right: imgRect.right - horizontalPadding
     }
   }
+
 
   /*
   計算滑鼠相對於映射區域的位置（百分比）
