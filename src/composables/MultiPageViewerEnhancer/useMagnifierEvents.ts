@@ -205,6 +205,9 @@ export function useMagnifierEvents(
   }
 
   function deactivateMagnifier() {
+    if (state.currentImage?.src.startsWith('blob:')) {
+      URL.revokeObjectURL(state.currentImage.src)
+    }
     delete paneImagesDiv.dataset.magnifierActive
     state.isActive = false
     state.currentImage = null
@@ -229,7 +232,7 @@ export function useMagnifierEvents(
       state.loadingProgress = 0
 
       try {
-        await new Promise((resolve, reject) => {
+        await new Promise<void>((resolve, reject) => {
           GM_xmlhttpRequest({
             method: 'GET',
             url: originalUrl,
@@ -240,15 +243,21 @@ export function useMagnifierEvents(
             onload: response => {
               const blob = response.response
               const objectUrl = URL.createObjectURL(blob)
-              newImage.onload = resolve
-              newImage.onerror = reject
+
+              newImage.onload = () => {
+                resolve()
+              }
+              newImage.onerror = () => {
+                URL.revokeObjectURL(objectUrl)
+                reject()
+              }
               newImage.src = objectUrl
             },
             onerror: reject,
           })
         })
 
-        img.src = newImage.src
+        img.src = newImage.src  // ✅ 安全賦值
         state.isLoadingOriginal = false
         return true
       } catch (error) {
