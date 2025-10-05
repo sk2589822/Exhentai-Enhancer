@@ -107,6 +107,15 @@ export function useMagnifierEvents(
     }
   }
 
+  /**
+   * 根據縮放倍數計算移動速度因子
+   * 倍數越大，速度越慢，但不會慢到無法操作
+   */
+  function getSpeedFactor(): number {
+    const scale = state.scale
+    return 1 / Math.log2(scale + 1)
+  }
+
   // ========== 位置和縮放 ==========
 
   function updateNormalPosition(e: MouseEvent) {
@@ -115,9 +124,11 @@ export function useMagnifierEvents(
     const movementX = e.pageX - state.lastPosition.x
     const movementY = e.pageY - state.lastPosition.y
 
+    const speedFactor = getSpeedFactor()
+
     state.position = {
-      x: state.position.x + (movementX * config.sensitivity.x),
-      y: state.position.y + (movementY * config.sensitivity.y)
+      x: state.position.x + (movementX * config.sensitivity.x * speedFactor),
+      y: state.position.y + (movementY * config.sensitivity.y * speedFactor)
     }
 
     // 限制移動範圍
