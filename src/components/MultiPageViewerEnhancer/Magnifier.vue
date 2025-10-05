@@ -1,12 +1,7 @@
 <template>
     <div v-show="isShow">
-        <div 
-            class="magnifier-overlay" 
-            @wheel="handleWheel"
-            @mousedown.prevent.stop
-            @click.prevent.stop
-            @contextmenu.prevent.stop
-        />
+        <div class="magnifier-overlay" @wheel="handleWheel" @mousedown.prevent.stop @click.prevent.stop
+            @contextmenu.prevent.stop />
         <div class="magnifier" :style="magnifierStyle">
             <div class="magnifier-background" />
             <div class="magnifier-image" :style="contentStyle">
@@ -20,6 +15,7 @@
 import { reactive, computed, onMounted, onUnmounted } from 'vue'
 import { useMagnifierEvents } from '@/composables/MultiPageViewerEnhancer/useMagnifierEvents'
 import { useMagnifierStyle } from '@/composables/MultiPageViewerEnhancer/useMagnifierStyle'
+import { magnifierSwitch } from '@/utils/GMVariables'
 
 
 export type MagnifierConfig = typeof magnifierConfig
@@ -63,15 +59,17 @@ const magnifierStyle = computed(() => ({
 }))
 
 const { contentStyle } = useMagnifierStyle(state, magnifierConfig)
-const { 
-    bindEvents, 
-    unbindEvents, 
+const {
+    bindEvents,
+    unbindEvents,
     handleWheel,
 } = useMagnifierEvents(state, magnifierConfig)
 
 
 onMounted(() => {
-    bindEvents()
+    if (magnifierSwitch.value) {
+        bindEvents()
+    }
 })
 
 onUnmounted(() => {
@@ -91,19 +89,19 @@ const isShow = computed(() => state.isActive)
 
 .magnifier {
     z-index: 1000;
-    
+
     &-background {
         position: absolute;
         inset: 0;
         background-color: rgba(0, 0, 0, 0.5);
         cursor: none;
     }
-    
+
     &-image {
         position: absolute;
         cursor: none;
     }
-    
+
     &-center-point {
         position: absolute;
         top: 50%;
@@ -116,4 +114,3 @@ const isShow = computed(() => state.isActive)
     }
 }
 </style>
-

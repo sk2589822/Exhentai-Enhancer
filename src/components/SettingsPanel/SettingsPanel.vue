@@ -1,10 +1,6 @@
 <template>
-  <VueFinalModal
-    v-model="isShow"
-    :overlay-transition="'vfm-fade'"
-    class="settings-panel-wrap"
-    content-class="settings-panel"
-  >
+  <VueFinalModal v-model="isShow" :overlay-transition="'vfm-fade'" class="settings-panel-wrap"
+    content-class="settings-panel">
     <div class="settings-panel__inner">
       <section class="settings-panel__section">
         <h2 class="settings-panel__section-name">
@@ -66,20 +62,13 @@
               </option>
             </select>
             <p>
-              *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual Start (Default)" in the setting page:
-              <a
-                target="_blank"
-                href="https://e-hentai.org/uconfig.php"
-                rel="noreferrer noopener"
-              >
+              *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual
+              Start (Default)" in the setting page:
+              <a target="_blank" href="https://e-hentai.org/uconfig.php" rel="noreferrer noopener">
                 e-hentai
               </a>
               ,
-              <a
-                target="_blank"
-                href="https://exhentai.org/uconfig.php"
-                rel="noreferrer noopener"
-              >
+              <a target="_blank" href="https://exhentai.org/uconfig.php" rel="noreferrer noopener">
                 exhentai
               </a>
             </p>
@@ -130,6 +119,19 @@
             Auto Redirect to Multi-Page Viewer
           </h3>
         </div>
+
+        <div class="settings">
+          <ToggleSwitch v-model="magnifierSwitch.value" />
+          <h3 class="settings__name">
+            Image Magnifier
+          </h3>
+          <div class="settings__intro">
+            <p>
+              Long press left mouse button to activate magnifier.
+              Hold both left and right buttons to load original resolution image.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section class="settings-panel__section">
@@ -174,18 +176,12 @@
         </div>
       </section>
     </div>
-    <span
-      class="settings-panel__close-button"
-      @click="isShow = false"
-    >
+    <span class="settings-panel__close-button" @click="isShow = false">
       <CrossButton />
     </span>
 
     <div class="actions">
-      <button
-        class="actions__button"
-        @click="reload"
-      >
+      <button class="actions__button" @click="reload">
         Apply and Reload
       </button>
     </div>
@@ -211,6 +207,7 @@ import {
   autoRedirectSwitch,
   showJapaneseTitle,
   highlightSwitch,
+  magnifierSwitch,
 } from '@/utils/GMVariables'
 
 import ToggleSwitch from './ToggleSwitch.vue'
