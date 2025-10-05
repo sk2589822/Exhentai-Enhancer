@@ -26,6 +26,14 @@ export function useMagnifierStyle(
       }
     }
 
+    if (state.isVirtualDragging) {
+      return {
+        ...style,
+        opacity: 0.7,
+        filter: 'brightness(1.1)'
+      }
+    }
+
     return style
   })
 
@@ -57,8 +65,8 @@ export function useMagnifierStyle(
 
     // 計算最終位移
     const finalTranslate = {
-      x: magnifierCenter.x - (idealImageBounds.width * mouseRelativePos.x) * finalScale + (position.x - magnifierCenter.x),
-      y: magnifierCenter.y - (idealImageBounds.height * mouseRelativePos.y) * finalScale + (position.y - magnifierCenter.y)
+      x: magnifierCenter.x - (idealImageBounds.width * mouseRelativePos.x) * finalScale + (position.x - magnifierCenter.x) + state.virtualOffset.x,
+      y: magnifierCenter.y - (idealImageBounds.height * mouseRelativePos.y) * finalScale + (position.y - magnifierCenter.y) + state.virtualOffset.y
     }
 
     console.table({

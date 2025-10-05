@@ -3,17 +3,21 @@ import { GM_xmlhttpRequest } from 'vite-plugin-monkey/dist/client'
 import { getElement } from '@/utils/commons'
 import { useMultiPageViewerElements } from './useMultiPageViewerElements'
 import { MagnifierConfig, MagnifierState } from '@/components/MultiPageViewerEnhancer/Magnifier.vue'
+import { useMagnifierDrag } from './useMagnifierDrag'
 
 export function useMagnifierEvents(
   state: MagnifierState,
   config: MagnifierConfig
 ) {
   const { paneImagesDiv } = useMultiPageViewerElements()
+  const drag = useMagnifierDrag(state)
 
   const pressTimer = ref<number>()
   const isWaitingForToggleEnd = ref(false)
   const isLeftPressed = ref(false)
   const isRightPressed = ref(false)
+
+  // ========== PaneImagesDiv 事件（啟動放大鏡） ==========
 
   function handlePress(e: MouseEvent) {
     updateMouseButtonState(e)
@@ -77,16 +81,35 @@ export function useMagnifierEvents(
     }
   }
 
-  function handleWheel(e: WheelEvent) {
-    if (!state.isActive) return
+  // ========== Overlay 事件（虛擬拖拽 + 正常移動） ==========
 
-    e.preventDefault()
-    e.stopPropagation()
-
-    updateScale(-Math.sign(e.deltaY) * config.scale.step)
+  function handleOverlayMouseDown(e: MouseEvent) {
+    if (e.button === 2) {  // 右鍵
+      e.preventDefault()
+      e.stopPropagation()
+      drag.start(e)
+    }
   }
 
-  function updatePosition(e: MouseEvent) {
+  function handleOverlayMouseUp(e: MouseEvent) {
+    if (e.button === 2) {
+      e.preventDefault()
+      e.stopPropagation()
+      drag.stop()
+    }
+  }
+
+  function handleOverlayMouseMove(e: MouseEvent) {
+    if (state.isVirtualDragging) {
+      drag.update(e)
+    } else {
+      updateNormalPosition(e)
+    }
+  }
+
+  // ========== 位置和縮放 ==========
+
+  function updateNormalPosition(e: MouseEvent) {
     if (!state.isActive) return
 
     const movementX = e.pageX - state.lastPosition.x
@@ -106,38 +129,37 @@ export function useMagnifierEvents(
     state.lastPosition = { x: e.pageX, y: e.pageY }
   }
 
+  function handleWheel(e: WheelEvent) {
+    if (!state.isActive) return
+
+    e.preventDefault()
+    e.stopPropagation()
+
+    updateScale(-Math.sign(e.deltaY) * config.scale.step)
+  }
+
   function updateScale(delta: number) {
     if (!state.isActive) return
     state.scale = Math.min(
-      Math.max(
-        state.scale + delta,
-        config.scale.min
-      ),
+      Math.max(state.scale + delta, config.scale.min),
       config.scale.max
     )
   }
 
+  // ========== 啟動/關閉 ==========
+
   function activateMagnifier(e: MouseEvent) {
     state.isActive = true
-    state.position = {
-      x: e.pageX,
-      y: e.pageY
-    }
-    state.lastPosition = {
-      x: e.pageX,
-      y: e.pageY
-    }
+    state.position = { x: e.pageX, y: e.pageY }
+    state.lastPosition = { x: e.pageX, y: e.pageY }
     state.scale = config.scale.default
 
-    // 確保在啟動時就更新當前圖片
     updateCurrentImage()
 
-    // 只有在有圖片的情況下才繼續
     if (state.currentImage) {
-      updatePosition(e)
+      updateNormalPosition(e)
       paneImagesDiv.dataset.magnifierActive = 'true'
       document.body.classList.add('hide-cursor')
-
 
       const style = document.createElement('style')
       style.id = 'magnifier-style'
@@ -158,9 +180,12 @@ export function useMagnifierEvents(
     state.currentImage = null
     state.isOriginalMode = false
     state.isLoadingOriginal = false
+    drag.reset()  // 重置拖拽狀態
     document.body.classList.remove('hide-cursor')
     getElement('#magnifier-style')?.remove()
   }
+
+  // ========== 圖片加載 ==========
 
   async function loadOriginalImage(img: HTMLImageElement) {
     const mbar = img.closest('.mimg') as HTMLElement
@@ -228,6 +253,8 @@ export function useMagnifierEvents(
     state.currentImage = null
   }
 
+  // ========== 事件綁定 ==========
+
   function bindEvents() {
     paneImagesDiv.addEventListener('mousedown', (e: MouseEvent) => {
       if (!(e.target as HTMLElement).closest('.mbar')) {
@@ -236,7 +263,6 @@ export function useMagnifierEvents(
     })
 
     window.addEventListener('mouseup', handleRelease)
-    window.addEventListener('mousemove', updatePosition)
 
     const preventDefaultEvents = ['mousedown', 'click', 'contextmenu']
     preventDefaultEvents.forEach(eventName => {
@@ -252,8 +278,6 @@ export function useMagnifierEvents(
   function unbindEvents() {
     paneImagesDiv.removeEventListener('mousedown', handlePress)
     window.removeEventListener('mouseup', handleRelease)
-    window.removeEventListener('mousemove', updatePosition)
-
 
     const preventDefaultEvents = ['mousedown', 'click', 'contextmenu']
     preventDefaultEvents.forEach(eventName => {
@@ -270,5 +294,8 @@ export function useMagnifierEvents(
     bindEvents,
     unbindEvents,
     handleWheel,
+    handleOverlayMouseDown,
+    handleOverlayMouseUp,
+    handleOverlayMouseMove,
   }
-} 
+}

@@ -1,7 +1,14 @@
 <template>
     <div v-show="isShow">
-        <div class="magnifier-overlay" @wheel="handleWheel" @mousedown.prevent.stop @click.prevent.stop
-            @contextmenu.prevent.stop />
+        <div 
+            class="magnifier-overlay" 
+            @wheel="handleWheel" 
+            @mousedown="handleOverlayMouseDown"
+            @mouseup="handleOverlayMouseUp"
+            @mousemove="handleOverlayMouseMove"
+            @click.prevent.stop
+            @contextmenu.prevent.stop 
+        />
         <div class="magnifier" :style="magnifierStyle">
             <div class="magnifier-background" />
             <div class="magnifier-image" :style="contentStyle">
@@ -16,7 +23,6 @@ import { reactive, computed, onMounted, onUnmounted } from 'vue'
 import { useMagnifierEvents } from '@/composables/MultiPageViewerEnhancer/useMagnifierEvents'
 import { useMagnifierStyle } from '@/composables/MultiPageViewerEnhancer/useMagnifierStyle'
 import { magnifierSwitch } from '@/utils/GMVariables'
-
 
 export type MagnifierConfig = typeof magnifierConfig
 export type MagnifierState = typeof state
@@ -45,6 +51,11 @@ const state = reactive({
     lastPosition: { x: 0, y: 0 },
     scale: magnifierConfig.scale.default,
     currentImage: null as HTMLImageElement | null,
+    
+    // ✨ 新增
+    virtualOffset: { x: 0, y: 0 },
+    isVirtualDragging: false,
+    
     isOriginalMode: false,
     isLoadingOriginal: false,
     loadingProgress: 0
@@ -63,8 +74,10 @@ const {
     bindEvents,
     unbindEvents,
     handleWheel,
+    handleOverlayMouseDown,
+    handleOverlayMouseUp,
+    handleOverlayMouseMove,
 } = useMagnifierEvents(state, magnifierConfig)
-
 
 onMounted(() => {
     if (magnifierSwitch.value) {
@@ -75,8 +88,11 @@ onMounted(() => {
 onUnmounted(() => {
     unbindEvents()
 })
+
 const isShow = computed(() => state.isActive)
 </script>
+
+<!-- style 保持不變 -->
 
 <style lang="scss" scoped>
 .magnifier-overlay {
