@@ -26,7 +26,6 @@ export type MagnifierConfig = typeof magnifierConfig
 export type MagnifierState = typeof state
 
 const magnifierConfig = {
-    toggleMode: true,
     longPressThreshold: 200,
     scale: {
         default: 1.5 as number,

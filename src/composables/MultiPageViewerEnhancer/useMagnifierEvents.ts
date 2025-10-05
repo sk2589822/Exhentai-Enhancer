@@ -9,32 +9,38 @@ export function useMagnifierEvents(
   config: MagnifierConfig
 ) {
   const { paneImagesDiv } = useMultiPageViewerElements()
-  
-  // 基礎狀態
+
   const pressTimer = ref<number>()
-  const isMagnifierActivating = ref(false)
-  const isMagnifierPending = ref(false)
   const isWaitingForToggleEnd = ref(false)
   const isLeftPressed = ref(false)
   const isRightPressed = ref(false)
 
-  // 事件處理策略
-  const eventStrategy = config.toggleMode ? createToggleModeStrategy() : createHoldModeStrategy()
-
-  // 基礎事件處理
   function handlePress(e: MouseEvent) {
-    e.preventDefault()
-    e.stopPropagation()
-    
     updateMouseButtonState(e)
     updateCurrentImage()
-    
-    eventStrategy.handlePress(e)
+
+    if (isLeftPressed.value && isRightPressed.value && state.currentImage) {
+      handleDualButtonPress(e)
+    } else if (isLeftPressed.value && !isRightPressed.value) {
+      handleSingleButtonPress(e)
+    }
   }
 
   function handleRelease(e: MouseEvent) {
     updateMouseButtonState(e)
-    eventStrategy.handleRelease(e)
+    clearPressTimer()
+
+    if (!state.isActive) return
+
+    // Toggle 模式邏輯  
+    if (e.button === 0) {
+      if (!isWaitingForToggleEnd.value) {
+        isWaitingForToggleEnd.value = true
+        return
+      }
+      deactivateMagnifier()
+      isWaitingForToggleEnd.value = false
+    }
   }
 
   function updateMouseButtonState(e: MouseEvent) {
@@ -45,73 +51,13 @@ export function useMagnifierEvents(
     }
   }
 
-  // 模式策略
-  function createHoldModeStrategy() {
-    return {
-      handlePress(e: MouseEvent) {
-        if (isLeftPressed.value && isRightPressed.value && state.currentImage) {
-          handleDualButtonPress(e)
-        } else if (isLeftPressed.value && !isRightPressed.value) {
-          handleSingleButtonPress(e)
-        }
-      },
-      
-      handleRelease(e: MouseEvent) {
-        clearPressTimer()
-        
-        if (!state.isActive) return
-        
-        if (state.isOriginalMode) {
-          if (!isLeftPressed.value && !isRightPressed.value) {
-            setTimeout(() => {
-              deactivateMagnifier()
-            }, 0)
-          }
-        } else if (!isLeftPressed.value) {
-          deactivateMagnifier()
-        }
-      }
-    }
-  }
-
-  function createToggleModeStrategy() {
-    return {
-      handlePress(e: MouseEvent) {
-        if (isLeftPressed.value && isRightPressed.value && state.currentImage) {
-          handleDualButtonPress(e)
-        } else if (isLeftPressed.value && !isRightPressed.value) {
-          handleSingleButtonPress(e)
-        }
-      },
-      
-      handleRelease(e: MouseEvent) {
-        clearPressTimer()
-        
-        if (!state.isActive) return
-        
-        if (e.button === 0) {
-          if (!isWaitingForToggleEnd.value) {
-            isWaitingForToggleEnd.value = true
-            return
-          }
-          deactivateMagnifier()
-          isWaitingForToggleEnd.value = false
-        }
-      }
-    }
-  }
-
-  // 輔助函數
   function handleDualButtonPress(e: MouseEvent) {
-    isMagnifierPending.value = true
     pressTimer.value = window.setTimeout(() => {
       if (isLeftPressed.value && isRightPressed.value) {
-        isMagnifierActivating.value = true
         activateMagnifier(e)
         loadOriginalImage(state.currentImage!)
         state.isOriginalMode = true
       }
-      isMagnifierPending.value = false
     }, config.longPressThreshold)
   }
 
@@ -129,16 +75,14 @@ export function useMagnifierEvents(
       clearTimeout(pressTimer.value)
       pressTimer.value = undefined
     }
-    isMagnifierPending.value = false
-    isMagnifierActivating.value = false
   }
 
   function handleWheel(e: WheelEvent) {
     if (!state.isActive) return
-    
+
     e.preventDefault()
     e.stopPropagation()
-    
+
     updateScale(-Math.sign(e.deltaY) * config.scale.step)
   }
 
@@ -184,16 +128,16 @@ export function useMagnifierEvents(
       y: e.pageY
     }
     state.scale = config.scale.default
-    
+
     // 確保在啟動時就更新當前圖片
     updateCurrentImage()
-    
+
     // 只有在有圖片的情況下才繼續
     if (state.currentImage) {
       updatePosition(e)
       paneImagesDiv.dataset.magnifierActive = 'true'
       document.body.classList.add('hide-cursor')
-      
+
 
       const style = document.createElement('style')
       style.id = 'magnifier-style'
@@ -221,14 +165,14 @@ export function useMagnifierEvents(
   async function loadOriginalImage(img: HTMLImageElement) {
     const mbar = img.closest('.mimg') as HTMLElement
     const originalLink = mbar && getElement<HTMLAnchorElement>('a[href*="/fullimg/"]', mbar)
-    
+
     if (originalLink) {
       const originalUrl = originalLink.href
       const newImage = new Image()
-      
+
       state.isLoadingOriginal = true
       state.loadingProgress = 0
-      
+
       try {
         await new Promise((resolve, reject) => {
           GM_xmlhttpRequest({
@@ -248,11 +192,11 @@ export function useMagnifierEvents(
             onerror: reject
           })
         })
-        
+
         img.src = newImage.src
         state.isLoadingOriginal = false
         return true
-        
+
       } catch (error) {
         console.error('原圖加載失敗:', error)
         state.isLoadingOriginal = false
@@ -265,22 +209,22 @@ export function useMagnifierEvents(
   function updateCurrentImage() {
     const mouseY = state.position.y
     const images = paneImagesDiv.querySelectorAll<HTMLImageElement>('.mimg > a > img')
-    
+
     if (!images.length) return
-    
+
     if ((mouseY <= 0 || mouseY >= window.innerHeight) && state.currentImage) {
       return
     }
-    
+
     for (const img of images) {
       const rect = img.getBoundingClientRect()
-      if (mouseY >= rect.top + window.scrollY && 
-          mouseY <= rect.bottom + window.scrollY) {
+      if (mouseY >= rect.top + window.scrollY &&
+        mouseY <= rect.bottom + window.scrollY) {
         state.currentImage = img
         return
       }
     }
-    
+
     state.currentImage = null
   }
 
@@ -290,10 +234,10 @@ export function useMagnifierEvents(
         handlePress(e)
       }
     })
-    
+
     window.addEventListener('mouseup', handleRelease)
     window.addEventListener('mousemove', updatePosition)
-    
+
     const preventDefaultEvents = ['mousedown', 'click', 'contextmenu']
     preventDefaultEvents.forEach(eventName => {
       paneImagesDiv.addEventListener(eventName, (e: Event) => {
@@ -326,7 +270,5 @@ export function useMagnifierEvents(
     bindEvents,
     unbindEvents,
     handleWheel,
-    isMagnifierActivating,
-    isMagnifierPending
   }
 } 
