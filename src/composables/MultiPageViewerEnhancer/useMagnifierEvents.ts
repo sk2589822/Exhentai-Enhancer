@@ -285,40 +285,39 @@ export function useMagnifierEvents(
   }
 
   // ========== 事件綁定 ==========
-
   function bindEvents() {
-    paneImagesDiv.addEventListener('mousedown', (e: MouseEvent) => {
-      if (!(e.target as HTMLElement).closest('.mbar')) {
-        handlePress(e)
-      }
-    })
-
+    paneImagesDiv.addEventListener('mousedown', handleMouseDown)
     window.addEventListener('mouseup', handleRelease)
 
     const preventDefaultEvents = ['mousedown', 'click', 'contextmenu']
     preventDefaultEvents.forEach(eventName => {
-      paneImagesDiv.addEventListener(eventName, (e: Event) => {
-        if (state.isActive && !(e.target as HTMLElement).closest('.mbar')) {
-          e.preventDefault()
-          e.stopPropagation()
-        }
-      }, { capture: true })
+      paneImagesDiv.addEventListener(eventName, preventDefaultHandler, { capture: true })
     })
   }
 
   function unbindEvents() {
-    paneImagesDiv.removeEventListener('mousedown', handlePress)
+    paneImagesDiv.removeEventListener('mousedown', handleMouseDown)
     window.removeEventListener('mouseup', handleRelease)
 
     const preventDefaultEvents = ['mousedown', 'click', 'contextmenu']
     preventDefaultEvents.forEach(eventName => {
-      paneImagesDiv.removeEventListener(eventName, (e: Event) => {
-        if (state.isActive) {
-          e.preventDefault()
-          e.stopPropagation()
-        }
-      }, { capture: true })
+      paneImagesDiv.removeEventListener(eventName, preventDefaultHandler, { capture: true })
     })
+  }
+
+  // 處理滑鼠按下(排除 .mbar)
+  function handleMouseDown(e: MouseEvent) {
+    if (!(e.target as HTMLElement).closest('.mbar')) {
+      handlePress(e)
+    }
+  }
+
+  // 阻止預設行為
+  function preventDefaultHandler(e: Event) {
+    if (state.isActive && !(e.target as HTMLElement).closest('.mbar')) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
   }
 
   return {
