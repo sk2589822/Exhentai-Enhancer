@@ -55,7 +55,6 @@ export const magnifierSensitivityY = reactive(new GMVariable<number>(GMKey.Magni
 export const magnifierScaleMin = reactive(new GMVariable<number>(GMKey.MagnifierScaleMin, 1.1))
 export const magnifierScaleMax = reactive(new GMVariable<number>(GMKey.MagnifierScaleMax, 10))
 
-
 // Common
 export const showJapaneseTitle = reactive(new GMVariable<boolean>(GMKey.ShowJapaneseTitle, true))
 

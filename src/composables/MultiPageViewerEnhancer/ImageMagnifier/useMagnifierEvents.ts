@@ -1,13 +1,16 @@
 import { ref } from 'vue'
+
 import { getElement } from '@/utils/commons'
-import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
 import { MagnifierConfig, MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
+
+import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
+
 import { useMagnifierGesture } from './useMagnifierGesture'
 import { useMagnifierImageLoader } from './useMagnifierImageLoader'
 
 export function useMagnifierEvents(
   state: MagnifierState,
-  config: MagnifierConfig
+  config: MagnifierConfig,
 ) {
   const { paneImagesDiv } = useMultiPageViewerElements()
 
@@ -21,7 +24,7 @@ export function useMagnifierEvents(
   // ========== 啟動/關閉邏輯 ==========
 
   function handlePress(e: MouseEvent) {
-    e.preventDefault()  // 立即阻止默認行為，防止文本選取
+    e.preventDefault() // 立即阻止默認行為，防止文本選取
     e.stopPropagation()
 
     gesture.updateButtonState(e)

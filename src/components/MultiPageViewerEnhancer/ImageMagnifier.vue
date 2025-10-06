@@ -1,10 +1,21 @@
 <template>
   <div v-show="isShow">
-    <div class="magnifier-overlay" @wheel="handleWheel" @mousedown.prevent.stop @click.prevent.stop
-      @contextmenu.prevent.stop />
-    <div class="magnifier" :style="magnifierStyle">
+    <div
+      class="magnifier-overlay"
+      @wheel="handleWheel"
+      @mousedown.prevent.stop
+      @click.prevent.stop
+      @contextmenu.prevent.stop
+    />
+    <div
+      class="magnifier"
+      :style="magnifierStyle"
+    >
       <div class="magnifier-background" />
-      <div class="magnifier-image" :style="contentStyle">
+      <div
+        class="magnifier-image"
+        :style="contentStyle"
+      >
         <div class="magnifier-center-point" />
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+
 import { MagnifierConfig } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
 
 export function useMagnifierGesture(config: MagnifierConfig) {
