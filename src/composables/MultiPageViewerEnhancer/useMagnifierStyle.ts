@@ -62,8 +62,8 @@ export function useMagnifierStyle(
 
     // 計算最終位移
     const finalTranslate = {
-      x: magnifierCenter.x - (idealImageBounds.width * mouseRelativePos.x) * finalScale + (position.x - magnifierCenter.x) + state.virtualOffset.x,
-      y: magnifierCenter.y - (idealImageBounds.height * mouseRelativePos.y) * finalScale + (position.y - magnifierCenter.y) + state.virtualOffset.y,
+      x: magnifierCenter.x - (idealImageBounds.width * mouseRelativePos.x) * finalScale + (position.x - magnifierCenter.x) + state.panOffset.x,
+      y: magnifierCenter.y - (idealImageBounds.height * mouseRelativePos.y) * finalScale + (position.y - magnifierCenter.y) + state.panOffset.y,
     }
 
     // console.table({

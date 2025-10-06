@@ -1,14 +1,14 @@
 import { MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
 
 /**
- * 虛擬拖拽：在放大鏡啟動後，按住右鍵拖動圖片內容
+ * 在放大鏡啟動後，按住右鍵拖動圖片內容
  * 與正常移動的區別：正常移動是移動視點，拖拽是移動圖片
  */
-export function useMagnifierDrag(
+export function useMagnifierPan(
   state: MagnifierState,
 ) {
   function start(e: MouseEvent) {
-    state.isVirtualDragging = true
+    state.isPanning = true
     state.lastPosition = {
       x: e.pageX,
       y: e.pageY,
@@ -17,16 +17,16 @@ export function useMagnifierDrag(
   }
 
   function update(e: MouseEvent) {
-    if (!state.isVirtualDragging || !state.currentImage) {
+    if (!state.isPanning || !state.currentImage) {
       return
     }
 
     const movementX = e.pageX - state.lastPosition.x
     const movementY = e.pageY - state.lastPosition.y
 
-    state.virtualOffset = {
-      x: state.virtualOffset.x + movementX,
-      y: state.virtualOffset.y + movementY,
+    state.panOffset = {
+      x: state.panOffset.x + movementX,
+      y: state.panOffset.y + movementY,
     }
 
     state.lastPosition = {
@@ -36,16 +36,16 @@ export function useMagnifierDrag(
   }
 
   function stop() {
-    state.isVirtualDragging = false
+    state.isPanning = false
     document.body.style.cursor = 'default'
   }
 
   function reset() {
-    state.virtualOffset = {
+    state.panOffset = {
       x: 0,
       y: 0,
     }
-    state.isVirtualDragging = false
+    state.isPanning = false
   }
 
   return {

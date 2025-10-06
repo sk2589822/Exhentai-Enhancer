@@ -5,14 +5,14 @@ import { getElement } from '@/utils/commons'
 import { MagnifierConfig, MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
 
 import { useMultiPageViewerElements } from './useMultiPageViewerElements'
-import { useMagnifierDrag } from './useMagnifierDrag'
+import { useMagnifierPan } from './useMagnifierPan'
 
 export function useMagnifierEvents(
   state: MagnifierState,
   config: MagnifierConfig,
 ) {
   const { paneImagesDiv } = useMultiPageViewerElements()
-  const drag = useMagnifierDrag(state)
+  const drag = useMagnifierPan(state)
 
   const pressTimer = ref<number>()
   const isWaitingForToggleEnd = ref(false)
@@ -85,7 +85,7 @@ export function useMagnifierEvents(
     }
   }
 
-  // ========== Overlay 事件（虛擬拖拽 + 正常移動） ==========
+  // ========== Overlay 事件（平移 + 正常移動） ==========
 
   function handleOverlayMouseDown(e: MouseEvent) {
     if (e.button === 2) { // 右鍵
@@ -104,7 +104,7 @@ export function useMagnifierEvents(
   }
 
   function handleOverlayMouseMove(e: MouseEvent) {
-    if (state.isVirtualDragging) {
+    if (state.isPanning) {
       drag.update(e)
     } else {
       updateNormalPosition(e)

@@ -2,7 +2,7 @@
   <div v-show="isShow">
     <div
       class="magnifier-overlay"
-      :class="{ 'is-dragging': state.isVirtualDragging }"
+      :class="{ 'is-panning': state.isPanning}"
       @wheel="handleWheel"
       @mousedown="handleOverlayMouseDown"
       @mouseup="handleOverlayMouseUp"
@@ -66,11 +66,11 @@ const state = reactive({
   scale: magnifierConfig.scale.default,
   currentImage: null as HTMLImageElement | null,
 
-  virtualOffset: {
+  panOffset: {
     x: 0,
     y: 0,
   },
-  isVirtualDragging: false,
+  isPanning: false,
 
   isOriginalMode: false,
   isLoadingOriginal: false,
@@ -116,7 +116,7 @@ const isShow = computed(() => state.isActive)
     background: transparent;
     cursor: none;
 
-    &.is-dragging {
+    &.is-panning {
         cursor: grabbing;
     }
 }
