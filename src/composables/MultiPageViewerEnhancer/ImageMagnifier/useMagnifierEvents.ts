@@ -32,7 +32,7 @@ export function useMagnifierEvents(
           state.isOriginalMode = true
         }
       })
-    // 放大鏡
+    // 普通放大鏡
     } else if (gesture.isLeftPressed.value && !gesture.isRightPressed.value) {
       gesture.startLongPressTimer(() => {
         if (gesture.isLeftPressed.value) {
@@ -47,15 +47,10 @@ export function useMagnifierEvents(
     gesture.updateButtonState(e)
     gesture.clearTimer()
 
-    if (!state.isActive || e.button !== 0) {
+    // 這個 handleRelease 現在只處理「激活前」的釋放
+    // 激活後的釋放由 overlay 處理
+    if (state.isActive) {
       return
-    }
-
-    // Toggle 模式: 需要點擊兩次才關閉
-    gesture.incrementClickCount()
-    if (gesture.clickCount.value >= 2) {
-      deactivateMagnifier()
-      gesture.resetClickCount()
     }
   }
 
@@ -100,6 +95,8 @@ export function useMagnifierEvents(
     state.isOriginalMode = false
     state.isLoadingOriginal = false
     pan.reset()
+    gesture.resetClickCount()
+    gesture.resetDragState()
     document.body.classList.remove('hide-cursor')
     getElement('#magnifier-style')?.remove()
   }
@@ -107,25 +104,50 @@ export function useMagnifierEvents(
   // ========== Overlay 事件處理 ==========
 
   function handleOverlayMouseDown(e: MouseEvent) {
-    if (e.button === 2) {
+    gesture.updateButtonState(e)
+
+    // 左鍵開始（可能是點擊或拖拽）
+    if (gesture.isLeftPressed.value) {
       e.preventDefault()
       e.stopPropagation()
-      pan.start(e)
+      gesture.startDragDetection(e)  // 開始拖拽檢測
+      pan.start(e)  // 準備拖拽
     }
   }
 
   function handleOverlayMouseUp(e: MouseEvent) {
-    if (e.button === 2) {
+    const wasLeftPressed = gesture.isLeftPressed.value
+    gesture.updateButtonState(e)
+
+    // 左鍵釋放：判斷是點擊還是拖拽
+    if (wasLeftPressed && !gesture.isLeftPressed.value) {
       e.preventDefault()
       e.stopPropagation()
-      pan.stop()
+
+      if (gesture.isClick()) {
+        // 是點擊：Toggle 模式，需要點擊兩次才關閉
+        gesture.incrementClickCount()
+        if (gesture.clickCount.value >= 2) {
+          deactivateMagnifier()
+        }
+      } else {
+        // 是拖拽：停止拖拽
+        pan.stop()
+        gesture.resetDragState()
+      }
     }
   }
 
   function handleOverlayMouseMove(e: MouseEvent) {
-    if (state.isPanning) {
-      pan.update(e)
+    if (gesture.isLeftPressed.value) {
+      gesture.updateDragState(e)  // 更新拖拽狀態
+
+      // 只有確定是拖拽才移動圖片
+      if (gesture.isDragging.value) {
+        pan.update(e)
+      }
     } else {
+      // 正常移動視點
       navigation.updatePosition(e)
     }
   }

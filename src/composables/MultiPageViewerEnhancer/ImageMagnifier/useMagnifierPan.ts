@@ -13,7 +13,6 @@ export function useMagnifierPan(
       x: e.pageX,
       y: e.pageY,
     }
-    document.body.style.cursor = 'grabbing'
   }
 
   function update(e: MouseEvent) {
@@ -37,7 +36,6 @@ export function useMagnifierPan(
 
   function stop() {
     state.isPanning = false
-    document.body.style.cursor = 'default'
   }
 
   function reset() {
