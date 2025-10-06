@@ -2,7 +2,7 @@ import { computed } from 'vue'
 
 import { MagnifierConfig, MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
 
-import { useMultiPageViewerElements } from './useMultiPageViewerElements'
+import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
 
 import type { CSSProperties } from 'vue'
 

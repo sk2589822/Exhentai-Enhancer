@@ -28,8 +28,8 @@
 <script setup lang="ts">
 import { reactive, computed, onMounted, onUnmounted } from 'vue'
 
-import { useMagnifierEvents } from '@/composables/MultiPageViewerEnhancer/useMagnifierEvents'
-import { useMagnifierStyle } from '@/composables/MultiPageViewerEnhancer/useMagnifierStyle'
+import { useMagnifierEvents } from '@/composables/MultiPageViewerEnhancer/ImageMagnifier/useMagnifierEvents'
+import { useMagnifierStyle } from '@/composables/MultiPageViewerEnhancer/ImageMagnifier/useMagnifierStyle'
 import { magnifierSwitch, magnifierDefaultScale, magnifierScaleStep } from '@/utils/GMVariables'
 
 export type MagnifierConfig = typeof magnifierConfig
