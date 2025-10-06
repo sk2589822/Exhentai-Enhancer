@@ -9,7 +9,7 @@
       class="original-functions"
       v-html="exhentaiButtons"
     />
-    <Magnifier />
+    <ImageMagnifier />
   </div>
 </template>
 
@@ -28,7 +28,7 @@ import { preventImageRemovalSwitch } from '@/utils/GMVariables'
 
 import PageElevator from './PageElevator.vue'
 import ImageResizer from './ImageResizer.vue'
-import Magnifier from './Magnifier.vue'
+import ImageMagnifier from './ImageMagnifier.vue'
 
 const {
   currentPage,

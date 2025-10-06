@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 import type { CSSProperties } from 'vue'
-import { useMultiPageViewerElements } from './useMultiPageViewerElements'
-import { MagnifierConfig, MagnifierState } from '@/components/MultiPageViewerEnhancer/Magnifier.vue'
+import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
+import { MagnifierConfig, MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
 
 export function useMagnifierStyle(
   state: MagnifierState,
@@ -51,7 +51,7 @@ export function useMagnifierStyle(
 
     // 計算滑鼠在互動區域內的相對位置（0-1 之間）
     const mouseRelativePos = getRelativePosition(position, interactiveArea)
-    
+
     // 計算最終縮放比例（結合 imageresizer 和 magnifier 的縮放）
     const finalScale = currentImageScale * scale
 

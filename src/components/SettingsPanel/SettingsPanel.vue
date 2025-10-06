@@ -1,10 +1,6 @@
 <template>
-  <VueFinalModal
-    v-model="isShow"
-    :overlay-transition="'vfm-fade'"
-    class="settings-panel-wrap"
-    content-class="settings-panel"
-  >
+  <VueFinalModal v-model="isShow" :overlay-transition="'vfm-fade'" class="settings-panel-wrap"
+    content-class="settings-panel">
     <div class="settings-panel__inner">
       <section class="settings-panel__section">
         <h2 class="settings-panel__section-name">
@@ -66,20 +62,13 @@
               </option>
             </select>
             <p>
-              *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual Start (Default)" in the setting page:
-              <a
-                target="_blank"
-                href="https://e-hentai.org/uconfig.php"
-                rel="noreferrer noopener"
-              >
+              *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual
+              Start (Default)" in the setting page:
+              <a target="_blank" href="https://e-hentai.org/uconfig.php" rel="noreferrer noopener">
                 e-hentai
               </a>
               ,
-              <a
-                target="_blank"
-                href="https://exhentai.org/uconfig.php"
-                rel="noreferrer noopener"
-              >
+              <a target="_blank" href="https://exhentai.org/uconfig.php" rel="noreferrer noopener">
                 exhentai
               </a>
             </p>
@@ -130,6 +119,76 @@
             Auto Redirect to Multi-Page Viewer
           </h3>
         </div>
+
+        <div class="settings">
+          <ToggleSwitch v-model="magnifierSwitch.value" />
+          <h3 class="settings__name">
+            Image Magnifier
+          </h3>
+          <div class="settings__intro">
+            <p>Long press left mouse button to activate magnifier. Press left+right buttons for original image.</p>
+
+            <!-- 基礎設定 -->
+            <div class="magnifier-basic-settings">
+              <label>
+                <input v-model="magnifierToggleMode.value" type="checkbox">
+                Toggle Mode (uncheck for Hold Mode)
+              </label>
+
+              <label>
+                Default Scale:
+                <input v-model.number="magnifierDefaultScale.value" type="number" min="1.1" max="10" step="0.1">
+              </label>
+
+              <label>
+                Scale Step (Mouse Wheel):
+                <input v-model.number="magnifierScaleStep.value" type="number" min="0.05" max="0.5" step="0.05">
+              </label>
+            </div>
+
+            <!-- 進階設定 -->
+            <details class="magnifier-advanced-settings">
+              <summary>Advanced Settings</summary>
+
+              <div class="advanced-settings-grid">
+                <label>
+                  Long Press Threshold (ms):
+                  <input v-model.number="magnifierLongPressThreshold.value" type="number" min="50" max="1000" step="50">
+                </label>
+
+                <label>
+                  Scale Min:
+                  <input v-model.number="magnifierScaleMin.value" type="number" min="1" max="5" step="0.1">
+                </label>
+
+                <label>
+                  Scale Max:
+                  <input v-model.number="magnifierScaleMax.value" type="number" min="2" max="20" step="0.5">
+                </label>
+
+                <label>
+                  Sensitivity X:
+                  <input v-model.number="magnifierSensitivityX.value" type="number" min="0.5" max="5" step="0.5">
+                </label>
+
+                <label>
+                  Sensitivity Y:
+                  <input v-model.number="magnifierSensitivityY.value" type="number" min="0.5" max="5" step="0.5">
+                </label>
+
+                <label>
+                  Mapping Horizontal (%):
+                  <input v-model.number="magnifierMappingHorizontal.value" type="number" min="0" max="20" step="1">
+                </label>
+
+                <label>
+                  Mapping Vertical (%):
+                  <input v-model.number="magnifierMappingVertical.value" type="number" min="0" max="20" step="1">
+                </label>
+              </div>
+            </details>
+          </div>
+        </div>
       </section>
 
       <section class="settings-panel__section">
@@ -174,18 +233,12 @@
         </div>
       </section>
     </div>
-    <span
-      class="settings-panel__close-button"
-      @click="isShow = false"
-    >
+    <span class="settings-panel__close-button" @click="isShow = false">
       <CrossButton />
     </span>
 
     <div class="actions">
-      <button
-        class="actions__button"
-        @click="reload"
-      >
+      <button class="actions__button" @click="reload">
         Apply and Reload
       </button>
     </div>
@@ -211,6 +264,17 @@ import {
   autoRedirectSwitch,
   showJapaneseTitle,
   highlightSwitch,
+  magnifierSwitch,
+  magnifierToggleMode,
+  magnifierDefaultScale,
+  magnifierScaleStep,
+  magnifierLongPressThreshold,
+  magnifierMappingHorizontal,
+  magnifierMappingVertical,
+  magnifierSensitivityX,
+  magnifierSensitivityY,
+  magnifierScaleMin,
+  magnifierScaleMax,
 } from '@/utils/GMVariables'
 
 import ToggleSwitch from './ToggleSwitch.vue'

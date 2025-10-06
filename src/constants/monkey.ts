@@ -12,6 +12,18 @@ export const enum GMKey {
   AutoRedirect = 'AutoRedirect',
   PreventImageRemoval = 'PreventImageRemoval',
 
+  Magnifier = 'Magnifier',
+  MagnifierToggleMode = 'MagnifierToggleMode',
+  MagnifierDefaultScale = 'MagnifierDefaultScale',
+  MagnifierScaleStep = 'MagnifierScaleStep',
+  MagnifierLongPressThreshold = 'MagnifierLongPressThreshold',
+  MagnifierMappingHorizontal = 'MagnifierMappingHorizontal',
+  MagnifierMappingVertical = 'MagnifierMappingVertical',
+  MagnifierSensitivityX = 'MagnifierSensitivityX',
+  MagnifierSensitivityY = 'MagnifierSensitivityY',
+  MagnifierScaleMin = 'MagnifierScaleMin',
+  MagnifierScaleMax = 'MagnifierScaleMax',
+
   ShowJapaneseTitle = 'ShowJapaneseTitle'
 }
 

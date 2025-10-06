@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 
 import { GMKey, DownloadMethod } from '@/constants/monkey'
 
-class GMVariable<T extends boolean | DownloadMethod> {
+class GMVariable<T extends boolean | DownloadMethod | number > {
   private _key: string
   private _value: T
 
@@ -42,6 +42,20 @@ export const multipageViewerEnhancerSwitch = reactive(new GMVariable<boolean>(GM
 export const autoRedirectSwitch = reactive(new GMVariable<boolean>(GMKey.AutoRedirect, false))
 export const preventImageRemovalSwitch = reactive(new GMVariable<boolean>(GMKey.PreventImageRemoval, false))
 
+// Magnifier
+export const magnifierSwitch = reactive(new GMVariable<boolean>(GMKey.Magnifier, true))
+export const magnifierToggleMode = reactive(new GMVariable<boolean>(GMKey.MagnifierToggleMode, true))
+export const magnifierDefaultScale = reactive(new GMVariable<number>(GMKey.MagnifierDefaultScale, 1.5))
+export const magnifierScaleStep = reactive(new GMVariable<number>(GMKey.MagnifierScaleStep, 0.1))
+export const magnifierLongPressThreshold = reactive(new GMVariable<number>(GMKey.MagnifierLongPressThreshold, 200))
+export const magnifierMappingHorizontal = reactive(new GMVariable<number>(GMKey.MagnifierMappingHorizontal, 0))
+export const magnifierMappingVertical = reactive(new GMVariable<number>(GMKey.MagnifierMappingVertical, 5))
+export const magnifierSensitivityX = reactive(new GMVariable<number>(GMKey.MagnifierSensitivityX, 2))
+export const magnifierSensitivityY = reactive(new GMVariable<number>(GMKey.MagnifierSensitivityY, 3))
+export const magnifierScaleMin = reactive(new GMVariable<number>(GMKey.MagnifierScaleMin, 1.1))
+export const magnifierScaleMax = reactive(new GMVariable<number>(GMKey.MagnifierScaleMax, 10))
+
+
 // Common
 export const showJapaneseTitle = reactive(new GMVariable<boolean>(GMKey.ShowJapaneseTitle, true))
 
@@ -59,6 +73,18 @@ export async function initializeMonkeySwitches() {
     multipageViewerEnhancerSwitch.initialize(),
     preventImageRemovalSwitch.initialize(),
     autoRedirectSwitch.initialize(),
+
+    magnifierSwitch.initialize(),
+    magnifierToggleMode.initialize(),
+    magnifierDefaultScale.initialize(),
+    magnifierScaleStep.initialize(),
+    magnifierLongPressThreshold.initialize(),
+    magnifierMappingHorizontal.initialize(),
+    magnifierMappingVertical.initialize(),
+    magnifierSensitivityX.initialize(),
+    magnifierSensitivityY.initialize(),
+    magnifierScaleMin.initialize(),
+    magnifierScaleMax.initialize(),
 
     showJapaneseTitle.initialize(),
   ])
