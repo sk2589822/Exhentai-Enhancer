@@ -1,4 +1,5 @@
 import { GM_xmlhttpRequest } from 'vite-plugin-monkey/dist/client'
+import { ref } from 'vue'
 
 import { getElement } from '@/utils/commons'
 import { MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
@@ -7,6 +8,21 @@ import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
 
 export function useMagnifierImageLoader(state: MagnifierState) {
   const { paneImagesDiv } = useMultiPageViewerElements()
+
+  const currentRequest = ref<ReturnType<typeof GM_xmlhttpRequest> | null>(null)
+  const currentObjectUrl = ref<string | null>(null)
+
+  function cleanup() {
+    if (currentRequest.value) {
+      currentRequest.value.abort()
+      currentRequest.value = null
+    }
+
+    if (currentObjectUrl.value) {
+      URL.revokeObjectURL(currentObjectUrl.value)
+      currentObjectUrl.value = null
+    }
+  }
 
   async function loadOriginal(img: HTMLImageElement) {
     const mbar = img.closest('.mimg') as HTMLElement
@@ -21,7 +37,7 @@ export function useMagnifierImageLoader(state: MagnifierState) {
 
       try {
         await new Promise<void>((resolve, reject) => {
-          GM_xmlhttpRequest({
+          currentRequest.value = GM_xmlhttpRequest({
             method: 'GET',
             url: originalUrl,
             responseType: 'blob',
@@ -31,6 +47,8 @@ export function useMagnifierImageLoader(state: MagnifierState) {
             onload: response => {
               const blob = response.response
               const objectUrl = URL.createObjectURL(blob)
+
+              currentObjectUrl.value = objectUrl
 
               newImage.onload = () => {
                 resolve()
@@ -47,10 +65,12 @@ export function useMagnifierImageLoader(state: MagnifierState) {
 
         img.src = newImage.src
         state.isLoadingOriginal = false
+        currentRequest.value = null
         return true
       } catch (error) {
         console.error('原圖載入失敗:', error)
         state.isLoadingOriginal = false
+        currentRequest.value = null
         return false
       }
     }
@@ -84,5 +104,6 @@ export function useMagnifierImageLoader(state: MagnifierState) {
   return {
     loadOriginal,
     findImageAtPosition,
+    cleanup,
   }
 }

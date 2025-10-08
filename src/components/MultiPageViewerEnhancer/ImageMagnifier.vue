@@ -15,8 +15,7 @@
       <div
         class="magnifier-image"
         :style="contentStyle"
-      >
-      </div>
+      />
     </div>
   </div>
 </template>

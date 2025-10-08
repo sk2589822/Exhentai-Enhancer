@@ -129,6 +129,7 @@ export function useMagnifierEvents(
   }
 
   function deactivateMagnifier() {
+    imageLoader.cleanup()
     delete paneImagesDiv.dataset.magnifierActive
     state.isActive = false
     state.currentImage = null
@@ -176,6 +177,8 @@ export function useMagnifierEvents(
   }
 
   function unbindEvents() {
+    imageLoader.cleanup()
+
     paneImagesDiv.removeEventListener('mousedown', handleMouseDown)
     window.removeEventListener('mouseup', handleRelease)
     window.removeEventListener('mousemove', navigation.updatePosition)
