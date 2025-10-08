@@ -57,8 +57,8 @@ export function useMagnifierImageLoader(state: MagnifierState) {
     return false
   }
 
-  function findImageAtPosition() {
-    const mouseY = state.position.y
+  function findImageAtPosition(posY: number) {
+    const mouseY = posY
     const images = paneImagesDiv.querySelectorAll<HTMLImageElement>('.mimg > a > img')
 
     if (!images.length) {

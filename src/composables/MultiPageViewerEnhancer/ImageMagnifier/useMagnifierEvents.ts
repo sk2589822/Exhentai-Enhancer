@@ -22,33 +22,31 @@ export function useMagnifierEvents(
   const isWaitingForToggleEnd = ref(false)
 
   // ========== 啟動/關閉邏輯 ==========
-
   function handlePress(e: MouseEvent) {
-    e.preventDefault() // 立即阻止默認行為，防止文本選取
+    e.preventDefault()
     e.stopPropagation()
 
     gesture.updateButtonState(e)
-    imageLoader.findImageAtPosition()
 
-    // 原圖放大鏡 (主鍵 + 次鍵)
-    if (gesture.isPrimaryButton.value && gesture.isSecondaryButton.value && state.currentImage) {
-      gesture.startLongPressTimer(() => {
-        if (gesture.isPrimaryButton.value && gesture.isSecondaryButton.value) {
-          activateMagnifier(e)
-          imageLoader.loadOriginal(state.currentImage!)
-          state.isOriginalMode = true
-        }
-      })
+    if (!gesture.isPrimaryButton.value) {
+      return
     }
-    // 普通放大鏡 (僅主鍵)
-    else if (gesture.isPrimaryButton.value && !gesture.isSecondaryButton.value) {
-      gesture.startLongPressTimer(() => {
-        if (gesture.isPrimaryButton.value) {
-          activateMagnifier(e)
-          state.isOriginalMode = false
-        }
-      })
-    }
+
+    gesture.startLongPressTimer(() => {
+      imageLoader.findImageAtPosition(e.pageY)
+
+      if (!state.currentImage) {
+        return
+      }
+
+      state.isOriginalMode = gesture.isPrimaryButton.value && gesture.isSecondaryButton.value
+
+      if (state.isOriginalMode) {
+        imageLoader.loadOriginal(state.currentImage)
+      }
+
+      activateMagnifier(e)
+    })
   }
 
   function handleRelease(e: MouseEvent) {
@@ -59,25 +57,41 @@ export function useMagnifierEvents(
       return
     }
 
-    // Toggle 模式處理
     if (config.toggleMode) {
-      if (gesture.isPrimaryButtonEvent(e)) {
-        if (!isWaitingForToggleEnd.value) {
-          isWaitingForToggleEnd.value = true
-          return
-        }
-        deactivateMagnifier()
-        isWaitingForToggleEnd.value = false
+      handleToggleModeRelease(e)
+    } else {
+      handleHoldModeRelease()
+    }
+  }
+
+  function handleToggleModeRelease(e: MouseEvent) {
+    if (!gesture.isPrimaryButtonEvent(e)) {
+      return
+    }
+
+    if (isWaitingForToggleEnd.value) {
+      // 第二次放開: 關閉放大鏡
+      deactivateMagnifier()
+      isWaitingForToggleEnd.value = false
+    } else {
+      // 第一次放開: 標記等待第二次點擊
+      isWaitingForToggleEnd.value = true
+    }
+  }
+
+  function handleHoldModeRelease() {
+    if (state.isOriginalMode) {
+      // 原圖模式: 使用 setTimeout 確保兩個 mouseup 事件都處理完
+      if (!gesture.isPrimaryButton.value && !gesture.isSecondaryButton.value) {
+        // 延遲 deactivate，防止 click/contextmenu 事件觸發父組件的翻頁功能
+        // 確保 preventDefaultHandler 在事件發生時仍能攔截 (state.isActive 仍為 true)
+        setTimeout(() => {
+          deactivateMagnifier()
+        }, 0)
       }
     } else {
-      // Hold 模式處理
-      if (state.isOriginalMode) {
-        if (!gesture.isPrimaryButton.value && !gesture.isSecondaryButton.value) {
-          setTimeout(() => {
-            deactivateMagnifier()
-          }, 0)
-        }
-      } else if (!gesture.isPrimaryButton.value) {
+      // 普通模式: 主鍵放開即關閉
+      if (!gesture.isPrimaryButton.value) {
         deactivateMagnifier()
       }
     }
@@ -95,8 +109,7 @@ export function useMagnifierEvents(
     }
     state.scale = config.scale.default
 
-    imageLoader.findImageAtPosition()
-
+    // currentImage 已在 handlePress 中設定
     if (state.currentImage) {
       navigation.updatePosition(e)
       paneImagesDiv.dataset.magnifierActive = 'true'
