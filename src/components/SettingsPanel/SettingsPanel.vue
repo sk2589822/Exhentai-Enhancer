@@ -190,28 +190,6 @@
                 </label>
 
                 <label>
-                  Scale Min:
-                  <input
-                    v-model.number="magnifierScaleMin.value"
-                    type="number"
-                    min="1"
-                    max="5"
-                    step="0.1"
-                  >
-                </label>
-
-                <label>
-                  Scale Max:
-                  <input
-                    v-model.number="magnifierScaleMax.value"
-                    type="number"
-                    min="2"
-                    max="20"
-                    step="0.5"
-                  >
-                </label>
-
-                <label>
                   Sensitivity X:
                   <input
                     v-model.number="magnifierSensitivityX.value"
@@ -230,28 +208,6 @@
                     min="0.5"
                     max="5"
                     step="0.5"
-                  >
-                </label>
-
-                <label>
-                  Mapping Horizontal (%):
-                  <input
-                    v-model.number="magnifierMappingHorizontal.value"
-                    type="number"
-                    min="0"
-                    max="20"
-                    step="1"
-                  >
-                </label>
-
-                <label>
-                  Mapping Vertical (%):
-                  <input
-                    v-model.number="magnifierMappingVertical.value"
-                    type="number"
-                    min="0"
-                    max="20"
-                    step="1"
                   >
                 </label>
               </div>
@@ -344,12 +300,8 @@ import {
   magnifierDefaultScale,
   magnifierScaleStep,
   magnifierLongPressThreshold,
-  magnifierMappingHorizontal,
-  magnifierMappingVertical,
   magnifierSensitivityX,
   magnifierSensitivityY,
-  magnifierScaleMin,
-  magnifierScaleMax,
 } from '@/utils/GMVariables'
 
 import ToggleSwitch from './ToggleSwitch.vue'

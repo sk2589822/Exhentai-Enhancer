@@ -33,12 +33,8 @@ import {
   magnifierDefaultScale,
   magnifierScaleStep,
   magnifierLongPressThreshold,
-  magnifierMappingHorizontal,
-  magnifierMappingVertical,
   magnifierSensitivityX,
   magnifierSensitivityY,
-  magnifierScaleMin,
-  magnifierScaleMax,
 } from '@/utils/GMVariables'
 
 export type MagnifierConfig = typeof magnifierConfig
@@ -50,12 +46,12 @@ const magnifierConfig = {
   scale: {
     default: magnifierDefaultScale.value,
     step: magnifierScaleStep.value,
-    min: magnifierScaleMin.value,
-    max: magnifierScaleMax.value,
+    min: 1.1,
+    max: 10,
   },
   mappingArea: {
-    horizontal: magnifierMappingHorizontal.value,
-    vertical: magnifierMappingVertical.value,
+    horizontal: 0,
+    vertical: 5,
   },
   sensitivity: {
     x: magnifierSensitivityX.value,
