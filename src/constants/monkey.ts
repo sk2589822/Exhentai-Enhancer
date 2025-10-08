@@ -18,12 +18,8 @@ export const enum GMKey {
   MagnifierDefaultScale = 'MagnifierDefaultScale',
   MagnifierScaleStep = 'MagnifierScaleStep',
   MagnifierLongPressThreshold = 'MagnifierLongPressThreshold',
-  MagnifierMappingHorizontal = 'MagnifierMappingHorizontal',
-  MagnifierMappingVertical = 'MagnifierMappingVertical',
   MagnifierSensitivityX = 'MagnifierSensitivityX',
   MagnifierSensitivityY = 'MagnifierSensitivityY',
-  MagnifierScaleMin = 'MagnifierScaleMin',
-  MagnifierScaleMax = 'MagnifierScaleMax',
 
   ShowJapaneseTitle = 'ShowJapaneseTitle'
 }

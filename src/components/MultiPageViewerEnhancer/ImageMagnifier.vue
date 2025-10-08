@@ -16,7 +16,6 @@
         class="magnifier-image"
         :style="contentStyle"
       >
-        <div class="magnifier-center-point" />
       </div>
     </div>
   </div>
@@ -128,17 +127,6 @@ const isShow = computed(() => state.isActive)
   &-image {
     position: absolute;
     cursor: none;
-  }
-
-  &-center-point {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
   }
 }
 </style>
