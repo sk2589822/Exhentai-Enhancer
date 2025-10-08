@@ -30,19 +30,20 @@ export function useMagnifierEvents(
     gesture.updateButtonState(e)
     imageLoader.findImageAtPosition()
 
-    // 原圖放大鏡
-    if (gesture.isLeftPressed.value && gesture.isRightPressed.value && state.currentImage) {
+    // 原圖放大鏡 (主鍵 + 次鍵)
+    if (gesture.isPrimaryButton.value && gesture.isSecondaryButton.value && state.currentImage) {
       gesture.startLongPressTimer(() => {
-        if (gesture.isLeftPressed.value && gesture.isRightPressed.value) {
+        if (gesture.isPrimaryButton.value && gesture.isSecondaryButton.value) {
           activateMagnifier(e)
           imageLoader.loadOriginal(state.currentImage!)
           state.isOriginalMode = true
         }
       })
-      // 普通放大鏡
-    } else if (gesture.isLeftPressed.value && !gesture.isRightPressed.value) {
+    }
+    // 普通放大鏡 (僅主鍵)
+    else if (gesture.isPrimaryButton.value && !gesture.isSecondaryButton.value) {
       gesture.startLongPressTimer(() => {
-        if (gesture.isLeftPressed.value) {
+        if (gesture.isPrimaryButton.value) {
           activateMagnifier(e)
           state.isOriginalMode = false
         }
@@ -60,7 +61,7 @@ export function useMagnifierEvents(
 
     // Toggle 模式處理
     if (config.toggleMode) {
-      if (e.button === 0) {
+      if (gesture.isPrimaryButtonEvent(e)) {
         if (!isWaitingForToggleEnd.value) {
           isWaitingForToggleEnd.value = true
           return
@@ -71,12 +72,12 @@ export function useMagnifierEvents(
     } else {
       // Hold 模式處理
       if (state.isOriginalMode) {
-        if (!gesture.isLeftPressed.value && !gesture.isRightPressed.value) {
+        if (!gesture.isPrimaryButton.value && !gesture.isSecondaryButton.value) {
           setTimeout(() => {
             deactivateMagnifier()
           }, 0)
         }
-      } else if (!gesture.isLeftPressed.value) {
+      } else if (!gesture.isPrimaryButton.value) {
         deactivateMagnifier()
       }
     }

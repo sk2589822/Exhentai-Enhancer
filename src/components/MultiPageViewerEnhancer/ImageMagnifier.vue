@@ -29,6 +29,7 @@ import { useMagnifierEvents } from '@/composables/MultiPageViewerEnhancer/ImageM
 import { useMagnifierStyle } from '@/composables/MultiPageViewerEnhancer/ImageMagnifier/useMagnifierStyle'
 import {
   magnifierSwitch,
+  magnifierActivationButton,
   magnifierToggleMode,
   magnifierDefaultScale,
   magnifierScaleStep,
@@ -42,6 +43,7 @@ export type MagnifierState = typeof state
 
 const magnifierConfig = {
   toggleMode: magnifierToggleMode.value,
+  activationButton: magnifierActivationButton.value,
   longPressThreshold: magnifierLongPressThreshold.value,
   scale: {
     default: magnifierDefaultScale.value,

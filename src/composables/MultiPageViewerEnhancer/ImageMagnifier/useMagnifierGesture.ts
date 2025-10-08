@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 import { MagnifierConfig } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
 
@@ -7,12 +7,36 @@ export function useMagnifierGesture(config: MagnifierConfig) {
   const isRightPressed = ref(false)
   const pressTimer = ref<number>()
 
+  const isPrimaryButton = computed(() => config.activationButton === 'left'
+    ? isLeftPressed.value
+    : isRightPressed.value,
+  )
+
+  const isSecondaryButton = computed(() => config.activationButton === 'left'
+    ? isRightPressed.value
+    : isLeftPressed.value,
+  )
+
   function updateButtonState(e: MouseEvent) {
     if (e.button === 0) {
       isLeftPressed.value = e.type === 'mousedown'
     } else if (e.button === 2) {
       isRightPressed.value = e.type === 'mousedown'
     }
+  }
+
+  function isPrimaryButtonEvent(e: MouseEvent): boolean {
+    return (
+      (config.activationButton === 'left' && e.button === 0) ||
+      (config.activationButton === 'right' && e.button === 2)
+    )
+  }
+
+  function isSecondaryButtonEvent(e: MouseEvent): boolean {
+    return (
+      (config.activationButton === 'left' && e.button === 2) ||
+      (config.activationButton === 'right' && e.button === 0)
+    )
   }
 
   function startLongPressTimer(callback: () => void) {
@@ -29,7 +53,12 @@ export function useMagnifierGesture(config: MagnifierConfig) {
   return {
     isLeftPressed,
     isRightPressed,
+    isPrimaryButton,
+    isSecondaryButton,
+
     updateButtonState,
+    isPrimaryButtonEvent,
+    isSecondaryButtonEvent,
     startLongPressTimer,
     clearTimer,
   }

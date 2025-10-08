@@ -1,9 +1,9 @@
 import { GM } from 'vite-plugin-monkey/dist/client'
 import { reactive } from 'vue'
 
-import { GMKey, DownloadMethod } from '@/constants/monkey'
+import { GMKey, DownloadMethod, MouseButton } from '@/constants/monkey'
 
-class GMVariable<T extends boolean | DownloadMethod | number > {
+class GMVariable<T extends boolean | DownloadMethod | MouseButton | number> {
   private _key: string
   private _value: T
 
@@ -44,6 +44,7 @@ export const preventImageRemovalSwitch = reactive(new GMVariable<boolean>(GMKey.
 
 // Magnifier
 export const magnifierSwitch = reactive(new GMVariable<boolean>(GMKey.Magnifier, true))
+export const magnifierActivationButton = reactive(new GMVariable<MouseButton>(GMKey.MagnifierActivationButton, MouseButton.Left))
 export const magnifierToggleMode = reactive(new GMVariable<boolean>(GMKey.MagnifierToggleMode, true))
 export const magnifierDefaultScale = reactive(new GMVariable<number>(GMKey.MagnifierDefaultScale, 1.5))
 export const magnifierScaleStep = reactive(new GMVariable<number>(GMKey.MagnifierScaleStep, 0.1))
@@ -70,6 +71,7 @@ export async function initializeMonkeySwitches() {
     autoRedirectSwitch.initialize(),
 
     magnifierSwitch.initialize(),
+    magnifierActivationButton.initialize(),
     magnifierToggleMode.initialize(),
     magnifierDefaultScale.initialize(),
     magnifierScaleStep.initialize(),

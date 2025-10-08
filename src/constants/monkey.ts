@@ -13,6 +13,7 @@ export const enum GMKey {
   PreventImageRemoval = 'PreventImageRemoval',
 
   Magnifier = 'Magnifier',
+  MagnifierActivationButton = 'MagnifierActivationButton',
   MagnifierToggleMode = 'MagnifierToggleMode',
   MagnifierDefaultScale = 'MagnifierDefaultScale',
   MagnifierScaleStep = 'MagnifierScaleStep',
@@ -33,4 +34,9 @@ export const enum DownloadMethod {
   HaH_2400 = 'download 2400x Resolution with H@H',
   Direct_Origin = 'download Original Resolution directly',
   Direct_Resample = 'download Resample Resolution directly',
+}
+
+export const enum MouseButton {
+  Left = 'left',
+  Right = 'right',
 }

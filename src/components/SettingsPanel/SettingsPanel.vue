@@ -138,9 +138,22 @@
             Image Magnifier
           </h3>
           <div class="settings__intro">
-            <p>Long press left mouse button to activate magnifier. Press left+right buttons for original image.</p>
+            <p>
+              Long press the primary button to activate magnifier.
+              Press both primary and secondary buttons simultaneously for original image.
+            </p>
 
             <!-- 基礎設定 -->
+            <div class="magnifier-basic-settings">
+              <label>
+                Activation Button:
+                <select v-model="magnifierActivationButton.value">
+                  <option :value="MouseButton.Left">Left Mouse Button</option>
+                  <option :value="MouseButton.Right">Right Mouse Button</option>
+                </select>
+              </label>
+            </div>
+
             <div class="magnifier-basic-settings">
               <label>
                 <input
@@ -282,7 +295,7 @@ import { VueFinalModal } from 'vue-final-modal'
 import { GM } from 'vite-plugin-monkey/dist/client'
 
 import CrossButton from '@/components/Icon/CrossButton.vue'
-import { DownloadMethod } from '@/constants/monkey'
+import { DownloadMethod, MouseButton } from '@/constants/monkey'
 import {
   infiniteScrollSwitch,
   archiveButtonSwitch,
@@ -296,6 +309,7 @@ import {
   showJapaneseTitle,
   highlightSwitch,
   magnifierSwitch,
+  magnifierActivationButton,
   magnifierToggleMode,
   magnifierDefaultScale,
   magnifierScaleStep,
