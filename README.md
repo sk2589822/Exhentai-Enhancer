@@ -42,6 +42,8 @@ works on:
    
 7. Auto redirect to Multi-Page Viewer if in Single-Page Viewer(url match `https://exhentai.org/s/*/*`)  
 
+8. Magnifier (Long press left mouse button by default)
+
 
 ## Front Page Enhancer
 works on: 
