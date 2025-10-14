@@ -143,27 +143,24 @@
               Press both primary and secondary buttons simultaneously for original image.
             </p>
 
-            <!-- 基礎設定 -->
-            <div class="magnifier-basic-settings">
-              <label>
+            <div class="settings__magnifier-config">
+              <!-- 基礎設定 -->
+              <label class="settings__label">
                 Activation Button:
-                <select v-model="magnifierActivationButton.value">
+                <select
+                  v-model="magnifierActivationButton.value"
+                >
                   <option :value="MouseButton.Left">Left Mouse Button</option>
                   <option :value="MouseButton.Right">Right Mouse Button</option>
                 </select>
               </label>
-            </div>
 
-            <div class="magnifier-basic-settings">
-              <label>
-                <input
-                  v-model="magnifierToggleMode.value"
-                  type="checkbox"
-                >
+              <label class="settings__label ">
+                <ToggleSwitch v-model="magnifierToggleMode.value" />
                 Toggle Mode (uncheck for Hold Mode)
               </label>
 
-              <label>
+              <label class="settings__label">
                 Default Scale:
                 <input
                   v-model.number="magnifierDefaultScale.value"
@@ -171,10 +168,11 @@
                   min="1.1"
                   max="10"
                   step="0.1"
+                  class="settings__input"
                 >
               </label>
 
-              <label>
+              <label class="settings__label">
                 Scale Step (Mouse Wheel):
                 <input
                   v-model.number="magnifierScaleStep.value"
@@ -182,49 +180,46 @@
                   min="0.05"
                   max="0.5"
                   step="0.05"
+                  class="settings__input"
+                >
+              </label>
+
+              <label class="settings__label">
+                Long Press Threshold (ms):
+                <input
+                  v-model.number="magnifierLongPressThreshold.value"
+                  type="number"
+                  min="50"
+                  max="1000"
+                  step="50"
+                  class="settings__input"
+                >
+              </label>
+
+              <label class="settings__label">
+                Mouse Sensitivity X:
+                <input
+                  v-model.number="magnifierSensitivityX.value"
+                  type="number"
+                  min="0.5"
+                  max="5"
+                  step="0.5"
+                  class="settings__input"
+                >
+              </label>
+
+              <label class="settings__label">
+                Mouse Sensitivity Y:
+                <input
+                  v-model.number="magnifierSensitivityY.value"
+                  type="number"
+                  min="0.5"
+                  max="5"
+                  step="0.5"
+                  class="settings__input"
                 >
               </label>
             </div>
-
-            <!-- 進階設定 -->
-            <details class="magnifier-advanced-settings">
-              <summary>Advanced Settings</summary>
-
-              <div class="advanced-settings-grid">
-                <label>
-                  Long Press Threshold (ms):
-                  <input
-                    v-model.number="magnifierLongPressThreshold.value"
-                    type="number"
-                    min="50"
-                    max="1000"
-                    step="50"
-                  >
-                </label>
-
-                <label>
-                  Sensitivity X:
-                  <input
-                    v-model.number="magnifierSensitivityX.value"
-                    type="number"
-                    min="0.5"
-                    max="5"
-                    step="0.5"
-                  >
-                </label>
-
-                <label>
-                  Sensitivity Y:
-                  <input
-                    v-model.number="magnifierSensitivityY.value"
-                    type="number"
-                    min="0.5"
-                    max="5"
-                    step="0.5"
-                  >
-                </label>
-              </div>
-            </details>
           </div>
         </div>
       </section>
@@ -421,6 +416,28 @@ function reload() {
     font-size: 14px;
     text-align: left;
   }
+
+  &__magnifier-config {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  &__input {
+    width: 120px;
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 }
 
 .actions {
@@ -435,75 +452,6 @@ function reload() {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-}
-
-.magnifier-basic-settings {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-
-  label {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-
-    input[type="number"] {
-      width: 120px;
-      padding: 0.25rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    input[type="checkbox"] {
-      cursor: pointer;
-      width: fit-content;
-    }
-  }
-
-  label:first-child {
-    flex-direction: row;
-    align-items: center;
-  }
-}
-
-.magnifier-advanced-settings {
-  margin-top: 1rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  padding: 0.5rem;
-
-  summary {
-    cursor: pointer;
-    font-weight: 500;
-    user-select: none;
-    padding: 0.25rem;
-
-    &:hover {
-      background-color: #f5f5f5;
-    }
-  }
-
-  .advanced-settings-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.75rem;
-    margin-top: 0.75rem;
-
-    label {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      font-size: 0.9rem;
-
-      input {
-        width: 100%;
-        padding: 0.25rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-    }
   }
 }
 </style>
