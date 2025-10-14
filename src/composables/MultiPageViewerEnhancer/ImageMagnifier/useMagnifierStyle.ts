@@ -66,15 +66,6 @@ export function useMagnifierStyle(
       y: magnifierCenter.y - (idealImageBounds.height * mouseRelativePos.y) * finalScale + (position.y - magnifierCenter.y),
     }
 
-    // console.table({
-    //   '當前圖片': currentImageBounds,
-    //   '理想圖片尺寸': idealImageBounds,
-    //   '放大鏡中心點': magnifierCenter,
-    //   '互動區域': interactiveArea,
-    //   '滑鼠相對位置': mouseRelativePos,
-    //   '最終位移': finalTranslate,
-    // })
-
     return {
       position: 'absolute',
       inset: 0,
