@@ -92,7 +92,7 @@ export function useMagnifierImageLoader(state: MagnifierState) {
     for (const img of images) {
       const rect = img.getBoundingClientRect()
       if (mouseY >= rect.top + window.scrollY &&
-                mouseY <= rect.bottom + window.scrollY) {
+        mouseY <= rect.bottom + window.scrollY) {
         state.currentImage = img
         return
       }
