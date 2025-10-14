@@ -9,7 +9,7 @@
       class="original-functions"
       v-html="exhentaiButtons"
     />
-    <ImageMagnifier />
+    <ImageMagnifier v-if="magnifierSwitch.value" />
   </div>
 </template>
 
@@ -24,7 +24,7 @@ import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
 import { useEvents } from '@/composables/MultiPageViewerEnhancer/useEvents'
 import { useWheelStep } from '@/composables/useWheelStep'
 import { getElement } from '@/utils/commons'
-import { preventImageRemovalSwitch } from '@/utils/GMVariables'
+import { preventImageRemovalSwitch, magnifierSwitch } from '@/utils/GMVariables'
 
 import PageElevator from './PageElevator.vue'
 import ImageResizer from './ImageResizer.vue'

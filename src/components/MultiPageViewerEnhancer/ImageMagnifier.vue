@@ -93,9 +93,7 @@ const {
 } = useMagnifierEvents(state, magnifierConfig)
 
 onMounted(() => {
-  if (magnifierSwitch.value) {
-    bindEvents()
-  }
+  bindEvents()
 })
 
 onUnmounted(() => {
