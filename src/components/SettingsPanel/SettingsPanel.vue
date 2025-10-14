@@ -66,7 +66,8 @@
               </option>
             </select>
             <p>
-              *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual Start (Default)" in the setting page:
+              *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual
+              Start (Default)" in the setting page:
               <a
                 target="_blank"
                 href="https://e-hentai.org/uconfig.php"
@@ -129,6 +130,97 @@
           <h3 class="settings__name">
             Auto Redirect to Multi-Page Viewer
           </h3>
+        </div>
+
+        <div class="settings">
+          <ToggleSwitch v-model="magnifierSwitch.value" />
+          <h3 class="settings__name">
+            Image Magnifier
+          </h3>
+          <div class="settings__intro">
+            <p>
+              Long press the primary button to activate magnifier.
+              Press both primary and secondary buttons simultaneously for original image.
+            </p>
+
+            <div class="settings__magnifier-config">
+              <!-- 基礎設定 -->
+              <label class="settings__label">
+                Activation Button:
+                <select
+                  v-model="magnifierActivationButton.value"
+                >
+                  <option :value="MouseButton.Left">Left Mouse Button</option>
+                  <option :value="MouseButton.Right">Right Mouse Button</option>
+                </select>
+              </label>
+
+              <label class="settings__label ">
+                <ToggleSwitch v-model="magnifierToggleMode.value" />
+                Toggle Mode (uncheck for Hold Mode)
+              </label>
+
+              <label class="settings__label">
+                Default Scale:
+                <input
+                  v-model.number="magnifierDefaultScale.value"
+                  type="number"
+                  min="1.1"
+                  max="10"
+                  step="0.1"
+                  class="settings__input"
+                >
+              </label>
+
+              <label class="settings__label">
+                Scale Step (Mouse Wheel):
+                <input
+                  v-model.number="magnifierScaleStep.value"
+                  type="number"
+                  min="0.05"
+                  max="0.5"
+                  step="0.05"
+                  class="settings__input"
+                >
+              </label>
+
+              <label class="settings__label">
+                Long Press Threshold (ms):
+                <input
+                  v-model.number="magnifierLongPressThreshold.value"
+                  type="number"
+                  min="50"
+                  max="1000"
+                  step="50"
+                  class="settings__input"
+                >
+              </label>
+
+              <label class="settings__label">
+                Mouse Sensitivity X:
+                <input
+                  v-model.number="magnifierSensitivityX.value"
+                  type="number"
+                  min="0.5"
+                  max="5"
+                  step="0.5"
+                  class="settings__input"
+                >
+              </label>
+
+              <label class="settings__label">
+                Mouse Sensitivity Y:
+                <input
+                  v-model.number="magnifierSensitivityY.value"
+                  type="number"
+                  min="0.5"
+                  max="5"
+                  step="0.5"
+                  class="settings__input"
+                >
+              </label>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -198,7 +290,7 @@ import { VueFinalModal } from 'vue-final-modal'
 import { GM } from 'vite-plugin-monkey/dist/client'
 
 import CrossButton from '@/components/Icon/CrossButton.vue'
-import { DownloadMethod } from '@/constants/monkey'
+import { DownloadMethod, MouseButton } from '@/constants/monkey'
 import {
   infiniteScrollSwitch,
   archiveButtonSwitch,
@@ -211,6 +303,14 @@ import {
   autoRedirectSwitch,
   showJapaneseTitle,
   highlightSwitch,
+  magnifierSwitch,
+  magnifierActivationButton,
+  magnifierToggleMode,
+  magnifierDefaultScale,
+  magnifierScaleStep,
+  magnifierLongPressThreshold,
+  magnifierSensitivityX,
+  magnifierSensitivityY,
 } from '@/utils/GMVariables'
 
 import ToggleSwitch from './ToggleSwitch.vue'
@@ -315,6 +415,28 @@ function reload() {
     width: 100%;
     font-size: 14px;
     text-align: left;
+  }
+
+  &__magnifier-config {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  &__input {
+    width: 120px;
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
 }
 
