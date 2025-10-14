@@ -26,7 +26,6 @@ import { reactive, computed, onMounted, onUnmounted } from 'vue'
 import { useMagnifierEvents } from '@/composables/MultiPageViewerEnhancer/ImageMagnifier/useMagnifierEvents'
 import { useMagnifierStyle } from '@/composables/MultiPageViewerEnhancer/ImageMagnifier/useMagnifierStyle'
 import {
-  magnifierSwitch,
   magnifierActivationButton,
   magnifierToggleMode,
   magnifierDefaultScale,
