@@ -157,7 +157,7 @@
 
               <label class="settings__label ">
                 <ToggleSwitch v-model="magnifierToggleMode.value" />
-                Toggle Mode (uncheck for Hold Mode)
+                {{ magnifierToggleMode.value ? 'Toggle Mode (click once to open, click again to close)' : 'Hold Mode (hold down to use)' }}
               </label>
 
               <label class="settings__label">
