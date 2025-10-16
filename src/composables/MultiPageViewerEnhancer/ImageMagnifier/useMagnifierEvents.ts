@@ -81,16 +81,12 @@ export function useMagnifierEvents(
 
   function handleHoldModeRelease() {
     if (state.isOriginalMode) {
-      // 原圖模式: 使用 setTimeout 確保兩個 mouseup 事件都處理完
+      // 原圖模式
       if (!gesture.isPrimaryButton.value && !gesture.isSecondaryButton.value) {
-        // 延遲 deactivate，防止 click/contextmenu 事件觸發父組件的翻頁功能
-        // 確保 preventDefaultHandler 在事件發生時仍能攔截 (state.isActive 仍為 true)
-        setTimeout(() => {
-          deactivateMagnifier()
-        }, 0)
+        deactivateMagnifier()
       }
     } else {
-      // 普通模式: 主鍵放開即關閉
+      // 普通模式
       if (!gesture.isPrimaryButton.value) {
         deactivateMagnifier()
       }
@@ -131,12 +127,16 @@ export function useMagnifierEvents(
   function deactivateMagnifier() {
     imageLoader.cleanup()
     delete paneImagesDiv.dataset.magnifierActive
-    state.isActive = false
     state.currentImage = null
     state.isOriginalMode = false
     state.isLoadingOriginal = false
     document.body.classList.remove('hide-cursor')
     getElement('#magnifier-style')?.remove()
+    // 延遲設置 isActive 以確保同一事件循環中的所有事件（如 contextmenu）
+    // 都能被 preventDefaultHandler 正確攔截
+    setTimeout(() => {
+      state.isActive = false
+    }, 0)
   }
 
   // ========== 事件處理器 ==========
