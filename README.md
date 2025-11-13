@@ -66,9 +66,10 @@ works on:
 
 ## Settings Panel
    You can open settings panel by clicking the Tampermonkey icon first, then select "Open settings panel".  
-   ![](https://imgur.com/QyUSmq2.jpg)  
+   ![open settings panel](https://github.com/user-attachments/assets/03437e4e-9530-4021-b369-8c8b22fe1b4d)
+  
    Then you can disable any features you don't want, or change the action when click "Archive Download" here.  
-   ![](https://imgur.com/DLWcMW7.jpg)
+   ![settings panel](https://github.com/user-attachments/assets/7248275f-58ed-4e34-9eee-003f3b18d47e)
 
 ## Shortcuts
 
@@ -114,6 +115,9 @@ works on:
 
   If there are multiple torrents, show popup  
   ![multiple torrents](https://github.com/user-attachments/assets/367a9b28-789c-4e8e-9eca-c97ea85f3f02)
+
+  Magnet copy button  
+  ![Magnet copy button](https://github.com/user-attachments/assets/b450d686-0b83-4d64-ab09-e6b351e0769a)
 
   Scroll step by row on images container  
   ![scroll by step](https://github.com/user-attachments/assets/3beef0f2-5c5d-4cac-afad-4bfbe3ee9b1c)

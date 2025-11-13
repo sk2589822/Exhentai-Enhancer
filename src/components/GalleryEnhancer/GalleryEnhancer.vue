@@ -46,9 +46,15 @@ import { usePositions } from '@/composables/GalleryEnhancer/usePositions'
 import { useWheelStep } from '@/composables/useWheelStep'
 import { useArchive } from '@/composables/useArchive'
 import { useFetchPopups } from '@/composables/useFetchPopups'
-import { scrollByRowSwitch, betterPopupSwitch, loadAllGalleryImagesSwitch, quickDownloadMethod } from '@/utils/GMVariables'
+import {
+  scrollByRowSwitch,
+  betterPopupSwitch,
+  loadAllGalleryImagesSwitch,
+  quickArchiveDownloadMethod,
+  quickTorrentDownloadSwitch,
+} from '@/utils/GMVariables'
 import { fetchAllImages } from '@/utils/fetchImages'
-import { DownloadMethod } from '@/constants/monkey'
+import { ArchiveDownloadMethod } from '@/constants/monkey'
 import { useFavorite } from '@/composables/useFavorite'
 import { useTorrent } from '@/composables/useTorrent'
 import { useHighlight } from '@/composables/FrontPageEnhancer/useHighlight'
@@ -98,7 +104,7 @@ const {
 } = usePositions()
 
 const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive()
-const { downloadTorrent } = useTorrent()
+const { downloadTorrent, addMagnetCopyButtons } = useTorrent()
 const { setRequestEvents } = useFavorite(favoriteInnerHtml)
 
 if (betterPopupSwitch.value) {
@@ -112,7 +118,7 @@ if (betterPopupSwitch.value) {
   }, 0)
 }
 
-const isQuickDownload = computed(() => quickDownloadMethod.value !== DownloadMethod.Manual)
+const isQuickDownload = computed(() => quickArchiveDownloadMethod.value !== ArchiveDownloadMethod.Manual)
 
 function setArchiveClickEvent() {
   setHentaiAtHomeEvent()
@@ -139,7 +145,9 @@ const { setAsDownloaded } = useHighlight()
 
 function setTorrentClickEvent() {
   setRequestEvents(archiveLinkAnchor, favoritePopup, isFavoritePopupShow)
-  const isOnlyOneTorrent = torrentLinkAnchor.innerText === 'Torrent Download (1)'
+  const isOnlyOneTorrent = torrentLinkAnchor.innerText.endsWith('(1)')
+
+  addMagnetCopyButtons(torrentPopup)
 
   const torrentDownloadLinks = getElements('a', torrentPopup.value)
   if (torrentDownloadLinks?.length) {
@@ -154,7 +162,7 @@ function setTorrentClickEvent() {
     event.preventDefault()
     event.stopPropagation()
 
-    if (isOnlyOneTorrent) {
+    if (quickTorrentDownloadSwitch.value && isOnlyOneTorrent) {
       downloadTorrent(torrentPopup)
     } else {
       isTorrentPopupShow.value = !isTorrentPopupShow.value

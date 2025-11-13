@@ -48,21 +48,21 @@
             <span>
               Action when clicking "Archive Download":
             </span>
-            <select v-model="quickDownloadMethod.value">
+            <select v-model="quickArchiveDownloadMethod.value">
               <option>
-                {{ DownloadMethod.Manual }}
+                {{ ArchiveDownloadMethod.Manual }}
               </option>
               <option>
-                {{ DownloadMethod.HaH_Original }}
+                {{ ArchiveDownloadMethod.HaH_Original }}
               </option>
               <option>
-                {{ DownloadMethod.HaH_2400 }}
+                {{ ArchiveDownloadMethod.HaH_2400 }}
               </option>
               <option>
-                {{ DownloadMethod.Direct_Origin }}
+                {{ ArchiveDownloadMethod.Direct_Origin }}
               </option>
               <option>
-                {{ DownloadMethod.Direct_Resample }}
+                {{ ArchiveDownloadMethod.Direct_Resample }}
               </option>
             </select>
             <p>
@@ -85,6 +85,13 @@
               </a>
             </p>
           </div>
+        </div>
+
+        <div class="settings">
+          <ToggleSwitch v-model="quickTorrentDownloadSwitch.value" />
+          <h3 class="settings__name">
+            Download torrent directly if there is only one torrent.
+          </h3>
         </div>
 
         <div class="settings">
@@ -290,13 +297,13 @@ import { VueFinalModal } from 'vue-final-modal'
 import { GM } from 'vite-plugin-monkey/dist/client'
 
 import CrossButton from '@/components/Icon/CrossButton.vue'
-import { DownloadMethod, MouseButton } from '@/constants/monkey'
+import { ArchiveDownloadMethod, MouseButton } from '@/constants/monkey'
 import {
   infiniteScrollSwitch,
   archiveButtonSwitch,
   scrollByRowSwitch,
   betterPopupSwitch,
-  quickDownloadMethod,
+  quickArchiveDownloadMethod,
   loadAllGalleryImagesSwitch,
   multipageViewerEnhancerSwitch,
   preventImageRemovalSwitch,
@@ -311,6 +318,7 @@ import {
   magnifierLongPressThreshold,
   magnifierSensitivityX,
   magnifierSensitivityY,
+  quickTorrentDownloadSwitch,
 } from '@/utils/GMVariables'
 
 import ToggleSwitch from './ToggleSwitch.vue'

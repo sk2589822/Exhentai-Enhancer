@@ -21,9 +21,9 @@ import { VueFinalModal } from 'vue-final-modal'
 import { useWheelStep } from '@/composables/useWheelStep'
 import { useFetchPopups } from '@/composables/useFetchPopups'
 import { getDoc, getElement, getElements } from '@/utils/commons'
-import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, quickDownloadMethod } from '@/utils/GMVariables'
+import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, quickArchiveDownloadMethod } from '@/utils/GMVariables'
 import { getArchiveLink } from '@/utils/eHentaiApi'
-import { DownloadMethod } from '@/constants/monkey'
+import { ArchiveDownloadMethod } from '@/constants/monkey'
 import { useArchive } from '@/composables/useArchive'
 import { useHighlight } from '@/composables/FrontPageEnhancer/useHighlight'
 
@@ -159,7 +159,7 @@ const modalOptions = ref({
 const isArchivePopupShow = ref(false)
 
 const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive()
-const isQuickDownload = computed(() => quickDownloadMethod.value !== DownloadMethod.Manual)
+const isQuickDownload = computed(() => quickArchiveDownloadMethod.value !== ArchiveDownloadMethod.Manual)
 
 function setArchiveEvent() {
   setHentaiAtHomeEvent()
