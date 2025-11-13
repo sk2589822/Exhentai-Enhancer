@@ -1,9 +1,9 @@
 import { GM } from 'vite-plugin-monkey/dist/client'
 import { reactive } from 'vue'
 
-import { GMKey, DownloadMethod, MouseButton } from '@/constants/monkey'
+import { GMKey, ArchiveDownloadMethod, MouseButton } from '@/constants/monkey'
 
-class GMVariable<T extends boolean | DownloadMethod | MouseButton | number> {
+class GMVariable<T extends boolean | ArchiveDownloadMethod | MouseButton | number> {
   private _key: string
   private _value: T
 
@@ -34,7 +34,8 @@ export const highlightSwitch = reactive(new GMVariable<boolean>(GMKey.Highlight,
 // Gallery enhancer
 export const scrollByRowSwitch = reactive(new GMVariable<boolean>(GMKey.ScrollByRow, true))
 export const betterPopupSwitch = reactive(new GMVariable<boolean>(GMKey.BetterPopup, true))
-export const quickDownloadMethod = reactive(new GMVariable<DownloadMethod>(GMKey.QuickDownloadMethod, DownloadMethod.Manual))
+export const quickArchiveDownloadMethod = reactive(new GMVariable<ArchiveDownloadMethod>(GMKey.QuickArchiveDownloadMethod, ArchiveDownloadMethod.Manual))
+export const quickTorrentDownloadSwitch = reactive(new GMVariable<boolean>(GMKey.QuickTorrentDownload, false))
 export const loadAllGalleryImagesSwitch = reactive(new GMVariable<boolean>(GMKey.LoadAllGalleryImages, true))
 
 // Multi-Page Viewer enhancer
@@ -63,7 +64,8 @@ export async function initializeMonkeySwitches() {
 
     scrollByRowSwitch.initialize(),
     betterPopupSwitch.initialize(),
-    quickDownloadMethod.initialize(),
+    quickArchiveDownloadMethod.initialize(),
+    quickTorrentDownloadSwitch.initialize(),
     loadAllGalleryImagesSwitch.initialize(),
 
     multipageViewerEnhancerSwitch.initialize(),
