@@ -4,8 +4,8 @@ import { Ref } from 'vue'
 import { useFetchPopups } from '@/composables/useFetchPopups'
 import { getElement, getElements, getDoc } from '@/utils/commons'
 import { Logger } from '@/utils/logger'
-import { DownloadMethod } from '@/constants/monkey'
-import { quickDownloadMethod } from '@/utils/GMVariables'
+import { ArchiveDownloadMethod } from '@/constants/monkey'
+import { quickArchiveDownloadMethod } from '@/utils/GMVariables'
 
 import { useHighlight } from './FrontPageEnhancer/useHighlight'
 
@@ -212,36 +212,36 @@ export function useArchive() {
 
   // TODO: 直接 send request 而非操作 DOM
   function quickDownload(popup: Ref<HTMLElement | undefined>) {
-    function getHaHDownloadLinkElement(downloadMethod: DownloadMethod.HaH_Original | DownloadMethod.HaH_2400) {
+    function getHaHDownloadLinkElement(downloadMethod: ArchiveDownloadMethod.HaH_Original | ArchiveDownloadMethod.HaH_2400) {
       const indexMap = {
-        [DownloadMethod.HaH_Original]: 6,
-        [DownloadMethod.HaH_2400]: 5,
+        [ArchiveDownloadMethod.HaH_Original]: 6,
+        [ArchiveDownloadMethod.HaH_2400]: 5,
       }
       const index = indexMap[downloadMethod]
 
       return getElement(`td:nth-child(${index}) > p > a`, popup.value)
     }
 
-    switch (quickDownloadMethod.value) {
-      case DownloadMethod.HaH_Original:
-      case DownloadMethod.HaH_2400: {
-        const downloadLinkElement = getHaHDownloadLinkElement(quickDownloadMethod.value)
+    switch (quickArchiveDownloadMethod.value) {
+      case ArchiveDownloadMethod.HaH_Original:
+      case ArchiveDownloadMethod.HaH_2400: {
+        const downloadLinkElement = getHaHDownloadLinkElement(quickArchiveDownloadMethod.value)
 
         if (downloadLinkElement) {
           downloadLinkElement.click()
         } else {
-          toast.warning(`Failed ${quickDownloadMethod.value}. The link might not exists.\n Open popup`)
+          toast.warning(`Failed ${quickArchiveDownloadMethod.value}. The link might not exists.\n Open popup`)
           return false
         }
 
         break
       }
 
-      case DownloadMethod.Direct_Origin:
+      case ArchiveDownloadMethod.Direct_Origin:
         (getElement('input[value="Download Original Archive"]', popup.value) as HTMLElement).click()
         break
 
-      case DownloadMethod.Direct_Resample:
+      case ArchiveDownloadMethod.Direct_Resample:
         (getElement('input[value="Download Resample Archive"]', popup.value) as HTMLElement).click()
         break
     }

@@ -5,7 +5,8 @@ export const enum GMKey {
   Highlight = 'Highlight',
 
   BetterPopup = 'BetterPopup',
-  QuickDownloadMethod = 'QuickDownloadMethod',
+  QuickArchiveDownloadMethod = 'QuickDownloadMethod',
+  QuickTorrentDownload = 'QuickTorrentDownload',
   LoadAllGalleryImages = 'LoadAllGalleryImages',
 
   MultipageViewerEnhancer = 'MultipageViewerEnhancer',
@@ -24,7 +25,7 @@ export const enum GMKey {
   ShowJapaneseTitle = 'ShowJapaneseTitle'
 }
 
-export const enum DownloadMethod {
+export const enum ArchiveDownloadMethod {
   Manual = 'Manual',
   HaH_Original = 'download Original Resolution with H@H',
   HaH_2400 = 'download 2400x Resolution with H@H',
