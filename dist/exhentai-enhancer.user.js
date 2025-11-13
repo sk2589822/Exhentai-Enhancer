@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.16.1
+// @version            1.17.0
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -22,6 +22,7 @@
 // @grant              GM_addStyle
 // @grant              GM_addValueChangeListener
 // @grant              GM_getValue
+// @grant              GM_setClipboard
 // @grant              GM_setValue
 // @grant              GM_xmlhttpRequest
 // @grant              unsafeWindow
@@ -3683,6 +3684,7 @@ This will fail in production.`
   var _GM_addStyle = /* @__PURE__ */ (() => typeof GM_addStyle != "undefined" ? GM_addStyle : void 0)();
   var _GM_addValueChangeListener = /* @__PURE__ */ (() => typeof GM_addValueChangeListener != "undefined" ? GM_addValueChangeListener : void 0)();
   var _GM_getValue = /* @__PURE__ */ (() => typeof GM_getValue != "undefined" ? GM_getValue : void 0)();
+  var _GM_setClipboard = /* @__PURE__ */ (() => typeof GM_setClipboard != "undefined" ? GM_setClipboard : void 0)();
   var _GM_setValue = /* @__PURE__ */ (() => typeof GM_setValue != "undefined" ? GM_setValue : void 0)();
   var _GM_xmlhttpRequest = /* @__PURE__ */ (() => typeof GM_xmlhttpRequest != "undefined" ? GM_xmlhttpRequest : void 0)();
   var _unsafeWindow = /* @__PURE__ */ (() => typeof unsafeWindow != "undefined" ? unsafeWindow : void 0)();
@@ -3692,7 +3694,8 @@ This will fail in production.`
     GMKey2["ArchiveButton"] = "archiveButton";
     GMKey2["Highlight"] = "Highlight";
     GMKey2["BetterPopup"] = "BetterPopup";
-    GMKey2["QuickDownloadMethod"] = "QuickDownloadMethod";
+    GMKey2["QuickArchiveDownloadMethod"] = "QuickDownloadMethod";
+    GMKey2["QuickTorrentDownload"] = "QuickTorrentDownload";
     GMKey2["LoadAllGalleryImages"] = "LoadAllGalleryImages";
     GMKey2["MultipageViewerEnhancer"] = "MultipageViewerEnhancer";
     GMKey2["AutoRedirect"] = "AutoRedirect";
@@ -3708,14 +3711,14 @@ This will fail in production.`
     GMKey2["ShowJapaneseTitle"] = "ShowJapaneseTitle";
     return GMKey2;
   })(GMKey || {});
-  var DownloadMethod = /* @__PURE__ */ ((DownloadMethod2) => {
-    DownloadMethod2["Manual"] = "Manual";
-    DownloadMethod2["HaH_Original"] = "download Original Resolution with H@H";
-    DownloadMethod2["HaH_2400"] = "download 2400x Resolution with H@H";
-    DownloadMethod2["Direct_Origin"] = "download Original Resolution directly";
-    DownloadMethod2["Direct_Resample"] = "download Resample Resolution directly";
-    return DownloadMethod2;
-  })(DownloadMethod || {});
+  var ArchiveDownloadMethod = /* @__PURE__ */ ((ArchiveDownloadMethod2) => {
+    ArchiveDownloadMethod2["Manual"] = "Manual";
+    ArchiveDownloadMethod2["HaH_Original"] = "download Original Resolution with H@H";
+    ArchiveDownloadMethod2["HaH_2400"] = "download 2400x Resolution with H@H";
+    ArchiveDownloadMethod2["Direct_Origin"] = "download Original Resolution directly";
+    ArchiveDownloadMethod2["Direct_Resample"] = "download Resample Resolution directly";
+    return ArchiveDownloadMethod2;
+  })(ArchiveDownloadMethod || {});
   var MouseButton = /* @__PURE__ */ ((MouseButton2) => {
     MouseButton2["Left"] = "left";
     MouseButton2["Right"] = "right";
@@ -3744,7 +3747,8 @@ This will fail in production.`
   const highlightSwitch = vue.reactive(new GMVariable(GMKey.Highlight, true));
   const scrollByRowSwitch = vue.reactive(new GMVariable(GMKey.ScrollByRow, true));
   const betterPopupSwitch = vue.reactive(new GMVariable(GMKey.BetterPopup, true));
-  const quickDownloadMethod = vue.reactive(new GMVariable(GMKey.QuickDownloadMethod, DownloadMethod.Manual));
+  const quickArchiveDownloadMethod = vue.reactive(new GMVariable(GMKey.QuickArchiveDownloadMethod, ArchiveDownloadMethod.Manual));
+  const quickTorrentDownloadSwitch = vue.reactive(new GMVariable(GMKey.QuickTorrentDownload, false));
   const loadAllGalleryImagesSwitch = vue.reactive(new GMVariable(GMKey.LoadAllGalleryImages, true));
   const multipageViewerEnhancerSwitch = vue.reactive(new GMVariable(GMKey.MultipageViewerEnhancer, true));
   const autoRedirectSwitch = vue.reactive(new GMVariable(GMKey.AutoRedirect, false));
@@ -3765,7 +3769,8 @@ This will fail in production.`
       highlightSwitch.initialize(),
       scrollByRowSwitch.initialize(),
       betterPopupSwitch.initialize(),
-      quickDownloadMethod.initialize(),
+      quickArchiveDownloadMethod.initialize(),
+      quickTorrentDownloadSwitch.initialize(),
       loadAllGalleryImagesSwitch.initialize(),
       multipageViewerEnhancerSwitch.initialize(),
       preventImageRemovalSwitch.initialize(),
@@ -4314,29 +4319,29 @@ This will fail in production.`
     function quickDownload(popup) {
       function getHaHDownloadLinkElement(downloadMethod) {
         const indexMap = {
-          [DownloadMethod.HaH_Original]: 6,
-          [DownloadMethod.HaH_2400]: 5
+          [ArchiveDownloadMethod.HaH_Original]: 6,
+          [ArchiveDownloadMethod.HaH_2400]: 5
         };
         const index = indexMap[downloadMethod];
         return getElement(`td:nth-child(${index}) > p > a`, popup.value);
       }
-      switch (quickDownloadMethod.value) {
-        case DownloadMethod.HaH_Original:
-        case DownloadMethod.HaH_2400: {
-          const downloadLinkElement = getHaHDownloadLinkElement(quickDownloadMethod.value);
+      switch (quickArchiveDownloadMethod.value) {
+        case ArchiveDownloadMethod.HaH_Original:
+        case ArchiveDownloadMethod.HaH_2400: {
+          const downloadLinkElement = getHaHDownloadLinkElement(quickArchiveDownloadMethod.value);
           if (downloadLinkElement) {
             downloadLinkElement.click();
           } else {
-            toast.warning(`Failed ${quickDownloadMethod.value}. The link might not exists.
+            toast.warning(`Failed ${quickArchiveDownloadMethod.value}. The link might not exists.
  Open popup`);
             return false;
           }
           break;
         }
-        case DownloadMethod.Direct_Origin:
+        case ArchiveDownloadMethod.Direct_Origin:
           getElement('input[value="Download Original Archive"]', popup.value).click();
           break;
-        case DownloadMethod.Direct_Resample:
+        case ArchiveDownloadMethod.Direct_Resample:
           getElement('input[value="Download Resample Archive"]', popup.value).click();
           break;
       }
@@ -4459,7 +4464,7 @@ This will fail in production.`
       });
       const isArchivePopupShow = vue.ref(false);
       const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive();
-      const isQuickDownload = vue.computed(() => quickDownloadMethod.value !== DownloadMethod.Manual);
+      const isQuickDownload = vue.computed(() => quickArchiveDownloadMethod.value !== ArchiveDownloadMethod.Manual);
       function setArchiveEvent() {
         setHentaiAtHomeEvent();
         setDirectDownloadEvent();
@@ -4629,8 +4634,57 @@ This will fail in production.`
       var _a2;
       (_a2 = getElement("a", popup.value)) == null ? void 0 : _a2.click();
     }
+    function extractMagnetLink(href) {
+      const match = href.match(/([0-9a-f]{40})/i);
+      if (!match) {
+        return null;
+      }
+      const hash = match[1];
+      return `magnet:?xt=urn:btih:${hash}`;
+    }
+    function addMagnetCopyButtons(popup) {
+      if (!popup.value) {
+        return;
+      }
+      const tables = popup.value.querySelectorAll("form table");
+      tables.forEach((table) => {
+        var _a2;
+        if (table.querySelector("[data-magnet-button]")) {
+          return;
+        }
+        const link = table.querySelector("a");
+        if (!(link == null ? void 0 : link.href)) {
+          return;
+        }
+        const magnet = extractMagnetLink(link.href);
+        if (!magnet) {
+          return;
+        }
+        const insertionPoint = table.querySelector('input[type="submit"], button[type="submit"]');
+        if (!insertionPoint) {
+          return;
+        }
+        const button = document.createElement("input");
+        button.type = "button";
+        button.value = "Copy Magnet";
+        button.dataset.magnetButton = "true";
+        button.style.marginBottom = "4px";
+        button.onclick = async () => {
+          _GM_setClipboard(magnet, "text");
+          button.value = "✅ Copied";
+          button.disabled = true;
+          setTimeout(() => {
+            button.disabled = false;
+            button.value = "Copy Magnet";
+          }, 1e3);
+        };
+        (_a2 = insertionPoint.parentNode) == null ? void 0 : _a2.insertBefore(button, insertionPoint);
+      });
+    }
     return {
-      downloadTorrent
+      downloadTorrent,
+      extractMagnetLink,
+      addMagnetCopyButtons
     };
   }
   const _hoisted_1$6 = ["innerHTML"];
@@ -4675,7 +4729,7 @@ This will fail in production.`
         favorite: favoritePosition
       } = usePositions();
       const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive();
-      const { downloadTorrent } = useTorrent();
+      const { downloadTorrent, addMagnetCopyButtons } = useTorrent();
       const { setRequestEvents } = useFavorite(favoriteInnerHtml2);
       if (betterPopupSwitch.value) {
         [__temp, __restore] = vue.withAsyncContext(() => preloadLinks()), await __temp, __restore();
@@ -4685,7 +4739,7 @@ This will fail in production.`
           setFavoriteClickEvent();
         }, 0);
       }
-      const isQuickDownload = vue.computed(() => quickDownloadMethod.value !== DownloadMethod.Manual);
+      const isQuickDownload = vue.computed(() => quickArchiveDownloadMethod.value !== ArchiveDownloadMethod.Manual);
       function setArchiveClickEvent() {
         setHentaiAtHomeEvent();
         setDirectDownloadEvent();
@@ -4707,7 +4761,8 @@ This will fail in production.`
       const { setAsDownloaded } = useHighlight();
       function setTorrentClickEvent() {
         setRequestEvents(archiveLinkAnchor, favoritePopup, isFavoritePopupShow);
-        const isOnlyOneTorrent = torrentLinkAnchor.innerText === "Torrent Download (1)";
+        const isOnlyOneTorrent = torrentLinkAnchor.innerText.endsWith("(1)");
+        addMagnetCopyButtons(torrentPopup);
         const torrentDownloadLinks = getElements("a", torrentPopup.value);
         if (torrentDownloadLinks == null ? void 0 : torrentDownloadLinks.length) {
           torrentDownloadLinks == null ? void 0 : torrentDownloadLinks.forEach((link) => {
@@ -4719,7 +4774,7 @@ This will fail in production.`
         torrentLinkAnchor.addEventListener("click", (event) => {
           event.preventDefault();
           event.stopPropagation();
-          if (isOnlyOneTorrent) {
+          if (quickTorrentDownloadSwitch.value && isOnlyOneTorrent) {
             downloadTorrent(torrentPopup);
           } else {
             isTorrentPopupShow.value = !isTorrentPopupShow.value;
@@ -6215,27 +6270,28 @@ div#bar3 {
   const _hoisted_6 = { class: "settings" };
   const _hoisted_7 = { class: "settings__intro" };
   const _hoisted_8 = { class: "settings" };
-  const _hoisted_9 = { class: "settings-panel__section" };
-  const _hoisted_10 = { class: "settings" };
+  const _hoisted_9 = { class: "settings" };
+  const _hoisted_10 = { class: "settings-panel__section" };
   const _hoisted_11 = { class: "settings" };
   const _hoisted_12 = { class: "settings" };
   const _hoisted_13 = { class: "settings" };
-  const _hoisted_14 = { class: "settings__intro" };
-  const _hoisted_15 = { class: "settings__magnifier-config" };
-  const _hoisted_16 = { class: "settings__label" };
-  const _hoisted_17 = ["value"];
+  const _hoisted_14 = { class: "settings" };
+  const _hoisted_15 = { class: "settings__intro" };
+  const _hoisted_16 = { class: "settings__magnifier-config" };
+  const _hoisted_17 = { class: "settings__label" };
   const _hoisted_18 = ["value"];
-  const _hoisted_19 = { class: "settings__label" };
+  const _hoisted_19 = ["value"];
   const _hoisted_20 = { class: "settings__label" };
   const _hoisted_21 = { class: "settings__label" };
   const _hoisted_22 = { class: "settings__label" };
   const _hoisted_23 = { class: "settings__label" };
   const _hoisted_24 = { class: "settings__label" };
-  const _hoisted_25 = { class: "settings-panel__section" };
-  const _hoisted_26 = { class: "settings" };
+  const _hoisted_25 = { class: "settings__label" };
+  const _hoisted_26 = { class: "settings-panel__section" };
   const _hoisted_27 = { class: "settings" };
   const _hoisted_28 = { class: "settings" };
   const _hoisted_29 = { class: "settings" };
+  const _hoisted_30 = { class: "settings" };
   const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
     __name: "SettingsPanel",
     setup(__props) {
@@ -6249,7 +6305,7 @@ div#bar3 {
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createBlock(vue.unref(Ro), {
           modelValue: isShow.value,
-          "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => isShow.value = $event),
+          "onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => isShow.value = $event),
           "overlay-transition": "vfm-fade",
           class: "settings-panel-wrap",
           "content-class": "settings-panel"
@@ -6257,47 +6313,47 @@ div#bar3 {
           default: vue.withCtx(() => [
             vue.createElementVNode("div", _hoisted_1, [
               vue.createElementVNode("section", _hoisted_2, [
-                _cache[23] || (_cache[23] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Common ", -1)),
-                _cache[24] || (_cache[24] = vue.createElementVNode("hr", null, null, -1)),
+                _cache[24] || (_cache[24] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Common ", -1)),
+                _cache[25] || (_cache[25] = vue.createElementVNode("hr", null, null, -1)),
                 vue.createElementVNode("div", _hoisted_3, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(showJapaneseTitle).value,
                     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => vue.unref(showJapaneseTitle).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[22] || (_cache[22] = vue.createElementVNode("h3", { class: "settings__name" }, " Change page title to Japanese (effect on browser/tab title) ", -1))
+                  _cache[23] || (_cache[23] = vue.createElementVNode("h3", { class: "settings__name" }, " Change page title to Japanese (effect on browser/tab title) ", -1))
                 ])
               ]),
               vue.createElementVNode("section", _hoisted_4, [
-                _cache[31] || (_cache[31] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Gallery Enhancer ", -1)),
-                _cache[32] || (_cache[32] = vue.createElementVNode("hr", null, null, -1)),
+                _cache[33] || (_cache[33] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Gallery Enhancer ", -1)),
+                _cache[34] || (_cache[34] = vue.createElementVNode("hr", null, null, -1)),
                 vue.createElementVNode("div", _hoisted_5, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(scrollByRowSwitch).value,
                     "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => vue.unref(scrollByRowSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[25] || (_cache[25] = vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
-                  _cache[26] || (_cache[26] = vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Front Page Enhancer - Scroll by Row" ', -1))
+                  _cache[26] || (_cache[26] = vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
+                  _cache[27] || (_cache[27] = vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Front Page Enhancer - Scroll by Row" ', -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_6, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(betterPopupSwitch).value,
                     "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => vue.unref(betterPopupSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[29] || (_cache[29] = vue.createElementVNode("h3", { class: "settings__name" }, " Better Popup ", -1)),
+                  _cache[30] || (_cache[30] = vue.createElementVNode("h3", { class: "settings__name" }, " Better Popup ", -1)),
                   vue.createElementVNode("div", _hoisted_7, [
-                    _cache[27] || (_cache[27] = vue.createElementVNode("span", null, ' Action when clicking "Archive Download": ', -1)),
+                    _cache[28] || (_cache[28] = vue.createElementVNode("span", null, ' Action when clicking "Archive Download": ', -1)),
                     vue.withDirectives(vue.createElementVNode("select", {
-                      "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => vue.unref(quickDownloadMethod).value = $event)
+                      "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => vue.unref(quickArchiveDownloadMethod).value = $event)
                     }, [
-                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).Manual), 1),
-                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).HaH_Original), 1),
-                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).HaH_2400), 1),
-                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).Direct_Origin), 1),
-                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(DownloadMethod).Direct_Resample), 1)
+                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(ArchiveDownloadMethod).Manual), 1),
+                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(ArchiveDownloadMethod).HaH_Original), 1),
+                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(ArchiveDownloadMethod).HaH_2400), 1),
+                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(ArchiveDownloadMethod).Direct_Origin), 1),
+                      vue.createElementVNode("option", null, vue.toDisplayString(vue.unref(ArchiveDownloadMethod).Direct_Resample), 1)
                     ], 512), [
-                      [vue.vModelSelect, vue.unref(quickDownloadMethod).value]
+                      [vue.vModelSelect, vue.unref(quickArchiveDownloadMethod).value]
                     ]),
-                    _cache[28] || (_cache[28] = vue.createElementVNode("p", null, [
+                    _cache[29] || (_cache[29] = vue.createElementVNode("p", null, [
                       vue.createTextVNode(' *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual Start (Default)" in the setting page: '),
                       vue.createElementVNode("a", {
                         target: "_blank",
@@ -6315,75 +6371,82 @@ div#bar3 {
                 ]),
                 vue.createElementVNode("div", _hoisted_8, [
                   vue.createVNode(ToggleSwitch, {
-                    modelValue: vue.unref(loadAllGalleryImagesSwitch).value,
-                    "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => vue.unref(loadAllGalleryImagesSwitch).value = $event)
+                    modelValue: vue.unref(quickTorrentDownloadSwitch).value,
+                    "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => vue.unref(quickTorrentDownloadSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[30] || (_cache[30] = vue.createElementVNode("h3", { class: "settings__name" }, " Load All Gallery Images ", -1))
+                  _cache[31] || (_cache[31] = vue.createElementVNode("h3", { class: "settings__name" }, " Download torrent directly if there is only one torrent. ", -1))
+                ]),
+                vue.createElementVNode("div", _hoisted_9, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(loadAllGalleryImagesSwitch).value,
+                    "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => vue.unref(loadAllGalleryImagesSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _cache[32] || (_cache[32] = vue.createElementVNode("h3", { class: "settings__name" }, " Load All Gallery Images ", -1))
                 ])
               ]),
-              vue.createElementVNode("section", _hoisted_9, [
-                _cache[45] || (_cache[45] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Multi-Page Viewer Enhancer ", -1)),
-                _cache[46] || (_cache[46] = vue.createElementVNode("hr", null, null, -1)),
-                vue.createElementVNode("div", _hoisted_10, [
-                  vue.createVNode(ToggleSwitch, {
-                    modelValue: vue.unref(multipageViewerEnhancerSwitch).value,
-                    "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => vue.unref(multipageViewerEnhancerSwitch).value = $event)
-                  }, null, 8, ["modelValue"]),
-                  _cache[33] || (_cache[33] = vue.createElementVNode("h3", { class: "settings__name" }, " Multi-Page Viewer Enhancer ", -1))
-                ]),
+              vue.createElementVNode("section", _hoisted_10, [
+                _cache[47] || (_cache[47] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Multi-Page Viewer Enhancer ", -1)),
+                _cache[48] || (_cache[48] = vue.createElementVNode("hr", null, null, -1)),
                 vue.createElementVNode("div", _hoisted_11, [
                   vue.createVNode(ToggleSwitch, {
-                    modelValue: vue.unref(preventImageRemovalSwitch).value,
-                    "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => vue.unref(preventImageRemovalSwitch).value = $event)
+                    modelValue: vue.unref(multipageViewerEnhancerSwitch).value,
+                    "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => vue.unref(multipageViewerEnhancerSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[34] || (_cache[34] = vue.createElementVNode("h3", { class: "settings__name" }, " Prevent Image Removal ", -1)),
-                  _cache[35] || (_cache[35] = vue.createElementVNode("div", { class: "settings__intro" }, [
+                  _cache[35] || (_cache[35] = vue.createElementVNode("h3", { class: "settings__name" }, " Multi-Page Viewer Enhancer ", -1))
+                ]),
+                vue.createElementVNode("div", _hoisted_12, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(preventImageRemovalSwitch).value,
+                    "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => vue.unref(preventImageRemovalSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _cache[36] || (_cache[36] = vue.createElementVNode("h3", { class: "settings__name" }, " Prevent Image Removal ", -1)),
+                  _cache[37] || (_cache[37] = vue.createElementVNode("div", { class: "settings__intro" }, [
                     vue.createElementVNode("p", null, " The original script of exhentai would remove the images which are too far from your current scroll. "),
                     vue.createElementVNode("p", null, " So if you scroll back to the images that have been removed. It might be flashing because although your browser has cached the image but still have to re-render it. ")
                   ], -1))
                 ]),
-                vue.createElementVNode("div", _hoisted_12, [
-                  vue.createVNode(ToggleSwitch, {
-                    modelValue: vue.unref(autoRedirectSwitch).value,
-                    "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => vue.unref(autoRedirectSwitch).value = $event)
-                  }, null, 8, ["modelValue"]),
-                  _cache[36] || (_cache[36] = vue.createElementVNode("h3", { class: "settings__name" }, " Auto Redirect to Multi-Page Viewer ", -1))
-                ]),
                 vue.createElementVNode("div", _hoisted_13, [
                   vue.createVNode(ToggleSwitch, {
-                    modelValue: vue.unref(magnifierSwitch).value,
-                    "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => vue.unref(magnifierSwitch).value = $event)
+                    modelValue: vue.unref(autoRedirectSwitch).value,
+                    "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => vue.unref(autoRedirectSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[44] || (_cache[44] = vue.createElementVNode("h3", { class: "settings__name" }, " Image Magnifier ", -1)),
-                  vue.createElementVNode("div", _hoisted_14, [
-                    _cache[43] || (_cache[43] = vue.createElementVNode("p", null, " Long press the primary button to activate magnifier. Press both primary and secondary buttons simultaneously for original image. ", -1)),
-                    vue.createElementVNode("div", _hoisted_15, [
-                      vue.createElementVNode("label", _hoisted_16, [
-                        _cache[37] || (_cache[37] = vue.createTextVNode(" Activation Button: ")),
+                  _cache[38] || (_cache[38] = vue.createElementVNode("h3", { class: "settings__name" }, " Auto Redirect to Multi-Page Viewer ", -1))
+                ]),
+                vue.createElementVNode("div", _hoisted_14, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(magnifierSwitch).value,
+                    "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => vue.unref(magnifierSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _cache[46] || (_cache[46] = vue.createElementVNode("h3", { class: "settings__name" }, " Image Magnifier ", -1)),
+                  vue.createElementVNode("div", _hoisted_15, [
+                    _cache[45] || (_cache[45] = vue.createElementVNode("p", null, " Long press the primary button to activate magnifier. Press both primary and secondary buttons simultaneously for original image. ", -1)),
+                    vue.createElementVNode("div", _hoisted_16, [
+                      vue.createElementVNode("label", _hoisted_17, [
+                        _cache[39] || (_cache[39] = vue.createTextVNode(" Activation Button: ")),
                         vue.withDirectives(vue.createElementVNode("select", {
-                          "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => vue.unref(magnifierActivationButton).value = $event)
+                          "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => vue.unref(magnifierActivationButton).value = $event)
                         }, [
                           vue.createElementVNode("option", {
                             value: vue.unref(MouseButton).Left
-                          }, "Left Mouse Button", 8, _hoisted_17),
+                          }, "Left Mouse Button", 8, _hoisted_18),
                           vue.createElementVNode("option", {
                             value: vue.unref(MouseButton).Right
-                          }, "Right Mouse Button", 8, _hoisted_18)
+                          }, "Right Mouse Button", 8, _hoisted_19)
                         ], 512), [
                           [vue.vModelSelect, vue.unref(magnifierActivationButton).value]
                         ])
                       ]),
-                      vue.createElementVNode("label", _hoisted_19, [
+                      vue.createElementVNode("label", _hoisted_20, [
                         vue.createVNode(ToggleSwitch, {
                           modelValue: vue.unref(magnifierToggleMode).value,
-                          "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => vue.unref(magnifierToggleMode).value = $event)
+                          "onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => vue.unref(magnifierToggleMode).value = $event)
                         }, null, 8, ["modelValue"]),
                         vue.createTextVNode(" " + vue.toDisplayString(vue.unref(magnifierToggleMode).value ? "Toggle Mode (click once to open, click again to close)" : "Hold Mode (hold down to use)"), 1)
                       ]),
-                      vue.createElementVNode("label", _hoisted_20, [
-                        _cache[38] || (_cache[38] = vue.createTextVNode(" Default Scale: ")),
+                      vue.createElementVNode("label", _hoisted_21, [
+                        _cache[40] || (_cache[40] = vue.createTextVNode(" Default Scale: ")),
                         vue.withDirectives(vue.createElementVNode("input", {
-                          "onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => vue.unref(magnifierDefaultScale).value = $event),
+                          "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => vue.unref(magnifierDefaultScale).value = $event),
                           type: "number",
                           min: "1.1",
                           max: "10",
@@ -6398,10 +6461,10 @@ div#bar3 {
                           ]
                         ])
                       ]),
-                      vue.createElementVNode("label", _hoisted_21, [
-                        _cache[39] || (_cache[39] = vue.createTextVNode(" Scale Step (Mouse Wheel): ")),
+                      vue.createElementVNode("label", _hoisted_22, [
+                        _cache[41] || (_cache[41] = vue.createTextVNode(" Scale Step (Mouse Wheel): ")),
                         vue.withDirectives(vue.createElementVNode("input", {
-                          "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => vue.unref(magnifierScaleStep).value = $event),
+                          "onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => vue.unref(magnifierScaleStep).value = $event),
                           type: "number",
                           min: "0.05",
                           max: "0.5",
@@ -6416,10 +6479,10 @@ div#bar3 {
                           ]
                         ])
                       ]),
-                      vue.createElementVNode("label", _hoisted_22, [
-                        _cache[40] || (_cache[40] = vue.createTextVNode(" Long Press Threshold (ms): ")),
+                      vue.createElementVNode("label", _hoisted_23, [
+                        _cache[42] || (_cache[42] = vue.createTextVNode(" Long Press Threshold (ms): ")),
                         vue.withDirectives(vue.createElementVNode("input", {
-                          "onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => vue.unref(magnifierLongPressThreshold).value = $event),
+                          "onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => vue.unref(magnifierLongPressThreshold).value = $event),
                           type: "number",
                           min: "50",
                           max: "1000",
@@ -6434,10 +6497,10 @@ div#bar3 {
                           ]
                         ])
                       ]),
-                      vue.createElementVNode("label", _hoisted_23, [
-                        _cache[41] || (_cache[41] = vue.createTextVNode(" Mouse Sensitivity X: ")),
+                      vue.createElementVNode("label", _hoisted_24, [
+                        _cache[43] || (_cache[43] = vue.createTextVNode(" Mouse Sensitivity X: ")),
                         vue.withDirectives(vue.createElementVNode("input", {
-                          "onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => vue.unref(magnifierSensitivityX).value = $event),
+                          "onUpdate:modelValue": _cache[15] || (_cache[15] = ($event) => vue.unref(magnifierSensitivityX).value = $event),
                           type: "number",
                           min: "0.5",
                           max: "5",
@@ -6452,10 +6515,10 @@ div#bar3 {
                           ]
                         ])
                       ]),
-                      vue.createElementVNode("label", _hoisted_24, [
-                        _cache[42] || (_cache[42] = vue.createTextVNode(" Mouse Sensitivity Y: ")),
+                      vue.createElementVNode("label", _hoisted_25, [
+                        _cache[44] || (_cache[44] = vue.createTextVNode(" Mouse Sensitivity Y: ")),
                         vue.withDirectives(vue.createElementVNode("input", {
-                          "onUpdate:modelValue": _cache[15] || (_cache[15] = ($event) => vue.unref(magnifierSensitivityY).value = $event),
+                          "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => vue.unref(magnifierSensitivityY).value = $event),
                           type: "number",
                           min: "0.5",
                           max: "5",
@@ -6474,44 +6537,44 @@ div#bar3 {
                   ])
                 ])
               ]),
-              vue.createElementVNode("section", _hoisted_25, [
-                _cache[53] || (_cache[53] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Front Page Enhancer ", -1)),
-                _cache[54] || (_cache[54] = vue.createElementVNode("hr", null, null, -1)),
-                vue.createElementVNode("div", _hoisted_26, [
-                  vue.createVNode(ToggleSwitch, {
-                    modelValue: vue.unref(infiniteScrollSwitch).value,
-                    "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => vue.unref(infiniteScrollSwitch).value = $event)
-                  }, null, 8, ["modelValue"]),
-                  _cache[47] || (_cache[47] = vue.createElementVNode("h3", { class: "settings__name" }, " Infinite Scroll ", -1))
-                ]),
+              vue.createElementVNode("section", _hoisted_26, [
+                _cache[55] || (_cache[55] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Front Page Enhancer ", -1)),
+                _cache[56] || (_cache[56] = vue.createElementVNode("hr", null, null, -1)),
                 vue.createElementVNode("div", _hoisted_27, [
                   vue.createVNode(ToggleSwitch, {
-                    modelValue: vue.unref(scrollByRowSwitch).value,
-                    "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => vue.unref(scrollByRowSwitch).value = $event)
+                    modelValue: vue.unref(infiniteScrollSwitch).value,
+                    "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => vue.unref(infiniteScrollSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[48] || (_cache[48] = vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
-                  _cache[49] || (_cache[49] = vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Gallery Enhancer - Scroll by Row" ', -1))
+                  _cache[49] || (_cache[49] = vue.createElementVNode("h3", { class: "settings__name" }, " Infinite Scroll ", -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_28, [
                   vue.createVNode(ToggleSwitch, {
-                    modelValue: vue.unref(highlightSwitch).value,
-                    "onUpdate:modelValue": _cache[18] || (_cache[18] = ($event) => vue.unref(highlightSwitch).value = $event)
+                    modelValue: vue.unref(scrollByRowSwitch).value,
+                    "onUpdate:modelValue": _cache[18] || (_cache[18] = ($event) => vue.unref(scrollByRowSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[50] || (_cache[50] = vue.createElementVNode("h3", { class: "settings__name" }, " Highlight downloaded gallery ", -1)),
-                  _cache[51] || (_cache[51] = vue.createElementVNode("div", { class: "settings__intro" }, " Set background color of downloaded Gallery color to black. ", -1))
+                  _cache[50] || (_cache[50] = vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
+                  _cache[51] || (_cache[51] = vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Gallery Enhancer - Scroll by Row" ', -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_29, [
                   vue.createVNode(ToggleSwitch, {
-                    modelValue: vue.unref(archiveButtonSwitch).value,
-                    "onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => vue.unref(archiveButtonSwitch).value = $event)
+                    modelValue: vue.unref(highlightSwitch).value,
+                    "onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => vue.unref(highlightSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[52] || (_cache[52] = vue.createElementVNode("h3", { class: "settings__name" }, " Insert archiver buttons to galleries on the front page. ", -1))
+                  _cache[52] || (_cache[52] = vue.createElementVNode("h3", { class: "settings__name" }, " Highlight downloaded gallery ", -1)),
+                  _cache[53] || (_cache[53] = vue.createElementVNode("div", { class: "settings__intro" }, " Set background color of downloaded Gallery color to black. ", -1))
+                ]),
+                vue.createElementVNode("div", _hoisted_30, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(archiveButtonSwitch).value,
+                    "onUpdate:modelValue": _cache[20] || (_cache[20] = ($event) => vue.unref(archiveButtonSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _cache[54] || (_cache[54] = vue.createElementVNode("h3", { class: "settings__name" }, " Insert archiver buttons to galleries on the front page. ", -1))
                 ])
               ])
             ]),
             vue.createElementVNode("span", {
               class: "settings-panel__close-button",
-              onClick: _cache[20] || (_cache[20] = ($event) => isShow.value = false)
+              onClick: _cache[21] || (_cache[21] = ($event) => isShow.value = false)
             }, [
               vue.createVNode(CrossButton)
             ]),
