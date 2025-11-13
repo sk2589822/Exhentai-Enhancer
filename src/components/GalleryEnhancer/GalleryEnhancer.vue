@@ -98,7 +98,7 @@ const {
 } = usePositions()
 
 const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive()
-const { downloadTorrent } = useTorrent()
+const { downloadTorrent, addMagnetCopyButtons } = useTorrent()
 const { setRequestEvents } = useFavorite(favoriteInnerHtml)
 
 if (betterPopupSwitch.value) {
@@ -140,6 +140,8 @@ const { setAsDownloaded } = useHighlight()
 function setTorrentClickEvent() {
   setRequestEvents(archiveLinkAnchor, favoritePopup, isFavoritePopupShow)
   const isOnlyOneTorrent = torrentLinkAnchor.innerText === 'Torrent Download (1)'
+
+  addMagnetCopyButtons(torrentPopup)
 
   const torrentDownloadLinks = getElements('a', torrentPopup.value)
   if (torrentDownloadLinks?.length) {
