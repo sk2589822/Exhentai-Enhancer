@@ -395,10 +395,20 @@ function reload() {
     background: #f1f1f1;
   }
 
-  select {
+  input, select, option, optgroup, textarea {
     color: #f1f1f1;
     background-color: #34353b;
     outline: none;
+  }
+
+  input[type="button"]:enabled:hover,
+  input[type="submit"]:enabled:hover,
+  select:enabled:hover,
+  input[type="button"]:enabled:focus,
+  input[type="submit"]:enabled:focus,
+  select:enabled:focus {
+    background-color: #43464e !important;
+    border-color: #aeaeae !important;
   }
 }
 
