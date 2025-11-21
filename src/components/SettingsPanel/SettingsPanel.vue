@@ -11,7 +11,7 @@
           Common
         </h2>
 
-        <hr>
+        <hr class="settings-panel__separator">
 
         <div class="settings">
           <ToggleSwitch v-model="showJapaneseTitle.value" />
@@ -26,7 +26,7 @@
           Gallery Enhancer
         </h2>
 
-        <hr>
+        <hr class="settings-panel__separator">
 
         <div class="settings">
           <ToggleSwitch v-model="scrollByRowSwitch.value" />
@@ -48,20 +48,20 @@
             <span>
               Action when clicking "Archive Download":
             </span>
-            <select v-model="quickArchiveDownloadMethod.value">
-              <option>
+            <select class="settings__select" v-model="quickArchiveDownloadMethod.value">
+              <option class="settings__option">
                 {{ ArchiveDownloadMethod.Manual }}
               </option>
-              <option>
+              <option class="settings__option">
                 {{ ArchiveDownloadMethod.HaH_Original }}
               </option>
-              <option>
+              <option class="settings__option">
                 {{ ArchiveDownloadMethod.HaH_2400 }}
               </option>
-              <option>
+              <option class="settings__option">
                 {{ ArchiveDownloadMethod.Direct_Origin }}
               </option>
-              <option>
+              <option class="settings__option">
                 {{ ArchiveDownloadMethod.Direct_Resample }}
               </option>
             </select>
@@ -69,6 +69,7 @@
               *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual
               Start (Default)" in the setting page:
               <a
+                class="settings__link"
                 target="_blank"
                 href="https://e-hentai.org/uconfig.php"
                 rel="noreferrer noopener"
@@ -77,6 +78,7 @@
               </a>
               ,
               <a
+                class="settings__link"
                 target="_blank"
                 href="https://exhentai.org/uconfig.php"
                 rel="noreferrer noopener"
@@ -107,7 +109,7 @@
           Multi-Page Viewer Enhancer
         </h2>
 
-        <hr>
+        <hr class="settings-panel__separator">
 
         <div class="settings">
           <ToggleSwitch v-model="multipageViewerEnhancerSwitch.value" />
@@ -155,10 +157,11 @@
               <label class="settings__label">
                 Activation Button:
                 <select
+                  class="settings__select"
                   v-model="magnifierActivationButton.value"
                 >
-                  <option :value="MouseButton.Left">Left Mouse Button</option>
-                  <option :value="MouseButton.Right">Right Mouse Button</option>
+                  <option class="settings__option" :value="MouseButton.Left">Left Mouse Button</option>
+                  <option class="settings__option" :value="MouseButton.Right">Right Mouse Button</option>
                 </select>
               </label>
 
@@ -236,7 +239,7 @@
           Front Page Enhancer
         </h2>
 
-        <hr>
+        <hr class="settings-panel__separator">
 
         <div class="settings">
           <ToggleSwitch v-model="infiniteScrollSwitch.value" />
@@ -387,28 +390,8 @@ function reload() {
     }
   }
 
-  a {
-    color: #DDDDDD;
-  }
-
-  hr {
+  &__separator {
     background: #f1f1f1;
-  }
-
-  input, select, option, optgroup, textarea {
-    color: #f1f1f1;
-    background-color: #34353b;
-    outline: none;
-  }
-
-  input[type="button"]:enabled:hover,
-  input[type="submit"]:enabled:hover,
-  select:enabled:hover,
-  input[type="button"]:enabled:focus,
-  input[type="submit"]:enabled:focus,
-  select:enabled:focus {
-    background-color: #43464e !important;
-    border-color: #aeaeae !important;
   }
 }
 
@@ -455,6 +438,32 @@ function reload() {
     padding: 0.25rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    color: #f1f1f1;
+    background-color: #34353b;
+    outline: none;
+  }
+
+  &__link {
+    color: #DDDDDD;
+  }
+  
+  &__select {
+    background-color: #34353b;
+    border: rgb(141, 141, 141);
+    color: #f1f1f1;
+    outline: none;
+
+    &:enabled:hover, 
+    &:enabled:focus {
+      background-color: rgb(67, 70, 78) !important;
+      border-color: rgb(174, 174, 174) !important;
+    }
+  }
+
+  &__option {
+    color: rgb(241, 241, 241);
+    background-color: rgb(52, 53, 59);
+    outline: none;
   }
 }
 
