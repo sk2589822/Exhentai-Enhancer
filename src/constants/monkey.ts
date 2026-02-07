@@ -12,6 +12,7 @@ export const enum GMKey {
   MultipageViewerEnhancer = 'MultipageViewerEnhancer',
   AutoRedirect = 'AutoRedirect',
   PreventImageRemoval = 'PreventImageRemoval',
+  ChangePageByWheelAnyWhereSwitch = 'ChangePageByWheelAnyWhere',
 
   Magnifier = 'Magnifier',
   MagnifierActivationButton = 'MagnifierActivationButton',
