@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.18.0
+// @version            1.18.1
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -15,7 +15,7 @@
 // @supportURL         https://github.com/sk2589822/Exhentai-Enhancer/issues
 // @match              https://exhentai.org/*
 // @match              https://e-hentai.org/*
-// @require            https://cdn.jsdelivr.net/npm/vue@3.5.12/dist/vue.global.prod.js
+// @require            https://cdn.jsdelivr.net/npm/vue@3.5.27/dist/vue.global.prod.js
 // @grant              GM.getValue
 // @grant              GM.registerMenuCommand
 // @grant              GM.setValue
@@ -28,24 +28,19 @@
 // @grant              unsafeWindow
 // ==/UserScript==
 
-(t=>{if(typeof GM_addStyle=="function"){GM_addStyle(t);return}const e=document.createElement("style");e.textContent=t,document.head.append(e)})(' @charset "UTF-8";.Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width : 600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width : 600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width : 600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:0 auto 864px;width:30px;height:30px;line-height:30px;content:"\u231B";animation:spin ease-in-out 1s infinite}.gldown{display:flex}.archive-button{display:flex;justify-content:center;align-items:center;flex-shrink:0;position:relative;top:-6px;margin-left:4px;width:24px;height:24px;border-radius:9999px;background-color:#5fa9cf;box-shadow:#0000003d 0 3px 5px;cursor:pointer}@keyframes spin{0%{rotate:0}to{rotate:360deg}}.popup{position:absolute!important;padding:20px;text-align:center;background-color:var(--bg-color);border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a{text-decoration:underline}div#gd5{float:unset;width:auto}.is-ready:after{content:" \u2714\uFE0F"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\u231B";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.is-finished{font-size:0;pointer-events:none;text-decoration:none}.is-finished:after{content:"\u2714\uFE0F";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-c3f8cb4a]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-c3f8cb4a]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-c3f8cb4a]{line-height:100%}:fullscreen .page-elevator[data-v-c3f8cb4a]{opacity:0}:fullscreen .page-elevator[data-v-c3f8cb4a]:hover{opacity:1}#pane_images .mimg{width:min-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}#pane_images .mimg>a{-webkit-user-select:none;user-select:none}#pane_images .mimg>a>img{width:auto!important;max-height:var(--image-size);pointer-events:none}.image-resizer[data-v-19caf69f]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-19caf69f]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-19caf69f]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-19caf69f],.image-resizer__button--active[data-v-19caf69f]:hover{background-color:orange}.magnifier-overlay[data-v-716338a1]{position:fixed;top:0;right:0;bottom:0;left:0;z-index:999;background:transparent;cursor:none}.magnifier[data-v-716338a1]{z-index:1000}.magnifier-background[data-v-716338a1]{position:absolute;top:0;right:0;bottom:0;left:0;background-color:#00000080}.magnifier-image[data-v-716338a1]{position:absolute;cursor:none}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:#7777;border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-894c8e09]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-894c8e09]{width:0;height:0;opacity:0}.switch__slider[data-v-894c8e09]{position:absolute;top:0;bottom:0;right:0;left:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-894c8e09]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-894c8e09]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-894c8e09]:before{transform:translate(26px)}.settings-panel-wrap{display:flex;justify-content:center;align-items:center}.settings-panel{box-sizing:border-box;position:relative;display:flex;flex-direction:column;row-gap:16px;margin:32px;padding:32px;max-width:1000px;max-height:calc(100vh - 64px);background-color:#34353b;border-radius:4px;color:#f1f1f1}.settings-panel__inner{overflow-y:auto;padding-right:16px;height:100%}.settings-panel__section{background-color:#4f535b;border-radius:4px}.settings-panel__section-name{margin:16px 32px;padding-top:16px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button svg{width:16px;height:16px}.settings-panel__separator{background:#f1f1f1}.settings{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name{font-size:16px}.settings__notice{font-size:12px}.settings__intro{margin-left:60px;width:100%;font-size:14px;text-align:left}.settings__magnifier-config{display:flex;flex-direction:column;gap:.75rem;margin-top:.5rem}.settings__label{display:flex;flex-direction:row;align-items:center;gap:.25rem;font-size:.9rem}.settings__input{width:120px;padding:.25rem;border:1px solid #ccc;border-radius:4px;color:#f1f1f1;background-color:#34353b;outline:none}.settings__link{color:#ddd}.settings__select{background-color:#34353b;border:rgb(141,141,141);color:#f1f1f1;outline:none}.settings__select:enabled:hover,.settings__select:enabled:focus{background-color:#43464e!important;border-color:#aeaeae!important}.settings__option{color:#f1f1f1;background-color:#34353b;outline:none}.actions{display:flex;align-items:center;justify-content:flex-end}.actions__button{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer}.vfm--fixed{position:fixed}.vfm--absolute{position:absolute}.vfm--inset{top:0;right:0;bottom:0;left:0}.vfm--overlay{z-index:-1;background-color:#00000080}.vfm--prevent-none{pointer-events:none}.vfm--prevent-auto{pointer-events:auto}.vfm--outline-none:focus{outline:none}@keyframes fade-in{0%{opacity:0}to{opacity:1}}@keyframes fade-out{0%{opacity:1}to{opacity:0}}.vfm-fade-enter-active{animation:fade-in .3s ease}.vfm-fade-leave-active{animation:fade-out .3s ease}.vfm-bounce-back{transition-property:transform;transition-duration:.3s}.vfm-slide-up-enter-active,.vfm-slide-up-leave-active,.vfm-slide-down-enter-active,.vfm-slide-down-leave-active{transition:transform .3s ease}.vfm-slide-down-enter-from,.vfm-slide-down-leave-to{transform:translateY(100vh)!important}.vfm-slide-up-enter-from,.vfm-slide-up-leave-to{transform:translateY(-100vh)!important}.vfm-slide-right-enter-active,.vfm-slide-right-leave-active,.vfm-slide-left-enter-active,.vfm-slide-left-leave-active{transition:transform .3s ease}.vfm-slide-right-enter-from,.vfm-slide-right-leave-to{transform:translate(100vw)!important}.vfm-slide-left-enter-from,.vfm-slide-left-leave-to{transform:translate(-100vw)!important}.vfm-swipe-banner-back,.vfm-swipe-banner-forward{position:fixed;top:0;bottom:0;width:27px;z-index:10}.vfm-swipe-banner-back{left:0}.vfm-swipe-banner-forward{right:0} ');
-
 (function (vue) {
   'use strict';
 
-  var __defProp = Object.defineProperty;
-  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-  var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-  var _a;
-  function tryOnScopeDispose$1(fn) {
+  const d=new Set;const importCSS = async e=>{d.has(e)||(d.add(e),(t=>{typeof GM_addStyle=="function"?GM_addStyle(t):(document.head||document.documentElement).appendChild(document.createElement("style")).append(t);})(e));};
+
+  importCSS(' @charset "UTF-8";.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:0 auto 864px;width:30px;height:30px;line-height:30px;content:"\u231B";animation:spin ease-in-out 1s infinite}.gldown{display:flex}.archive-button{display:flex;justify-content:center;align-items:center;flex-shrink:0;position:relative;top:-6px;margin-left:4px;width:24px;height:24px;border-radius:9999px;background-color:#5fa9cf;box-shadow:#0000003d 0 3px 5px;cursor:pointer}@keyframes spin{0%{rotate:0}to{rotate:360deg}}.popup{position:absolute!important;padding:20px;text-align:center;background-color:var(--bg-color);border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a{text-decoration:underline}div#gd5{float:unset;width:auto}.is-ready:after{content:" \u2714\uFE0F"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\u231B";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.is-finished{font-size:0;pointer-events:none;text-decoration:none}.is-finished:after{content:"\u2714\uFE0F";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-c3f8cb4a]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-c3f8cb4a]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-c3f8cb4a]{line-height:100%}:fullscreen .page-elevator[data-v-c3f8cb4a]{opacity:0}:fullscreen .page-elevator[data-v-c3f8cb4a]:hover{opacity:1}#pane_images .mimg{width:min-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}#pane_images .mimg>a{-webkit-user-select:none;user-select:none}#pane_images .mimg>a>img{width:auto!important;max-height:var(--image-size);pointer-events:none}.image-resizer[data-v-19caf69f]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-19caf69f]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-19caf69f]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-19caf69f],.image-resizer__button--active[data-v-19caf69f]:hover{background-color:orange}.magnifier-overlay[data-v-716338a1]{position:fixed;inset:0;z-index:999;background:transparent;cursor:none}.magnifier[data-v-716338a1]{z-index:1000}.magnifier-background[data-v-716338a1]{position:absolute;inset:0;background-color:#00000080}.magnifier-image[data-v-716338a1]{position:absolute;cursor:none}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:#7777;border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-894c8e09]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-894c8e09]{width:0;height:0;opacity:0}.switch__slider[data-v-894c8e09]{position:absolute;inset:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-894c8e09]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-894c8e09]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-894c8e09]:before{transform:translate(26px)}.settings-panel-wrap{display:flex;justify-content:center;align-items:center}.settings-panel{box-sizing:border-box;position:relative;display:flex;flex-direction:column;row-gap:16px;margin:32px;padding:32px;max-width:1000px;max-height:calc(100vh - 64px);background-color:#34353b;border-radius:4px;color:#f1f1f1}.settings-panel__inner{overflow-y:auto;padding-right:16px;height:100%}.settings-panel__section{background-color:#4f535b;border-radius:4px}.settings-panel__section-name{margin:16px 32px;padding-top:16px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button svg{width:16px;height:16px}.settings-panel__separator{background:#f1f1f1}.settings{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name{font-size:16px}.settings__notice{font-size:12px}.settings__intro{margin-left:60px;width:100%;font-size:14px;text-align:left}.settings__magnifier-config{display:flex;flex-direction:column;gap:.75rem;margin-top:.5rem}.settings__label{display:flex;flex-direction:row;align-items:center;gap:.25rem;font-size:.9rem}.settings__input{width:120px;padding:.25rem;border:1px solid #ccc;border-radius:4px;color:#f1f1f1;background-color:#34353b;outline:none}.settings__link{color:#ddd}.settings__select{background-color:#34353b;border:rgb(141,141,141);color:#f1f1f1;outline:none}.settings__select:enabled:hover,.settings__select:enabled:focus{background-color:#43464e!important;border-color:#aeaeae!important}.settings__option{color:#f1f1f1;background-color:#34353b;outline:none}.actions{display:flex;align-items:center;justify-content:flex-end}.actions__button{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer} ');
+
+  function tryOnScopeDispose$1(fn, failSilently) {
     if (vue.getCurrentScope()) {
-      vue.onScopeDispose(fn);
+      vue.onScopeDispose(fn, failSilently);
       return true;
     }
     return false;
-  }
-  function toValue$1(r) {
-    return typeof r === "function" ? r() : vue.unref(r);
   }
   const isClient = typeof window !== "undefined" && typeof document !== "undefined";
   typeof WorkerGlobalScope !== "undefined" && globalThis instanceof WorkerGlobalScope;
@@ -54,19 +49,32 @@
   const isObject$2 = (val) => toString.call(val) === "[object Object]";
   const noop = () => {
   };
+  function toRef(...args) {
+    if (args.length !== 1) return vue.toRef(...args);
+    const r = args[0];
+    return typeof r === "function" ? vue.readonly(vue.customRef(() => ({
+      get: r,
+      set: noop
+    }))) : vue.ref(r);
+  }
   function createFilterWrapper(filter, fn) {
     function wrapper(...args) {
       return new Promise((resolve, reject) => {
-        Promise.resolve(filter(() => fn.apply(this, args), { fn, thisArg: this, args })).then(resolve).catch(reject);
+        Promise.resolve(filter(() => fn.apply(this, args), {
+          fn,
+          thisArg: this,
+          args
+        })).then(resolve).catch(reject);
       });
     }
     return wrapper;
   }
-  const bypassFilter = (invoke2) => {
-    return invoke2();
+  const bypassFilter = (invoke$1) => {
+    return invoke$1();
   };
-  function pausableFilter(extendFilter = bypassFilter) {
-    const isActive = vue.ref(true);
+  function pausableFilter(extendFilter = bypassFilter, options = {}) {
+    const { initialState = "active" } = options;
+    const isActive = toRef(initialState === "active");
     function pause() {
       isActive.value = false;
     }
@@ -74,122 +82,94 @@
       isActive.value = true;
     }
     const eventFilter = (...args) => {
-      if (isActive.value)
-        extendFilter(...args);
+      if (isActive.value) extendFilter(...args);
     };
-    return { isActive: vue.readonly(isActive), pause, resume, eventFilter };
+    return {
+      isActive: vue.readonly(isActive),
+      pause,
+      resume,
+      eventFilter
+    };
   }
   function objectEntries(obj) {
     return Object.entries(obj);
+  }
+  function toArray(value) {
+    return Array.isArray(value) ? value : [value];
   }
   function getLifeCycleTarget(target) {
     return vue.getCurrentInstance();
   }
   function watchWithFilter(source, cb, options = {}) {
-    const {
-      eventFilter = bypassFilter,
-      ...watchOptions
-    } = options;
-    return vue.watch(
-      source,
-      createFilterWrapper(
-        eventFilter,
-        cb
-      ),
-      watchOptions
-    );
+    const { eventFilter = bypassFilter, ...watchOptions } = options;
+    return vue.watch(source, createFilterWrapper(eventFilter, cb), watchOptions);
   }
   function watchPausable(source, cb, options = {}) {
-    const {
-      eventFilter: filter,
-      ...watchOptions
-    } = options;
-    const { eventFilter, pause, resume, isActive } = pausableFilter(filter);
-    const stop = watchWithFilter(
-      source,
-      cb,
-      {
+    const { eventFilter: filter, initialState = "active", ...watchOptions } = options;
+    const { eventFilter, pause, resume, isActive } = pausableFilter(filter, { initialState });
+    return {
+      stop: watchWithFilter(source, cb, {
         ...watchOptions,
         eventFilter
-      }
-    );
-    return { stop, pause, resume, isActive };
+      }),
+      pause,
+      resume,
+      isActive
+    };
   }
   function tryOnMounted(fn, sync = true, target) {
-    const instance = getLifeCycleTarget();
-    if (instance)
-      vue.onMounted(fn, target);
-    else if (sync)
-      fn();
-    else
-      vue.nextTick(fn);
+    if (getLifeCycleTarget()) vue.onMounted(fn, target);
+    else if (sync) fn();
+    else vue.nextTick(fn);
+  }
+  function watchImmediate(source, cb, options) {
+    return vue.watch(source, cb, {
+      ...options,
+      immediate: true
+    });
   }
   const defaultWindow = isClient ? window : void 0;
   const defaultDocument = isClient ? window.document : void 0;
   function unrefElement$1(elRef) {
-    var _a2;
-    const plain = toValue$1(elRef);
-    return (_a2 = plain == null ? void 0 : plain.$el) != null ? _a2 : plain;
+    var _$el;
+    const plain = vue.toValue(elRef);
+    return (_$el = plain === null || plain === void 0 ? void 0 : plain.$el) !== null && _$el !== void 0 ? _$el : plain;
   }
   function useEventListener(...args) {
-    let target;
-    let events2;
-    let listeners;
-    let options;
-    if (typeof args[0] === "string" || Array.isArray(args[0])) {
-      [events2, listeners, options] = args;
-      target = defaultWindow;
-    } else {
-      [target, events2, listeners, options] = args;
-    }
-    if (!target)
-      return noop;
-    if (!Array.isArray(events2))
-      events2 = [events2];
-    if (!Array.isArray(listeners))
-      listeners = [listeners];
-    const cleanups = [];
-    const cleanup = () => {
-      cleanups.forEach((fn) => fn());
-      cleanups.length = 0;
+    const register = (el, event, listener, options) => {
+      el.addEventListener(event, listener, options);
+      return () => el.removeEventListener(event, listener, options);
     };
-    const register = (el, event, listener, options2) => {
-      el.addEventListener(event, listener, options2);
-      return () => el.removeEventListener(event, listener, options2);
-    };
-    const stopWatch = vue.watch(
-      () => [unrefElement$1(target), toValue$1(options)],
-      ([el, options2]) => {
-        cleanup();
-        if (!el)
-          return;
-        const optionsClone = isObject$2(options2) ? { ...options2 } : options2;
-        cleanups.push(
-          ...events2.flatMap((event) => {
-            return listeners.map((listener) => register(el, event, listener, optionsClone));
-          })
-        );
-      },
-      { immediate: true, flush: "post" }
-    );
-    const stop = () => {
-      stopWatch();
-      cleanup();
-    };
-    tryOnScopeDispose$1(stop);
-    return stop;
+    const firstParamTargets = vue.computed(() => {
+      const test = toArray(vue.toValue(args[0])).filter((e) => e != null);
+      return test.every((e) => typeof e !== "string") ? test : void 0;
+    });
+    return watchImmediate(() => {
+      var _firstParamTargets$va, _firstParamTargets$va2;
+      return [
+        (_firstParamTargets$va = (_firstParamTargets$va2 = firstParamTargets.value) === null || _firstParamTargets$va2 === void 0 ? void 0 : _firstParamTargets$va2.map((e) => unrefElement$1(e))) !== null && _firstParamTargets$va !== void 0 ? _firstParamTargets$va : [defaultWindow].filter((e) => e != null),
+        toArray(vue.toValue(firstParamTargets.value ? args[1] : args[0])),
+        toArray(vue.unref(firstParamTargets.value ? args[2] : args[1])),
+        vue.toValue(firstParamTargets.value ? args[3] : args[2])
+      ];
+    }, ([raw_targets, raw_events, raw_listeners, raw_options], _, onCleanup) => {
+      if (!(raw_targets === null || raw_targets === void 0 ? void 0 : raw_targets.length) || !(raw_events === null || raw_events === void 0 ? void 0 : raw_events.length) || !(raw_listeners === null || raw_listeners === void 0 ? void 0 : raw_listeners.length)) return;
+      const optionsClone = isObject$2(raw_options) ? { ...raw_options } : raw_options;
+      const cleanups = raw_targets.flatMap((el) => raw_events.flatMap((event) => raw_listeners.map((listener) => register(el, event, listener, optionsClone))));
+      onCleanup(() => {
+        cleanups.forEach((fn) => fn());
+      });
+    }, { flush: "post" });
   }
-  function useMounted() {
-    const isMounted = vue.ref(false);
+function useMounted() {
+    const isMounted = vue.shallowRef(false);
     const instance = vue.getCurrentInstance();
-    if (instance) {
-      vue.onMounted(() => {
-        isMounted.value = true;
-      }, instance);
-    }
+    if (instance) vue.onMounted(() => {
+      isMounted.value = true;
+    }, instance);
     return isMounted;
   }
-  function useSupported(callback) {
+function useSupported(callback) {
     const isMounted = useMounted();
     return vue.computed(() => {
       isMounted.value;
@@ -197,33 +177,30 @@
     });
   }
   function useMutationObserver(target, callback, options = {}) {
-    const { window: window2 = defaultWindow, ...mutationOptions } = options;
+    const { window: window$1 = defaultWindow, ...mutationOptions } = options;
     let observer;
-    const isSupported = useSupported(() => window2 && "MutationObserver" in window2);
+    const isSupported = useSupported(() => window$1 && "MutationObserver" in window$1);
     const cleanup = () => {
       if (observer) {
         observer.disconnect();
         observer = void 0;
       }
     };
-    const targets = vue.computed(() => {
-      const value = toValue$1(target);
-      const items = (Array.isArray(value) ? value : [value]).map(unrefElement$1).filter(notNullish);
+    const stopWatch = vue.watch(vue.computed(() => {
+      const items = toArray(vue.toValue(target)).map(unrefElement$1).filter(notNullish);
       return new Set(items);
+    }), (newTargets) => {
+      cleanup();
+      if (isSupported.value && newTargets.size) {
+        observer = new MutationObserver(callback);
+        newTargets.forEach((el) => observer.observe(el, mutationOptions));
+      }
+    }, {
+      immediate: true,
+      flush: "post"
     });
-    const stopWatch = vue.watch(
-      () => targets.value,
-      (targets2) => {
-        cleanup();
-        if (isSupported.value && targets2.size) {
-          observer = new MutationObserver(callback);
-          targets2.forEach((el) => observer.observe(el, mutationOptions));
-        }
-      },
-      { immediate: true, flush: "post" }
-    );
     const takeRecords = () => {
-      return observer == null ? void 0 : observer.takeRecords();
+      return observer === null || observer === void 0 ? void 0 : observer.takeRecords();
     };
     const stop = () => {
       stopWatch();
@@ -246,45 +223,39 @@
     "protocol",
     "search"
   ];
-  function useBrowserLocation(options = {}) {
-    const { window: window2 = defaultWindow } = options;
-    const refs = Object.fromEntries(
-      WRITABLE_PROPERTIES.map((key) => [key, vue.ref()])
-    );
-    for (const [key, ref2] of objectEntries(refs)) {
-      vue.watch(ref2, (value) => {
-        if (!(window2 == null ? void 0 : window2.location) || window2.location[key] === value)
-          return;
-        window2.location[key] = value;
-      });
-    }
+function useBrowserLocation(options = {}) {
+    const { window: window$1 = defaultWindow } = options;
+    const refs = Object.fromEntries(WRITABLE_PROPERTIES.map((key) => [key, vue.ref()]));
+    for (const [key, ref$1] of objectEntries(refs)) vue.watch(ref$1, (value) => {
+      if (!(window$1 === null || window$1 === void 0 ? void 0 : window$1.location) || window$1.location[key] === value) return;
+      window$1.location[key] = value;
+    });
     const buildState = (trigger) => {
-      var _a2;
-      const { state: state2, length } = (window2 == null ? void 0 : window2.history) || {};
-      const { origin } = (window2 == null ? void 0 : window2.location) || {};
-      for (const key of WRITABLE_PROPERTIES)
-        refs[key].value = (_a2 = window2 == null ? void 0 : window2.location) == null ? void 0 : _a2[key];
+      var _window$location;
+      const { state: state$1, length } = (window$1 === null || window$1 === void 0 ? void 0 : window$1.history) || {};
+      const { origin } = (window$1 === null || window$1 === void 0 ? void 0 : window$1.location) || {};
+      for (const key of WRITABLE_PROPERTIES) refs[key].value = window$1 === null || window$1 === void 0 || (_window$location = window$1.location) === null || _window$location === void 0 ? void 0 : _window$location[key];
       return vue.reactive({
         trigger,
-        state: state2,
+        state: state$1,
         length,
         origin,
         ...refs
       });
     };
     const state = vue.ref(buildState("load"));
-    if (window2) {
-      useEventListener(window2, "popstate", () => state.value = buildState("popstate"), { passive: true });
-      useEventListener(window2, "hashchange", () => state.value = buildState("hashchange"), { passive: true });
+    if (window$1) {
+      const listenerOptions = { passive: true };
+      useEventListener(window$1, "popstate", () => state.value = buildState("popstate"), listenerOptions);
+      useEventListener(window$1, "hashchange", () => state.value = buildState("hashchange"), listenerOptions);
     }
     return state;
   }
   const _global = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
   const globalKey = "__vueuse_ssr_handlers__";
-  const handlers = /* @__PURE__ */ getHandlers();
+  const handlers = getHandlers();
   function getHandlers() {
-    if (!(globalKey in _global))
-      _global[globalKey] = _global[globalKey] || {};
+    if (!(globalKey in _global)) _global[globalKey] = _global[globalKey] || {};
     return _global[globalKey];
   }
   function getSSRHandler(key, fallback) {
@@ -328,78 +299,65 @@
     }
   };
   const customStorageEventName = "vueuse-storage";
-  function useStorage(key, defaults2, storage, options = {}) {
-    var _a2;
-    const {
-      flush = "pre",
-      deep = true,
-      listenToStorageChanges = true,
-      writeDefaults = true,
-      mergeDefaults = false,
-      shallow,
-      window: window2 = defaultWindow,
-      eventFilter,
-      onError = (e) => {
-        console.error(e);
-      },
-      initOnMounted
-    } = options;
-    const data = (shallow ? vue.shallowRef : vue.ref)(defaults2);
-    if (!storage) {
-      try {
-        storage = getSSRHandler("getDefaultStorage", () => {
-          var _a22;
-          return (_a22 = defaultWindow) == null ? void 0 : _a22.localStorage;
-        })();
-      } catch (e) {
-        onError(e);
-      }
+  function useStorage(key, defaults$1, storage, options = {}) {
+    var _options$serializer;
+    const { flush = "pre", deep = true, listenToStorageChanges = true, writeDefaults = true, mergeDefaults = false, shallow, window: window$1 = defaultWindow, eventFilter, onError = (e) => {
+      console.error(e);
+    }, initOnMounted } = options;
+    const data = (shallow ? vue.shallowRef : vue.ref)(defaults$1);
+    const keyComputed = vue.computed(() => vue.toValue(key));
+    if (!storage) try {
+      storage = getSSRHandler("getDefaultStorage", () => defaultWindow === null || defaultWindow === void 0 ? void 0 : defaultWindow.localStorage)();
+    } catch (e) {
+      onError(e);
     }
-    if (!storage)
-      return data;
-    const rawInit = toValue$1(defaults2);
+    if (!storage) return data;
+    const rawInit = vue.toValue(defaults$1);
     const type = guessSerializerType(rawInit);
-    const serializer = (_a2 = options.serializer) != null ? _a2 : StorageSerializers[type];
-    const { pause: pauseWatch, resume: resumeWatch } = watchPausable(
-      data,
-      () => write(data.value),
-      { flush, deep, eventFilter }
-    );
-    if (window2 && listenToStorageChanges) {
-      tryOnMounted(() => {
-        if (storage instanceof Storage)
-          useEventListener(window2, "storage", update);
-        else
-          useEventListener(window2, customStorageEventName, updateFromCustomEvent);
-        if (initOnMounted)
-          update();
-      });
-    }
-    if (!initOnMounted)
+    const serializer = (_options$serializer = options.serializer) !== null && _options$serializer !== void 0 ? _options$serializer : StorageSerializers[type];
+    const { pause: pauseWatch, resume: resumeWatch } = watchPausable(data, (newValue) => write(newValue), {
+      flush,
+      deep,
+      eventFilter
+    });
+    vue.watch(keyComputed, () => update(), { flush });
+    let firstMounted = false;
+    const onStorageEvent = (ev) => {
+      if (initOnMounted && !firstMounted) return;
+      update(ev);
+    };
+    const onStorageCustomEvent = (ev) => {
+      if (initOnMounted && !firstMounted) return;
+      updateFromCustomEvent(ev);
+    };
+    if (window$1 && listenToStorageChanges) if (storage instanceof Storage) useEventListener(window$1, "storage", onStorageEvent, { passive: true });
+    else useEventListener(window$1, customStorageEventName, onStorageCustomEvent);
+    if (initOnMounted) tryOnMounted(() => {
+      firstMounted = true;
       update();
+    });
+    else update();
     function dispatchWriteEvent(oldValue, newValue) {
-      if (window2) {
+      if (window$1) {
         const payload = {
-          key,
+          key: keyComputed.value,
           oldValue,
           newValue,
           storageArea: storage
         };
-        window2.dispatchEvent(storage instanceof Storage ? new StorageEvent("storage", payload) : new CustomEvent(customStorageEventName, {
-          detail: payload
-        }));
+        window$1.dispatchEvent(storage instanceof Storage ? new StorageEvent("storage", payload) : new CustomEvent(customStorageEventName, { detail: payload }));
       }
     }
     function write(v) {
       try {
-        const oldValue = storage.getItem(key);
+        const oldValue = storage.getItem(keyComputed.value);
         if (v == null) {
           dispatchWriteEvent(oldValue, null);
-          storage.removeItem(key);
+          storage.removeItem(keyComputed.value);
         } else {
           const serialized = serializer.write(v);
           if (oldValue !== serialized) {
-            storage.setItem(key, serialized);
+            storage.setItem(keyComputed.value, serialized);
             dispatchWriteEvent(oldValue, serialized);
           }
         }
@@ -408,44 +366,37 @@
       }
     }
     function read(event) {
-      const rawValue = event ? event.newValue : storage.getItem(key);
+      const rawValue = event ? event.newValue : storage.getItem(keyComputed.value);
       if (rawValue == null) {
-        if (writeDefaults && rawInit != null)
-          storage.setItem(key, serializer.write(rawInit));
+        if (writeDefaults && rawInit != null) storage.setItem(keyComputed.value, serializer.write(rawInit));
         return rawInit;
       } else if (!event && mergeDefaults) {
         const value = serializer.read(rawValue);
-        if (typeof mergeDefaults === "function")
-          return mergeDefaults(value, rawInit);
-        else if (type === "object" && !Array.isArray(value))
-          return { ...rawInit, ...value };
+        if (typeof mergeDefaults === "function") return mergeDefaults(value, rawInit);
+        else if (type === "object" && !Array.isArray(value)) return {
+          ...rawInit,
+          ...value
+        };
         return value;
-      } else if (typeof rawValue !== "string") {
-        return rawValue;
-      } else {
-        return serializer.read(rawValue);
-      }
+      } else if (typeof rawValue !== "string") return rawValue;
+      else return serializer.read(rawValue);
     }
     function update(event) {
-      if (event && event.storageArea !== storage)
-        return;
+      if (event && event.storageArea !== storage) return;
       if (event && event.key == null) {
         data.value = rawInit;
         return;
       }
-      if (event && event.key !== key)
-        return;
+      if (event && event.key !== keyComputed.value) return;
       pauseWatch();
       try {
-        if ((event == null ? void 0 : event.newValue) !== serializer.write(data.value))
-          data.value = read(event);
+        const serializedData = serializer.write(data.value);
+        if (event === void 0 || (event === null || event === void 0 ? void 0 : event.newValue) !== serializedData) data.value = read(event);
       } catch (e) {
         onError(e);
       } finally {
-        if (event)
-          vue.nextTick(resumeWatch);
-        else
-          resumeWatch();
+        if (event) vue.nextTick(resumeWatch);
+        else resumeWatch();
       }
     }
     function updateFromCustomEvent(event) {
@@ -454,33 +405,28 @@
     return data;
   }
   function useResizeObserver(target, callback, options = {}) {
-    const { window: window2 = defaultWindow, ...observerOptions } = options;
+    const { window: window$1 = defaultWindow, ...observerOptions } = options;
     let observer;
-    const isSupported = useSupported(() => window2 && "ResizeObserver" in window2);
+    const isSupported = useSupported(() => window$1 && "ResizeObserver" in window$1);
     const cleanup = () => {
       if (observer) {
         observer.disconnect();
         observer = void 0;
       }
     };
-    const targets = vue.computed(() => {
-      const _targets = toValue$1(target);
+    const stopWatch = vue.watch(vue.computed(() => {
+      const _targets = vue.toValue(target);
       return Array.isArray(_targets) ? _targets.map((el) => unrefElement$1(el)) : [unrefElement$1(_targets)];
+    }), (els) => {
+      cleanup();
+      if (isSupported.value && window$1) {
+        observer = new ResizeObserver(callback);
+        for (const _el of els) if (_el) observer.observe(_el, observerOptions);
+      }
+    }, {
+      immediate: true,
+      flush: "post"
     });
-    const stopWatch = vue.watch(
-      targets,
-      (els) => {
-        cleanup();
-        if (isSupported.value && window2) {
-          observer = new ResizeObserver(callback);
-          for (const _el of els) {
-            if (_el)
-              observer.observe(_el, observerOptions);
-          }
-        }
-      },
-      { immediate: true, flush: "post" }
-    );
     const stop = () => {
       cleanup();
       stopWatch();
@@ -492,21 +438,15 @@
     };
   }
   function useElementBounding(target, options = {}) {
-    const {
-      reset = true,
-      windowResize = true,
-      windowScroll = true,
-      immediate = true,
-      updateTiming = "sync"
-    } = options;
-    const height = vue.ref(0);
-    const bottom = vue.ref(0);
-    const left = vue.ref(0);
-    const right = vue.ref(0);
-    const top = vue.ref(0);
-    const width = vue.ref(0);
-    const x = vue.ref(0);
-    const y = vue.ref(0);
+    const { reset = true, windowResize = true, windowScroll = true, immediate = true, updateTiming = "sync" } = options;
+    const height = vue.shallowRef(0);
+    const bottom = vue.shallowRef(0);
+    const left = vue.shallowRef(0);
+    const right = vue.shallowRef(0);
+    const top = vue.shallowRef(0);
+    const width = vue.shallowRef(0);
+    const x = vue.shallowRef(0);
+    const y = vue.shallowRef(0);
     function recalculate() {
       const el = unrefElement$1(target);
       if (!el) {
@@ -533,23 +473,19 @@
       y.value = rect.y;
     }
     function update() {
-      if (updateTiming === "sync")
-        recalculate();
-      else if (updateTiming === "next-frame")
-        requestAnimationFrame(() => recalculate());
+      if (updateTiming === "sync") recalculate();
+      else if (updateTiming === "next-frame") requestAnimationFrame(() => recalculate());
     }
     useResizeObserver(target, update);
     vue.watch(() => unrefElement$1(target), (ele) => !ele && update());
-    useMutationObserver(target, update, {
-      attributeFilter: ["style", "class"]
+    useMutationObserver(target, update, { attributeFilter: ["style", "class"] });
+    if (windowScroll) useEventListener("scroll", update, {
+      capture: true,
+      passive: true
     });
-    if (windowScroll)
-      useEventListener("scroll", update, { capture: true, passive: true });
-    if (windowResize)
-      useEventListener("resize", update, { passive: true });
+    if (windowResize) useEventListener("resize", update, { passive: true });
     tryOnMounted(() => {
-      if (immediate)
-        update();
+      if (immediate) update();
     });
     return {
       height,
@@ -571,15 +507,12 @@
     "MSFullscreenChange"
   ];
   function useFullscreen(target, options = {}) {
-    const {
-      document: document2 = defaultDocument,
-      autoExit = false
-    } = options;
+    const { document: document$1 = defaultDocument, autoExit = false } = options;
     const targetRef = vue.computed(() => {
-      var _a2;
-      return (_a2 = unrefElement$1(target)) != null ? _a2 : document2 == null ? void 0 : document2.querySelector("html");
+      var _unrefElement;
+      return (_unrefElement = unrefElement$1(target)) !== null && _unrefElement !== void 0 ? _unrefElement : document$1 === null || document$1 === void 0 ? void 0 : document$1.documentElement;
     });
-    const isFullscreen = vue.ref(false);
+    const isFullscreen = vue.shallowRef(false);
     const requestMethod = vue.computed(() => {
       return [
         "requestFullscreen",
@@ -589,7 +522,7 @@
         "webkitRequestFullScreen",
         "mozRequestFullScreen",
         "msRequestFullscreen"
-      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
+      ].find((m) => document$1 && m in document$1 || targetRef.value && m in targetRef.value);
     });
     const exitMethod = vue.computed(() => {
       return [
@@ -599,7 +532,7 @@
         "webkitCancelFullScreen",
         "mozCancelFullScreen",
         "msExitFullscreen"
-      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
+      ].find((m) => document$1 && m in document$1 || targetRef.value && m in targetRef.value);
     });
     const fullscreenEnabled = vue.computed(() => {
       return [
@@ -608,55 +541,42 @@
         "webkitDisplayingFullscreen",
         "mozFullScreen",
         "msFullscreenElement"
-      ].find((m) => document2 && m in document2 || targetRef.value && m in targetRef.value);
+      ].find((m) => document$1 && m in document$1 || targetRef.value && m in targetRef.value);
     });
     const fullscreenElementMethod = [
       "fullscreenElement",
       "webkitFullscreenElement",
       "mozFullScreenElement",
       "msFullscreenElement"
-    ].find((m) => document2 && m in document2);
-    const isSupported = useSupported(() => targetRef.value && document2 && requestMethod.value !== void 0 && exitMethod.value !== void 0 && fullscreenEnabled.value !== void 0);
+    ].find((m) => document$1 && m in document$1);
+    const isSupported = useSupported(() => targetRef.value && document$1 && requestMethod.value !== void 0 && exitMethod.value !== void 0 && fullscreenEnabled.value !== void 0);
     const isCurrentElementFullScreen = () => {
-      if (fullscreenElementMethod)
-        return (document2 == null ? void 0 : document2[fullscreenElementMethod]) === targetRef.value;
+      if (fullscreenElementMethod) return (document$1 === null || document$1 === void 0 ? void 0 : document$1[fullscreenElementMethod]) === targetRef.value;
       return false;
     };
     const isElementFullScreen = () => {
-      if (fullscreenEnabled.value) {
-        if (document2 && document2[fullscreenEnabled.value] != null) {
-          return document2[fullscreenEnabled.value];
-        } else {
-          const target2 = targetRef.value;
-          if ((target2 == null ? void 0 : target2[fullscreenEnabled.value]) != null) {
-            return Boolean(target2[fullscreenEnabled.value]);
-          }
-        }
+      if (fullscreenEnabled.value) if (document$1 && document$1[fullscreenEnabled.value] != null) return document$1[fullscreenEnabled.value];
+      else {
+        const target$1 = targetRef.value;
+        if ((target$1 === null || target$1 === void 0 ? void 0 : target$1[fullscreenEnabled.value]) != null) return Boolean(target$1[fullscreenEnabled.value]);
       }
       return false;
     };
     async function exit() {
-      if (!isSupported.value || !isFullscreen.value)
-        return;
-      if (exitMethod.value) {
-        if ((document2 == null ? void 0 : document2[exitMethod.value]) != null) {
-          await document2[exitMethod.value]();
-        } else {
-          const target2 = targetRef.value;
-          if ((target2 == null ? void 0 : target2[exitMethod.value]) != null)
-            await target2[exitMethod.value]();
-        }
+      if (!isSupported.value || !isFullscreen.value) return;
+      if (exitMethod.value) if ((document$1 === null || document$1 === void 0 ? void 0 : document$1[exitMethod.value]) != null) await document$1[exitMethod.value]();
+      else {
+        const target$1 = targetRef.value;
+        if ((target$1 === null || target$1 === void 0 ? void 0 : target$1[exitMethod.value]) != null) await target$1[exitMethod.value]();
       }
       isFullscreen.value = false;
     }
     async function enter() {
-      if (!isSupported.value || isFullscreen.value)
-        return;
-      if (isElementFullScreen())
-        await exit();
-      const target2 = targetRef.value;
-      if (requestMethod.value && (target2 == null ? void 0 : target2[requestMethod.value]) != null) {
-        await target2[requestMethod.value]();
+      if (!isSupported.value || isFullscreen.value) return;
+      if (isElementFullScreen()) await exit();
+      const target$1 = targetRef.value;
+      if (requestMethod.value && (target$1 === null || target$1 === void 0 ? void 0 : target$1[requestMethod.value]) != null) {
+        await target$1[requestMethod.value]();
         isFullscreen.value = true;
       }
     }
@@ -665,13 +585,16 @@
     }
     const handlerCallback = () => {
       const isElementFullScreenValue = isElementFullScreen();
-      if (!isElementFullScreenValue || isElementFullScreenValue && isCurrentElementFullScreen())
-        isFullscreen.value = isElementFullScreenValue;
+      if (!isElementFullScreenValue || isElementFullScreenValue && isCurrentElementFullScreen()) isFullscreen.value = isElementFullScreenValue;
     };
-    useEventListener(document2, eventHandlers, handlerCallback, false);
-    useEventListener(() => unrefElement$1(targetRef), eventHandlers, handlerCallback, false);
-    if (autoExit)
-      tryOnScopeDispose$1(exit);
+    const listenerOptions = {
+      capture: false,
+      passive: true
+    };
+    useEventListener(document$1, eventHandlers, handlerCallback, listenerOptions);
+    useEventListener(() => unrefElement$1(targetRef), eventHandlers, handlerCallback, listenerOptions);
+    tryOnMounted(handlerCallback, false);
+    if (autoExit) tryOnScopeDispose$1(exit);
     return {
       isSupported,
       isFullscreen,
@@ -692,16 +615,12 @@
   }
   typeof WorkerGlobalScope !== "undefined" && globalThis instanceof WorkerGlobalScope;
   function unrefElement(elRef) {
-    var _a2;
+    var _a;
     const plain = toValue(elRef);
-    return (_a2 = plain == null ? void 0 : plain.$el) != null ? _a2 : plain;
+    return (_a = plain == null ? void 0 : plain.$el) != null ? _a : plain;
   }
-  /*!
-  * tabbable 6.2.0
-  * @license MIT, https://github.com/focus-trap/tabbable/blob/master/LICENSE
-  */
-  var candidateSelectors = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", "a[href]:not([inert])", "button:not([inert])", "[tabindex]:not(slot):not([inert])", "audio[controls]:not([inert])", "video[controls]:not([inert])", '[contenteditable]:not([contenteditable="false"]):not([inert])', "details>summary:first-of-type:not([inert])", "details:not([inert])"];
-  var candidateSelector = /* @__PURE__ */ candidateSelectors.join(",");
+  var candidateSelectors = ["input:not([inert]):not([inert] *)", "select:not([inert]):not([inert] *)", "textarea:not([inert]):not([inert] *)", "a[href]:not([inert]):not([inert] *)", "button:not([inert]):not([inert] *)", "[tabindex]:not(slot):not([inert]):not([inert] *)", "audio[controls]:not([inert]):not([inert] *)", "video[controls]:not([inert]):not([inert] *)", '[contenteditable]:not([contenteditable="false"]):not([inert]):not([inert] *)', "details>summary:first-of-type:not([inert]):not([inert] *)", "details:not([inert]):not([inert] *)"];
+  var candidateSelector = candidateSelectors.join(",");
   var NoElement = typeof Element === "undefined";
   var matches = NoElement ? function() {
   } : Element.prototype.matches || Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
@@ -711,14 +630,16 @@
   } : function(element) {
     return element === null || element === void 0 ? void 0 : element.ownerDocument;
   };
-  var isInert = function isInert2(node, lookUp) {
+  var _isInert = function isInert(node, lookUp) {
     var _node$getAttribute;
     if (lookUp === void 0) {
       lookUp = true;
     }
     var inertAtt = node === null || node === void 0 ? void 0 : (_node$getAttribute = node.getAttribute) === null || _node$getAttribute === void 0 ? void 0 : _node$getAttribute.call(node, "inert");
     var inert = inertAtt === "" || inertAtt === "true";
-    var result = inert || lookUp && node && isInert2(node.parentNode);
+    var result = inert || lookUp && node &&
+
+(typeof node.closest === "function" ? node.closest("[inert]") : _isInert(node.parentNode));
     return result;
   };
   var isContentEditable = function isContentEditable2(node) {
@@ -727,7 +648,7 @@
     return attValue === "" || attValue === "true";
   };
   var getCandidates = function getCandidates2(el, includeContainer, filter) {
-    if (isInert(el)) {
+    if (_isInert(el)) {
       return [];
     }
     var candidates = Array.prototype.slice.apply(el.querySelectorAll(candidateSelector));
@@ -737,18 +658,18 @@
     candidates = candidates.filter(filter);
     return candidates;
   };
-  var getCandidatesIteratively = function getCandidatesIteratively2(elements, includeContainer, options) {
+  var _getCandidatesIteratively = function getCandidatesIteratively(elements, includeContainer, options) {
     var candidates = [];
     var elementsToCheck = Array.from(elements);
     while (elementsToCheck.length) {
       var element = elementsToCheck.shift();
-      if (isInert(element, false)) {
+      if (_isInert(element, false)) {
         continue;
       }
       if (element.tagName === "SLOT") {
         var assigned = element.assignedElements();
         var content = assigned.length ? assigned : element.children;
-        var nestedCandidates = getCandidatesIteratively2(content, true, options);
+        var nestedCandidates = _getCandidatesIteratively(content, true, options);
         if (options.flatten) {
           candidates.push.apply(candidates, nestedCandidates);
         } else {
@@ -762,11 +683,11 @@
         if (validCandidate && options.filter(element) && (includeContainer || !elements.includes(element))) {
           candidates.push(element);
         }
-        var shadowRoot = element.shadowRoot || // check for an undisclosed shadow
-        typeof options.getShadowRoot === "function" && options.getShadowRoot(element);
-        var validShadowRoot = !isInert(shadowRoot, false) && (!options.shadowRootFilter || options.shadowRootFilter(element));
+        var shadowRoot = element.shadowRoot ||
+typeof options.getShadowRoot === "function" && options.getShadowRoot(element);
+        var validShadowRoot = !_isInert(shadowRoot, false) && (!options.shadowRootFilter || options.shadowRootFilter(element));
         if (shadowRoot && validShadowRoot) {
-          var _nestedCandidates = getCandidatesIteratively2(shadowRoot === true ? element.children : shadowRoot.children, true, options);
+          var _nestedCandidates = _getCandidatesIteratively(shadowRoot === true ? element.children : shadowRoot.children, true, options);
           if (options.flatten) {
             candidates.push.apply(candidates, _nestedCandidates);
           } else {
@@ -876,6 +797,22 @@
   };
   var isHidden = function isHidden2(node, _ref) {
     var displayCheck = _ref.displayCheck, getShadowRoot = _ref.getShadowRoot;
+    if (displayCheck === "full-native") {
+      if ("checkVisibility" in node) {
+        var visible = node.checkVisibility({
+
+checkOpacity: false,
+          opacityProperty: false,
+          contentVisibilityAuto: true,
+          visibilityProperty: true,
+
+
+
+checkVisibilityCSS: true
+        });
+        return !visible;
+      }
+    }
     if (getComputedStyle(node).visibility === "hidden") {
       return true;
     }
@@ -884,7 +821,9 @@
     if (matches.call(nodeUnderDetails, "details:not([open]) *")) {
       return true;
     }
-    if (!displayCheck || displayCheck === "full" || displayCheck === "legacy-full") {
+    if (!displayCheck || displayCheck === "full" ||
+
+displayCheck === "full-native" || displayCheck === "legacy-full") {
       if (typeof getShadowRoot === "function") {
         var originalNode = node;
         while (node) {
@@ -932,11 +871,8 @@
     return false;
   };
   var isNodeMatchingSelectorFocusable = function isNodeMatchingSelectorFocusable2(options, node) {
-    if (node.disabled || // we must do an inert look up to filter out any elements inside an inert ancestor
-    //  because we're limited in the type of selectors we can use in JSDom (see related
-    //  note related to `candidateSelectors`)
-    isInert(node) || isHiddenInput(node) || isHidden(node, options) || // For a details element with a summary, the summary element gets the focus
-    isDetailsWithSummary(node) || isDisabledFromFieldset(node)) {
+    if (node.disabled || isHiddenInput(node) || isHidden(node, options) ||
+isDetailsWithSummary(node) || isDisabledFromFieldset(node)) {
       return false;
     }
     return true;
@@ -947,21 +883,21 @@
     }
     return true;
   };
-  var isValidShadowRootTabbable = function isValidShadowRootTabbable2(shadowHostNode) {
+  var isShadowRootTabbable = function isShadowRootTabbable2(shadowHostNode) {
     var tabIndex = parseInt(shadowHostNode.getAttribute("tabindex"), 10);
     if (isNaN(tabIndex) || tabIndex >= 0) {
       return true;
     }
     return false;
   };
-  var sortByOrder = function sortByOrder2(candidates) {
+  var _sortByOrder = function sortByOrder(candidates) {
     var regularTabbables = [];
     var orderedTabbables = [];
     candidates.forEach(function(item, i) {
       var isScope = !!item.scopeParent;
       var element = isScope ? item.scopeParent : item;
       var candidateTabindex = getSortOrderTabIndex(element, isScope);
-      var elements = isScope ? sortByOrder2(item.candidates) : element;
+      var elements = isScope ? _sortByOrder(item.candidates) : element;
       if (candidateTabindex === 0) {
         isScope ? regularTabbables.push.apply(regularTabbables, elements) : regularTabbables.push(element);
       } else {
@@ -983,22 +919,22 @@
     options = options || {};
     var candidates;
     if (options.getShadowRoot) {
-      candidates = getCandidatesIteratively([container], options.includeContainer, {
+      candidates = _getCandidatesIteratively([container], options.includeContainer, {
         filter: isNodeMatchingSelectorTabbable.bind(null, options),
         flatten: false,
         getShadowRoot: options.getShadowRoot,
-        shadowRootFilter: isValidShadowRootTabbable
+        shadowRootFilter: isShadowRootTabbable
       });
     } else {
       candidates = getCandidates(container, options.includeContainer, isNodeMatchingSelectorTabbable.bind(null, options));
     }
-    return sortByOrder(candidates);
+    return _sortByOrder(candidates);
   };
   var focusable = function focusable2(container, options) {
     options = options || {};
     var candidates;
     if (options.getShadowRoot) {
-      candidates = getCandidatesIteratively([container], options.includeContainer, {
+      candidates = _getCandidatesIteratively([container], options.includeContainer, {
         filter: isNodeMatchingSelectorFocusable.bind(null, options),
         flatten: true,
         getShadowRoot: options.getShadowRoot
@@ -1018,7 +954,7 @@
     }
     return isNodeMatchingSelectorTabbable(options, node);
   };
-  var focusableCandidateSelector = /* @__PURE__ */ candidateSelectors.concat("iframe").join(",");
+  var focusableCandidateSelector = candidateSelectors.concat("iframe:not([inert]):not([inert] *)").join(",");
   var isFocusable = function isFocusable2(node, options) {
     options = options || {};
     if (!node) {
@@ -1029,10 +965,6 @@
     }
     return isNodeMatchingSelectorFocusable(options, node);
   };
-  /*!
-  * focus-trap 7.5.4
-  * @license MIT, https://github.com/focus-trap/focus-trap/blob/master/LICENSE
-  */
   function ownKeys(e, r) {
     var t = Object.keys(e);
     if (Object.getOwnPropertySymbols) {
@@ -1072,7 +1004,7 @@
     if (typeof input !== "object" || input === null) return input;
     var prim = input[Symbol.toPrimitive];
     if (prim !== void 0) {
-      var res = prim.call(input, hint || "default");
+      var res = prim.call(input, hint);
       if (typeof res !== "object") return res;
       throw new TypeError("@@toPrimitive must return a primitive value.");
     }
@@ -1158,41 +1090,36 @@
       isKeyBackward
     }, userOptions);
     var state = {
-      // containers given to createFocusTrap()
-      // @type {Array<HTMLElement>}
-      containers: [],
-      // list of objects identifying tabbable nodes in `containers` in the trap
-      // NOTE: it's possible that a group has no tabbable nodes if nodes get removed while the trap
-      //  is active, but the trap should never get to a state where there isn't at least one group
-      //  with at least one tabbable node in it (that would lead to an error condition that would
-      //  result in an error being thrown)
-      // @type {Array<{
-      //   container: HTMLElement,
-      //   tabbableNodes: Array<HTMLElement>, // empty if none
-      //   focusableNodes: Array<HTMLElement>, // empty if none
-      //   posTabIndexesFound: boolean,
-      //   firstTabbableNode: HTMLElement|undefined,
-      //   lastTabbableNode: HTMLElement|undefined,
-      //   firstDomTabbableNode: HTMLElement|undefined,
-      //   lastDomTabbableNode: HTMLElement|undefined,
-      //   nextTabbableNode: (node: HTMLElement, forward: boolean) => HTMLElement|undefined
-      // }>}
-      containerGroups: [],
-      // same order/length as `containers` list
-      // references to objects in `containerGroups`, but only those that actually have
-      //  tabbable nodes in them
-      // NOTE: same order as `containers` and `containerGroups`, but __not necessarily__
-      //  the same length
-      tabbableGroups: [],
+
+containers: [],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+containerGroups: [],
+
+
+
+
+tabbableGroups: [],
       nodeFocusedBeforeActivation: null,
       mostRecentlyFocusedNode: null,
       active: false,
       paused: false,
-      // timer ID for when delayInitialFocus is true and initial focus in this trap
-      //  has been delayed during activation
-      delayInitialFocusTimer: void 0,
-      // the most recent KeyboardEvent for the configured nav key (typically [SHIFT+]TAB), if any
-      recentNavEvent: void 0
+
+delayInitialFocusTimer: void 0,
+recentNavEvent: void 0
     };
     var trap;
     var getOption = function getOption2(configOverrideOptions, optionName, configOptionName) {
@@ -1202,11 +1129,11 @@
       var composedPath = typeof (event === null || event === void 0 ? void 0 : event.composedPath) === "function" ? event.composedPath() : void 0;
       return state.containerGroups.findIndex(function(_ref) {
         var container = _ref.container, tabbableNodes = _ref.tabbableNodes;
-        return container.contains(element) || // fall back to explicit tabbable search which will take into consideration any
-        //  web components if the `tabbableOptions.getShadowRoot` option was used for
-        //  the trap, enabling shadow DOM support in tabbable (`Node.contains()` doesn't
-        //  look inside web components even if open)
-        (composedPath === null || composedPath === void 0 ? void 0 : composedPath.includes(container)) || tabbableNodes.find(function(node) {
+        return container.contains(element) ||
+
+
+
+(composedPath === null || composedPath === void 0 ? void 0 : composedPath.includes(container)) || tabbableNodes.find(function(node) {
           return node === element;
         });
       });
@@ -1275,32 +1202,19 @@
           container,
           tabbableNodes,
           focusableNodes,
-          /** True if at least one node with positive `tabindex` was found in this container. */
-          posTabIndexesFound,
-          /** First tabbable node in container, __tabindex__ order; `undefined` if none. */
-          firstTabbableNode,
-          /** Last tabbable node in container, __tabindex__ order; `undefined` if none. */
-          lastTabbableNode,
-          // NOTE: DOM order is NOT NECESSARILY "document position" order, but figuring that out
-          //  would require more than just https://developer.mozilla.org/en-US/docs/Web/API/Node/compareDocumentPosition
-          //  because that API doesn't work with Shadow DOM as well as it should (@see
-          //  https://github.com/whatwg/dom/issues/320) and since this first/last is only needed, so far,
-          //  to address an edge case related to positive tabindex support, this seems like a much easier,
-          //  "close enough most of the time" alternative for positive tabindexes which should generally
-          //  be avoided anyway...
-          /** First tabbable node in container, __DOM__ order; `undefined` if none. */
-          firstDomTabbableNode,
-          /** Last tabbable node in container, __DOM__ order; `undefined` if none. */
-          lastDomTabbableNode,
-          /**
-           * Finds the __tabbable__ node that follows the given node in the specified direction,
-           *  in this container, if any.
-           * @param {HTMLElement} node
-           * @param {boolean} [forward] True if going in forward tab order; false if going
-           *  in reverse.
-           * @returns {HTMLElement|undefined} The next tabbable node, if any.
-           */
-          nextTabbableNode: function nextTabbableNode(node) {
+posTabIndexesFound,
+firstTabbableNode,
+lastTabbableNode,
+
+
+
+
+
+
+
+firstDomTabbableNode,
+lastDomTabbableNode,
+nextTabbableNode: function nextTabbableNode(node) {
             var forward = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : true;
             var nodeIdx = tabbableNodes.indexOf(node);
             if (nodeIdx < 0) {
@@ -1419,13 +1333,12 @@
       }
       if (valueOrHandler(config.clickOutsideDeactivates, e)) {
         trap.deactivate({
-          // NOTE: by setting `returnFocus: false`, deactivate() will do nothing,
-          //  which will result in the outside click setting focus to the node
-          //  that was clicked (and if not focusable, to "nothing"); by setting
-          //  `returnFocus: true`, we'll attempt to re-focus the node originally-focused
-          //  on activation (or the configured `setReturnFocus` node), whether the
-          //  outside click was on a focusable node or not
-          returnFocus: config.returnFocusOnDeactivate
+
+
+
+
+
+returnFocus: config.returnFocusOnDeactivate
         });
         return;
       }
@@ -1481,9 +1394,8 @@
         }
         if (navAcrossContainers) {
           nextNode = findNextNavNode({
-            // move FROM the MRU node, not event-related node (which will be the node that is
-            //  outside the trap causing the focus escape we're trying to fix)
-            target: state.mostRecentlyFocusedNode,
+
+target: state.mostRecentlyFocusedNode,
             isBackward: config.isKeyBackward(state.recentNavEvent)
           });
         }
@@ -1781,245 +1693,101 @@
       return e.splice(l, 1);
   }
   const co = {
-    /**
-     * @description Set `null | false` to disable teleport.
-     * @default `'body'`
-     * @example
-     * ```js
-     * teleportTo: '#modals'
-     * ```
-     */
-    teleportTo: {
+teleportTo: {
       type: [String, null, Boolean, Object],
       default: "body"
     },
-    /**
-     * @description An uniq name for the open/close a modal via vfm.open/vfm.close APIs.
-     * @default `undefined`
-     * @example Symbol: `Symbol('MyModal')`
-     * @example String: `'AUniqString'`
-     * @example Number: `300`
-     */
-    modalId: {
+modalId: {
       type: [String, Number, Symbol],
       default: void 0
     },
-    /**
-     * @description Display the modal or not.
-     * @default `undefined`
-     * @example
-     * ```js
-     * const showModal = ref(false)
-     * v-model="showModal"
-     * ```
-     */
-    modelValue: {
+modelValue: {
       type: Boolean,
       default: void 0
     },
-    /**
-     * @description Render the modal via `if` or `show`.
-     * @default `'if'`
-     * @example
-     * ```js
-     * displayDirective: 'if'
-     * ```
-     * @example
-     * ```js
-     * displayDirective: 'show'
-     * ```
-     */
-    displayDirective: {
+displayDirective: {
       type: String,
       default: "if",
       validator: (e) => ["if", "show", "visible"].includes(e)
     },
-    /**
-     * @description Hide the overlay or not.
-     * @default `undefined`
-     * @example
-     * ```js
-     * hideOverlay="true"
-     * ```
-     */
-    hideOverlay: {
+hideOverlay: {
       type: Boolean,
       default: void 0
     },
-    /**
-     * @description Customize the overlay behavior.
-     */
-    overlayBehavior: {
+overlayBehavior: {
       type: String,
       default: "auto",
       validator: (e) => ["auto", "persist"].includes(e)
     },
-    /**
-     * @description Customize the overlay transition.
-     * @default `undefined`
-     */
-    overlayTransition: {
+overlayTransition: {
       type: [String, Object],
       default: void 0
     },
-    /**
-     * @description Customize the content transition.
-     * @default `undefined`
-     */
-    contentTransition: {
+contentTransition: {
       type: [String, Object],
       default: void 0
     },
-    /**
-     * @description Bind class to vfm__overlay.
-     * @default `undefined`
-     */
-    overlayClass: {
+overlayClass: {
       type: void 0,
       default: void 0
     },
-    /**
-     * @description Bind class to vfm__content.
-     * @default `undefined`
-     */
-    contentClass: {
+contentClass: {
       type: void 0,
       default: void 0
     },
-    /**
-     * @description Bind style to vfm__overlay.
-     * @default `undefined`
-     */
-    overlayStyle: {
+overlayStyle: {
       type: [String, Object, Array],
       default: void 0
     },
-    /**
-     * @description Bind style to vfm__content.
-     * @default `undefined`
-     */
-    contentStyle: {
+contentStyle: {
       type: [String, Object, Array],
       default: void 0
     },
-    /**
-     * @description Is it allow to close the modal by clicking the overlay.
-     * @default `true`
-     */
-    clickToClose: {
+clickToClose: {
       type: Boolean,
       default: true
     },
-    /**
-     * @description Is it allow to close the modal by keypress `esc`.
-     * @default `true`
-     */
-    escToClose: {
+escToClose: {
       type: Boolean,
       default: true
     },
-    /**
-     * @description Is it allow to click outside of the vfm__content when the modal is opened
-     * @default `'non-interactive'`
-     */
-    background: {
+background: {
       type: String,
       default: "non-interactive",
       validator: (e) => ["interactive", "non-interactive"].includes(e)
     },
-    /**
-     * @description
-     * * Use `{ disabled: true }` to disable the focusTrap.
-     * * Checkout the createOptions type here https://github.com/focus-trap/focus-trap for more.
-     * @default `{ allowOutsideClick: true }`
-     */
-    focusTrap: {
+focusTrap: {
       type: [Boolean, Object],
       default: () => ({
         allowOutsideClick: true
       })
     },
-    /**
-     * @description Lock body scroll or not when the modal is opened.
-     * @default `true`
-     */
-    lockScroll: {
+lockScroll: {
       type: Boolean,
       default: true
     },
-    /**
-     * @description Creates a padding-right when scroll is locked to prevent the page from jumping
-     * @default `true`
-     */
-    reserveScrollBarGap: {
+reserveScrollBarGap: {
       type: Boolean,
       default: true
     },
-    /**
-     * @description Define how to increase the zIndex when there are nested modals
-     * @default `({ index }) => 1000 + 2 * index`
-     */
-    zIndexFn: {
+zIndexFn: {
       type: Function,
       default: ({ index: e }) => 1e3 + 2 * e
     },
-    /**
-     * @description The direction of swiping to close the modal
-     * @default `none`
-     * @example
-     * Set swipeToClose="none" to disable swiping to close
-     * ```js
-     * swipeToClose="none"
-     * ```
-     */
-    swipeToClose: {
+swipeToClose: {
       type: String,
       default: "none",
       validator: (e) => ["none", "up", "right", "down", "left"].includes(e)
     },
-    /**
-     * @description Threshold for swipe to close
-     * @default `0`
-     */
-    threshold: {
+threshold: {
       type: Number,
       default: 0
     },
-    /**
-     * @description If set `:showSwipeBanner="true"`, only allow clicking `swipe-banner` slot to swipe to close
-     * @default `undefined`
-     * @example
-     * ```js
-     * swipeToClose="right"
-     * :showSwipeBanner="true"
-     * ```
-     * ```html
-     * <VueFinalModal
-     *   ...
-     *   swipeToClose="right"
-     *   :showSwipeBanner="true"
-     * >
-     *   <template #swipe-banner>
-     *     <div style="position: absolute; height: 100%; top: 0; left: 0; width: 10px;" />
-     *   </template>
-     *   ...modal content
-     * </VueFinalModal>
-     * ```
-     */
-    showSwipeBanner: {
+showSwipeBanner: {
       type: Boolean,
       default: void 0
     },
-    /**
-     * @description When set `:preventNavigationGestures="true"`, there will be two invisible bars for prevent navigation gestures including swiping back/forward on mobile webkit. For example: Safari mobile.
-     * @default `undefined`
-     * @example
-     * Set preventNavigationGestures="true" to prevent Safari navigation gestures including swiping back/forward.
-     * ```js
-     * :preventNavigationGestures="true"
-     * ```
-     */
-    preventNavigationGestures: {
+preventNavigationGestures: {
       type: Boolean,
       default: void 0
     }
@@ -2044,8 +1812,7 @@
   function fo(e, o) {
     const { modelValueLocal: l, onEntering: s, onEnter: u, onLeaving: c, onLeave: a } = o, n = vue.ref(l.value), [t, r, m] = Oe(n.value), [f, M, S] = Oe(n.value), V = vue.computed(() => typeof e.contentTransition == "string" ? { name: e.contentTransition, appear: true } : { appear: true, ...e.contentTransition }), O = vue.computed(() => typeof e.overlayTransition == "string" ? { name: e.overlayTransition, appear: true } : { appear: true, ...e.overlayTransition }), E = vue.computed(
       () => (e.hideOverlay || M.value === 2) && r.value === 2
-      /* Leave */
-    );
+);
     vue.watch(
       E,
       (k) => {
@@ -2358,7 +2125,7 @@
         m = useEventListener(document, "selectionchange", () => {
           var b;
           r.value = (b = window.getSelection()) == null ? void 0 : b.isCollapsed;
-        }), M = (/* @__PURE__ */ new Date()).getTime(), S = P(i == null ? void 0 : i.target);
+        }), M = ( new Date()).getTime(), S = P(i == null ? void 0 : i.target);
       },
       onSwipe() {
         var i, b, L, p;
@@ -2383,7 +2150,7 @@
           r.value = true;
           return;
         }
-        const L = (/* @__PURE__ */ new Date()).getTime(), p = b === e.swipeToClose, h = (() => {
+        const L = ( new Date()).getTime(), p = b === e.swipeToClose, h = (() => {
           var J, Q;
           if (b === "up" || b === "down")
             return Math.abs((O == null ? void 0 : O.value) || 0) > u * (((J = n.value) == null ? void 0 : J.offsetHeight) || 0);
@@ -2530,7 +2297,7 @@
     var o;
     return (o = e == null ? void 0 : e.exposed) == null ? void 0 : o.modalExposed;
   }
-  const Io = vue.defineComponent({ inheritAttrs: false }), Ro = /* @__PURE__ */ vue.defineComponent({
+  const Io = vue.defineComponent({ inheritAttrs: false }), Ro = vue.defineComponent({
     ...Io,
     __name: "VueFinalModal",
     props: co,
@@ -2713,19 +2480,19 @@ This will fail in production.`
       );
     return e;
   }
-  var __defProp2 = Object.defineProperty;
+  var __defProp = Object.defineProperty;
   var __getOwnPropSymbols = Object.getOwnPropertySymbols;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
   var __propIsEnum = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp2 = (obj, key, value) => key in obj ? __defProp2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
   var __spreadValues = (a, b) => {
     for (var prop in b || (b = {}))
       if (__hasOwnProp.call(b, prop))
-        __defNormalProp2(a, prop, b[prop]);
+        __defNormalProp(a, prop, b[prop]);
     if (__getOwnPropSymbols)
       for (var prop of __getOwnPropSymbols(b)) {
         if (__propIsEnum.call(b, prop))
-          __defNormalProp2(a, prop, b[prop]);
+          __defNormalProp(a, prop, b[prop]);
       }
     return a;
   };
@@ -2742,7 +2509,7 @@ This will fail in production.`
   var isToastContent = (obj) => !isUndefined(obj) && (isString(obj) || isVueComponent(obj) || isToastComponent(obj));
   var isDOMRect = (obj) => isObject$1(obj) && ["height", "width", "right", "left", "top", "bottom"].every((p) => isNumber(obj[p]));
   var hasProp = (obj, propKey) => (isObject$1(obj) || isFunction(obj)) && propKey in obj;
-  var getId = /* @__PURE__ */ ((i) => () => i++)(0);
+  var getId = ((i) => () => i++)(0);
   function getX(event) {
     return isTouchEvent(event) ? event.targetTouches[0].clientX : event.clientX;
   }
@@ -3042,7 +2809,7 @@ This will fail in production.`
       }
     }
   });
-  var _hoisted_1$8 = /* @__PURE__ */ vue.createTextVNode(" × ");
+  var _hoisted_1$8 = vue.createTextVNode(" × ");
   function render2(_ctx, _cache) {
     return vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(_ctx.buttonComponent), vue.mergeProps({
       "aria-label": _ctx.ariaLabel,
@@ -3067,7 +2834,7 @@ This will fail in production.`
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 512 512"
   };
-  var _hoisted_2$4 = /* @__PURE__ */ vue.createElementVNode("path", {
+  var _hoisted_2$4 = vue.createElementVNode("path", {
     fill: "currentColor",
     d: "M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
   }, null, -1);
@@ -3090,7 +2857,7 @@ This will fail in production.`
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 512 512"
   };
-  var _hoisted_22$1 = /* @__PURE__ */ vue.createElementVNode("path", {
+  var _hoisted_22$1 = vue.createElementVNode("path", {
     fill: "currentColor",
     d: "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
   }, null, -1);
@@ -3113,7 +2880,7 @@ This will fail in production.`
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 512 512"
   };
-  var _hoisted_23$1 = /* @__PURE__ */ vue.createElementVNode("path", {
+  var _hoisted_23$1 = vue.createElementVNode("path", {
     fill: "currentColor",
     d: "M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
   }, null, -1);
@@ -3136,7 +2903,7 @@ This will fail in production.`
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 576 512"
   };
-  var _hoisted_24$1 = /* @__PURE__ */ vue.createElementVNode("path", {
+  var _hoisted_24$1 = vue.createElementVNode("path", {
     fill: "currentColor",
     d: "M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
   }, null, -1);
@@ -3680,15 +3447,17 @@ This will fail in production.`
     return toast2 ? toast2 : createToastInterface(globalEventBus);
   };
   var src_default = VueToastificationPlugin;
-  var _GM = /* @__PURE__ */ (() => typeof GM != "undefined" ? GM : void 0)();
-  var _GM_addStyle = /* @__PURE__ */ (() => typeof GM_addStyle != "undefined" ? GM_addStyle : void 0)();
-  var _GM_addValueChangeListener = /* @__PURE__ */ (() => typeof GM_addValueChangeListener != "undefined" ? GM_addValueChangeListener : void 0)();
-  var _GM_getValue = /* @__PURE__ */ (() => typeof GM_getValue != "undefined" ? GM_getValue : void 0)();
-  var _GM_setClipboard = /* @__PURE__ */ (() => typeof GM_setClipboard != "undefined" ? GM_setClipboard : void 0)();
-  var _GM_setValue = /* @__PURE__ */ (() => typeof GM_setValue != "undefined" ? GM_setValue : void 0)();
-  var _GM_xmlhttpRequest = /* @__PURE__ */ (() => typeof GM_xmlhttpRequest != "undefined" ? GM_xmlhttpRequest : void 0)();
-  var _unsafeWindow = /* @__PURE__ */ (() => typeof unsafeWindow != "undefined" ? unsafeWindow : void 0)();
-  var GMKey = /* @__PURE__ */ ((GMKey2) => {
+  const indexCss = ".Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width:600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width:600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width:600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}";
+  importCSS(indexCss);
+  var _GM = (() => typeof GM != "undefined" ? GM : void 0)();
+  var _GM_addStyle = (() => typeof GM_addStyle != "undefined" ? GM_addStyle : void 0)();
+  var _GM_addValueChangeListener = (() => typeof GM_addValueChangeListener != "undefined" ? GM_addValueChangeListener : void 0)();
+  var _GM_getValue = (() => typeof GM_getValue != "undefined" ? GM_getValue : void 0)();
+  var _GM_setClipboard = (() => typeof GM_setClipboard != "undefined" ? GM_setClipboard : void 0)();
+  var _GM_setValue = (() => typeof GM_setValue != "undefined" ? GM_setValue : void 0)();
+  var _GM_xmlhttpRequest = (() => typeof GM_xmlhttpRequest != "undefined" ? GM_xmlhttpRequest : void 0)();
+  var _unsafeWindow = (() => typeof unsafeWindow != "undefined" ? unsafeWindow : void 0)();
+  var GMKey = ((GMKey2) => {
     GMKey2["InfiniteScroll"] = "InfiniteScroll";
     GMKey2["ScrollByRow"] = "ScrollByRow";
     GMKey2["ArchiveButton"] = "archiveButton";
@@ -3712,7 +3481,7 @@ This will fail in production.`
     GMKey2["ShowJapaneseTitle"] = "ShowJapaneseTitle";
     return GMKey2;
   })(GMKey || {});
-  var ArchiveDownloadMethod = /* @__PURE__ */ ((ArchiveDownloadMethod2) => {
+  var ArchiveDownloadMethod = ((ArchiveDownloadMethod2) => {
     ArchiveDownloadMethod2["Manual"] = "Manual";
     ArchiveDownloadMethod2["HaH_Original"] = "download Original Resolution with H@H";
     ArchiveDownloadMethod2["HaH_2400"] = "download 2400x Resolution with H@H";
@@ -3720,15 +3489,15 @@ This will fail in production.`
     ArchiveDownloadMethod2["Direct_Resample"] = "download Resample Resolution directly";
     return ArchiveDownloadMethod2;
   })(ArchiveDownloadMethod || {});
-  var MouseButton = /* @__PURE__ */ ((MouseButton2) => {
+  var MouseButton = ((MouseButton2) => {
     MouseButton2["Left"] = "left";
     MouseButton2["Right"] = "right";
     return MouseButton2;
   })(MouseButton || {});
   class GMVariable {
+    _key;
+    _value;
     constructor(key, defaultValue) {
-      __publicField(this, "_key");
-      __publicField(this, "_value");
       this._key = key;
       this._value = defaultValue;
     }
@@ -3838,7 +3607,7 @@ This will fail in production.`
       if (!container) {
         return;
       }
-      container.addEventListener("mousewheel", (event) => {
+      container.addEventListener("mousewheel", ((event) => {
         if (!firstItemOfRows) {
           return;
         }
@@ -3856,7 +3625,7 @@ This will fail in production.`
           event.stopPropagation();
           firstItemOfRows[nextIndex].scrollIntoView();
         }
-      });
+      }));
     }
   }
   function getFirstItemOfRows(selector, parent) {
@@ -3880,11 +3649,11 @@ This will fail in production.`
     return [...firstItemOfRows];
   }
   class Logger {
+    _feature;
+    _featureStyle;
+    _scope;
+    _scopeStyle;
     constructor(feature, scope) {
-      __publicField(this, "_feature");
-      __publicField(this, "_featureStyle");
-      __publicField(this, "_scope");
-      __publicField(this, "_scopeStyle");
       this._feature = feature;
       this._scope = scope;
       this._featureStyle = "background: #777; border-radius: 5px;";
@@ -3924,8 +3693,8 @@ This will fail in production.`
     }
   }
   class LoggerScopeDecorator {
+    _logger;
     constructor(baseLogger2, scope) {
-      __publicField(this, "_logger");
       this._logger = baseLogger2;
       this._logger.scope = scope;
     }
@@ -4028,12 +3797,11 @@ This will fail in production.`
       return popupContent.innerHTML;
     }
     function getDownloadLink(linkElement) {
-      var _a2;
       const onClick = linkElement.getAttribute("onclick");
       if (!onClick) {
         return null;
       }
-      return (_a2 = onClick.match(/(https:\/\/\S+)',\d+,\d+/)) == null ? void 0 : _a2[1];
+      return onClick.match(/(https:\/\/\S+)',\d+,\d+/)?.[1];
     }
     function getPopupContent(doc, selector) {
       const content = getElement(selector, doc);
@@ -4083,8 +3851,7 @@ This will fail in production.`
     });
   }
   function getGalleryIDandToken(pathname) {
-    var _a2;
-    const groups = (_a2 = pathname.match(/(mpv|g)\/(?<id>\d+)\/(?<token>\w+)/)) == null ? void 0 : _a2.groups;
+    const groups = pathname.match(/(mpv|g)\/(?<id>\d+)\/(?<token>\w+)/)?.groups;
     if (!groups) {
       return {
         id: null,
@@ -4167,21 +3934,20 @@ This will fail in production.`
   function useArchive() {
     const { setAsDownloaded } = useHighlight();
     function setHentaiAtHomeEvent() {
-      var _a2, _b, _c;
       const logger = new Logger("Hentai At Home Event");
       const hentaiAtHomeLinks = getElements(".popup--archive table td a");
-      if (!(hentaiAtHomeLinks == null ? void 0 : hentaiAtHomeLinks.length)) {
+      if (!hentaiAtHomeLinks?.length) {
         logger.error("hentai@Home Links not found.");
         return;
       }
-      const postUrl = (_a2 = getElement("#hathdl_form")) == null ? void 0 : _a2.getAttribute("action");
+      const postUrl = getElement("#hathdl_form")?.getAttribute("action");
       if (!postUrl) {
         logger.error("postUrl not found.");
         return;
       }
       for (const link of hentaiAtHomeLinks) {
         const ORIGINAL_SIZE = "org";
-        const resolution = ((_c = (_b = link.getAttribute("onclick")) == null ? void 0 : _b.split("'")) == null ? void 0 : _c[1]) || ORIGINAL_SIZE;
+        const resolution = link.getAttribute("onclick")?.split("'")?.[1] || ORIGINAL_SIZE;
         link.removeAttribute("onclick");
         link.addEventListener("click", async (event) => {
           event.preventDefault();
@@ -4238,9 +4004,8 @@ This will fail in production.`
       }
       for (const button of downloadButtons) {
         button.addEventListener("click", async (event) => {
-          var _a2;
           event.preventDefault();
-          const form = (_a2 = button == null ? void 0 : button.parentElement) == null ? void 0 : _a2.parentElement;
+          const form = button?.parentElement?.parentElement;
           if (!form) {
             logger.error("form not found.");
             return;
@@ -4274,7 +4039,7 @@ This will fail in production.`
           return;
         }
         const matches2 = html.match(/document\.location = "(.*)"/);
-        if (!matches2 || (matches2 == null ? void 0 : matches2.length) !== 2) {
+        if (!matches2 || matches2?.length !== 2) {
           toast.error("something went wrong. Open your console to see the response");
           console.warn("Download failed, response HTML:", html);
           return;
@@ -4286,14 +4051,13 @@ This will fail in production.`
     const { getInnerHTMLs } = useFetchPopups();
     const { archiveInnerHtml: archiveInnerHtml2 } = getInnerHTMLs();
     function setCancelArchiveEvent() {
-      var _a2, _b;
       const logger = new Logger("Archive Event");
       const invalidateForm = getElement("#invalidate_form");
       if (!invalidateForm) {
         logger.log("no unlocked archive to invalidate.");
         return;
       }
-      const cancelButton = (_b = (_a2 = invalidateForm == null ? void 0 : invalidateForm.nextElementSibling) == null ? void 0 : _a2.children) == null ? void 0 : _b[2];
+      const cancelButton = invalidateForm?.nextElementSibling?.children?.[2];
       if (!cancelButton || cancelButton.innerHTML !== "cancel") {
         logger.log("no unlocked archive to invalidate.");
         return;
@@ -4310,9 +4074,8 @@ This will fail in production.`
             "Content-Type": "application/x-www-form-urlencoded"
           })
         }).then((res) => res.text()).then((text) => {
-          var _a3;
           const html = new DOMParser().parseFromString(text, "text/html");
-          archiveInnerHtml2.value = (_a3 = getElement("#db", html)) == null ? void 0 : _a3.innerHTML;
+          archiveInnerHtml2.value = getElement("#db", html)?.innerHTML;
           setTimeout(() => {
             setDirectDownloadEvent();
           }, 0);
@@ -4358,7 +4121,7 @@ This will fail in production.`
     };
   }
   const _hoisted_1$7 = ["innerHTML"];
-  const _sfc_main$9 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$9 = vue.defineComponent({
     __name: "FrontPageEnhancer",
     setup(__props) {
       if (scrollByRowSwitch.value) {
@@ -4376,13 +4139,11 @@ This will fail in production.`
         onFetched = () => {
         }
       } = {}) {
-        var _a2, _b;
         const galleryContainer = getElement(".itg.gld");
-        const bottomPagination = (_a2 = getElements(".searchnav")) == null ? void 0 : _a2[1];
-        let nextPageUrl = (_b = getElement("#dnext")) == null ? void 0 : _b.getAttribute("href");
+        const bottomPagination = getElements(".searchnav")?.[1];
+        let nextPageUrl = getElement("#dnext")?.getAttribute("href");
         let isFetching = false;
         const intersectionObserver = new IntersectionObserver(async ([bottomPagination2]) => {
-          var _a3;
           if (!bottomPagination2.isIntersecting || isFetching) {
             return;
           }
@@ -4390,16 +4151,16 @@ This will fail in production.`
             return;
           }
           isFetching = true;
-          galleryContainer == null ? void 0 : galleryContainer.classList.add("is-fetching");
+          galleryContainer?.classList.add("is-fetching");
           const doc = await getDoc(nextPageUrl);
           const galleriesOfNextPage = getElements(".itg.gld > .gl1t", doc);
           if (!galleriesOfNextPage) {
             return;
           }
-          galleryContainer == null ? void 0 : galleryContainer.append(...galleriesOfNextPage);
+          galleryContainer?.append(...galleriesOfNextPage);
           isFetching = false;
-          galleryContainer == null ? void 0 : galleryContainer.classList.remove("is-fetching");
-          nextPageUrl = (_a3 = getElement("#dnext", doc)) == null ? void 0 : _a3.getAttribute("href");
+          galleryContainer?.classList.remove("is-fetching");
+          nextPageUrl = getElement("#dnext", doc)?.getAttribute("href");
           history.pushState(void 0, doc.title, nextPageUrl);
           onFetched();
         });
@@ -4413,7 +4174,7 @@ This will fail in production.`
       const activeButton = vue.ref();
       async function appendArchiveButtons() {
         const galleries = getElements(".gl1t");
-        galleries == null ? void 0 : galleries.forEach((gallery) => {
+        galleries?.forEach((gallery) => {
           if (getElement(".archive-button", gallery)) {
             return;
           }
@@ -4433,7 +4194,7 @@ This will fail in production.`
             }, 0);
           };
           const downloadDiv = getElement(".gldown", gallery);
-          downloadDiv == null ? void 0 : downloadDiv.appendChild(button);
+          downloadDiv?.appendChild(button);
         });
       }
       const borderRect = useElementBounding(getElement(".itg.gld"));
@@ -4451,8 +4212,7 @@ This will fail in production.`
         return {
           top: `${top}px`,
           left: `${left}px`,
-          // 防止 popup right 超出邊界時，瀏覽器自動 shrink popup
-          marginRight: "-9999px"
+marginRight: "-9999px"
         };
       });
       if (archiveButtonSwitch.value) {
@@ -4558,8 +4318,7 @@ This will fail in production.`
     }
     logger.log("Done");
     function isFirstPage() {
-      var _a2;
-      return ((_a2 = getElement(".ptds")) == null ? void 0 : _a2.innerText) === "1";
+      return getElement(".ptds")?.innerText === "1";
     }
     function getImageElements(doc) {
       return getElements("#gdt > a", doc);
@@ -4578,37 +4337,32 @@ This will fail in production.`
       return Array(pageCount2 - 1).fill("").map((_, index) => `${href}?p=${index + 1}`);
     }
     function appendImages(elements) {
-      var _a2;
-      (_a2 = getElement("#gdt")) == null ? void 0 : _a2.append(...elements);
+      getElement("#gdt")?.append(...elements);
     }
   }
   function useFavorite(favoriteInnerHtml2) {
     const { fetchFavorites, getFavoritesLink } = useFetchPopups();
     function setRequestEvents(target, popup, isPopupShow) {
-      var _a2, _b;
-      const submitButton = (_a2 = popup.value) == null ? void 0 : _a2.querySelector("input[type=submit]");
-      submitButton == null ? void 0 : submitButton.addEventListener("click", async (event) => {
-        var _a3;
+      const submitButton = popup.value?.querySelector("input[type=submit]");
+      submitButton?.addEventListener("click", async (event) => {
         event.preventDefault();
-        const favoriteCategory = (_a3 = getElement("[name=favcat]:checked")) == null ? void 0 : _a3.value;
+        const favoriteCategory = getElement("[name=favcat]:checked")?.value;
         await setFavorite(favoriteCategory);
       });
-      const categoryOptions = (_b = popup.value) == null ? void 0 : _b.querySelectorAll("#galpop .nosel > div");
-      if (categoryOptions == null ? void 0 : categoryOptions.length) {
+      const categoryOptions = popup.value?.querySelectorAll("#galpop .nosel > div");
+      if (categoryOptions?.length) {
         for (const option of categoryOptions) {
           option.addEventListener("dblclick", async (event) => {
-            var _a3;
             event.preventDefault();
-            const category = (_a3 = option.querySelector("[name=favcat]")) == null ? void 0 : _a3.value;
+            const category = option.querySelector("[name=favcat]")?.value;
             await setFavorite(category);
           });
         }
       }
       _unsafeWindow.clicked_fav = () => null;
       async function setFavorite(category) {
-        var _a3, _b2;
         const formData = new FormData();
-        const favoriteNote = (_a3 = getElement("[name=favnote]")) == null ? void 0 : _a3.value;
+        const favoriteNote = getElement("[name=favnote]")?.value;
         const apply = category === "favdel" ? "Apply Changes" : "Add to Favorites";
         formData.append("favcat", category);
         formData.append("favnote", favoriteNote);
@@ -4619,8 +4373,8 @@ This will fail in production.`
           body: formData
         });
         const html = await response.text();
-        const originalScript = (_b2 = html.match(/(if\(window\.opener\.document\.getElementById\("favoritelink"\)).*/)) == null ? void 0 : _b2[0];
-        const script = originalScript == null ? void 0 : originalScript.replaceAll(".opener", "");
+        const originalScript = html.match(/(if\(window\.opener\.document\.getElementById\("favoritelink"\)).*/)?.[0];
+        const script = originalScript?.replaceAll(".opener", "");
         Function(script)();
         isPopupShow.value = false;
         favoriteInnerHtml2.value = await fetchFavorites();
@@ -4634,8 +4388,7 @@ This will fail in production.`
   }
   function useTorrent() {
     function downloadTorrent(popup) {
-      var _a2;
-      (_a2 = getElement("a", popup.value)) == null ? void 0 : _a2.click();
+      getElement("a", popup.value)?.click();
     }
     function extractMagnetLink(href) {
       const match = href.match(/([0-9a-f]{40})/i);
@@ -4651,12 +4404,11 @@ This will fail in production.`
       }
       const tables = popup.value.querySelectorAll("form table");
       tables.forEach((table) => {
-        var _a2;
         if (table.querySelector("[data-magnet-button]")) {
           return;
         }
         const link = table.querySelector("a");
-        if (!(link == null ? void 0 : link.href)) {
+        if (!link?.href) {
           return;
         }
         const magnet = extractMagnetLink(link.href);
@@ -4681,7 +4433,7 @@ This will fail in production.`
             button.value = "Copy Magnet";
           }, 1e3);
         };
-        (_a2 = insertionPoint.parentNode) == null ? void 0 : _a2.insertBefore(button, insertionPoint);
+        insertionPoint.parentNode?.insertBefore(button, insertionPoint);
       });
     }
     return {
@@ -4693,7 +4445,7 @@ This will fail in production.`
   const _hoisted_1$6 = ["innerHTML"];
   const _hoisted_2$3 = ["innerHTML"];
   const _hoisted_3$2 = ["innerHTML"];
-  const _sfc_main$8 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$8 = vue.defineComponent({
     __name: "GalleryEnhancer",
     async setup(__props) {
       let __temp, __restore;
@@ -4767,8 +4519,8 @@ This will fail in production.`
         const isOnlyOneTorrent = torrentLinkAnchor.innerText.endsWith("(1)");
         addMagnetCopyButtons(torrentPopup);
         const torrentDownloadLinks = getElements("a", torrentPopup.value);
-        if (torrentDownloadLinks == null ? void 0 : torrentDownloadLinks.length) {
-          torrentDownloadLinks == null ? void 0 : torrentDownloadLinks.forEach((link) => {
+        if (torrentDownloadLinks?.length) {
+          torrentDownloadLinks?.forEach((link) => {
             link.addEventListener("click", () => {
               setAsDownloaded(_unsafeWindow.gid);
             });
@@ -4863,7 +4615,7 @@ This will fail in production.`
   }
   const { paneImagesDiv: paneImagesDiv$1 } = useMultiPageViewerElements();
   const location$1 = useBrowserLocation();
-  const currentPage$1 = vue.ref(Number((_a = location$1.value.hash) == null ? void 0 : _a.replace("#page", "")) || 1);
+  const currentPage$1 = vue.ref(Number(location$1.value.hash?.replace("#page", "")) || 1);
   function usePages() {
     const pageCount2 = _unsafeWindow.pagecount;
     function appendPageIndex() {
@@ -4873,8 +4625,8 @@ This will fail in production.`
         const target = mutation.target;
         const index = target.id.split("image_")[1];
         const captionElement = getElement(".mbar > *:nth-child(3)", target);
-        const captionText = captionElement == null ? void 0 : captionElement.innerText;
-        if (!captionText || (captionText == null ? void 0 : captionText.includes(" ／ "))) {
+        const captionText = captionElement?.innerText;
+        if (!captionText || captionText?.includes(" ／ ")) {
           return;
         }
         captionElement.innerText = `${captionText}　-　${index} ／ ${pageCount22}`;
@@ -5200,8 +4952,7 @@ This will fail in production.`
       for (const entry of entries) {
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
-            var _a2;
-            (_a2 = entry.target) == null ? void 0 : _a2.dispatchEvent(new CustomEvent("reflow"));
+            entry.target?.dispatchEvent(new CustomEvent("reflow"));
           });
         });
       }
@@ -5337,9 +5088,8 @@ This will fail in production.`
       }
       function setThumbsClickEvent() {
         paneThumbsDiv.addEventListener("click", (event) => {
-          var _a2;
           const index = Number(
-            (_a2 = event.target.closest("div")) == null ? void 0 : _a2.id.replace("thumb_", "")
+            event.target.closest("div")?.id.replace("thumb_", "")
           );
           currentPage.value = index;
         });
@@ -5426,7 +5176,7 @@ This will fail in production.`
   const _hoisted_1$5 = { class: "page-elevator" };
   const _hoisted_2$2 = ["value"];
   const _hoisted_3$1 = ["textContent"];
-  const _sfc_main$7 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$7 = vue.defineComponent({
     __name: "PageElevator",
     setup(__props) {
       const {
@@ -5461,10 +5211,10 @@ This will fail in production.`
     }
     return target;
   };
-  const PageElevator = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-c3f8cb4a"]]);
+  const PageElevator = _export_sfc(_sfc_main$7, [["__scopeId", "data-v-c3f8cb4a"]]);
   const _hoisted_1$4 = { class: "image-resizer" };
   const _hoisted_2$1 = ["onClick", "textContent"];
-  const _sfc_main$6 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$6 = vue.defineComponent({
     __name: "ImageResizer",
     setup(__props) {
       const {
@@ -5527,7 +5277,6 @@ This will fail in production.`
         }
         function setResizeShortcuts2() {
           window.addEventListener("keydown", (event) => {
-            var _a2;
             const relativeToViewport = getRelativeToViewport2();
             const isCtrlPressed = event.ctrlKey;
             if (isCtrlPressed) {
@@ -5536,7 +5285,7 @@ This will fail in production.`
               if (!matchResult) {
                 return;
               }
-              const index = Number((_a2 = matchResult.groups) == null ? void 0 : _a2.index);
+              const index = Number(matchResult.groups?.index);
               setImageSize2(index - 1);
             } else {
               switch (event.code) {
@@ -5597,7 +5346,7 @@ This will fail in production.`
       };
     }
   });
-  const ImageResizer = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-19caf69f"]]);
+  const ImageResizer = _export_sfc(_sfc_main$6, [["__scopeId", "data-v-19caf69f"]]);
   function useMagnifierGesture(config) {
     const isLeftPressed = vue.ref(false);
     const isRightPressed = vue.ref(false);
@@ -5813,14 +5562,13 @@ This will fail in production.`
       }
     }
     function deactivateMagnifier() {
-      var _a2;
       imageLoader.cleanup();
       delete paneImagesDiv2.dataset.magnifierActive;
       state.currentImage = null;
       state.isOriginalMode = false;
       state.isLoadingOriginal = false;
       document.body.classList.remove("hide-cursor");
-      (_a2 = getElement("#magnifier-style")) == null ? void 0 : _a2.remove();
+      getElement("#magnifier-style")?.remove();
       setTimeout(() => {
         state.isActive = false;
       }, 0);
@@ -5985,7 +5733,7 @@ This will fail in production.`
       contentStyle
     };
   }
-  const _sfc_main$5 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$5 = vue.defineComponent({
     __name: "ImageMagnifier",
     setup(__props) {
       const magnifierConfig = {
@@ -6047,8 +5795,8 @@ This will fail in production.`
         return vue.withDirectives((vue.openBlock(), vue.createElementBlock("div", null, [
           vue.createElementVNode("div", {
             class: "magnifier-overlay",
-            onWheel: _cache[0] || (_cache[0] = //@ts-ignore
-            (...args) => vue.unref(handleWheel) && vue.unref(handleWheel)(...args)),
+            onWheel: _cache[0] || (_cache[0] =
+(...args) => vue.unref(handleWheel) && vue.unref(handleWheel)(...args)),
             onMousedown: _cache[1] || (_cache[1] = vue.withModifiers(() => {
             }, ["prevent", "stop"])),
             onClick: _cache[2] || (_cache[2] = vue.withModifiers(() => {
@@ -6072,9 +5820,9 @@ This will fail in production.`
       };
     }
   });
-  const ImageMagnifier = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-716338a1"]]);
+  const ImageMagnifier = _export_sfc(_sfc_main$5, [["__scopeId", "data-v-716338a1"]]);
   const _hoisted_1$3 = ["innerHTML"];
-  const _sfc_main$4 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$4 = vue.defineComponent({
     __name: "MultiPageViewerEnhancer",
     setup(__props) {
       const {
@@ -6116,7 +5864,6 @@ This will fail in production.`
         exhentaiButtons.value = replaceOriginalFunctions();
       });
       function replaceOriginalFunctions() {
-        var _a2;
         const originalFunctions = getElement("#bar3");
         const closeButton = originalFunctions.querySelector("img:first-child");
         if (!closeButton) {
@@ -6124,7 +5871,7 @@ This will fail in production.`
         }
         const link = document.createElement("a");
         link.href = window.location.origin + window.location.pathname.replace("mpv", "g");
-        (_a2 = closeButton.parentNode) == null ? void 0 : _a2.insertBefore(link, closeButton);
+        closeButton.parentNode?.insertBefore(link, closeButton);
         link.append(closeButton);
         return originalFunctions.innerHTML;
       }
@@ -6148,8 +5895,7 @@ This will fail in production.`
     `);
         }, { immediate: true });
         vue.watch(currentPage2, (index) => {
-          var _a2;
-          (_a2 = getElement(`#thumb_${index}`)) == null ? void 0 : _a2.scrollIntoView({
+          getElement(`#thumb_${index}`)?.scrollIntoView({
             block: "center"
           });
         });
@@ -6208,8 +5954,7 @@ div#bar3 {
         return vue.openBlock(), vue.createElementBlock("div", {
           class: "enhancer-features",
           onWheel: _cache[0] || (_cache[0] = vue.withModifiers(
-            //@ts-ignore
-            (...args) => vue.unref(changePageOnWheel) && vue.unref(changePageOnWheel)(...args),
+(...args) => vue.unref(changePageOnWheel) && vue.unref(changePageOnWheel)(...args),
             ["stop"]
           ))
         }, [
@@ -6236,15 +5981,15 @@ div#bar3 {
     "xml:space": "preserve"
   };
   function _sfc_render(_ctx, _cache) {
-    return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$2, _cache[0] || (_cache[0] = [
+    return vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$2, [..._cache[0] || (_cache[0] = [
       vue.createElementVNode("g", null, [
         vue.createElementVNode("path", { d: "M55.931,47.463L94.306,9.09c0.826-0.827,0.826-2.167,0-2.994L88.833,0.62C88.436,0.224,87.896,0,87.335,0   c-0.562,0-1.101,0.224-1.498,0.62L47.463,38.994L9.089,0.62c-0.795-0.795-2.202-0.794-2.995,0L0.622,6.096   c-0.827,0.827-0.827,2.167,0,2.994l38.374,38.373L0.622,85.836c-0.827,0.827-0.827,2.167,0,2.994l5.473,5.476   c0.397,0.396,0.936,0.62,1.498,0.62s1.1-0.224,1.497-0.62l38.374-38.374l38.374,38.374c0.397,0.396,0.937,0.62,1.498,0.62   s1.101-0.224,1.498-0.62l5.473-5.476c0.826-0.827,0.826-2.167,0-2.994L55.931,47.463z" })
       ], -1)
-    ]));
+    ])]);
   }
-  const CrossButton = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render]]);
+  const CrossButton = _export_sfc(_sfc_main$3, [["render", _sfc_render]]);
   const _hoisted_1$1 = { class: "switch" };
-  const _sfc_main$2 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$2 = vue.defineComponent({
     __name: "ToggleSwitch",
     props: {
       modelValue: { type: Boolean }
@@ -6274,7 +6019,7 @@ div#bar3 {
       };
     }
   });
-  const ToggleSwitch = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-894c8e09"]]);
+  const ToggleSwitch = _export_sfc(_sfc_main$2, [["__scopeId", "data-v-894c8e09"]]);
   const _hoisted_1 = { class: "settings-panel__inner" };
   const _hoisted_2 = { class: "settings-panel__section" };
   const _hoisted_3 = { class: "settings" };
@@ -6311,7 +6056,7 @@ div#bar3 {
   const _hoisted_34 = { class: "settings" };
   const _hoisted_35 = { class: "settings" };
   const _hoisted_36 = { class: "settings" };
-  const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$1 = vue.defineComponent({
     __name: "SettingsPanel",
     setup(__props) {
       const isShow = vue.ref(false);
@@ -6451,7 +6196,7 @@ div#bar3 {
                     _cache[47] || (_cache[47] = vue.createElementVNode("p", null, " Long press the primary button to activate magnifier. Press both primary and secondary buttons simultaneously for original image. ", -1)),
                     vue.createElementVNode("div", _hoisted_22, [
                       vue.createElementVNode("label", _hoisted_23, [
-                        _cache[41] || (_cache[41] = vue.createTextVNode(" Activation Button: ")),
+                        _cache[41] || (_cache[41] = vue.createTextVNode(" Activation Button: ", -1)),
                         vue.withDirectives(vue.createElementVNode("select", {
                           class: "settings__select",
                           "onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => vue.unref(magnifierActivationButton).value = $event)
@@ -6476,7 +6221,7 @@ div#bar3 {
                         vue.createTextVNode(" " + vue.toDisplayString(vue.unref(magnifierToggleMode).value ? "Toggle Mode (click once to open, click again to close)" : "Hold Mode (hold down to use)"), 1)
                       ]),
                       vue.createElementVNode("label", _hoisted_27, [
-                        _cache[42] || (_cache[42] = vue.createTextVNode(" Default Scale: ")),
+                        _cache[42] || (_cache[42] = vue.createTextVNode(" Default Scale: ", -1)),
                         vue.withDirectives(vue.createElementVNode("input", {
                           "onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => vue.unref(magnifierDefaultScale).value = $event),
                           type: "number",
@@ -6494,7 +6239,7 @@ div#bar3 {
                         ])
                       ]),
                       vue.createElementVNode("label", _hoisted_28, [
-                        _cache[43] || (_cache[43] = vue.createTextVNode(" Scale Step (Mouse Wheel): ")),
+                        _cache[43] || (_cache[43] = vue.createTextVNode(" Scale Step (Mouse Wheel): ", -1)),
                         vue.withDirectives(vue.createElementVNode("input", {
                           "onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => vue.unref(magnifierScaleStep).value = $event),
                           type: "number",
@@ -6512,7 +6257,7 @@ div#bar3 {
                         ])
                       ]),
                       vue.createElementVNode("label", _hoisted_29, [
-                        _cache[44] || (_cache[44] = vue.createTextVNode(" Long Press Threshold (ms): ")),
+                        _cache[44] || (_cache[44] = vue.createTextVNode(" Long Press Threshold (ms): ", -1)),
                         vue.withDirectives(vue.createElementVNode("input", {
                           "onUpdate:modelValue": _cache[15] || (_cache[15] = ($event) => vue.unref(magnifierLongPressThreshold).value = $event),
                           type: "number",
@@ -6530,7 +6275,7 @@ div#bar3 {
                         ])
                       ]),
                       vue.createElementVNode("label", _hoisted_30, [
-                        _cache[45] || (_cache[45] = vue.createTextVNode(" Mouse Sensitivity X: ")),
+                        _cache[45] || (_cache[45] = vue.createTextVNode(" Mouse Sensitivity X: ", -1)),
                         vue.withDirectives(vue.createElementVNode("input", {
                           "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => vue.unref(magnifierSensitivityX).value = $event),
                           type: "number",
@@ -6548,7 +6293,7 @@ div#bar3 {
                         ])
                       ]),
                       vue.createElementVNode("label", _hoisted_31, [
-                        _cache[46] || (_cache[46] = vue.createTextVNode(" Mouse Sensitivity Y: ")),
+                        _cache[46] || (_cache[46] = vue.createTextVNode(" Mouse Sensitivity Y: ", -1)),
                         vue.withDirectives(vue.createElementVNode("input", {
                           "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => vue.unref(magnifierSensitivityY).value = $event),
                           type: "number",
@@ -6622,7 +6367,7 @@ div#bar3 {
       };
     }
   });
-  const _sfc_main = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main = vue.defineComponent({
     __name: "App",
     setup(__props) {
       const { href } = window.location;
@@ -6686,6 +6431,8 @@ div#bar3 {
       };
     }
   });
+  const styleCss = ".vfm--fixed{position:fixed}.vfm--absolute{position:absolute}.vfm--inset{inset:0}.vfm--overlay{z-index:-1;background-color:#00000080}.vfm--prevent-none{pointer-events:none}.vfm--prevent-auto{pointer-events:auto}.vfm--outline-none:focus{outline:none}@keyframes fade-in{0%{opacity:0}to{opacity:1}}@keyframes fade-out{0%{opacity:1}to{opacity:0}}.vfm-fade-enter-active{animation:fade-in .3s ease}.vfm-fade-leave-active{animation:fade-out .3s ease}.vfm-bounce-back{transition-property:transform;transition-duration:.3s}.vfm-slide-up-enter-active,.vfm-slide-up-leave-active,.vfm-slide-down-enter-active,.vfm-slide-down-leave-active{transition:transform .3s ease}.vfm-slide-down-enter-from,.vfm-slide-down-leave-to{transform:translateY(100vh)!important}.vfm-slide-up-enter-from,.vfm-slide-up-leave-to{transform:translateY(-100vh)!important}.vfm-slide-right-enter-active,.vfm-slide-right-leave-active,.vfm-slide-left-enter-active,.vfm-slide-left-leave-active{transition:transform .3s ease}.vfm-slide-right-enter-from,.vfm-slide-right-leave-to{transform:translate(100vw)!important}.vfm-slide-left-enter-from,.vfm-slide-left-leave-to{transform:translate(-100vw)!important}.vfm-swipe-banner-back,.vfm-swipe-banner-forward{position:fixed;top:0;bottom:0;width:27px;z-index:10}.vfm-swipe-banner-back{left:0}.vfm-swipe-banner-forward{right:0}";
+  importCSS(styleCss);
   const app = vue.createApp(_sfc_main);
   const vfm = zo();
   app.use(vfm);

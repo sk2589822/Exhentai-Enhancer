@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.18.0
+// @version            1.18.1
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -15,7 +15,7 @@
 // @supportURL         https://github.com/sk2589822/Exhentai-Enhancer/issues
 // @match              https://exhentai.org/*
 // @match              https://e-hentai.org/*
-// @require            https://cdn.jsdelivr.net/npm/vue@3.5.12/dist/vue.global.prod.js
+// @require            https://cdn.jsdelivr.net/npm/vue@3.5.27/dist/vue.global.prod.js
 // @grant              GM.getValue
 // @grant              GM.registerMenuCommand
 // @grant              GM.setValue
