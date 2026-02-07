@@ -1,25 +1,3 @@
-<template>
-  <div v-show="isShow">
-    <div
-      class="magnifier-overlay"
-      @wheel="handleWheel"
-      @mousedown.prevent.stop
-      @click.prevent.stop
-      @contextmenu.prevent.stop
-    />
-    <div
-      class="magnifier"
-      :style="magnifierStyle"
-    >
-      <div class="magnifier-background" />
-      <div
-        class="magnifier-image"
-        :style="contentStyle"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { reactive, computed, onMounted, onUnmounted } from 'vue'
 
@@ -34,11 +12,10 @@ import {
   magnifierSensitivityX,
   magnifierSensitivityY,
 } from '@/utils/GMVariables'
+import type { MagnifierConfig, MagnifierState } from '@/types/magnifier'
 
-export type MagnifierConfig = typeof magnifierConfig
-export type MagnifierState = typeof state
 
-const magnifierConfig = {
+const magnifierConfig: MagnifierConfig = {
   toggleMode: magnifierToggleMode.value,
   activationButton: magnifierActivationButton.value,
   longPressThreshold: magnifierLongPressThreshold.value,
@@ -58,7 +35,7 @@ const magnifierConfig = {
   },
 } as const
 
-const state = reactive({
+const state = reactive<MagnifierState>({
   isActive: false,
   position: {
     x: 0,
@@ -101,6 +78,28 @@ onUnmounted(() => {
 
 const isShow = computed(() => state.isActive)
 </script>
+
+<template>
+  <div v-show="isShow">
+    <div
+      class="magnifier-overlay"
+      @wheel="handleWheel"
+      @mousedown.prevent.stop
+      @click.prevent.stop
+      @contextmenu.prevent.stop
+    />
+    <div
+      class="magnifier"
+      :style="magnifierStyle"
+    >
+      <div class="magnifier-background" />
+      <div
+        class="magnifier-image"
+        :style="contentStyle"
+      />
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .magnifier-overlay {

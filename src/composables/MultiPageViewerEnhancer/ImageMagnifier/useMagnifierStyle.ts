@@ -1,10 +1,9 @@
 import { computed } from 'vue'
 
-import { MagnifierConfig, MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
-
 import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
 
 import type { CSSProperties } from 'vue'
+import type { MagnifierState, MagnifierConfig } from '@/types/magnifier'
 
 export function useMagnifierStyle(
   state: MagnifierState,
@@ -36,7 +35,7 @@ export function useMagnifierStyle(
 
   function calculateTransformStyle(
     img: HTMLImageElement,
-    position: { x: number; y: number },
+    position: { x: number, y: number },
     scale: number,
   ): CSSProperties {
     // 獲取當前圖片在視窗中的實際尺寸和位置
@@ -116,7 +115,7 @@ export function useMagnifierStyle(
   - mappingArea.horizontal: 單位爲vw
   - mappingArea.vertical: 單位爲vh
   */
-  function getMappingArea(imgRect: DOMRect, normalizedRect: { top: number; bottom: number; left: number; right: number }) {
+  function getMappingArea(imgRect: DOMRect, normalizedRect: { top: number, bottom: number, left: number, right: number }) {
     return {
       top: normalizedRect.top + (imgRect.height * config.mappingArea.vertical / 100),
       bottom: normalizedRect.bottom - (imgRect.height * config.mappingArea.vertical / 100),
@@ -129,7 +128,7 @@ export function useMagnifierStyle(
   計算滑鼠相對於映射區域的位置（百分比）
   注意：position 是 useMagnifierEvents 的 updatePosition 的包含sensitivity的結果
   */
-  function getRelativePosition(position: { x: number; y: number }, mappingArea: { top: number; bottom: number; left: number; right: number }) {
+  function getRelativePosition(position: { x: number, y: number }, mappingArea: { top: number, bottom: number, left: number, right: number }) {
     return {
       x: (position.x - mappingArea.left) / (mappingArea.right - mappingArea.left),
       y: (position.y - mappingArea.top) / (mappingArea.bottom - mappingArea.top),

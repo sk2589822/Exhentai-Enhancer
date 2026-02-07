@@ -1,5 +1,5 @@
 import { useToast } from 'vue-toastification'
-import { Ref } from 'vue'
+import type { Ref } from 'vue'
 
 import { useFetchPopups } from '@/composables/useFetchPopups'
 import { getElement, getElements, getDoc } from '@/utils/commons'

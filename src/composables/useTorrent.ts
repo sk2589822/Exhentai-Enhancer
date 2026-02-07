@@ -1,4 +1,4 @@
-import { Ref } from 'vue'
+import type { Ref } from 'vue'
 import { GM_setClipboard } from 'vite-plugin-monkey/dist/client'
 
 import { getElement } from '@/utils/commons'

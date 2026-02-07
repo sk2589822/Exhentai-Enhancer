@@ -1,12 +1,12 @@
 import { ref } from 'vue'
 
 import { getElement } from '@/utils/commons'
-import { MagnifierConfig, MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
 
 import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
 
 import { useMagnifierGesture } from './useMagnifierGesture'
 import { useMagnifierImageLoader } from './useMagnifierImageLoader'
+import type { MagnifierState, MagnifierConfig } from '@/types/magnifier'
 
 export function useMagnifierEvents(
   state: MagnifierState,

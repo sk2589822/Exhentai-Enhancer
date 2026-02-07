@@ -1,16 +1,3 @@
-<template>
-  <div class="image-resizer">
-    <button
-      v-for="(size, index) in sizeList"
-      :key="size"
-      class="image-resizer__button"
-      :class="{ 'image-resizer__button--active': index === currentIndex }"
-      @click="onResizerClick(index)"
-      v-text="size"
-    />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import { useStorage } from '@vueuse/core'
@@ -163,6 +150,19 @@ function useImageResizer() {
 
 </script>
 
+<template>
+  <div class="image-resizer">
+    <button
+      v-for="(size, index) in sizeList"
+      :key="size"
+      class="image-resizer__button"
+      :class="{ 'image-resizer__button--active': index === currentIndex }"
+      @click="onResizerClick(index)"
+      v-text="size"
+    />
+  </div>
+</template>
+
 <style lang="scss">
 /* stylelint-disable-next-line selector-id-pattern */
 #pane_images {
@@ -183,6 +183,7 @@ function useImageResizer() {
   }
 }
 </style>
+
 <style lang="scss" scoped>
 .image-resizer {
   display: flex;

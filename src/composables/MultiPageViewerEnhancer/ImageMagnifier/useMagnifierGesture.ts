@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 
-import { MagnifierConfig } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
+import type { MagnifierConfig } from '@/types/magnifier'
 
 export function useMagnifierGesture(config: MagnifierConfig) {
   const isLeftPressed = ref(false)
@@ -27,15 +27,15 @@ export function useMagnifierGesture(config: MagnifierConfig) {
 
   function isPrimaryButtonEvent(e: MouseEvent): boolean {
     return (
-      (config.activationButton === 'left' && e.button === 0) ||
-      (config.activationButton === 'right' && e.button === 2)
+      (config.activationButton === 'left' && e.button === 0)
+      || (config.activationButton === 'right' && e.button === 2)
     )
   }
 
   function isSecondaryButtonEvent(e: MouseEvent): boolean {
     return (
-      (config.activationButton === 'left' && e.button === 2) ||
-      (config.activationButton === 'right' && e.button === 0)
+      (config.activationButton === 'left' && e.button === 2)
+      || (config.activationButton === 'right' && e.button === 0)
     )
   }
 

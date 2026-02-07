@@ -1,14 +1,3 @@
-<template>
-  <label class="switch">
-    <input
-      v-model="modelValueProxy"
-      type="checkbox"
-      class="switch__input"
-    >
-    <span class="switch__slider" />
-  </label>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -17,8 +6,8 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (event: 'update:modelValue', value: boolean): void
-  (event: 'toggle', value: boolean): void
+  'update:modelValue': [value: boolean]
+  'toggle': [value: boolean]
 }>()
 
 const modelValueProxy = computed({
@@ -29,6 +18,17 @@ const modelValueProxy = computed({
   },
 })
 </script>
+
+<template>
+  <label class="switch">
+    <input
+      v-model="modelValueProxy"
+      type="checkbox"
+      class="switch__input"
+    >
+    <span class="switch__slider" />
+  </label>
+</template>
 
 <style lang="scss" scoped>
 .switch {

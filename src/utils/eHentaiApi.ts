@@ -10,11 +10,11 @@ function getAipUrl() {
 
 function getGalleryMetadataBody(id: number, token: string) {
   return JSON.stringify({
-    'method': 'gdata',
-    'gidlist': [
+    method: 'gdata',
+    gidlist: [
       [id, token],
     ],
-    'namespace': 1,
+    namespace: 1,
   })
 }
 
