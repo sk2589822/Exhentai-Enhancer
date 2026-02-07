@@ -135,6 +135,13 @@
         </div>
 
         <div class="settings">
+          <ToggleSwitch v-model="changePageByWheelAnyWhereSwitch.value" />
+          <h3 class="settings__name">
+            Change page by scrolling mouse wheel anywhere
+          </h3>
+        </div>
+
+        <div class="settings">
           <ToggleSwitch v-model="autoRedirectSwitch.value" />
           <h3 class="settings__name">
             Auto Redirect to Multi-Page Viewer
@@ -311,6 +318,7 @@ import {
   multipageViewerEnhancerSwitch,
   preventImageRemovalSwitch,
   autoRedirectSwitch,
+  changePageByWheelAnyWhereSwitch,
   showJapaneseTitle,
   highlightSwitch,
   magnifierSwitch,
