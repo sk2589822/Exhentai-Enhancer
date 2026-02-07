@@ -42,6 +42,7 @@ export const loadAllGalleryImagesSwitch = reactive(new GMVariable<boolean>(GMKey
 export const multipageViewerEnhancerSwitch = reactive(new GMVariable<boolean>(GMKey.MultipageViewerEnhancer, true))
 export const autoRedirectSwitch = reactive(new GMVariable<boolean>(GMKey.AutoRedirect, false))
 export const preventImageRemovalSwitch = reactive(new GMVariable<boolean>(GMKey.PreventImageRemoval, false))
+export const changePageByWheelAnyWhereSwitch = reactive(new GMVariable<boolean>(GMKey.ChangePageByWheelAnyWhereSwitch, false))
 
 // Magnifier
 export const magnifierSwitch = reactive(new GMVariable<boolean>(GMKey.Magnifier, true))
@@ -69,8 +70,9 @@ export async function initializeMonkeySwitches() {
     loadAllGalleryImagesSwitch.initialize(),
 
     multipageViewerEnhancerSwitch.initialize(),
-    preventImageRemovalSwitch.initialize(),
     autoRedirectSwitch.initialize(),
+    preventImageRemovalSwitch.initialize(),
+    changePageByWheelAnyWhereSwitch.initialize(),
 
     magnifierSwitch.initialize(),
     magnifierActivationButton.initialize(),

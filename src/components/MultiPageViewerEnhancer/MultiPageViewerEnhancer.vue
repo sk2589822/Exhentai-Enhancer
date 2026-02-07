@@ -24,11 +24,12 @@ import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
 import { useEvents } from '@/composables/MultiPageViewerEnhancer/useEvents'
 import { useWheelStep } from '@/composables/useWheelStep'
 import { getElement } from '@/utils/commons'
-import { preventImageRemovalSwitch, magnifierSwitch } from '@/utils/GMVariables'
+import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSwitch } from '@/utils/GMVariables'
 
 import PageElevator from './PageElevator.vue'
 import ImageResizer from './ImageResizer.vue'
 import ImageMagnifier from './ImageMagnifier.vue'
+import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
 
 const {
   currentPage,
@@ -60,6 +61,16 @@ useWheelStep({
   containerSelector: '#pane_thumbs',
   itemsSelector: '[id^=thumb_]',
 })
+
+if (changePageByWheelAnyWhereSwitch.value) {
+  const {
+    paneOuterDiv,
+    paneImagesDiv,
+  } = useMultiPageViewerElements()
+
+  paneOuterDiv.addEventListener('mousewheel', changePageOnWheel as EventListener)
+  paneImagesDiv.addEventListener('mousewheel', changePageOnWheel as EventListener)
+}
 
 const exhentaiButtons = ref<string>('')
 onMounted(() => {
