@@ -1,41 +1,3 @@
-<template>
-  <VueFinalModal
-    v-model="isArchivePopupShow"
-    v-bind="modalOptions"
-  >
-    <div
-      ref="archivePopup"
-      class="popup popup--archive"
-      :style="archivePosition"
-      v-html="archiveInnerHtml"
-    />
-  </VueFinalModal>
-
-  <VueFinalModal
-    v-model="isTorrentPopupShow"
-    v-bind="modalOptions"
-  >
-    <div
-      ref="torrentPopup"
-      class="popup popup--torrent"
-      :style="torrentPosition"
-      v-html="torrentInnerHtml"
-    />
-  </VueFinalModal>
-
-  <VueFinalModal
-    v-model="isFavoritePopupShow"
-    v-bind="modalOptions"
-  >
-    <div
-      ref="favoritePopup"
-      class="popup"
-      :style="favoritePosition"
-      v-html="favoriteInnerHtml"
-    />
-  </VueFinalModal>
-</template>
-
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { VueFinalModal } from 'vue-final-modal'
@@ -187,10 +149,49 @@ function setReady(element: HTMLElement) {
 }
 
 onMounted(() => {
+  // eslint-disable-next-line camelcase
   unsafeWindow.pop_ren = Function('popUp(popbase + "rename", window.innerWidth * 2 / 3, window.innerHeight * 2 / 3);') as () => false
 })
 
 </script>
+
+<template>
+  <VueFinalModal
+    v-model="isArchivePopupShow"
+    v-bind="modalOptions"
+  >
+    <div
+      ref="archivePopup"
+      class="popup popup--archive"
+      :style="archivePosition"
+      v-html="archiveInnerHtml"
+    />
+  </VueFinalModal>
+
+  <VueFinalModal
+    v-model="isTorrentPopupShow"
+    v-bind="modalOptions"
+  >
+    <div
+      ref="torrentPopup"
+      class="popup popup--torrent"
+      :style="torrentPosition"
+      v-html="torrentInnerHtml"
+    />
+  </VueFinalModal>
+
+  <VueFinalModal
+    v-model="isFavoritePopupShow"
+    v-bind="modalOptions"
+  >
+    <div
+      ref="favoritePopup"
+      class="popup"
+      :style="favoritePosition"
+      v-html="favoriteInnerHtml"
+    />
+  </VueFinalModal>
+</template>
 
 <style lang="scss">
 @use "@/styles/animations/spin.scss";

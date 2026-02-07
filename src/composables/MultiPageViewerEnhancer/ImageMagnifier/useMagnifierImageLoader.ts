@@ -2,9 +2,10 @@ import { GM_xmlhttpRequest } from 'vite-plugin-monkey/dist/client'
 import { ref } from 'vue'
 
 import { getElement } from '@/utils/commons'
-import { MagnifierState } from '@/components/MultiPageViewerEnhancer/ImageMagnifier.vue'
 
 import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
+
+import type { MagnifierState } from '@/types/magnifier'
 
 export function useMagnifierImageLoader(state: MagnifierState) {
   const { paneImagesDiv } = useMultiPageViewerElements()
@@ -91,8 +92,8 @@ export function useMagnifierImageLoader(state: MagnifierState) {
 
     for (const img of images) {
       const rect = img.getBoundingClientRect()
-      if (mouseY >= rect.top + window.scrollY &&
-        mouseY <= rect.bottom + window.scrollY) {
+      if (mouseY >= rect.top + window.scrollY
+        && mouseY <= rect.bottom + window.scrollY) {
         state.currentImage = img
         return
       }

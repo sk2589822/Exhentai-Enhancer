@@ -1,7 +1,51 @@
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { VueFinalModal } from 'vue-final-modal'
+import { GM } from 'vite-plugin-monkey/dist/client'
+
+import CrossButton from '@/components/Icon/CrossButton.vue'
+import { ArchiveDownloadMethod, MouseButton } from '@/constants/monkey'
+import {
+  infiniteScrollSwitch,
+  archiveButtonSwitch,
+  scrollByRowSwitch,
+  betterPopupSwitch,
+  quickArchiveDownloadMethod,
+  loadAllGalleryImagesSwitch,
+  multipageViewerEnhancerSwitch,
+  preventImageRemovalSwitch,
+  autoRedirectSwitch,
+  changePageByWheelAnyWhereSwitch,
+  showJapaneseTitle,
+  highlightSwitch,
+  magnifierSwitch,
+  magnifierActivationButton,
+  magnifierToggleMode,
+  magnifierDefaultScale,
+  magnifierScaleStep,
+  magnifierLongPressThreshold,
+  magnifierSensitivityX,
+  magnifierSensitivityY,
+  quickTorrentDownloadSwitch,
+} from '@/utils/GMVariables'
+
+import ToggleSwitch from './ToggleSwitch.vue'
+
+const isShow = ref(false)
+onMounted(() => {
+  GM.registerMenuCommand('Open settings panel', () => isShow.value = !isShow.value)
+})
+
+function reload() {
+  location.reload()
+}
+
+</script>
+
 <template>
   <VueFinalModal
     v-model="isShow"
-    :overlay-transition="'vfm-fade'"
+    overlay-transition="vfm-fade"
     class="settings-panel-wrap"
     content-class="settings-panel"
   >
@@ -48,7 +92,7 @@
             <span>
               Action when clicking "Archive Download":
             </span>
-            <select class="settings__select" v-model="quickArchiveDownloadMethod.value">
+            <select v-model="quickArchiveDownloadMethod.value" class="settings__select">
               <option class="settings__option">
                 {{ ArchiveDownloadMethod.Manual }}
               </option>
@@ -164,8 +208,8 @@
               <label class="settings__label">
                 Activation Button:
                 <select
-                  class="settings__select"
                   v-model="magnifierActivationButton.value"
+                  class="settings__select"
                 >
                   <option class="settings__option" :value="MouseButton.Left">Left Mouse Button</option>
                   <option class="settings__option" :value="MouseButton.Right">Right Mouse Button</option>
@@ -301,50 +345,6 @@
   </VueFinalModal>
 </template>
 
-<script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { VueFinalModal } from 'vue-final-modal'
-import { GM } from 'vite-plugin-monkey/dist/client'
-
-import CrossButton from '@/components/Icon/CrossButton.vue'
-import { ArchiveDownloadMethod, MouseButton } from '@/constants/monkey'
-import {
-  infiniteScrollSwitch,
-  archiveButtonSwitch,
-  scrollByRowSwitch,
-  betterPopupSwitch,
-  quickArchiveDownloadMethod,
-  loadAllGalleryImagesSwitch,
-  multipageViewerEnhancerSwitch,
-  preventImageRemovalSwitch,
-  autoRedirectSwitch,
-  changePageByWheelAnyWhereSwitch,
-  showJapaneseTitle,
-  highlightSwitch,
-  magnifierSwitch,
-  magnifierActivationButton,
-  magnifierToggleMode,
-  magnifierDefaultScale,
-  magnifierScaleStep,
-  magnifierLongPressThreshold,
-  magnifierSensitivityX,
-  magnifierSensitivityY,
-  quickTorrentDownloadSwitch,
-} from '@/utils/GMVariables'
-
-import ToggleSwitch from './ToggleSwitch.vue'
-
-const isShow = ref(false)
-onMounted(() => {
-  GM.registerMenuCommand('Open settings panel', () => isShow.value = !isShow.value)
-})
-
-function reload() {
-  location.reload()
-}
-
-</script>
-
 <style lang="scss">
 .settings-panel-wrap {
   display: flex;
@@ -454,14 +454,14 @@ function reload() {
   &__link {
     color: #DDDDDD;
   }
-  
+
   &__select {
     background-color: #34353b;
     border: rgb(141, 141, 141);
     color: #f1f1f1;
     outline: none;
 
-    &:enabled:hover, 
+    &:enabled:hover,
     &:enabled:focus {
       background-color: rgb(67, 70, 78) !important;
       border-color: rgb(174, 174, 174) !important;

@@ -1,5 +1,6 @@
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
-import { Ref, nextTick } from 'vue'
+import type { Ref } from 'vue'
+import { nextTick } from 'vue'
 
 import { getElement } from '@/utils/commons'
 import { useFetchPopups } from '@/composables/useFetchPopups'
@@ -31,6 +32,7 @@ export function useFavorite(favoriteInnerHtml: Ref<string>) {
     }
 
     // 原本是 Favorite 頁面的 function，改成 popup 後不宣告的話會因為抓不到這個 function 而報錯
+    // eslint-disable-next-line camelcase
     unsafeWindow.clicked_fav = () => null
 
     async function setFavorite(category: string) {
