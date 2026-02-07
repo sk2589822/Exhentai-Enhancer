@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
+
+const {
+  pageCount,
+  currentPage,
+  goToPage,
+} = usePages()
+</script>
+
 <template>
   <div class="page-elevator">
     <input
@@ -11,16 +21,6 @@
     <span v-text="pageCount" />
   </div>
 </template>
-
-<script setup lang="ts">
-import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
-
-const {
-  pageCount,
-  currentPage,
-  goToPage,
-} = usePages()
-</script>
 
 <style lang="scss" scoped>
 .page-elevator {

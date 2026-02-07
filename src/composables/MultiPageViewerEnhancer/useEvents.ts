@@ -252,8 +252,8 @@ export function useEvents() {
   function checkMouseDelta({ clientX, clientY }: { clientX: number, clientY: number }) {
     const threshold = 50
     return (
-      Math.abs(clientX - prevMousePoint.x) >= threshold ||
-      Math.abs(clientY - prevMousePoint.y) >= threshold
+      Math.abs(clientX - prevMousePoint.x) >= threshold
+      || Math.abs(clientY - prevMousePoint.y) >= threshold
     )
   }
 
@@ -311,7 +311,7 @@ export function useEvents() {
     const newDegree = (currentDegree + degree) % 360
     currentImage.style.rotate = `${newDegree}deg`
 
-    if (newDegree % 180 == 0) {
+    if (newDegree % 180 === 0) {
       currentImage.style.scale = 'initial'
     } else {
       const { width, height } = currentImage.getBoundingClientRect()

@@ -16,7 +16,7 @@ export async function getDoc(url: string, options?: RequestInit) {
   return new DOMParser().parseFromString(html, 'text/html')
 }
 
-export function scrollElement(element: HTMLElement, { offset, absolute }: {offset?: number, absolute?: number}) {
+export function scrollElement(element: HTMLElement, { offset, absolute }: { offset?: number, absolute?: number }) {
   if (offset) {
     element.scrollTop += offset
     return

@@ -1,18 +1,4 @@
 <!-- eslint-disable vue/valid-template-root -->
-<template>
-  <VueFinalModal
-    v-model="isArchivePopupShow"
-    v-bind="modalOptions"
-  >
-    <div
-      ref="archivePopup"
-      class="popup popup--archive"
-      :style="archivePopupPosition"
-      v-html="archiveInnerHtml"
-    />
-  </VueFinalModal>
-</template>
-
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useElementBounding } from '@vueuse/core'
@@ -41,7 +27,7 @@ if (infiniteScrollSwitch.value) {
 }
 
 function useInfiniteScroll({
-  onFetched = () => {},
+  onFetched = () => { /* empty */ },
 } = {}) {
   const galleryContainer = getElement('.itg.gld')
   const bottomPagination = getElements('.searchnav')?.[1]
@@ -177,6 +163,20 @@ function setArchiveEvent() {
 const { highlightAll } = useHighlight()
 highlightAll()
 </script>
+
+<template>
+  <VueFinalModal
+    v-model="isArchivePopupShow"
+    v-bind="modalOptions"
+  >
+    <div
+      ref="archivePopup"
+      class="popup popup--archive"
+      :style="archivePopupPosition"
+      v-html="archiveInnerHtml"
+    />
+  </VueFinalModal>
+</template>
 
 <style lang="scss">
 @use "@/styles/animations/spin.scss";

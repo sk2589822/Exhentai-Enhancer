@@ -1,18 +1,3 @@
-<template>
-  <div
-    class="enhancer-features"
-    @wheel.stop="changePageOnWheel"
-  >
-    <PageElevator class="enhancer-features__feature" />
-    <ImageResizer class="enhancer-features__feature" />
-    <div
-      class="original-functions"
-      v-html="exhentaiButtons"
-    />
-    <ImageMagnifier v-if="magnifierSwitch.value" />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import {
@@ -22,6 +7,7 @@ import {
 
 import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
 import { useEvents } from '@/composables/MultiPageViewerEnhancer/useEvents'
+import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
 import { useWheelStep } from '@/composables/useWheelStep'
 import { getElement } from '@/utils/commons'
 import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSwitch } from '@/utils/GMVariables'
@@ -29,7 +15,6 @@ import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSw
 import PageElevator from './PageElevator.vue'
 import ImageResizer from './ImageResizer.vue'
 import ImageMagnifier from './ImageMagnifier.vue'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
 
 const {
   currentPage,
@@ -101,6 +86,7 @@ onMounted(() => {
       return
     }
 
+    // eslint-disable-next-line camelcase
     unsafeWindow.preload_generic = Function('a', 'b', 'c', `
       var d = a.scrollTop;
       a = d + a.offsetHeight;
@@ -174,6 +160,21 @@ div#bar3 {
   `)
 }
 </script>
+
+<template>
+  <div
+    class="enhancer-features"
+    @wheel.stop="changePageOnWheel"
+  >
+    <PageElevator class="enhancer-features__feature" />
+    <ImageResizer class="enhancer-features__feature" />
+    <div
+      class="original-functions"
+      v-html="exhentaiButtons"
+    />
+    <ImageMagnifier v-if="magnifierSwitch.value" />
+  </div>
+</template>
 
 <style lang="scss">
 /**

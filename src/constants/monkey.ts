@@ -23,7 +23,7 @@ export const enum GMKey {
   MagnifierSensitivityX = 'MagnifierSensitivityX',
   MagnifierSensitivityY = 'MagnifierSensitivityY',
 
-  ShowJapaneseTitle = 'ShowJapaneseTitle'
+  ShowJapaneseTitle = 'ShowJapaneseTitle',
 }
 
 export const enum ArchiveDownloadMethod {

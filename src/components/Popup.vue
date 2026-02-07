@@ -1,9 +1,3 @@
-<template>
-  <div
-    v-html="innerHtml"
-  />
-</template>
-
 <script setup lang="ts">
 defineProps({
   innerHtml: {
@@ -12,5 +6,11 @@ defineProps({
   },
 })
 </script>
+
+<template>
+  <div
+    v-html="innerHtml"
+  />
+</template>
 
 <style lang="scss" src="@/styles/popup.scss" scoped />

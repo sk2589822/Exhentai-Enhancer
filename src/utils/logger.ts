@@ -36,6 +36,7 @@ export class Logger {
   }
 
   log(message: string | HTMLElement | null) {
+    // eslint-disable-next-line no-console
     console.log(
       this.prefix,
       ...this.style,

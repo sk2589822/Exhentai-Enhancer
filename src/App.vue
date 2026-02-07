@@ -1,10 +1,3 @@
-<template>
-  <Suspense>
-    <component :is="enhancer" />
-  </Suspense>
-  <SettingsPanel />
-</template>
-
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
@@ -36,8 +29,8 @@ setCSS()
 function useEnhancer() {
   const enhancer = computed(() => {
     if (
-      /https:\/\/e[-x]hentai\.org\/(watched|popular)?(\?.+)?$/.test(href) ||
-      /https:\/\/e[-x]hentai\.org\/(tag)\/\w+/.test(href)
+      /https:\/\/e[-x]hentai\.org\/(watched|popular)?(\?.+)?$/.test(href)
+      || /https:\/\/e[-x]hentai\.org\/(tag)\/\w+/.test(href)
     ) {
       return FrontPageEnhancer
     }
@@ -84,3 +77,10 @@ function setCSS() {
   )
 }
 </script>
+
+<template>
+  <Suspense>
+    <component :is="enhancer" />
+  </Suspense>
+  <SettingsPanel />
+</template>
