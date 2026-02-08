@@ -10,7 +10,7 @@ export function useFavorite(favoriteInnerHtml: Ref<string>) {
 
   function setRequestEvents(target: HTMLElement, popup: Ref<HTMLElement | undefined>, isPopupShow: Ref<boolean>) {
     // set submit event
-    const submitButton = popup.value?.querySelector('input[type=submit]')
+    const submitButton = popup.value?.querySelector('[type=submit]')
     submitButton?.addEventListener('click', async event => {
       event.preventDefault()
 
