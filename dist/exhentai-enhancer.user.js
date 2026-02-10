@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.18.2
+// @version            1.18.3
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -4343,7 +4343,7 @@ marginRight: "-9999px"
   function useFavorite(favoriteInnerHtml2) {
     const { fetchFavorites, getFavoritesLink } = useFetchPopups();
     function setRequestEvents(target, popup, isPopupShow) {
-      const submitButton = popup.value?.querySelector("input[type=submit]");
+      const submitButton = popup.value?.querySelector("[type=submit]");
       submitButton?.addEventListener("click", async (event) => {
         event.preventDefault();
         const favoriteCategory = getElement("[name=favcat]:checked")?.value;
