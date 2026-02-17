@@ -66,7 +66,7 @@ const {
 } = usePositions()
 
 const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive()
-const { downloadTorrent, addMagnetCopyButtons } = useTorrent()
+const { downloadTorrent, addMagnetCopyButtons, setTorrentPopupEvents } = useTorrent(torrentInnerHtml)
 const { setRequestEvents } = useFavorite(favoriteInnerHtml)
 
 if (betterPopupSwitch.value) {
@@ -105,20 +105,25 @@ function setArchiveClickEvent() {
 
 const { setAsDownloaded } = useHighlight()
 
-function setTorrentClickEvent() {
-  setRequestEvents(archiveLinkAnchor, favoritePopup, isFavoritePopupShow)
-  const isOnlyOneTorrent = torrentLinkAnchor.innerText.endsWith('(1)')
-
+function setupTorrentPopupContent() {
   addMagnetCopyButtons(torrentPopup)
 
   const torrentDownloadLinks = getElements('a', torrentPopup.value)
   if (torrentDownloadLinks?.length) {
-    torrentDownloadLinks?.forEach(link => {
+    torrentDownloadLinks.forEach(link => {
       link.addEventListener('click', () => {
         setAsDownloaded(unsafeWindow.gid)
       })
     })
   }
+}
+
+function setTorrentClickEvent() {
+  setRequestEvents(archiveLinkAnchor, favoritePopup, isFavoritePopupShow)
+  const isOnlyOneTorrent = torrentLinkAnchor.innerText.endsWith('(1)')
+
+  setupTorrentPopupContent()
+  setTorrentPopupEvents(torrentPopup, setupTorrentPopupContent)
 
   torrentLinkAnchor.addEventListener('click', event => {
     event.preventDefault()
