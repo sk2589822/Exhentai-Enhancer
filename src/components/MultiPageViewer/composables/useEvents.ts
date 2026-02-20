@@ -1,4 +1,4 @@
-import { debounce } from 'lodash-es'
+import { debounce } from 'es-toolkit'
 import { createSharedComposable, useFullscreen } from '@vueuse/core'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
