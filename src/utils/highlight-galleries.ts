@@ -5,7 +5,7 @@ import {
 } from 'vite-plugin-monkey/dist/client'
 
 import { getElements } from '@/utils/commons'
-import { highlightSwitch } from '@/utils/GMVariables'
+import { highlightSwitch } from '@/utils/gm-variables'
 
 const DOWNLOADED_GALLERIES_KEY = 'downloaded-galleries-ids'
 

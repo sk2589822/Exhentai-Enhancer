@@ -11,7 +11,7 @@ import {
   magnifierLongPressThreshold,
   magnifierSensitivityX,
   magnifierSensitivityY,
-} from '@/utils/GMVariables'
+} from '@/utils/gm-variables'
 import type { MagnifierConfig, MagnifierState } from '@/types/magnifier'
 
 

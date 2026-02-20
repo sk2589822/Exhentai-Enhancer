@@ -7,9 +7,9 @@ import GalleriesEnhancer from '@/components/Galleries/GalleriesEnhancer.vue'
 import GalleryEnhancer from '@/components/Gallery/GalleryEnhancer.vue'
 import MultipageViewerEnhancer from '@/components/MultiPageViewer/MultiPageViewerEnhancer.vue'
 import SettingsPanel from '@/components/SettingsPanel/SettingsPanel.vue'
-import { autoRedirectSwitch, multipageViewerEnhancerSwitch, showJapaneseTitle } from '@/utils/GMVariables'
+import { autoRedirectSwitch, multipageViewerEnhancerSwitch, showJapaneseTitle } from '@/utils/gm-variables'
 
-import { changeTitleToJapanese } from './utils/eHentaiApi'
+import { changeTitleToJapanese } from './utils/e-hentai-api'
 
 const { href } = window.location
 

@@ -9,7 +9,7 @@ import { usePages } from '@/components/MultiPageViewer/composables/usePages'
 import { useEvents } from '@/components/MultiPageViewer/composables/useEvents'
 import { setWheelStep } from '@/utils/wheel-step'
 import { getElement } from '@/utils/commons'
-import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSwitch } from '@/utils/GMVariables'
+import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSwitch } from '@/utils/gm-variables'
 
 import PageElevator from './PageElevator.vue'
 import ImageResizer from './ImageResizer.vue'

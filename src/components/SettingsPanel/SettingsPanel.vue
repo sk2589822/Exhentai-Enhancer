@@ -27,7 +27,7 @@ import {
   magnifierSensitivityX,
   magnifierSensitivityY,
   quickTorrentDownloadSwitch,
-} from '@/utils/GMVariables'
+} from '@/utils/gm-variables'
 
 import ToggleSwitch from './ToggleSwitch.vue'
 
