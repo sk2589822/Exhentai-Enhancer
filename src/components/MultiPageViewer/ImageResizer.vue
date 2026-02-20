@@ -2,8 +2,8 @@
 import { ref, computed, watch } from 'vue'
 import { useStorage } from '@vueuse/core'
 
-import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
+import { usePages } from '@/composables/MultiPageViewer/usePages'
+import { useMultiPageViewerElements } from '@/composables/MultiPageViewer/useMultiPageViewerElements'
 
 const {
   goToCurrentPage,

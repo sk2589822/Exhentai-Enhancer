@@ -2,7 +2,7 @@ import { ref } from 'vue'
 
 import { getElement, getDoc } from '@/utils/commons'
 import { Logger, LoggerScopeDecorator } from '@/utils/logger'
-import { useGalleryElements } from '@/composables/GalleryEnhancer/useGalleryElements'
+import { useGalleryElements } from '@/composables/Gallery/useGalleryElements'
 
 export const torrentInnerHtml = ref<string>('')
 export const archiveInnerHtml = ref<string>('')

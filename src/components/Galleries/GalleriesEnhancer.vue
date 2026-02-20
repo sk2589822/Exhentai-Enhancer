@@ -11,7 +11,7 @@ import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, quickArch
 import { getArchiveLink } from '@/utils/eHentaiApi'
 import { ArchiveDownloadMethod } from '@/constants/monkey'
 import { useArchive } from '@/composables/useArchive'
-import { useHighlight } from '@/composables/FrontPageEnhancer/useHighlight'
+import { useHighlight } from '@/composables/Galleries/useHighlight'
 
 if (scrollByRowSwitch.value) {
   useWheelStep({

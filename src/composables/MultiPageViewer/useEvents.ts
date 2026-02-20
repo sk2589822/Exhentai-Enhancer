@@ -3,8 +3,8 @@ import { useFullscreen } from '@vueuse/core'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { scrollElement } from '@/utils/commons'
-import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
+import { usePages } from '@/composables/MultiPageViewer/usePages'
+import { useMultiPageViewerElements } from '@/composables/MultiPageViewer/useMultiPageViewerElements'
 
 const {
   pageCount,

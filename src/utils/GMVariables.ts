@@ -26,7 +26,7 @@ class GMVariable<T extends boolean | ArchiveDownloadMethod | MouseButton | numbe
   }
 }
 
-// Front page enhancer
+// Galleries enhancer
 export const infiniteScrollSwitch = reactive(new GMVariable<boolean>(GMKey.InfiniteScroll, true))
 export const archiveButtonSwitch = reactive(new GMVariable<boolean>(GMKey.ArchiveButton, true))
 export const highlightSwitch = reactive(new GMVariable<boolean>(GMKey.Highlight, true))

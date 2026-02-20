@@ -3,9 +3,9 @@ import { computed, onMounted } from 'vue'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { getElement } from '@/utils/commons'
-import FrontPageEnhancer from '@/components/FrontPageEnhancer/FrontPageEnhancer.vue'
-import GalleryEnhancer from '@/components/GalleryEnhancer/GalleryEnhancer.vue'
-import MultipageViewerEnhancer from '@/components/MultiPageViewerEnhancer/MultiPageViewerEnhancer.vue'
+import GalleriesEnhancer from '@/components/Galleries/GalleriesEnhancer.vue'
+import GalleryEnhancer from '@/components/Gallery/GalleryEnhancer.vue'
+import MultipageViewerEnhancer from '@/components/MultiPageViewer/MultiPageViewerEnhancer.vue'
 import SettingsPanel from '@/components/SettingsPanel/SettingsPanel.vue'
 import { autoRedirectSwitch, multipageViewerEnhancerSwitch, showJapaneseTitle } from '@/utils/GMVariables'
 
@@ -32,7 +32,7 @@ function useEnhancer() {
       /https:\/\/e[-x]hentai\.org\/(watched|popular)?(\?.+)?$/.test(href)
       || /https:\/\/e[-x]hentai\.org\/(tag)\/\w+/.test(href)
     ) {
-      return FrontPageEnhancer
+      return GalleriesEnhancer
     }
 
     if (/https:\/\/e[-x]hentai\.org\/g\/\w+\/\w+/.test(href)) {

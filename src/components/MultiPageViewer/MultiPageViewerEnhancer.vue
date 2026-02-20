@@ -5,9 +5,9 @@ import {
   GM_addStyle as gmAddStyle,
 } from 'vite-plugin-monkey/dist/client'
 
-import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
-import { useEvents } from '@/composables/MultiPageViewerEnhancer/useEvents'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
+import { usePages } from '@/composables/MultiPageViewer/usePages'
+import { useEvents } from '@/composables/MultiPageViewer/useEvents'
+import { useMultiPageViewerElements } from '@/composables/MultiPageViewer/useMultiPageViewerElements'
 import { useWheelStep } from '@/composables/useWheelStep'
 import { getElement } from '@/utils/commons'
 import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSwitch } from '@/utils/GMVariables'

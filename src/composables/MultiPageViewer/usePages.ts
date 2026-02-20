@@ -3,7 +3,7 @@ import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 import { useBrowserLocation } from '@vueuse/core'
 
 import { getElement, getElements } from '@/utils/commons'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
+import { useMultiPageViewerElements } from '@/composables/MultiPageViewer/useMultiPageViewerElements'
 
 const { paneImagesDiv } = useMultiPageViewerElements()
 

@@ -7,7 +7,6 @@
 ## Gallery Enhancer
 works when:
 1. url match `https://e(x)hentai.org/g/*/*`
-2. settings -> Front Page Settings -> check `Thumbnail`
 
 ### Features
 
@@ -45,12 +44,9 @@ works on:
 8. Magnifier (Long press left mouse button by default)
 
 
-## Front Page Enhancer
+## Galleries Enhancer
 works on: 
-1. url match   
-   `https://e(x)hentai.org/?*` or  
-   `https://e(x)hentai.org/(watched|popular)?*` or  
-   `https://e(x)hentai.org/tag/*`
+1. visiting pages like: Front page, Watched, Popular, etc.
 
 2. settings -> Front Page Settings -> check `Thumbnail`
 

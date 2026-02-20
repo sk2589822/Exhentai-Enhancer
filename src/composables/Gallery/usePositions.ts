@@ -1,7 +1,7 @@
 import { useElementBounding } from '@vueuse/core'
 import { computed } from 'vue'
 
-import { useGalleryElements } from '@/composables/GalleryEnhancer/useGalleryElements'
+import { useGalleryElements } from '@/composables/Gallery/useGalleryElements'
 
 export function usePositions() {
   const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor, infoDiv } = useGalleryElements()

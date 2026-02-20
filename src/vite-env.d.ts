@@ -7,17 +7,6 @@ declare module '*.vue' {
   export default component
 }
 
-declare module '@/scripts/GalleryEnhancer' {
-  function init(): void
-
-  export default init
-}
-
-declare module '@/scripts/MultipageViewerEnhancer' {
-  function init(): void
-
-  export default init
-}
 
 // ExHentai built-in variables & functions
 interface Window {

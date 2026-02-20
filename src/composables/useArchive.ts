@@ -7,7 +7,7 @@ import { Logger } from '@/utils/logger'
 import { ArchiveDownloadMethod } from '@/constants/monkey'
 import { quickArchiveDownloadMethod } from '@/utils/GMVariables'
 
-import { useHighlight } from './FrontPageEnhancer/useHighlight'
+import { useHighlight } from './Galleries/useHighlight'
 
 const toast = useToast()
 
