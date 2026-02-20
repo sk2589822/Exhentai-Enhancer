@@ -3,10 +3,10 @@ import type { Ref } from 'vue'
 import { nextTick } from 'vue'
 
 import { getElement } from '@/utils/commons'
-import { useFetchPopups } from '@/composables/useFetchPopups'
+import { usePopups } from '@/composables/usePopups'
 
 export function useFavorite(favoriteInnerHtml: Ref<string>) {
-  const { fetchFavorites, getFavoritesLink } = useFetchPopups()
+  const { fetchFavorites, getFavoritesLink } = usePopups()
 
   function setRequestEvents(target: HTMLElement, popup: Ref<HTMLElement | undefined>, isPopupShow: Ref<boolean>) {
     // set submit event

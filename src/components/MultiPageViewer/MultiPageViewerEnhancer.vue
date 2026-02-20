@@ -7,7 +7,7 @@ import {
 
 import { usePages } from '@/components/MultiPageViewer/composables/usePages'
 import { useEvents } from '@/components/MultiPageViewer/composables/useEvents'
-import { useWheelStep } from '@/composables/useWheelStep'
+import { setWheelStep } from '@/utils/wheel-step'
 import { getElement } from '@/utils/commons'
 import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSwitch } from '@/utils/GMVariables'
 
@@ -44,7 +44,7 @@ setHideCursorEvent()
 setShowThumbsEvent()
 setReflowTrigger()
 
-useWheelStep({
+setWheelStep({
   containerSelector: '#pane_thumbs',
   itemsSelector: '[id^=thumb_]',
 })

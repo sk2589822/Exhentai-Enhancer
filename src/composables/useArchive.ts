@@ -1,16 +1,16 @@
 import { useToast } from 'vue-toastification'
 import type { Ref } from 'vue'
 
-import { useFetchPopups } from '@/composables/useFetchPopups'
+import { usePopups } from '@/composables/usePopups'
 import { getElement, getElements, getDoc } from '@/utils/commons'
 import { Logger } from '@/utils/logger'
 import { ArchiveDownloadMethod } from '@/constants/monkey'
 import { quickArchiveDownloadMethod } from '@/utils/GMVariables'
 import { setAsDownloaded } from '@/utils/highlight-galleries'
 
-const toast = useToast()
-
 export function useArchive() {
+  const toast = useToast()
+
   /**
    * 重新實作 Hentai@Home 的下載事件
    *
@@ -163,8 +163,7 @@ export function useArchive() {
     }
   }
 
-  const { getInnerHTMLs } = useFetchPopups()
-  const { archiveInnerHtml } = getInnerHTMLs()
+  const { archiveInnerHtml } = usePopups()
 
   function setCancelArchiveEvent() {
     const logger = new Logger('Archive Event')

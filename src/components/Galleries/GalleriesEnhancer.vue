@@ -4,8 +4,8 @@ import { ref, computed } from 'vue'
 import { useElementBounding } from '@vueuse/core'
 import { VueFinalModal } from 'vue-final-modal'
 
-import { useWheelStep } from '@/composables/useWheelStep'
-import { useFetchPopups } from '@/composables/useFetchPopups'
+import { setWheelStep } from '@/utils/wheel-step'
+import { usePopups } from '@/composables/usePopups'
 import { getDoc, getElement, getElements } from '@/utils/commons'
 import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, quickArchiveDownloadMethod } from '@/utils/GMVariables'
 import { getArchiveLink } from '@/utils/eHentaiApi'
@@ -14,7 +14,7 @@ import { useArchive } from '@/composables/useArchive'
 import { highlightDownloadedGalleries, watchDownloadedGalleries } from '@/utils/highlight-galleries'
 
 if (scrollByRowSwitch.value) {
-  useWheelStep({
+  setWheelStep({
     containerSelector: '.itg.gld',
     itemsSelector: '.gl1t',
   })
@@ -71,8 +71,7 @@ function useInfiniteScroll({
   }
 }
 
-const { getInnerHTMLs, fetchArchive } = useFetchPopups()
-const { archiveInnerHtml } = getInnerHTMLs()
+const { archiveInnerHtml, fetchArchive } = usePopups()
 
 const archivePopup = ref<HTMLElement>()
 const activeButton = ref<HTMLElement>()

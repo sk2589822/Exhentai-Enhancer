@@ -8,9 +8,9 @@ import {
   getFavoritesLinkAnchor,
   getTorrentLinkAnchor,
 } from '@/components/Gallery/utils/elements'
-import { useWheelStep } from '@/composables/useWheelStep'
+import { setWheelStep } from '@/utils/wheel-step'
 import { useArchive } from '@/composables/useArchive'
-import { useFetchPopups } from '@/composables/useFetchPopups'
+import { usePopups } from '@/composables/usePopups'
 import {
   scrollByRowSwitch,
   betterPopupSwitch,
@@ -20,8 +20,8 @@ import {
 } from '@/utils/GMVariables'
 import { fetchAllImages } from '@/utils/fetchImages'
 import { ArchiveDownloadMethod } from '@/constants/monkey'
-import { useFavorite } from '@/composables/useFavorite'
-import { useTorrent } from '@/composables/useTorrent'
+import { useFavorite } from '@/components/Gallery/composables/useFavorite'
+import { useTorrent } from '@/components/Gallery/composables/useTorrent'
 import { setAsDownloaded } from '@/utils/highlight-galleries'
 import { getElements } from '@/utils/commons'
 
@@ -32,7 +32,7 @@ if (loadAllGalleryImagesSwitch.value) {
 }
 
 if (scrollByRowSwitch.value) {
-  useWheelStep({
+  setWheelStep({
     containerSelector: '#gdt',
     itemsSelector: 'a',
   })
@@ -55,13 +55,12 @@ const archivePopup = ref<HTMLElement>()
 const torrentPopup = ref<HTMLElement>()
 const favoritePopup = ref<HTMLElement>()
 
-const { getInnerHTMLs, preloadLinks } = useFetchPopups()
-
 const {
   archiveInnerHtml,
   torrentInnerHtml,
   favoriteInnerHtml,
-} = getInnerHTMLs()
+  preloadLinks,
+} = usePopups()
 
 const isArchivePopupShow = ref(false)
 const isTorrentPopupShow = ref(false)
