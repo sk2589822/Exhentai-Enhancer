@@ -8,7 +8,6 @@ import {
   getFavoritesLinkAnchor,
   getTorrentLinkAnchor,
 } from '@/components/Gallery/utils/elements'
-import { usePositions } from '@/composables/Gallery/usePositions'
 import { useWheelStep } from '@/composables/useWheelStep'
 import { useArchive } from '@/composables/useArchive'
 import { useFetchPopups } from '@/composables/useFetchPopups'
@@ -25,6 +24,8 @@ import { useFavorite } from '@/composables/useFavorite'
 import { useTorrent } from '@/composables/useTorrent'
 import { setAsDownloaded } from '@/utils/highlight-galleries'
 import { getElements } from '@/utils/commons'
+
+import { usePositions } from './composables/usePositions'
 
 if (loadAllGalleryImagesSwitch.value) {
   fetchAllImages({ delayInMs: 1000 })
