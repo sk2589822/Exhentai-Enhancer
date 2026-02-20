@@ -13,10 +13,9 @@ export function useMagnifierEvents(
 ) {
   const paneImagesDiv = getPaneImagesDiv()
 
-
   const gesture = useMagnifierGesture(config)
   const imageLoader = useMagnifierImageLoader(state)
-  const navigation = useMagnifierNavigation(state, config)
+  const navigation = createNavigation(state, config)
 
   // 模式相關狀態
   const isWaitingForToggleEnd = ref(false)
@@ -198,7 +197,7 @@ export function useMagnifierEvents(
 
 // ========== 導航邏輯 ==========
 
-function useMagnifierNavigation(state: MagnifierState, config: MagnifierConfig) {
+function createNavigation(state: MagnifierState, config: MagnifierConfig) {
   function updatePosition(e: MouseEvent) {
     if (!state.isActive) {
       return

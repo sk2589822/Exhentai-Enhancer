@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { reactive, computed, onMounted, onUnmounted } from 'vue'
 
-import { useMagnifierEvents } from '@/composables/MultiPageViewer/ImageMagnifier/useMagnifierEvents'
-import { useMagnifierStyle } from '@/composables/MultiPageViewer/ImageMagnifier/useMagnifierStyle'
+import { useMagnifierEvents } from '@/components/MultiPageViewer/composables/ImageMagnifier/useMagnifierEvents'
+import { useMagnifierStyle } from '@/components/MultiPageViewer/composables/ImageMagnifier/useMagnifierStyle'
 import {
   magnifierActivationButton,
   magnifierToggleMode,

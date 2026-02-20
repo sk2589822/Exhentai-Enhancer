@@ -2,7 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import { useStorage } from '@vueuse/core'
 
-import { usePages } from '@/composables/MultiPageViewer/usePages'
+import { usePages } from '@/components/MultiPageViewer/composables/usePages'
 import { getPaneImagesDiv } from './utils/elements'
 
 const {

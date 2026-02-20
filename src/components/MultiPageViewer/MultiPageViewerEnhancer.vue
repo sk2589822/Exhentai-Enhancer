@@ -5,8 +5,8 @@ import {
   GM_addStyle as gmAddStyle,
 } from 'vite-plugin-monkey/dist/client'
 
-import { usePages } from '@/composables/MultiPageViewer/usePages'
-import { useEvents } from '@/composables/MultiPageViewer/useEvents'
+import { usePages } from '@/components/MultiPageViewer/composables/usePages'
+import { useEvents } from '@/components/MultiPageViewer/composables/useEvents'
 import { useWheelStep } from '@/composables/useWheelStep'
 import { getElement } from '@/utils/commons'
 import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSwitch } from '@/utils/GMVariables'
@@ -30,6 +30,7 @@ const {
   setShowCursorEvent,
   setHideCursorEvent,
   setShowThumbsEvent,
+  setReflowTrigger,
 } = useEvents()
 
 appendPageIndex()
@@ -41,6 +42,7 @@ setClickEvent()
 setShowCursorEvent()
 setHideCursorEvent()
 setShowThumbsEvent()
+setReflowTrigger()
 
 useWheelStep({
   containerSelector: '#pane_thumbs',
