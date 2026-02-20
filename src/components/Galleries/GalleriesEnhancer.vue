@@ -11,7 +11,7 @@ import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, quickArch
 import { getArchiveLink } from '@/utils/eHentaiApi'
 import { ArchiveDownloadMethod } from '@/constants/monkey'
 import { useArchive } from '@/composables/useArchive'
-import { highlightDownloadedGalleries } from '@/utils/highlight-galleries'
+import { highlightDownloadedGalleries, watchDownloadedGalleries } from '@/utils/highlight-galleries'
 
 if (scrollByRowSwitch.value) {
   useWheelStep({
@@ -22,7 +22,10 @@ if (scrollByRowSwitch.value) {
 
 if (infiniteScrollSwitch.value) {
   useInfiniteScroll({
-    onFetched: appendArchiveButtons,
+    onFetched: () => {
+      appendArchiveButtons()
+      highlightDownloadedGalleries()
+    },
   })
 }
 
@@ -161,6 +164,7 @@ function setArchiveEvent() {
 }
 
 highlightDownloadedGalleries()
+watchDownloadedGalleries()
 </script>
 
 <template>
