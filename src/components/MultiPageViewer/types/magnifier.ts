@@ -1,4 +1,4 @@
-import type { MouseButton } from '@/constants/monkey'
+import type { MouseButton } from '@/utils/gm-variables'
 
 export interface MagnifierConfig {
   toggleMode: boolean

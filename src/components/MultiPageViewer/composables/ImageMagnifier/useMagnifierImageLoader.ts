@@ -4,7 +4,7 @@ import { ref } from 'vue'
 import { getElement } from '@/utils/commons'
 import { getPaneImagesDiv } from '@/components/MultiPageViewer/utils/elements'
 
-import type { MagnifierState } from '@/types/magnifier'
+import type { MagnifierState } from '@/components/MultiPageViewer/types/magnifier'
 
 export function useMagnifierImageLoader(state: MagnifierState) {
   const paneImagesDiv = getPaneImagesDiv()

@@ -5,7 +5,7 @@ import { getPaneImagesDiv } from '@/components/MultiPageViewer/utils/elements'
 
 import { useMagnifierGesture } from './useMagnifierGesture'
 import { useMagnifierImageLoader } from './useMagnifierImageLoader'
-import type { MagnifierState, MagnifierConfig } from '@/types/magnifier'
+import type { MagnifierState, MagnifierConfig } from '@/components/MultiPageViewer/types/magnifier'
 
 export function useMagnifierEvents(
   state: MagnifierState,

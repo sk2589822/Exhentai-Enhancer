@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { getPaneImagesDiv } from '@/components/MultiPageViewer/utils/elements'
 
 import type { CSSProperties } from 'vue'
-import type { MagnifierState, MagnifierConfig } from '@/types/magnifier'
+import type { MagnifierState, MagnifierConfig } from '@/components/MultiPageViewer/types/magnifier'
 
 export function useMagnifierStyle(
   state: MagnifierState,

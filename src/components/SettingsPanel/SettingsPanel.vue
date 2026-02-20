@@ -3,9 +3,10 @@ import { onMounted, ref } from 'vue'
 import { VueFinalModal } from 'vue-final-modal'
 import { GM } from 'vite-plugin-monkey/dist/client'
 
-import CrossButton from '@/components/Icon/CrossButton.vue'
-import { ArchiveDownloadMethod, MouseButton } from '@/constants/monkey'
 import {
+  MouseButton,
+  ArchiveDownloadMethod,
+
   infiniteScrollSwitch,
   archiveButtonSwitch,
   scrollByRowSwitch,
@@ -29,6 +30,7 @@ import {
   quickTorrentDownloadSwitch,
 } from '@/utils/gm-variables'
 
+import CrossButton from './CrossButton.vue'
 import ToggleSwitch from './ToggleSwitch.vue'
 
 const isShow = ref(false)

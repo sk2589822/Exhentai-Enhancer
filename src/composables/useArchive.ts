@@ -4,8 +4,7 @@ import type { Ref } from 'vue'
 import { usePopups } from '@/composables/usePopups'
 import { getElement, getElements, getDoc } from '@/utils/commons'
 import { Logger } from '@/utils/logger'
-import { ArchiveDownloadMethod } from '@/constants/monkey'
-import { quickArchiveDownloadMethod } from '@/utils/gm-variables'
+import { ArchiveDownloadMethod, quickArchiveDownloadMethod } from '@/utils/gm-variables'
 import { setAsDownloaded } from '@/utils/highlight-galleries'
 
 export function useArchive() {

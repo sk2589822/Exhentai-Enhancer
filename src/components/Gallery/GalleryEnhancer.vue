@@ -17,9 +17,9 @@ import {
   loadAllGalleryImagesSwitch,
   quickArchiveDownloadMethod,
   quickTorrentDownloadSwitch,
+  ArchiveDownloadMethod,
 } from '@/utils/gm-variables'
 import { fetchAllImages } from '@/utils/fetch-images'
-import { ArchiveDownloadMethod } from '@/constants/monkey'
 import { useFavorite } from '@/components/Gallery/composables/useFavorite'
 import { useTorrent } from '@/components/Gallery/composables/useTorrent'
 import { setAsDownloaded } from '@/utils/highlight-galleries'
