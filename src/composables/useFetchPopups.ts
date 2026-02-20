@@ -50,10 +50,21 @@ export function useFetchPopups() {
     }
 
     const doc = await getDoc(link)
-    const popupContent = getPopupContent(doc, '#torrentinfo > div:first-child')
+    const popupContent = getPopupContent(doc, '#torrentinfo')
     if (!popupContent) {
       logger.error('popup content not found.')
       return ''
+    }
+
+    const listContainer = popupContent.querySelector<HTMLElement>(':scope > div:first-child')
+    if (listContainer) {
+      listContainer.style.height = 'auto'
+    }
+
+    const uploadSection = popupContent.querySelector<HTMLElement>(':scope > div:last-child')
+    if (uploadSection) {
+      uploadSection.style.margin = '0'
+      uploadSection.style.borderTop = 'none'
     }
 
     logger.log('End')
