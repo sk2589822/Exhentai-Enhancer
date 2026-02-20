@@ -12,7 +12,6 @@ declare module '*.vue' {
 interface Window {
   gid: number
   pagecount: number // page Count
-  currentpage: number // current page
   preload_scroll_images: () => void // preload images & set currentpage
   action_reload: (page) => void // reload image
   preload_generic: (a, b, c) => void // HTML nodes operation
@@ -22,17 +21,3 @@ interface Window {
   clicked_fav: () => void // set it to () => {} in order to prevent undefined error
 }
 
-interface Document {
-  mozCancelFullScreen?: () => Promise<void>
-  msExitFullscreen?: () => Promise<void>
-  webkitExitFullscreen?: () => Promise<void>
-  mozFullScreenElement?: Element
-  msFullscreenElement?: Element
-  webkitFullscreenElement?: Element
-}
-
-interface HTMLElement {
-  msRequestFullscreen?: () => Promise<void>
-  mozRequestFullScreen?: () => Promise<void>
-  webkitRequestFullscreen?: () => Promise<void>
-}
