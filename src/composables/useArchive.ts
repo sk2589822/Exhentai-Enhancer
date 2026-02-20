@@ -6,14 +6,11 @@ import { getElement, getElements, getDoc } from '@/utils/commons'
 import { Logger } from '@/utils/logger'
 import { ArchiveDownloadMethod } from '@/constants/monkey'
 import { quickArchiveDownloadMethod } from '@/utils/GMVariables'
-
-import { useHighlight } from './Galleries/useHighlight'
+import { setAsDownloaded } from '@/utils/highlight-galleries'
 
 const toast = useToast()
 
 export function useArchive() {
-  const { setAsDownloaded } = useHighlight()
-
   /**
    * 重新實作 Hentai@Home 的下載事件
    *

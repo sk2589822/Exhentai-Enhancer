@@ -11,7 +11,7 @@ import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, quickArch
 import { getArchiveLink } from '@/utils/eHentaiApi'
 import { ArchiveDownloadMethod } from '@/constants/monkey'
 import { useArchive } from '@/composables/useArchive'
-import { useHighlight } from '@/composables/Galleries/useHighlight'
+import { highlightDownloadedGalleries } from '@/utils/highlight-galleries'
 
 if (scrollByRowSwitch.value) {
   useWheelStep({
@@ -160,8 +160,7 @@ function setArchiveEvent() {
   }
 }
 
-const { highlightAll } = useHighlight()
-highlightAll()
+highlightDownloadedGalleries()
 </script>
 
 <template>

@@ -19,7 +19,7 @@ import { fetchAllImages } from '@/utils/fetchImages'
 import { ArchiveDownloadMethod } from '@/constants/monkey'
 import { useFavorite } from '@/composables/useFavorite'
 import { useTorrent } from '@/composables/useTorrent'
-import { useHighlight } from '@/composables/Galleries/useHighlight'
+import { setAsDownloaded } from '@/utils/highlight-galleries'
 import { getElements } from '@/utils/commons'
 
 if (loadAllGalleryImagesSwitch.value) {
@@ -103,7 +103,6 @@ function setArchiveClickEvent() {
   setReady(archiveLinkAnchor)
 }
 
-const { setAsDownloaded } = useHighlight()
 
 function setupTorrentPopupContent() {
   addMagnetCopyButtons(torrentPopup)
