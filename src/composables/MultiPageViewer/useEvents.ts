@@ -4,7 +4,7 @@ import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { scrollElement } from '@/utils/commons'
 import { usePages } from '@/composables/MultiPageViewer/usePages'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewer/useMultiPageViewerElements'
+import { getPaneImagesDiv, getPaneThumbsDiv } from '@/components/MultiPageViewer/utils/elements'
 
 const {
   pageCount,
@@ -18,10 +18,8 @@ const {
   scrollToProperPosition,
 } = usePages()
 
-const {
-  paneImagesDiv,
-  paneThumbsDiv,
-} = useMultiPageViewerElements()
+const paneImagesDiv = getPaneImagesDiv()
+const paneThumbsDiv = getPaneThumbsDiv()
 
 setReflowTrigger()
 

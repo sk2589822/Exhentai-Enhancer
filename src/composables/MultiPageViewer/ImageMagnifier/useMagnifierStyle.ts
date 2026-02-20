@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 
-import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
+import { getPaneImagesDiv } from '@/components/MultiPageViewer/utils/elements'
 
 import type { CSSProperties } from 'vue'
 import type { MagnifierState, MagnifierConfig } from '@/types/magnifier'
@@ -9,7 +9,7 @@ export function useMagnifierStyle(
   state: MagnifierState,
   config: MagnifierConfig,
 ) {
-  const { paneImagesDiv } = useMultiPageViewerElements()
+  const paneImagesDiv = getPaneImagesDiv()
 
   const contentStyle = computed<CSSProperties>(() => {
     if (!state.currentImage) {

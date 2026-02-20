@@ -3,9 +3,9 @@ import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 import { useBrowserLocation } from '@vueuse/core'
 
 import { getElement, getElements } from '@/utils/commons'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewer/useMultiPageViewerElements'
+import { getPaneImagesDiv } from '@/components/MultiPageViewer/utils/elements'
 
-const { paneImagesDiv } = useMultiPageViewerElements()
+const paneImagesDiv = getPaneImagesDiv()
 
 const location = useBrowserLocation()
 const currentPage = ref(Number(location.value.hash?.replace('#page', '')) || 1)

@@ -2,7 +2,7 @@ import { ref } from 'vue'
 
 import { getElement, getDoc } from '@/utils/commons'
 import { Logger, LoggerScopeDecorator } from '@/utils/logger'
-import { useGalleryElements } from '@/composables/Gallery/useGalleryElements'
+import { getArchiveLinkAnchor, getTorrentLinkAnchor } from '@/components/Gallery/utils/elements'
 
 export const torrentInnerHtml = ref<string>('')
 export const archiveInnerHtml = ref<string>('')
@@ -14,10 +14,8 @@ export const favoriteInnerHtml = ref<string>('')
 */
 
 export function useFetchPopups() {
-  const {
-    archiveLinkAnchor,
-    torrentLinkAnchor,
-  } = useGalleryElements()
+  const archiveLinkAnchor = getArchiveLinkAnchor()
+  const torrentLinkAnchor = getTorrentLinkAnchor()
 
   function getInnerHTMLs() {
     return {

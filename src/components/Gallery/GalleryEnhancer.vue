@@ -3,7 +3,11 @@ import { computed, onMounted, ref } from 'vue'
 import { VueFinalModal } from 'vue-final-modal'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
-import { useGalleryElements } from '@/composables/Gallery/useGalleryElements'
+import {
+  getArchiveLinkAnchor,
+  getFavoritesLinkAnchor,
+  getTorrentLinkAnchor,
+} from '@/components/Gallery/utils/elements'
 import { usePositions } from '@/composables/Gallery/usePositions'
 import { useWheelStep } from '@/composables/useWheelStep'
 import { useArchive } from '@/composables/useArchive'
@@ -41,7 +45,10 @@ const modalOptions = ref({
   lockScroll: false,
 } as const)
 
-const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor } = useGalleryElements()
+
+const archiveLinkAnchor = getArchiveLinkAnchor()
+const torrentLinkAnchor = getTorrentLinkAnchor()
+const favoritesLinkAnchor = getFavoritesLinkAnchor()
 
 const archivePopup = ref<HTMLElement>()
 const torrentPopup = ref<HTMLElement>()

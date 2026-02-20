@@ -7,7 +7,6 @@ import {
 
 import { usePages } from '@/composables/MultiPageViewer/usePages'
 import { useEvents } from '@/composables/MultiPageViewer/useEvents'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewer/useMultiPageViewerElements'
 import { useWheelStep } from '@/composables/useWheelStep'
 import { getElement } from '@/utils/commons'
 import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSwitch } from '@/utils/GMVariables'
@@ -15,6 +14,7 @@ import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSw
 import PageElevator from './PageElevator.vue'
 import ImageResizer from './ImageResizer.vue'
 import ImageMagnifier from './ImageMagnifier.vue'
+import { getPaneImagesDiv, getPaneOuterDiv } from './utils/elements'
 
 const {
   currentPage,
@@ -48,10 +48,8 @@ useWheelStep({
 })
 
 if (changePageByWheelAnyWhereSwitch.value) {
-  const {
-    paneOuterDiv,
-    paneImagesDiv,
-  } = useMultiPageViewerElements()
+  const paneImagesDiv = getPaneImagesDiv()
+  const paneOuterDiv = getPaneOuterDiv()
 
   paneOuterDiv.addEventListener('mousewheel', changePageOnWheel as EventListener)
   paneImagesDiv.addEventListener('mousewheel', changePageOnWheel as EventListener)

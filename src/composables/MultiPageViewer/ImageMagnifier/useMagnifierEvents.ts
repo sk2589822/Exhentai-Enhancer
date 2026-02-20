@@ -1,8 +1,7 @@
 import { ref } from 'vue'
 
 import { getElement } from '@/utils/commons'
-
-import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
+import { getPaneImagesDiv } from '@/components/MultiPageViewer/utils/elements'
 
 import { useMagnifierGesture } from './useMagnifierGesture'
 import { useMagnifierImageLoader } from './useMagnifierImageLoader'
@@ -12,7 +11,8 @@ export function useMagnifierEvents(
   state: MagnifierState,
   config: MagnifierConfig,
 ) {
-  const { paneImagesDiv } = useMultiPageViewerElements()
+  const paneImagesDiv = getPaneImagesDiv()
+
 
   const gesture = useMagnifierGesture(config)
   const imageLoader = useMagnifierImageLoader(state)
