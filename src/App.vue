@@ -26,10 +26,9 @@ if (showJapaneseTitle.value) {
 setCSS()
 
 function getEnhancer() {
-  if (
-    /https:\/\/e[-x]hentai\.org\/(watched|popular)?(\?.+)?$/.test(href)
-    || /https:\/\/e[-x]hentai\.org\/(tag)\/\w+/.test(href)
-  ) {
+  const galleriesContainer = getElement('.itg.gld')
+  // 只有 Front Page, Watch, Popular 等頁面會出現這個 element
+  if (galleriesContainer) {
     return GalleriesEnhancer
   }
 
