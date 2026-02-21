@@ -48,9 +48,7 @@ export function setAsDownloaded(galleryID: number) {
     return
   }
 
-  const downloadedGalleriesIDs: number[] = gmGetValue(DOWNLOADED_GALLERIES_KEY)
+  const downloadedGalleriesIDs: number[] = gmGetValue(DOWNLOADED_GALLERIES_KEY) || []
   downloadedGalleriesIDs.push(galleryID)
   gmSetValue(DOWNLOADED_GALLERIES_KEY, [...new Set(downloadedGalleriesIDs)])
-
-  highlightDownloadedGalleries()
 }
