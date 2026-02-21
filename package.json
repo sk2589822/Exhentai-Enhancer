@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^14.2.0",
-    "lodash-es": "^4.17.23",
+    "es-toolkit": "^1.44.0",
     "vue": "^3.5.27",
     "vue-final-modal": "^4.5.5",
     "vue-toastification": "2.0.0-rc.5"

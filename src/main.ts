@@ -3,7 +3,7 @@ import { createVfm } from 'vue-final-modal'
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 
-import { initializeMonkeySwitches } from '@/utils/GMVariables'
+import { initializeMonkeySwitches } from '@/utils/gm-variables'
 import App from '@/App.vue'
 
 import 'vue-final-modal/style.css'
