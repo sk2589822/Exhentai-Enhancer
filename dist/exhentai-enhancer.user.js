@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.18.3
+// @version            1.19.0
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -33,7 +33,7 @@
 
   const d=new Set;const importCSS = async e=>{d.has(e)||(d.add(e),(t=>{typeof GM_addStyle=="function"?GM_addStyle(t):(document.head||document.documentElement).appendChild(document.createElement("style")).append(t);})(e));};
 
-  importCSS(' @charset "UTF-8";.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:0 auto 864px;width:30px;height:30px;line-height:30px;content:"\u231B";animation:spin ease-in-out 1s infinite}.gldown{display:flex}.archive-button{display:flex;justify-content:center;align-items:center;flex-shrink:0;position:relative;top:-6px;margin-left:4px;width:24px;height:24px;border-radius:9999px;background-color:#5fa9cf;box-shadow:#0000003d 0 3px 5px;cursor:pointer}@keyframes spin{0%{rotate:0}to{rotate:360deg}}.popup{position:absolute!important;padding:20px;text-align:center;background-color:var(--bg-color);border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a{text-decoration:underline}div#gd5{float:unset;width:auto}.is-ready:after{content:" \u2714\uFE0F"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\u231B";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.is-finished{font-size:0;pointer-events:none;text-decoration:none}.is-finished:after{content:"\u2714\uFE0F";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-1158b1f0]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-1158b1f0]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-1158b1f0]{line-height:100%}:fullscreen .page-elevator[data-v-1158b1f0]{opacity:0}:fullscreen .page-elevator[data-v-1158b1f0]:hover{opacity:1}#pane_images .mimg{width:min-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}#pane_images .mimg>a{-webkit-user-select:none;user-select:none}#pane_images .mimg>a>img{width:auto!important;max-height:var(--image-size);pointer-events:none}.image-resizer[data-v-45f67665]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-45f67665]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-45f67665]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-45f67665],.image-resizer__button--active[data-v-45f67665]:hover{background-color:orange}.magnifier-overlay[data-v-6974c205]{position:fixed;inset:0;z-index:999;background:transparent;cursor:none}.magnifier[data-v-6974c205]{z-index:1000}.magnifier-background[data-v-6974c205]{position:absolute;inset:0;background-color:#00000080}.magnifier-image[data-v-6974c205]{position:absolute;cursor:none}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:#7777;border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-7bec1a82]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-7bec1a82]{width:0;height:0;opacity:0}.switch__slider[data-v-7bec1a82]{position:absolute;inset:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-7bec1a82]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-7bec1a82]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-7bec1a82]:before{transform:translate(26px)}.settings-panel-wrap{display:flex;justify-content:center;align-items:center}.settings-panel{box-sizing:border-box;position:relative;display:flex;flex-direction:column;row-gap:16px;margin:32px;padding:32px;max-width:1000px;max-height:calc(100vh - 64px);background-color:#34353b;border-radius:4px;color:#f1f1f1}.settings-panel__inner{overflow-y:auto;padding-right:16px;height:100%}.settings-panel__section{background-color:#4f535b;border-radius:4px}.settings-panel__section-name{margin:16px 32px;padding-top:16px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button svg{width:16px;height:16px}.settings-panel__separator{background:#f1f1f1}.settings{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name{font-size:16px}.settings__notice{font-size:12px}.settings__intro{margin-left:60px;width:100%;font-size:14px;text-align:left}.settings__magnifier-config{display:flex;flex-direction:column;gap:.75rem;margin-top:.5rem}.settings__label{display:flex;flex-direction:row;align-items:center;gap:.25rem;font-size:.9rem}.settings__input{width:120px;padding:.25rem;border:1px solid #ccc;border-radius:4px;color:#f1f1f1;background-color:#34353b;outline:none}.settings__link{color:#ddd}.settings__select{background-color:#34353b;border:rgb(141,141,141);color:#f1f1f1;outline:none}.settings__select:enabled:hover,.settings__select:enabled:focus{background-color:#43464e!important;border-color:#aeaeae!important}.settings__option{color:#f1f1f1;background-color:#34353b;outline:none}.actions{display:flex;align-items:center;justify-content:flex-end}.actions__button{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer} ');
+  importCSS(' @charset "UTF-8";.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:0 auto 864px;width:30px;height:30px;line-height:30px;content:"\u231B";animation:spin ease-in-out 1s infinite}.gldown{display:flex}.archive-button{display:flex;justify-content:center;align-items:center;flex-shrink:0;position:relative;top:-6px;margin-left:4px;width:24px;height:24px;border-radius:9999px;background-color:#5fa9cf;box-shadow:#0000003d 0 3px 5px;cursor:pointer}@keyframes spin{0%{rotate:0}to{rotate:360deg}}.popup{position:absolute!important;padding:20px;text-align:center;background-color:var(--bg-color);border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a{text-decoration:underline}div#gd5{float:unset;width:auto}.is-ready:after{content:" \u2714\uFE0F"}.is-fetching{font-size:0;pointer-events:none;text-decoration:none}.is-fetching:after{content:"\u231B";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}input[name=dltype]+.is-fetching{position:relative}input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}input[name=dltype]+.is-fetching input{color:transparent}.is-finished{font-size:0;pointer-events:none;text-decoration:none}.is-finished:after{content:"\u2714\uFE0F";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-b87e2f8f]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-b87e2f8f]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-b87e2f8f]{line-height:100%}:fullscreen .page-elevator[data-v-b87e2f8f]{opacity:0}:fullscreen .page-elevator[data-v-b87e2f8f]:hover{opacity:1}#pane_images .mimg{width:min-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}#pane_images .mimg>a{-webkit-user-select:none;user-select:none}#pane_images .mimg>a>img{width:auto!important;max-height:var(--image-size);pointer-events:none}.image-resizer[data-v-fb83c8f5]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-fb83c8f5]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-fb83c8f5]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-fb83c8f5],.image-resizer__button--active[data-v-fb83c8f5]:hover{background-color:orange}.magnifier-overlay[data-v-ba829bde]{position:fixed;inset:0;z-index:999;background:transparent;cursor:none}.magnifier[data-v-ba829bde]{z-index:1000}.magnifier-background[data-v-ba829bde]{position:absolute;inset:0;background-color:#00000080}.magnifier-image[data-v-ba829bde]{position:absolute;cursor:none}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:#7777;border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-7bec1a82]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-7bec1a82]{width:0;height:0;opacity:0}.switch__slider[data-v-7bec1a82]{position:absolute;inset:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-7bec1a82]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-7bec1a82]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-7bec1a82]:before{transform:translate(26px)}.settings-panel-wrap{display:flex;justify-content:center;align-items:center}.settings-panel{box-sizing:border-box;position:relative;display:flex;flex-direction:column;row-gap:16px;margin:32px;padding:32px;max-width:1000px;max-height:calc(100vh - 64px);background-color:#34353b;border-radius:4px;color:#f1f1f1}.settings-panel__inner{overflow-y:auto;padding-right:16px;height:100%}.settings-panel__section{background-color:#4f535b;border-radius:4px}.settings-panel__section-name{margin:16px 32px;padding-top:16px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button svg{width:16px;height:16px}.settings-panel__separator{background:#f1f1f1}.settings{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name{font-size:16px}.settings__notice{font-size:12px}.settings__intro{margin-left:60px;width:100%;font-size:14px;text-align:left}.settings__magnifier-config{display:flex;flex-direction:column;gap:.75rem;margin-top:.5rem}.settings__label{display:flex;flex-direction:row;align-items:center;gap:.25rem;font-size:.9rem}.settings__input{width:120px;padding:.25rem;border:1px solid #ccc;border-radius:4px;color:#f1f1f1;background-color:#34353b;outline:none}.settings__link{color:#ddd}.settings__select{background-color:#34353b;border:rgb(141,141,141);color:#f1f1f1;outline:none}.settings__select:enabled:hover,.settings__select:enabled:focus{background-color:#43464e!important;border-color:#aeaeae!important}.settings__option{color:#f1f1f1;background-color:#34353b;outline:none}.actions{display:flex;align-items:center;justify-content:flex-end}.actions__button{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer} ');
 
   function tryOnScopeDispose$1(fn, failSilently) {
     if (vue.getCurrentScope()) {
@@ -46,7 +46,7 @@
   typeof WorkerGlobalScope !== "undefined" && globalThis instanceof WorkerGlobalScope;
   const notNullish = (val) => val != null;
   const toString = Object.prototype.toString;
-  const isObject$2 = (val) => toString.call(val) === "[object Object]";
+  const isObject$1 = (val) => toString.call(val) === "[object Object]";
   const noop = () => {
   };
   function toRef(...args) {
@@ -99,6 +99,29 @@
   }
   function getLifeCycleTarget(target) {
     return vue.getCurrentInstance();
+  }
+function createSharedComposable(composable) {
+    if (!isClient) return composable;
+    let subscribers = 0;
+    let state;
+    let scope;
+    const dispose = () => {
+      subscribers -= 1;
+      if (scope && subscribers <= 0) {
+        scope.stop();
+        state = void 0;
+        scope = void 0;
+      }
+    };
+    return ((...args) => {
+      subscribers += 1;
+      if (!scope) {
+        scope = vue.effectScope(true);
+        state = scope.run(() => composable(...args));
+      }
+      tryOnScopeDispose$1(dispose);
+      return state;
+    });
   }
   function watchWithFilter(source, cb, options = {}) {
     const { eventFilter = bypassFilter, ...watchOptions } = options;
@@ -154,7 +177,7 @@
       ];
     }, ([raw_targets, raw_events, raw_listeners, raw_options], _, onCleanup) => {
       if (!(raw_targets === null || raw_targets === void 0 ? void 0 : raw_targets.length) || !(raw_events === null || raw_events === void 0 ? void 0 : raw_events.length) || !(raw_listeners === null || raw_listeners === void 0 ? void 0 : raw_listeners.length)) return;
-      const optionsClone = isObject$2(raw_options) ? { ...raw_options } : raw_options;
+      const optionsClone = isObject$1(raw_options) ? { ...raw_options } : raw_options;
       const cleanups = raw_targets.flatMap((el) => raw_events.flatMap((event) => raw_listeners.map((listener) => register(el, event, listener, optionsClone))));
       onCleanup(() => {
         cleanups.forEach((fn) => fn());
@@ -2501,14 +2524,14 @@ This will fail in production.`
   var isNonEmptyString = (value) => isString(value) && value.trim().length > 0;
   var isNumber = (value) => typeof value === "number";
   var isUndefined = (value) => typeof value === "undefined";
-  var isObject$1 = (value) => typeof value === "object" && value !== null;
+  var isObject = (value) => typeof value === "object" && value !== null;
   var isJSX = (obj) => hasProp(obj, "tag") && isNonEmptyString(obj.tag);
   var isTouchEvent = (event) => window.TouchEvent && event instanceof TouchEvent;
   var isToastComponent = (obj) => hasProp(obj, "component") && isToastContent(obj.component);
-  var isVueComponent = (c) => isFunction(c) || isObject$1(c);
+  var isVueComponent = (c) => isFunction(c) || isObject(c);
   var isToastContent = (obj) => !isUndefined(obj) && (isString(obj) || isVueComponent(obj) || isToastComponent(obj));
-  var isDOMRect = (obj) => isObject$1(obj) && ["height", "width", "right", "left", "top", "bottom"].every((p) => isNumber(obj[p]));
-  var hasProp = (obj, propKey) => (isObject$1(obj) || isFunction(obj)) && propKey in obj;
+  var isDOMRect = (obj) => isObject(obj) && ["height", "width", "right", "left", "top", "bottom"].every((p) => isNumber(obj[p]));
+  var hasProp = (obj, propKey) => (isObject(obj) || isFunction(obj)) && propKey in obj;
   var getId = ((i) => () => i++)(0);
   function getX(event) {
     return isTouchEvent(event) ? event.targetTouches[0].clientX : event.clientX;
@@ -2540,8 +2563,8 @@ This will fail in production.`
     if (typeof obj === "string") {
       return obj;
     }
-    const props = hasProp(obj, "props") && isObject$1(obj.props) ? obj.props : {};
-    const listeners = hasProp(obj, "listeners") && isObject$1(obj.listeners) ? obj.listeners : {};
+    const props = hasProp(obj, "props") && isObject(obj.props) ? obj.props : {};
+    const listeners = hasProp(obj, "listeners") && isObject(obj.listeners) ? obj.listeners : {};
     return { component: getVueComponentFromObj(obj), props, listeners };
   };
   var isBrowser = () => typeof window !== "undefined";
@@ -2725,7 +2748,7 @@ This will fail in production.`
     toastDefaults: Object,
     filterBeforeCreate: {
       type: Function,
-      default: (toast2) => toast2
+      default: (toast) => toast
     },
     filterToasts: {
       type: Function,
@@ -3291,13 +3314,13 @@ This will fail in production.`
       addToast(params) {
         params.content = normalizeToastComponent(params.content);
         const props = Object.assign({}, this.defaults, params.type && this.defaults.toastDefaults && this.defaults.toastDefaults[params.type], params);
-        const toast2 = this.defaults.filterBeforeCreate(props, this.toastArray);
-        toast2 && this.setToast(toast2);
+        const toast = this.defaults.filterBeforeCreate(props, this.toastArray);
+        toast && this.setToast(toast);
       },
       dismissToast(id) {
-        const toast2 = this.toasts[id];
-        if (!isUndefined(toast2) && !isUndefined(toast2.onClose)) {
-          toast2.onClose();
+        const toast = this.toasts[id];
+        if (!isUndefined(toast) && !isUndefined(toast.onClose)) {
+          toast.onClose();
         }
         delete this.toasts[id];
       },
@@ -3307,7 +3330,7 @@ This will fail in production.`
         });
       },
       getPositionToasts(position) {
-        const toasts = this.filteredToasts.filter((toast2) => toast2.position === position).slice(0, this.defaults.maxToasts);
+        const toasts = this.filteredToasts.filter((toast) => toast.position === position).slice(0, this.defaults.maxToasts);
         return this.defaults.newestOnTop ? toasts.reverse() : toasts;
       },
       updateDefaults(update) {
@@ -3347,10 +3370,10 @@ This will fail in production.`
             class: vue.normalizeClass(_ctx.getClasses(pos))
           }, {
             default: vue.withCtx(() => [
-              (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(_ctx.getPositionToasts(pos), (toast2) => {
+              (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(_ctx.getPositionToasts(pos), (toast) => {
                 return vue.openBlock(), vue.createBlock(_component_Toast, vue.mergeProps({
-                  key: toast2.id
-                }, toast2), null, 16);
+                  key: toast.id
+                }, toast), null, 16);
               }), 128))
             ]),
             _: 2
@@ -3385,18 +3408,18 @@ This will fail in production.`
         }
       });
     }
-    const toast2 = (content, options) => {
+    const toast = (content, options) => {
       const props = Object.assign({}, { id: getId(), type: TYPE.DEFAULT }, options, {
         content
       });
       events.emit(EVENTS.ADD, props);
       return props.id;
     };
-    toast2.clear = () => events.emit(EVENTS.CLEAR, void 0);
-    toast2.updateDefaults = (update) => {
+    toast.clear = () => events.emit(EVENTS.CLEAR, void 0);
+    toast.updateDefaults = (update) => {
       events.emit(EVENTS.UPDATE_DEFAULTS, update);
     };
-    toast2.dismiss = (id) => {
+    toast.dismiss = (id) => {
       events.emit(EVENTS.DISMISS, id);
     };
     function updateToast(id, { content, options }, create = false) {
@@ -3407,18 +3430,18 @@ This will fail in production.`
         create
       });
     }
-    toast2.update = updateToast;
-    toast2.success = (content, options) => toast2(content, Object.assign({}, options, { type: TYPE.SUCCESS }));
-    toast2.info = (content, options) => toast2(content, Object.assign({}, options, { type: TYPE.INFO }));
-    toast2.error = (content, options) => toast2(content, Object.assign({}, options, { type: TYPE.ERROR }));
-    toast2.warning = (content, options) => toast2(content, Object.assign({}, options, { type: TYPE.WARNING }));
-    return toast2;
+    toast.update = updateToast;
+    toast.success = (content, options) => toast(content, Object.assign({}, options, { type: TYPE.SUCCESS }));
+    toast.info = (content, options) => toast(content, Object.assign({}, options, { type: TYPE.INFO }));
+    toast.error = (content, options) => toast(content, Object.assign({}, options, { type: TYPE.ERROR }));
+    toast.warning = (content, options) => toast(content, Object.assign({}, options, { type: TYPE.WARNING }));
+    return toast;
   };
   var createMockToastInterface = () => {
-    const toast2 = () => console.warn(`[${VT_NAMESPACE}] This plugin does not support SSR!`);
-    return new Proxy(toast2, {
+    const toast = () => console.warn(`[${VT_NAMESPACE}] This plugin does not support SSR!`);
+    return new Proxy(toast, {
       get() {
-        return toast2;
+        return toast;
       }
     });
   };
@@ -3443,8 +3466,8 @@ This will fail in production.`
     App.provide(toastInjectionKey, inter);
   };
   var useToast = (eventBus) => {
-    const toast2 = vue.getCurrentInstance() ? vue.inject(toastInjectionKey, void 0) : void 0;
-    return toast2 ? toast2 : createToastInterface(globalEventBus);
+    const toast = vue.getCurrentInstance() ? vue.inject(toastInjectionKey, void 0) : void 0;
+    return toast ? toast : createToastInterface(globalEventBus);
   };
   var src_default = VueToastificationPlugin;
   const indexCss = ".Vue-Toastification__container{z-index:9999;position:fixed;padding:4px;width:600px;box-sizing:border-box;display:flex;min-height:100%;color:#fff;flex-direction:column;pointer-events:none}@media only screen and (min-width:600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:1em;flex-direction:column-reverse}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not (-moz-appearance: none){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{left:50%;margin-left:-300px}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (max-width:600px){.Vue-Toastification__container{width:100vw;padding:0;left:0;margin:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{bottom:0;flex-direction:column-reverse}}.Vue-Toastification__toast{display:inline-flex;position:relative;max-height:800px;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:22px 24px;border-radius:8px;box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d;justify-content:space-between;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;max-width:600px;min-width:326px;pointer-events:auto;overflow:hidden;transform:translateZ(0);direction:ltr}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{background-color:#1976d2;color:#fff}.Vue-Toastification__toast--info{background-color:#2196f3;color:#fff}.Vue-Toastification__toast--success{background-color:#4caf50;color:#fff}.Vue-Toastification__toast--error{background-color:#ff5252;color:#fff}.Vue-Toastification__toast--warning{background-color:#ffc107;color:#fff}@media only screen and (max-width:600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{flex:1;line-height:24px;font-size:16px;word-break:break-word;white-space:pre-wrap}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{font-weight:700;font-size:24px;line-height:24px;background:transparent;outline:none;border:none;padding:0 0 0 10px;cursor:pointer;transition:.3s ease;align-items:center;color:#fff;opacity:.3;transition:visibility 0s,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:10000;background-color:#ffffffb3;transform-origin:left;animation:scale-x-frames linear 1 forwards}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:right}.Vue-Toastification__icon{margin:auto 18px auto 0;background:transparent;outline:none;border:none;padding:0;transition:.3s ease;align-items:center;width:20px;height:100%}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(1000px,0,0)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes fadeOutTop{0%{transform:translateY(0);opacity:1}to{transform:translateY(-50px);opacity:0}}@keyframes fadeOutLeft{0%{transform:translate(0);opacity:1}to{transform:translate(-50px);opacity:0}}@keyframes fadeOutBottom{0%{transform:translateY(0);opacity:1}to{transform:translateY(50px);opacity:0}}@keyframes fadeOutRight{0%{transform:translate(0);opacity:1}to{transform:translate(50px);opacity:0}}@keyframes fadeInLeft{0%{transform:translate(-50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInRight{0%{transform:translate(50px);opacity:0}to{transform:translate(0);opacity:1}}@keyframes fadeInTop{0%{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes fadeInBottom{0%{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}@keyframes slideInBlurredLeft{0%{transform:translate(-1000px) scaleX(2.5) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredTop{0%{transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredRight{0%{transform:translate(1000px) scaleX(2.5) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}to{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideInBlurredBottom{0%{transform:translateY(1000px) scaleY(2.5) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}to{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}}@keyframes slideOutBlurredTop{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 0%;filter:blur(0);opacity:1}to{transform:translateY(-1000px) scaleY(2) scaleX(.2);transform-origin:50% 0%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredBottom{0%{transform:translateY(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translateY(1000px) scaleY(2) scaleX(.2);transform-origin:50% 100%;filter:blur(240px);opacity:0}}@keyframes slideOutBlurredLeft{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(-1000px) scaleX(2) scaleY(.2);transform-origin:100% 50%;filter:blur(40px);opacity:0}}@keyframes slideOutBlurredRight{0%{transform:translate(0) scaleY(1) scaleX(1);transform-origin:50% 50%;filter:blur(0);opacity:1}to{transform:translate(1000px) scaleX(2) scaleY(.2);transform-origin:0% 50%;filter:blur(40px);opacity:0}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-timing-function:ease-in-out;transition-property:all;transition-duration:.4s}";
@@ -3457,30 +3480,6 @@ This will fail in production.`
   var _GM_setValue = (() => typeof GM_setValue != "undefined" ? GM_setValue : void 0)();
   var _GM_xmlhttpRequest = (() => typeof GM_xmlhttpRequest != "undefined" ? GM_xmlhttpRequest : void 0)();
   var _unsafeWindow = (() => typeof unsafeWindow != "undefined" ? unsafeWindow : void 0)();
-  var GMKey = ((GMKey2) => {
-    GMKey2["InfiniteScroll"] = "InfiniteScroll";
-    GMKey2["ScrollByRow"] = "ScrollByRow";
-    GMKey2["ArchiveButton"] = "archiveButton";
-    GMKey2["Highlight"] = "Highlight";
-    GMKey2["BetterPopup"] = "BetterPopup";
-    GMKey2["QuickArchiveDownloadMethod"] = "QuickDownloadMethod";
-    GMKey2["QuickTorrentDownload"] = "QuickTorrentDownload";
-    GMKey2["LoadAllGalleryImages"] = "LoadAllGalleryImages";
-    GMKey2["MultipageViewerEnhancer"] = "MultipageViewerEnhancer";
-    GMKey2["AutoRedirect"] = "AutoRedirect";
-    GMKey2["PreventImageRemoval"] = "PreventImageRemoval";
-    GMKey2["ChangePageByWheelAnyWhereSwitch"] = "ChangePageByWheelAnyWhere";
-    GMKey2["Magnifier"] = "Magnifier";
-    GMKey2["MagnifierActivationButton"] = "MagnifierActivationButton";
-    GMKey2["MagnifierToggleMode"] = "MagnifierToggleMode";
-    GMKey2["MagnifierDefaultScale"] = "MagnifierDefaultScale";
-    GMKey2["MagnifierScaleStep"] = "MagnifierScaleStep";
-    GMKey2["MagnifierLongPressThreshold"] = "MagnifierLongPressThreshold";
-    GMKey2["MagnifierSensitivityX"] = "MagnifierSensitivityX";
-    GMKey2["MagnifierSensitivityY"] = "MagnifierSensitivityY";
-    GMKey2["ShowJapaneseTitle"] = "ShowJapaneseTitle";
-    return GMKey2;
-  })(GMKey || {});
   var ArchiveDownloadMethod = ((ArchiveDownloadMethod2) => {
     ArchiveDownloadMethod2["Manual"] = "Manual";
     ArchiveDownloadMethod2["HaH_Original"] = "download Original Resolution with H@H";
@@ -3512,27 +3511,33 @@ This will fail in production.`
       this._value = await _GM.getValue(this._key, this._value);
     }
   }
-  const infiniteScrollSwitch = vue.reactive(new GMVariable(GMKey.InfiniteScroll, true));
-  const archiveButtonSwitch = vue.reactive(new GMVariable(GMKey.ArchiveButton, true));
-  const highlightSwitch = vue.reactive(new GMVariable(GMKey.Highlight, true));
-  const scrollByRowSwitch = vue.reactive(new GMVariable(GMKey.ScrollByRow, true));
-  const betterPopupSwitch = vue.reactive(new GMVariable(GMKey.BetterPopup, true));
-  const quickArchiveDownloadMethod = vue.reactive(new GMVariable(GMKey.QuickArchiveDownloadMethod, ArchiveDownloadMethod.Manual));
-  const quickTorrentDownloadSwitch = vue.reactive(new GMVariable(GMKey.QuickTorrentDownload, false));
-  const loadAllGalleryImagesSwitch = vue.reactive(new GMVariable(GMKey.LoadAllGalleryImages, true));
-  const multipageViewerEnhancerSwitch = vue.reactive(new GMVariable(GMKey.MultipageViewerEnhancer, true));
-  const autoRedirectSwitch = vue.reactive(new GMVariable(GMKey.AutoRedirect, false));
-  const preventImageRemovalSwitch = vue.reactive(new GMVariable(GMKey.PreventImageRemoval, false));
-  const changePageByWheelAnyWhereSwitch = vue.reactive(new GMVariable(GMKey.ChangePageByWheelAnyWhereSwitch, false));
-  const magnifierSwitch = vue.reactive(new GMVariable(GMKey.Magnifier, true));
-  const magnifierActivationButton = vue.reactive(new GMVariable(GMKey.MagnifierActivationButton, MouseButton.Left));
-  const magnifierToggleMode = vue.reactive(new GMVariable(GMKey.MagnifierToggleMode, true));
-  const magnifierDefaultScale = vue.reactive(new GMVariable(GMKey.MagnifierDefaultScale, 1.5));
-  const magnifierScaleStep = vue.reactive(new GMVariable(GMKey.MagnifierScaleStep, 0.1));
-  const magnifierLongPressThreshold = vue.reactive(new GMVariable(GMKey.MagnifierLongPressThreshold, 200));
-  const magnifierSensitivityX = vue.reactive(new GMVariable(GMKey.MagnifierSensitivityX, 2));
-  const magnifierSensitivityY = vue.reactive(new GMVariable(GMKey.MagnifierSensitivityY, 2));
-  const showJapaneseTitle = vue.reactive(new GMVariable(GMKey.ShowJapaneseTitle, true));
+  const infiniteScrollSwitch = vue.reactive(new GMVariable("InfiniteScroll", true));
+  const archiveButtonSwitch = vue.reactive(new GMVariable("archiveButton", true));
+  const highlightSwitch = vue.reactive(new GMVariable("Highlight", true));
+  const scrollByRowSwitch = vue.reactive(new GMVariable("ScrollByRow", true));
+  const betterPopupSwitch = vue.reactive(new GMVariable("BetterPopup", true));
+  const quickArchiveDownloadMethod = vue.reactive(new GMVariable(
+    "QuickDownloadMethod",
+    "Manual"
+));
+  const quickTorrentDownloadSwitch = vue.reactive(new GMVariable("QuickTorrentDownload", false));
+  const loadAllGalleryImagesSwitch = vue.reactive(new GMVariable("LoadAllGalleryImages", true));
+  const multipageViewerEnhancerSwitch = vue.reactive(new GMVariable("MultipageViewerEnhancer", true));
+  const autoRedirectSwitch = vue.reactive(new GMVariable("AutoRedirect", false));
+  const preventImageRemovalSwitch = vue.reactive(new GMVariable("PreventImageRemoval", false));
+  const changePageByWheelAnyWhereSwitch = vue.reactive(new GMVariable("ChangePageByWheelAnyWhere", false));
+  const magnifierSwitch = vue.reactive(new GMVariable("Magnifier", true));
+  const magnifierActivationButton = vue.reactive(new GMVariable(
+    "MagnifierActivationButton",
+    "left"
+));
+  const magnifierToggleMode = vue.reactive(new GMVariable("MagnifierToggleMode", true));
+  const magnifierDefaultScale = vue.reactive(new GMVariable("MagnifierDefaultScale", 1.5));
+  const magnifierScaleStep = vue.reactive(new GMVariable("MagnifierScaleStep", 0.1));
+  const magnifierLongPressThreshold = vue.reactive(new GMVariable("MagnifierLongPressThreshold", 200));
+  const magnifierSensitivityX = vue.reactive(new GMVariable("MagnifierSensitivityX", 2));
+  const magnifierSensitivityY = vue.reactive(new GMVariable("MagnifierSensitivityY", 2));
+  const showJapaneseTitle = vue.reactive(new GMVariable("ShowJapaneseTitle", true));
   async function initializeMonkeySwitches() {
     await Promise.all([
       infiniteScrollSwitch.initialize(),
@@ -3561,11 +3566,11 @@ This will fail in production.`
   function delay2(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
-  function getElement(selector, root2 = document) {
-    return root2.querySelector(selector);
+  function getElement(selector, root = document) {
+    return root.querySelector(selector);
   }
-  function getElements(selector, root2 = document) {
-    return root2.querySelectorAll(selector);
+  function getElements(selector, root = document) {
+    return root.querySelectorAll(selector);
   }
   async function getDoc(url, options) {
     const response = await fetch(url, options);
@@ -3581,7 +3586,7 @@ This will fail in production.`
       element.scrollTop = absolute;
     }
   }
-  function useWheelStep({
+  function setWheelStep({
     containerSelector,
     itemsSelector
   }) {
@@ -3705,35 +3710,24 @@ This will fail in production.`
       this._logger.error(message, error);
     }
   }
-  function useGalleryElements() {
-    const infoDiv = getElement(".gm");
-    const archiveLinkAnchor = getElement("#gd5 > p:nth-child(2) a");
-    const torrentLinkAnchor = getElement("#gd5 > p:nth-child(3) a");
-    const favoritesLinkAnchor = getElement("#favoritelink");
-    const favoritesLinkDiv = getElement("#gdf");
-    return {
-      infoDiv,
-      archiveLinkAnchor,
-      torrentLinkAnchor,
-      favoritesLinkAnchor,
-      favoritesLinkDiv
-    };
+  function getInfoDiv() {
+    return getElement(".gm");
   }
-  const torrentInnerHtml = vue.ref("");
-  const archiveInnerHtml = vue.ref("");
-  const favoriteInnerHtml = vue.ref("");
-  function useFetchPopups() {
-    const {
-      archiveLinkAnchor,
-      torrentLinkAnchor
-    } = useGalleryElements();
-    function getInnerHTMLs() {
-      return {
-        torrentInnerHtml,
-        archiveInnerHtml,
-        favoriteInnerHtml
-      };
-    }
+  function getArchiveLinkAnchor() {
+    return getElement("#gd5 > p:nth-child(2) a");
+  }
+  function getTorrentLinkAnchor() {
+    return getElement("#gd5 > p:nth-child(3) a");
+  }
+  function getFavoritesLinkAnchor() {
+    return getElement("#favoritelink");
+  }
+  function usePopups() {
+    const archiveLinkAnchor = getArchiveLinkAnchor();
+    const torrentLinkAnchor = getTorrentLinkAnchor();
+    const torrentInnerHtml = vue.ref("");
+    const archiveInnerHtml = vue.ref("");
+    const favoriteInnerHtml = vue.ref("");
     async function preloadLinks() {
       [
         archiveInnerHtml.value,
@@ -3754,10 +3748,19 @@ This will fail in production.`
         return "";
       }
       const doc = await getDoc(link);
-      const popupContent = getPopupContent(doc, "#torrentinfo > div:first-child");
+      const popupContent = getPopupContent(doc, "#torrentinfo");
       if (!popupContent) {
         logger.error("popup content not found.");
         return "";
+      }
+      const listContainer = popupContent.querySelector(":scope > div:first-child");
+      if (listContainer) {
+        listContainer.style.height = "auto";
+      }
+      const uploadSection = popupContent.querySelector(":scope > div:last-child");
+      if (uploadSection) {
+        uploadSection.style.margin = "0";
+        uploadSection.style.borderTop = "none";
       }
       logger.log("End");
       return popupContent.innerHTML;
@@ -3822,7 +3825,9 @@ This will fail in production.`
       return location.pathname.split("/")[3];
     }
     return {
-      getInnerHTMLs,
+      torrentInnerHtml,
+      archiveInnerHtml,
+      favoriteInnerHtml,
       preloadLinks,
       fetchTorrents,
       fetchArchive,
@@ -3900,39 +3905,43 @@ This will fail in production.`
     });
     return `${_unsafeWindow.location.origin}/archiver.php?gid=${id}&token=${token}&or=${galleryData.gmetadata[0].archiver_key}`;
   }
-  function useHighlight() {
-    const downloadedGalleriesIDs = _GM_getValue("downloaded-galleries-ids", []);
-    function setAsDownloaded(galleryID) {
-      if (!highlightSwitch.value) {
-        return;
-      }
-      highlight(galleryID);
-      downloadedGalleriesIDs.push(galleryID);
-      _GM_setValue("downloaded-galleries-ids", downloadedGalleriesIDs);
-    }
-    function highlight(galleryID) {
-      const galleryDiv = getElement(`div[gid="${galleryID}"]`);
-      if (galleryDiv) {
-        galleryDiv.style.backgroundColor = "black";
-      }
-    }
-    function highlightAll() {
-      if (!highlightSwitch.value) {
-        return;
-      }
-      downloadedGalleriesIDs.forEach(highlight);
-      _GM_addValueChangeListener("downloaded-galleries-ids", (_key, _oldValue, newValue) => {
-        newValue.forEach(highlight);
-      });
-    }
-    return {
-      highlightAll,
-      setAsDownloaded
-    };
+  const DOWNLOADED_GALLERIES_KEY = "downloaded-galleries-ids";
+  function watchDownloadedGalleries() {
+    _GM_addValueChangeListener(DOWNLOADED_GALLERIES_KEY, () => {
+      highlightDownloadedGalleries();
+    });
   }
-  const toast = useToast();
+  function highlightDownloadedGalleries() {
+    const downloadedGalleriesIDs = new Set(_GM_getValue(DOWNLOADED_GALLERIES_KEY, []));
+    const galleries = getElements(".gl1t");
+    if (!galleries) {
+      return;
+    }
+    [...galleries].map((gallery) => {
+      try {
+        const id = Number(gallery.querySelector("a")?.href.split("/")[4]);
+        if (downloadedGalleriesIDs.has(id)) {
+          return gallery;
+        }
+      } catch {
+        return null;
+      }
+      return null;
+    }).filter((gallery) => !!gallery).forEach((gallery) => {
+      gallery.style.backgroundColor = "black";
+    });
+  }
+  function setAsDownloaded(galleryID) {
+    if (!highlightSwitch.value) {
+      return;
+    }
+    const downloadedGalleriesIDs = _GM_getValue(DOWNLOADED_GALLERIES_KEY);
+    downloadedGalleriesIDs.push(galleryID);
+    _GM_setValue(DOWNLOADED_GALLERIES_KEY, [...new Set(downloadedGalleriesIDs)]);
+    highlightDownloadedGalleries();
+  }
   function useArchive() {
-    const { setAsDownloaded } = useHighlight();
+    const toast = useToast();
     function setHentaiAtHomeEvent() {
       const logger = new Logger("Hentai At Home Event");
       const hentaiAtHomeLinks = getElements(".popup--archive table td a");
@@ -4048,8 +4057,7 @@ This will fail in production.`
         window.location.href = downloadLink;
       }
     }
-    const { getInnerHTMLs } = useFetchPopups();
-    const { archiveInnerHtml: archiveInnerHtml2 } = getInnerHTMLs();
+    const { archiveInnerHtml } = usePopups();
     function setCancelArchiveEvent() {
       const logger = new Logger("Archive Event");
       const invalidateForm = getElement("#invalidate_form");
@@ -4075,7 +4083,7 @@ This will fail in production.`
           })
         }).then((res) => res.text()).then((text) => {
           const html = new DOMParser().parseFromString(text, "text/html");
-          archiveInnerHtml2.value = getElement("#db", html)?.innerHTML;
+          archiveInnerHtml.value = getElement("#db", html)?.innerHTML;
           setTimeout(() => {
             setDirectDownloadEvent();
           }, 0);
@@ -4122,17 +4130,20 @@ This will fail in production.`
   }
   const _hoisted_1$7 = ["innerHTML"];
   const _sfc_main$9 = vue.defineComponent({
-    __name: "FrontPageEnhancer",
+    __name: "GalleriesEnhancer",
     setup(__props) {
       if (scrollByRowSwitch.value) {
-        useWheelStep({
+        setWheelStep({
           containerSelector: ".itg.gld",
           itemsSelector: ".gl1t"
         });
       }
       if (infiniteScrollSwitch.value) {
         useInfiniteScroll({
-          onFetched: appendArchiveButtons
+          onFetched: () => {
+            appendArchiveButtons();
+            highlightDownloadedGalleries();
+          }
         });
       }
       function useInfiniteScroll({
@@ -4168,8 +4179,7 @@ This will fail in production.`
           intersectionObserver.observe(bottomPagination);
         }
       }
-      const { getInnerHTMLs, fetchArchive } = useFetchPopups();
-      const { archiveInnerHtml: archiveInnerHtml2 } = getInnerHTMLs();
+      const { archiveInnerHtml, fetchArchive } = usePopups();
       const archivePopup = vue.ref();
       const activeButton = vue.ref();
       async function appendArchiveButtons() {
@@ -4184,11 +4194,11 @@ This will fail in production.`
           button.title = "Show Archive";
           button.onclick = async () => {
             isArchivePopupShow.value = !isArchivePopupShow.value;
-            archiveInnerHtml2.value = "Fetching...";
+            archiveInnerHtml.value = "Fetching...";
             activeButton.value = button;
             const link = getElement("a", gallery);
             const archiveLink = await getArchiveLink(link.href);
-            archiveInnerHtml2.value = await fetchArchive(archiveLink);
+            archiveInnerHtml.value = await fetchArchive(archiveLink);
             setTimeout(() => {
               setArchiveEvent();
             }, 0);
@@ -4239,8 +4249,8 @@ marginRight: "-9999px"
           }
         }
       }
-      const { highlightAll } = useHighlight();
-      highlightAll();
+      highlightDownloadedGalleries();
+      watchDownloadedGalleries();
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createBlock(vue.unref(Ro), vue.mergeProps({
           modelValue: isArchivePopupShow.value,
@@ -4252,7 +4262,7 @@ marginRight: "-9999px"
               ref: archivePopup,
               class: "popup popup--archive",
               style: vue.normalizeStyle(archivePopupPosition.value),
-              innerHTML: vue.unref(archiveInnerHtml2)
+              innerHTML: vue.unref(archiveInnerHtml)
             }, null, 12, _hoisted_1$7)
           ]),
           _: 1
@@ -4260,29 +4270,6 @@ marginRight: "-9999px"
       };
     }
   });
-  function usePositions() {
-    const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor, infoDiv } = useGalleryElements();
-    const archiveLinkRect = useElementBounding(archiveLinkAnchor);
-    const torrentLinkRect = useElementBounding(torrentLinkAnchor);
-    const favoriteLinkRect = useElementBounding(favoritesLinkAnchor);
-    function getDownloadPopupRight() {
-      return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2;
-    }
-    return {
-      archive: vue.computed(() => ({
-        top: `${archiveLinkRect.bottom.value + 5}px`,
-        right: `${getDownloadPopupRight()}px`
-      })),
-      torrent: vue.computed(() => ({
-        top: `${torrentLinkRect.bottom.value + 5}px`,
-        right: `${getDownloadPopupRight()}px`
-      })),
-      favorite: vue.computed(() => ({
-        top: `${favoriteLinkRect.bottom.value + 5}px`,
-        right: `${favoriteLinkRect.left.value}px`
-      }))
-    };
-  }
   const baseLogger = new Logger("Images");
   async function fetchAllImages({ delayInMs = 3e3 }) {
     const logger = new LoggerScopeDecorator(baseLogger, "Fetch All");
@@ -4329,19 +4316,19 @@ marginRight: "-9999px"
         logger.error("Get last page element failed");
         return;
       }
-      const pageCount2 = Number(lastPageElement.innerText);
-      if (pageCount2 === 1) {
+      const pageCount = Number(lastPageElement.innerText);
+      if (pageCount === 1) {
         return [];
       }
       const { href } = window.location;
-      return Array(pageCount2 - 1).fill("").map((_, index) => `${href}?p=${index + 1}`);
+      return Array(pageCount - 1).fill("").map((_, index) => `${href}?p=${index + 1}`);
     }
     function appendImages(elements) {
       getElement("#gdt")?.append(...elements);
     }
   }
-  function useFavorite(favoriteInnerHtml2) {
-    const { fetchFavorites, getFavoritesLink } = useFetchPopups();
+  function useFavorite(favoriteInnerHtml) {
+    const { fetchFavorites, getFavoritesLink } = usePopups();
     function setRequestEvents(target, popup, isPopupShow) {
       const submitButton = popup.value?.querySelector("[type=submit]");
       submitButton?.addEventListener("click", async (event) => {
@@ -4377,7 +4364,7 @@ marginRight: "-9999px"
         const script = originalScript?.replaceAll(".opener", "");
         Function(script)();
         isPopupShow.value = false;
-        favoriteInnerHtml2.value = await fetchFavorites();
+        favoriteInnerHtml.value = await fetchFavorites();
         await vue.nextTick();
         setRequestEvents(target, popup, isPopupShow);
       }
@@ -4386,7 +4373,7 @@ marginRight: "-9999px"
       setRequestEvents
     };
   }
-  function useTorrent() {
+  function useTorrent(torrentInnerHtml) {
     function downloadTorrent(popup) {
       getElement("a", popup.value)?.click();
     }
@@ -4436,10 +4423,149 @@ marginRight: "-9999px"
         insertionPoint.parentNode?.insertBefore(button, insertionPoint);
       });
     }
+    function setTorrentPopupEvents(popup, onContentChanged) {
+      if (!popup.value) return;
+      const logger = new Logger("Torrent Popup Events");
+      let cachedHtml = "";
+      bindListFormEvents();
+      async function fetchAndUpdate(url, params) {
+        const doc = await getDoc(url, { method: "POST", body: params });
+        const html = processInfoResponse(doc);
+        if (!html) {
+          logger.error("content not found in response.");
+          return false;
+        }
+        torrentInnerHtml.value = html;
+        return true;
+      }
+      function buildParams(form, submitter) {
+        const params = new URLSearchParams();
+        new FormData(form).forEach((value, key) => {
+          params.append(key, value);
+        });
+        if (submitter instanceof HTMLInputElement || submitter instanceof HTMLButtonElement) {
+          params.append(submitter.name, submitter.value);
+        }
+        return params;
+      }
+      function processInfoResponse(doc) {
+        const content = getElement("#torrentinfo", doc) || getElement(".stuffbox", doc);
+        if (!content) return null;
+        content.removeAttribute("style");
+        const styles = doc.querySelectorAll("head style");
+        let styleHtml = "";
+        styles.forEach((style) => {
+          styleHtml += style.outerHTML;
+        });
+        return styleHtml + content.innerHTML;
+      }
+      function bindListFormEvents() {
+        if (!popup.value) return;
+        const forms = popup.value.querySelectorAll("form");
+        forms.forEach((form) => {
+          if (form.enctype === "multipart/form-data") {
+            form.target = "_blank";
+            return;
+          }
+          form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const submitter = event.submitter;
+            if (!submitter) return;
+            const url = form.getAttribute("action");
+            if (!url) {
+              logger.error("form action not found.");
+              return;
+            }
+            cachedHtml = torrentInnerHtml.value;
+            try {
+              const success = await fetchAndUpdate(url, buildParams(form, submitter));
+              if (success) {
+                await vue.nextTick();
+                bindInfoPageEvents();
+              } else {
+                cachedHtml = "";
+              }
+            } catch (error) {
+              if (error instanceof Error) {
+                logger.error("failed to fetch torrent info.", error);
+              }
+              cachedHtml = "";
+            }
+          });
+        });
+      }
+      function bindInfoPageEvents() {
+        if (!popup.value) return;
+        const forms = popup.value.querySelectorAll("form:not(#expungeform)");
+        forms.forEach((form) => {
+          form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const submitter = event.submitter;
+            if (submitter instanceof HTMLInputElement && submitter.name === "list") {
+              const html = cachedHtml;
+              cachedHtml = "";
+              torrentInnerHtml.value = html;
+              await vue.nextTick();
+              onContentChanged();
+              bindListFormEvents();
+              return;
+            }
+            const url = form.getAttribute("action");
+            if (!url) return;
+            const success = await fetchAndUpdate(url, buildParams(form, submitter));
+            if (success) {
+              await vue.nextTick();
+              bindInfoPageEvents();
+            }
+          });
+        });
+        const expungeLink = popup.value.querySelector('[onclick*="expungeform"]');
+        if (expungeLink) {
+          const isDelete = expungeLink.textContent?.includes("Delete");
+          const message = isDelete ? "Are you sure you wish to delete this torrent? This action cannot be undone." : "Are you sure you wish to expunge this torrent? This action cannot be undone.";
+          expungeLink.removeAttribute("onclick");
+          expungeLink.addEventListener("click", async (event) => {
+            event.preventDefault();
+            if (!confirm(message)) return;
+            const form = popup.value?.querySelector("#expungeform");
+            const url = form?.getAttribute("action");
+            if (!form || !url) return;
+            const success = await fetchAndUpdate(url, buildParams(form));
+            if (success) {
+              await vue.nextTick();
+              bindInfoPageEvents();
+            }
+          });
+        }
+      }
+    }
     return {
       downloadTorrent,
       extractMagnetLink,
-      addMagnetCopyButtons
+      addMagnetCopyButtons,
+      setTorrentPopupEvents
+    };
+  }
+  function usePositions() {
+    const archiveLinkRect = useElementBounding(getArchiveLinkAnchor());
+    const torrentLinkRect = useElementBounding(getTorrentLinkAnchor());
+    const favoriteLinkRect = useElementBounding(getFavoritesLinkAnchor());
+    function getDownloadPopupRight() {
+      return (document.documentElement.clientWidth - getInfoDiv().clientWidth) / 2;
+    }
+    return {
+      archive: vue.computed(() => ({
+        top: `${archiveLinkRect.bottom.value + 5}px`,
+        right: `${getDownloadPopupRight()}px`
+      })),
+      torrent: vue.computed(() => ({
+        top: `${torrentLinkRect.bottom.value + 5}px`,
+        right: `${getDownloadPopupRight()}px`
+      })),
+      favorite: vue.computed(() => ({
+        top: `${favoriteLinkRect.bottom.value + 5}px`,
+        right: `${favoriteLinkRect.left.value}px`
+      }))
     };
   }
   const _hoisted_1$6 = ["innerHTML"];
@@ -4453,7 +4579,7 @@ marginRight: "-9999px"
         fetchAllImages({ delayInMs: 1e3 });
       }
       if (scrollByRowSwitch.value) {
-        useWheelStep({
+        setWheelStep({
           containerSelector: "#gdt",
           itemsSelector: "a"
         });
@@ -4465,16 +4591,18 @@ marginRight: "-9999px"
         contentTransition: "vfm-fade",
         lockScroll: false
       });
-      const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor } = useGalleryElements();
+      const archiveLinkAnchor = getArchiveLinkAnchor();
+      const torrentLinkAnchor = getTorrentLinkAnchor();
+      const favoritesLinkAnchor = getFavoritesLinkAnchor();
       const archivePopup = vue.ref();
       const torrentPopup = vue.ref();
       const favoritePopup = vue.ref();
-      const { getInnerHTMLs, preloadLinks } = useFetchPopups();
       const {
-        archiveInnerHtml: archiveInnerHtml2,
-        torrentInnerHtml: torrentInnerHtml2,
-        favoriteInnerHtml: favoriteInnerHtml2
-      } = getInnerHTMLs();
+        archiveInnerHtml,
+        torrentInnerHtml,
+        favoriteInnerHtml,
+        preloadLinks
+      } = usePopups();
       const isArchivePopupShow = vue.ref(false);
       const isTorrentPopupShow = vue.ref(false);
       const isFavoritePopupShow = vue.ref(false);
@@ -4484,8 +4612,8 @@ marginRight: "-9999px"
         favorite: favoritePosition
       } = usePositions();
       const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive();
-      const { downloadTorrent, addMagnetCopyButtons } = useTorrent();
-      const { setRequestEvents } = useFavorite(favoriteInnerHtml2);
+      const { downloadTorrent, addMagnetCopyButtons, setTorrentPopupEvents } = useTorrent(torrentInnerHtml);
+      const { setRequestEvents } = useFavorite(favoriteInnerHtml);
       if (betterPopupSwitch.value) {
         [__temp, __restore] = vue.withAsyncContext(() => preloadLinks()), await __temp, __restore();
         setTimeout(() => {
@@ -4513,19 +4641,22 @@ marginRight: "-9999px"
         });
         setReady(archiveLinkAnchor);
       }
-      const { setAsDownloaded } = useHighlight();
-      function setTorrentClickEvent() {
-        setRequestEvents(archiveLinkAnchor, favoritePopup, isFavoritePopupShow);
-        const isOnlyOneTorrent = torrentLinkAnchor.innerText.endsWith("(1)");
+      function setupTorrentPopupContent() {
         addMagnetCopyButtons(torrentPopup);
         const torrentDownloadLinks = getElements("a", torrentPopup.value);
         if (torrentDownloadLinks?.length) {
-          torrentDownloadLinks?.forEach((link) => {
+          torrentDownloadLinks.forEach((link) => {
             link.addEventListener("click", () => {
               setAsDownloaded(_unsafeWindow.gid);
             });
           });
         }
+      }
+      function setTorrentClickEvent() {
+        setRequestEvents(archiveLinkAnchor, favoritePopup, isFavoritePopupShow);
+        const isOnlyOneTorrent = torrentLinkAnchor.innerText.endsWith("(1)");
+        setupTorrentPopupContent();
+        setTorrentPopupEvents(torrentPopup, setupTorrentPopupContent);
         torrentLinkAnchor.addEventListener("click", (event) => {
           event.preventDefault();
           event.stopPropagation();
@@ -4564,7 +4695,7 @@ marginRight: "-9999px"
                 ref: archivePopup,
                 class: "popup popup--archive",
                 style: vue.normalizeStyle(vue.unref(archivePosition)),
-                innerHTML: vue.unref(archiveInnerHtml2)
+                innerHTML: vue.unref(archiveInnerHtml)
               }, null, 12, _hoisted_1$6)
             ]),
             _: 1
@@ -4579,7 +4710,7 @@ marginRight: "-9999px"
                 ref: torrentPopup,
                 class: "popup popup--torrent",
                 style: vue.normalizeStyle(vue.unref(torrentPosition)),
-                innerHTML: vue.unref(torrentInnerHtml2)
+                innerHTML: vue.unref(torrentInnerHtml)
               }, null, 12, _hoisted_2$3)
             ]),
             _: 1
@@ -4594,7 +4725,7 @@ marginRight: "-9999px"
                 ref: favoritePopup,
                 class: "popup",
                 style: vue.normalizeStyle(vue.unref(favoritePosition)),
-                innerHTML: vue.unref(favoriteInnerHtml2)
+                innerHTML: vue.unref(favoriteInnerHtml)
               }, null, 12, _hoisted_3$2)
             ]),
             _: 1
@@ -4603,24 +4734,24 @@ marginRight: "-9999px"
       };
     }
   });
-  function useMultiPageViewerElements() {
-    const paneOuterDiv = getElement("#pane_outer");
-    const paneImagesDiv2 = getElement("#pane_images");
-    const paneThumbsDiv2 = getElement("#pane_thumbs");
-    return {
-      paneOuterDiv,
-      paneImagesDiv: paneImagesDiv2,
-      paneThumbsDiv: paneThumbsDiv2
-    };
+  function getPaneOuterDiv() {
+    return getElement("#pane_outer");
   }
-  const { paneImagesDiv: paneImagesDiv$1 } = useMultiPageViewerElements();
-  const location$1 = useBrowserLocation();
-  const currentPage$1 = vue.ref(Number(location$1.value.hash?.replace("#page", "")) || 1);
-  function usePages() {
-    const pageCount2 = _unsafeWindow.pagecount;
+  function getPaneImagesDiv() {
+    return getElement("#pane_images");
+  }
+  function getPaneThumbsDiv() {
+    return getElement("#pane_thumbs");
+  }
+  const usePages = createSharedComposable(_usePages);
+  function _usePages() {
+    const paneImagesDiv = getPaneImagesDiv();
+    const location2 = useBrowserLocation();
+    const currentPage = vue.ref(Number(location2.value.hash?.replace("#page", "")) || 1);
+    const pageCount = _unsafeWindow.pagecount;
     function appendPageIndex() {
       const imageContainers = getElements(".mimg");
-      const pageCount22 = imageContainers.length;
+      const pageCount2 = imageContainers.length;
       const mutationObserver = new MutationObserver(([mutation]) => {
         const target = mutation.target;
         const index = target.id.split("image_")[1];
@@ -4629,52 +4760,52 @@ marginRight: "-9999px"
         if (!captionText || captionText?.includes(" ／ ")) {
           return;
         }
-        captionElement.innerText = `${captionText}　-　${index} ／ ${pageCount22}`;
+        captionElement.innerText = `${captionText}　-　${index} ／ ${pageCount2}`;
       });
       const config = { attributes: true };
       imageContainers.forEach((container) => {
         mutationObserver.observe(container, config);
       });
     }
-    function goToNextPage2() {
-      goToPageByOffset2(1);
+    function goToNextPage() {
+      goToPageByOffset(1);
     }
-    function goToPrevPage2() {
-      goToPageByOffset2(-1);
+    function goToPrevPage() {
+      goToPageByOffset(-1);
     }
     function goToCurrentPage() {
-      goToPage2(currentPage$1.value);
+      goToPage(currentPage.value);
     }
-    function goToPageByOffset2(offset) {
-      let index = currentPage$1.value + offset;
-      index = Math.min(index, pageCount2);
+    function goToPageByOffset(offset) {
+      let index = currentPage.value + offset;
+      index = Math.min(index, pageCount);
       index = Math.max(index, 1);
-      goToPage2(index);
+      goToPage(index);
     }
-    function goToPage2(index) {
-      currentPage$1.value = index;
+    function goToPage(index) {
+      currentPage.value = index;
       const target = getElement(`#image_${index}`);
       target.scrollIntoView();
     }
     function scrollToImageTop() {
-      getCurrentImage2().scrollIntoView();
+      getCurrentImage().scrollIntoView();
     }
     function scrollToRelativePosition(relativeToViewport) {
-      const currentImage = getCurrentImage2();
+      const currentImage = getCurrentImage();
       const { height: imageHeight } = currentImage.getBoundingClientRect();
       const top = currentImage.offsetTop + relativeToViewport * imageHeight - window.innerHeight / 2 - 1;
-      paneImagesDiv$1.scrollTo({ top });
+      paneImagesDiv.scrollTo({ top });
     }
-    function getRelativeToViewport2() {
-      const currentImage = getCurrentImage2();
+    function getRelativeToViewport() {
+      const currentImage = getCurrentImage();
       if (!currentImage) {
         return null;
       }
       const { top: imageTop, height: imageHeight } = currentImage.getBoundingClientRect();
       return 1 - (imageHeight - 1 + imageTop - window.innerHeight / 2) / imageHeight;
     }
-    function scrollToProperPosition2(relativeToViewport, currentSize) {
-      const currentImage = getCurrentImage2();
+    function scrollToProperPosition(relativeToViewport, currentSize) {
+      const currentImage = getCurrentImage();
       if (currentSize === 100) {
         scrollToImageTop();
       } else {
@@ -4686,18 +4817,18 @@ marginRight: "-9999px"
     }
     function changePageOnWheel(event) {
       if (event.deltaY < 0) {
-        goToPrevPage2();
+        goToPrevPage();
       } else {
-        goToNextPage2();
+        goToNextPage();
       }
     }
     function setPreloadImagesEvent() {
-      paneImagesDiv$1.onscroll = () => {
+      paneImagesDiv.onscroll = () => {
         _unsafeWindow.preload_scroll_images();
       };
     }
-    function getCurrentImage2() {
-      return getElement(`img[id^=imgsrc_${currentPage$1.value}]`);
+    function getCurrentImage() {
+      return getElement(`img[id^=imgsrc_${currentPage.value}]`);
     }
     function syncCurrentImageOnScroll() {
       const imageContainers = getElements(".mimg");
@@ -4708,7 +4839,7 @@ marginRight: "-9999px"
       imageContainers.forEach((container) => {
         observer.observe(container);
       });
-      paneImagesDiv$1.addEventListener("scroll", () => {
+      paneImagesDiv.addEventListener("scroll", () => {
         const visibleImageContainers = [];
         for (let index = Math.max(firstIntersectingIndex - 1, 1); index < imageContainers.length; index++) {
           const percentage = getVisiblePercentageInViewport(imageContainers[index - 1]);
@@ -4723,12 +4854,12 @@ marginRight: "-9999px"
         if (visibleImageContainers.length === 0) {
           return;
         } else if (visibleImageContainers.length === 1) {
-          currentPage$1.value = visibleImageContainers[0].index;
+          currentPage.value = visibleImageContainers[0].index;
         } else {
           visibleImageContainers.sort((elem1, elem2) => elem2.percentage - elem1.percentage);
           const [largest, secondLargest] = visibleImageContainers;
           if (largest.percentage / secondLargest.percentage >= 2) {
-            currentPage$1.value = largest.index;
+            currentPage.value = largest.index;
           }
         }
       });
@@ -4745,221 +4876,98 @@ marginRight: "-9999px"
     }
     return {
       appendPageIndex,
-      pageCount: pageCount2,
-      currentPage: currentPage$1,
-      getCurrentImage: getCurrentImage2,
-      goToNextPage: goToNextPage2,
-      goToPrevPage: goToPrevPage2,
-      goToPageByOffset: goToPageByOffset2,
-      goToPage: goToPage2,
+      pageCount,
+      currentPage,
+      getCurrentImage,
+      goToNextPage,
+      goToPrevPage,
+      goToPageByOffset,
+      goToPage,
       goToCurrentPage,
       scrollToImageTop,
       scrollToRelativePosition,
-      getRelativeToViewport: getRelativeToViewport2,
-      scrollToProperPosition: scrollToProperPosition2,
+      getRelativeToViewport,
+      scrollToProperPosition,
       changePageOnWheel,
       syncCurrentImageOnScroll,
       setPreloadImagesEvent
     };
   }
-  var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
-  var freeSelf = typeof self == "object" && self && self.Object === Object && self;
-  var root = freeGlobal || freeSelf || Function("return this")();
-  var Symbol$1 = root.Symbol;
-  var objectProto$1 = Object.prototype;
-  var hasOwnProperty = objectProto$1.hasOwnProperty;
-  var nativeObjectToString$1 = objectProto$1.toString;
-  var symToStringTag$1 = Symbol$1 ? Symbol$1.toStringTag : void 0;
-  function getRawTag(value) {
-    var isOwn = hasOwnProperty.call(value, symToStringTag$1), tag = value[symToStringTag$1];
-    try {
-      value[symToStringTag$1] = void 0;
-      var unmasked = true;
-    } catch (e) {
-    }
-    var result = nativeObjectToString$1.call(value);
-    if (unmasked) {
-      if (isOwn) {
-        value[symToStringTag$1] = tag;
-      } else {
-        delete value[symToStringTag$1];
+  function debounce(func, debounceMs, { signal, edges } = {}) {
+    let pendingThis = void 0;
+    let pendingArgs = null;
+    const leading = edges != null && edges.includes("leading");
+    const trailing = edges == null || edges.includes("trailing");
+    const invoke = () => {
+      if (pendingArgs !== null) {
+        func.apply(pendingThis, pendingArgs);
+        pendingThis = void 0;
+        pendingArgs = null;
       }
-    }
-    return result;
-  }
-  var objectProto = Object.prototype;
-  var nativeObjectToString = objectProto.toString;
-  function objectToString(value) {
-    return nativeObjectToString.call(value);
-  }
-  var nullTag = "[object Null]", undefinedTag = "[object Undefined]";
-  var symToStringTag = Symbol$1 ? Symbol$1.toStringTag : void 0;
-  function baseGetTag(value) {
-    if (value == null) {
-      return value === void 0 ? undefinedTag : nullTag;
-    }
-    return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
-  }
-  function isObjectLike(value) {
-    return value != null && typeof value == "object";
-  }
-  var symbolTag = "[object Symbol]";
-  function isSymbol(value) {
-    return typeof value == "symbol" || isObjectLike(value) && baseGetTag(value) == symbolTag;
-  }
-  var reWhitespace = /\s/;
-  function trimmedEndIndex(string) {
-    var index = string.length;
-    while (index-- && reWhitespace.test(string.charAt(index))) {
-    }
-    return index;
-  }
-  var reTrimStart = /^\s+/;
-  function baseTrim(string) {
-    return string ? string.slice(0, trimmedEndIndex(string) + 1).replace(reTrimStart, "") : string;
-  }
-  function isObject(value) {
-    var type = typeof value;
-    return value != null && (type == "object" || type == "function");
-  }
-  var NAN = 0 / 0;
-  var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
-  var reIsBinary = /^0b[01]+$/i;
-  var reIsOctal = /^0o[0-7]+$/i;
-  var freeParseInt = parseInt;
-  function toNumber(value) {
-    if (typeof value == "number") {
-      return value;
-    }
-    if (isSymbol(value)) {
-      return NAN;
-    }
-    if (isObject(value)) {
-      var other = typeof value.valueOf == "function" ? value.valueOf() : value;
-      value = isObject(other) ? other + "" : other;
-    }
-    if (typeof value != "string") {
-      return value === 0 ? value : +value;
-    }
-    value = baseTrim(value);
-    var isBinary = reIsBinary.test(value);
-    return isBinary || reIsOctal.test(value) ? freeParseInt(value.slice(2), isBinary ? 2 : 8) : reIsBadHex.test(value) ? NAN : +value;
-  }
-  var now = function() {
-    return root.Date.now();
-  };
-  var FUNC_ERROR_TEXT = "Expected a function";
-  var nativeMax = Math.max, nativeMin = Math.min;
-  function debounce(func, wait, options) {
-    var lastArgs, lastThis, maxWait, result, timerId, lastCallTime, lastInvokeTime = 0, leading = false, maxing = false, trailing = true;
-    if (typeof func != "function") {
-      throw new TypeError(FUNC_ERROR_TEXT);
-    }
-    wait = toNumber(wait) || 0;
-    if (isObject(options)) {
-      leading = !!options.leading;
-      maxing = "maxWait" in options;
-      maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
-      trailing = "trailing" in options ? !!options.trailing : trailing;
-    }
-    function invokeFunc(time) {
-      var args = lastArgs, thisArg = lastThis;
-      lastArgs = lastThis = void 0;
-      lastInvokeTime = time;
-      result = func.apply(thisArg, args);
-      return result;
-    }
-    function leadingEdge(time) {
-      lastInvokeTime = time;
-      timerId = setTimeout(timerExpired, wait);
-      return leading ? invokeFunc(time) : result;
-    }
-    function remainingWait(time) {
-      var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime, timeWaiting = wait - timeSinceLastCall;
-      return maxing ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
-    }
-    function shouldInvoke(time) {
-      var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime;
-      return lastCallTime === void 0 || timeSinceLastCall >= wait || timeSinceLastCall < 0 || maxing && timeSinceLastInvoke >= maxWait;
-    }
-    function timerExpired() {
-      var time = now();
-      if (shouldInvoke(time)) {
-        return trailingEdge(time);
+    };
+    const onTimerEnd = () => {
+      if (trailing) {
+        invoke();
       }
-      timerId = setTimeout(timerExpired, remainingWait(time));
-    }
-    function trailingEdge(time) {
-      timerId = void 0;
-      if (trailing && lastArgs) {
-        return invokeFunc(time);
+      cancel();
+    };
+    let timeoutId = null;
+    const schedule = () => {
+      if (timeoutId != null) {
+        clearTimeout(timeoutId);
       }
-      lastArgs = lastThis = void 0;
-      return result;
-    }
-    function cancel() {
-      if (timerId !== void 0) {
-        clearTimeout(timerId);
+      timeoutId = setTimeout(() => {
+        timeoutId = null;
+        onTimerEnd();
+      }, debounceMs);
+    };
+    const cancelTimer = () => {
+      if (timeoutId !== null) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
       }
-      lastInvokeTime = 0;
-      lastArgs = lastCallTime = lastThis = timerId = void 0;
-    }
-    function flush() {
-      return timerId === void 0 ? result : trailingEdge(now());
-    }
-    function debounced() {
-      var time = now(), isInvoking = shouldInvoke(time);
-      lastArgs = arguments;
-      lastThis = this;
-      lastCallTime = time;
-      if (isInvoking) {
-        if (timerId === void 0) {
-          return leadingEdge(lastCallTime);
-        }
-        if (maxing) {
-          clearTimeout(timerId);
-          timerId = setTimeout(timerExpired, wait);
-          return invokeFunc(lastCallTime);
-        }
+    };
+    const cancel = () => {
+      cancelTimer();
+      pendingThis = void 0;
+      pendingArgs = null;
+    };
+    const flush = () => {
+      invoke();
+    };
+    const debounced = function(...args) {
+      if (signal?.aborted) {
+        return;
       }
-      if (timerId === void 0) {
-        timerId = setTimeout(timerExpired, wait);
+      pendingThis = this;
+      pendingArgs = args;
+      const isFirstCall = timeoutId == null;
+      schedule();
+      if (leading && isFirstCall) {
+        invoke();
       }
-      return result;
-    }
+    };
+    debounced.schedule = schedule;
     debounced.cancel = cancel;
     debounced.flush = flush;
+    signal?.addEventListener("abort", cancel, { once: true });
     return debounced;
   }
-  const {
-    pageCount,
-    currentPage,
-    getCurrentImage,
-    goToPage,
-    goToPageByOffset,
-    goToNextPage,
-    goToPrevPage,
-    getRelativeToViewport,
-    scrollToProperPosition
-  } = usePages();
-  const {
-    paneImagesDiv,
-    paneThumbsDiv
-  } = useMultiPageViewerElements();
-  setReflowTrigger();
-  function setReflowTrigger() {
-    const observer = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            entry.target?.dispatchEvent(new CustomEvent("reflow"));
-          });
-        });
-      }
-    });
-    observer.observe(document.body);
-  }
-  function useEvents() {
+  const useEvents = createSharedComposable(_useEvents);
+  function _useEvents() {
+    const {
+      pageCount,
+      currentPage,
+      getCurrentImage,
+      goToPage,
+      goToPageByOffset,
+      goToNextPage,
+      goToPrevPage,
+      getRelativeToViewport,
+      scrollToProperPosition
+    } = usePages();
+    const paneImagesDiv = getPaneImagesDiv();
+    const paneThumbsDiv = getPaneThumbsDiv();
     function setKeyBoardEvent() {
       document.onkeydown = null;
       window.addEventListener("keydown", async (event) => {
@@ -5153,6 +5161,18 @@ marginRight: "-9999px"
       });
       await toggle();
     }
+    function setReflowTrigger() {
+      const observer = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              entry.target?.dispatchEvent(new CustomEvent("reflow"));
+            });
+          });
+        }
+      });
+      observer.observe(document.body);
+    }
     function rotate(degree) {
       const currentImage = getCurrentImage();
       const currentDegree = Number(currentImage.style.rotate.replace("deg", ""));
@@ -5170,7 +5190,8 @@ marginRight: "-9999px"
       setClickEvent,
       setShowCursorEvent,
       setHideCursorEvent,
-      setShowThumbsEvent
+      setShowThumbsEvent,
+      setReflowTrigger
     };
   }
   const _hoisted_1$5 = { class: "page-elevator" };
@@ -5180,25 +5201,25 @@ marginRight: "-9999px"
     __name: "PageElevator",
     setup(__props) {
       const {
-        pageCount: pageCount2,
-        currentPage: currentPage2,
-        goToPage: goToPage2
+        pageCount,
+        currentPage,
+        goToPage
       } = usePages();
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$5, [
           vue.createElementVNode("input", {
             type: "text",
             class: "page-elevator__input",
-            value: vue.unref(currentPage2),
+            value: vue.unref(currentPage),
             onKeydown: [
               _cache[0] || (_cache[0] = vue.withModifiers(() => {
               }, ["stop"])),
-              _cache[1] || (_cache[1] = vue.withKeys(($event) => vue.unref(goToPage2)(Number($event.target.value)), ["enter"]))
+              _cache[1] || (_cache[1] = vue.withKeys(($event) => vue.unref(goToPage)(Number($event.target.value)), ["enter"]))
             ]
           }, null, 40, _hoisted_2$2),
           _cache[2] || (_cache[2] = vue.createElementVNode("span", { class: "page-elevator__slash" }, "／", -1)),
           vue.createElementVNode("span", {
-            textContent: vue.toDisplayString(vue.unref(pageCount2))
+            textContent: vue.toDisplayString(vue.unref(pageCount))
           }, null, 8, _hoisted_3$1)
         ]);
       };
@@ -5211,7 +5232,7 @@ marginRight: "-9999px"
     }
     return target;
   };
-  const PageElevator = _export_sfc(_sfc_main$7, [["__scopeId", "data-v-1158b1f0"]]);
+  const PageElevator = _export_sfc(_sfc_main$7, [["__scopeId", "data-v-b87e2f8f"]]);
   const _hoisted_1$4 = { class: "image-resizer" };
   const _hoisted_2$1 = ["onClick", "textContent"];
   const _sfc_main$6 = vue.defineComponent({
@@ -5219,10 +5240,10 @@ marginRight: "-9999px"
     setup(__props) {
       const {
         goToCurrentPage,
-        getRelativeToViewport: getRelativeToViewport2,
-        scrollToProperPosition: scrollToProperPosition2
+        getRelativeToViewport,
+        scrollToProperPosition
       } = usePages();
-      const { paneImagesDiv: paneImagesDiv2 } = useMultiPageViewerElements();
+      const paneImagesDiv = getPaneImagesDiv();
       const {
         sizeList,
         currentIndex,
@@ -5249,23 +5270,23 @@ marginRight: "-9999px"
           return sizeList2[currentIndex2.value];
         });
         function onResizerClick2(index) {
-          const relativeToViewport = getRelativeToViewport2();
+          const relativeToViewport = getRelativeToViewport();
           if (index === currentIndex2.value) {
             clearImageSize();
           } else {
             setImageSize2(index);
           }
           if (relativeToViewport) {
-            scrollToProperPosition2(relativeToViewport);
+            scrollToProperPosition(relativeToViewport);
           }
         }
         function setImageSize2(index) {
           currentIndex2.value = index;
-          paneImagesDiv2.style.setProperty("--image-size", `${currentSize.value}vh`);
+          paneImagesDiv.style.setProperty("--image-size", `${currentSize.value}vh`);
         }
         function clearImageSize() {
           currentIndex2.value = -1;
-          paneImagesDiv2.style.removeProperty("--image-size");
+          paneImagesDiv.style.removeProperty("--image-size");
         }
         function increaseImageSize() {
           const index = Math.min(currentIndex2.value + 1, sizeList2.length - 1);
@@ -5277,7 +5298,7 @@ marginRight: "-9999px"
         }
         function setResizeShortcuts2() {
           window.addEventListener("keydown", (event) => {
-            const relativeToViewport = getRelativeToViewport2();
+            const relativeToViewport = getRelativeToViewport();
             const isCtrlPressed = event.ctrlKey;
             if (isCtrlPressed) {
               const regex = /Numpad(?<index>[1-5])/;
@@ -5319,7 +5340,7 @@ marginRight: "-9999px"
               }
             }
             if (relativeToViewport) {
-              scrollToProperPosition2(relativeToViewport, currentSize.value);
+              scrollToProperPosition(relativeToViewport, currentSize.value);
             }
           });
         }
@@ -5346,7 +5367,7 @@ marginRight: "-9999px"
       };
     }
   });
-  const ImageResizer = _export_sfc(_sfc_main$6, [["__scopeId", "data-v-45f67665"]]);
+  const ImageResizer = _export_sfc(_sfc_main$6, [["__scopeId", "data-v-fb83c8f5"]]);
   function useMagnifierGesture(config) {
     const isLeftPressed = vue.ref(false);
     const isRightPressed = vue.ref(false);
@@ -5392,7 +5413,7 @@ marginRight: "-9999px"
     };
   }
   function useMagnifierImageLoader(state) {
-    const { paneImagesDiv: paneImagesDiv2 } = useMultiPageViewerElements();
+    const paneImagesDiv = getPaneImagesDiv();
     const currentRequest = vue.ref(null);
     const currentObjectUrl = vue.ref(null);
     function cleanup() {
@@ -5453,7 +5474,7 @@ marginRight: "-9999px"
     }
     function findImageAtPosition(posY) {
       const mouseY = posY;
-      const images = paneImagesDiv2.querySelectorAll(".mimg > a > img");
+      const images = paneImagesDiv.querySelectorAll(".mimg > a > img");
       if (!images.length) {
         return;
       }
@@ -5476,10 +5497,10 @@ marginRight: "-9999px"
     };
   }
   function useMagnifierEvents(state, config) {
-    const { paneImagesDiv: paneImagesDiv2 } = useMultiPageViewerElements();
+    const paneImagesDiv = getPaneImagesDiv();
     const gesture = useMagnifierGesture(config);
     const imageLoader = useMagnifierImageLoader(state);
-    const navigation = useMagnifierNavigation(state, config);
+    const navigation = createNavigation(state, config);
     const isWaitingForToggleEnd = vue.ref(false);
     function handlePress(e) {
       e.preventDefault();
@@ -5547,7 +5568,7 @@ marginRight: "-9999px"
       state.scale = config.scale.default;
       if (state.currentImage) {
         navigation.updatePosition(e);
-        paneImagesDiv2.dataset.magnifierActive = "true";
+        paneImagesDiv.dataset.magnifierActive = "true";
         document.body.classList.add("hide-cursor");
         const style = document.createElement("style");
         style.id = "magnifier-style";
@@ -5563,7 +5584,7 @@ marginRight: "-9999px"
     }
     function deactivateMagnifier() {
       imageLoader.cleanup();
-      delete paneImagesDiv2.dataset.magnifierActive;
+      delete paneImagesDiv.dataset.magnifierActive;
       state.currentImage = null;
       state.isOriginalMode = false;
       state.isLoadingOriginal = false;
@@ -5593,22 +5614,22 @@ marginRight: "-9999px"
       }
     }
     function bindEvents() {
-      paneImagesDiv2.addEventListener("mousedown", handleMouseDown);
+      paneImagesDiv.addEventListener("mousedown", handleMouseDown);
       window.addEventListener("mouseup", handleRelease);
       window.addEventListener("mousemove", navigation.updatePosition);
       const preventDefaultEvents = ["mousedown", "click", "contextmenu"];
       preventDefaultEvents.forEach((eventName) => {
-        paneImagesDiv2.addEventListener(eventName, preventDefaultHandler, { capture: true });
+        paneImagesDiv.addEventListener(eventName, preventDefaultHandler, { capture: true });
       });
     }
     function unbindEvents() {
       imageLoader.cleanup();
-      paneImagesDiv2.removeEventListener("mousedown", handleMouseDown);
+      paneImagesDiv.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleRelease);
       window.removeEventListener("mousemove", navigation.updatePosition);
       const preventDefaultEvents = ["mousedown", "click", "contextmenu"];
       preventDefaultEvents.forEach((eventName) => {
-        paneImagesDiv2.removeEventListener(eventName, preventDefaultHandler, { capture: true });
+        paneImagesDiv.removeEventListener(eventName, preventDefaultHandler, { capture: true });
       });
     }
     return {
@@ -5617,7 +5638,7 @@ marginRight: "-9999px"
       handleWheel
     };
   }
-  function useMagnifierNavigation(state, config) {
+  function createNavigation(state, config) {
     function updatePosition(e) {
       if (!state.isActive) {
         return;
@@ -5652,7 +5673,7 @@ marginRight: "-9999px"
     };
   }
   function useMagnifierStyle(state, config) {
-    const { paneImagesDiv: paneImagesDiv2 } = useMultiPageViewerElements();
+    const paneImagesDiv = getPaneImagesDiv();
     const contentStyle = vue.computed(() => {
       if (!state.currentImage) {
         return {};
@@ -5695,7 +5716,7 @@ marginRight: "-9999px"
       };
     }
     function getImageSizeScale() {
-      const imageSizeStyle = getComputedStyle(paneImagesDiv2).getPropertyValue("--image-size");
+      const imageSizeStyle = getComputedStyle(paneImagesDiv).getPropertyValue("--image-size");
       return imageSizeStyle ? parseInt(imageSizeStyle) / 100 : 1;
     }
     function getNormalizedRect(imgRect) {
@@ -5820,13 +5841,13 @@ marginRight: "-9999px"
       };
     }
   });
-  const ImageMagnifier = _export_sfc(_sfc_main$5, [["__scopeId", "data-v-6974c205"]]);
+  const ImageMagnifier = _export_sfc(_sfc_main$5, [["__scopeId", "data-v-ba829bde"]]);
   const _hoisted_1$3 = ["innerHTML"];
   const _sfc_main$4 = vue.defineComponent({
     __name: "MultiPageViewerEnhancer",
     setup(__props) {
       const {
-        currentPage: currentPage2,
+        currentPage,
         appendPageIndex,
         changePageOnWheel,
         setPreloadImagesEvent,
@@ -5837,7 +5858,8 @@ marginRight: "-9999px"
         setClickEvent,
         setShowCursorEvent,
         setHideCursorEvent,
-        setShowThumbsEvent
+        setShowThumbsEvent,
+        setReflowTrigger
       } = useEvents();
       appendPageIndex();
       setPreloadImagesEvent();
@@ -5847,17 +5869,16 @@ marginRight: "-9999px"
       setShowCursorEvent();
       setHideCursorEvent();
       setShowThumbsEvent();
-      useWheelStep({
+      setReflowTrigger();
+      setWheelStep({
         containerSelector: "#pane_thumbs",
         itemsSelector: "[id^=thumb_]"
       });
       if (changePageByWheelAnyWhereSwitch.value) {
-        const {
-          paneOuterDiv,
-          paneImagesDiv: paneImagesDiv2
-        } = useMultiPageViewerElements();
+        const paneImagesDiv = getPaneImagesDiv();
+        const paneOuterDiv = getPaneOuterDiv();
         paneOuterDiv.addEventListener("mousewheel", changePageOnWheel);
-        paneImagesDiv2.addEventListener("mousewheel", changePageOnWheel);
+        paneImagesDiv.addEventListener("mousewheel", changePageOnWheel);
       }
       const exhentaiButtons = vue.ref("");
       vue.onMounted(() => {
@@ -5894,7 +5915,7 @@ marginRight: "-9999px"
       }
     `);
         }, { immediate: true });
-        vue.watch(currentPage2, (index) => {
+        vue.watch(currentPage, (index) => {
           getElement(`#thumb_${index}`)?.scrollIntoView({
             block: "center"
           });
@@ -6096,7 +6117,7 @@ div#bar3 {
                     "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => vue.unref(scrollByRowSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
                   _cache[27] || (_cache[27] = vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
-                  _cache[28] || (_cache[28] = vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Front Page Enhancer - Scroll by Row" ', -1))
+                  _cache[28] || (_cache[28] = vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Galleries Enhancer - Scroll by Row" ', -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_6, [
                   vue.createVNode(ToggleSwitch, {
@@ -6315,7 +6336,7 @@ div#bar3 {
                 ])
               ]),
               vue.createElementVNode("section", _hoisted_32, [
-                _cache[57] || (_cache[57] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Front Page Enhancer ", -1)),
+                _cache[57] || (_cache[57] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Galleries Enhancer ", -1)),
                 _cache[58] || (_cache[58] = vue.createElementVNode("hr", { class: "settings-panel__separator" }, null, -1)),
                 vue.createElementVNode("div", _hoisted_33, [
                   vue.createVNode(ToggleSwitch, {
@@ -6345,7 +6366,7 @@ div#bar3 {
                     modelValue: vue.unref(archiveButtonSwitch).value,
                     "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => vue.unref(archiveButtonSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[56] || (_cache[56] = vue.createElementVNode("h3", { class: "settings__name" }, " Insert archiver buttons to galleries on the front page. ", -1))
+                  _cache[56] || (_cache[56] = vue.createElementVNode("h3", { class: "settings__name" }, " Insert archiver buttons to galleries. ", -1))
                 ])
               ])
             ]),
@@ -6371,8 +6392,7 @@ div#bar3 {
     __name: "App",
     setup(__props) {
       const { href } = window.location;
-      const { enhancer } = useEnhancer();
-      const { redirectIfSinglePageViewer } = useRedirect();
+      const enhancer = getEnhancer();
       if (autoRedirectSwitch.value) {
         redirectIfSinglePageViewer();
       }
@@ -6380,37 +6400,28 @@ div#bar3 {
         changeTitleToJapanese();
       }
       setCSS();
-      function useEnhancer() {
-        const enhancer2 = vue.computed(() => {
-          if (/https:\/\/e[-x]hentai\.org\/(watched|popular)?(\?.+)?$/.test(href) || /https:\/\/e[-x]hentai\.org\/(tag)\/\w+/.test(href)) {
-            return _sfc_main$9;
-          }
-          if (/https:\/\/e[-x]hentai\.org\/g\/\w+\/\w+/.test(href)) {
-            return _sfc_main$8;
-          }
-          if (multipageViewerEnhancerSwitch.value && /https:\/\/e[-x]hentai\.org\/mpv\/\w+\/\w+/.test(href)) {
-            return _sfc_main$4;
-          }
-          return null;
-        });
-        return {
-          enhancer: enhancer2
-        };
-      }
-      function useRedirect() {
-        function redirectIfSinglePageViewer2() {
-          const isSinglePageViewer = /https:\/\/e[-x]hentai\.org\/s\/\w+\/\w+/.test(href);
-          if (isSinglePageViewer) {
-            vue.onMounted(() => {
-              const page = location.pathname.split("-")[1];
-              const url = getElement(".sb > a").href.replace("/g/", "/mpv/");
-              location.href = `${url}#page${page}`;
-            });
-          }
+      function getEnhancer() {
+        const galleriesContainer = getElement(".itg.gld");
+        if (galleriesContainer) {
+          return _sfc_main$9;
         }
-        return {
-          redirectIfSinglePageViewer: redirectIfSinglePageViewer2
-        };
+        if (/https:\/\/e[-x]hentai\.org\/g\/\w+\/\w+/.test(href)) {
+          return _sfc_main$8;
+        }
+        if (multipageViewerEnhancerSwitch.value && /https:\/\/e[-x]hentai\.org\/mpv\/\w+\/\w+/.test(href)) {
+          return _sfc_main$4;
+        }
+        return null;
+      }
+      function redirectIfSinglePageViewer() {
+        const isSinglePageViewer = /https:\/\/e[-x]hentai\.org\/s\/\w+\/\w+/.test(href);
+        if (isSinglePageViewer) {
+          vue.onMounted(() => {
+            const page = location.pathname.split("-")[1];
+            const url = getElement(".sb > a").href.replace("/g/", "/mpv/");
+            location.href = `${url}#page${page}`;
+          });
+        }
       }
       function setCSS() {
         document.documentElement.style.setProperty(
