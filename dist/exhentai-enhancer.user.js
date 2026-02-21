@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.19.0
+// @version            1.19.1
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -3935,10 +3935,9 @@ This will fail in production.`
     if (!highlightSwitch.value) {
       return;
     }
-    const downloadedGalleriesIDs = _GM_getValue(DOWNLOADED_GALLERIES_KEY);
+    const downloadedGalleriesIDs = _GM_getValue(DOWNLOADED_GALLERIES_KEY) || [];
     downloadedGalleriesIDs.push(galleryID);
     _GM_setValue(DOWNLOADED_GALLERIES_KEY, [...new Set(downloadedGalleriesIDs)]);
-    highlightDownloadedGalleries();
   }
   function useArchive() {
     const toast = useToast();
