@@ -3,7 +3,7 @@ import { getElement, getElements } from '@/utils/commons'
 /**
  * 在 container 上滾滾輪時，直接定位到上/下一個 row
  */
-export function useWheelStep({
+export function setWheelStep({
   containerSelector,
   itemsSelector,
 }: {

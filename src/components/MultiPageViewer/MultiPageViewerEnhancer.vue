@@ -5,16 +5,16 @@ import {
   GM_addStyle as gmAddStyle,
 } from 'vite-plugin-monkey/dist/client'
 
-import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
-import { useEvents } from '@/composables/MultiPageViewerEnhancer/useEvents'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
-import { useWheelStep } from '@/composables/useWheelStep'
+import { usePages } from '@/components/MultiPageViewer/composables/usePages'
+import { useEvents } from '@/components/MultiPageViewer/composables/useEvents'
+import { setWheelStep } from '@/utils/wheel-step'
 import { getElement } from '@/utils/commons'
-import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSwitch } from '@/utils/GMVariables'
+import { preventImageRemovalSwitch, magnifierSwitch, changePageByWheelAnyWhereSwitch } from '@/utils/gm-variables'
 
 import PageElevator from './PageElevator.vue'
 import ImageResizer from './ImageResizer.vue'
 import ImageMagnifier from './ImageMagnifier.vue'
+import { getPaneImagesDiv, getPaneOuterDiv } from './utils/elements'
 
 const {
   currentPage,
@@ -30,6 +30,7 @@ const {
   setShowCursorEvent,
   setHideCursorEvent,
   setShowThumbsEvent,
+  setReflowTrigger,
 } = useEvents()
 
 appendPageIndex()
@@ -41,17 +42,16 @@ setClickEvent()
 setShowCursorEvent()
 setHideCursorEvent()
 setShowThumbsEvent()
+setReflowTrigger()
 
-useWheelStep({
+setWheelStep({
   containerSelector: '#pane_thumbs',
   itemsSelector: '[id^=thumb_]',
 })
 
 if (changePageByWheelAnyWhereSwitch.value) {
-  const {
-    paneOuterDiv,
-    paneImagesDiv,
-  } = useMultiPageViewerElements()
+  const paneImagesDiv = getPaneImagesDiv()
+  const paneOuterDiv = getPaneOuterDiv()
 
   paneOuterDiv.addEventListener('mousewheel', changePageOnWheel as EventListener)
   paneImagesDiv.addEventListener('mousewheel', changePageOnWheel as EventListener)

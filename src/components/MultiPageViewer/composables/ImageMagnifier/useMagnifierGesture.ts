@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 
-import type { MagnifierConfig } from '@/types/magnifier'
+import type { MagnifierConfig } from '@/components/MultiPageViewer/types/magnifier'
 
 export function useMagnifierGesture(config: MagnifierConfig) {
   const isLeftPressed = ref(false)

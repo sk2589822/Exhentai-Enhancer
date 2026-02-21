@@ -1,16 +1,17 @@
 import { ref } from 'vue'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
-import { useBrowserLocation } from '@vueuse/core'
+import { createSharedComposable, useBrowserLocation } from '@vueuse/core'
 
 import { getElement, getElements } from '@/utils/commons'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
+import { getPaneImagesDiv } from '@/components/MultiPageViewer/utils/elements'
 
-const { paneImagesDiv } = useMultiPageViewerElements()
+export const usePages = createSharedComposable(_usePages)
 
-const location = useBrowserLocation()
-const currentPage = ref(Number(location.value.hash?.replace('#page', '')) || 1)
+export function _usePages() {
+  const paneImagesDiv = getPaneImagesDiv()
 
-export function usePages() {
+  const location = useBrowserLocation()
+  const currentPage = ref(Number(location.value.hash?.replace('#page', '')) || 1)
   const pageCount = unsafeWindow.pagecount
 
   /**

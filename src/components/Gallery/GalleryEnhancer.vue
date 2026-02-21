@@ -3,31 +3,36 @@ import { computed, onMounted, ref } from 'vue'
 import { VueFinalModal } from 'vue-final-modal'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
-import { useGalleryElements } from '@/composables/GalleryEnhancer/useGalleryElements'
-import { usePositions } from '@/composables/GalleryEnhancer/usePositions'
-import { useWheelStep } from '@/composables/useWheelStep'
+import {
+  getArchiveLinkAnchor,
+  getFavoritesLinkAnchor,
+  getTorrentLinkAnchor,
+} from '@/components/Gallery/utils/elements'
+import { setWheelStep } from '@/utils/wheel-step'
 import { useArchive } from '@/composables/useArchive'
-import { useFetchPopups } from '@/composables/useFetchPopups'
+import { usePopups } from '@/composables/usePopups'
 import {
   scrollByRowSwitch,
   betterPopupSwitch,
   loadAllGalleryImagesSwitch,
   quickArchiveDownloadMethod,
   quickTorrentDownloadSwitch,
-} from '@/utils/GMVariables'
-import { fetchAllImages } from '@/utils/fetchImages'
-import { ArchiveDownloadMethod } from '@/constants/monkey'
-import { useFavorite } from '@/composables/useFavorite'
-import { useTorrent } from '@/composables/useTorrent'
-import { useHighlight } from '@/composables/FrontPageEnhancer/useHighlight'
+  ArchiveDownloadMethod,
+} from '@/utils/gm-variables'
+import { fetchAllImages } from '@/utils/fetch-images'
+import { useFavorite } from '@/components/Gallery/composables/useFavorite'
+import { useTorrent } from '@/components/Gallery/composables/useTorrent'
+import { setAsDownloaded } from '@/utils/highlight-galleries'
 import { getElements } from '@/utils/commons'
+
+import { usePositions } from './composables/usePositions'
 
 if (loadAllGalleryImagesSwitch.value) {
   fetchAllImages({ delayInMs: 1000 })
 }
 
 if (scrollByRowSwitch.value) {
-  useWheelStep({
+  setWheelStep({
     containerSelector: '#gdt',
     itemsSelector: 'a',
   })
@@ -41,19 +46,21 @@ const modalOptions = ref({
   lockScroll: false,
 } as const)
 
-const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor } = useGalleryElements()
+
+const archiveLinkAnchor = getArchiveLinkAnchor()
+const torrentLinkAnchor = getTorrentLinkAnchor()
+const favoritesLinkAnchor = getFavoritesLinkAnchor()
 
 const archivePopup = ref<HTMLElement>()
 const torrentPopup = ref<HTMLElement>()
 const favoritePopup = ref<HTMLElement>()
 
-const { getInnerHTMLs, preloadLinks } = useFetchPopups()
-
 const {
   archiveInnerHtml,
   torrentInnerHtml,
   favoriteInnerHtml,
-} = getInnerHTMLs()
+  preloadLinks,
+} = usePopups()
 
 const isArchivePopupShow = ref(false)
 const isTorrentPopupShow = ref(false)
@@ -103,7 +110,6 @@ function setArchiveClickEvent() {
   setReady(archiveLinkAnchor)
 }
 
-const { setAsDownloaded } = useHighlight()
 
 function setupTorrentPopupContent() {
   addMagnetCopyButtons(torrentPopup)

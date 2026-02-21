@@ -4,17 +4,16 @@ import { ref, computed } from 'vue'
 import { useElementBounding } from '@vueuse/core'
 import { VueFinalModal } from 'vue-final-modal'
 
-import { useWheelStep } from '@/composables/useWheelStep'
-import { useFetchPopups } from '@/composables/useFetchPopups'
+import { setWheelStep } from '@/utils/wheel-step'
+import { usePopups } from '@/composables/usePopups'
 import { getDoc, getElement, getElements } from '@/utils/commons'
-import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, quickArchiveDownloadMethod } from '@/utils/GMVariables'
-import { getArchiveLink } from '@/utils/eHentaiApi'
-import { ArchiveDownloadMethod } from '@/constants/monkey'
+import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, quickArchiveDownloadMethod, ArchiveDownloadMethod } from '@/utils/gm-variables'
+import { getArchiveLink } from '@/utils/e-hentai-api'
 import { useArchive } from '@/composables/useArchive'
-import { useHighlight } from '@/composables/FrontPageEnhancer/useHighlight'
+import { highlightDownloadedGalleries, watchDownloadedGalleries } from '@/utils/highlight-galleries'
 
 if (scrollByRowSwitch.value) {
-  useWheelStep({
+  setWheelStep({
     containerSelector: '.itg.gld',
     itemsSelector: '.gl1t',
   })
@@ -22,7 +21,10 @@ if (scrollByRowSwitch.value) {
 
 if (infiniteScrollSwitch.value) {
   useInfiniteScroll({
-    onFetched: appendArchiveButtons,
+    onFetched: () => {
+      appendArchiveButtons()
+      highlightDownloadedGalleries()
+    },
   })
 }
 
@@ -68,8 +70,7 @@ function useInfiniteScroll({
   }
 }
 
-const { getInnerHTMLs, fetchArchive } = useFetchPopups()
-const { archiveInnerHtml } = getInnerHTMLs()
+const { archiveInnerHtml, fetchArchive } = usePopups()
 
 const archivePopup = ref<HTMLElement>()
 const activeButton = ref<HTMLElement>()
@@ -160,8 +161,8 @@ function setArchiveEvent() {
   }
 }
 
-const { highlightAll } = useHighlight()
-highlightAll()
+highlightDownloadedGalleries()
+watchDownloadedGalleries()
 </script>
 
 <template>

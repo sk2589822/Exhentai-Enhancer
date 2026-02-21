@@ -1,47 +1,29 @@
-import { debounce } from 'lodash-es'
-import { useFullscreen } from '@vueuse/core'
+import { debounce } from 'es-toolkit'
+import { createSharedComposable, useFullscreen } from '@vueuse/core'
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
 import { scrollElement } from '@/utils/commons'
-import { usePages } from '@/composables/MultiPageViewerEnhancer/usePages'
-import { useMultiPageViewerElements } from '@/composables/MultiPageViewerEnhancer/useMultiPageViewerElements'
+import { usePages } from '@/components/MultiPageViewer/composables/usePages'
+import { getPaneImagesDiv, getPaneThumbsDiv } from '@/components/MultiPageViewer/utils/elements'
 
-const {
-  pageCount,
-  currentPage,
-  getCurrentImage,
-  goToPage,
-  goToPageByOffset,
-  goToNextPage,
-  goToPrevPage,
-  getRelativeToViewport,
-  scrollToProperPosition,
-} = usePages()
+export const useEvents = createSharedComposable(_useEvents)
 
-const {
-  paneImagesDiv,
-  paneThumbsDiv,
-} = useMultiPageViewerElements()
+export function _useEvents() {
+  const {
+    pageCount,
+    currentPage,
+    getCurrentImage,
+    goToPage,
+    goToPageByOffset,
+    goToNextPage,
+    goToPrevPage,
+    getRelativeToViewport,
+    scrollToProperPosition,
+  } = usePages()
 
-setReflowTrigger()
+  const paneImagesDiv = getPaneImagesDiv()
+  const paneThumbsDiv = getPaneThumbsDiv()
 
-// Ref: https://stackoverflow.com/a/66646270
-// Not stable
-function setReflowTrigger() {
-  const observer = new ResizeObserver(entries => {
-    for (const entry of entries) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          entry.target?.dispatchEvent(new CustomEvent('reflow'))
-        })
-      })
-    }
-  })
-
-  observer.observe(document.body)
-}
-
-export function useEvents() {
   function setKeyBoardEvent() {
     document.onkeydown = null
 
@@ -304,6 +286,23 @@ export function useEvents() {
     await toggle()
   }
 
+
+  // Ref: https://stackoverflow.com/a/66646270
+  // Not stable
+  function setReflowTrigger() {
+    const observer = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            entry.target?.dispatchEvent(new CustomEvent('reflow'))
+          })
+        })
+      }
+    })
+
+    observer.observe(document.body)
+  }
+
   function rotate(degree: number) {
     const currentImage = getCurrentImage()
     const currentDegree = Number(currentImage.style.rotate.replace('deg', ''))
@@ -325,5 +324,6 @@ export function useEvents() {
     setShowCursorEvent,
     setHideCursorEvent,
     setShowThumbsEvent,
+    setReflowTrigger,
   }
 }

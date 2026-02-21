@@ -1,22 +1,21 @@
 import { ref } from 'vue'
 
 import { getElement } from '@/utils/commons'
-
-import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
+import { getPaneImagesDiv } from '@/components/MultiPageViewer/utils/elements'
 
 import { useMagnifierGesture } from './useMagnifierGesture'
 import { useMagnifierImageLoader } from './useMagnifierImageLoader'
-import type { MagnifierState, MagnifierConfig } from '@/types/magnifier'
+import type { MagnifierState, MagnifierConfig } from '@/components/MultiPageViewer/types/magnifier'
 
 export function useMagnifierEvents(
   state: MagnifierState,
   config: MagnifierConfig,
 ) {
-  const { paneImagesDiv } = useMultiPageViewerElements()
+  const paneImagesDiv = getPaneImagesDiv()
 
   const gesture = useMagnifierGesture(config)
   const imageLoader = useMagnifierImageLoader(state)
-  const navigation = useMagnifierNavigation(state, config)
+  const navigation = createNavigation(state, config)
 
   // 模式相關狀態
   const isWaitingForToggleEnd = ref(false)
@@ -198,7 +197,7 @@ export function useMagnifierEvents(
 
 // ========== 導航邏輯 ==========
 
-function useMagnifierNavigation(state: MagnifierState, config: MagnifierConfig) {
+function createNavigation(state: MagnifierState, config: MagnifierConfig) {
   function updatePosition(e: MouseEvent) {
     if (!state.isActive) {
       return

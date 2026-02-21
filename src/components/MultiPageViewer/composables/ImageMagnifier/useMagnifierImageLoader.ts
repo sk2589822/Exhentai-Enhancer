@@ -2,13 +2,13 @@ import { GM_xmlhttpRequest } from 'vite-plugin-monkey/dist/client'
 import { ref } from 'vue'
 
 import { getElement } from '@/utils/commons'
+import { getPaneImagesDiv } from '@/components/MultiPageViewer/utils/elements'
 
-import { useMultiPageViewerElements } from '../useMultiPageViewerElements'
-
-import type { MagnifierState } from '@/types/magnifier'
+import type { MagnifierState } from '@/components/MultiPageViewer/types/magnifier'
 
 export function useMagnifierImageLoader(state: MagnifierState) {
-  const { paneImagesDiv } = useMultiPageViewerElements()
+  const paneImagesDiv = getPaneImagesDiv()
+
 
   const currentRequest = ref<ReturnType<typeof GM_xmlhttpRequest> | null>(null)
   const currentObjectUrl = ref<string | null>(null)

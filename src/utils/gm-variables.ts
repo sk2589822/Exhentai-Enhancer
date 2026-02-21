@@ -1,7 +1,47 @@
 import { GM } from 'vite-plugin-monkey/dist/client'
 import { reactive } from 'vue'
 
-import { GMKey, ArchiveDownloadMethod, MouseButton } from '@/constants/monkey'
+export const enum GMKey {
+  InfiniteScroll = 'InfiniteScroll',
+  ScrollByRow = 'ScrollByRow',
+  ArchiveButton = 'archiveButton',
+  Highlight = 'Highlight',
+
+  BetterPopup = 'BetterPopup',
+  QuickArchiveDownloadMethod = 'QuickDownloadMethod',
+  QuickTorrentDownload = 'QuickTorrentDownload',
+  LoadAllGalleryImages = 'LoadAllGalleryImages',
+
+  MultipageViewerEnhancer = 'MultipageViewerEnhancer',
+  AutoRedirect = 'AutoRedirect',
+  PreventImageRemoval = 'PreventImageRemoval',
+  ChangePageByWheelAnyWhereSwitch = 'ChangePageByWheelAnyWhere',
+
+  Magnifier = 'Magnifier',
+  MagnifierActivationButton = 'MagnifierActivationButton',
+  MagnifierToggleMode = 'MagnifierToggleMode',
+  MagnifierDefaultScale = 'MagnifierDefaultScale',
+  MagnifierScaleStep = 'MagnifierScaleStep',
+  MagnifierLongPressThreshold = 'MagnifierLongPressThreshold',
+  MagnifierSensitivityX = 'MagnifierSensitivityX',
+  MagnifierSensitivityY = 'MagnifierSensitivityY',
+
+  ShowJapaneseTitle = 'ShowJapaneseTitle',
+}
+
+export const enum ArchiveDownloadMethod {
+  Manual = 'Manual',
+  HaH_Original = 'download Original Resolution with H@H',
+  HaH_2400 = 'download 2400x Resolution with H@H',
+  Direct_Origin = 'download Original Resolution directly',
+  Direct_Resample = 'download Resample Resolution directly',
+}
+
+export const enum MouseButton {
+  Left = 'left',
+  Right = 'right',
+}
+
 
 class GMVariable<T extends boolean | ArchiveDownloadMethod | MouseButton | number> {
   private _key: string
@@ -26,7 +66,7 @@ class GMVariable<T extends boolean | ArchiveDownloadMethod | MouseButton | numbe
   }
 }
 
-// Front page enhancer
+// Galleries enhancer
 export const infiniteScrollSwitch = reactive(new GMVariable<boolean>(GMKey.InfiniteScroll, true))
 export const archiveButtonSwitch = reactive(new GMVariable<boolean>(GMKey.ArchiveButton, true))
 export const highlightSwitch = reactive(new GMVariable<boolean>(GMKey.Highlight, true))

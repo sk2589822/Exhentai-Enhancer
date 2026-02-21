@@ -3,9 +3,10 @@ import { onMounted, ref } from 'vue'
 import { VueFinalModal } from 'vue-final-modal'
 import { GM } from 'vite-plugin-monkey/dist/client'
 
-import CrossButton from '@/components/Icon/CrossButton.vue'
-import { ArchiveDownloadMethod, MouseButton } from '@/constants/monkey'
 import {
+  MouseButton,
+  ArchiveDownloadMethod,
+
   infiniteScrollSwitch,
   archiveButtonSwitch,
   scrollByRowSwitch,
@@ -27,8 +28,9 @@ import {
   magnifierSensitivityX,
   magnifierSensitivityY,
   quickTorrentDownloadSwitch,
-} from '@/utils/GMVariables'
+} from '@/utils/gm-variables'
 
+import CrossButton from './CrossButton.vue'
 import ToggleSwitch from './ToggleSwitch.vue'
 
 const isShow = ref(false)
@@ -78,7 +80,7 @@ function reload() {
             Scroll by Row
           </h3>
           <span class="settings__notice">
-            *sync with "Front Page Enhancer - Scroll by Row"
+            *sync with "Galleries Enhancer - Scroll by Row"
           </span>
         </div>
 
@@ -287,7 +289,7 @@ function reload() {
 
       <section class="settings-panel__section">
         <h2 class="settings-panel__section-name">
-          Front Page Enhancer
+          Galleries Enhancer
         </h2>
 
         <hr class="settings-panel__separator">
@@ -322,7 +324,7 @@ function reload() {
         <div class="settings">
           <ToggleSwitch v-model="archiveButtonSwitch.value" />
           <h3 class="settings__name">
-            Insert archiver buttons to galleries on the front page.
+            Insert archiver buttons to galleries.
           </h3>
         </div>
       </section>

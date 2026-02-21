@@ -2,30 +2,20 @@ import { ref } from 'vue'
 
 import { getElement, getDoc } from '@/utils/commons'
 import { Logger, LoggerScopeDecorator } from '@/utils/logger'
-import { useGalleryElements } from '@/composables/GalleryEnhancer/useGalleryElements'
-
-export const torrentInnerHtml = ref<string>('')
-export const archiveInnerHtml = ref<string>('')
-export const favoriteInnerHtml = ref<string>('')
+import { getArchiveLinkAnchor, getTorrentLinkAnchor } from '@/components/Gallery/utils/elements'
 
 /**
 * 預先載入 Torrent, Archive 和 Favorites 視窗
 * 同時把原先的 window.open() popup 改為在同一個頁面內的 popup
 */
 
-export function useFetchPopups() {
-  const {
-    archiveLinkAnchor,
-    torrentLinkAnchor,
-  } = useGalleryElements()
+export function usePopups() {
+  const archiveLinkAnchor = getArchiveLinkAnchor()
+  const torrentLinkAnchor = getTorrentLinkAnchor()
 
-  function getInnerHTMLs() {
-    return {
-      torrentInnerHtml,
-      archiveInnerHtml,
-      favoriteInnerHtml,
-    }
-  }
+  const torrentInnerHtml = ref<string>('')
+  const archiveInnerHtml = ref<string>('')
+  const favoriteInnerHtml = ref<string>('')
 
   async function preloadLinks() {
     [
@@ -149,7 +139,10 @@ export function useFetchPopups() {
   }
 
   return {
-    getInnerHTMLs,
+    torrentInnerHtml,
+    archiveInnerHtml,
+    favoriteInnerHtml,
+
     preloadLinks,
     fetchTorrents,
     fetchArchive,

@@ -1,17 +1,20 @@
 import { useElementBounding } from '@vueuse/core'
 import { computed } from 'vue'
 
-import { useGalleryElements } from '@/composables/GalleryEnhancer/useGalleryElements'
+import {
+  getArchiveLinkAnchor,
+  getFavoritesLinkAnchor,
+  getInfoDiv,
+  getTorrentLinkAnchor,
+} from '@/components/Gallery/utils/elements'
 
 export function usePositions() {
-  const { archiveLinkAnchor, torrentLinkAnchor, favoritesLinkAnchor, infoDiv } = useGalleryElements()
-
-  const archiveLinkRect = useElementBounding(archiveLinkAnchor)
-  const torrentLinkRect = useElementBounding(torrentLinkAnchor)
-  const favoriteLinkRect = useElementBounding(favoritesLinkAnchor)
+  const archiveLinkRect = useElementBounding(getArchiveLinkAnchor())
+  const torrentLinkRect = useElementBounding(getTorrentLinkAnchor())
+  const favoriteLinkRect = useElementBounding(getFavoritesLinkAnchor())
 
   function getDownloadPopupRight(): number {
-    return (document.documentElement.clientWidth - infoDiv.clientWidth) / 2
+    return (document.documentElement.clientWidth - getInfoDiv().clientWidth) / 2
   }
 
   return {
