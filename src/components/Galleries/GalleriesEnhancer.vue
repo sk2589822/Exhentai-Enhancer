@@ -162,8 +162,10 @@ function setArchiveEvent() {
   }
 }
 
-highlightDownloadedGalleries()
-watchDownloadedGalleries()
+if (highlightSwitch.value) {
+  highlightDownloadedGalleries()
+  watchDownloadedGalleries()
+}
 </script>
 
 <template>
