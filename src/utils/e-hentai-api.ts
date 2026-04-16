@@ -1,11 +1,10 @@
 import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
+import { isExHentai } from './commons'
 
 function getAipUrl() {
-  if (unsafeWindow.location.origin === 'https://exhentai.org') {
-    return 'https://exhentai.org/api.php'
-  } else {
-    return 'https://api.e-hentai.org/api.php'
-  }
+  return isExHentai()
+    ? 'https://exhentai.org/api.php'
+    : 'https://api.e-hentai.org/api.php'
 }
 
 function getGalleryMetadataBody(id: number, token: string) {

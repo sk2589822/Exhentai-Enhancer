@@ -4,7 +4,7 @@ import {
   GM_addValueChangeListener as gmAddValueChangeListener,
 } from 'vite-plugin-monkey/dist/client'
 
-import { getElements } from '@/utils/commons'
+import { getElements, isExHentai } from '@/utils/commons'
 import { highlightSwitch } from '@/utils/gm-variables'
 
 const DOWNLOADED_GALLERIES_KEY = 'downloaded-galleries-ids'
@@ -16,6 +16,7 @@ export function watchDownloadedGalleries() {
 }
 
 export function highlightDownloadedGalleries() {
+  const highlightColor = isExHentai() ? 'black' : '#FFF9C4'
   const downloadedGalleriesIDs = new Set<number>(gmGetValue(DOWNLOADED_GALLERIES_KEY, []))
 
   const galleries = getElements('.gl1t')
@@ -39,7 +40,7 @@ export function highlightDownloadedGalleries() {
     })
     .filter(gallery => !!gallery)
     .forEach(gallery => {
-      gallery.style.backgroundColor = 'black'
+      gallery.style.backgroundColor = highlightColor
     })
 }
 
