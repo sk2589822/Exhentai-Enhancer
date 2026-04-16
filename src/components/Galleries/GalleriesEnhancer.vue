@@ -7,7 +7,7 @@ import { VueFinalModal } from 'vue-final-modal'
 import { setWheelStep } from '@/utils/wheel-step'
 import { usePopups } from '@/composables/usePopups'
 import { getDoc, getElement, getElements } from '@/utils/commons'
-import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, quickArchiveDownloadMethod, ArchiveDownloadMethod } from '@/utils/gm-variables'
+import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, highlightSwitch, quickArchiveDownloadMethod, ArchiveDownloadMethod } from '@/utils/gm-variables'
 import { getArchiveLink } from '@/utils/e-hentai-api'
 import { useArchive } from '@/composables/useArchive'
 import { highlightDownloadedGalleries, watchDownloadedGalleries } from '@/utils/highlight-galleries'
@@ -20,17 +20,10 @@ if (scrollByRowSwitch.value) {
 }
 
 if (infiniteScrollSwitch.value) {
-  useInfiniteScroll({
-    onFetched: () => {
-      appendArchiveButtons()
-      highlightDownloadedGalleries()
-    },
-  })
+  useInfiniteScroll()
 }
 
-function useInfiniteScroll({
-  onFetched = () => { /* empty */ },
-} = {}) {
+function useInfiniteScroll() {
   const galleryContainer = getElement('.itg.gld')
   const bottomPagination = getElements('.searchnav')?.[1]
   let nextPageUrl = getElement('#dnext')?.getAttribute('href')
@@ -62,7 +55,6 @@ function useInfiniteScroll({
     nextPageUrl = getElement('#dnext', doc)?.getAttribute('href')
 
     history.pushState(undefined, doc.title, nextPageUrl)
-    onFetched()
   })
 
   if (bottomPagination) {
@@ -133,6 +125,15 @@ const archivePopupPosition = computed(() => {
 
 if (archiveButtonSwitch.value) {
   appendArchiveButtons()
+}
+
+const galleryContainer = getElement('.itg.gld')
+if (galleryContainer) {
+  const observer = new MutationObserver(() => {
+    if (archiveButtonSwitch.value) appendArchiveButtons()
+    if (highlightSwitch.value) highlightDownloadedGalleries()
+  })
+  observer.observe(galleryContainer, { childList: true })
 }
 
 const modalOptions = ref({
