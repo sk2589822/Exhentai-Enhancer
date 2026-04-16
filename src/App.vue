@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 
-import { getElement } from '@/utils/commons'
+import { getElement, isExHentai } from '@/utils/commons'
 import GalleriesEnhancer from '@/components/Galleries/GalleriesEnhancer.vue'
 import GalleryEnhancer from '@/components/Gallery/GalleryEnhancer.vue'
 import MultipageViewerEnhancer from '@/components/MultiPageViewer/MultiPageViewerEnhancer.vue'
@@ -57,9 +56,7 @@ function redirectIfSinglePageViewer() {
 function setCSS() {
   document.documentElement.style.setProperty(
     '--bg-color',
-    unsafeWindow.location.origin === 'https://exhentai.org'
-      ? '#34353b'
-      : '#E3E0D1',
+    isExHentai() ? '#34353b' : '#E3E0D1',
   )
 }
 </script>

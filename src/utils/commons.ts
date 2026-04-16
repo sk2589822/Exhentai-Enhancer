@@ -1,3 +1,4 @@
+import { unsafeWindow } from 'vite-plugin-monkey/dist/client'
 export function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
@@ -25,4 +26,8 @@ export function scrollElement(element: HTMLElement, { offset, absolute }: { offs
   if (absolute) {
     element.scrollTop = absolute
   }
+}
+
+export function isExHentai() {
+  return unsafeWindow.location.origin === 'https://exhentai.org'
 }
