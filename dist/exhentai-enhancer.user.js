@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.19.1
+// @version            1.19.2
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -3586,6 +3586,9 @@ This will fail in production.`
       element.scrollTop = absolute;
     }
   }
+  function isExHentai() {
+    return _unsafeWindow.location.origin === "https://exhentai.org";
+  }
   function setWheelStep({
     containerSelector,
     itemsSelector
@@ -3840,11 +3843,7 @@ This will fail in production.`
     };
   }
   function getAipUrl() {
-    if (_unsafeWindow.location.origin === "https://exhentai.org") {
-      return "https://exhentai.org/api.php";
-    } else {
-      return "https://api.e-hentai.org/api.php";
-    }
+    return isExHentai() ? "https://exhentai.org/api.php" : "https://api.e-hentai.org/api.php";
   }
   function getGalleryMetadataBody(id, token) {
     return JSON.stringify({
@@ -3912,6 +3911,7 @@ This will fail in production.`
     });
   }
   function highlightDownloadedGalleries() {
+    const highlightColor = isExHentai() ? "black" : "#FFF9C4";
     const downloadedGalleriesIDs = new Set(_GM_getValue(DOWNLOADED_GALLERIES_KEY, []));
     const galleries = getElements(".gl1t");
     if (!galleries) {
@@ -3928,7 +3928,7 @@ This will fail in production.`
       }
       return null;
     }).filter((gallery) => !!gallery).forEach((gallery) => {
-      gallery.style.backgroundColor = "black";
+      gallery.style.backgroundColor = highlightColor;
     });
   }
   function setAsDownloaded(galleryID) {
@@ -4138,18 +4138,10 @@ This will fail in production.`
         });
       }
       if (infiniteScrollSwitch.value) {
-        useInfiniteScroll({
-          onFetched: () => {
-            appendArchiveButtons();
-            highlightDownloadedGalleries();
-          }
-        });
+        useInfiniteScroll();
       }
-      function useInfiniteScroll({
-        onFetched = () => {
-        }
-      } = {}) {
-        const galleryContainer = getElement(".itg.gld");
+      function useInfiniteScroll() {
+        const galleryContainer2 = getElement(".itg.gld");
         const bottomPagination = getElements(".searchnav")?.[1];
         let nextPageUrl = getElement("#dnext")?.getAttribute("href");
         let isFetching = false;
@@ -4161,18 +4153,17 @@ This will fail in production.`
             return;
           }
           isFetching = true;
-          galleryContainer?.classList.add("is-fetching");
+          galleryContainer2?.classList.add("is-fetching");
           const doc = await getDoc(nextPageUrl);
           const galleriesOfNextPage = getElements(".itg.gld > .gl1t", doc);
           if (!galleriesOfNextPage) {
             return;
           }
-          galleryContainer?.append(...galleriesOfNextPage);
+          galleryContainer2?.append(...galleriesOfNextPage);
           isFetching = false;
-          galleryContainer?.classList.remove("is-fetching");
+          galleryContainer2?.classList.remove("is-fetching");
           nextPageUrl = getElement("#dnext", doc)?.getAttribute("href");
           history.pushState(void 0, doc.title, nextPageUrl);
-          onFetched();
         });
         if (bottomPagination) {
           intersectionObserver.observe(bottomPagination);
@@ -4227,6 +4218,14 @@ marginRight: "-9999px"
       if (archiveButtonSwitch.value) {
         appendArchiveButtons();
       }
+      const galleryContainer = getElement(".itg.gld");
+      if (galleryContainer) {
+        const observer = new MutationObserver(() => {
+          if (archiveButtonSwitch.value) appendArchiveButtons();
+          if (highlightSwitch.value) highlightDownloadedGalleries();
+        });
+        observer.observe(galleryContainer, { childList: true });
+      }
       const modalOptions = vue.ref({
         teleportTo: ".enhancer-container",
         displayDirective: "show",
@@ -4248,8 +4247,10 @@ marginRight: "-9999px"
           }
         }
       }
-      highlightDownloadedGalleries();
-      watchDownloadedGalleries();
+      if (highlightSwitch.value) {
+        highlightDownloadedGalleries();
+        watchDownloadedGalleries();
+      }
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createBlock(vue.unref(Ro), vue.mergeProps({
           modelValue: isArchivePopupShow.value,
@@ -6425,7 +6426,7 @@ div#bar3 {
       function setCSS() {
         document.documentElement.style.setProperty(
           "--bg-color",
-          _unsafeWindow.location.origin === "https://exhentai.org" ? "#34353b" : "#E3E0D1"
+          isExHentai() ? "#34353b" : "#E3E0D1"
         );
       }
       return (_ctx, _cache) => {
