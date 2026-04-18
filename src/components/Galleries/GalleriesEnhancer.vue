@@ -185,16 +185,12 @@ if (highlightSwitch.value) {
 <style lang="scss">
 @use "@/styles/animations/spin.scss";
 
-.searchnav {
-  overflow-anchor: none;
-}
-
 .itg.gld.is-fetching::after {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 864px;
+  margin: auto;
   width: 30px;
   height: 30px;
   line-height: 30px;
