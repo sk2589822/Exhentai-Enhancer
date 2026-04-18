@@ -213,50 +213,52 @@ div#gd5 {
   width: auto;
 }
 
-.is-ready::after {
+#gd5 .is-ready::after {
   content: " ✔️";
 }
 
-.is-fetching {
-  font-size: 0;
-  pointer-events: none;
-  text-decoration: none;
+.enhancer-container {
+  .is-fetching {
+    font-size: 0;
+    pointer-events: none;
+    text-decoration: none;
 
-  &::after {
-    content: "⌛";
-    display: inline-block;
-    font-size: 8px;
-    line-height: 8px;
-    animation: spin ease-in-out 1s infinite;
-  }
-}
-
-input[name="dltype"] + .is-fetching {
-  position: relative;
-
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    font-size: 12px;
-    line-height: 27px;
+    &::after {
+      content: "⌛";
+      display: inline-block;
+      font-size: 8px;
+      line-height: 8px;
+      animation: spin ease-in-out 1s infinite;
+    }
   }
 
-  input {
-    color: transparent;
+  input[name="dltype"] + .is-fetching {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      font-size: 12px;
+      line-height: 27px;
+    }
+
+    input {
+      color: transparent;
+    }
   }
-}
 
-.is-finished {
-  font-size: 0;
-  pointer-events: none;
-  text-decoration: none;
+  .is-finished {
+    font-size: 0;
+    pointer-events: none;
+    text-decoration: none;
 
-  &::after {
-    content: "✔️";
-    display: inline-block;
-    font-size: 8px;
-    line-height: 8px;
+    &::after {
+      content: "✔️";
+      display: inline-block;
+      font-size: 8px;
+      line-height: 8px;
+    }
   }
 }
 </style>
