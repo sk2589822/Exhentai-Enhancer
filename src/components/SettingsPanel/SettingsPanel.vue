@@ -19,6 +19,7 @@ import {
   changePageByWheelAnyWhereSwitch,
   showJapaneseTitle,
   highlightSwitch,
+  showHiddenGalleriesSwitch,
   magnifierSwitch,
   magnifierActivationButton,
   magnifierToggleMode,
@@ -326,6 +327,16 @@ function reload() {
           <h3 class="settings__name">
             Insert archiver buttons to galleries.
           </h3>
+        </div>
+
+        <div class="settings">
+          <ToggleSwitch v-model="showHiddenGalleriesSwitch.value" />
+          <h3 class="settings__name">
+            Show hidden galleries
+          </h3>
+          <div class="settings__intro">
+            When enabled, galleries you have hidden via the 🚫 button stay visible (with the icon shown opaque) so you can un-hide them.
+          </div>
         </div>
       </section>
     </div>
