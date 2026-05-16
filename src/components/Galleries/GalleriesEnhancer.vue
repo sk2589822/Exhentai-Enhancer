@@ -11,7 +11,7 @@ import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, highlight
 import { getArchiveLink } from '@/utils/e-hentai-api'
 import { useArchive } from '@/composables/useArchive'
 import { highlightDownloadedGalleries, watchDownloadedGalleries } from '@/utils/highlight-galleries'
-import { HiddenGalleries } from '@/utils/hidden-galleries'
+import { getGalleryTitle, isGalleryHidden, setGalleryHidden, removeHiddenGalleries, watchHiddenGalleries } from '@/utils/hidden-galleries'
 
 if (scrollByRowSwitch.value) {
   setWheelStep({
@@ -64,7 +64,6 @@ function useInfiniteScroll() {
 }
 
 const { archiveInnerHtml, fetchArchive } = usePopups()
-const hiddenGalleries = new HiddenGalleries()
 
 const archivePopup = ref<HTMLElement>()
 const activeButton = ref<HTMLElement>()
@@ -78,28 +77,26 @@ function appendHideButtons() {
   const galleries = getElements('.gl1t')
 
   galleries?.forEach(gallery => {
-    const title = hiddenGalleries.getGalleryTitle(gallery)
+    const title = getGalleryTitle(gallery)
     if (title === null) {
       return
     }
 
-    const existing = getElement('.hide-button', gallery) as HTMLElement | null
+    const existing = getElement('.hide-button', gallery)
     if (existing) {
-      setHideButtonState(existing, hiddenGalleries.isGalleryHidden(title))
+      setHideButtonState(existing, isGalleryHidden(title))
       return
     }
 
     const button = document.createElement('span')
     button.classList.add('hide-button')
-    const isHidden = hiddenGalleries.isGalleryHidden(title)
     button.textContent = '🚫'
-    setHideButtonState(button, isHidden)
+    setHideButtonState(button, isGalleryHidden(title))
     button.onclick = (e) => {
       e.preventDefault()
       e.stopPropagation()
-      const currentlyHidden = hiddenGalleries.isGalleryHidden(title)
-      const nextHidden = !currentlyHidden
-      hiddenGalleries.setGalleryHidden(title, nextHidden)
+      const nextHidden = !isGalleryHidden(title)
+      setGalleryHidden(title, nextHidden)
       setHideButtonState(button, nextHidden)
     }
 
@@ -114,7 +111,7 @@ function appendHideButtons() {
 }
 
 function syncGalleriesEnhancerFeatures() {
-  hiddenGalleries.removeHiddenGalleries()
+  removeHiddenGalleries()
   appendHideButtons()
   if (archiveButtonSwitch.value) {
     appendArchiveButtons()
@@ -190,7 +187,7 @@ if (galleryContainer) {
   observer.observe(galleryContainer, { childList: true })
 }
 
-hiddenGalleries.watch(() => {
+watchHiddenGalleries(() => {
   syncGalleriesEnhancerFeatures()
 })
 
