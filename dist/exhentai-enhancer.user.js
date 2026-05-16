@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.19.5
+// @version            1.20.0
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -33,7 +33,7 @@
 
   const d=new Set;const importCSS = async e=>{d.has(e)||(d.add(e),(t=>{typeof GM_addStyle=="function"?GM_addStyle(t):(document.head||document.documentElement).appendChild(document.createElement("style")).append(t);})(e));};
 
-  importCSS(' @charset "UTF-8";.searchnav{overflow-anchor:none}.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:auto;width:30px;height:30px;line-height:30px;content:"\u231B";animation:spin ease-in-out 1s infinite}.gldown{display:flex}.archive-button{display:flex;justify-content:center;align-items:center;flex-shrink:0;position:relative;top:-6px;margin-left:4px;width:24px;height:24px;border-radius:9999px;background-color:#5fa9cf;box-shadow:#0000003d 0 3px 5px;cursor:pointer}@keyframes spin{0%{rotate:0}to{rotate:360deg}}.popup{position:absolute!important;padding:20px;text-align:center;background-color:var(--bg-color);border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a{text-decoration:underline}div#gd5{float:unset;width:auto}#gd5 .is-ready:after{content:" \u2714\uFE0F"}.enhancer-container .is-fetching{font-size:0;pointer-events:none;text-decoration:none}.enhancer-container .is-fetching:after{content:"\u231B";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}.enhancer-container input[name=dltype]+.is-fetching{position:relative}.enhancer-container input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}.enhancer-container input[name=dltype]+.is-fetching input{color:transparent}.enhancer-container .is-finished{font-size:0;pointer-events:none;text-decoration:none}.enhancer-container .is-finished:after{content:"\u2714\uFE0F";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-b833e772]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-b833e772]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-b833e772]{line-height:100%}:fullscreen .page-elevator[data-v-b833e772]{opacity:0}:fullscreen .page-elevator[data-v-b833e772]:hover{opacity:1}#pane_images .mimg{width:min-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}#pane_images .mimg>a{-webkit-user-select:none;user-select:none}#pane_images .mimg>a>img{width:auto!important;max-height:var(--image-size);pointer-events:none}.image-resizer[data-v-116315cc]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-116315cc]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-116315cc]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-116315cc],.image-resizer__button--active[data-v-116315cc]:hover{background-color:orange}.magnifier-overlay[data-v-e9718b94]{position:fixed;inset:0;z-index:999;background:transparent;cursor:none}.magnifier[data-v-e9718b94]{z-index:1000}.magnifier-background[data-v-e9718b94]{position:absolute;inset:0;background-color:#00000080}.magnifier-image[data-v-e9718b94]{position:absolute;cursor:none}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:#7777;border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-04d58466]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-04d58466]{width:0;height:0;opacity:0}.switch__slider[data-v-04d58466]{position:absolute;inset:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-04d58466]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-04d58466]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-04d58466]:before{transform:translate(26px)}.settings-panel-wrap{display:flex;justify-content:center;align-items:center}.settings-panel{box-sizing:border-box;position:relative;display:flex;flex-direction:column;row-gap:16px;margin:32px;padding:32px;max-width:1000px;max-height:calc(100vh - 64px);background-color:#34353b;border-radius:4px;color:#f1f1f1}.settings-panel__inner{overflow-y:auto;padding-right:16px;height:100%}.settings-panel__section{background-color:#4f535b;border-radius:4px}.settings-panel__section-name{margin:16px 32px;padding-top:16px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button svg{width:16px;height:16px}.settings-panel__separator{background:#f1f1f1}.settings{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name{font-size:16px}.settings__notice{font-size:12px}.settings__intro{margin-left:60px;width:100%;font-size:14px;text-align:left}.settings__magnifier-config{display:flex;flex-direction:column;gap:.75rem;margin-top:.5rem}.settings__label{display:flex;flex-direction:row;align-items:center;gap:.25rem;font-size:.9rem}.settings__input{width:120px;padding:.25rem;border:1px solid #ccc;border-radius:4px;color:#f1f1f1;background-color:#34353b;outline:none}.settings__link{color:#ddd}.settings__select{background-color:#34353b;border:rgb(141,141,141);color:#f1f1f1;outline:none}.settings__select:enabled:hover,.settings__select:enabled:focus{background-color:#43464e!important;border-color:#aeaeae!important}.settings__option{color:#f1f1f1;background-color:#34353b;outline:none}.actions{display:flex;align-items:center;justify-content:flex-end}.actions__button{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer} ');
+  importCSS(' @charset "UTF-8";.searchnav{overflow-anchor:none}.itg.gld.is-fetching:after{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:auto;width:30px;height:30px;line-height:30px;content:"\u231B";animation:spin ease-in-out 1s infinite}.gldown{display:flex}.archive-button{display:flex;justify-content:center;align-items:center;flex-shrink:0;position:relative;width:14px;height:14px;border-radius:9999px;background-color:#5fa9cf;box-shadow:#0000003d 0 3px 5px;cursor:pointer}.hide-button{display:flex;justify-content:center;align-items:center;flex-shrink:0;position:relative;height:12px;font-size:14px;cursor:pointer;opacity:.25;transition:opacity .15s ease-in-out;-webkit-user-select:none;user-select:none}.hide-button:hover{opacity:.6}.hide-button.is-hidden{opacity:1}@keyframes spin{0%{rotate:0}to{rotate:360deg}}.popup{position:absolute!important;padding:20px;text-align:center;background-color:var(--bg-color);border:white solid 3px;border-radius:20px;z-index:100;transition:opacity .3s}.popup a{text-decoration:underline}div#gd5{float:unset;width:auto}#gd5 .is-ready:after{content:" \u2714\uFE0F"}.enhancer-container .is-fetching{font-size:0;pointer-events:none;text-decoration:none}.enhancer-container .is-fetching:after{content:"\u231B";display:inline-block;font-size:8px;line-height:8px;animation:spin ease-in-out 1s infinite}.enhancer-container input[name=dltype]+.is-fetching{position:relative}.enhancer-container input[name=dltype]+.is-fetching:after{position:absolute;top:0;left:50%;font-size:12px;line-height:27px}.enhancer-container input[name=dltype]+.is-fetching input{color:transparent}.enhancer-container .is-finished{font-size:0;pointer-events:none;text-decoration:none}.enhancer-container .is-finished:after{content:"\u2714\uFE0F";display:inline-block;font-size:8px;line-height:8px}.page-elevator[data-v-b87e2f8f]{display:flex;flex-direction:column;gap:10px;width:40px;opacity:1}.page-elevator__input[data-v-b87e2f8f]{display:flex;margin:0;padding:0;width:100%;height:30px;text-align:center;border:#777 solid 1px;box-sizing:border-box}.page-elevator__slash[data-v-b87e2f8f]{line-height:100%}:fullscreen .page-elevator[data-v-b87e2f8f]{opacity:0}:fullscreen .page-elevator[data-v-b87e2f8f]:hover{opacity:1}#pane_images .mimg{width:min-content!important;min-width:unset;max-height:calc(var(--image-size) + 24px)!important}#pane_images .mimg>a{-webkit-user-select:none;user-select:none}#pane_images .mimg>a>img{width:auto!important;max-height:var(--image-size);pointer-events:none}.image-resizer[data-v-fb83c8f5]{display:flex;flex-direction:column;gap:16px;width:40px}.image-resizer__button[data-v-fb83c8f5]{padding:0;width:100%;height:30px;text-align:center;background-color:transparent;border:#777 solid 1px;border-radius:5px;box-sizing:border-box;cursor:pointer}.image-resizer__button[data-v-fb83c8f5]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-fb83c8f5],.image-resizer__button--active[data-v-fb83c8f5]:hover{background-color:orange}.magnifier-overlay[data-v-ba829bde]{position:fixed;inset:0;z-index:999;background:transparent;cursor:none}.magnifier[data-v-ba829bde]{z-index:1000}.magnifier-background[data-v-ba829bde]{position:absolute;inset:0;background-color:#00000080}.magnifier-image[data-v-ba829bde]{position:absolute;cursor:none}.enhancer-features{position:absolute;top:0;bottom:0;right:0;display:flex;align-items:center;padding-right:5px;z-index:100;flex-direction:row-reverse;gap:16px;box-sizing:border-box}.enhancer-features__feature{padding:10px 5px;background:#7777;border-radius:10px;opacity:0;transition:opacity .3s ease;box-sizing:border-box}.enhancer-features__feature:hover{opacity:1}.switch[data-v-7bec1a82]{position:relative;display:inline-block;width:50px;height:24px}.switch__input[data-v-7bec1a82]{width:0;height:0;opacity:0}.switch__slider[data-v-7bec1a82]{position:absolute;inset:0;background-color:#ccc;border-radius:9999px;transition:.4s;cursor:pointer}.switch__slider[data-v-7bec1a82]:before{position:absolute;top:2px;left:2px;height:calc(100% - 4px);aspect-ratio:1/1;background-color:#fff;border-radius:50%;transition:.4s;content:""}.switch__input:checked+.switch__slider[data-v-7bec1a82]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-7bec1a82]:before{transform:translate(26px)}.settings-panel-wrap{display:flex;justify-content:center;align-items:center}.settings-panel{box-sizing:border-box;position:relative;display:flex;flex-direction:column;row-gap:16px;margin:32px;padding:32px;max-width:1000px;max-height:calc(100vh - 64px);background-color:#34353b;border-radius:4px;color:#f1f1f1}.settings-panel__inner{overflow-y:auto;padding-right:16px;height:100%}.settings-panel__section{background-color:#4f535b;border-radius:4px}.settings-panel__section-name{margin:16px 32px;padding-top:16px;font-size:20px;text-align:left;line-height:100%}.settings-panel__close-button{position:absolute;top:4px;right:4px;padding:8px;cursor:pointer}.settings-panel__close-button svg{width:16px;height:16px}.settings-panel__separator{background:#f1f1f1}.settings{display:flex;flex-wrap:wrap;align-items:center;justify-content:start;padding:8px 16px;column-gap:8px}.settings__name{font-size:16px}.settings__notice{font-size:12px}.settings__intro{margin-left:60px;width:100%;font-size:14px;text-align:left}.settings__magnifier-config{display:flex;flex-direction:column;gap:.75rem;margin-top:.5rem}.settings__label{display:flex;flex-direction:row;align-items:center;gap:.25rem;font-size:.9rem}.settings__input{width:120px;padding:.25rem;border:1px solid #ccc;border-radius:4px;color:#f1f1f1;background-color:#34353b;outline:none}.settings__link{color:#ddd}.settings__select{background-color:#34353b;border:rgb(141,141,141);color:#f1f1f1;outline:none}.settings__select:enabled:hover,.settings__select:enabled:focus{background-color:#43464e!important;border-color:#aeaeae!important}.settings__option{color:#f1f1f1;background-color:#34353b;outline:none}.actions{display:flex;align-items:center;justify-content:flex-end}.actions__button{padding:8px 16px;color:#fff;background-color:#4f535b;border:none;border-radius:4px;cursor:pointer} ');
 
   function tryOnScopeDispose$1(fn, failSilently) {
     if (vue.getCurrentScope()) {
@@ -3514,6 +3514,7 @@ This will fail in production.`
   const infiniteScrollSwitch = vue.reactive(new GMVariable("InfiniteScroll", true));
   const archiveButtonSwitch = vue.reactive(new GMVariable("archiveButton", true));
   const highlightSwitch = vue.reactive(new GMVariable("Highlight", true));
+  const showHiddenGalleriesSwitch = vue.reactive(new GMVariable("ShowHiddenGalleries", false));
   const scrollByRowSwitch = vue.reactive(new GMVariable("ScrollByRow", true));
   const betterPopupSwitch = vue.reactive(new GMVariable("BetterPopup", true));
   const quickArchiveDownloadMethod = vue.reactive(new GMVariable(
@@ -3543,6 +3544,7 @@ This will fail in production.`
       infiniteScrollSwitch.initialize(),
       archiveButtonSwitch.initialize(),
       highlightSwitch.initialize(),
+      showHiddenGalleriesSwitch.initialize(),
       scrollByRowSwitch.initialize(),
       betterPopupSwitch.initialize(),
       quickArchiveDownloadMethod.initialize(),
@@ -4127,6 +4129,44 @@ This will fail in production.`
       quickDownload
     };
   }
+  const HIDDEN_GALLERIES_KEY = "hidden-galleries-titles";
+  let hiddenTitles = new Set(_GM_getValue(HIDDEN_GALLERIES_KEY, []));
+  function getGalleryTitle(gallery) {
+    const title = gallery.querySelector(".gl4t.glname")?.textContent?.trim();
+    return title || null;
+  }
+  function isGalleryHidden(title) {
+    return hiddenTitles.has(title);
+  }
+  function setGalleryHidden(title, hidden) {
+    if (hidden) {
+      hiddenTitles.add(title);
+    } else {
+      hiddenTitles.delete(title);
+    }
+    _GM_setValue(HIDDEN_GALLERIES_KEY, [...hiddenTitles]);
+  }
+  function removeHiddenGalleries() {
+    if (showHiddenGalleriesSwitch.value) {
+      return;
+    }
+    const galleries = getElements(".gl1t");
+    if (!galleries) {
+      return;
+    }
+    for (const gallery of [...galleries]) {
+      const title = getGalleryTitle(gallery);
+      if (title !== null && hiddenTitles.has(title)) {
+        gallery.remove();
+      }
+    }
+  }
+  function watchHiddenGalleries(callback) {
+    _GM_addValueChangeListener(HIDDEN_GALLERIES_KEY, (_, __, nextValue) => {
+      hiddenTitles = new Set(nextValue);
+      callback();
+    });
+  }
   const _hoisted_1$7 = ["innerHTML"];
   const _sfc_main$9 = vue.defineComponent({
     __name: "GalleriesEnhancer",
@@ -4172,6 +4212,52 @@ This will fail in production.`
       const { archiveInnerHtml, fetchArchive } = usePopups();
       const archivePopup = vue.ref();
       const activeButton = vue.ref();
+      function setHideButtonState(button, isHidden3) {
+        button.classList.toggle("is-hidden", isHidden3);
+        button.title = isHidden3 ? "Unhide gallery" : "Hide gallery";
+      }
+      function appendHideButtons() {
+        const galleries = getElements(".gl1t");
+        galleries?.forEach((gallery) => {
+          const title = getGalleryTitle(gallery);
+          if (title === null) {
+            return;
+          }
+          const existing = getElement(".hide-button", gallery);
+          if (existing) {
+            setHideButtonState(existing, isGalleryHidden(title));
+            return;
+          }
+          const button = document.createElement("span");
+          button.classList.add("hide-button");
+          button.textContent = "🚫";
+          setHideButtonState(button, isGalleryHidden(title));
+          button.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const nextHidden = !isGalleryHidden(title);
+            setGalleryHidden(title, nextHidden);
+            setHideButtonState(button, nextHidden);
+          };
+          const archiveBtn = getElement(".archive-button", gallery);
+          const downloadDiv = getElement(".gldown", gallery);
+          if (archiveBtn) {
+            archiveBtn.after(button);
+          } else {
+            downloadDiv?.appendChild(button);
+          }
+        });
+      }
+      function syncGalleriesEnhancerFeatures() {
+        removeHiddenGalleries();
+        appendHideButtons();
+        if (archiveButtonSwitch.value) {
+          appendArchiveButtons();
+        }
+        if (highlightSwitch.value) {
+          highlightDownloadedGalleries();
+        }
+      }
       async function appendArchiveButtons() {
         const galleries = getElements(".gl1t");
         galleries?.forEach((gallery) => {
@@ -4215,17 +4301,17 @@ This will fail in production.`
 marginRight: "-9999px"
         };
       });
-      if (archiveButtonSwitch.value) {
-        appendArchiveButtons();
-      }
+      syncGalleriesEnhancerFeatures();
       const galleryContainer = getElement(".itg.gld");
       if (galleryContainer) {
         const observer = new MutationObserver(() => {
-          if (archiveButtonSwitch.value) appendArchiveButtons();
-          if (highlightSwitch.value) highlightDownloadedGalleries();
+          syncGalleriesEnhancerFeatures();
         });
         observer.observe(galleryContainer, { childList: true });
       }
+      watchHiddenGalleries(() => {
+        syncGalleriesEnhancerFeatures();
+      });
       const modalOptions = vue.ref({
         teleportTo: ".enhancer-container",
         displayDirective: "show",
@@ -4248,7 +4334,6 @@ marginRight: "-9999px"
         }
       }
       if (highlightSwitch.value) {
-        highlightDownloadedGalleries();
         watchDownloadedGalleries();
       }
       return (_ctx, _cache) => {
@@ -5232,7 +5317,7 @@ marginRight: "-9999px"
     }
     return target;
   };
-  const PageElevator = _export_sfc(_sfc_main$7, [["__scopeId", "data-v-b833e772"]]);
+  const PageElevator = _export_sfc(_sfc_main$7, [["__scopeId", "data-v-b87e2f8f"]]);
   const _hoisted_1$4 = { class: "image-resizer" };
   const _hoisted_2$1 = ["onClick", "textContent"];
   const _sfc_main$6 = vue.defineComponent({
@@ -5367,7 +5452,7 @@ marginRight: "-9999px"
       };
     }
   });
-  const ImageResizer = _export_sfc(_sfc_main$6, [["__scopeId", "data-v-116315cc"]]);
+  const ImageResizer = _export_sfc(_sfc_main$6, [["__scopeId", "data-v-fb83c8f5"]]);
   function useMagnifierGesture(config) {
     const isLeftPressed = vue.ref(false);
     const isRightPressed = vue.ref(false);
@@ -5841,7 +5926,7 @@ marginRight: "-9999px"
       };
     }
   });
-  const ImageMagnifier = _export_sfc(_sfc_main$5, [["__scopeId", "data-v-e9718b94"]]);
+  const ImageMagnifier = _export_sfc(_sfc_main$5, [["__scopeId", "data-v-ba829bde"]]);
   const _hoisted_1$3 = ["innerHTML"];
   const _sfc_main$4 = vue.defineComponent({
     __name: "MultiPageViewerEnhancer",
@@ -6040,7 +6125,7 @@ div#bar3 {
       };
     }
   });
-  const ToggleSwitch = _export_sfc(_sfc_main$2, [["__scopeId", "data-v-04d58466"]]);
+  const ToggleSwitch = _export_sfc(_sfc_main$2, [["__scopeId", "data-v-7bec1a82"]]);
   const _hoisted_1 = { class: "settings-panel__inner" };
   const _hoisted_2 = { class: "settings-panel__section" };
   const _hoisted_3 = { class: "settings" };
@@ -6077,6 +6162,7 @@ div#bar3 {
   const _hoisted_34 = { class: "settings" };
   const _hoisted_35 = { class: "settings" };
   const _hoisted_36 = { class: "settings" };
+  const _hoisted_37 = { class: "settings" };
   const _sfc_main$1 = vue.defineComponent({
     __name: "SettingsPanel",
     setup(__props) {
@@ -6090,7 +6176,7 @@ div#bar3 {
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createBlock(vue.unref(Ro), {
           modelValue: isShow.value,
-          "onUpdate:modelValue": _cache[23] || (_cache[23] = ($event) => isShow.value = $event),
+          "onUpdate:modelValue": _cache[24] || (_cache[24] = ($event) => isShow.value = $event),
           "overlay-transition": "vfm-fade",
           class: "settings-panel-wrap",
           "content-class": "settings-panel"
@@ -6098,35 +6184,35 @@ div#bar3 {
           default: vue.withCtx(() => [
             vue.createElementVNode("div", _hoisted_1, [
               vue.createElementVNode("section", _hoisted_2, [
-                _cache[25] || (_cache[25] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Common ", -1)),
-                _cache[26] || (_cache[26] = vue.createElementVNode("hr", { class: "settings-panel__separator" }, null, -1)),
+                _cache[26] || (_cache[26] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Common ", -1)),
+                _cache[27] || (_cache[27] = vue.createElementVNode("hr", { class: "settings-panel__separator" }, null, -1)),
                 vue.createElementVNode("div", _hoisted_3, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(showJapaneseTitle).value,
                     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => vue.unref(showJapaneseTitle).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[24] || (_cache[24] = vue.createElementVNode("h3", { class: "settings__name" }, " Change page title to Japanese (effect on browser/tab title) ", -1))
+                  _cache[25] || (_cache[25] = vue.createElementVNode("h3", { class: "settings__name" }, " Change page title to Japanese (effect on browser/tab title) ", -1))
                 ])
               ]),
               vue.createElementVNode("section", _hoisted_4, [
-                _cache[34] || (_cache[34] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Gallery Enhancer ", -1)),
-                _cache[35] || (_cache[35] = vue.createElementVNode("hr", { class: "settings-panel__separator" }, null, -1)),
+                _cache[35] || (_cache[35] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Gallery Enhancer ", -1)),
+                _cache[36] || (_cache[36] = vue.createElementVNode("hr", { class: "settings-panel__separator" }, null, -1)),
                 vue.createElementVNode("div", _hoisted_5, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(scrollByRowSwitch).value,
                     "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => vue.unref(scrollByRowSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[27] || (_cache[27] = vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
-                  _cache[28] || (_cache[28] = vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Galleries Enhancer - Scroll by Row" ', -1))
+                  _cache[28] || (_cache[28] = vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
+                  _cache[29] || (_cache[29] = vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Galleries Enhancer - Scroll by Row" ', -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_6, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(betterPopupSwitch).value,
                     "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => vue.unref(betterPopupSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[31] || (_cache[31] = vue.createElementVNode("h3", { class: "settings__name" }, " Better Popup ", -1)),
+                  _cache[32] || (_cache[32] = vue.createElementVNode("h3", { class: "settings__name" }, " Better Popup ", -1)),
                   vue.createElementVNode("div", _hoisted_7, [
-                    _cache[29] || (_cache[29] = vue.createElementVNode("span", null, ' Action when clicking "Archive Download": ', -1)),
+                    _cache[30] || (_cache[30] = vue.createElementVNode("span", null, ' Action when clicking "Archive Download": ', -1)),
                     vue.withDirectives(vue.createElementVNode("select", {
                       "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => vue.unref(quickArchiveDownloadMethod).value = $event),
                       class: "settings__select"
@@ -6139,7 +6225,7 @@ div#bar3 {
                     ], 512), [
                       [vue.vModelSelect, vue.unref(quickArchiveDownloadMethod).value]
                     ]),
-                    _cache[30] || (_cache[30] = vue.createElementVNode("p", null, [
+                    _cache[31] || (_cache[31] = vue.createElementVNode("p", null, [
                       vue.createTextVNode(' *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual Start (Default)" in the setting page: '),
                       vue.createElementVNode("a", {
                         class: "settings__link",
@@ -6162,33 +6248,33 @@ div#bar3 {
                     modelValue: vue.unref(quickTorrentDownloadSwitch).value,
                     "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => vue.unref(quickTorrentDownloadSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[32] || (_cache[32] = vue.createElementVNode("h3", { class: "settings__name" }, " Download torrent directly if there is only one torrent. ", -1))
+                  _cache[33] || (_cache[33] = vue.createElementVNode("h3", { class: "settings__name" }, " Download torrent directly if there is only one torrent. ", -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_14, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(loadAllGalleryImagesSwitch).value,
                     "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => vue.unref(loadAllGalleryImagesSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[33] || (_cache[33] = vue.createElementVNode("h3", { class: "settings__name" }, " Load All Gallery Images ", -1))
+                  _cache[34] || (_cache[34] = vue.createElementVNode("h3", { class: "settings__name" }, " Load All Gallery Images ", -1))
                 ])
               ]),
               vue.createElementVNode("section", _hoisted_15, [
-                _cache[49] || (_cache[49] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Multi-Page Viewer Enhancer ", -1)),
-                _cache[50] || (_cache[50] = vue.createElementVNode("hr", { class: "settings-panel__separator" }, null, -1)),
+                _cache[50] || (_cache[50] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Multi-Page Viewer Enhancer ", -1)),
+                _cache[51] || (_cache[51] = vue.createElementVNode("hr", { class: "settings-panel__separator" }, null, -1)),
                 vue.createElementVNode("div", _hoisted_16, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(multipageViewerEnhancerSwitch).value,
                     "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => vue.unref(multipageViewerEnhancerSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[36] || (_cache[36] = vue.createElementVNode("h3", { class: "settings__name" }, " Multi-Page Viewer Enhancer ", -1))
+                  _cache[37] || (_cache[37] = vue.createElementVNode("h3", { class: "settings__name" }, " Multi-Page Viewer Enhancer ", -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_17, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(preventImageRemovalSwitch).value,
                     "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => vue.unref(preventImageRemovalSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[37] || (_cache[37] = vue.createElementVNode("h3", { class: "settings__name" }, " Prevent Image Removal ", -1)),
-                  _cache[38] || (_cache[38] = vue.createElementVNode("div", { class: "settings__intro" }, [
+                  _cache[38] || (_cache[38] = vue.createElementVNode("h3", { class: "settings__name" }, " Prevent Image Removal ", -1)),
+                  _cache[39] || (_cache[39] = vue.createElementVNode("div", { class: "settings__intro" }, [
                     vue.createElementVNode("p", null, " The original script of exhentai would remove the images which are too far from your current scroll. "),
                     vue.createElementVNode("p", null, " So if you scroll back to the images that have been removed. It might be flashing because although your browser has cached the image but still have to re-render it. ")
                   ], -1))
@@ -6198,26 +6284,26 @@ div#bar3 {
                     modelValue: vue.unref(changePageByWheelAnyWhereSwitch).value,
                     "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => vue.unref(changePageByWheelAnyWhereSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[39] || (_cache[39] = vue.createElementVNode("h3", { class: "settings__name" }, " Change page by scrolling mouse wheel anywhere ", -1))
+                  _cache[40] || (_cache[40] = vue.createElementVNode("h3", { class: "settings__name" }, " Change page by scrolling mouse wheel anywhere ", -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_19, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(autoRedirectSwitch).value,
                     "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => vue.unref(autoRedirectSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[40] || (_cache[40] = vue.createElementVNode("h3", { class: "settings__name" }, " Auto Redirect to Multi-Page Viewer ", -1))
+                  _cache[41] || (_cache[41] = vue.createElementVNode("h3", { class: "settings__name" }, " Auto Redirect to Multi-Page Viewer ", -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_20, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(magnifierSwitch).value,
                     "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => vue.unref(magnifierSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[48] || (_cache[48] = vue.createElementVNode("h3", { class: "settings__name" }, " Image Magnifier ", -1)),
+                  _cache[49] || (_cache[49] = vue.createElementVNode("h3", { class: "settings__name" }, " Image Magnifier ", -1)),
                   vue.createElementVNode("div", _hoisted_21, [
-                    _cache[47] || (_cache[47] = vue.createElementVNode("p", null, " Long press the primary button to activate magnifier. Press both primary and secondary buttons simultaneously for original image. ", -1)),
+                    _cache[48] || (_cache[48] = vue.createElementVNode("p", null, " Long press the primary button to activate magnifier. Press both primary and secondary buttons simultaneously for original image. ", -1)),
                     vue.createElementVNode("div", _hoisted_22, [
                       vue.createElementVNode("label", _hoisted_23, [
-                        _cache[41] || (_cache[41] = vue.createTextVNode(" Activation Button: ", -1)),
+                        _cache[42] || (_cache[42] = vue.createTextVNode(" Activation Button: ", -1)),
                         vue.withDirectives(vue.createElementVNode("select", {
                           "onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => vue.unref(magnifierActivationButton).value = $event),
                           class: "settings__select"
@@ -6242,7 +6328,7 @@ div#bar3 {
                         vue.createTextVNode(" " + vue.toDisplayString(vue.unref(magnifierToggleMode).value ? "Toggle Mode (click once to open, click again to close)" : "Hold Mode (hold down to use)"), 1)
                       ]),
                       vue.createElementVNode("label", _hoisted_27, [
-                        _cache[42] || (_cache[42] = vue.createTextVNode(" Default Scale: ", -1)),
+                        _cache[43] || (_cache[43] = vue.createTextVNode(" Default Scale: ", -1)),
                         vue.withDirectives(vue.createElementVNode("input", {
                           "onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => vue.unref(magnifierDefaultScale).value = $event),
                           type: "number",
@@ -6260,7 +6346,7 @@ div#bar3 {
                         ])
                       ]),
                       vue.createElementVNode("label", _hoisted_28, [
-                        _cache[43] || (_cache[43] = vue.createTextVNode(" Scale Step (Mouse Wheel): ", -1)),
+                        _cache[44] || (_cache[44] = vue.createTextVNode(" Scale Step (Mouse Wheel): ", -1)),
                         vue.withDirectives(vue.createElementVNode("input", {
                           "onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => vue.unref(magnifierScaleStep).value = $event),
                           type: "number",
@@ -6278,7 +6364,7 @@ div#bar3 {
                         ])
                       ]),
                       vue.createElementVNode("label", _hoisted_29, [
-                        _cache[44] || (_cache[44] = vue.createTextVNode(" Long Press Threshold (ms): ", -1)),
+                        _cache[45] || (_cache[45] = vue.createTextVNode(" Long Press Threshold (ms): ", -1)),
                         vue.withDirectives(vue.createElementVNode("input", {
                           "onUpdate:modelValue": _cache[15] || (_cache[15] = ($event) => vue.unref(magnifierLongPressThreshold).value = $event),
                           type: "number",
@@ -6296,7 +6382,7 @@ div#bar3 {
                         ])
                       ]),
                       vue.createElementVNode("label", _hoisted_30, [
-                        _cache[45] || (_cache[45] = vue.createTextVNode(" Mouse Sensitivity X: ", -1)),
+                        _cache[46] || (_cache[46] = vue.createTextVNode(" Mouse Sensitivity X: ", -1)),
                         vue.withDirectives(vue.createElementVNode("input", {
                           "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => vue.unref(magnifierSensitivityX).value = $event),
                           type: "number",
@@ -6314,7 +6400,7 @@ div#bar3 {
                         ])
                       ]),
                       vue.createElementVNode("label", _hoisted_31, [
-                        _cache[46] || (_cache[46] = vue.createTextVNode(" Mouse Sensitivity Y: ", -1)),
+                        _cache[47] || (_cache[47] = vue.createTextVNode(" Mouse Sensitivity Y: ", -1)),
                         vue.withDirectives(vue.createElementVNode("input", {
                           "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => vue.unref(magnifierSensitivityY).value = $event),
                           type: "number",
@@ -6336,43 +6422,51 @@ div#bar3 {
                 ])
               ]),
               vue.createElementVNode("section", _hoisted_32, [
-                _cache[57] || (_cache[57] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Galleries Enhancer ", -1)),
-                _cache[58] || (_cache[58] = vue.createElementVNode("hr", { class: "settings-panel__separator" }, null, -1)),
+                _cache[60] || (_cache[60] = vue.createElementVNode("h2", { class: "settings-panel__section-name" }, " Galleries Enhancer ", -1)),
+                _cache[61] || (_cache[61] = vue.createElementVNode("hr", { class: "settings-panel__separator" }, null, -1)),
                 vue.createElementVNode("div", _hoisted_33, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(infiniteScrollSwitch).value,
                     "onUpdate:modelValue": _cache[18] || (_cache[18] = ($event) => vue.unref(infiniteScrollSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[51] || (_cache[51] = vue.createElementVNode("h3", { class: "settings__name" }, " Infinite Scroll ", -1))
+                  _cache[52] || (_cache[52] = vue.createElementVNode("h3", { class: "settings__name" }, " Infinite Scroll ", -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_34, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(scrollByRowSwitch).value,
                     "onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => vue.unref(scrollByRowSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[52] || (_cache[52] = vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
-                  _cache[53] || (_cache[53] = vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Gallery Enhancer - Scroll by Row" ', -1))
+                  _cache[53] || (_cache[53] = vue.createElementVNode("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
+                  _cache[54] || (_cache[54] = vue.createElementVNode("span", { class: "settings__notice" }, ' *sync with "Gallery Enhancer - Scroll by Row" ', -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_35, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(highlightSwitch).value,
                     "onUpdate:modelValue": _cache[20] || (_cache[20] = ($event) => vue.unref(highlightSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[54] || (_cache[54] = vue.createElementVNode("h3", { class: "settings__name" }, " Highlight downloaded gallery ", -1)),
-                  _cache[55] || (_cache[55] = vue.createElementVNode("div", { class: "settings__intro" }, " Set background color of downloaded Gallery color to black. ", -1))
+                  _cache[55] || (_cache[55] = vue.createElementVNode("h3", { class: "settings__name" }, " Highlight downloaded gallery ", -1)),
+                  _cache[56] || (_cache[56] = vue.createElementVNode("div", { class: "settings__intro" }, " Set background color of downloaded Gallery color to black. ", -1))
                 ]),
                 vue.createElementVNode("div", _hoisted_36, [
                   vue.createVNode(ToggleSwitch, {
                     modelValue: vue.unref(archiveButtonSwitch).value,
                     "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => vue.unref(archiveButtonSwitch).value = $event)
                   }, null, 8, ["modelValue"]),
-                  _cache[56] || (_cache[56] = vue.createElementVNode("h3", { class: "settings__name" }, " Insert archiver buttons to galleries. ", -1))
+                  _cache[57] || (_cache[57] = vue.createElementVNode("h3", { class: "settings__name" }, " Insert archiver buttons to galleries. ", -1))
+                ]),
+                vue.createElementVNode("div", _hoisted_37, [
+                  vue.createVNode(ToggleSwitch, {
+                    modelValue: vue.unref(showHiddenGalleriesSwitch).value,
+                    "onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => vue.unref(showHiddenGalleriesSwitch).value = $event)
+                  }, null, 8, ["modelValue"]),
+                  _cache[58] || (_cache[58] = vue.createElementVNode("h3", { class: "settings__name" }, " Show hidden galleries ", -1)),
+                  _cache[59] || (_cache[59] = vue.createElementVNode("div", { class: "settings__intro" }, " When enabled, galleries you have hidden via the 🚫 button stay visible (with the icon shown opaque) so you can un-hide them. ", -1))
                 ])
               ])
             ]),
             vue.createElementVNode("span", {
               class: "settings-panel__close-button",
-              onClick: _cache[22] || (_cache[22] = ($event) => isShow.value = false)
+              onClick: _cache[23] || (_cache[23] = ($event) => isShow.value = false)
             }, [
               vue.createVNode(CrossButton)
             ]),
