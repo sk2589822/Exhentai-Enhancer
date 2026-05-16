@@ -11,6 +11,7 @@ import { scrollByRowSwitch, infiniteScrollSwitch, archiveButtonSwitch, highlight
 import { getArchiveLink } from '@/utils/e-hentai-api'
 import { useArchive } from '@/composables/useArchive'
 import { highlightDownloadedGalleries, watchDownloadedGalleries } from '@/utils/highlight-galleries'
+import { getGalleryTitle, isGalleryHidden, setGalleryHidden, removeHiddenGalleries, watchHiddenGalleries } from '@/utils/hidden-galleries'
 
 if (scrollByRowSwitch.value) {
   setWheelStep({
@@ -66,6 +67,59 @@ const { archiveInnerHtml, fetchArchive } = usePopups()
 
 const archivePopup = ref<HTMLElement>()
 const activeButton = ref<HTMLElement>()
+
+function setHideButtonState(button: HTMLElement, isHidden: boolean) {
+  button.classList.toggle('is-hidden', isHidden)
+  button.title = isHidden ? 'Unhide gallery' : 'Hide gallery'
+}
+
+function appendHideButtons() {
+  const galleries = getElements('.gl1t')
+
+  galleries?.forEach(gallery => {
+    const title = getGalleryTitle(gallery)
+    if (title === null) {
+      return
+    }
+
+    const existing = getElement('.hide-button', gallery)
+    if (existing) {
+      setHideButtonState(existing, isGalleryHidden(title))
+      return
+    }
+
+    const button = document.createElement('span')
+    button.classList.add('hide-button')
+    button.textContent = '🚫'
+    setHideButtonState(button, isGalleryHidden(title))
+    button.onclick = (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      const nextHidden = !isGalleryHidden(title)
+      setGalleryHidden(title, nextHidden)
+      setHideButtonState(button, nextHidden)
+    }
+
+    const archiveBtn = getElement('.archive-button', gallery)
+    const downloadDiv = getElement('.gldown', gallery)
+    if (archiveBtn) {
+      archiveBtn.after(button)
+    } else {
+      downloadDiv?.appendChild(button)
+    }
+  })
+}
+
+function syncGalleriesEnhancerFeatures() {
+  removeHiddenGalleries()
+  appendHideButtons()
+  if (archiveButtonSwitch.value) {
+    appendArchiveButtons()
+  }
+  if (highlightSwitch.value) {
+    highlightDownloadedGalleries()
+  }
+}
 
 async function appendArchiveButtons() {
   const galleries = getElements('.gl1t')
@@ -123,18 +177,19 @@ const archivePopupPosition = computed(() => {
   }
 })
 
-if (archiveButtonSwitch.value) {
-  appendArchiveButtons()
-}
+syncGalleriesEnhancerFeatures()
 
 const galleryContainer = getElement('.itg.gld')
 if (galleryContainer) {
   const observer = new MutationObserver(() => {
-    if (archiveButtonSwitch.value) appendArchiveButtons()
-    if (highlightSwitch.value) highlightDownloadedGalleries()
+    syncGalleriesEnhancerFeatures()
   })
   observer.observe(galleryContainer, { childList: true })
 }
+
+watchHiddenGalleries(() => {
+  syncGalleriesEnhancerFeatures()
+})
 
 const modalOptions = ref({
   teleportTo: '.enhancer-container',
@@ -163,7 +218,6 @@ function setArchiveEvent() {
 }
 
 if (highlightSwitch.value) {
-  highlightDownloadedGalleries()
   watchDownloadedGalleries()
 }
 </script>
@@ -212,13 +266,33 @@ if (highlightSwitch.value) {
   align-items: center;
   flex-shrink: 0;
   position: relative;
-  top: -6px;
-  margin-left: 4px;
-  width: 24px;
-  height: 24px;
+  width: 14px;
+  height: 14px;
   border-radius: 9999px;
   background-color: #5fa9cf;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 5px;
   cursor: pointer;
+}
+
+.hide-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  height: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.25;
+  transition: opacity 0.15s ease-in-out;
+  user-select: none;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &.is-hidden {
+    opacity: 1;
+  }
 }
 </style>
