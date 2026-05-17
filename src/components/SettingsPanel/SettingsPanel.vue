@@ -63,7 +63,7 @@ function reload() {
         <div class="settings">
           <ToggleSwitch v-model="showJapaneseTitle.value" />
           <h3 class="settings__name">
-            Change page title to Japanese (effect on browser/tab title)
+            Change Browser Tab Title to Japanese
           </h3>
         </div>
       </section>
@@ -81,7 +81,7 @@ function reload() {
             Scroll by Row
           </h3>
           <span class="settings__notice">
-            *sync with "Galleries Enhancer - Scroll by Row"
+            *Synced with "Galleries Enhancer - Scroll by Row"
           </span>
         </div>
 
@@ -113,15 +113,15 @@ function reload() {
               </option>
             </select>
             <p>
-              *Notice: If you had changed the Archiver Settings, you have to change it back to "Manual Select, Manual
-              Start (Default)" in the setting page:
+              *Note: If you have changed the Archiver Settings, you must revert it to "Manual Select, Manual
+              Start (Default)" on the settings page:
               <a
                 class="settings__link"
                 target="_blank"
                 href="https://e-hentai.org/uconfig.php"
                 rel="noreferrer noopener"
               >
-                e-hentai
+                E-Hentai
               </a>
               ,
               <a
@@ -130,7 +130,7 @@ function reload() {
                 href="https://exhentai.org/uconfig.php"
                 rel="noreferrer noopener"
               >
-                exhentai
+                ExHentai
               </a>
             </p>
           </div>
@@ -139,7 +139,7 @@ function reload() {
         <div class="settings">
           <ToggleSwitch v-model="quickTorrentDownloadSwitch.value" />
           <h3 class="settings__name">
-            Download torrent directly if there is only one torrent.
+            Download Directly if Only One Torrent Is Available
           </h3>
         </div>
 
@@ -172,11 +172,8 @@ function reload() {
           </h3>
           <div class="settings__intro">
             <p>
-              The original script of exhentai would remove the images which are too far from your current scroll.
-            </p>
-            <p>
-              So if you scroll back to the images that have been removed.
-              It might be flashing because although your browser has cached the image but still have to re-render it.
+              ExHentai's built-in script removes images that are far from your current scroll position.
+              Scrolling back to a removed image may cause it to flash, since the browser must re-render it even if it's cached.
             </p>
           </div>
         </div>
@@ -184,14 +181,14 @@ function reload() {
         <div class="settings">
           <ToggleSwitch v-model="changePageByWheelAnyWhereSwitch.value" />
           <h3 class="settings__name">
-            Change page by scrolling mouse wheel anywhere
+            Change Page by Scrolling the Mouse Wheel Anywhere
           </h3>
         </div>
 
         <div class="settings">
           <ToggleSwitch v-model="autoRedirectSwitch.value" />
           <h3 class="settings__name">
-            Auto Redirect to Multi-Page Viewer
+            Auto-Redirect to Multi-Page Viewer
           </h3>
         </div>
 
@@ -202,8 +199,8 @@ function reload() {
           </h3>
           <div class="settings__intro">
             <p>
-              Long press the primary button to activate magnifier.
-              Press both primary and secondary buttons simultaneously for original image.
+              Long-press the activation button to enable the magnifier.
+              Press both mouse buttons simultaneously to view the image at its original scale.
             </p>
 
             <div class="settings__magnifier-config">
@@ -221,7 +218,7 @@ function reload() {
 
               <label class="settings__label ">
                 <ToggleSwitch v-model="magnifierToggleMode.value" />
-                {{ magnifierToggleMode.value ? 'Toggle Mode (click once to open, click again to close)' : 'Hold Mode (hold down to use)' }}
+                {{ magnifierToggleMode.value ? 'Toggle Mode (click once to enable, click again to disable)' : 'Hold Mode (hold down to use)' }}
               </label>
 
               <label class="settings__label">
@@ -249,7 +246,7 @@ function reload() {
               </label>
 
               <label class="settings__label">
-                Long Press Threshold (ms):
+                Long-Press Threshold (ms):
                 <input
                   v-model.number="magnifierLongPressThreshold.value"
                   type="number"
@@ -308,34 +305,34 @@ function reload() {
             Scroll by Row
           </h3>
           <span class="settings__notice">
-            *sync with "Gallery Enhancer - Scroll by Row"
+            *Synced with "Gallery Enhancer - Scroll by Row"
           </span>
         </div>
 
         <div class="settings">
           <ToggleSwitch v-model="highlightSwitch.value" />
           <h3 class="settings__name">
-            Highlight downloaded gallery
+            Highlight Downloaded Galleries
           </h3>
           <div class="settings__intro">
-            Set background color of downloaded Gallery color to black.
+            Sets the background of downloaded galleries to black (ExHentai) or light yellow (e-hentai).
           </div>
         </div>
 
         <div class="settings">
           <ToggleSwitch v-model="archiveButtonSwitch.value" />
           <h3 class="settings__name">
-            Insert archiver buttons to galleries.
+            Insert Archiver Buttons
           </h3>
         </div>
 
         <div class="settings">
           <ToggleSwitch v-model="showHiddenGalleriesSwitch.value" />
           <h3 class="settings__name">
-            Show hidden galleries
+            Show Hidden Galleries
           </h3>
           <div class="settings__intro">
-            When enabled, galleries you have hidden via the 🚫 button stay visible (with the icon shown opaque) so you can un-hide them.
+            When enabled, galleries hidden via the 🚫 button remain visible (with the icon at full opacity) so you can unhide them.
           </div>
         </div>
       </section>
