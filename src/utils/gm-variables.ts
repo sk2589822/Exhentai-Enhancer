@@ -60,10 +60,15 @@ export const enum MouseButton {
 class GMVariable<T extends boolean | ArchiveDownloadMethod | ArchiveSessionAction | MouseButton | number> {
   private _key: string
   private _value: T
+  private _legacyValues: Record<string, T>
 
-  constructor(key: string, defaultValue: T) {
+  /**
+   * @param legacyValues 舊版存進去、現在已經不合法的值，對應到現行的值
+   */
+  constructor(key: string, defaultValue: T, legacyValues: Record<string, T> = {}) {
     this._key = key
     this._value = defaultValue
+    this._legacyValues = legacyValues
   }
 
   get value(): T {
@@ -76,7 +81,16 @@ class GMVariable<T extends boolean | ArchiveDownloadMethod | ArchiveSessionActio
   }
 
   async initialize() {
-    this._value = await GM.getValue(this._key, this._value)
+    const stored = await GM.getValue(this._key, this._value)
+
+    const migrated = this._legacyValues[String(stored)]
+    if (migrated === undefined) {
+      this._value = stored
+      return
+    }
+
+    // 用 setter 寫回新值，所以遷移只會發生一次
+    this.value = migrated
   }
 }
 
