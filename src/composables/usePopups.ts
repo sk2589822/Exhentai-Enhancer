@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import { createSharedComposable } from '@vueuse/core'
 
 import { getElement, getDoc } from '@/utils/commons'
 import { Logger, LoggerScopeDecorator } from '@/utils/logger'
@@ -9,7 +10,9 @@ import { getArchiveLinkAnchor, getTorrentLinkAnchor } from '@/components/Gallery
 * 同時把原先的 window.open() popup 改為在同一個頁面內的 popup
 */
 
-export function usePopups() {
+export const usePopups = createSharedComposable(_usePopups)
+
+function _usePopups() {
   const archiveLinkAnchor = getArchiveLinkAnchor()
   const torrentLinkAnchor = getTorrentLinkAnchor()
 

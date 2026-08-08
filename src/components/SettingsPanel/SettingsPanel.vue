@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { VueFinalModal } from 'vue-final-modal'
 import { GM } from 'vite-plugin-monkey/dist/client'
 
+import { getArchiveDownloadType } from '@/composables/useArchive'
 import {
   MouseButton,
   ArchiveDownloadMethod,
+  ArchiveSessionAction,
 
+  archiveSessionAction,
   infiniteScrollSwitch,
   archiveButtonSwitch,
   scrollByRowSwitch,
@@ -38,6 +41,8 @@ const isShow = ref(false)
 onMounted(() => {
   GM.registerMenuCommand('Open settings panel', () => isShow.value = !isShow.value)
 })
+
+const isDirectDownload = computed(() => !!getArchiveDownloadType(quickArchiveDownloadMethod.value))
 
 function reload() {
   location.reload()
@@ -96,22 +101,35 @@ function reload() {
               Action when clicking "Archive Download":
             </span>
             <select v-model="quickArchiveDownloadMethod.value" class="settings__select">
-              <option class="settings__option">
-                {{ ArchiveDownloadMethod.Manual }}
+              <option class="settings__option" :value="ArchiveDownloadMethod.Manual">
+                Manual
               </option>
-              <option class="settings__option">
-                {{ ArchiveDownloadMethod.HaH_Original }}
+              <option class="settings__option" :value="ArchiveDownloadMethod.HaH_Original">
+                download Original Resolution with H@H
               </option>
-              <option class="settings__option">
-                {{ ArchiveDownloadMethod.HaH_2400 }}
+              <option class="settings__option" :value="ArchiveDownloadMethod.HaH_800">
+                download 800x Resolution with H@H
               </option>
-              <option class="settings__option">
-                {{ ArchiveDownloadMethod.Direct_Origin }}
+              <option class="settings__option" :value="ArchiveDownloadMethod.HaH_1280">
+                download 1280x Resolution with H@H
               </option>
-              <option class="settings__option">
-                {{ ArchiveDownloadMethod.Direct_Resample }}
+              <option class="settings__option" :value="ArchiveDownloadMethod.HaH_1920">
+                download 1920x Resolution with H@H
+              </option>
+              <option class="settings__option" :value="ArchiveDownloadMethod.HaH_2560">
+                download 2560x Resolution with H@H
+              </option>
+              <option class="settings__option" :value="ArchiveDownloadMethod.Direct_Origin">
+                download Original Resolution directly
+              </option>
+              <option class="settings__option" :value="ArchiveDownloadMethod.Direct_Resample">
+                download Resample Resolution directly
               </option>
             </select>
+            <p>
+              *Note: Not every gallery offers every H@H resolution. When the one you picked isn't
+              available, the pop-up opens instead.
+            </p>
             <p>
               *Note: If you have changed the Archiver Settings, you must revert it to "Manual Select, Manual
               Start (Default)" on the settings page:
@@ -132,6 +150,35 @@ function reload() {
               >
                 ExHentai
               </a>
+            </p>
+
+            <span>
+              Action when a previous archive session is still active:
+            </span>
+            <select
+              v-model="archiveSessionAction.value"
+              class="settings__select"
+              :disabled="!isDirectDownload"
+            >
+              <option class="settings__option" :value="ArchiveSessionAction.DownloadDirectly">
+                download directly
+              </option>
+              <option class="settings__option" :value="ArchiveSessionAction.OpenPopup">
+                open the popup
+              </option>
+              <option class="settings__option" :value="ArchiveSessionAction.CancelThenDownload">
+                cancel the session, then download
+              </option>
+              <option class="settings__option" :value="ArchiveSessionAction.ShowCancelButton">
+                add an "Invalidate Archive" button below "Archive Download"
+              </option>
+            </select>
+            <p>
+              *Only applies when the option above is set to a "directly" method.
+            </p>
+            <p>
+              *"cancel the session, then download" invalidates the archive session you already paid
+              for, so each download will cost GP again.
             </p>
           </div>
         </div>

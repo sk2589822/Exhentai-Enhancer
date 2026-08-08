@@ -9,7 +9,7 @@ import {
   getTorrentLinkAnchor,
 } from '@/components/Gallery/utils/elements'
 import { setWheelStep } from '@/utils/wheel-step'
-import { useArchive } from '@/composables/useArchive'
+import { getArchiveDownloadType, hasArchiveSession, useArchive } from '@/composables/useArchive'
 import { usePopups } from '@/composables/usePopups'
 import {
   scrollByRowSwitch,
@@ -17,7 +17,9 @@ import {
   loadAllGalleryImagesSwitch,
   quickArchiveDownloadMethod,
   quickTorrentDownloadSwitch,
+  archiveSessionAction,
   ArchiveDownloadMethod,
+  ArchiveSessionAction,
 } from '@/utils/gm-variables'
 import { fetchAllImages } from '@/utils/fetch-images'
 import { useFavorite } from '@/components/Gallery/composables/useFavorite'
@@ -72,7 +74,14 @@ const {
   favorite: favoritePosition,
 } = usePositions()
 
-const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive()
+const {
+  setHentaiAtHomeEvent,
+  setDirectDownloadEvent,
+  setCancelArchiveEvent,
+  cancelThenDownload,
+  setInlineCancelButton,
+  quickDownload,
+} = useArchive()
 const { downloadTorrent, addMagnetCopyButtons, setTorrentPopupEvents } = useTorrent(torrentInnerHtml)
 const { setRequestEvents } = useFavorite(favoriteInnerHtml)
 
@@ -94,9 +103,17 @@ function setArchiveClickEvent() {
   setDirectDownloadEvent()
   setCancelArchiveEvent()
 
-  archiveLinkAnchor.addEventListener('click', event => {
+  if (archiveSessionAction.value === ArchiveSessionAction.ShowCancelButton && getActionableDownloadType()) {
+    setInlineCancelButton()
+  }
+
+  archiveLinkAnchor.addEventListener('click', async event => {
     event.preventDefault()
     event.stopPropagation()
+
+    if (await handleArchiveSessionAction()) {
+      return
+    }
 
     if (isQuickDownload.value) {
       const succeed = quickDownload(archivePopup)
@@ -108,6 +125,43 @@ function setArchiveClickEvent() {
     }
   })
   setReady(archiveLinkAnchor)
+}
+
+/**
+ * Archive Session Action 只在「設定為直接下載」且「存在未失效的 archive session」時適用
+ *
+ * @returns 適用時回傳要下載的類型，不適用時回傳 null
+ */
+function getActionableDownloadType() {
+  const dltype = getArchiveDownloadType(quickArchiveDownloadMethod.value)
+  return dltype && hasArchiveSession() ? dltype : null
+}
+
+/**
+ * @returns 是否已經處理完點擊，false 表示交回原本的流程
+ */
+async function handleArchiveSessionAction() {
+  const dltype = getActionableDownloadType()
+  if (!dltype) {
+    return false
+  }
+
+  switch (archiveSessionAction.value) {
+    case ArchiveSessionAction.OpenPopup:
+      isArchivePopupShow.value = true
+      return true
+
+    case ArchiveSessionAction.CancelThenDownload: {
+      const succeed = await cancelThenDownload(dltype)
+      if (!succeed) {
+        isArchivePopupShow.value = true
+      }
+      return true
+    }
+
+    default:
+      return false
+  }
 }
 
 
@@ -215,6 +269,16 @@ div#gd5 {
 
 #gd5 .is-ready::after {
   content: " ✔️";
+}
+
+#gd5 .enhancer-archive-cancel {
+  display: block;
+  padding-top: 4px;
+
+  a {
+    /* 對齊 Archive Download 的文字左緣：#gd5 img 的 margin-left 10px + width 5px + 之間的空白約 3px */
+    margin-left: 18px;
+  }
 }
 
 .enhancer-container {
