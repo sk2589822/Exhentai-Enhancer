@@ -20,6 +20,36 @@ const DOWNLOAD_LABELS: Record<ArchiveDownloadType, string> = {
 
 const DOWNLOAD_ACCEPTED_TEXT = 'Locating archive server and preparing file for download...'
 
+const HAH_ORIGINAL_RESOLUTION = 'org'
+
+/**
+ * quick download 的設定值對應的 H@H 解析度，值就是 archiver 的 `hathdl_xres`
+ *
+ * 這份清單只決定「設定面板上提供哪些選項」。某一本 gallery 實際提供哪些解析度，
+ * 要看 archiver 頁面上有沒有對應的連結 —— 不提供的那格會變灰而且連 `<a>` 都沒有
+ */
+const HAH_RESOLUTIONS: Partial<Record<ArchiveDownloadMethod, string>> = {
+  [ArchiveDownloadMethod.HaH_Original]: HAH_ORIGINAL_RESOLUTION,
+  [ArchiveDownloadMethod.HaH_800]: '800',
+  [ArchiveDownloadMethod.HaH_1280]: '1280',
+  [ArchiveDownloadMethod.HaH_1920]: '1920',
+  [ArchiveDownloadMethod.HaH_2560]: '2560',
+}
+
+/**
+ * 綁定事件時會把解析度記到這個屬性上
+ *
+ * 因為綁定的同時就把 `onclick` 移除了，之後想知道某個連結是哪個解析度只能靠它
+ */
+const HAH_RESOLUTION_ATTRIBUTE = 'data-hathdl-xres'
+
+/**
+ * 顯示給使用者看的解析度名稱，與 archiver 表格上的欄位標題一致
+ */
+function getResolutionLabel(resolution: string) {
+  return resolution === HAH_ORIGINAL_RESOLUTION ? 'Original' : `${resolution}x`
+}
+
 const INLINE_CANCEL_CLASS = 'enhancer-archive-cancel'
 
 /**
@@ -160,9 +190,9 @@ export function useArchive() {
     }
 
     for (const link of hentaiAtHomeLinks) {
-      const ORIGINAL_SIZE = 'org'
-      const resolution = link.getAttribute('onclick')?.split('\'')?.[1] || ORIGINAL_SIZE
+      const resolution = link.getAttribute('onclick')?.split('\'')?.[1] || HAH_ORIGINAL_RESOLUTION
       link.removeAttribute('onclick')
+      link.setAttribute(HAH_RESOLUTION_ATTRIBUTE, resolution)
 
       link.addEventListener('click', async event => {
         event.preventDefault()
@@ -392,42 +422,53 @@ export function useArchive() {
     })
   }
 
+  /**
+   * 點擊 popup 內對應解析度的 H@H 連結
+   *
+   * 不用位置選取。站方改過解析度階梯，而且不提供的解析度那格沒有 `<a>`，
+   * 所以「第幾格」和「哪個解析度」之間沒有固定關係
+   */
+  function startHentaiAtHomeDownload(popup: Ref<HTMLElement | undefined>, resolution: string) {
+    const logger = new Logger('Archive Event')
+
+    const link = getElement(`[${HAH_RESOLUTION_ATTRIBUTE}="${resolution}"]`, popup.value)
+    if (link) {
+      link.click()
+      return true
+    }
+
+    // 找得到其他解析度，就表示事件綁好了、只是這本 gallery 不提供這一階
+    if (getElements(`[${HAH_RESOLUTION_ATTRIBUTE}]`, popup.value)?.length) {
+      toast.warning(`This gallery doesn't offer H@H ${getResolutionLabel(resolution)}.\n Open popup`)
+      return false
+    }
+
+    logger.error('hentai@Home links not found.')
+    toast.error('Failed to find the H@H links.\n Open popup')
+    return false
+  }
+
   // TODO: 直接 send request 而非操作 DOM
   function quickDownload(popup: Ref<HTMLElement | undefined>) {
-    function getHaHDownloadLinkElement(downloadMethod: ArchiveDownloadMethod.HaH_Original | ArchiveDownloadMethod.HaH_2400) {
-      const indexMap = {
-        [ArchiveDownloadMethod.HaH_Original]: 6,
-        [ArchiveDownloadMethod.HaH_2400]: 5,
-      }
-      const index = indexMap[downloadMethod]
+    const logger = new Logger('Archive Event')
 
-      return getElement(`td:nth-child(${index}) > p > a`, popup.value)
+    const resolution = HAH_RESOLUTIONS[quickArchiveDownloadMethod.value]
+    if (resolution) {
+      return startHentaiAtHomeDownload(popup, resolution)
     }
 
-    switch (quickArchiveDownloadMethod.value) {
-      case ArchiveDownloadMethod.HaH_Original:
-      case ArchiveDownloadMethod.HaH_2400: {
-        const downloadLinkElement = getHaHDownloadLinkElement(quickArchiveDownloadMethod.value)
-
-        if (downloadLinkElement) {
-          downloadLinkElement.click()
-        } else {
-          toast.warning(`Failed ${quickArchiveDownloadMethod.value}. The link might not exists.\n Open popup`)
-          return false
-        }
-
-        break
-      }
-
-      case ArchiveDownloadMethod.Direct_Origin:
-        (getElement('input[value="Download Original Archive"]', popup.value) as HTMLElement).click()
-        break
-
-      case ArchiveDownloadMethod.Direct_Resample:
-        (getElement('input[value="Download Resample Archive"]', popup.value) as HTMLElement).click()
-        break
+    const dltype = getArchiveDownloadType(quickArchiveDownloadMethod.value)
+    if (!dltype) {
+      return true
     }
 
+    const downloadButton = getElement(`input[value="${DOWNLOAD_LABELS[dltype]}"]`, popup.value)
+    if (!downloadButton) {
+      logger.error(`download button for "${dltype}" not found.`)
+      return false
+    }
+
+    downloadButton.click()
     return true
   }
 
