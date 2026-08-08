@@ -199,6 +199,7 @@ export function useArchive() {
           const html = new DOMParser().parseFromString(text, 'text/html')
           archiveInnerHtml.value = getElement('#db', html)?.innerHTML as string
           setTimeout(() => {
+            setHentaiAtHomeEvent()
             setDirectDownloadEvent()
           }, 0)
         })
