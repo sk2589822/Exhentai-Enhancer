@@ -31,12 +31,35 @@ export const enum GMKey {
   ShowJapaneseTitle = 'ShowJapaneseTitle',
 }
 
+/**
+ * 點擊 Archive Download 時要用哪種方式下載
+ *
+ * 值刻意使用與顯示文字無關的短 key，這樣之後改文案不會動到已儲存的設定
+ */
 export const enum ArchiveDownloadMethod {
   Manual = 'Manual',
-  HaH_Original = 'download Original Resolution with H@H',
-  HaH_2400 = 'download 2400x Resolution with H@H',
-  Direct_Origin = 'download Original Resolution directly',
-  Direct_Resample = 'download Resample Resolution directly',
+  HaH_Original = 'HaH_org',
+  HaH_800 = 'HaH_800',
+  HaH_1280 = 'HaH_1280',
+  HaH_1920 = 'HaH_1920',
+  HaH_2560 = 'HaH_2560',
+  Direct_Origin = 'Direct_org',
+  Direct_Resample = 'Direct_res',
+}
+
+/**
+ * 舊版直接把顯示文字存進 GM storage，所以升級時要映射成新的短 key
+ *
+ * `Manual` 的值沒變，不需要遷移。
+ *
+ * 站方已經沒有 2400x 這一階了，而舊版的位置選取實際上抓到的是 2560x，
+ * 所以映射到 2560x 才不會改變這些使用者原本拿到的檔案。
+ */
+const LEGACY_ARCHIVE_DOWNLOAD_METHODS: Record<string, ArchiveDownloadMethod> = {
+  'download Original Resolution with H@H': ArchiveDownloadMethod.HaH_Original,
+  'download 2400x Resolution with H@H': ArchiveDownloadMethod.HaH_2560,
+  'download Original Resolution directly': ArchiveDownloadMethod.Direct_Origin,
+  'download Resample Resolution directly': ArchiveDownloadMethod.Direct_Resample,
 }
 
 /**
@@ -103,7 +126,7 @@ export const showHiddenGalleriesSwitch = reactive(new GMVariable<boolean>(GMKey.
 // Gallery enhancer
 export const scrollByRowSwitch = reactive(new GMVariable<boolean>(GMKey.ScrollByRow, true))
 export const betterPopupSwitch = reactive(new GMVariable<boolean>(GMKey.BetterPopup, true))
-export const quickArchiveDownloadMethod = reactive(new GMVariable<ArchiveDownloadMethod>(GMKey.QuickArchiveDownloadMethod, ArchiveDownloadMethod.Manual))
+export const quickArchiveDownloadMethod = reactive(new GMVariable<ArchiveDownloadMethod>(GMKey.QuickArchiveDownloadMethod, ArchiveDownloadMethod.Manual, LEGACY_ARCHIVE_DOWNLOAD_METHODS))
 export const archiveSessionAction = reactive(new GMVariable<ArchiveSessionAction>(GMKey.ArchiveSessionAction, ArchiveSessionAction.DownloadDirectly))
 export const quickTorrentDownloadSwitch = reactive(new GMVariable<boolean>(GMKey.QuickTorrentDownload, false))
 export const loadAllGalleryImagesSwitch = reactive(new GMVariable<boolean>(GMKey.LoadAllGalleryImages, true))

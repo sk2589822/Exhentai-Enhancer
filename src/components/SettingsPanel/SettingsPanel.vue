@@ -101,22 +101,35 @@ function reload() {
               Action when clicking "Archive Download":
             </span>
             <select v-model="quickArchiveDownloadMethod.value" class="settings__select">
-              <option class="settings__option">
-                {{ ArchiveDownloadMethod.Manual }}
+              <option class="settings__option" :value="ArchiveDownloadMethod.Manual">
+                Manual
               </option>
-              <option class="settings__option">
-                {{ ArchiveDownloadMethod.HaH_Original }}
+              <option class="settings__option" :value="ArchiveDownloadMethod.HaH_Original">
+                download Original Resolution with H@H
               </option>
-              <option class="settings__option">
-                {{ ArchiveDownloadMethod.HaH_2400 }}
+              <option class="settings__option" :value="ArchiveDownloadMethod.HaH_800">
+                download 800x Resolution with H@H
               </option>
-              <option class="settings__option">
-                {{ ArchiveDownloadMethod.Direct_Origin }}
+              <option class="settings__option" :value="ArchiveDownloadMethod.HaH_1280">
+                download 1280x Resolution with H@H
               </option>
-              <option class="settings__option">
-                {{ ArchiveDownloadMethod.Direct_Resample }}
+              <option class="settings__option" :value="ArchiveDownloadMethod.HaH_1920">
+                download 1920x Resolution with H@H
+              </option>
+              <option class="settings__option" :value="ArchiveDownloadMethod.HaH_2560">
+                download 2560x Resolution with H@H
+              </option>
+              <option class="settings__option" :value="ArchiveDownloadMethod.Direct_Origin">
+                download Original Resolution directly
+              </option>
+              <option class="settings__option" :value="ArchiveDownloadMethod.Direct_Resample">
+                download Resample Resolution directly
               </option>
             </select>
+            <p>
+              *Note: Not every gallery offers every H@H resolution. When the one you picked isn't
+              available, the pop-up opens instead.
+            </p>
             <p>
               *Note: If you have changed the Archiver Settings, you must revert it to "Manual Select, Manual
               Start (Default)" on the settings page:
