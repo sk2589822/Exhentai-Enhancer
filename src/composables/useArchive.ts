@@ -6,6 +6,7 @@ import { getElement, getElements, getDoc } from '@/utils/commons'
 import { Logger } from '@/utils/logger'
 import { ArchiveDownloadMethod, quickArchiveDownloadMethod } from '@/utils/gm-variables'
 import { setAsDownloaded } from '@/utils/highlight-galleries'
+import { getArchiveLinkAnchor } from '@/components/Gallery/utils/elements'
 
 /**
  * archiver 的下載類型，對應 download form 內 hidden input `dltype` 的值
@@ -18,6 +19,14 @@ const DOWNLOAD_LABELS: Record<ArchiveDownloadType, string> = {
 }
 
 const DOWNLOAD_ACCEPTED_TEXT = 'Locating archive server and preparing file for download...'
+
+const INLINE_CANCEL_CLASS = 'enhancer-archive-cancel'
+
+/**
+ * 原生頁面上不會有「You unlocked ...」那句話當上下文，所以不沿用站方的 `cancel`
+ */
+const INLINE_CANCEL_LABEL = 'Invalidate Archive'
+const INLINE_CANCEL_PENDING_LABEL = 'Invalidating...'
 
 /**
  * archiver 只在存在未失效的 archive session 時才會輸出 #invalidate_form
@@ -60,6 +69,15 @@ export function getArchiveDownloadType(method: ArchiveDownloadMethod): ArchiveDo
     default:
       return null
   }
+}
+
+/**
+ * 從 archiver 頁面找出指定下載類型的 form action
+ */
+function getDirectDownloadUrl(root: Document | HTMLElement, dltype: ArchiveDownloadType) {
+  return getElement(`form input[name="dltype"][value="${dltype}"]`, root)
+    ?.closest('form')
+    ?.getAttribute('action') ?? null
 }
 
 /**
@@ -268,6 +286,11 @@ export function useArchive() {
   function refreshArchivePopup(doc: Document) {
     archiveInnerHtml.value = getElement('#db', doc)?.innerHTML ?? ''
 
+    // session 已失效，原生頁面上那顆 cancel 就沒有意義了
+    if (!hasArchiveSession(doc)) {
+      getElement(`.${INLINE_CANCEL_CLASS}`)?.remove()
+    }
+
     // 等 v-html 重新 render 完才抓得到新的 DOM
     setTimeout(() => {
       setHentaiAtHomeEvent()
@@ -297,6 +320,74 @@ export function useArchive() {
         return
       }
 
+      refreshArchivePopup(doc)
+    })
+  }
+
+  /**
+   * 先取消現有的 archive session，再重新下載
+   *
+   * 下載用的 form action 直接從取消後的回應解析，所以不需要等 popup 重新 render
+   */
+  async function cancelThenDownload(dltype: ArchiveDownloadType) {
+    const logger = new Logger('Archive Event')
+
+    const doc = await cancelArchiveSession()
+    if (!doc) {
+      logger.error('failed to cancel the archive session.')
+      return false
+    }
+
+    refreshArchivePopup(doc)
+
+    const url = getDirectDownloadUrl(doc, dltype)
+    if (!url) {
+      logger.error('download form not found after cancelling the archive session.')
+      return false
+    }
+
+    return startDirectDownload(url, dltype)
+  }
+
+  /**
+   * 在原生頁面的 Archive Download 下方插入一個 cancel 連結
+   *
+   * 刻意插在 Archive Download 那個 <p> 內部而不是新增一個 <p>，
+   * 因為 #gd5 的連結是用 nth-child 選取的（見 Gallery/utils/elements.ts），
+   * 多一個 <p> 會讓 Torrent Download 的 selector 失效
+   */
+  function setInlineCancelButton() {
+    const logger = new Logger('Archive Event')
+
+    const row = getArchiveLinkAnchor()?.parentElement
+    if (!row) {
+      logger.error('archive download row not found.')
+      return
+    }
+
+    const wrapper = document.createElement('span')
+    wrapper.className = INLINE_CANCEL_CLASS
+
+    const button = document.createElement('a')
+    button.href = '#'
+    button.textContent = INLINE_CANCEL_LABEL
+    wrapper.appendChild(button)
+    row.appendChild(wrapper)
+
+    button.addEventListener('click', async event => {
+      event.preventDefault()
+      event.stopPropagation()
+
+      button.textContent = INLINE_CANCEL_PENDING_LABEL
+
+      const doc = await cancelArchiveSession()
+      if (!doc) {
+        logger.error('failed to cancel the archive session.')
+        button.textContent = INLINE_CANCEL_LABEL
+        return
+      }
+
+      // refreshArchivePopup 會在 session 失效後移除 wrapper
       refreshArchivePopup(doc)
     })
   }
@@ -344,6 +435,8 @@ export function useArchive() {
     setHentaiAtHomeEvent,
     setDirectDownloadEvent,
     setCancelArchiveEvent,
+    cancelThenDownload,
+    setInlineCancelButton,
     quickDownload,
   }
 }
