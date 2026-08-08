@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.20.1
+// @version            1.21.0
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -60,7 +60,7 @@
 			else (document.head || document.documentElement).appendChild(document.createElement("style")).append(c);
 		})(t);
 	};
-	_css(" @keyframes spin{0%{rotate:0}to{rotate:360deg}}.searchnav{overflow-anchor:none}.itg.gld.is-fetching:after{content:\"⌛\";grid-column:1/-1;justify-content:center;align-items:center;width:30px;height:30px;margin:auto;line-height:30px;animation:1s ease-in-out infinite spin;display:flex}.gldown{display:flex}.archive-button{cursor:pointer;background-color:#5fa9cf;border-radius:9999px;flex-shrink:0;justify-content:center;align-items:center;width:14px;height:14px;display:flex;position:relative;box-shadow:0 3px 5px #0000003d}.hide-button{cursor:pointer;opacity:.25;-webkit-user-select:none;user-select:none;flex-shrink:0;justify-content:center;align-items:center;height:12px;font-size:14px;transition:opacity .15s ease-in-out;display:flex;position:relative}.hide-button:hover{opacity:.6}.hide-button.is-hidden{opacity:1}.popup{text-align:center;background-color:var(--bg-color);z-index:100;border:3px solid #fff;border-radius:20px;padding:20px;transition:opacity .3s;position:absolute!important}.popup a{text-decoration:underline}div#gd5{float:unset;width:auto}#gd5 .is-ready:after{content:\" ✔️\"}.enhancer-container .is-fetching{pointer-events:none;font-size:0;text-decoration:none}.enhancer-container .is-fetching:after{content:\"⌛\";font-size:8px;line-height:8px;animation:1s ease-in-out infinite spin;display:inline-block}.enhancer-container input[name=dltype]+.is-fetching{position:relative}.enhancer-container input[name=dltype]+.is-fetching:after{font-size:12px;line-height:27px;position:absolute;top:0;left:50%}.enhancer-container input[name=dltype]+.is-fetching input{color:#0000}.enhancer-container .is-finished{pointer-events:none;font-size:0;text-decoration:none}.enhancer-container .is-finished:after{content:\"✔️\";font-size:8px;line-height:8px;display:inline-block}.page-elevator[data-v-b87e2f8f]{opacity:1;flex-direction:column;gap:10px;width:40px;display:flex}.page-elevator__input[data-v-b87e2f8f]{text-align:center;box-sizing:border-box;border:1px solid #777;width:100%;height:30px;margin:0;padding:0;display:flex}.page-elevator__slash[data-v-b87e2f8f]{line-height:100%}:fullscreen .page-elevator[data-v-b87e2f8f]{opacity:0}:fullscreen .page-elevator[data-v-b87e2f8f]:hover{opacity:1}#pane_images .mimg{min-width:unset;width:min-content!important;max-height:calc(var(--image-size) + 24px)!important}#pane_images .mimg>a{-webkit-user-select:none;user-select:none}#pane_images .mimg>a>img{max-height:var(--image-size);pointer-events:none;width:auto!important}.image-resizer[data-v-fb83c8f5]{flex-direction:column;gap:16px;width:40px;display:flex}.image-resizer__button[data-v-fb83c8f5]{text-align:center;box-sizing:border-box;cursor:pointer;background-color:#0000;border:1px solid #777;border-radius:5px;width:100%;height:30px;padding:0}.image-resizer__button[data-v-fb83c8f5]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-fb83c8f5],.image-resizer__button--active[data-v-fb83c8f5]:hover{background-color:orange}.magnifier-overlay[data-v-ba829bde]{z-index:999;cursor:none;background:0 0;position:fixed;inset:0}.magnifier[data-v-ba829bde]{z-index:1000}.magnifier-background[data-v-ba829bde]{background-color:#00000080;position:absolute;inset:0}.magnifier-image[data-v-ba829bde]{cursor:none;position:absolute}.enhancer-features{z-index:100;box-sizing:border-box;flex-direction:row-reverse;align-items:center;gap:16px;padding-right:5px;display:flex;position:absolute;top:0;bottom:0;right:0}.enhancer-features__feature{opacity:0;box-sizing:border-box;background:#7777;border-radius:10px;padding:10px 5px;transition:opacity .3s}.enhancer-features__feature:hover{opacity:1}.switch[data-v-7bec1a82]{width:50px;height:24px;display:inline-block;position:relative}.switch__input[data-v-7bec1a82]{opacity:0;width:0;height:0}.switch__slider[data-v-7bec1a82]{cursor:pointer;background-color:#ccc;border-radius:9999px;transition:all .4s;position:absolute;inset:0}.switch__slider[data-v-7bec1a82]:before{aspect-ratio:1;content:\"\";background-color:#fff;border-radius:50%;height:calc(100% - 4px);transition:all .4s;position:absolute;top:2px;left:2px}.switch__input:checked+.switch__slider[data-v-7bec1a82]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-7bec1a82]:before{transform:translate(26px)}.settings-panel-wrap{justify-content:center;align-items:center;display:flex}.settings-panel{box-sizing:border-box;color:#f1f1f1;background-color:#34353b;border-radius:4px;flex-direction:column;row-gap:16px;max-width:1000px;max-height:calc(100vh - 64px);margin:32px;padding:32px;display:flex;position:relative}.settings-panel__inner{height:100%;padding-right:16px;overflow-y:auto}.settings-panel__section{background-color:#4f535b;border-radius:4px}.settings-panel__section-name{text-align:left;margin:16px 32px;padding-top:16px;font-size:20px;line-height:100%}.settings-panel__close-button{cursor:pointer;padding:8px;position:absolute;top:4px;right:4px}.settings-panel__close-button svg{width:16px;height:16px}.settings-panel__separator{background:#f1f1f1}.settings{flex-wrap:wrap;justify-content:start;align-items:center;column-gap:8px;padding:8px 16px;display:flex}.settings__name{font-size:16px}.settings__notice{font-size:12px}.settings__intro{text-align:left;width:100%;margin-left:60px;font-size:14px}.settings__magnifier-config{flex-direction:column;gap:.75rem;margin-top:.5rem;display:flex}.settings__label{flex-direction:row;align-items:center;gap:.25rem;font-size:.9rem;display:flex}.settings__input{color:#f1f1f1;background-color:#34353b;border:1px solid #ccc;border-radius:4px;outline:none;width:120px;padding:.25rem}.settings__link{color:#ddd}.settings__select{color:#f1f1f1;background-color:#34353b;border:#8d8d8d;outline:none}.settings__select:enabled:hover,.settings__select:enabled:focus{background-color:#43464e!important;border-color:#aeaeae!important}.settings__option{color:#f1f1f1;background-color:#34353b;outline:none}.actions{justify-content:flex-end;align-items:center;display:flex}.actions__button{color:#fff;cursor:pointer;background-color:#4f535b;border:none;border-radius:4px;padding:8px 16px}\n/*$vite$:1*/ ");
+	_css(" @keyframes spin{0%{rotate:0}to{rotate:360deg}}.searchnav{overflow-anchor:none}.itg.gld.is-fetching:after{content:\"⌛\";grid-column:1/-1;justify-content:center;align-items:center;width:30px;height:30px;margin:auto;line-height:30px;animation:1s ease-in-out infinite spin;display:flex}.gldown{display:flex}.archive-button{cursor:pointer;background-color:#5fa9cf;border-radius:9999px;flex-shrink:0;justify-content:center;align-items:center;width:14px;height:14px;display:flex;position:relative;box-shadow:0 3px 5px #0000003d}.hide-button{cursor:pointer;opacity:.25;-webkit-user-select:none;user-select:none;flex-shrink:0;justify-content:center;align-items:center;height:12px;font-size:14px;transition:opacity .15s ease-in-out;display:flex;position:relative}.hide-button:hover{opacity:.6}.hide-button.is-hidden{opacity:1}.popup{text-align:center;background-color:var(--bg-color);z-index:100;border:3px solid #fff;border-radius:20px;padding:20px;transition:opacity .3s;position:absolute!important}.popup a{text-decoration:underline}div#gd5{float:unset;width:auto}#gd5 .is-ready:after{content:\" ✔️\"}#gd5 .enhancer-archive-cancel{padding-top:4px;display:block}#gd5 .enhancer-archive-cancel a{margin-left:18px}.enhancer-container .is-fetching{pointer-events:none;font-size:0;text-decoration:none}.enhancer-container .is-fetching:after{content:\"⌛\";font-size:8px;line-height:8px;animation:1s ease-in-out infinite spin;display:inline-block}.enhancer-container input[name=dltype]+.is-fetching{position:relative}.enhancer-container input[name=dltype]+.is-fetching:after{font-size:12px;line-height:27px;position:absolute;top:0;left:50%}.enhancer-container input[name=dltype]+.is-fetching input{color:#0000}.enhancer-container .is-finished{pointer-events:none;font-size:0;text-decoration:none}.enhancer-container .is-finished:after{content:\"✔️\";font-size:8px;line-height:8px;display:inline-block}.page-elevator[data-v-b87e2f8f]{opacity:1;flex-direction:column;gap:10px;width:40px;display:flex}.page-elevator__input[data-v-b87e2f8f]{text-align:center;box-sizing:border-box;border:1px solid #777;width:100%;height:30px;margin:0;padding:0;display:flex}.page-elevator__slash[data-v-b87e2f8f]{line-height:100%}:fullscreen .page-elevator[data-v-b87e2f8f]{opacity:0}:fullscreen .page-elevator[data-v-b87e2f8f]:hover{opacity:1}#pane_images .mimg{min-width:unset;width:min-content!important;max-height:calc(var(--image-size) + 24px)!important}#pane_images .mimg>a{-webkit-user-select:none;user-select:none}#pane_images .mimg>a>img{max-height:var(--image-size);pointer-events:none;width:auto!important}.image-resizer[data-v-fb83c8f5]{flex-direction:column;gap:16px;width:40px;display:flex}.image-resizer__button[data-v-fb83c8f5]{text-align:center;box-sizing:border-box;cursor:pointer;background-color:#0000;border:1px solid #777;border-radius:5px;width:100%;height:30px;padding:0}.image-resizer__button[data-v-fb83c8f5]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-fb83c8f5],.image-resizer__button--active[data-v-fb83c8f5]:hover{background-color:orange}.magnifier-overlay[data-v-ba829bde]{z-index:999;cursor:none;background:0 0;position:fixed;inset:0}.magnifier[data-v-ba829bde]{z-index:1000}.magnifier-background[data-v-ba829bde]{background-color:#00000080;position:absolute;inset:0}.magnifier-image[data-v-ba829bde]{cursor:none;position:absolute}.enhancer-features{z-index:100;box-sizing:border-box;flex-direction:row-reverse;align-items:center;gap:16px;padding-right:5px;display:flex;position:absolute;top:0;bottom:0;right:0}.enhancer-features__feature{opacity:0;box-sizing:border-box;background:#7777;border-radius:10px;padding:10px 5px;transition:opacity .3s}.enhancer-features__feature:hover{opacity:1}.switch[data-v-7bec1a82]{width:50px;height:24px;display:inline-block;position:relative}.switch__input[data-v-7bec1a82]{opacity:0;width:0;height:0}.switch__slider[data-v-7bec1a82]{cursor:pointer;background-color:#ccc;border-radius:9999px;transition:all .4s;position:absolute;inset:0}.switch__slider[data-v-7bec1a82]:before{aspect-ratio:1;content:\"\";background-color:#fff;border-radius:50%;height:calc(100% - 4px);transition:all .4s;position:absolute;top:2px;left:2px}.switch__input:checked+.switch__slider[data-v-7bec1a82]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-7bec1a82]:before{transform:translate(26px)}.settings-panel-wrap{justify-content:center;align-items:center;display:flex}.settings-panel{box-sizing:border-box;color:#f1f1f1;background-color:#34353b;border-radius:4px;flex-direction:column;row-gap:16px;max-width:1000px;max-height:calc(100vh - 64px);margin:32px;padding:32px;display:flex;position:relative}.settings-panel__inner{height:100%;padding-right:16px;overflow-y:auto}.settings-panel__section{background-color:#4f535b;border-radius:4px}.settings-panel__section-name{text-align:left;margin:16px 32px;padding-top:16px;font-size:20px;line-height:100%}.settings-panel__close-button{cursor:pointer;padding:8px;position:absolute;top:4px;right:4px}.settings-panel__close-button svg{width:16px;height:16px}.settings-panel__separator{background:#f1f1f1}.settings{flex-wrap:wrap;justify-content:start;align-items:center;column-gap:8px;padding:8px 16px;display:flex}.settings__name{font-size:16px}.settings__notice{font-size:12px}.settings__intro{text-align:left;width:100%;margin-left:60px;font-size:14px}.settings__magnifier-config{flex-direction:column;gap:.75rem;margin-top:.5rem;display:flex}.settings__label{flex-direction:row;align-items:center;gap:.25rem;font-size:.9rem;display:flex}.settings__input{color:#f1f1f1;background-color:#34353b;border:1px solid #ccc;border-radius:4px;outline:none;width:120px;padding:.25rem}.settings__link{color:#ddd}.settings__select{color:#f1f1f1;background-color:#34353b;border:#8d8d8d;outline:none}.settings__select:enabled:hover,.settings__select:enabled:focus{background-color:#43464e!important;border-color:#aeaeae!important}.settings__option{color:#f1f1f1;background-color:#34353b;outline:none}.actions{justify-content:flex-end;align-items:center;display:flex}.actions__button{color:#fff;cursor:pointer;background-color:#4f535b;border:none;border-radius:4px;padding:8px 16px}\n/*$vite$:1*/ ");
 	var __defProp$1 = Object.defineProperty;
 	var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 	var __getOwnPropNames = Object.getOwnPropertyNames;
@@ -3173,11 +3173,27 @@ This will fail in production.`);
 	var _unsafeWindow = typeof unsafeWindow != "undefined" ? unsafeWindow : void 0;
 	var ArchiveDownloadMethod = function(ArchiveDownloadMethod) {
 		ArchiveDownloadMethod["Manual"] = "Manual";
-		ArchiveDownloadMethod["HaH_Original"] = "download Original Resolution with H@H";
-		ArchiveDownloadMethod["HaH_2400"] = "download 2400x Resolution with H@H";
-		ArchiveDownloadMethod["Direct_Origin"] = "download Original Resolution directly";
-		ArchiveDownloadMethod["Direct_Resample"] = "download Resample Resolution directly";
+		ArchiveDownloadMethod["HaH_Original"] = "HaH_org";
+		ArchiveDownloadMethod["HaH_800"] = "HaH_800";
+		ArchiveDownloadMethod["HaH_1280"] = "HaH_1280";
+		ArchiveDownloadMethod["HaH_1920"] = "HaH_1920";
+		ArchiveDownloadMethod["HaH_2560"] = "HaH_2560";
+		ArchiveDownloadMethod["Direct_Origin"] = "Direct_org";
+		ArchiveDownloadMethod["Direct_Resample"] = "Direct_res";
 		return ArchiveDownloadMethod;
+	}({});
+	var LEGACY_ARCHIVE_DOWNLOAD_METHODS = {
+		"download Original Resolution with H@H": "HaH_org",
+		"download 2400x Resolution with H@H": "HaH_2560",
+		"download Original Resolution directly": "Direct_org",
+		"download Resample Resolution directly": "Direct_res"
+	};
+	var ArchiveSessionAction = function(ArchiveSessionAction) {
+		ArchiveSessionAction["DownloadDirectly"] = "DownloadDirectly";
+		ArchiveSessionAction["OpenPopup"] = "OpenPopup";
+		ArchiveSessionAction["CancelThenDownload"] = "CancelThenDownload";
+		ArchiveSessionAction["ShowCancelButton"] = "ShowCancelButton";
+		return ArchiveSessionAction;
 	}({});
 	var MouseButton = function(MouseButton) {
 		MouseButton["Left"] = "left";
@@ -3187,9 +3203,11 @@ This will fail in production.`);
 	var GMVariable = class {
 		_key;
 		_value;
-		constructor(key, defaultValue) {
+		_legacyValues;
+		constructor(key, defaultValue, legacyValues = {}) {
 			this._key = key;
 			this._value = defaultValue;
+			this._legacyValues = legacyValues;
 		}
 		get value() {
 			return this._value;
@@ -3199,7 +3217,13 @@ This will fail in production.`);
 			_GM.setValue(this._key, this._value);
 		}
 		async initialize() {
-			this._value = await _GM.getValue(this._key, this._value);
+			const stored = await _GM.getValue(this._key, this._value);
+			const migrated = this._legacyValues[String(stored)];
+			if (migrated === void 0) {
+				this._value = stored;
+				return;
+			}
+			this.value = migrated;
 		}
 	};
 	var infiniteScrollSwitch = (0, vue.reactive)(new GMVariable("InfiniteScroll", true));
@@ -3208,7 +3232,8 @@ This will fail in production.`);
 	var showHiddenGalleriesSwitch = (0, vue.reactive)(new GMVariable("ShowHiddenGalleries", false));
 	var scrollByRowSwitch = (0, vue.reactive)(new GMVariable("ScrollByRow", true));
 	var betterPopupSwitch = (0, vue.reactive)(new GMVariable("BetterPopup", true));
-	var quickArchiveDownloadMethod = (0, vue.reactive)(new GMVariable("QuickDownloadMethod", "Manual"));
+	var quickArchiveDownloadMethod = (0, vue.reactive)(new GMVariable("QuickDownloadMethod", "Manual", LEGACY_ARCHIVE_DOWNLOAD_METHODS));
+	var archiveSessionAction = (0, vue.reactive)(new GMVariable("ArchiveSessionAction", "DownloadDirectly"));
 	var quickTorrentDownloadSwitch = (0, vue.reactive)(new GMVariable("QuickTorrentDownload", false));
 	var loadAllGalleryImagesSwitch = (0, vue.reactive)(new GMVariable("LoadAllGalleryImages", true));
 	var multipageViewerEnhancerSwitch = (0, vue.reactive)(new GMVariable("MultipageViewerEnhancer", true));
@@ -3233,6 +3258,7 @@ This will fail in production.`);
 			scrollByRowSwitch.initialize(),
 			betterPopupSwitch.initialize(),
 			quickArchiveDownloadMethod.initialize(),
+			archiveSessionAction.initialize(),
 			quickTorrentDownloadSwitch.initialize(),
 			loadAllGalleryImagesSwitch.initialize(),
 			multipageViewerEnhancerSwitch.initialize(),
@@ -3380,7 +3406,8 @@ This will fail in production.`);
 	function getFavoritesLinkAnchor() {
 		return getElement("#favoritelink");
 	}
-	function usePopups() {
+	var usePopups = createSharedComposable(_usePopups);
+	function _usePopups() {
 		const archiveLinkAnchor = getArchiveLinkAnchor();
 		const torrentLinkAnchor = getTorrentLinkAnchor();
 		const torrentInnerHtml = (0, vue.ref)("");
@@ -3562,8 +3589,83 @@ This will fail in production.`);
 		downloadedGalleriesIDs.push(galleryID);
 		_GM_setValue(DOWNLOADED_GALLERIES_KEY, [...new Set(downloadedGalleriesIDs)]);
 	}
+	var DOWNLOAD_LABELS = {
+		org: "Download Original Archive",
+		res: "Download Resample Archive"
+	};
+	var DOWNLOAD_ACCEPTED_TEXT = "Locating archive server and preparing file for download...";
+	var HAH_ORIGINAL_RESOLUTION = "org";
+	var HAH_RESOLUTIONS = {
+		[ArchiveDownloadMethod.HaH_Original]: HAH_ORIGINAL_RESOLUTION,
+		[ArchiveDownloadMethod.HaH_800]: "800",
+		[ArchiveDownloadMethod.HaH_1280]: "1280",
+		[ArchiveDownloadMethod.HaH_1920]: "1920",
+		[ArchiveDownloadMethod.HaH_2560]: "2560"
+	};
+	var HAH_RESOLUTION_ATTRIBUTE = "data-hathdl-xres";
+	function getResolutionLabel(resolution) {
+		return resolution === HAH_ORIGINAL_RESOLUTION ? "Original" : `${resolution}x`;
+	}
+	var INLINE_CANCEL_CLASS = "enhancer-archive-cancel";
+	var INLINE_CANCEL_LABEL = "Invalidate Archive";
+	var INLINE_CANCEL_PENDING_LABEL = "Invalidating...";
+	function getInvalidateForm(root = document) {
+		return getElement("#invalidate_form", root);
+	}
+	function hasArchiveSession(root = document) {
+		return !!getInvalidateForm(root);
+	}
+	function getCancelButton(root = document) {
+		return getElement("a[onclick*=\"cancel_sessions\"]", root);
+	}
+	function getArchiveDownloadType(method) {
+		switch (method) {
+			case ArchiveDownloadMethod.Direct_Origin: return "org";
+			case ArchiveDownloadMethod.Direct_Resample: return "res";
+			default: return null;
+		}
+	}
+	function getDirectDownloadUrl(root, dltype) {
+		return getElement(`form input[name="dltype"][value="${dltype}"]`, root)?.closest("form")?.getAttribute("action") ?? null;
+	}
+	async function cancelArchiveSession() {
+		const url = getInvalidateForm()?.getAttribute("action");
+		if (!url) return null;
+		return getDoc(url, {
+			method: "POST",
+			body: "invalidate_sessions=1",
+			headers: new Headers({ "Content-Type": "application/x-www-form-urlencoded" })
+		});
+	}
+	async function requestDirectDownload(url, dltype) {
+		const html = await (await fetch(url, {
+			method: "POST",
+			body: new URLSearchParams({
+				dlcheck: DOWNLOAD_LABELS[dltype],
+				dltype
+			}).toString(),
+			headers: new Headers({ "Content-Type": "application/x-www-form-urlencoded" })
+		})).text();
+		if (!html.includes(DOWNLOAD_ACCEPTED_TEXT)) return {
+			success: false,
+			html
+		};
+		const matches = html.match(/document\.location = "(.*)"/);
+		if (matches?.length !== 2) return {
+			success: false,
+			html
+		};
+		return {
+			success: true,
+			downloadUrl: `${matches[1]}?start=1`
+		};
+	}
+	function getGalleryID(url) {
+		return Number(new URL(url).searchParams.get("gid"));
+	}
 	function useArchive() {
 		const toast = useToast();
+		const { archiveInnerHtml } = usePopups();
 		function setHentaiAtHomeEvent() {
 			const logger = new Logger("Hentai At Home Event");
 			const hentaiAtHomeLinks = getElements(".popup--archive table td a");
@@ -3577,8 +3679,9 @@ This will fail in production.`);
 				return;
 			}
 			for (const link of hentaiAtHomeLinks) {
-				const resolution = link.getAttribute("onclick")?.split("'")?.[1] || "org";
+				const resolution = link.getAttribute("onclick")?.split("'")?.[1] || HAH_ORIGINAL_RESOLUTION;
 				link.removeAttribute("onclick");
+				link.setAttribute(HAH_RESOLUTION_ATTRIBUTE, resolution);
 				link.addEventListener("click", async (event) => {
 					event.preventDefault();
 					link.classList.add("is-fetching");
@@ -3592,7 +3695,7 @@ This will fail in production.`);
 							link.classList.add("is-finished");
 						} else toast.error(parsedResponse);
 					}
-					setAsDownloaded(Number(new URL(postUrl).searchParams.get("gid")));
+					setAsDownloaded(getGalleryID(postUrl));
 				});
 			}
 		}
@@ -3620,6 +3723,16 @@ This will fail in production.`);
 			}
 			return result.join("\n").replace(/<strong>#\d+<\/strong>/, "");
 		}
+		async function startDirectDownload(url, dltype) {
+			const result = await requestDirectDownload(url, dltype);
+			if (!result.success) {
+				toast.error("something went wrong. Open your console to see the response");
+				console.warn("Download failed, response HTML:", result.html);
+				return false;
+			}
+			window.location.href = result.downloadUrl;
+			return true;
+		}
 		function setDirectDownloadEvent() {
 			const logger = new Logger("Archive Event");
 			const downloadButtons = getElements("form input[name=\"dlcheck\"]");
@@ -3629,7 +3742,7 @@ This will fail in production.`);
 			}
 			for (const button of downloadButtons) button.addEventListener("click", async (event) => {
 				event.preventDefault();
-				const form = button?.parentElement?.parentElement;
+				const form = button.closest("form");
 				if (!form) {
 					logger.error("form not found.");
 					return;
@@ -3639,95 +3752,123 @@ This will fail in production.`);
 					logger.error("url not found.");
 					return;
 				}
-				const resolution = button.getAttribute("value");
-				button.parentElement.classList.add("is-fetching");
-				await sendDownloadRequest(url, resolution);
-				button.parentElement.classList.remove("is-fetching");
-				setAsDownloaded(Number(new URL(url).searchParams.get("gid")));
+				const dltype = getElement("input[name=\"dltype\"]", form)?.value;
+				if (!dltype) {
+					logger.error("dltype not found.");
+					return;
+				}
+				const wrapper = button.parentElement;
+				wrapper?.classList.add("is-fetching");
+				await startDirectDownload(url, dltype);
+				wrapper?.classList.remove("is-fetching");
+				setAsDownloaded(getGalleryID(url));
 			});
-			async function sendDownloadRequest(url, resolution) {
-				const html = await (await fetch(url, {
-					method: "POST",
-					body: resolution === "Download Original Archive" ? "dlcheck=Download Original Archive&dltype=org" : "dlcheck=Download Resample Archive&dltype=res",
-					headers: new Headers({ "Content-Type": "application/x-www-form-urlencoded" })
-				})).text();
-				if (!html.includes("Locating archive server and preparing file for download...")) {
-					toast.error("something went wrong. Open your console to see the response");
-					console.warn("Download failed, response HTML:", html);
-					return;
-				}
-				const matches = html.match(/document\.location = "(.*)"/);
-				if (!matches || matches?.length !== 2) {
-					toast.error("something went wrong. Open your console to see the response");
-					console.warn("Download failed, response HTML:", html);
-					return;
-				}
-				const downloadLink = `${matches[1]}?start=1`;
-				window.location.href = downloadLink;
-			}
 		}
-		const { archiveInnerHtml } = usePopups();
+		function refreshArchivePopup(doc) {
+			archiveInnerHtml.value = getElement("#db", doc)?.innerHTML ?? "";
+			if (!hasArchiveSession(doc)) getElement(`.${INLINE_CANCEL_CLASS}`)?.remove();
+			setTimeout(() => {
+				setHentaiAtHomeEvent();
+				setDirectDownloadEvent();
+			}, 0);
+		}
 		function setCancelArchiveEvent() {
 			const logger = new Logger("Archive Event");
-			const invalidateForm = getElement("#invalidate_form");
-			if (!invalidateForm) {
-				logger.log("no unlocked archive to invalidate.");
-				return;
-			}
-			const cancelButton = invalidateForm?.nextElementSibling?.children?.[2];
-			if (!cancelButton || cancelButton.innerHTML !== "cancel") {
+			const cancelButton = getCancelButton();
+			if (!cancelButton) {
 				logger.log("no unlocked archive to invalidate.");
 				return;
 			}
 			cancelButton.removeAttribute("onclick");
-			cancelButton.addEventListener("click", (event) => {
+			cancelButton.addEventListener("click", async (event) => {
 				event.preventDefault();
 				cancelButton.innerHTML = "canceling...";
-				const url = invalidateForm.getAttribute("action");
-				fetch(url, {
-					method: "POST",
-					body: "invalidate_sessions=1",
-					headers: new Headers({ "Content-Type": "application/x-www-form-urlencoded" })
-				}).then((res) => res.text()).then((text) => {
-					archiveInnerHtml.value = getElement("#db", new DOMParser().parseFromString(text, "text/html"))?.innerHTML;
-					setTimeout(() => {
-						setDirectDownloadEvent();
-					}, 0);
-				});
+				const doc = await cancelArchiveSession();
+				if (!doc) {
+					logger.error("failed to cancel the archive session.");
+					cancelButton.innerHTML = "cancel";
+					return;
+				}
+				refreshArchivePopup(doc);
 			});
 		}
-		function quickDownload(popup) {
-			function getHaHDownloadLinkElement(downloadMethod) {
-				const index = {
-					[ArchiveDownloadMethod.HaH_Original]: 6,
-					[ArchiveDownloadMethod.HaH_2400]: 5
-				}[downloadMethod];
-				return getElement(`td:nth-child(${index}) > p > a`, popup.value);
+		async function cancelThenDownload(dltype) {
+			const logger = new Logger("Archive Event");
+			const doc = await cancelArchiveSession();
+			if (!doc) {
+				logger.error("failed to cancel the archive session.");
+				return false;
 			}
-			switch (quickArchiveDownloadMethod.value) {
-				case ArchiveDownloadMethod.HaH_Original:
-				case ArchiveDownloadMethod.HaH_2400: {
-					const downloadLinkElement = getHaHDownloadLinkElement(quickArchiveDownloadMethod.value);
-					if (downloadLinkElement) downloadLinkElement.click();
-					else {
-						toast.warning(`Failed ${quickArchiveDownloadMethod.value}. The link might not exists.\n Open popup`);
-						return false;
-					}
-					break;
+			refreshArchivePopup(doc);
+			const url = getDirectDownloadUrl(doc, dltype);
+			if (!url) {
+				logger.error("download form not found after cancelling the archive session.");
+				return false;
+			}
+			return startDirectDownload(url, dltype);
+		}
+		function setInlineCancelButton() {
+			const logger = new Logger("Archive Event");
+			const row = getArchiveLinkAnchor()?.parentElement;
+			if (!row) {
+				logger.error("archive download row not found.");
+				return;
+			}
+			const wrapper = document.createElement("span");
+			wrapper.className = INLINE_CANCEL_CLASS;
+			const button = document.createElement("a");
+			button.href = "#";
+			button.textContent = INLINE_CANCEL_LABEL;
+			wrapper.appendChild(button);
+			row.appendChild(wrapper);
+			button.addEventListener("click", async (event) => {
+				event.preventDefault();
+				event.stopPropagation();
+				button.textContent = INLINE_CANCEL_PENDING_LABEL;
+				const doc = await cancelArchiveSession();
+				if (!doc) {
+					logger.error("failed to cancel the archive session.");
+					button.textContent = INLINE_CANCEL_LABEL;
+					return;
 				}
-				case ArchiveDownloadMethod.Direct_Origin:
-					getElement("input[value=\"Download Original Archive\"]", popup.value).click();
-					break;
-				case ArchiveDownloadMethod.Direct_Resample:
-					getElement("input[value=\"Download Resample Archive\"]", popup.value).click();
-					break;
+				refreshArchivePopup(doc);
+			});
+		}
+		function startHentaiAtHomeDownload(popup, resolution) {
+			const logger = new Logger("Archive Event");
+			const link = getElement(`[${HAH_RESOLUTION_ATTRIBUTE}="${resolution}"]`, popup.value);
+			if (link) {
+				link.click();
+				return true;
 			}
+			if (getElements(`[${HAH_RESOLUTION_ATTRIBUTE}]`, popup.value)?.length) {
+				toast.warning(`This gallery doesn't offer H@H ${getResolutionLabel(resolution)}.\n Open popup`);
+				return false;
+			}
+			logger.error("hentai@Home links not found.");
+			toast.error("Failed to find the H@H links.\n Open popup");
+			return false;
+		}
+		function quickDownload(popup) {
+			const logger = new Logger("Archive Event");
+			const resolution = HAH_RESOLUTIONS[quickArchiveDownloadMethod.value];
+			if (resolution) return startHentaiAtHomeDownload(popup, resolution);
+			const dltype = getArchiveDownloadType(quickArchiveDownloadMethod.value);
+			if (!dltype) return true;
+			const downloadButton = getElement(`input[value="${DOWNLOAD_LABELS[dltype]}"]`, popup.value);
+			if (!downloadButton) {
+				logger.error(`download button for "${dltype}" not found.`);
+				return false;
+			}
+			downloadButton.click();
 			return true;
 		}
 		return {
 			setHentaiAtHomeEvent,
 			setDirectDownloadEvent,
 			setCancelArchiveEvent,
+			cancelThenDownload,
+			setInlineCancelButton,
 			quickDownload
 		};
 	}
@@ -4191,7 +4332,7 @@ This will fail in production.`);
 			const isTorrentPopupShow = (0, vue.ref)(false);
 			const isFavoritePopupShow = (0, vue.ref)(false);
 			const { archive: archivePosition, torrent: torrentPosition, favorite: favoritePosition } = usePositions();
-			const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, quickDownload } = useArchive();
+			const { setHentaiAtHomeEvent, setDirectDownloadEvent, setCancelArchiveEvent, cancelThenDownload, setInlineCancelButton, quickDownload } = useArchive();
 			const { downloadTorrent, addMagnetCopyButtons, setTorrentPopupEvents } = useTorrent(torrentInnerHtml);
 			const { setRequestEvents } = useFavorite(favoriteInnerHtml);
 			if (betterPopupSwitch.value) {
@@ -4207,14 +4348,33 @@ This will fail in production.`);
 				setHentaiAtHomeEvent();
 				setDirectDownloadEvent();
 				setCancelArchiveEvent();
-				archiveLinkAnchor.addEventListener("click", (event) => {
+				if (archiveSessionAction.value === ArchiveSessionAction.ShowCancelButton && getActionableDownloadType()) setInlineCancelButton();
+				archiveLinkAnchor.addEventListener("click", async (event) => {
 					event.preventDefault();
 					event.stopPropagation();
+					if (await handleArchiveSessionAction()) return;
 					if (isQuickDownload.value) {
 						if (!quickDownload(archivePopup)) isArchivePopupShow.value = true;
 					} else isArchivePopupShow.value = !isArchivePopupShow.value;
 				});
 				setReady(archiveLinkAnchor);
+			}
+			function getActionableDownloadType() {
+				const dltype = getArchiveDownloadType(quickArchiveDownloadMethod.value);
+				return dltype && hasArchiveSession() ? dltype : null;
+			}
+			async function handleArchiveSessionAction() {
+				const dltype = getActionableDownloadType();
+				if (!dltype) return false;
+				switch (archiveSessionAction.value) {
+					case ArchiveSessionAction.OpenPopup:
+						isArchivePopupShow.value = true;
+						return true;
+					case ArchiveSessionAction.CancelThenDownload:
+						if (!await cancelThenDownload(dltype)) isArchivePopupShow.value = true;
+						return true;
+					default: return false;
+				}
 			}
 			function setupTorrentPopupContent() {
 				addMagnetCopyButtons(torrentPopup);
@@ -5385,36 +5545,44 @@ div#bar3 {
 	var _hoisted_5 = { class: "settings" };
 	var _hoisted_6 = { class: "settings" };
 	var _hoisted_7 = { class: "settings__intro" };
-	var _hoisted_8 = { class: "settings__option" };
-	var _hoisted_9 = { class: "settings__option" };
-	var _hoisted_10 = { class: "settings__option" };
-	var _hoisted_11 = { class: "settings__option" };
-	var _hoisted_12 = { class: "settings__option" };
-	var _hoisted_13 = { class: "settings" };
-	var _hoisted_14 = { class: "settings" };
-	var _hoisted_15 = { class: "settings-panel__section" };
-	var _hoisted_16 = { class: "settings" };
-	var _hoisted_17 = { class: "settings" };
-	var _hoisted_18 = { class: "settings" };
-	var _hoisted_19 = { class: "settings" };
-	var _hoisted_20 = { class: "settings" };
-	var _hoisted_21 = { class: "settings__intro" };
-	var _hoisted_22 = { class: "settings__magnifier-config" };
-	var _hoisted_23 = { class: "settings__label" };
-	var _hoisted_24 = ["value"];
-	var _hoisted_25 = ["value"];
-	var _hoisted_26 = { class: "settings__label" };
-	var _hoisted_27 = { class: "settings__label" };
-	var _hoisted_28 = { class: "settings__label" };
-	var _hoisted_29 = { class: "settings__label" };
-	var _hoisted_30 = { class: "settings__label" };
+	var _hoisted_8 = ["value"];
+	var _hoisted_9 = ["value"];
+	var _hoisted_10 = ["value"];
+	var _hoisted_11 = ["value"];
+	var _hoisted_12 = ["value"];
+	var _hoisted_13 = ["value"];
+	var _hoisted_14 = ["value"];
+	var _hoisted_15 = ["value"];
+	var _hoisted_16 = ["disabled"];
+	var _hoisted_17 = ["value"];
+	var _hoisted_18 = ["value"];
+	var _hoisted_19 = ["value"];
+	var _hoisted_20 = ["value"];
+	var _hoisted_21 = { class: "settings" };
+	var _hoisted_22 = { class: "settings" };
+	var _hoisted_23 = { class: "settings-panel__section" };
+	var _hoisted_24 = { class: "settings" };
+	var _hoisted_25 = { class: "settings" };
+	var _hoisted_26 = { class: "settings" };
+	var _hoisted_27 = { class: "settings" };
+	var _hoisted_28 = { class: "settings" };
+	var _hoisted_29 = { class: "settings__intro" };
+	var _hoisted_30 = { class: "settings__magnifier-config" };
 	var _hoisted_31 = { class: "settings__label" };
-	var _hoisted_32 = { class: "settings-panel__section" };
-	var _hoisted_33 = { class: "settings" };
-	var _hoisted_34 = { class: "settings" };
-	var _hoisted_35 = { class: "settings" };
-	var _hoisted_36 = { class: "settings" };
-	var _hoisted_37 = { class: "settings" };
+	var _hoisted_32 = ["value"];
+	var _hoisted_33 = ["value"];
+	var _hoisted_34 = { class: "settings__label" };
+	var _hoisted_35 = { class: "settings__label" };
+	var _hoisted_36 = { class: "settings__label" };
+	var _hoisted_37 = { class: "settings__label" };
+	var _hoisted_38 = { class: "settings__label" };
+	var _hoisted_39 = { class: "settings__label" };
+	var _hoisted_40 = { class: "settings-panel__section" };
+	var _hoisted_41 = { class: "settings" };
+	var _hoisted_42 = { class: "settings" };
+	var _hoisted_43 = { class: "settings" };
+	var _hoisted_44 = { class: "settings" };
+	var _hoisted_45 = { class: "settings" };
 	var SettingsPanel_default = (0, vue.defineComponent)({
 		__name: "SettingsPanel",
 		setup(__props) {
@@ -5422,13 +5590,14 @@ div#bar3 {
 			(0, vue.onMounted)(() => {
 				_GM.registerMenuCommand("Open settings panel", () => isShow.value = !isShow.value);
 			});
+			const isDirectDownload = (0, vue.computed)(() => !!getArchiveDownloadType(quickArchiveDownloadMethod.value));
 			function reload() {
 				location.reload();
 			}
 			return (_ctx, _cache) => {
 				return (0, vue.openBlock)(), (0, vue.createBlock)((0, vue.unref)(Ro), {
 					modelValue: isShow.value,
-					"onUpdate:modelValue": _cache[24] || (_cache[24] = ($event) => isShow.value = $event),
+					"onUpdate:modelValue": _cache[25] || (_cache[25] = ($event) => isShow.value = $event),
 					"overlay-transition": "vfm-fade",
 					class: "settings-panel-wrap",
 					"content-class": "settings-panel"
@@ -5436,43 +5605,71 @@ div#bar3 {
 					default: (0, vue.withCtx)(() => [
 						(0, vue.createElementVNode)("div", _hoisted_1, [
 							(0, vue.createElementVNode)("section", _hoisted_2, [
-								_cache[26] || (_cache[26] = (0, vue.createElementVNode)("h2", { class: "settings-panel__section-name" }, " Common ", -1)),
-								_cache[27] || (_cache[27] = (0, vue.createElementVNode)("hr", { class: "settings-panel__separator" }, null, -1)),
+								_cache[27] || (_cache[27] = (0, vue.createElementVNode)("h2", { class: "settings-panel__section-name" }, " Common ", -1)),
+								_cache[28] || (_cache[28] = (0, vue.createElementVNode)("hr", { class: "settings-panel__separator" }, null, -1)),
 								(0, vue.createElementVNode)("div", _hoisted_3, [(0, vue.createVNode)(ToggleSwitch_default, {
 									modelValue: (0, vue.unref)(showJapaneseTitle).value,
 									"onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => (0, vue.unref)(showJapaneseTitle).value = $event)
-								}, null, 8, ["modelValue"]), _cache[25] || (_cache[25] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Change Browser Tab Title to Japanese ", -1))])
+								}, null, 8, ["modelValue"]), _cache[26] || (_cache[26] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Change Browser Tab Title to Japanese ", -1))])
 							]),
 							(0, vue.createElementVNode)("section", _hoisted_4, [
-								_cache[35] || (_cache[35] = (0, vue.createElementVNode)("h2", { class: "settings-panel__section-name" }, " Gallery Enhancer ", -1)),
-								_cache[36] || (_cache[36] = (0, vue.createElementVNode)("hr", { class: "settings-panel__separator" }, null, -1)),
+								_cache[40] || (_cache[40] = (0, vue.createElementVNode)("h2", { class: "settings-panel__section-name" }, " Gallery Enhancer ", -1)),
+								_cache[41] || (_cache[41] = (0, vue.createElementVNode)("hr", { class: "settings-panel__separator" }, null, -1)),
 								(0, vue.createElementVNode)("div", _hoisted_5, [
 									(0, vue.createVNode)(ToggleSwitch_default, {
 										modelValue: (0, vue.unref)(scrollByRowSwitch).value,
 										"onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => (0, vue.unref)(scrollByRowSwitch).value = $event)
 									}, null, 8, ["modelValue"]),
-									_cache[28] || (_cache[28] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
-									_cache[29] || (_cache[29] = (0, vue.createElementVNode)("span", { class: "settings__notice" }, " *Synced with \"Galleries Enhancer - Scroll by Row\" ", -1))
+									_cache[29] || (_cache[29] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
+									_cache[30] || (_cache[30] = (0, vue.createElementVNode)("span", { class: "settings__notice" }, " *Synced with \"Galleries Enhancer - Scroll by Row\" ", -1))
 								]),
 								(0, vue.createElementVNode)("div", _hoisted_6, [
 									(0, vue.createVNode)(ToggleSwitch_default, {
 										modelValue: (0, vue.unref)(betterPopupSwitch).value,
 										"onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => (0, vue.unref)(betterPopupSwitch).value = $event)
 									}, null, 8, ["modelValue"]),
-									_cache[32] || (_cache[32] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Better Popup ", -1)),
+									_cache[37] || (_cache[37] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Better Popup ", -1)),
 									(0, vue.createElementVNode)("div", _hoisted_7, [
-										_cache[30] || (_cache[30] = (0, vue.createElementVNode)("span", null, " Action when clicking \"Archive Download\": ", -1)),
+										_cache[31] || (_cache[31] = (0, vue.createElementVNode)("span", null, " Action when clicking \"Archive Download\": ", -1)),
 										(0, vue.withDirectives)((0, vue.createElementVNode)("select", {
 											"onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => (0, vue.unref)(quickArchiveDownloadMethod).value = $event),
 											class: "settings__select"
 										}, [
-											(0, vue.createElementVNode)("option", _hoisted_8, (0, vue.toDisplayString)((0, vue.unref)(ArchiveDownloadMethod).Manual), 1),
-											(0, vue.createElementVNode)("option", _hoisted_9, (0, vue.toDisplayString)((0, vue.unref)(ArchiveDownloadMethod).HaH_Original), 1),
-											(0, vue.createElementVNode)("option", _hoisted_10, (0, vue.toDisplayString)((0, vue.unref)(ArchiveDownloadMethod).HaH_2400), 1),
-											(0, vue.createElementVNode)("option", _hoisted_11, (0, vue.toDisplayString)((0, vue.unref)(ArchiveDownloadMethod).Direct_Origin), 1),
-											(0, vue.createElementVNode)("option", _hoisted_12, (0, vue.toDisplayString)((0, vue.unref)(ArchiveDownloadMethod).Direct_Resample), 1)
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveDownloadMethod).Manual
+											}, " Manual ", 8, _hoisted_8),
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveDownloadMethod).HaH_Original
+											}, " download Original Resolution with H@H ", 8, _hoisted_9),
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveDownloadMethod).HaH_800
+											}, " download 800x Resolution with H@H ", 8, _hoisted_10),
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveDownloadMethod).HaH_1280
+											}, " download 1280x Resolution with H@H ", 8, _hoisted_11),
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveDownloadMethod).HaH_1920
+											}, " download 1920x Resolution with H@H ", 8, _hoisted_12),
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveDownloadMethod).HaH_2560
+											}, " download 2560x Resolution with H@H ", 8, _hoisted_13),
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveDownloadMethod).Direct_Origin
+											}, " download Original Resolution directly ", 8, _hoisted_14),
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveDownloadMethod).Direct_Resample
+											}, " download Resample Resolution directly ", 8, _hoisted_15)
 										], 512), [[vue.vModelSelect, (0, vue.unref)(quickArchiveDownloadMethod).value]]),
-										_cache[31] || (_cache[31] = (0, vue.createElementVNode)("p", null, [
+										_cache[32] || (_cache[32] = (0, vue.createElementVNode)("p", null, " *Note: Not every gallery offers every H@H resolution. When the one you picked isn't available, the pop-up opens instead. ", -1)),
+										_cache[33] || (_cache[33] = (0, vue.createElementVNode)("p", null, [
 											(0, vue.createTextVNode)(" *Note: If you have changed the Archiver Settings, you must revert it to \"Manual Select, Manual Start (Default)\" on the settings page: "),
 											(0, vue.createElementVNode)("a", {
 												class: "settings__link",
@@ -5487,64 +5684,89 @@ div#bar3 {
 												href: "https://exhentai.org/uconfig.php",
 												rel: "noreferrer noopener"
 											}, " ExHentai ")
-										], -1))
+										], -1)),
+										_cache[34] || (_cache[34] = (0, vue.createElementVNode)("span", null, " Action when a previous archive session is still active: ", -1)),
+										(0, vue.withDirectives)((0, vue.createElementVNode)("select", {
+											"onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => (0, vue.unref)(archiveSessionAction).value = $event),
+											class: "settings__select",
+											disabled: !isDirectDownload.value
+										}, [
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveSessionAction).DownloadDirectly
+											}, " download directly ", 8, _hoisted_17),
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveSessionAction).OpenPopup
+											}, " open the popup ", 8, _hoisted_18),
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveSessionAction).CancelThenDownload
+											}, " cancel the session, then download ", 8, _hoisted_19),
+											(0, vue.createElementVNode)("option", {
+												class: "settings__option",
+												value: (0, vue.unref)(ArchiveSessionAction).ShowCancelButton
+											}, " add an \"Invalidate Archive\" button below \"Archive Download\" ", 8, _hoisted_20)
+										], 8, _hoisted_16), [[vue.vModelSelect, (0, vue.unref)(archiveSessionAction).value]]),
+										_cache[35] || (_cache[35] = (0, vue.createElementVNode)("p", null, " *Only applies when the option above is set to a \"directly\" method. ", -1)),
+										_cache[36] || (_cache[36] = (0, vue.createElementVNode)("p", null, " *\"cancel the session, then download\" invalidates the archive session you already paid for, so each download will cost GP again. ", -1))
 									])
 								]),
-								(0, vue.createElementVNode)("div", _hoisted_13, [(0, vue.createVNode)(ToggleSwitch_default, {
+								(0, vue.createElementVNode)("div", _hoisted_21, [(0, vue.createVNode)(ToggleSwitch_default, {
 									modelValue: (0, vue.unref)(quickTorrentDownloadSwitch).value,
-									"onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => (0, vue.unref)(quickTorrentDownloadSwitch).value = $event)
-								}, null, 8, ["modelValue"]), _cache[33] || (_cache[33] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Download Directly if Only One Torrent Is Available ", -1))]),
-								(0, vue.createElementVNode)("div", _hoisted_14, [(0, vue.createVNode)(ToggleSwitch_default, {
+									"onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => (0, vue.unref)(quickTorrentDownloadSwitch).value = $event)
+								}, null, 8, ["modelValue"]), _cache[38] || (_cache[38] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Download Directly if Only One Torrent Is Available ", -1))]),
+								(0, vue.createElementVNode)("div", _hoisted_22, [(0, vue.createVNode)(ToggleSwitch_default, {
 									modelValue: (0, vue.unref)(loadAllGalleryImagesSwitch).value,
-									"onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => (0, vue.unref)(loadAllGalleryImagesSwitch).value = $event)
-								}, null, 8, ["modelValue"]), _cache[34] || (_cache[34] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Load All Gallery Images ", -1))])
+									"onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => (0, vue.unref)(loadAllGalleryImagesSwitch).value = $event)
+								}, null, 8, ["modelValue"]), _cache[39] || (_cache[39] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Load All Gallery Images ", -1))])
 							]),
-							(0, vue.createElementVNode)("section", _hoisted_15, [
-								_cache[50] || (_cache[50] = (0, vue.createElementVNode)("h2", { class: "settings-panel__section-name" }, " Multi-Page Viewer Enhancer ", -1)),
-								_cache[51] || (_cache[51] = (0, vue.createElementVNode)("hr", { class: "settings-panel__separator" }, null, -1)),
-								(0, vue.createElementVNode)("div", _hoisted_16, [(0, vue.createVNode)(ToggleSwitch_default, {
+							(0, vue.createElementVNode)("section", _hoisted_23, [
+								_cache[55] || (_cache[55] = (0, vue.createElementVNode)("h2", { class: "settings-panel__section-name" }, " Multi-Page Viewer Enhancer ", -1)),
+								_cache[56] || (_cache[56] = (0, vue.createElementVNode)("hr", { class: "settings-panel__separator" }, null, -1)),
+								(0, vue.createElementVNode)("div", _hoisted_24, [(0, vue.createVNode)(ToggleSwitch_default, {
 									modelValue: (0, vue.unref)(multipageViewerEnhancerSwitch).value,
-									"onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => (0, vue.unref)(multipageViewerEnhancerSwitch).value = $event)
-								}, null, 8, ["modelValue"]), _cache[37] || (_cache[37] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Multi-Page Viewer Enhancer ", -1))]),
-								(0, vue.createElementVNode)("div", _hoisted_17, [
+									"onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => (0, vue.unref)(multipageViewerEnhancerSwitch).value = $event)
+								}, null, 8, ["modelValue"]), _cache[42] || (_cache[42] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Multi-Page Viewer Enhancer ", -1))]),
+								(0, vue.createElementVNode)("div", _hoisted_25, [
 									(0, vue.createVNode)(ToggleSwitch_default, {
 										modelValue: (0, vue.unref)(preventImageRemovalSwitch).value,
-										"onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => (0, vue.unref)(preventImageRemovalSwitch).value = $event)
+										"onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => (0, vue.unref)(preventImageRemovalSwitch).value = $event)
 									}, null, 8, ["modelValue"]),
-									_cache[38] || (_cache[38] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Prevent Image Removal ", -1)),
-									_cache[39] || (_cache[39] = (0, vue.createElementVNode)("div", { class: "settings__intro" }, [(0, vue.createElementVNode)("p", null, " ExHentai's built-in script removes images that are far from your current scroll position. Scrolling back to a removed image may cause it to flash, since the browser must re-render it even if it's cached. ")], -1))
+									_cache[43] || (_cache[43] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Prevent Image Removal ", -1)),
+									_cache[44] || (_cache[44] = (0, vue.createElementVNode)("div", { class: "settings__intro" }, [(0, vue.createElementVNode)("p", null, " ExHentai's built-in script removes images that are far from your current scroll position. Scrolling back to a removed image may cause it to flash, since the browser must re-render it even if it's cached. ")], -1))
 								]),
-								(0, vue.createElementVNode)("div", _hoisted_18, [(0, vue.createVNode)(ToggleSwitch_default, {
+								(0, vue.createElementVNode)("div", _hoisted_26, [(0, vue.createVNode)(ToggleSwitch_default, {
 									modelValue: (0, vue.unref)(changePageByWheelAnyWhereSwitch).value,
-									"onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => (0, vue.unref)(changePageByWheelAnyWhereSwitch).value = $event)
-								}, null, 8, ["modelValue"]), _cache[40] || (_cache[40] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Change Page by Scrolling the Mouse Wheel Anywhere ", -1))]),
-								(0, vue.createElementVNode)("div", _hoisted_19, [(0, vue.createVNode)(ToggleSwitch_default, {
+									"onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => (0, vue.unref)(changePageByWheelAnyWhereSwitch).value = $event)
+								}, null, 8, ["modelValue"]), _cache[45] || (_cache[45] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Change Page by Scrolling the Mouse Wheel Anywhere ", -1))]),
+								(0, vue.createElementVNode)("div", _hoisted_27, [(0, vue.createVNode)(ToggleSwitch_default, {
 									modelValue: (0, vue.unref)(autoRedirectSwitch).value,
-									"onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => (0, vue.unref)(autoRedirectSwitch).value = $event)
-								}, null, 8, ["modelValue"]), _cache[41] || (_cache[41] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Auto-Redirect to Multi-Page Viewer ", -1))]),
-								(0, vue.createElementVNode)("div", _hoisted_20, [
+									"onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => (0, vue.unref)(autoRedirectSwitch).value = $event)
+								}, null, 8, ["modelValue"]), _cache[46] || (_cache[46] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Auto-Redirect to Multi-Page Viewer ", -1))]),
+								(0, vue.createElementVNode)("div", _hoisted_28, [
 									(0, vue.createVNode)(ToggleSwitch_default, {
 										modelValue: (0, vue.unref)(magnifierSwitch).value,
-										"onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => (0, vue.unref)(magnifierSwitch).value = $event)
+										"onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => (0, vue.unref)(magnifierSwitch).value = $event)
 									}, null, 8, ["modelValue"]),
-									_cache[49] || (_cache[49] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Image Magnifier ", -1)),
-									(0, vue.createElementVNode)("div", _hoisted_21, [_cache[48] || (_cache[48] = (0, vue.createElementVNode)("p", null, " Long-press the activation button to enable the magnifier. Press both mouse buttons simultaneously to view the image at its original scale. ", -1)), (0, vue.createElementVNode)("div", _hoisted_22, [
-										(0, vue.createElementVNode)("label", _hoisted_23, [_cache[42] || (_cache[42] = (0, vue.createTextVNode)(" Activation Button: ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("select", {
-											"onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => (0, vue.unref)(magnifierActivationButton).value = $event),
+									_cache[54] || (_cache[54] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Image Magnifier ", -1)),
+									(0, vue.createElementVNode)("div", _hoisted_29, [_cache[53] || (_cache[53] = (0, vue.createElementVNode)("p", null, " Long-press the activation button to enable the magnifier. Press both mouse buttons simultaneously to view the image at its original scale. ", -1)), (0, vue.createElementVNode)("div", _hoisted_30, [
+										(0, vue.createElementVNode)("label", _hoisted_31, [_cache[47] || (_cache[47] = (0, vue.createTextVNode)(" Activation Button: ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("select", {
+											"onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => (0, vue.unref)(magnifierActivationButton).value = $event),
 											class: "settings__select"
 										}, [(0, vue.createElementVNode)("option", {
 											class: "settings__option",
 											value: (0, vue.unref)(MouseButton).Left
-										}, "Left Mouse Button", 8, _hoisted_24), (0, vue.createElementVNode)("option", {
+										}, "Left Mouse Button", 8, _hoisted_32), (0, vue.createElementVNode)("option", {
 											class: "settings__option",
 											value: (0, vue.unref)(MouseButton).Right
-										}, "Right Mouse Button", 8, _hoisted_25)], 512), [[vue.vModelSelect, (0, vue.unref)(magnifierActivationButton).value]])]),
-										(0, vue.createElementVNode)("label", _hoisted_26, [(0, vue.createVNode)(ToggleSwitch_default, {
+										}, "Right Mouse Button", 8, _hoisted_33)], 512), [[vue.vModelSelect, (0, vue.unref)(magnifierActivationButton).value]])]),
+										(0, vue.createElementVNode)("label", _hoisted_34, [(0, vue.createVNode)(ToggleSwitch_default, {
 											modelValue: (0, vue.unref)(magnifierToggleMode).value,
-											"onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => (0, vue.unref)(magnifierToggleMode).value = $event)
+											"onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => (0, vue.unref)(magnifierToggleMode).value = $event)
 										}, null, 8, ["modelValue"]), (0, vue.createTextVNode)(" " + (0, vue.toDisplayString)((0, vue.unref)(magnifierToggleMode).value ? "Toggle Mode (click once to enable, click again to disable)" : "Hold Mode (hold down to use)"), 1)]),
-										(0, vue.createElementVNode)("label", _hoisted_27, [_cache[43] || (_cache[43] = (0, vue.createTextVNode)(" Default Scale: ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("input", {
-											"onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => (0, vue.unref)(magnifierDefaultScale).value = $event),
+										(0, vue.createElementVNode)("label", _hoisted_35, [_cache[48] || (_cache[48] = (0, vue.createTextVNode)(" Default Scale: ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("input", {
+											"onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => (0, vue.unref)(magnifierDefaultScale).value = $event),
 											type: "number",
 											min: "1.1",
 											max: "10",
@@ -5556,8 +5778,8 @@ div#bar3 {
 											void 0,
 											{ number: true }
 										]])]),
-										(0, vue.createElementVNode)("label", _hoisted_28, [_cache[44] || (_cache[44] = (0, vue.createTextVNode)(" Scale Step (Mouse Wheel): ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("input", {
-											"onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => (0, vue.unref)(magnifierScaleStep).value = $event),
+										(0, vue.createElementVNode)("label", _hoisted_36, [_cache[49] || (_cache[49] = (0, vue.createTextVNode)(" Scale Step (Mouse Wheel): ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("input", {
+											"onUpdate:modelValue": _cache[15] || (_cache[15] = ($event) => (0, vue.unref)(magnifierScaleStep).value = $event),
 											type: "number",
 											min: "0.05",
 											max: "0.5",
@@ -5569,8 +5791,8 @@ div#bar3 {
 											void 0,
 											{ number: true }
 										]])]),
-										(0, vue.createElementVNode)("label", _hoisted_29, [_cache[45] || (_cache[45] = (0, vue.createTextVNode)(" Long-Press Threshold (ms): ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("input", {
-											"onUpdate:modelValue": _cache[15] || (_cache[15] = ($event) => (0, vue.unref)(magnifierLongPressThreshold).value = $event),
+										(0, vue.createElementVNode)("label", _hoisted_37, [_cache[50] || (_cache[50] = (0, vue.createTextVNode)(" Long-Press Threshold (ms): ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("input", {
+											"onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => (0, vue.unref)(magnifierLongPressThreshold).value = $event),
 											type: "number",
 											min: "50",
 											max: "1000",
@@ -5582,8 +5804,8 @@ div#bar3 {
 											void 0,
 											{ number: true }
 										]])]),
-										(0, vue.createElementVNode)("label", _hoisted_30, [_cache[46] || (_cache[46] = (0, vue.createTextVNode)(" Mouse Sensitivity X: ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("input", {
-											"onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => (0, vue.unref)(magnifierSensitivityX).value = $event),
+										(0, vue.createElementVNode)("label", _hoisted_38, [_cache[51] || (_cache[51] = (0, vue.createTextVNode)(" Mouse Sensitivity X: ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("input", {
+											"onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => (0, vue.unref)(magnifierSensitivityX).value = $event),
 											type: "number",
 											min: "0.5",
 											max: "5",
@@ -5595,8 +5817,8 @@ div#bar3 {
 											void 0,
 											{ number: true }
 										]])]),
-										(0, vue.createElementVNode)("label", _hoisted_31, [_cache[47] || (_cache[47] = (0, vue.createTextVNode)(" Mouse Sensitivity Y: ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("input", {
-											"onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => (0, vue.unref)(magnifierSensitivityY).value = $event),
+										(0, vue.createElementVNode)("label", _hoisted_39, [_cache[52] || (_cache[52] = (0, vue.createTextVNode)(" Mouse Sensitivity Y: ", -1)), (0, vue.withDirectives)((0, vue.createElementVNode)("input", {
+											"onUpdate:modelValue": _cache[18] || (_cache[18] = ($event) => (0, vue.unref)(magnifierSensitivityY).value = $event),
 											type: "number",
 											min: "0.5",
 											max: "5",
@@ -5611,46 +5833,46 @@ div#bar3 {
 									])])
 								])
 							]),
-							(0, vue.createElementVNode)("section", _hoisted_32, [
-								_cache[60] || (_cache[60] = (0, vue.createElementVNode)("h2", { class: "settings-panel__section-name" }, " Galleries Enhancer ", -1)),
-								_cache[61] || (_cache[61] = (0, vue.createElementVNode)("hr", { class: "settings-panel__separator" }, null, -1)),
-								(0, vue.createElementVNode)("div", _hoisted_33, [(0, vue.createVNode)(ToggleSwitch_default, {
+							(0, vue.createElementVNode)("section", _hoisted_40, [
+								_cache[65] || (_cache[65] = (0, vue.createElementVNode)("h2", { class: "settings-panel__section-name" }, " Galleries Enhancer ", -1)),
+								_cache[66] || (_cache[66] = (0, vue.createElementVNode)("hr", { class: "settings-panel__separator" }, null, -1)),
+								(0, vue.createElementVNode)("div", _hoisted_41, [(0, vue.createVNode)(ToggleSwitch_default, {
 									modelValue: (0, vue.unref)(infiniteScrollSwitch).value,
-									"onUpdate:modelValue": _cache[18] || (_cache[18] = ($event) => (0, vue.unref)(infiniteScrollSwitch).value = $event)
-								}, null, 8, ["modelValue"]), _cache[52] || (_cache[52] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Infinite Scroll ", -1))]),
-								(0, vue.createElementVNode)("div", _hoisted_34, [
+									"onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => (0, vue.unref)(infiniteScrollSwitch).value = $event)
+								}, null, 8, ["modelValue"]), _cache[57] || (_cache[57] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Infinite Scroll ", -1))]),
+								(0, vue.createElementVNode)("div", _hoisted_42, [
 									(0, vue.createVNode)(ToggleSwitch_default, {
 										modelValue: (0, vue.unref)(scrollByRowSwitch).value,
-										"onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => (0, vue.unref)(scrollByRowSwitch).value = $event)
+										"onUpdate:modelValue": _cache[20] || (_cache[20] = ($event) => (0, vue.unref)(scrollByRowSwitch).value = $event)
 									}, null, 8, ["modelValue"]),
-									_cache[53] || (_cache[53] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
-									_cache[54] || (_cache[54] = (0, vue.createElementVNode)("span", { class: "settings__notice" }, " *Synced with \"Gallery Enhancer - Scroll by Row\" ", -1))
+									_cache[58] || (_cache[58] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Scroll by Row ", -1)),
+									_cache[59] || (_cache[59] = (0, vue.createElementVNode)("span", { class: "settings__notice" }, " *Synced with \"Gallery Enhancer - Scroll by Row\" ", -1))
 								]),
-								(0, vue.createElementVNode)("div", _hoisted_35, [
+								(0, vue.createElementVNode)("div", _hoisted_43, [
 									(0, vue.createVNode)(ToggleSwitch_default, {
 										modelValue: (0, vue.unref)(highlightSwitch).value,
-										"onUpdate:modelValue": _cache[20] || (_cache[20] = ($event) => (0, vue.unref)(highlightSwitch).value = $event)
+										"onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => (0, vue.unref)(highlightSwitch).value = $event)
 									}, null, 8, ["modelValue"]),
-									_cache[55] || (_cache[55] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Highlight Downloaded Galleries ", -1)),
-									_cache[56] || (_cache[56] = (0, vue.createElementVNode)("div", { class: "settings__intro" }, " Sets the background of downloaded galleries to black (ExHentai) or light yellow (e-hentai). ", -1))
+									_cache[60] || (_cache[60] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Highlight Downloaded Galleries ", -1)),
+									_cache[61] || (_cache[61] = (0, vue.createElementVNode)("div", { class: "settings__intro" }, " Sets the background of downloaded galleries to black (ExHentai) or light yellow (e-hentai). ", -1))
 								]),
-								(0, vue.createElementVNode)("div", _hoisted_36, [(0, vue.createVNode)(ToggleSwitch_default, {
+								(0, vue.createElementVNode)("div", _hoisted_44, [(0, vue.createVNode)(ToggleSwitch_default, {
 									modelValue: (0, vue.unref)(archiveButtonSwitch).value,
-									"onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => (0, vue.unref)(archiveButtonSwitch).value = $event)
-								}, null, 8, ["modelValue"]), _cache[57] || (_cache[57] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Insert Archiver Buttons ", -1))]),
-								(0, vue.createElementVNode)("div", _hoisted_37, [
+									"onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => (0, vue.unref)(archiveButtonSwitch).value = $event)
+								}, null, 8, ["modelValue"]), _cache[62] || (_cache[62] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Insert Archiver Buttons ", -1))]),
+								(0, vue.createElementVNode)("div", _hoisted_45, [
 									(0, vue.createVNode)(ToggleSwitch_default, {
 										modelValue: (0, vue.unref)(showHiddenGalleriesSwitch).value,
-										"onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => (0, vue.unref)(showHiddenGalleriesSwitch).value = $event)
+										"onUpdate:modelValue": _cache[23] || (_cache[23] = ($event) => (0, vue.unref)(showHiddenGalleriesSwitch).value = $event)
 									}, null, 8, ["modelValue"]),
-									_cache[58] || (_cache[58] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Show Hidden Galleries ", -1)),
-									_cache[59] || (_cache[59] = (0, vue.createElementVNode)("div", { class: "settings__intro" }, " When enabled, galleries hidden via the 🚫 button remain visible (with the icon at full opacity) so you can unhide them. ", -1))
+									_cache[63] || (_cache[63] = (0, vue.createElementVNode)("h3", { class: "settings__name" }, " Show Hidden Galleries ", -1)),
+									_cache[64] || (_cache[64] = (0, vue.createElementVNode)("div", { class: "settings__intro" }, " When enabled, galleries hidden via the 🚫 button remain visible (with the icon at full opacity) so you can unhide them. ", -1))
 								])
 							])
 						]),
 						(0, vue.createElementVNode)("span", {
 							class: "settings-panel__close-button",
-							onClick: _cache[23] || (_cache[23] = ($event) => isShow.value = false)
+							onClick: _cache[24] || (_cache[24] = ($event) => isShow.value = false)
 						}, [(0, vue.createVNode)(CrossButton_default)]),
 						(0, vue.createElementVNode)("div", { class: "actions" }, [(0, vue.createElementVNode)("button", {
 							class: "actions__button",
