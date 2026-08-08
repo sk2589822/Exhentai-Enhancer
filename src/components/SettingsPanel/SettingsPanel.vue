@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { VueFinalModal } from 'vue-final-modal'
 import { GM } from 'vite-plugin-monkey/dist/client'
 
+import { getArchiveDownloadType } from '@/composables/useArchive'
 import {
   MouseButton,
   ArchiveDownloadMethod,
+  ArchiveSessionAction,
 
+  archiveSessionAction,
   infiniteScrollSwitch,
   archiveButtonSwitch,
   scrollByRowSwitch,
@@ -38,6 +41,8 @@ const isShow = ref(false)
 onMounted(() => {
   GM.registerMenuCommand('Open settings panel', () => isShow.value = !isShow.value)
 })
+
+const isDirectDownload = computed(() => !!getArchiveDownloadType(quickArchiveDownloadMethod.value))
 
 function reload() {
   location.reload()
@@ -132,6 +137,35 @@ function reload() {
               >
                 ExHentai
               </a>
+            </p>
+
+            <span>
+              Action when a previous archive session is still active:
+            </span>
+            <select
+              v-model="archiveSessionAction.value"
+              class="settings__select"
+              :disabled="!isDirectDownload"
+            >
+              <option class="settings__option" :value="ArchiveSessionAction.DownloadDirectly">
+                download directly
+              </option>
+              <option class="settings__option" :value="ArchiveSessionAction.OpenPopup">
+                open the popup
+              </option>
+              <option class="settings__option" :value="ArchiveSessionAction.CancelThenDownload">
+                cancel the session, then download
+              </option>
+              <option class="settings__option" :value="ArchiveSessionAction.ShowCancelButton">
+                add an "Invalidate Archive" button below "Archive Download"
+              </option>
+            </select>
+            <p>
+              *Only applies when the option above is set to a "directly" method.
+            </p>
+            <p>
+              *"cancel the session, then download" invalidates the archive session you already paid
+              for, so each download will cost GP again.
             </p>
           </div>
         </div>

@@ -13,6 +13,17 @@
 2. Show an in-page pop-up instead of opening a new browser window when clicking `Archive Download` or `Torrent Download`.
 3. Download the torrent directly if only one is available.
 4. Scroll to the next/previous row using the mouse wheel over the image container.
+5. Choose what happens when you click `Archive Download` on a gallery whose archive session is still
+   active *(defaults to downloading directly)*.
+  > An archive session is the download you already paid to unlock. While it is active you can download
+  > the same archive again for free, but the site rejects a session that has been used from too many
+  > different locations — which happens when your exit IP changes, for example after switching VPN nodes.
+  >
+  > Available actions: download directly, open the pop-up, cancel the session then download, or add an
+  > `Invalidate Archive` button below `Archive Download`. Cancelling invalidates a session you already
+  > paid for, so the next download costs GP again.
+  >
+  > Only applies when the `Archive Download` action is set to one of the "directly" methods.
 
 ## Multi-Page Viewer Enhancer
 **Applies to:**
@@ -52,7 +63,7 @@
 Open the settings panel by clicking the Tampermonkey icon and selecting **"Open settings panel"**.  
 ![open settings panel](https://github.com/user-attachments/assets/03437e4e-9530-4021-b369-8c8b22fe1b4d)
 
-From here, you can disable any features you don't want or change the default action when clicking "Archive Download".  
+From here, you can disable any features you don't want, change the default action when clicking "Archive Download", and pick how to handle a gallery whose archive session is still active.  
 ![settings panel](https://github.com/user-attachments/assets/7248275f-58ed-4e34-9eee-003f3b18d47e)
 
 ## Shortcuts

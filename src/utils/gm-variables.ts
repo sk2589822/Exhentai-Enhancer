@@ -10,6 +10,7 @@ export const enum GMKey {
 
   BetterPopup = 'BetterPopup',
   QuickArchiveDownloadMethod = 'QuickDownloadMethod',
+  ArchiveSessionAction = 'ArchiveSessionAction',
   QuickTorrentDownload = 'QuickTorrentDownload',
   LoadAllGalleryImages = 'LoadAllGalleryImages',
 
@@ -38,13 +39,25 @@ export const enum ArchiveDownloadMethod {
   Direct_Resample = 'download Resample Resolution directly',
 }
 
+/**
+ * 已經存在未失效的 archive session 時，點擊 Archive Download 的行為
+ *
+ * 值刻意使用與顯示文字無關的短 key，這樣之後改文案不會動到已儲存的設定
+ */
+export const enum ArchiveSessionAction {
+  DownloadDirectly = 'DownloadDirectly',
+  OpenPopup = 'OpenPopup',
+  CancelThenDownload = 'CancelThenDownload',
+  ShowCancelButton = 'ShowCancelButton',
+}
+
 export const enum MouseButton {
   Left = 'left',
   Right = 'right',
 }
 
 
-class GMVariable<T extends boolean | ArchiveDownloadMethod | MouseButton | number> {
+class GMVariable<T extends boolean | ArchiveDownloadMethod | ArchiveSessionAction | MouseButton | number> {
   private _key: string
   private _value: T
 
@@ -77,6 +90,7 @@ export const showHiddenGalleriesSwitch = reactive(new GMVariable<boolean>(GMKey.
 export const scrollByRowSwitch = reactive(new GMVariable<boolean>(GMKey.ScrollByRow, true))
 export const betterPopupSwitch = reactive(new GMVariable<boolean>(GMKey.BetterPopup, true))
 export const quickArchiveDownloadMethod = reactive(new GMVariable<ArchiveDownloadMethod>(GMKey.QuickArchiveDownloadMethod, ArchiveDownloadMethod.Manual))
+export const archiveSessionAction = reactive(new GMVariable<ArchiveSessionAction>(GMKey.ArchiveSessionAction, ArchiveSessionAction.DownloadDirectly))
 export const quickTorrentDownloadSwitch = reactive(new GMVariable<boolean>(GMKey.QuickTorrentDownload, false))
 export const loadAllGalleryImagesSwitch = reactive(new GMVariable<boolean>(GMKey.LoadAllGalleryImages, true))
 
@@ -109,6 +123,7 @@ export async function initializeMonkeySwitches() {
     scrollByRowSwitch.initialize(),
     betterPopupSwitch.initialize(),
     quickArchiveDownloadMethod.initialize(),
+    archiveSessionAction.initialize(),
     quickTorrentDownloadSwitch.initialize(),
     loadAllGalleryImagesSwitch.initialize(),
 
