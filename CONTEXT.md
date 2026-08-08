@@ -34,6 +34,12 @@ Getting an Archive by queueing it on a Hentai@Home client instead of
 downloading it in the browser.
 _Avoid_: Hath download, client download
 
+**H@H Resolution**:
+The size an H@H Download is rendered at. The site decides which ones exist
+and which of those a given Gallery offers, so a resolution the user picked
+may be unavailable on the Gallery in front of them.
+_Avoid_: Quality, size, xres
+
 **Archive Session**:
 The download authorisation the archiver creates when a user pays to unlock an
 Archive. While it is active the same Archive can be downloaded again without
