@@ -115,6 +115,14 @@ function getDirectDownloadUrl(root: Document | HTMLElement, dltype: ArchiveDownl
     ?.getAttribute('action') ?? null
 }
 
+function getDirectDownloadButton(dltype: ArchiveDownloadType, root: Document | HTMLElement = document) {
+  return getElement<HTMLInputElement>(`input[value="${DOWNLOAD_LABELS[dltype]}"]`, root)
+}
+
+export function isDirectDownloadOffered(dltype: ArchiveDownloadType, root: Document | HTMLElement = document) {
+  return getDirectDownloadButton(dltype, root)?.disabled === false
+}
+
 /**
  * 取消目前的 archive session
  *
@@ -467,7 +475,7 @@ export function useArchive() {
       return true
     }
 
-    const downloadButton = getElement<HTMLInputElement>(`input[value="${DOWNLOAD_LABELS[dltype]}"]`, popup.value)
+    const downloadButton = getDirectDownloadButton(dltype, popup.value)
     if (!downloadButton) {
       logger.error(`download button for "${dltype}" not found.`)
       return false
