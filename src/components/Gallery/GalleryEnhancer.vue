@@ -9,7 +9,7 @@ import {
   getTorrentLinkAnchor,
 } from '@/components/Gallery/utils/elements'
 import { setWheelStep } from '@/utils/wheel-step'
-import { getArchiveDownloadType, hasArchiveSession, useArchive } from '@/composables/useArchive'
+import { getArchiveDownloadType, hasArchiveSession, isDirectDownloadOffered, useArchive } from '@/composables/useArchive'
 import { usePopups } from '@/composables/usePopups'
 import {
   scrollByRowSwitch,
@@ -128,13 +128,16 @@ function setArchiveClickEvent() {
 }
 
 /**
- * Archive Session Action 只在「設定為直接下載」且「存在未失效的 archive session」時適用
+ * Archive Session Action 只在「設定為直接下載」、「這本 gallery 提供該類型」且「存在未失效的 archive session」時適用
+ *
+ * 不提供時要交回原本的流程。否則 CancelThenDownload 會先取消 session，
+ * 而 archiver 收到不提供的類型時不會拒絕，會改成重新解鎖 Original
  *
  * @returns 適用時回傳要下載的類型，不適用時回傳 null
  */
 function getActionableDownloadType() {
   const dltype = getArchiveDownloadType(quickArchiveDownloadMethod.value)
-  return dltype && hasArchiveSession() ? dltype : null
+  return dltype && isDirectDownloadOffered(dltype) && hasArchiveSession() ? dltype : null
 }
 
 /**
