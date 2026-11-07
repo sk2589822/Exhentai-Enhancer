@@ -18,6 +18,11 @@ const DOWNLOAD_LABELS: Record<ArchiveDownloadType, string> = {
   res: 'Download Resample Archive',
 }
 
+const DOWNLOAD_TYPE_NAMES: Record<ArchiveDownloadType, string> = {
+  org: 'Original',
+  res: 'Resample',
+}
+
 const DOWNLOAD_ACCEPTED_TEXT = 'Locating archive server and preparing file for download...'
 
 const HAH_ORIGINAL_RESOLUTION = 'org'
@@ -462,9 +467,14 @@ export function useArchive() {
       return true
     }
 
-    const downloadButton = getElement(`input[value="${DOWNLOAD_LABELS[dltype]}"]`, popup.value)
+    const downloadButton = getElement<HTMLInputElement>(`input[value="${DOWNLOAD_LABELS[dltype]}"]`, popup.value)
     if (!downloadButton) {
       logger.error(`download button for "${dltype}" not found.`)
+      return false
+    }
+
+    if (downloadButton.disabled) {
+      toast.warning(`This gallery doesn't offer the ${DOWNLOAD_TYPE_NAMES[dltype]} archive.\n Open popup`)
       return false
     }
 
