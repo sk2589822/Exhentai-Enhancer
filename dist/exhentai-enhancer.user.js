@@ -4,7 +4,7 @@
 // @name:zh-TW         Exhentai Enhancer
 // @name:zh-CN         Exhentai Enhancer
 // @namespace          https://github.com/sk2589822/Exhentai-Enhancer
-// @version            1.21.0
+// @version            1.21.1
 // @author             sk2589822
 // @description        improve UX of Gallery Page, Multi-Page Viewer and Front Page
 // @description:en     improve UX of Gallery Page, Multi-Page Viewer and Front Page
@@ -15,7 +15,7 @@
 // @supportURL         https://github.com/sk2589822/Exhentai-Enhancer/issues
 // @match              https://exhentai.org/*
 // @match              https://e-hentai.org/*
-// @require            https://cdn.jsdelivr.net/npm/vue@3.5.34/dist/vue.global.prod.js
+// @require            https://cdn.jsdelivr.net/npm/vue@3.5.45/dist/vue.global.prod.js
 // @grant              GM.getValue
 // @grant              GM.registerMenuCommand
 // @grant              GM.setValue
@@ -29,28 +29,7 @@
 // ==/UserScript==
 
 (function(vue) {
-  'use strict';
-	var __create = Object.create;
-	var __defProp$2 = Object.defineProperty;
-	var __getOwnPropDesc$1 = Object.getOwnPropertyDescriptor;
-	var __getOwnPropNames$1 = Object.getOwnPropertyNames;
-	var __getProtoOf = Object.getPrototypeOf;
-	var __hasOwnProp$2 = Object.prototype.hasOwnProperty;
-	var __copyProps$1 = (to, from, except, desc) => {
-		if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames$1(from), i = 0, n = keys.length, key; i < n; i++) {
-			key = keys[i];
-			if (!__hasOwnProp$2.call(to, key) && key !== except) __defProp$2(to, key, {
-				get: ((k) => from[k]).bind(null, key),
-				enumerable: !(desc = __getOwnPropDesc$1(from, key)) || desc.enumerable
-			});
-		}
-		return to;
-	};
-	var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps$1(isNodeMode || !mod || !mod.__esModule ? __defProp$2(target, "default", {
-		value: mod,
-		enumerable: true
-	}) : target, mod));
-	vue = __toESM(vue);
+	"use strict";
 	var s = new Set();
 	var _css = async (t) => {
 		if (s.has(t)) return;
@@ -61,31 +40,117 @@
 		})(t);
 	};
 	_css(" @keyframes spin{0%{rotate:0}to{rotate:360deg}}.searchnav{overflow-anchor:none}.itg.gld.is-fetching:after{content:\"⌛\";grid-column:1/-1;justify-content:center;align-items:center;width:30px;height:30px;margin:auto;line-height:30px;animation:1s ease-in-out infinite spin;display:flex}.gldown{display:flex}.archive-button{cursor:pointer;background-color:#5fa9cf;border-radius:9999px;flex-shrink:0;justify-content:center;align-items:center;width:14px;height:14px;display:flex;position:relative;box-shadow:0 3px 5px #0000003d}.hide-button{cursor:pointer;opacity:.25;-webkit-user-select:none;user-select:none;flex-shrink:0;justify-content:center;align-items:center;height:12px;font-size:14px;transition:opacity .15s ease-in-out;display:flex;position:relative}.hide-button:hover{opacity:.6}.hide-button.is-hidden{opacity:1}.popup{text-align:center;background-color:var(--bg-color);z-index:100;border:3px solid #fff;border-radius:20px;padding:20px;transition:opacity .3s;position:absolute!important}.popup a{text-decoration:underline}div#gd5{float:unset;width:auto}#gd5 .is-ready:after{content:\" ✔️\"}#gd5 .enhancer-archive-cancel{padding-top:4px;display:block}#gd5 .enhancer-archive-cancel a{margin-left:18px}.enhancer-container .is-fetching{pointer-events:none;font-size:0;text-decoration:none}.enhancer-container .is-fetching:after{content:\"⌛\";font-size:8px;line-height:8px;animation:1s ease-in-out infinite spin;display:inline-block}.enhancer-container input[name=dltype]+.is-fetching{position:relative}.enhancer-container input[name=dltype]+.is-fetching:after{font-size:12px;line-height:27px;position:absolute;top:0;left:50%}.enhancer-container input[name=dltype]+.is-fetching input{color:#0000}.enhancer-container .is-finished{pointer-events:none;font-size:0;text-decoration:none}.enhancer-container .is-finished:after{content:\"✔️\";font-size:8px;line-height:8px;display:inline-block}.page-elevator[data-v-b87e2f8f]{opacity:1;flex-direction:column;gap:10px;width:40px;display:flex}.page-elevator__input[data-v-b87e2f8f]{text-align:center;box-sizing:border-box;border:1px solid #777;width:100%;height:30px;margin:0;padding:0;display:flex}.page-elevator__slash[data-v-b87e2f8f]{line-height:100%}:fullscreen .page-elevator[data-v-b87e2f8f]{opacity:0}:fullscreen .page-elevator[data-v-b87e2f8f]:hover{opacity:1}#pane_images .mimg{min-width:unset;width:min-content!important;max-height:calc(var(--image-size) + 24px)!important}#pane_images .mimg>a{-webkit-user-select:none;user-select:none}#pane_images .mimg>a>img{max-height:var(--image-size);pointer-events:none;width:auto!important}.image-resizer[data-v-fb83c8f5]{flex-direction:column;gap:16px;width:40px;display:flex}.image-resizer__button[data-v-fb83c8f5]{text-align:center;box-sizing:border-box;cursor:pointer;background-color:#0000;border:1px solid #777;border-radius:5px;width:100%;height:30px;padding:0}.image-resizer__button[data-v-fb83c8f5]:hover{background-color:#ffa50033}.image-resizer__button--active[data-v-fb83c8f5],.image-resizer__button--active[data-v-fb83c8f5]:hover{background-color:orange}.magnifier-overlay[data-v-ba829bde]{z-index:999;cursor:none;background:0 0;position:fixed;inset:0}.magnifier[data-v-ba829bde]{z-index:1000}.magnifier-background[data-v-ba829bde]{background-color:#00000080;position:absolute;inset:0}.magnifier-image[data-v-ba829bde]{cursor:none;position:absolute}.enhancer-features{z-index:100;box-sizing:border-box;flex-direction:row-reverse;align-items:center;gap:16px;padding-right:5px;display:flex;position:absolute;top:0;bottom:0;right:0}.enhancer-features__feature{opacity:0;box-sizing:border-box;background:#7777;border-radius:10px;padding:10px 5px;transition:opacity .3s}.enhancer-features__feature:hover{opacity:1}.switch[data-v-7bec1a82]{width:50px;height:24px;display:inline-block;position:relative}.switch__input[data-v-7bec1a82]{opacity:0;width:0;height:0}.switch__slider[data-v-7bec1a82]{cursor:pointer;background-color:#ccc;border-radius:9999px;transition:all .4s;position:absolute;inset:0}.switch__slider[data-v-7bec1a82]:before{aspect-ratio:1;content:\"\";background-color:#fff;border-radius:50%;height:calc(100% - 4px);transition:all .4s;position:absolute;top:2px;left:2px}.switch__input:checked+.switch__slider[data-v-7bec1a82]{background-color:#34353b}.switch__input:checked+.switch__slider[data-v-7bec1a82]:before{transform:translate(26px)}.settings-panel-wrap{justify-content:center;align-items:center;display:flex}.settings-panel{box-sizing:border-box;color:#f1f1f1;background-color:#34353b;border-radius:4px;flex-direction:column;row-gap:16px;max-width:1000px;max-height:calc(100vh - 64px);margin:32px;padding:32px;display:flex;position:relative}.settings-panel__inner{height:100%;padding-right:16px;overflow-y:auto}.settings-panel__section{background-color:#4f535b;border-radius:4px}.settings-panel__section-name{text-align:left;margin:16px 32px;padding-top:16px;font-size:20px;line-height:100%}.settings-panel__close-button{cursor:pointer;padding:8px;position:absolute;top:4px;right:4px}.settings-panel__close-button svg{width:16px;height:16px}.settings-panel__separator{background:#f1f1f1}.settings{flex-wrap:wrap;justify-content:start;align-items:center;column-gap:8px;padding:8px 16px;display:flex}.settings__name{font-size:16px}.settings__notice{font-size:12px}.settings__intro{text-align:left;width:100%;margin-left:60px;font-size:14px}.settings__magnifier-config{flex-direction:column;gap:.75rem;margin-top:.5rem;display:flex}.settings__label{flex-direction:row;align-items:center;gap:.25rem;font-size:.9rem;display:flex}.settings__input{color:#f1f1f1;background-color:#34353b;border:1px solid #ccc;border-radius:4px;outline:none;width:120px;padding:.25rem}.settings__link{color:#ddd}.settings__select{color:#f1f1f1;background-color:#34353b;border:#8d8d8d;outline:none}.settings__select:enabled:hover,.settings__select:enabled:focus{background-color:#43464e!important;border-color:#aeaeae!important}.settings__option{color:#f1f1f1;background-color:#34353b;outline:none}.actions{justify-content:flex-end;align-items:center;display:flex}.actions__button{color:#fff;cursor:pointer;background-color:#4f535b;border:none;border-radius:4px;padding:8px 16px}\n/*$vite$:1*/ ");
-	var __defProp$1 = Object.defineProperty;
-	var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-	var __getOwnPropNames = Object.getOwnPropertyNames;
-	var __hasOwnProp$1 = Object.prototype.hasOwnProperty;
-	var __exportAll = (all, no_symbols) => {
-		let target = {};
-		for (var name in all) __defProp$1(target, name, {
-			get: all[name],
-			enumerable: true
+	var isClient$2 = typeof window !== "undefined" && typeof document !== "undefined";
+	var markedServer = false;
+	function isBrowser$2() {
+		return isClient$2 && !markedServer;
+	}
+	function createInstanceResolver(key) {
+		let active;
+		return {
+			resolve(explicit) {
+				if (explicit) return explicit;
+				if ((0, vue.hasInjectionContext)()) {
+					const injected = (0, vue.inject)(key, null);
+					if (injected) return injected;
+				}
+				return isBrowser$2() ? active : void 0;
+			},
+			setActive(instance) {
+				active = instance;
+			}
+		};
+	}
+	function isTemplate(template) {
+		const _template = (0, vue.unref)(template);
+		if (typeof _template === "object" && _template !== null) return "component" in _template;
+		else return false;
+	}
+	function templateToVNodeFn(template) {
+		const key = Symbol("vNodeFnKey");
+		return () => {
+			const _template = (0, vue.unref)((0, vue.toValue)(template));
+			const attrs = mergeTemplateAttrs(_template);
+			Object.assign(attrs, { key });
+			return (0, vue.h)((0, vue.unref)(_template.component), attrs, getSlots((0, vue.unref)(_template.slots)));
+		};
+	}
+	function getSlots(slots) {
+		if (!slots) return void 0;
+		return objectEntries$1(slots).reduce((acc, cur) => {
+			const slotName = cur[0];
+			const slot = cur[1];
+			if (typeof slot === "string") acc[slotName] = () => (0, vue.h)("div", { innerHTML: slot });
+			else if (isTemplate(slot)) acc[slotName] = () => (0, vue.h)(slot.component, mergeTemplateAttrs(slot), slot.slots ? getSlots(slot.slots) : void 0);
+			else acc[slotName] = () => (0, vue.h)(slot);
+			return acc;
+		}, {});
+	}
+	function mergeTemplateAttrs(template) {
+		const _template = (0, vue.toValue)(template);
+		return {
+			...unrefValues((0, vue.toValue)(_template?.attrs)),
+			...(0, vue.toValue)(_template?.props),
+			...(0, vue.toValue)(_template?.emits)
+		};
+	}
+	function unrefValues(attrs) {
+		return Object.fromEntries(Object.entries(attrs ?? {}).map(([name, value]) => [name, (0, vue.unref)(value)]));
+	}
+	function objectEntries$1(object) {
+		return Object.entries(object);
+	}
+	var templateStateKey = Symbol("vue-use-template");
+	var stateResolver = createInstanceResolver(templateStateKey);
+	function createProvider() {
+		return { vNodeFns: (0, vue.shallowReactive)(new Set()) };
+	}
+	var clientProviders = new WeakSet();
+	function createTemplateState() {
+		const clientProvider = createProvider();
+		clientProviders.add(clientProvider);
+		const serverProviders = new WeakMap();
+		const state = {
+			install(app) {
+				app.provide(templateStateKey, state);
+				stateResolver.setActive(state);
+			},
+			resolveProvider() {
+				const ssrContext = (0, vue.hasInjectionContext)() ? (0, vue.inject)(vue.ssrContextKey, null) : null;
+				if (!ssrContext) return ((0, vue.getCurrentInstance)() ? isClient$2 : isBrowser$2()) ? clientProvider : void 0;
+				let provider = serverProviders.get(ssrContext);
+				if (!provider) {
+					provider = createProvider();
+					serverProviders.set(ssrContext, provider);
+				}
+				return provider;
+			}
+		};
+		return state;
+	}
+	var ignoredOnServer = new WeakSet();
+	function useHydrating() {
+		const hydrating = (0, vue.ref)(Boolean((0, vue.getCurrentInstance)()?.vnode.el?.isConnected));
+		if (hydrating.value) (0, vue.onMounted)(() => {
+			hydrating.value = false;
 		});
-		if (!no_symbols) __defProp$1(target, Symbol.toStringTag, { value: "Module" });
-		return target;
-	};
-	var __copyProps = (to, from, except, desc) => {
-		if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames(from), i = 0, n = keys.length, key; i < n; i++) {
-			key = keys[i];
-			if (!__hasOwnProp$1.call(to, key) && key !== except) __defProp$1(to, key, {
-				get: ((k) => from[k]).bind(null, key),
-				enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
-			});
-		}
-		return to;
-	};
-	var __reExport = (target, mod, secondTarget) => (__copyProps(target, mod, "default"), secondTarget && __copyProps(secondTarget, mod, "default"));
-	function tryOnScopeDispose$1(fn, failSilently) {
+		return hydrating;
+	}
+	function renderTemplates(provider, hydrating) {
+		const vNodeFns = [...provider?.vNodeFns ?? []];
+		return (hydrating.value ? vNodeFns.filter((vNodeFn) => !ignoredOnServer.has(vNodeFn)) : vNodeFns).map((vNodeFn) => vNodeFn());
+	}
+	function createTemplateOutlet(state) {
+		return (0, vue.defineComponent)({
+			name: "TemplateOutlet",
+			setup() {
+				const provider = state.resolveProvider();
+				const hydrating = useHydrating();
+				return () => renderTemplates(provider, hydrating);
+			}
+		});
+	}
+	function tryOnScopeDispose(fn, failSilently) {
 		if ((0, vue.getCurrentScope)()) {
 			(0, vue.onScopeDispose)(fn, failSilently);
 			return true;
@@ -97,13 +162,13 @@
 	var notNullish = (val) => val != null;
 	var toString = Object.prototype.toString;
 	var isObject$1 = (val) => toString.call(val) === "[object Object]";
-	var noop = () => {};
+	var noop$1 = () => {};
 	function toRef$2(...args) {
 		if (args.length !== 1) return (0, vue.toRef)(...args);
 		const r = args[0];
 		return typeof r === "function" ? (0, vue.readonly)((0, vue.customRef)(() => ({
 			get: r,
-			set: noop
+			set: noop$1
 		}))) : (0, vue.ref)(r);
 	}
 	function createFilterWrapper(filter, fn) {
@@ -116,6 +181,11 @@
 				})).then(resolve).catch(reject);
 			});
 		}
+		if ("cancel" in filter) Object.assign(wrapper, {
+			cancel: filter.cancel,
+			flush: filter.flush,
+			isPending: filter.isPending
+		});
 		return wrapper;
 	}
 	var bypassFilter = (invoke) => {
@@ -168,7 +238,7 @@
 				scope = (0, vue.effectScope)(true);
 				state = scope.run(() => composable(...args));
 			}
-			tryOnScopeDispose$1(dispose);
+			tryOnScopeDispose(dispose);
 			return state;
 		});
 	}
@@ -201,10 +271,10 @@
 		});
 	}
 	var defaultWindow = isClient$1 ? window : void 0;
-	var defaultDocument$1 = isClient$1 ? window.document : void 0;
+	var defaultDocument = isClient$1 ? window.document : void 0;
 	isClient$1 && window.navigator;
 	isClient$1 && window.location;
-	function unrefElement$1(elRef) {
+	function unrefElement(elRef) {
 		var _$el;
 		const plain = (0, vue.toValue)(elRef);
 		return (_$el = plain === null || plain === void 0 ? void 0 : plain.$el) !== null && _$el !== void 0 ? _$el : plain;
@@ -221,7 +291,7 @@
 		return watchImmediate(() => {
 			var _firstParamTargets$va, _firstParamTargets$va2;
 			return [
-				(_firstParamTargets$va = (_firstParamTargets$va2 = firstParamTargets.value) === null || _firstParamTargets$va2 === void 0 ? void 0 : _firstParamTargets$va2.map((e) => unrefElement$1(e))) !== null && _firstParamTargets$va !== void 0 ? _firstParamTargets$va : [defaultWindow].filter((e) => e != null),
+				(_firstParamTargets$va = (_firstParamTargets$va2 = firstParamTargets.value) === null || _firstParamTargets$va2 === void 0 ? void 0 : _firstParamTargets$va2.map((e) => unrefElement(e))) !== null && _firstParamTargets$va !== void 0 ? _firstParamTargets$va : [defaultWindow].filter((e) => e != null),
 				toArray((0, vue.toValue)(firstParamTargets.value ? args[1] : args[0])),
 				toArray((0, vue.unref)(firstParamTargets.value ? args[2] : args[1])),
 				(0, vue.toValue)(firstParamTargets.value ? args[3] : args[2])
@@ -260,10 +330,11 @@
 				observer = void 0;
 			}
 		};
-		const stopWatch = (0, vue.watch)((0, vue.computed)(() => {
-			const items = toArray((0, vue.toValue)(target)).map(unrefElement$1).filter(notNullish);
+		const targets = (0, vue.computed)(() => {
+			const items = toArray((0, vue.toValue)(target)).map(unrefElement).filter(notNullish);
 			return new Set(items);
-		}), (newTargets) => {
+		});
+		const stopWatch = (0, vue.watch)(targets, (newTargets) => {
 			cleanup();
 			if (isSupported.value && newTargets.size) {
 				observer = new MutationObserver(callback);
@@ -280,7 +351,7 @@
 			stopWatch();
 			cleanup();
 		};
-		tryOnScopeDispose$1(stop);
+		tryOnScopeDispose(stop);
 		return {
 			isSupported,
 			stop,
@@ -300,10 +371,6 @@
 	function useBrowserLocation(options = {}) {
 		const { window = defaultWindow } = options;
 		const refs = Object.fromEntries(WRITABLE_PROPERTIES.map((key) => [key, (0, vue.ref)()]));
-		for (const [key, ref] of objectEntries(refs)) (0, vue.watch)(ref, (value) => {
-			if (!(window === null || window === void 0 ? void 0 : window.location) || window.location[key] === value) return;
-			window.location[key] = value;
-		});
 		const buildState = (trigger) => {
 			var _window$location;
 			const { state, length } = (window === null || window === void 0 ? void 0 : window.history) || {};
@@ -318,6 +385,10 @@
 			});
 		};
 		const state = (0, vue.ref)(buildState("load"));
+		for (const [key, ref] of objectEntries(refs)) (0, vue.watch)(ref, (value) => {
+			if (!(window === null || window === void 0 ? void 0 : window.location) || window.location[key] === value) return;
+			window.location[key] = value;
+		});
 		if (window) {
 			const listenerOptions = { passive: true };
 			useEventListener(window, "popstate", () => state.value = buildState("popstate"), listenerOptions);
@@ -404,8 +475,10 @@
 			if (initOnMounted && !firstMounted) return;
 			updateFromCustomEvent(ev);
 		};
-		if (window && listenToStorageChanges) if (storage instanceof Storage) useEventListener(window, "storage", onStorageEvent, { passive: true });
-		else useEventListener(window, customStorageEventName, onStorageCustomEvent);
+		if (window && listenToStorageChanges) {
+			if (storage instanceof Storage) useEventListener(window, "storage", onStorageEvent, { passive: true });
+			else useEventListener(window, customStorageEventName, onStorageCustomEvent);
+		}
 		if (initOnMounted) tryOnMounted(() => {
 			firstMounted = true;
 			update();
@@ -488,14 +561,15 @@
 				observer = void 0;
 			}
 		};
-		const stopWatch = (0, vue.watch)((0, vue.computed)(() => {
+		const targets = (0, vue.computed)(() => {
 			const _targets = (0, vue.toValue)(target);
-			return Array.isArray(_targets) ? _targets.map((el) => unrefElement$1(el)) : [unrefElement$1(_targets)];
-		}), (els) => {
+			return Array.isArray(_targets) ? _targets.map((el) => unrefElement(el)) : [unrefElement(_targets)];
+		});
+		const stopWatch = (0, vue.watch)(targets, (els) => {
 			cleanup();
 			if (isSupported.value && window) {
 				observer = new ResizeObserver(callback);
-				for (const _el of els) if (_el) observer.observe(_el, observerOptions);
+				for (const _el of els) if (_el instanceof Element) observer.observe(_el, observerOptions);
 			}
 		}, {
 			immediate: true,
@@ -505,7 +579,7 @@
 			cleanup();
 			stopWatch();
 		};
-		tryOnScopeDispose$1(stop);
+		tryOnScopeDispose(stop);
 		return {
 			isSupported,
 			stop
@@ -522,7 +596,7 @@
 		const x = (0, vue.shallowRef)(0);
 		const y = (0, vue.shallowRef)(0);
 		function recalculate() {
-			const el = unrefElement$1(target);
+			const el = unrefElement(target);
 			if (!el) {
 				if (reset) {
 					height.value = 0;
@@ -551,7 +625,7 @@
 			else if (updateTiming === "next-frame") requestAnimationFrame(() => recalculate());
 		}
 		useResizeObserver(target, update);
-		(0, vue.watch)(() => unrefElement$1(target), (ele) => !ele && update());
+		(0, vue.watch)(() => unrefElement(target), (ele) => !ele && update());
 		useMutationObserver(target, update, { attributeFilter: ["style", "class"] });
 		if (windowScroll) useEventListener("scroll", update, {
 			capture: true,
@@ -581,10 +655,10 @@
 		"MSFullscreenChange"
 	];
 	function useFullscreen(target, options = {}) {
-		const { document = defaultDocument$1, autoExit = false } = options;
+		const { document = defaultDocument, autoExit = false } = options;
 		const targetRef = (0, vue.computed)(() => {
 			var _unrefElement;
-			return (_unrefElement = unrefElement$1(target)) !== null && _unrefElement !== void 0 ? _unrefElement : document === null || document === void 0 ? void 0 : document.documentElement;
+			return (_unrefElement = unrefElement(target)) !== null && _unrefElement !== void 0 ? _unrefElement : document === null || document === void 0 ? void 0 : document.documentElement;
 		});
 		const isFullscreen = (0, vue.shallowRef)(false);
 		const requestMethod = (0, vue.computed)(() => {
@@ -629,19 +703,23 @@
 			return false;
 		};
 		const isElementFullScreen = () => {
-			if (fullscreenEnabled.value) if (document && document[fullscreenEnabled.value] != null) return document[fullscreenEnabled.value];
-			else {
-				const target = targetRef.value;
-				if ((target === null || target === void 0 ? void 0 : target[fullscreenEnabled.value]) != null) return Boolean(target[fullscreenEnabled.value]);
+			if (fullscreenEnabled.value) {
+				if (document && document[fullscreenEnabled.value] != null) return document[fullscreenEnabled.value];
+				else {
+					const target = targetRef.value;
+					if ((target === null || target === void 0 ? void 0 : target[fullscreenEnabled.value]) != null) return Boolean(target[fullscreenEnabled.value]);
+				}
 			}
 			return false;
 		};
 		async function exit() {
 			if (!isSupported.value || !isFullscreen.value) return;
-			if (exitMethod.value) if ((document === null || document === void 0 ? void 0 : document[exitMethod.value]) != null) await document[exitMethod.value]();
-			else {
-				const target = targetRef.value;
-				if ((target === null || target === void 0 ? void 0 : target[exitMethod.value]) != null) await target[exitMethod.value]();
+			if (exitMethod.value) {
+				if ((document === null || document === void 0 ? void 0 : document[exitMethod.value]) != null) await document[exitMethod.value]();
+				else {
+					const target = targetRef.value;
+					if ((target === null || target === void 0 ? void 0 : target[exitMethod.value]) != null) await target[exitMethod.value]();
+				}
 			}
 			isFullscreen.value = false;
 		}
@@ -666,9 +744,9 @@
 			passive: true
 		};
 		useEventListener(document, eventHandlers, handlerCallback, listenerOptions);
-		useEventListener(() => unrefElement$1(targetRef), eventHandlers, handlerCallback, listenerOptions);
+		useEventListener(() => unrefElement(targetRef), eventHandlers, handlerCallback, listenerOptions);
 		tryOnMounted(handlerCallback, false);
-		if (autoExit) tryOnScopeDispose$1(exit);
+		if (autoExit) tryOnScopeDispose(exit);
 		return {
 			isSupported,
 			isFullscreen,
@@ -677,60 +755,12 @@
 			toggle
 		};
 	}
-	Number.POSITIVE_INFINITY;
-	var lib_exports = __exportAll({
-		Vue: () => vue,
-		Vue2: () => void 0,
-		del: () => del,
-		install: () => install,
-		isVue2: () => false,
-		isVue3: () => true,
-		set: () => set
-	});
-	__reExport(lib_exports, vue);
-	function install() {}
-	function set(target, key, val) {
-		if (Array.isArray(target)) {
-			target.length = Math.max(target.length, key);
-			target.splice(key, 1, val);
-			return val;
-		}
-		target[key] = val;
-		return val;
-	}
-	function del(target, key) {
-		if (Array.isArray(target)) {
-			target.splice(key, 1);
-			return;
-		}
-		delete target[key];
-	}
-	function tryOnScopeDispose(fn) {
-		if ((0, lib_exports.getCurrentScope)()) {
-			(0, lib_exports.onScopeDispose)(fn);
-			return true;
-		}
-		return false;
-	}
-	function toValue$1(r) {
-		return typeof r === "function" ? r() : (0, lib_exports.unref)(r);
-	}
-	var isClient = typeof window !== "undefined" && typeof document !== "undefined";
-	typeof WorkerGlobalScope !== "undefined" && globalThis instanceof WorkerGlobalScope;
-	function unrefElement(elRef) {
-		var _a;
-		const plain = toValue$1(elRef);
-		return (_a = plain == null ? void 0 : plain.$el) != null ? _a : plain;
-	}
-	isClient && window.document;
-	isClient && window.navigator;
-	isClient && window.location;
-	Number.POSITIVE_INFINITY;
 	var candidateSelectors = [
 		"input:not([inert]):not([inert] *)",
 		"select:not([inert]):not([inert] *)",
 		"textarea:not([inert]):not([inert] *)",
 		"a[href]:not([inert]):not([inert] *)",
+		"area[href]:not([inert]):not([inert] *)",
 		"button:not([inert]):not([inert] *)",
 		"[tabindex]:not(slot):not([inert]):not([inert] *)",
 		"audio[controls]:not([inert]):not([inert] *)",
@@ -743,21 +773,19 @@
 	var NoElement = typeof Element === "undefined";
 	var matches = NoElement ? function() {} : Element.prototype.matches || Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
 	var getRootNode = !NoElement && Element.prototype.getRootNode ? function(element) {
-		var _element$getRootNode;
-		return element === null || element === void 0 ? void 0 : (_element$getRootNode = element.getRootNode) === null || _element$getRootNode === void 0 ? void 0 : _element$getRootNode.call(element);
+		return element == null || element.getRootNode == null ? void 0 : element.getRootNode();
 	} : function(element) {
-		return element === null || element === void 0 ? void 0 : element.ownerDocument;
+		return element == null ? void 0 : element.ownerDocument;
 	};
 	var _isInert = function isInert(node, lookUp) {
-		var _node$getAttribute;
 		if (lookUp === void 0) lookUp = true;
-		var inertAtt = node === null || node === void 0 ? void 0 : (_node$getAttribute = node.getAttribute) === null || _node$getAttribute === void 0 ? void 0 : _node$getAttribute.call(node, "inert");
+		var inertAtt = node == null || node.getAttribute == null ? void 0 : node.getAttribute("inert");
 		return inertAtt === "" || inertAtt === "true" || lookUp && node && (typeof node.closest === "function" ? node.closest("[inert]") : _isInert(node.parentNode));
 	};
 	var isContentEditable = function isContentEditable(node) {
-		var _node$getAttribute2;
-		var attValue = node === null || node === void 0 ? void 0 : (_node$getAttribute2 = node.getAttribute) === null || _node$getAttribute2 === void 0 ? void 0 : _node$getAttribute2.call(node, "contenteditable");
-		return attValue === "" || attValue === "true";
+		var _node$getAttribute;
+		var attValue = node == null || node.getAttribute == null || (_node$getAttribute = node.getAttribute("contenteditable")) == null ? void 0 : _node$getAttribute.toLowerCase();
+		return attValue === "" || attValue === "true" || attValue === "plaintext-only";
 	};
 	var getCandidates = function getCandidates(el, includeContainer, filter) {
 		if (_isInert(el)) return [];
@@ -854,16 +882,16 @@
 	var isNodeAttached = function isNodeAttached(node) {
 		var _nodeRoot;
 		var nodeRoot = node && getRootNode(node);
-		var nodeRootHost = (_nodeRoot = nodeRoot) === null || _nodeRoot === void 0 ? void 0 : _nodeRoot.host;
+		var nodeRootHost = (_nodeRoot = nodeRoot) == null ? void 0 : _nodeRoot.host;
 		var attached = false;
 		if (nodeRoot && nodeRoot !== node) {
-			var _nodeRootHost, _nodeRootHost$ownerDo, _node$ownerDocument;
-			attached = !!((_nodeRootHost = nodeRootHost) !== null && _nodeRootHost !== void 0 && (_nodeRootHost$ownerDo = _nodeRootHost.ownerDocument) !== null && _nodeRootHost$ownerDo !== void 0 && _nodeRootHost$ownerDo.contains(nodeRootHost) || node !== null && node !== void 0 && (_node$ownerDocument = node.ownerDocument) !== null && _node$ownerDocument !== void 0 && _node$ownerDocument.contains(node));
+			var _nodeRootHost, _node$ownerDocument;
+			attached = !!((_nodeRootHost = nodeRootHost) != null && (_nodeRootHost = _nodeRootHost.ownerDocument) != null && _nodeRootHost.contains(nodeRootHost) || node != null && (_node$ownerDocument = node.ownerDocument) != null && _node$ownerDocument.contains(node));
 			while (!attached && nodeRootHost) {
-				var _nodeRoot2, _nodeRootHost2, _nodeRootHost2$ownerD;
+				var _nodeRoot2, _nodeRootHost2;
 				nodeRoot = getRootNode(nodeRootHost);
-				nodeRootHost = (_nodeRoot2 = nodeRoot) === null || _nodeRoot2 === void 0 ? void 0 : _nodeRoot2.host;
-				attached = !!((_nodeRootHost2 = nodeRootHost) !== null && _nodeRootHost2 !== void 0 && (_nodeRootHost2$ownerD = _nodeRootHost2.ownerDocument) !== null && _nodeRootHost2$ownerD !== void 0 && _nodeRootHost2$ownerD.contains(nodeRootHost));
+				nodeRootHost = (_nodeRoot2 = nodeRoot) == null ? void 0 : _nodeRoot2.host;
+				attached = !!((_nodeRootHost2 = nodeRootHost) != null && (_nodeRootHost2 = _nodeRootHost2.ownerDocument) != null && _nodeRootHost2.contains(nodeRootHost));
 			}
 		}
 		return attached;
@@ -883,7 +911,8 @@
 				checkVisibilityCSS: true
 			});
 		}
-		if (getComputedStyle(node).visibility === "hidden") return true;
+		var visibility = getComputedStyle(node).visibility;
+		if (visibility === "hidden" || visibility === "collapse") return true;
 		var nodeUnderDetails = matches.call(node, "details>summary:first-of-type") ? node.parentElement : node;
 		if (matches.call(nodeUnderDetails, "details:not([open]) *")) return true;
 		if (!displayCheck || displayCheck === "full" || displayCheck === "full-native" || displayCheck === "legacy-full") {
@@ -991,6 +1020,71 @@
 		if (matches.call(node, focusableCandidateSelector) === false) return false;
 		return isNodeMatchingSelectorFocusable(options, node);
 	};
+	function _arrayLikeToArray(r, a) {
+		(null == a || a > r.length) && (a = r.length);
+		for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+		return n;
+	}
+	function _arrayWithoutHoles(r) {
+		if (Array.isArray(r)) return _arrayLikeToArray(r);
+	}
+	function _createForOfIteratorHelper(r, e) {
+		var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+		if (!t) {
+			if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e) {
+				t && (r = t);
+				var n = 0, F = function() {};
+				return {
+					s: F,
+					n: function() {
+						return n >= r.length ? { done: true } : {
+							done: false,
+							value: r[n++]
+						};
+					},
+					e: function(r) {
+						throw r;
+					},
+					f: F
+				};
+			}
+			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+		}
+		var o, a = true, u = false;
+		return {
+			s: function() {
+				t = t.call(r);
+			},
+			n: function() {
+				var r = t.next();
+				return a = r.done, r;
+			},
+			e: function(r) {
+				u = true, o = r;
+			},
+			f: function() {
+				try {
+					a || null == t.return || t.return();
+				} finally {
+					if (u) throw o;
+				}
+			}
+		};
+	}
+	function _defineProperty(e, r, t) {
+		return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
+			value: t,
+			enumerable: true,
+			configurable: true,
+			writable: true
+		}) : e[r] = t, e;
+	}
+	function _iterableToArray(r) {
+		if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r);
+	}
+	function _nonIterableSpread() {
+		throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+	}
 	function ownKeys(e, r) {
 		var t = Object.keys(e);
 		if (Object.getOwnPropertySymbols) {
@@ -1004,7 +1098,7 @@
 	function _objectSpread2(e) {
 		for (var r = 1; r < arguments.length; r++) {
 			var t = null != arguments[r] ? arguments[r] : {};
-			r % 2 ? ownKeys(Object(t), !0).forEach(function(r) {
+			r % 2 ? ownKeys(Object(t), true).forEach(function(r) {
 				_defineProperty(e, r, t[r]);
 			}) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r) {
 				Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
@@ -1012,37 +1106,37 @@
 		}
 		return e;
 	}
-	function _defineProperty(obj, key, value) {
-		key = _toPropertyKey(key);
-		if (key in obj) Object.defineProperty(obj, key, {
-			value,
-			enumerable: true,
-			configurable: true,
-			writable: true
-		});
-		else obj[key] = value;
-		return obj;
+	function _toConsumableArray(r) {
+		return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread();
 	}
-	function _toPrimitive(input, hint) {
-		if (typeof input !== "object" || input === null) return input;
-		var prim = input[Symbol.toPrimitive];
-		if (prim !== void 0) {
-			var res = prim.call(input, hint || "default");
-			if (typeof res !== "object") return res;
+	function _toPrimitive(t, r) {
+		if ("object" != typeof t || !t) return t;
+		var e = t[Symbol.toPrimitive];
+		if (void 0 !== e) {
+			var i = e.call(t, r);
+			if ("object" != typeof i) return i;
 			throw new TypeError("@@toPrimitive must return a primitive value.");
 		}
-		return (hint === "string" ? String : Number)(input);
+		return ("string" === r ? String : Number)(t);
 	}
-	function _toPropertyKey(arg) {
-		var key = _toPrimitive(arg, "string");
-		return typeof key === "symbol" ? key : String(key);
+	function _toPropertyKey(t) {
+		var i = _toPrimitive(t, "string");
+		return "symbol" == typeof i ? i : i + "";
+	}
+	function _unsupportedIterableToArray(r, a) {
+		if (r) {
+			if ("string" == typeof r) return _arrayLikeToArray(r, a);
+			var t = {}.toString.call(r).slice(8, -1);
+			return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0;
+		}
 	}
 	var activeFocusTraps = {
+		getActiveTrap: function getActiveTrap(trapStack) {
+			if ((trapStack === null || trapStack === void 0 ? void 0 : trapStack.length) > 0) return trapStack[trapStack.length - 1];
+			return null;
+		},
 		activateTrap: function activateTrap(trapStack, trap) {
-			if (trapStack.length > 0) {
-				var activeTrap = trapStack[trapStack.length - 1];
-				if (activeTrap !== trap) activeTrap.pause();
-			}
+			if (trap !== activeFocusTraps.getActiveTrap(trapStack)) activeFocusTraps.pauseTrap(trapStack);
 			var trapIndex = trapStack.indexOf(trap);
 			if (trapIndex === -1) trapStack.push(trap);
 			else {
@@ -1053,7 +1147,15 @@
 		deactivateTrap: function deactivateTrap(trapStack, trap) {
 			var trapIndex = trapStack.indexOf(trap);
 			if (trapIndex !== -1) trapStack.splice(trapIndex, 1);
-			if (trapStack.length > 0) trapStack[trapStack.length - 1].unpause();
+			activeFocusTraps.unpauseTrap(trapStack);
+		},
+		pauseTrap: function pauseTrap(trapStack) {
+			var activeTrap = activeFocusTraps.getActiveTrap(trapStack);
+			activeTrap === null || activeTrap === void 0 || activeTrap._setPausedState(true);
+		},
+		unpauseTrap: function unpauseTrap(trapStack) {
+			var activeTrap = activeFocusTraps.getActiveTrap(trapStack);
+			if (activeTrap && !activeTrap._isManuallyPaused()) activeTrap._setPausedState(false);
 		}
 	};
 	var isSelectableInput = function isSelectableInput(node) {
@@ -1074,17 +1176,6 @@
 	var delay$1 = function delay(fn) {
 		return setTimeout(fn, 0);
 	};
-	var findIndex = function findIndex(arr, fn) {
-		var idx = -1;
-		arr.every(function(value, i) {
-			if (fn(value)) {
-				idx = i;
-				return false;
-			}
-			return true;
-		});
-		return idx;
-	};
 	var valueOrHandler = function valueOrHandler(value) {
 		for (var _len = arguments.length, params = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) params[_key - 1] = arguments[_key];
 		return typeof value === "function" ? value.apply(void 0, params) : value;
@@ -1100,6 +1191,8 @@
 			returnFocusOnDeactivate: true,
 			escapeDeactivates: true,
 			delayInitialFocus: true,
+			delayReturnFocus: true,
+			isolateSubtrees: false,
 			isKeyForward,
 			isKeyBackward
 		}, userOptions);
@@ -1107,10 +1200,13 @@
 			containers: [],
 			containerGroups: [],
 			tabbableGroups: [],
+			adjacentElements: new Set(),
+			alreadySilent: new Set(),
 			nodeFocusedBeforeActivation: null,
 			mostRecentlyFocusedNode: null,
 			active: false,
 			paused: false,
+			manuallyPaused: false,
 			delayInitialFocusTimer: void 0,
 			recentNavEvent: void 0
 		};
@@ -1128,11 +1224,9 @@
 			});
 		};
 		var getNodeForOption = function getNodeForOption(optionName) {
+			var _ref2 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, _ref2$hasFallback = _ref2.hasFallback, hasFallback = _ref2$hasFallback === void 0 ? false : _ref2$hasFallback, _ref2$params = _ref2.params, params = _ref2$params === void 0 ? [] : _ref2$params;
 			var optionValue = config[optionName];
-			if (typeof optionValue === "function") {
-				for (var _len2 = arguments.length, params = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) params[_key2 - 1] = arguments[_key2];
-				optionValue = optionValue.apply(void 0, params);
-			}
+			if (typeof optionValue === "function") optionValue = optionValue.apply(void 0, _toConsumableArray(params));
 			if (optionValue === true) optionValue = void 0;
 			if (!optionValue) {
 				if (optionValue === void 0 || optionValue === false) return optionValue;
@@ -1140,19 +1234,34 @@
 			}
 			var node = optionValue;
 			if (typeof optionValue === "string") {
-				node = doc.querySelector(optionValue);
-				if (!node) throw new Error("`".concat(optionName, "` as selector refers to no known node"));
+				try {
+					node = doc.querySelector(optionValue);
+				} catch (err) {
+					throw new Error("`".concat(optionName, "` appears to be an invalid selector; error=\"").concat(err.message, "\""), { cause: err });
+				}
+				if (!node) {
+					if (!hasFallback) throw new Error("`".concat(optionName, "` as selector refers to no known node"));
+				}
 			}
 			return node;
 		};
+		var _getActiveElement = function getActiveElement(el) {
+			var activeElement = el.activeElement;
+			if (!activeElement) return null;
+			if (activeElement.shadowRoot && activeElement.shadowRoot.activeElement !== null) return _getActiveElement(activeElement.shadowRoot);
+			return activeElement;
+		};
 		var getInitialFocusNode = function getInitialFocusNode() {
-			var node = getNodeForOption("initialFocus");
+			var node = getNodeForOption("initialFocus", { hasFallback: true });
 			if (node === false) return false;
-			if (node === void 0 || !isFocusable(node, config.tabbableOptions)) if (findContainerIndex(doc.activeElement) >= 0) node = doc.activeElement;
-			else {
-				var firstTabbableGroup = state.tabbableGroups[0];
-				node = firstTabbableGroup && firstTabbableGroup.firstTabbableNode || getNodeForOption("fallbackFocus");
-			}
+			if (node === void 0 || node && !isFocusable(node, config.tabbableOptions)) {
+				var activeElement = _getActiveElement(doc);
+				if (findContainerIndex(activeElement) >= 0) node = activeElement;
+				else {
+					var firstTabbableGroup = state.tabbableGroups[0];
+					node = firstTabbableGroup && firstTabbableGroup.firstTabbableNode || getNodeForOption("fallbackFocus");
+				}
+			} else if (node === null) node = getNodeForOption("fallbackFocus");
 			if (!node) throw new Error("Your focus-trap needs to have at least one focusable element");
 			return node;
 		};
@@ -1202,17 +1311,14 @@
 				return g.posTabIndexesFound;
 			}) && state.containerGroups.length > 1) throw new Error("At least one node with a positive tabindex was found in one of your focus-trap's multiple containers. Positive tabindexes are only supported in single-container focus-traps.");
 		};
-		var getActiveElement = function getActiveElement(el) {
-			var activeElement = el.activeElement;
-			if (!activeElement) return;
-			if (activeElement.shadowRoot && activeElement.shadowRoot.activeElement !== null) return getActiveElement(activeElement.shadowRoot);
-			return activeElement;
-		};
-		var tryFocus = function tryFocus(node) {
+		var _tryFocus = function tryFocus(node) {
 			if (node === false) return;
-			if (node === getActiveElement(document)) return;
+			if (node === _getActiveElement(doc)) {
+				state.mostRecentlyFocusedNode = node;
+				return;
+			}
 			if (!node || !node.focus) {
-				tryFocus(getInitialFocusNode());
+				_tryFocus(getInitialFocusNode());
 				return;
 			}
 			node.focus({ preventScroll: !!config.preventScroll });
@@ -1220,36 +1326,44 @@
 			if (isSelectableInput(node)) node.select();
 		};
 		var getReturnFocusNode = function getReturnFocusNode(previousActiveElement) {
-			var node = getNodeForOption("setReturnFocus", previousActiveElement);
+			var node = getNodeForOption("setReturnFocus", { params: [previousActiveElement] });
 			return node ? node : node === false ? false : previousActiveElement;
 		};
-		var findNextNavNode = function findNextNavNode(_ref2) {
-			var target = _ref2.target, event = _ref2.event, _ref2$isBackward = _ref2.isBackward, isBackward = _ref2$isBackward === void 0 ? false : _ref2$isBackward;
+		var findNextNavNode = function findNextNavNode(_ref3) {
+			var target = _ref3.target, event = _ref3.event, _ref3$isBackward = _ref3.isBackward, isBackward = _ref3$isBackward === void 0 ? false : _ref3$isBackward;
 			target = target || getActualTarget(event);
 			updateTabbableNodes();
 			var destinationNode = null;
 			if (state.tabbableGroups.length > 0) {
 				var containerIndex = findContainerIndex(target, event);
 				var containerGroup = containerIndex >= 0 ? state.containerGroups[containerIndex] : void 0;
-				if (containerIndex < 0) if (isBackward) destinationNode = state.tabbableGroups[state.tabbableGroups.length - 1].lastTabbableNode;
-				else destinationNode = state.tabbableGroups[0].firstTabbableNode;
-				else if (isBackward) {
-					var startOfGroupIndex = findIndex(state.tabbableGroups, function(_ref3) {
-						var firstTabbableNode = _ref3.firstTabbableNode;
+				if (containerIndex < 0) {
+					if (isBackward) destinationNode = state.tabbableGroups[state.tabbableGroups.length - 1].lastTabbableNode;
+					else destinationNode = state.tabbableGroups[0].firstTabbableNode;
+				} else if (isBackward) {
+					var startOfGroupIndex = state.tabbableGroups.findIndex(function(_ref4) {
+						var firstTabbableNode = _ref4.firstTabbableNode;
 						return target === firstTabbableNode;
 					});
-					if (startOfGroupIndex < 0 && (containerGroup.container === target || isFocusable(target, config.tabbableOptions) && !isTabbable(target, config.tabbableOptions) && !containerGroup.nextTabbableNode(target, false))) startOfGroupIndex = containerIndex;
+					if (startOfGroupIndex < 0 && (containerGroup.container === target || isFocusable(target, config.tabbableOptions) && !isTabbable(target, config.tabbableOptions) && !containerGroup.nextTabbableNode(target, false))) startOfGroupIndex = Math.max(0, state.tabbableGroups.findIndex(function(group) {
+						return state.containerGroups.indexOf(group) >= containerIndex;
+					}));
 					if (startOfGroupIndex >= 0) {
 						var destinationGroupIndex = startOfGroupIndex === 0 ? state.tabbableGroups.length - 1 : startOfGroupIndex - 1;
 						var destinationGroup = state.tabbableGroups[destinationGroupIndex];
 						destinationNode = getTabIndex(target) >= 0 ? destinationGroup.lastTabbableNode : destinationGroup.lastDomTabbableNode;
 					} else if (!isTabEvent(event)) destinationNode = containerGroup.nextTabbableNode(target, false);
 				} else {
-					var lastOfGroupIndex = findIndex(state.tabbableGroups, function(_ref4) {
-						var lastTabbableNode = _ref4.lastTabbableNode;
+					var lastOfGroupIndex = state.tabbableGroups.findIndex(function(_ref5) {
+						var lastTabbableNode = _ref5.lastTabbableNode;
 						return target === lastTabbableNode;
 					});
-					if (lastOfGroupIndex < 0 && (containerGroup.container === target || isFocusable(target, config.tabbableOptions) && !isTabbable(target, config.tabbableOptions) && !containerGroup.nextTabbableNode(target))) lastOfGroupIndex = containerIndex;
+					if (lastOfGroupIndex < 0 && (containerGroup.container === target || isFocusable(target, config.tabbableOptions) && !isTabbable(target, config.tabbableOptions) && !containerGroup.nextTabbableNode(target))) {
+						var nextGroupIndex = state.tabbableGroups.findIndex(function(group) {
+							return state.containerGroups.indexOf(group) > containerIndex;
+						});
+						lastOfGroupIndex = nextGroupIndex > 0 ? nextGroupIndex - 1 : state.tabbableGroups.length - 1;
+					}
 					if (lastOfGroupIndex >= 0) {
 						var _destinationGroupIndex = lastOfGroupIndex === state.tabbableGroups.length - 1 ? 0 : lastOfGroupIndex + 1;
 						var _destinationGroup = state.tabbableGroups[_destinationGroupIndex];
@@ -1307,8 +1421,8 @@
 					target: state.mostRecentlyFocusedNode,
 					isBackward: config.isKeyBackward(state.recentNavEvent)
 				});
-				if (nextNode) tryFocus(nextNode);
-				else tryFocus(state.mostRecentlyFocusedNode || getInitialFocusNode());
+				if (nextNode) _tryFocus(nextNode);
+				else _tryFocus(state.mostRecentlyFocusedNode || getInitialFocusNode());
 			}
 			state.recentNavEvent = void 0;
 		};
@@ -1321,16 +1435,17 @@
 			});
 			if (destinationNode) {
 				if (isTabEvent(event)) event.preventDefault();
-				tryFocus(destinationNode);
+				_tryFocus(destinationNode);
 			}
 		};
-		var checkKey = function checkKey(event) {
+		var checkTabKey = function checkTabKey(event) {
+			if (config.isKeyForward(event) || config.isKeyBackward(event)) checkKeyNav(event, config.isKeyBackward(event));
+		};
+		var checkEscapeKey = function checkEscapeKey(event) {
 			if (isEscapeEvent(event) && valueOrHandler(config.escapeDeactivates, event) !== false) {
 				event.preventDefault();
 				trap.deactivate();
-				return;
 			}
-			if (config.isKeyForward(event) || config.isKeyBackward(event)) checkKeyNav(event, config.isKeyBackward(event));
 		};
 		var checkClick = function checkClick(e) {
 			if (findContainerIndex(getActualTarget(e), e) >= 0) return;
@@ -1342,9 +1457,14 @@
 		var addListeners = function addListeners() {
 			if (!state.active) return;
 			activeFocusTraps.activateTrap(trapStack, trap);
-			state.delayInitialFocusTimer = config.delayInitialFocus ? delay$1(function() {
-				tryFocus(getInitialFocusNode());
-			}) : tryFocus(getInitialFocusNode());
+			var promise;
+			if (config.delayInitialFocus) promise = new Promise(function(resolve) {
+				state.delayInitialFocusTimer = delay$1(function() {
+					_tryFocus(getInitialFocusNode());
+					resolve();
+				});
+			});
+			else _tryFocus(getInitialFocusNode());
 			doc.addEventListener("focusin", checkFocusIn, true);
 			doc.addEventListener("mousedown", checkPointerDown, {
 				capture: true,
@@ -1358,11 +1478,59 @@
 				capture: true,
 				passive: false
 			});
-			doc.addEventListener("keydown", checkKey, {
+			doc.addEventListener("keydown", checkTabKey, {
 				capture: true,
 				passive: false
 			});
-			return trap;
+			doc.addEventListener("keydown", checkEscapeKey);
+			return promise;
+		};
+		var collectAdjacentElements = function collectAdjacentElements(containers) {
+			if (state.active && !state.paused) trap._setSubtreeIsolation(false);
+			state.adjacentElements.clear();
+			state.alreadySilent.clear();
+			var containerAncestors = new Set();
+			var adjacentElements = new Set();
+			var _iterator = _createForOfIteratorHelper(containers), _step;
+			try {
+				for (_iterator.s(); !(_step = _iterator.n()).done;) {
+					var container = _step.value;
+					containerAncestors.add(container);
+					var insideShadowRoot = typeof ShadowRoot !== "undefined" && container.getRootNode() instanceof ShadowRoot;
+					var current = container;
+					while (current) {
+						containerAncestors.add(current);
+						var parent = current.parentElement;
+						var siblings = [];
+						if (parent) siblings = parent.children;
+						else if (!parent && insideShadowRoot) {
+							siblings = current.getRootNode().children;
+							parent = current.getRootNode().host;
+							insideShadowRoot = typeof ShadowRoot !== "undefined" && parent.getRootNode() instanceof ShadowRoot;
+						}
+						var _iterator2 = _createForOfIteratorHelper(siblings), _step2;
+						try {
+							for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+								var child = _step2.value;
+								adjacentElements.add(child);
+							}
+						} catch (err) {
+							_iterator2.e(err);
+						} finally {
+							_iterator2.f();
+						}
+						current = parent;
+					}
+				}
+			} catch (err) {
+				_iterator.e(err);
+			} finally {
+				_iterator.f();
+			}
+			containerAncestors.forEach(function(el) {
+				adjacentElements["delete"](el);
+			});
+			state.adjacentElements = adjacentElements;
 		};
 		var removeListeners = function removeListeners() {
 			if (!state.active) return;
@@ -1370,15 +1538,23 @@
 			doc.removeEventListener("mousedown", checkPointerDown, true);
 			doc.removeEventListener("touchstart", checkPointerDown, true);
 			doc.removeEventListener("click", checkClick, true);
-			doc.removeEventListener("keydown", checkKey, true);
+			doc.removeEventListener("keydown", checkTabKey, true);
+			doc.removeEventListener("keydown", checkEscapeKey);
 			return trap;
 		};
 		var mutationObserver = typeof window !== "undefined" && "MutationObserver" in window ? new MutationObserver(function checkDomRemoval(mutations) {
+			var focusedNode = state.mostRecentlyFocusedNode;
+			if (!focusedNode) return;
 			if (mutations.some(function(mutation) {
 				return Array.from(mutation.removedNodes).some(function(node) {
-					return node === state.mostRecentlyFocusedNode;
+					return node === focusedNode || typeof node.contains === "function" && node.contains(focusedNode);
 				});
-			})) tryFocus(getInitialFocusNode());
+			}) && state.containers.some(function(container) {
+				return container === null || container === void 0 ? void 0 : container.isConnected;
+			})) {
+				updateTabbableNodes();
+				_tryFocus(getInitialFocusNode());
+			}
 		}) : void 0;
 		var updateObservedNodes = function updateObservedNodes() {
 			if (!mutationObserver) return;
@@ -1402,22 +1578,42 @@
 				var onActivate = getOption(activateOptions, "onActivate");
 				var onPostActivate = getOption(activateOptions, "onPostActivate");
 				var checkCanFocusTrap = getOption(activateOptions, "checkCanFocusTrap");
-				if (!checkCanFocusTrap) updateTabbableNodes();
-				state.active = true;
-				state.paused = false;
-				state.nodeFocusedBeforeActivation = doc.activeElement;
-				onActivate === null || onActivate === void 0 || onActivate();
-				var finishActivation = function finishActivation() {
-					if (checkCanFocusTrap) updateTabbableNodes();
-					addListeners();
-					updateObservedNodes();
-					onPostActivate === null || onPostActivate === void 0 || onPostActivate();
-				};
-				if (checkCanFocusTrap) {
-					checkCanFocusTrap(state.containers.concat()).then(finishActivation, finishActivation);
-					return this;
+				var preexistingTrap = activeFocusTraps.getActiveTrap(trapStack);
+				var revertState = false;
+				if (preexistingTrap && !preexistingTrap.paused) {
+					var _preexistingTrap$_set;
+					(_preexistingTrap$_set = preexistingTrap._setSubtreeIsolation) === null || _preexistingTrap$_set === void 0 || _preexistingTrap$_set.call(preexistingTrap, false);
+					revertState = true;
 				}
-				finishActivation();
+				try {
+					if (!checkCanFocusTrap) updateTabbableNodes();
+					state.active = true;
+					state.paused = false;
+					state.nodeFocusedBeforeActivation = _getActiveElement(doc);
+					onActivate === null || onActivate === void 0 || onActivate({ trap });
+					var finishActivation = function finishActivation() {
+						if (checkCanFocusTrap) updateTabbableNodes();
+						var afterListeners = function afterListeners() {
+							trap._setSubtreeIsolation(true);
+							updateObservedNodes();
+							onPostActivate === null || onPostActivate === void 0 || onPostActivate({ trap });
+						};
+						var listenersPromise = addListeners();
+						if (listenersPromise) listenersPromise.then(afterListeners);
+						else afterListeners();
+					};
+					if (checkCanFocusTrap) {
+						checkCanFocusTrap(state.containers.concat()).then(finishActivation, finishActivation);
+						return this;
+					}
+					finishActivation();
+				} catch (error) {
+					if (preexistingTrap === activeFocusTraps.getActiveTrap(trapStack) && revertState) {
+						var _preexistingTrap$_set2;
+						(_preexistingTrap$_set2 = preexistingTrap._setSubtreeIsolation) === null || _preexistingTrap$_set2 === void 0 || _preexistingTrap$_set2.call(preexistingTrap, true);
+					}
+					throw error;
+				}
 				return this;
 			},
 			deactivate: function deactivate(deactivateOptions) {
@@ -1429,6 +1625,8 @@
 				}, deactivateOptions);
 				clearTimeout(state.delayInitialFocusTimer);
 				state.delayInitialFocusTimer = void 0;
+				if (!state.paused) trap._setSubtreeIsolation(false);
+				state.alreadySilent.clear();
 				removeListeners();
 				state.active = false;
 				state.paused = false;
@@ -1437,13 +1635,16 @@
 				var onDeactivate = getOption(options, "onDeactivate");
 				var onPostDeactivate = getOption(options, "onPostDeactivate");
 				var checkCanReturnFocus = getOption(options, "checkCanReturnFocus");
+				var delayReturnFocus = getOption(options, "delayReturnFocus");
 				var returnFocus = getOption(options, "returnFocus", "returnFocusOnDeactivate");
-				onDeactivate === null || onDeactivate === void 0 || onDeactivate();
+				onDeactivate === null || onDeactivate === void 0 || onDeactivate({ trap });
+				var completeDeactivation = function completeDeactivation() {
+					if (returnFocus) _tryFocus(getReturnFocusNode(state.nodeFocusedBeforeActivation));
+					onPostDeactivate === null || onPostDeactivate === void 0 || onPostDeactivate({ trap });
+				};
 				var finishDeactivation = function finishDeactivation() {
-					delay$1(function() {
-						if (returnFocus) tryFocus(getReturnFocusNode(state.nodeFocusedBeforeActivation));
-						onPostDeactivate === null || onPostDeactivate === void 0 || onPostDeactivate();
-					});
+					if (delayReturnFocus && returnFocus) delay$1(completeDeactivation);
+					else completeDeactivation();
 				};
 				if (returnFocus && checkCanReturnFocus) {
 					checkCanReturnFocus(getReturnFocusNode(state.nodeFocusedBeforeActivation)).then(finishDeactivation, finishDeactivation);
@@ -1453,45 +1654,92 @@
 				return this;
 			},
 			pause: function pause(pauseOptions) {
-				if (state.paused || !state.active) return this;
-				var onPause = getOption(pauseOptions, "onPause");
-				var onPostPause = getOption(pauseOptions, "onPostPause");
-				state.paused = true;
-				onPause === null || onPause === void 0 || onPause();
-				removeListeners();
-				updateObservedNodes();
-				onPostPause === null || onPostPause === void 0 || onPostPause();
-				return this;
+				if (!state.active) return this;
+				state.manuallyPaused = true;
+				return this._setPausedState(true, pauseOptions);
 			},
 			unpause: function unpause(unpauseOptions) {
-				if (!state.paused || !state.active) return this;
-				var onUnpause = getOption(unpauseOptions, "onUnpause");
-				var onPostUnpause = getOption(unpauseOptions, "onPostUnpause");
-				state.paused = false;
-				onUnpause === null || onUnpause === void 0 || onUnpause();
-				updateTabbableNodes();
-				addListeners();
-				updateObservedNodes();
-				onPostUnpause === null || onPostUnpause === void 0 || onPostUnpause();
-				return this;
+				if (!state.active) return this;
+				state.manuallyPaused = false;
+				if (trapStack[trapStack.length - 1] !== this) return this;
+				return this._setPausedState(false, unpauseOptions);
 			},
 			updateContainerElements: function updateContainerElements(containerElements) {
 				state.containers = [].concat(containerElements).filter(Boolean).map(function(element) {
 					return typeof element === "string" ? doc.querySelector(element) : element;
 				});
-				if (state.active) updateTabbableNodes();
+				if (config.isolateSubtrees) collectAdjacentElements(state.containers);
+				if (state.active) {
+					updateTabbableNodes();
+					if (!state.paused) trap._setSubtreeIsolation(true);
+				}
 				updateObservedNodes();
 				return this;
 			}
 		};
+		Object.defineProperties(trap, {
+			_isManuallyPaused: { value: function value() {
+				return state.manuallyPaused;
+			} },
+			_setPausedState: { value: function value(paused, options) {
+				if (state.paused === paused) return this;
+				state.paused = paused;
+				if (paused) {
+					var onPause = getOption(options, "onPause");
+					var onPostPause = getOption(options, "onPostPause");
+					onPause === null || onPause === void 0 || onPause({ trap });
+					removeListeners();
+					trap._setSubtreeIsolation(false);
+					updateObservedNodes();
+					onPostPause === null || onPostPause === void 0 || onPostPause({ trap });
+				} else {
+					var onUnpause = getOption(options, "onUnpause");
+					var onPostUnpause = getOption(options, "onPostUnpause");
+					onUnpause === null || onUnpause === void 0 || onUnpause({ trap });
+					(function finishUnpause() {
+						updateTabbableNodes();
+						var afterListeners = function afterListeners() {
+							trap._setSubtreeIsolation(true);
+							updateObservedNodes();
+							onPostUnpause === null || onPostUnpause === void 0 || onPostUnpause({ trap });
+						};
+						var listenersPromise = addListeners();
+						if (listenersPromise) listenersPromise.then(afterListeners);
+						else afterListeners();
+					})();
+				}
+				return this;
+			} },
+			_setSubtreeIsolation: { value: function value(isEnabled) {
+				if (config.isolateSubtrees) state.adjacentElements.forEach(function(el) {
+					var _el$getAttribute;
+					if (isEnabled) switch (config.isolateSubtrees) {
+						case "aria-hidden":
+							if (el.ariaHidden === "true" || ((_el$getAttribute = el.getAttribute("aria-hidden")) === null || _el$getAttribute === void 0 ? void 0 : _el$getAttribute.toLowerCase()) === "true") state.alreadySilent.add(el);
+							el.setAttribute("aria-hidden", "true");
+							break;
+						default:
+							if (el.inert || el.hasAttribute("inert")) state.alreadySilent.add(el);
+							el.setAttribute("inert", true);
+					}
+					else if (state.alreadySilent.has(el));
+					else switch (config.isolateSubtrees) {
+						case "aria-hidden":
+							el.removeAttribute("aria-hidden");
+							break;
+						default: el.removeAttribute("inert");
+					}
+				});
+			} }
+		});
 		trap.updateContainerElements(elements);
 		return trap;
 	};
 	function useFocusTrap(target, options = {}) {
 		let trap;
 		const { immediate, ...focusTrapOptions } = options;
-		const hasFocus = (0, lib_exports.ref)(false);
-		const isPaused = (0, lib_exports.ref)(false);
+		const hasFocus = (0, vue.shallowRef)(false);
+		const isPaused = (0, vue.shallowRef)(false);
 		const activate = (opts) => trap && trap.activate(opts);
 		const deactivate = (opts) => trap && trap.deactivate(opts);
 		const pause = () => {
@@ -1506,20 +1754,32 @@
 				isPaused.value = false;
 			}
 		};
-		(0, lib_exports.watch)(() => unrefElement(target), (el) => {
-			if (!el) return;
-			trap = createFocusTrap(el, {
-				...focusTrapOptions,
-				onActivate() {
-					hasFocus.value = true;
-					if (options.onActivate) options.onActivate();
-				},
-				onDeactivate() {
-					hasFocus.value = false;
-					if (options.onDeactivate) options.onDeactivate();
-				}
-			});
-			if (immediate) activate();
+		const targets = (0, vue.computed)(() => {
+			return toArray((0, vue.toValue)(target)).map((el) => {
+				const _el = (0, vue.toValue)(el);
+				return typeof _el === "string" ? _el : unrefElement(_el);
+			}).filter(notNullish);
+		});
+		(0, vue.watch)(targets, (els) => {
+			if (!els.length) return;
+			if (!trap) {
+				trap = createFocusTrap(els, {
+					...focusTrapOptions,
+					onActivate(params) {
+						hasFocus.value = true;
+						if (options.onActivate) options.onActivate(params);
+					},
+					onDeactivate(params) {
+						hasFocus.value = false;
+						if (options.onDeactivate) options.onDeactivate(params);
+					}
+				});
+				if (immediate) activate();
+			} else {
+				const isActive = trap === null || trap === void 0 ? void 0 : trap.active;
+				trap === null || trap === void 0 || trap.updateContainerElements(els);
+				if (!isActive && immediate) activate();
+			}
 		}, { flush: "post" });
 		tryOnScopeDispose(() => deactivate());
 		return {
@@ -1531,22 +1791,501 @@
 			unpause
 		};
 	}
-	var uo = (e) => (...o) => {
-		e && (e?.(...o), e = null);
-	}, q = () => {};
-	function oe(e, o, l) {
-		return e > l ? l : e < o ? o : e;
+	var isClient = globalThis.window && typeof document !== "undefined";
+	var isIOS = getIsIOS();
+	function getIsIOS() {
+		return isClient && !!globalThis.window?.navigator?.userAgent && (/iP(?:ad|hone|od)/.test(globalThis.window.navigator.userAgent) || globalThis.window?.navigator?.maxTouchPoints > 2 && /iPad|Macintosh/.test(globalThis.window?.navigator.userAgent));
 	}
-	function fe(e, o) {
-		var s;
-		const l = ((s = $(e, o)) == null ? void 0 : s[0]) || o;
-		e.push(l);
+	function createScrollLock() {
+		const lockStateMap = new WeakMap();
+		const lockedElementSet = new Set();
+		function lockScroll(target, options) {
+			if (!isBrowser$1()) return;
+			const el = resolveTarget(target);
+			if (!el) return;
+			return applyLock(el, options, {
+				lockStateMap,
+				lockedElementSet
+			});
+		}
+		function unlockScroll(target, options) {
+			if (!isBrowser$1()) return;
+			const force = options?.force ?? false;
+			const el = resolveTarget(target);
+			if (!el) return;
+			const state = lockStateMap.get(el);
+			if (!state) return;
+			if (force) {
+				restoreElement(el, state, {
+					lockedElementSet,
+					lockStateMap
+				});
+				return { count: 0 };
+			}
+			state.count -= 1;
+			if (state.count <= 0) restoreElement(el, state, {
+				lockedElementSet,
+				lockStateMap
+			});
+			return state;
+		}
+		function isScrollLocked(target) {
+			if (!isBrowser$1()) return false;
+			const el = resolveTarget(target);
+			if (!el) return false;
+			const state = lockStateMap.get(el);
+			return !!state && state.count > 0;
+		}
+		function clearAllScrollLocks() {
+			if (!isBrowser$1()) return;
+			for (const el of lockedElementSet) {
+				const state = lockStateMap.get(el);
+				if (state) restoreElement(el, state, {
+					lockedElementSet,
+					lockStateMap
+				});
+			}
+			lockedElementSet.clear();
+		}
+		return {
+			lockStateMap,
+			lockedElementSet,
+			lockScroll,
+			unlockScroll,
+			isScrollLocked,
+			clearAllScrollLocks
+		};
 	}
-	function $(e, o) {
-		const l = e.indexOf(o);
-		if (l !== -1) return e.splice(l, 1);
+	var { lockStateMap, lockedElementSet, lockScroll, unlockScroll, isScrollLocked, clearAllScrollLocks } = createScrollLock();
+	function applyLock(el, options, ctx) {
+		let state = ctx.lockStateMap.get(el);
+		if (!state) {
+			state = {
+				count: 0,
+				originalOverflowX: el.style.overflowX,
+				originalOverflowY: el.style.overflowY
+			};
+			if (isIOS) state.stopTouchEventListener = listenTouches(el);
+			state.stopWatchingStyle = watchStyle(el, state);
+			ctx.lockStateMap.set(el, state);
+			ctx.lockedElementSet.add(el);
+		}
+		if (state.count === 0) {
+			if (options?.reserveScrollBarGap) reserveScrollBarGap(el, state);
+			el.style.overflowX = "hidden";
+			el.style.overflowY = "hidden";
+		}
+		state.count += 1;
+		return state;
 	}
-	var co = {
+	function restoreElement(el, state, ctx) {
+		if (isIOS) state.stopTouchEventListener?.();
+		state.stopWatchingStyle?.();
+		el.style.overflowX = state.originalOverflowX ?? "";
+		el.style.overflowY = state.originalOverflowY ?? "";
+		if (state.reservedScrollBarGap) {
+			const { property, original } = state.reservedScrollBarGap;
+			if (original) el.style.setProperty(property, original);
+			else el.style.removeProperty(property);
+		}
+		ctx.lockStateMap.delete(el);
+		ctx.lockedElementSet.delete(el);
+	}
+	function reserveScrollBarGap(el, state) {
+		const gap = scrollBarGap(el);
+		if (gap <= 0) return;
+		const page = el === document.body || el === document.documentElement;
+		if (globalThis.window.getComputedStyle(page ? document.documentElement : el).getPropertyValue("scrollbar-gutter").startsWith("stable")) return;
+		if (!page && supportsStableGutter()) {
+			reserve(el, state, "scrollbar-gutter", "stable", gap);
+			return;
+		}
+		const property = !page && globalThis.window.getComputedStyle(el).direction === "rtl" ? "padding-left" : "padding-right";
+		reserve(el, state, property, widenedPadding(el, property, gap), gap);
+	}
+	function reserve(el, state, property, value, width) {
+		state.reservedScrollBarGap = {
+			property,
+			original: el.style.getPropertyValue(property),
+			value,
+			width
+		};
+		el.style.setProperty(property, value);
+	}
+	function widenedPadding(el, property, width) {
+		return `${(Number.parseFloat(globalThis.window.getComputedStyle(el).getPropertyValue(property)) || 0) + width}px`;
+	}
+	function watchStyle(el, state) {
+		const observer = new MutationObserver(() => {
+			if (el.style.overflowX !== "hidden") {
+				state.originalOverflowX = el.style.overflowX;
+				el.style.overflowX = "hidden";
+			}
+			if (el.style.overflowY !== "hidden") {
+				state.originalOverflowY = el.style.overflowY;
+				el.style.overflowY = "hidden";
+			}
+			const gap = state.reservedScrollBarGap;
+			if (gap && !el.style.getPropertyValue(gap.property)) {
+				gap.original = "";
+				if (gap.property !== "scrollbar-gutter") gap.value = widenedPadding(el, gap.property, gap.width);
+				el.style.setProperty(gap.property, gap.value);
+			}
+		});
+		observer.observe(el, {
+			attributes: true,
+			attributeFilter: ["style"]
+		});
+		return () => observer.disconnect();
+	}
+	function supportsStableGutter() {
+		return typeof CSS !== "undefined" && CSS.supports("scrollbar-gutter", "stable");
+	}
+	function scrollBarGap(el) {
+		if (el === document.body || el === document.documentElement) return globalThis.window.innerWidth - document.documentElement.clientWidth;
+		if (!(el instanceof HTMLElement)) return 0;
+		const style = globalThis.window.getComputedStyle(el);
+		const borders = (Number.parseFloat(style.borderLeftWidth) || 0) + (Number.parseFloat(style.borderRightWidth) || 0);
+		return el.offsetWidth - el.clientWidth - borders;
+	}
+	function resolveTarget(target) {
+		if (!target) return document.body;
+		if (typeof Window !== "undefined" && target instanceof Window) return target.document.documentElement;
+		if (typeof Document !== "undefined" && target instanceof Document) return target.documentElement;
+		if (target instanceof HTMLElement || target instanceof SVGElement) return target;
+	}
+	function isBrowser$1() {
+		return globalThis.window !== void 0 && typeof document !== "undefined";
+	}
+	function listenTouches(el) {
+		let start = {
+			x: 0,
+			y: 0
+		};
+		let last = start;
+		const onTouchStart = (event) => {
+			const { touches } = event;
+			const [first] = touches;
+			if (touches.length === 1 && first) start = last = {
+				x: first.clientX,
+				y: first.clientY
+			};
+		};
+		const onTouchMove = (event) => {
+			const { touches } = event;
+			const [first] = touches;
+			if (!first || touches.length > 1) return;
+			const point = {
+				x: first.clientX,
+				y: first.clientY
+			};
+			const horizontal = Math.abs(point.x - start.x) > Math.abs(point.y - start.y);
+			const axis = horizontal ? "x" : "y";
+			const delta = point[axis] - last[axis] || point[axis] - start[axis];
+			last = point;
+			if (canScroll(event.composedPath(), horizontal, delta, el)) return;
+			event.preventDefault();
+		};
+		el.addEventListener("touchstart", onTouchStart, { passive: true });
+		el.addEventListener("touchmove", onTouchMove, { passive: false });
+		return () => {
+			el.removeEventListener("touchstart", onTouchStart);
+			el.removeEventListener("touchmove", onTouchMove);
+		};
+	}
+	function canScroll(path, horizontal, delta, root) {
+		for (const node of path) {
+			if (node === root) return false;
+			if (node instanceof Element && (horizontal ? canScrollX(node, delta) : canScrollY(node, delta))) return true;
+		}
+		return false;
+	}
+	var EDGE = 1;
+	function canScrollY(el, delta) {
+		if (!isScrollable(globalThis.window.getComputedStyle(el).overflowY, el.scrollHeight, el.clientHeight)) return false;
+		return delta > 0 ? el.scrollTop >= EDGE : delta < 0 && el.scrollTop + el.clientHeight <= el.scrollHeight - EDGE;
+	}
+	function canScrollX(el, delta) {
+		const style = globalThis.window.getComputedStyle(el);
+		if (!isScrollable(style.overflowX, el.scrollWidth, el.clientWidth)) return false;
+		const fromLeft = style.direction === "rtl" ? el.scrollLeft + el.scrollWidth - el.clientWidth : el.scrollLeft;
+		return delta > 0 ? fromLeft >= EDGE : delta < 0 && fromLeft + el.clientWidth <= el.scrollWidth - EDGE;
+	}
+	function isScrollable(overflow, scrollSize, clientSize) {
+		return (overflow === "auto" || overflow === "scroll") && scrollSize > clientSize;
+	}
+	var openers = new WeakMap();
+	function returnTarget(el) {
+		while (el && !el.isConnected) {
+			const modal = el.closest(".vfm");
+			el = modal ? openers.get(modal) : void 0;
+		}
+		return el instanceof HTMLElement || el instanceof SVGElement ? el : false;
+	}
+	var pressed = null;
+	var tracking = false;
+	function lastPress() {
+		trackPresses();
+		return pressed?.isConnected ? pressed : null;
+	}
+	function trackPresses() {
+		if (tracking) return;
+		tracking = true;
+		document.addEventListener("pointerdown", (e) => {
+			pressed = e.target instanceof Element ? e.target.closest("button, a[href], input, select, textarea, summary, [tabindex], [contenteditable]") : null;
+		}, true);
+		document.addEventListener("click", () => {
+			const clicked = pressed;
+			setTimeout(() => {
+				if (pressed === clicked) pressed = null;
+			});
+		}, true);
+		document.addEventListener("keydown", () => {
+			pressed = null;
+		}, true);
+	}
+	function useFocusTrap$1(props, options) {
+		if (props.focusTrap === false) return {
+			focus() {},
+			blur() {}
+		};
+		const { focusEl } = options;
+		const allowOutsideClick = true;
+		const escapeDeactivates = false;
+		const fallbackFocus = () => focusEl.value?.querySelector(":scope > .vfm__content") ?? focusEl.value;
+		const setReturnFocus = (previous) => returnTarget(focusEl.value && openers.get(focusEl.value)) || previous;
+		const { hasFocus, activate, deactivate } = useFocusTrap(focusEl, {
+			allowOutsideClick,
+			escapeDeactivates,
+			fallbackFocus,
+			setReturnFocus,
+			...props.focusTrap
+		});
+		let pendingFrame;
+		function cancelPendingFocus() {
+			if (pendingFrame === void 0) return;
+			cancelAnimationFrame(pendingFrame);
+			pendingFrame = void 0;
+		}
+		function focus() {
+			const opener = lastPress() ?? document.activeElement;
+			if (focusEl.value && opener) openers.set(focusEl.value, opener);
+			cancelPendingFocus();
+			pendingFrame = requestAnimationFrame(() => {
+				pendingFrame = void 0;
+				activate();
+			});
+		}
+		function blur() {
+			cancelPendingFocus();
+			if (hasFocus.value) deactivate();
+		}
+		return {
+			focus,
+			blur
+		};
+	}
+	var vfmSymbol = Symbol("vfm");
+	function useVfmRequest(vfm) {
+		const ssrContext = (0, vue.inject)(vue.ssrContextKey, null);
+		if (!ssrContext) return;
+		let request = vfm._requests.get(ssrContext);
+		if (!request) {
+			request = {
+				containers: [],
+				openedModals: [],
+				openedModalOverlays: []
+			};
+			vfm._requests.set(ssrContext, request);
+		}
+		return request;
+	}
+	var vfmResolver = createInstanceResolver(vfmSymbol);
+	function missingVfmError() {
+		return new Error("[Vue Final Modal]: no active Vfm. Did you forget to install vfm?\n	const vfm = createVfm()\n	app.use(vfm)");
+	}
+	function createVfm() {
+		const vfm = createVfmInstance();
+		vfmResolver.setActive(vfm);
+		return vfm;
+	}
+	function createVfmInstance() {
+		if (typeof document !== "undefined") trackPresses();
+		const modals = (0, vue.shallowReactive)([]);
+		const openedModals = (0, vue.shallowReactive)([]);
+		const openedModalOverlays = (0, vue.shallowReactive)([]);
+		const templates = createTemplateState();
+		const vfm = (0, vue.markRaw)({
+			install(app) {
+				app.provide(vfmSymbol, vfm);
+				app.config.globalProperties.$vfm = vfm;
+			},
+			modals,
+			openedModals,
+			openedModalOverlays,
+			get: (modalId) => modals.find((modal) => modal.value.modalId.value === modalId),
+			toggle: ((modalId, show) => vfm.get(modalId)?.value.toggle(show)),
+			open: (modalId) => vfm.toggle(modalId, true),
+			close: (modalId) => vfm.toggle(modalId, false),
+			closeAll: () => Promise.allSettled(openedModals.map((modal) => modal.value.toggle(false))),
+			_templates: templates,
+			_TemplateOutlet: createTemplateOutlet(templates),
+			_containers: (0, vue.ref)([]),
+			_requests: new WeakMap(),
+			_dialogs: []
+		});
+		return vfm;
+	}
+	function useVfm() {
+		const vfm = vfmResolver.resolve();
+		if (!vfm) throw missingVfmError();
+		return vfm;
+	}
+	(0, vue.defineComponent)({
+		name: "ModalsContainer",
+		inheritAttrs: false,
+		setup() {
+			const vfm = useVfm();
+			const uid = Symbol("ModalsContainer");
+			const request = useVfmRequest(vfm);
+			if (request) {
+				request.containers.push(uid);
+				return () => uid === request.containers[0] ? (0, vue.h)(vfm._TemplateOutlet) : null;
+			}
+			const shouldMount = (0, vue.computed)(() => uid === vfm._containers.value?.[0]);
+			vfm._containers.value.push(uid);
+			(0, vue.onBeforeUnmount)(() => {
+				vfm._containers.value = vfm._containers.value.filter((i) => i !== uid);
+			});
+			return () => shouldMount.value ? (0, vue.h)(vfm._TemplateOutlet) : null;
+		}
+	});
+	function useInternalExposed(props, options) {
+		const { overlayVisible, status, toggle } = options;
+		const modalId = (0, vue.toRef)(() => props.modalId);
+		const hideOverlay = (0, vue.toRef)(() => props.hideOverlay);
+		const overlayBehavior = (0, vue.toRef)(() => props.overlayBehavior);
+		return { modalExposed: (0, vue.computed)(() => ({
+			modalId,
+			hideOverlay,
+			overlayBehavior,
+			overlayVisible,
+			status,
+			toggle
+		})) };
+	}
+	function noop() {}
+	function createPending() {
+		let resolve = noop;
+		return {
+			promise: new Promise((settle) => resolve = settle),
+			resolve
+		};
+	}
+	function clamp(val, min, max) {
+		return val > max ? max : val < min ? min : val;
+	}
+	function arrayMoveItemToLast(arr, item) {
+		arrayRemoveItem(arr, item);
+		arr.push(item);
+	}
+	function arrayRemoveItem(arr, item) {
+		const index = arr.indexOf(item);
+		if (index !== -1) arr.splice(index, 1);
+	}
+	function createModalLifecycle(props, emit, transitions) {
+		const state = (0, vue.ref)(false);
+		const status = (0, vue.ref)("closed");
+		let run = 0;
+		let pending;
+		let unmounted = false;
+		const isOpen = (0, vue.computed)({
+			get: () => state.value,
+			set(next) {
+				if (next === state.value) return;
+				let stopped = false;
+				if (next) emit("beforeOpen", { stop: () => stopped = true });
+				else emit("beforeClose", { stop: () => stopped = true });
+				if (stopped) {
+					emit("update:modelValue", !next);
+					emit("_stopped", next);
+					resolveToggle("stopped");
+					return;
+				}
+				change(next);
+			}
+		});
+		function change(next) {
+			if (pending && pending.show !== next) resolveToggle("toggled-again");
+			state.value = next;
+			setStatus(next ? "opening" : "closing");
+			if (!unmounted) transition(next);
+			if (next !== props.modelValue) emit("update:modelValue", next);
+		}
+		function reportClosed() {
+			if (state.value) change(false);
+		}
+		(0, vue.watch)(() => props.modelValue, (next) => {
+			isOpen.value = !!next;
+		});
+		(0, vue.onBeforeUnmount)(() => {
+			unmounted = true;
+			run++;
+			setStatus("closed");
+			resolveToggle("destroyed");
+		});
+		function transition(opening) {
+			const current = ++run;
+			function done() {
+				if (current !== run) return;
+				setStatus(opening ? "opened" : "closed");
+				if (opening) {
+					emit("opened");
+					emit("_opened");
+				} else {
+					emit("closed");
+					emit("_closed");
+				}
+				resolveToggle(opening ? "opened" : "closed");
+			}
+			if (opening) transitions.open(done);
+			else transitions.close(done);
+		}
+		function setStatus(next) {
+			if (next === status.value) return;
+			status.value = next;
+			emit("_status", next);
+		}
+		function resolveToggle(result) {
+			const settled = pending;
+			pending = void 0;
+			settled?.resolve(result);
+		}
+		function heading(show) {
+			pending ??= {
+				show,
+				...createPending()
+			};
+			return pending.promise;
+		}
+		function toggle(show = !state.value) {
+			if (state.value === show) {
+				if (status.value === (show ? "opening" : "closing")) return heading(show);
+				return Promise.resolve(show ? "already-opened" : "already-closed");
+			}
+			resolveToggle("toggled-again");
+			const promise = heading(show);
+			isOpen.value = show;
+			return promise;
+		}
+		return {
+			isOpen,
+			reportClosed,
+			toggle,
+			status: (0, vue.readonly)(status)
+		};
+	}
+	var vueFinalModalProps = {
 		teleportTo: {
 			type: [
 				String,
@@ -1571,11 +2310,11 @@
 		displayDirective: {
 			type: String,
 			default: "if",
-			validator: (e) => [
+			validator: (prop) => [
 				"if",
 				"show",
 				"visible"
-			].includes(e)
+			].includes(prop)
 		},
 		hideOverlay: {
 			type: Boolean,
@@ -1584,7 +2323,7 @@
 		overlayBehavior: {
 			type: String,
 			default: "auto",
-			validator: (e) => ["auto", "persist"].includes(e)
+			validator: (prop) => ["auto", "persist"].includes(prop)
 		},
 		overlayTransition: {
 			type: [String, Object],
@@ -1620,43 +2359,43 @@
 		},
 		clickToClose: {
 			type: Boolean,
-			default: !0
+			default: true
 		},
 		escToClose: {
 			type: Boolean,
-			default: !0
+			default: true
 		},
 		background: {
 			type: String,
 			default: "non-interactive",
-			validator: (e) => ["interactive", "non-interactive"].includes(e)
+			validator: (prop) => ["interactive", "non-interactive"].includes(prop)
 		},
 		focusTrap: {
 			type: [Boolean, Object],
-			default: () => ({ allowOutsideClick: !0 })
+			default: () => ({})
 		},
 		lockScroll: {
 			type: Boolean,
-			default: !0
+			default: true
 		},
 		reserveScrollBarGap: {
 			type: Boolean,
-			default: !0
+			default: true
 		},
 		zIndexFn: {
 			type: Function,
-			default: ({ index: e }) => 1e3 + 2 * e
+			default: ({ index }) => 1e3 + 2 * index
 		},
 		swipeToClose: {
 			type: String,
 			default: "none",
-			validator: (e) => [
+			validator: (prop) => [
 				"none",
 				"up",
 				"right",
 				"down",
 				"left"
-			].includes(e)
+			].includes(prop)
 		},
 		threshold: {
 			type: Number,
@@ -1671,620 +2410,613 @@
 			default: void 0
 		}
 	};
-	function Oe(e = !1) {
-		const o = (0, vue.ref)(e), l = (0, vue.ref)(o.value ? 0 : void 0);
-		return [
-			o,
-			l,
-			{
-				beforeEnter() {
-					l.value = 1;
-				},
-				afterEnter() {
-					l.value = 0;
-				},
-				beforeLeave() {
-					l.value = 3;
-				},
-				afterLeave() {
-					l.value = 2;
-				}
-			}
-		];
+	var vVisible = {
+		beforeMount(el, { value }, { transition }) {
+			el._vov = el.style.visibility === "hidden" ? "" : el.style.visibility;
+			if (transition && value) transition.beforeEnter(el);
+			else setVisibility(el, value);
+		},
+		mounted(el, { value }, { transition }) {
+			if (transition && value) transition.enter(el);
+		},
+		updated(el, { value, oldValue }, { transition }) {
+			if (!value === !oldValue) return;
+			if (transition) if (value) {
+				transition.beforeEnter(el);
+				setVisibility(el, true);
+				transition.enter(el);
+			} else transition.leave(el, () => {
+				setVisibility(el, false);
+			});
+			else setVisibility(el, value);
+		},
+		beforeUnmount(el, { value }) {
+			setVisibility(el, value);
+		}
+	};
+	function setVisibility(el, value) {
+		el.style.visibility = value ? el._vov : "hidden";
 	}
-	function fo(e, o) {
-		const { modelValueLocal: l, onEntering: s, onEnter: u, onLeaving: c, onLeave: a } = o, n = (0, vue.ref)(l.value), [t, r, m] = Oe(n.value), [f, M, S] = Oe(n.value), V = (0, vue.computed)(() => typeof e.contentTransition == "string" ? {
-			name: e.contentTransition,
-			appear: !0
-		} : {
-			appear: !0,
-			...e.contentTransition
-		}), O = (0, vue.computed)(() => typeof e.overlayTransition == "string" ? {
-			name: e.overlayTransition,
-			appear: !0
-		} : {
-			appear: !0,
-			...e.overlayTransition
-		});
-		(0, vue.watch)((0, vue.computed)(() => (e.hideOverlay || M.value === 2) && r.value === 2), (k) => {
-			k && (n.value = !1);
-		}), (0, vue.watch)(r, (k) => {
-			if (k === 1) {
-				if (!n.value) return;
-				s?.();
-			} else if (k === 0) {
-				if (!n.value) return;
-				u?.();
-			} else k === 3 ? c?.() : k === 2 && a?.();
-		});
-		async function w() {
-			n.value = !0, await (0, vue.nextTick)(), t.value = !0, f.value = !0;
-		}
-		function D() {
-			t.value = !1, f.value = !1;
-		}
-		return {
-			visible: n,
-			contentVisible: t,
-			contentListeners: m,
-			contentTransition: V,
-			overlayVisible: f,
-			overlayListeners: S,
-			overlayTransition: O,
-			enterTransition: w,
-			leaveTransition: D
-		};
-	}
-	function vo(e, o, l) {
-		const { vfmRootEl: s, vfmContentEl: u, visible: c, modelValueLocal: a } = l, n = (0, vue.ref)();
-		function t() {
-			c.value && e.escToClose && (a.value = !1);
-		}
-		function r(f) {
-			n.value = f == null ? void 0 : f.target;
-		}
-		function m() {
-			var f;
-			n.value === s.value && (e.clickToClose ? a.value = !1 : ((f = u.value) == null || f.focus(), o("clickOutside")));
-		}
-		return {
-			onEsc: t,
-			onMouseupRoot: m,
-			onMousedown: r
-		};
-	}
-	function po(e, o, l) {
-		let s = !1;
-		const { open: u, close: c } = l, a = (0, vue.ref)(!1), n = {
-			get value() {
-				return a.value;
+	var VfmLayer = (0, vue.defineComponent)({
+		name: "VfmLayer",
+		inheritAttrs: false,
+		props: {
+			shown: {
+				type: Boolean,
+				required: true
 			},
-			set value(r) {
-				t(r);
+			keepLayout: {
+				type: Boolean,
+				default: false
 			}
-		};
-		function t(r) {
-			(r ? u() : c()) ? (a.value = r, r !== e.modelValue && o("update:modelValue", r)) : (s = !0, o("update:modelValue", !r), (0, vue.nextTick)(() => {
-				s = !1;
-			}));
+		},
+		setup(props, { attrs, slots, expose }) {
+			const el = (0, vue.ref)();
+			expose({ el });
+			return () => (0, vue.withDirectives)((0, vue.h)("div", {
+				...attrs,
+				ref: el
+			}, slots.default?.()), [[props.keepLayout ? vVisible : vue.vShow, props.shown]]);
 		}
-		return (0, vue.watch)(() => e.modelValue, (r) => {
-			s || (n.value = !!r);
-		}), { modelValueLocal: n };
-	}
-	function yo(e, o) {
-		if (e.focusTrap === !1) return {
-			focus() {},
-			blur() {}
-		};
-		const { focusEl: l } = o, { hasFocus: s, activate: u, deactivate: c } = useFocusTrap(l, e.focusTrap);
-		function a() {
-			requestAnimationFrame(() => {
-				u();
-			});
+	});
+	function useLockScroll(props, options) {
+		const { rootEl, modelValueLocal } = options;
+		let held = [];
+		(0, vue.watch)(() => props.lockScroll, (lock) => lock ? disable() : enable());
+		(0, vue.onBeforeUnmount)(enable);
+		function disable() {
+			if (held.length || !props.lockScroll || !modelValueLocal.value) return;
+			held = [document.body, ...scrollContainers(rootEl.value)];
+			held.forEach((el) => lockScroll(el, { reserveScrollBarGap: props.reserveScrollBarGap }));
 		}
-		function n() {
-			s.value && c();
+		function enable() {
+			held.forEach((el) => unlockScroll(el));
+			held = [];
 		}
 		return {
-			focus: a,
-			blur: n
+			enableScroll: enable,
+			disableScroll: disable
 		};
 	}
-	var be = !1;
-	if (typeof window < "u") {
-		const e = { get passive() {
-			be = !0;
-		} };
-		window.addEventListener("testPassive", null, e), window.removeEventListener("testPassive", null, e);
+	function scrollContainers(el) {
+		const containers = [];
+		for (let parent = el?.parentElement; parent && parent !== document.body; parent = parent.parentElement) {
+			const { overflowX, overflowY } = getComputedStyle(parent);
+			if (isScrollLocked(parent) || [overflowX, overflowY].some((overflow) => overflow === "auto" || overflow === "scroll")) containers.push(parent);
+		}
+		return containers;
 	}
-	var He = typeof window < "u" && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
-	var j = [], le = !1, ne = 0, je = -1, W, X;
-	var ho = (e) => {
-		if (!e || e.nodeType !== Node.ELEMENT_NODE) return !1;
-		const o = window.getComputedStyle(e);
-		return ["auto", "scroll"].includes(o.overflowY) && e.scrollHeight > e.clientHeight;
-	}, mo = (e, o) => !(e.scrollTop === 0 && o < 0 || e.scrollTop + e.clientHeight + o >= e.scrollHeight && o > 0), wo = (e) => {
-		const o = [];
-		for (; e;) {
-			if (o.push(e), e.classList.contains("vfm")) return o;
-			e = e.parentElement;
-		}
-		return o;
-	}, bo = (e, o) => {
-		let l = !1;
-		return wo(e).forEach((u) => {
-			ho(u) && mo(u, o) && (l = !0);
-		}), l;
-	}, Ne = (e) => j.some(() => bo(e, -ne)), se = (e) => {
-		const o = e || window.event;
-		return Ne(o.target) || o.touches.length > 1 ? !0 : (o.preventDefault && o.preventDefault(), !1);
-	}, To = (e) => {
-		if (X === void 0) {
-			const o = !!e && e.reserveScrollBarGap === !0, l = window.innerWidth - document.documentElement.clientWidth;
-			if (o && l > 0) {
-				const s = parseInt(getComputedStyle(document.body).getPropertyValue("padding-right"), 10);
-				X = document.body.style.paddingRight, document.body.style.paddingRight = `${s + l}px`;
-			}
-		}
-		W === void 0 && (W = document.body.style.overflow, document.body.style.overflow = "hidden");
-	}, So = () => {
-		X !== void 0 && (document.body.style.paddingRight = X, X = void 0), W !== void 0 && (document.body.style.overflow = W, W = void 0);
-	}, Mo = (e) => e ? e.scrollHeight - e.scrollTop <= e.clientHeight : !1, go = (e, o) => (ne = e.targetTouches[0].clientY - je, Ne(e.target) ? !1 : o && o.scrollTop === 0 && ne > 0 || Mo(o) && ne < 0 ? se(e) : (e.stopPropagation(), !0)), Co = (e, o) => {
-		if (!e) {
-			console.error("disableBodyScroll unsuccessful - targetElement must be provided when calling disableBodyScroll on IOS devices.");
-			return;
-		}
-		if (j.some((s) => s.targetElement === e)) return;
-		const l = {
-			targetElement: e,
-			options: o || {}
-		};
-		j = [...j, l], He ? (e.ontouchstart = (s) => {
-			s.targetTouches.length === 1 && (je = s.targetTouches[0].clientY);
-		}, e.ontouchmove = (s) => {
-			s.targetTouches.length === 1 && go(s, e);
-		}, le || (document.addEventListener("touchmove", se, be ? { passive: !1 } : void 0), le = !0)) : To(o);
-	}, ko = (e) => {
-		if (!e) {
-			console.error("enableBodyScroll unsuccessful - targetElement must be provided when calling enableBodyScroll on IOS devices.");
-			return;
-		}
-		j = j.filter((o) => o.targetElement !== e), He ? (e.ontouchstart = null, e.ontouchmove = null, le && j.length === 0 && (document.removeEventListener("touchmove", se, be ? { passive: !1 } : void 0), le = !1)) : j.length || So();
-	};
-	function Vo(e, o) {
-		const { lockScrollEl: l, modelValueLocal: s } = o;
-		let u;
-		(0, vue.watch)(l, (n) => {
-			n && (u = n);
-		}, { immediate: !0 }), (0, vue.watch)(() => e.lockScroll, (n) => {
-			n ? a() : c();
-		}), (0, vue.onBeforeUnmount)(() => {
-			c();
+	function useSwipeable(el, { threshold = 0, onSwipeStart, onSwipe, onSwipeEnd }) {
+		const coordsStart = (0, vue.reactive)({
+			x: 0,
+			y: 0
 		});
-		function c() {
-			u && ko(u);
-		}
-		function a() {
-			s.value && e.lockScroll && u && Co(u, {
-				reserveScrollBarGap: e.reserveScrollBarGap,
-				allowTouchMove: (n) => {
-					for (; n && n !== document.body;) {
-						if (n.getAttribute("vfm-scroll-lock-ignore") !== null) return !0;
-						n = n.parentElement;
-					}
-					return !1;
-				}
+		const coordsEnd = (0, vue.reactive)({
+			x: 0,
+			y: 0
+		});
+		const lengthX = (0, vue.computed)(() => coordsStart.x - coordsEnd.x);
+		const lengthY = (0, vue.computed)(() => coordsStart.y - coordsEnd.y);
+		const { max, abs } = Math;
+		const isThresholdExceeded = (0, vue.computed)(() => max(abs(lengthX.value), abs(lengthY.value)) >= threshold);
+		const isSwiping = (0, vue.ref)(false);
+		const direction = (0, vue.computed)(() => {
+			if (!isThresholdExceeded.value) return "none";
+			if (abs(lengthX.value) > abs(lengthY.value)) return lengthX.value > 0 ? "left" : "right";
+			return lengthY.value > 0 ? "up" : "down";
+		});
+		const listenerOptions = { passive: true };
+		let stopMoveListeners = [];
+		function pointerStart(e) {
+			const { x, y } = getPosition(e);
+			Object.assign(coordsStart, {
+				x,
+				y
 			});
-		}
-		return {
-			enableBodyScroll: c,
-			disableBodyScroll: a
-		};
-	}
-	function Eo(e) {
-		const o = (0, vue.ref)();
-		function l(u) {
-			var c;
-			o.value = (c = e.zIndexFn) == null ? void 0 : c.call(e, { index: u <= -1 ? 0 : u });
-		}
-		function s() {
-			o.value = void 0;
-		}
-		return {
-			zIndex: o,
-			refreshZIndex: l,
-			resetZIndex: s
-		};
-	}
-	var ve = {
-		beforeMount(e, { value: o }, { transition: l }) {
-			e._vov = e.style.visibility === "hidden" ? "" : e.style.visibility, l && o ? l.beforeEnter(e) : G(e, o);
-		},
-		mounted(e, { value: o }, { transition: l }) {
-			l && o && l.enter(e);
-		},
-		updated(e, { value: o, oldValue: l }, { transition: s }) {
-			!o != !l && (s ? o ? (s.beforeEnter(e), G(e, !0), s.enter(e)) : s.leave(e, () => {
-				G(e, !1);
-			}) : G(e, o));
-		},
-		beforeUnmount(e, { value: o }) {
-			G(e, o);
-		}
-	};
-	function G(e, o) {
-		e.style.visibility = o ? e._vov : "hidden";
-	}
-	var De = (e) => {
-		if (e instanceof MouseEvent) {
-			const { clientX: o, clientY: l } = e;
-			return {
-				x: o,
-				y: l
-			};
-		} else {
-			const { clientX: o, clientY: l } = e.targetTouches[0];
-			return {
-				x: o,
-				y: l
-			};
-		}
-	};
-	function Bo(e) {
-		if (!e) return !1;
-		let o = !1;
-		return e.addEventListener("x", q, { get passive() {
-			return o = !0, !1;
-		} }), e.removeEventListener("x", q), o;
-	}
-	function Oo(e, { threshold: o = 0, onSwipeStart: l, onSwipe: s, onSwipeEnd: u, passive: c = !0 }) {
-		const a = (0, vue.reactive)({
-			x: 0,
-			y: 0
-		}), n = (0, vue.reactive)({
-			x: 0,
-			y: 0
-		}), t = (0, vue.computed)(() => a.x - n.x), r = (0, vue.computed)(() => a.y - n.y), { max: m, abs: f } = Math, M = (0, vue.computed)(() => m(f(t.value), f(r.value)) >= o), S = (0, vue.ref)(!1), V = (0, vue.computed)(() => M.value ? f(t.value) > f(r.value) ? t.value > 0 ? "left" : "right" : r.value > 0 ? "up" : "down" : "none"), O = (p, h) => {
-			a.x = p, a.y = h;
-		}, E = (p, h) => {
-			n.x = p, n.y = h;
-		};
-		let w, D;
-		function k(p) {
-			w.capture && !w.passive && p.preventDefault();
-			const { x: h, y: R } = De(p);
-			O(h, R), E(h, R), l?.(p), D = [
-				useEventListener(e, "mousemove", P, w),
-				useEventListener(e, "touchmove", P, w),
-				useEventListener(e, "mouseup", i, w),
-				useEventListener(e, "touchend", i, w),
-				useEventListener(e, "touchcancel", i, w)
+			Object.assign(coordsEnd, {
+				x,
+				y
+			});
+			onSwipeStart?.(e);
+			stopMoveListeners.forEach((stop) => stop());
+			stopMoveListeners = [
+				useEventListener(window, "mousemove", pointerMove, listenerOptions),
+				useEventListener(window, "touchmove", pointerMove, listenerOptions),
+				useEventListener(window, "mouseup", pointerEnd, listenerOptions),
+				useEventListener(window, "touchend", pointerEnd, listenerOptions),
+				useEventListener(window, "touchcancel", pointerEnd, listenerOptions)
 			];
 		}
-		function P(p) {
-			const { x: h, y: R } = De(p);
-			E(h, R), !S.value && M.value && (S.value = !0), S.value && s?.(p);
+		function pointerMove(e) {
+			Object.assign(coordsEnd, getPosition(e));
+			if (isThresholdExceeded.value) isSwiping.value = true;
+			if (isSwiping.value) onSwipe?.(e);
 		}
-		function i(p) {
-			S.value && u?.(p, V.value), S.value = !1, D.forEach((h) => h());
+		function pointerEnd(e) {
+			if (isSwiping.value) onSwipeEnd?.(e, direction.value);
+			isSwiping.value = false;
+			stopMoveListeners.forEach((stop) => stop());
 		}
-		let b = [];
-		return (0, vue.onMounted)(() => {
-			const p = Bo(window == null ? void 0 : window.document);
-			c ? w = p ? { passive: !0 } : { capture: !1 } : w = p ? {
-				passive: !1,
-				capture: !0
-			} : { capture: !0 }, b = [useEventListener(e, "mousedown", k, w), useEventListener(e, "touchstart", k, w)];
-		}), {
-			isSwiping: S,
-			direction: V,
-			coordsStart: a,
-			coordsEnd: n,
-			lengthX: t,
-			lengthY: r,
-			stop: () => {
-				b.forEach((p) => p()), D.forEach((p) => p());
-			}
+		useEventListener(el, "mousedown", pointerStart, listenerOptions);
+		useEventListener(el, "touchstart", pointerStart, listenerOptions);
+		return {
+			isSwiping,
+			direction,
+			lengthX,
+			lengthY
 		};
 	}
-	function Do(e, o) {
-		const { vfmContentEl: l, modelValueLocal: s } = o, u = .1, c = 300, a = (0, vue.ref)(), n = (0, vue.computed)(() => {
-			if (!(e.swipeToClose === void 0 || e.swipeToClose === "none")) return e.showSwipeBanner ? a.value : l.value;
-		}), t = (0, vue.ref)(0), r = (0, vue.ref)(!0);
-		let m = q, f = !0, M, S = !1;
-		const { lengthX: V, lengthY: O, direction: E, isSwiping: w } = Oo(n, {
-			threshold: e.threshold,
-			onSwipeStart(i) {
-				m = useEventListener(document, "selectionchange", () => {
-					var b;
-					r.value = (b = window.getSelection()) == null ? void 0 : b.isCollapsed;
-				}), M = new Date().getTime(), S = P(i == null ? void 0 : i.target);
+	function getPosition(e) {
+		const { clientX: x, clientY: y } = e instanceof MouseEvent ? e : e.targetTouches[0];
+		return {
+			x,
+			y
+		};
+	}
+	var OFFSET_SIGN = {
+		up: 1,
+		down: -1,
+		left: 1,
+		right: -1,
+		none: 0
+	};
+	function hasSelectionIn(el) {
+		const selection = window.getSelection();
+		if (!el || !selection || selection.isCollapsed) return false;
+		for (let i = 0; i < selection.rangeCount; i++) {
+			const range = selection.getRangeAt(i);
+			if (range.intersectsNode(el) && range.toString().trim()) return true;
+		}
+		return false;
+	}
+	function useSwipeToClose(props, options) {
+		const { vfmContentEl, swipeBannerEl, modelValueLocal } = options;
+		const LIMIT_DISTANCE = .1;
+		const LIMIT_SPEED = 300;
+		const swipeEl = (0, vue.computed)(() => {
+			if (props.swipeToClose === "none") return void 0;
+			return props.showSwipeBanner ? swipeBannerEl.value : vfmContentEl.value;
+		});
+		const vertical = (0, vue.computed)(() => props.swipeToClose === "up" || props.swipeToClose === "down");
+		const offset = (0, vue.ref)(0);
+		const isSelecting = (0, vue.ref)(false);
+		let stopSelectionChange = noop;
+		let shouldCloseModal = true;
+		let swipeStart = 0;
+		let allowSwipe = false;
+		const { lengthX, lengthY, direction, isSwiping } = useSwipeable(swipeEl, {
+			threshold: props.threshold,
+			onSwipeStart(e) {
+				stopSelectionChange = useEventListener(document, "selectionchange", () => {
+					isSelecting.value = hasSelectionIn(vfmContentEl.value);
+				});
+				swipeStart = Date.now();
+				allowSwipe = canSwipe(e.target);
 			},
 			onSwipe() {
-				var i, b, L, p;
-				if (S && r.value && E.value === e.swipeToClose) {
-					if (E.value === "up") t.value = oe(Math.abs(O.value || 0), 0, ((i = n.value) == null ? void 0 : i.offsetHeight) || 0) - (e.threshold || 0);
-					else if (E.value === "down") t.value = -(oe(Math.abs(O.value || 0), 0, ((b = n.value) == null ? void 0 : b.offsetHeight) || 0) - (e.threshold || 0));
-					else if (E.value === "right") t.value = -(oe(Math.abs(V.value || 0), 0, ((L = n.value) == null ? void 0 : L.offsetWidth) || 0) - (e.threshold || 0));
-					else if (E.value === "left") t.value = oe(Math.abs(V.value || 0), 0, ((p = n.value) == null ? void 0 : p.offsetWidth) || 0) - (e.threshold || 0);
-				}
+				if (!allowSwipe || isSelecting.value || direction.value !== props.swipeToClose) return;
+				offset.value = OFFSET_SIGN[direction.value] * (clamp(swipedLength(), 0, swipeElSize()) - (props.threshold || 0));
 			},
-			onSwipeEnd(i, b) {
-				if (m(), !r.value) {
-					r.value = !0;
+			onSwipeEnd(_e, endDirection) {
+				stopSelectionChange();
+				if (isSelecting.value) {
+					isSelecting.value = false;
 					return;
 				}
-				const L = new Date().getTime(), p = b === e.swipeToClose, h = (() => {
-					var J, Q;
-					if (b === "up" || b === "down") return Math.abs((O == null ? void 0 : O.value) || 0) > u * (((J = n.value) == null ? void 0 : J.offsetHeight) || 0);
-					if (b === "left" || b === "right") return Math.abs((V == null ? void 0 : V.value) || 0) > u * (((Q = n.value) == null ? void 0 : Q.offsetWidth) || 0);
-				})(), R = L - M <= c;
-				if (f && S && p && (h || R)) {
-					s.value = !1;
+				const validDistance = swipedLength() > LIMIT_DISTANCE * swipeElSize();
+				const validSpeed = Date.now() - swipeStart <= LIMIT_SPEED;
+				if (shouldCloseModal && allowSwipe && endDirection === props.swipeToClose && (validDistance || validSpeed)) {
+					modelValueLocal.value = false;
 					return;
 				}
-				t.value = 0;
+				offset.value = 0;
 			}
-		}), D = (0, vue.computed)(() => {
-			if (e.swipeToClose === "none") return;
-			const i = (() => {
-				switch (e.swipeToClose) {
-					case "up":
-					case "down": return "translateY";
-					case "left":
-					case "right": return "translateX";
-				}
-			})();
+		});
+		function swipedLength() {
+			return Math.abs(vertical.value ? lengthY.value : lengthX.value);
+		}
+		function swipeElSize() {
+			return (vertical.value ? swipeEl.value?.offsetHeight : swipeEl.value?.offsetWidth) || 0;
+		}
+		const bindSwipe = (0, vue.computed)(() => {
+			if (props.swipeToClose === "none") return;
 			return {
-				class: { "vfm-bounce-back": !w.value },
-				style: { transform: `${i}(${-t.value}px)` }
+				class: { "vfm-bounce-back": !isSwiping.value },
+				style: { transform: `${vertical.value ? "translateY" : "translateX"}(${-offset.value}px)` }
 			};
 		});
-		(0, vue.watch)(() => r.value, (i) => {
-			i || (t.value = 0);
-		}), (0, vue.watch)(() => s.value, (i) => {
-			i && (t.value = 0);
-		}), (0, vue.watch)(() => t.value, (i, b) => {
-			switch (e.swipeToClose) {
-				case "down":
-				case "right":
-					f = i < b;
-					break;
-				case "up":
-				case "left":
-					f = i > b;
-					break;
-			}
+		(0, vue.watch)(isSelecting, (val) => {
+			if (val) offset.value = 0;
 		});
-		function k(i) {
-			e.preventNavigationGestures && i.preventDefault();
+		(0, vue.watch)(modelValueLocal, (val) => {
+			if (val) offset.value = 0;
+		});
+		(0, vue.watch)(offset, (newValue, oldValue) => {
+			shouldCloseModal = OFFSET_SIGN[props.swipeToClose ?? "none"] * (newValue - oldValue) > 0;
+		});
+		function onTouchStartSwipeBanner(e) {
+			if (props.preventNavigationGestures) e.preventDefault();
 		}
-		function P(i) {
-			const b = i == null ? void 0 : i.tagName;
-			if (!b || ["INPUT", "TEXTAREA"].includes(b)) return !1;
-			const L = (() => {
-				switch (e.swipeToClose) {
-					case "up": return (i == null ? void 0 : i.scrollTop) + (i == null ? void 0 : i.clientHeight) === (i == null ? void 0 : i.scrollHeight);
-					case "left": return (i == null ? void 0 : i.scrollLeft) + (i == null ? void 0 : i.clientWidth) === (i == null ? void 0 : i.scrollWidth);
-					case "down": return (i == null ? void 0 : i.scrollTop) === 0;
-					case "right": return (i == null ? void 0 : i.scrollLeft) === 0;
-					default: return !1;
-				}
-			})();
-			return i === n.value ? L : L && P(i == null ? void 0 : i.parentElement);
+		function canSwipe(target) {
+			const el = target;
+			if (!el?.tagName || ["INPUT", "TEXTAREA"].includes(el.tagName)) return false;
+			if (!scrolledToEdge(el)) return false;
+			return el === swipeEl.value || canSwipe(el.parentElement);
+		}
+		function scrolledToEdge(el) {
+			switch (props.swipeToClose) {
+				case "up": return el.scrollTop + el.clientHeight === el.scrollHeight;
+				case "left": return el.scrollLeft + el.clientWidth === el.scrollWidth;
+				case "down": return el.scrollTop === 0;
+				case "right": return el.scrollLeft === 0;
+				default: return false;
+			}
 		}
 		return {
-			vfmContentEl: l,
-			swipeBannerEl: a,
-			bindSwipe: D,
-			onTouchStartSwipeBanner: k
+			bindSwipe,
+			onTouchStartSwipeBanner
 		};
 	}
-	var Ye = Symbol("vfm");
-	var H;
-	var Lo = (e) => H = e, Po = {
-		install: q,
-		modals: [],
-		openedModals: [],
-		openedModalOverlays: [],
-		dynamicModals: [],
-		modalsContainers: (0, vue.ref)([]),
-		get: () => {},
-		toggle: () => {},
-		open: () => {},
-		close: () => {},
-		closeAll: () => Promise.allSettled([])
-	}, Ao = () => (0, vue.getCurrentInstance)() && (0, vue.inject)(Ye, Po) || H;
-	function zo() {
-		const e = (0, vue.shallowReactive)([]), o = (0, vue.shallowReactive)([]), c = (0, vue.markRaw)({
-			install(a) {
-				a.provide(Ye, c), a.config.globalProperties.$vfm = c;
-			},
-			modals: e,
-			openedModals: o,
-			openedModalOverlays: (0, vue.shallowReactive)([]),
-			dynamicModals: (0, vue.shallowReactive)([]),
-			modalsContainers: (0, vue.ref)([]),
-			get(a) {
-				return e.find((n) => {
-					var t, r;
-					return ((r = (t = Z(n)) == null ? void 0 : t.value.modalId) == null ? void 0 : r.value) === a;
-				});
-			},
-			toggle(a, n) {
-				var r;
-				return (r = Z(c.get(a))) == null ? void 0 : r.value.toggle(n);
-			},
-			open(a) {
-				return c.toggle(a, !0);
-			},
-			close(a) {
-				return c.toggle(a, !1);
-			},
-			closeAll() {
-				return Promise.allSettled(o.reduce((a, n) => {
-					const t = Z(n), r = t == null ? void 0 : t.value.toggle(!1);
-					return r && a.push(r), a;
-				}, []));
+	function useToClose(props, emit, options) {
+		const { vfmRootEl, vfmContentEl, visible, modelValueLocal } = options;
+		let lastMousedownEl = null;
+		function onEsc(e) {
+			if (vfmRootEl.value?.closest("dialog")) e.preventDefault();
+			if (visible.value && props.escToClose) modelValueLocal.value = false;
+		}
+		function onMousedown(e) {
+			lastMousedownEl = e.target;
+		}
+		function onMouseupRoot() {
+			if (lastMousedownEl !== vfmRootEl.value) return;
+			if (props.clickToClose) modelValueLocal.value = false;
+			else {
+				vfmContentEl.value?.focus();
+				emit("clickOutside");
 			}
+		}
+		return {
+			onEsc,
+			onMouseupRoot,
+			onMousedown
+		};
+	}
+	function useTransition(props, options) {
+		const { hydrating = false, onOpening, onOpen, onClosed } = options;
+		const phase = (0, vue.ref)("closed");
+		const visible = (0, vue.computed)(() => phase.value !== "closed");
+		const leaving = (0, vue.computed)(() => phase.value === "closing");
+		const contentVisible = (0, vue.ref)(false);
+		const overlayVisible = (0, vue.ref)(true);
+		const overlayShown = (0, vue.computed)(() => contentVisible.value && overlayVisible.value);
+		const appear = (0, vue.ref)(!(hydrating && props.modelValue));
+		const contentTransition = (0, vue.computed)(() => mergeTransition(props.contentTransition, appear.value));
+		const overlayTransition = (0, vue.computed)(() => mergeTransition(props.overlayTransition, appear.value));
+		const running = new Set();
+		let advanceId = 0;
+		function layerListeners(layer) {
+			return {
+				beforeEnter() {
+					if (phase.value === "opening") running.add(layer);
+				},
+				afterEnter() {
+					if (phase.value === "opening") ended(layer);
+				},
+				enterCancelled() {
+					if (phase.value === "opening") ended(layer);
+				},
+				beforeLeave() {
+					if (phase.value === "closing") running.add(layer);
+				},
+				afterLeave() {
+					if (phase.value === "closing") ended(layer);
+				}
+			};
+		}
+		const contentListeners = layerListeners("content");
+		const overlayListeners = layerListeners("overlay");
+		function ended(layer) {
+			running.delete(layer);
+			if (running.size === 0) settle();
+		}
+		function settle() {
+			if (phase.value === "opening") phase.value = "open";
+			else if (phase.value === "closing") phase.value = "closed";
+		}
+		async function advance(next) {
+			phase.value = next;
+			running.clear();
+			const id = ++advanceId;
+			contentVisible.value = next === "opening";
+			await (0, vue.nextTick)();
+			appear.value = true;
+			if (id === advanceId && running.size === 0) settle();
+		}
+		let openingRunFor = -1;
+		function runOpening(id) {
+			if (openingRunFor === id) return;
+			openingRunFor = id;
+			onOpening?.();
+		}
+		(0, vue.watch)(phase, (value) => {
+			if (value === "opening") {
+				const id = advanceId;
+				(0, vue.nextTick)(() => {
+					if (id === advanceId) runOpening(id);
+				});
+			} else if (value === "open") {
+				runOpening(advanceId);
+				onOpen?.();
+			} else if (value === "closed") onClosed?.();
 		});
-		return Lo(c), c;
+		return {
+			visible,
+			leaving,
+			contentVisible,
+			contentListeners,
+			contentTransition,
+			overlayVisible,
+			overlayShown,
+			overlayListeners,
+			overlayTransition,
+			enter: () => advance("opening"),
+			leave: () => advance("closing")
+		};
 	}
-	function Z(e) {
-		var o;
-		return (o = e == null ? void 0 : e.exposed) == null ? void 0 : o.modalExposed;
+	function mergeTransition(transition, appear) {
+		if (typeof transition === "string") return {
+			name: transition,
+			appear
+		};
+		return {
+			appear,
+			...transition
+		};
 	}
-	var Ro = (0, vue.defineComponent)({
-		...(0, vue.defineComponent)({ inheritAttrs: !1 }),
+	function useZIndex(props, context) {
+		const { visible, modalExposed, openedModals } = context;
+		const index = (0, vue.computed)(() => openedModals.indexOf(modalExposed));
+		return { zIndex: (0, vue.computed)(() => visible.value ? props.zIndexFn?.({ index: Math.max(index.value, 0) }) : void 0) };
+	}
+	var _sfc_main$1 = (0, vue.defineComponent)({
+		inheritAttrs: false,
 		__name: "VueFinalModal",
-		props: co,
+		props: vueFinalModalProps,
 		emits: [
 			"update:modelValue",
 			"beforeOpen",
 			"opened",
 			"beforeClose",
 			"closed",
-			"clickOutside"
+			"clickOutside",
+			"_opened",
+			"_closed",
+			"_stopped",
+			"_status"
 		],
-		setup(e, { expose: o, emit: l }) {
-			const s = e, u = l, c = (0, vue.useAttrs)(), a = (0, vue.getCurrentInstance)(), { modals: n, openedModals: t, openedModalOverlays: r } = K(), m = (0, vue.ref)(), f = (0, vue.ref)(), { focus: M, blur: S } = yo(s, { focusEl: m }), { zIndex: V, refreshZIndex: O, resetZIndex: E } = Eo(s), { modelValueLocal: w } = po(s, u, {
-				open: We,
-				close: Xe
-			}), { enableBodyScroll: D, disableBodyScroll: k } = Vo(s, {
-				lockScrollEl: m,
-				modelValueLocal: w
+		setup(__props, { emit: __emit }) {
+			const props = __props;
+			const emit = __emit;
+			const attrs = (0, vue.useAttrs)();
+			const vfm = useVfm();
+			const request = useVfmRequest(vfm);
+			const { modals } = vfm;
+			const { openedModals, openedModalOverlays } = request ?? vfm;
+			const vfmRootEl = (0, vue.ref)();
+			const coveringDialog = (0, vue.shallowRef)();
+			const teleportTarget = (0, vue.computed)(() => props.teleportTo && (coveringDialog.value ?? props.teleportTo));
+			const contentLayer = (0, vue.ref)();
+			const vfmContentEl = (0, vue.computed)(() => contentLayer.value?.el);
+			const { focus, blur } = useFocusTrap$1(props, { focusEl: vfmRootEl });
+			let transitionEnded = noop;
+			const { isOpen: modelValueLocal, status, toggle } = createModalLifecycle(props, emit, {
+				open,
+				close
 			});
-			let P = q;
-			const { visible: i, contentVisible: b, contentListeners: L, contentTransition: p, overlayVisible: h, overlayListeners: R, overlayTransition: J, enterTransition: Q, leaveTransition: xe } = fo(s, {
-				modelValueLocal: w,
-				onEntering() {
-					(0, vue.nextTick)(() => {
-						k(), M();
-					});
-				},
-				onEnter() {
-					u("opened"), P("opened");
-				},
-				onLeave() {
-					$(t, a), E(), D(), u("closed"), P("closed");
-				}
-			}), { onEsc: ze, onMouseupRoot: Ge, onMousedown: Te } = vo(s, u, {
-				vfmRootEl: m,
-				vfmContentEl: f,
-				visible: i,
-				modelValueLocal: w
-			}), { swipeBannerEl: $e, bindSwipe: Ue, onTouchStartSwipeBanner: Se } = Do(s, {
-				vfmContentEl: f,
-				modelValueLocal: w
-			}), Me = (0, vue.computed)(() => a ? t.indexOf(a) : -1);
-			(0, vue.watch)([() => s.zIndexFn, Me], () => {
-				i.value && O(Me.value);
-			}), (0, vue.onMounted)(() => {
-				fe(n, a);
-			}), s.modelValue && (w.value = !0);
-			function We() {
-				let d = !1;
-				return u("beforeOpen", { stop: () => d = !0 }), d ? !1 : (fe(t, a), fe(r, a), ie(), Q(), !0);
-			}
-			function Xe() {
-				let d = !1;
-				return u("beforeClose", { stop: () => d = !0 }), d ? !1 : ($(r, a), ie(), S(), xe(), !0);
-			}
-			function Ze() {
-				w.value = !1;
-			}
+			const { disableScroll, enableScroll } = useLockScroll(props, {
+				rootEl: vfmRootEl,
+				modelValueLocal
+			});
+			const { visible, leaving, contentVisible, contentListeners, contentTransition, overlayVisible, overlayShown, overlayListeners, overlayTransition, enter, leave } = useTransition(props, {
+				hydrating: !!(0, vue.getCurrentInstance)()?.vnode.el?.isConnected,
+				onOpening,
+				onOpen,
+				onClosed
+			});
+			const { modalExposed } = useInternalExposed(props, {
+				overlayVisible,
+				status,
+				toggle
+			});
+			const { zIndex } = useZIndex(props, {
+				visible,
+				modalExposed,
+				openedModals
+			});
+			const { onEsc, onMouseupRoot, onMousedown } = useToClose(props, emit, {
+				vfmRootEl,
+				vfmContentEl,
+				visible,
+				modelValueLocal
+			});
+			const swipeBannerEl = (0, vue.ref)();
+			const { bindSwipe, onTouchStartSwipeBanner } = useSwipeToClose(props, {
+				vfmContentEl,
+				swipeBannerEl,
+				modelValueLocal
+			});
+			if (props.modelValue) modelValueLocal.value = true;
+			(0, vue.onMounted)(() => {
+				arrayMoveItemToLast(modals, modalExposed);
+			});
 			(0, vue.onBeforeUnmount)(() => {
-				D(), $(n, a), $(t, a), S(), ie();
+				arrayRemoveItem(modals, modalExposed);
+				arrayRemoveItem(openedModals, modalExposed);
+				arrayRemoveItem(openedModalOverlays, modalExposed);
+				blur();
+				openLastOverlay();
 			});
-			async function ie() {
+			function onOpening() {
+				disableScroll();
+				focus();
+			}
+			function onOpen() {
+				transitionEnded();
+			}
+			function onClosed() {
+				arrayRemoveItem(openedModals, modalExposed);
+				enableScroll();
+				transitionEnded();
+			}
+			function open(done) {
+				transitionEnded = done;
+				coveringDialog.value = vfm._dialogs.at(-1);
+				arrayMoveItemToLast(openedModals, modalExposed);
+				arrayMoveItemToLast(openedModalOverlays, modalExposed);
+				overlayVisible.value = true;
+				openLastOverlay();
+				enter();
+			}
+			function close(done) {
+				transitionEnded = done;
+				arrayRemoveItem(openedModalOverlays, modalExposed);
+				openLastOverlay();
+				blur();
+				leave();
+			}
+			function closeFromSlot() {
+				modelValueLocal.value = false;
+			}
+			function SwipeBanners() {
+				return [(0, vue.h)("div", {
+					class: "vfm-swipe-banner-back",
+					onTouchstart: (e) => props.swipeToClose === "left" && e.preventDefault()
+				}), (0, vue.h)("div", {
+					class: "vfm-swipe-banner-forward",
+					onTouchstart: (e) => props.swipeToClose === "right" && e.preventDefault()
+				})];
+			}
+			async function openLastOverlay() {
 				await (0, vue.nextTick)();
-				const d = r.filter((y) => {
-					var A;
-					const T = Z(y);
-					return (T == null ? void 0 : T.value.overlayBehavior.value) === "auto" && !((A = T == null ? void 0 : T.value.hideOverlay) != null && A.value);
-				});
-				d.forEach((y, T) => {
-					const A = Z(y);
-					A != null && A.value && (A.value.overlayVisible.value = T === d.length - 1);
+				const autoOverlays = openedModalOverlays.filter((modal) => modal.value.overlayBehavior.value === "auto" && !modal.value.hideOverlay.value);
+				autoOverlays.forEach((modal, index) => {
+					modal.value.overlayVisible.value = index === autoOverlays.length - 1;
 				});
 			}
-			const Ke = (0, vue.toRef)(() => s.modalId), ge = (0, vue.toRef)(() => s.hideOverlay), qe = (0, vue.toRef)(() => s.overlayBehavior);
-			return o({ modalExposed: (0, vue.computed)(() => ({
-				modalId: Ke,
-				hideOverlay: ge,
-				overlayBehavior: qe,
-				overlayVisible: h,
-				toggle(d) {
-					return new Promise((y) => {
-						P = uo((A) => y(A));
-						w.value = typeof d == "boolean" ? d : !w.value;
-					});
-				}
-			})) }), (d, y) => ((0, vue.openBlock)(), (0, vue.createBlock)(vue.Teleport, {
-				to: d.teleportTo ? d.teleportTo : void 0,
-				disabled: !d.teleportTo
-			}, [d.displayDirective !== "if" || (0, vue.unref)(i) ? (0, vue.withDirectives)(((0, vue.openBlock)(), (0, vue.createElementBlock)("div", (0, vue.mergeProps)({ key: 0 }, (0, vue.unref)(c), {
-				ref_key: "vfmRootEl",
-				ref: m,
-				class: ["vfm vfm--fixed vfm--inset", { "vfm--prevent-none": d.background === "interactive" }],
-				style: { zIndex: (0, vue.unref)(V) },
-				role: "dialog",
-				"aria-modal": "true",
-				onKeydown: y[7] || (y[7] = (0, vue.withKeys)(() => (0, vue.unref)(ze)(), ["esc"])),
-				onMouseup: y[8] || (y[8] = (0, vue.withModifiers)(() => (0, vue.unref)(Ge)(), ["self"])),
-				onMousedown: y[9] || (y[9] = (0, vue.withModifiers)((T) => (0, vue.unref)(Te)(T), ["self"]))
-			}), [ge.value ? (0, vue.createCommentVNode)("", !0) : ((0, vue.openBlock)(), (0, vue.createBlock)(vue.Transition, (0, vue.mergeProps)({ key: 0 }, (0, vue.unref)(J), (0, vue.toHandlers)((0, vue.unref)(R))), {
-				default: (0, vue.withCtx)(() => [d.displayDirective !== "if" || (0, vue.unref)(h) ? (0, vue.withDirectives)(((0, vue.openBlock)(), (0, vue.createElementBlock)("div", {
-					key: 0,
-					class: (0, vue.normalizeClass)(["vfm__overlay vfm--overlay vfm--absolute vfm--inset vfm--prevent-none", d.overlayClass]),
-					style: (0, vue.normalizeStyle)(d.overlayStyle),
-					"aria-hidden": "true"
-				}, null, 6)), [[vue.vShow, d.displayDirective !== "show" || (0, vue.unref)(h)], [(0, vue.unref)(ve), d.displayDirective !== "visible" || (0, vue.unref)(h)]]) : (0, vue.createCommentVNode)("", !0)]),
-				_: 1
-			}, 16)), (0, vue.createVNode)(vue.Transition, (0, vue.mergeProps)((0, vue.unref)(p), (0, vue.toHandlers)((0, vue.unref)(L))), {
-				default: (0, vue.withCtx)(() => [d.displayDirective !== "if" || (0, vue.unref)(b) ? (0, vue.withDirectives)(((0, vue.openBlock)(), (0, vue.createElementBlock)("div", (0, vue.mergeProps)({
-					key: 0,
-					ref_key: "vfmContentEl",
-					ref: f,
-					class: ["vfm__content vfm--outline-none", [d.contentClass, { "vfm--prevent-auto": d.background === "interactive" }]],
-					style: d.contentStyle,
-					tabindex: "0"
-				}, (0, vue.unref)(Ue), { onMousedown: y[6] || (y[6] = () => (0, vue.unref)(Te)()) }), [(0, vue.renderSlot)(d.$slots, "default", (0, vue.normalizeProps)((0, vue.guardReactiveProps)({ close: Ze }))), d.showSwipeBanner ? ((0, vue.openBlock)(), (0, vue.createElementBlock)("div", {
-					key: 0,
-					ref_key: "swipeBannerEl",
-					ref: $e,
-					class: "vfm-swipe-banner-container",
-					onTouchstart: y[2] || (y[2] = (T) => (0, vue.unref)(Se)(T))
-				}, [(0, vue.renderSlot)(d.$slots, "swipe-banner", {}, () => [(0, vue.createElementVNode)("div", {
-					class: "vfm-swipe-banner-back",
-					onTouchstart: y[0] || (y[0] = (T) => d.swipeToClose === "left" && T.preventDefault())
-				}, null, 32), (0, vue.createElementVNode)("div", {
-					class: "vfm-swipe-banner-forward",
-					onTouchstart: y[1] || (y[1] = (T) => d.swipeToClose === "right" && T.preventDefault())
-				}, null, 32)])], 544)) : !d.showSwipeBanner && d.preventNavigationGestures ? ((0, vue.openBlock)(), (0, vue.createElementBlock)("div", {
-					key: 1,
-					class: "vfm-swipe-banner-container",
-					onTouchstart: y[5] || (y[5] = (T) => (0, vue.unref)(Se)(T))
-				}, [(0, vue.createElementVNode)("div", {
-					class: "vfm-swipe-banner-back",
-					onTouchstart: y[3] || (y[3] = (T) => d.swipeToClose === "left" && T.preventDefault())
-				}, null, 32), (0, vue.createElementVNode)("div", {
-					class: "vfm-swipe-banner-forward",
-					onTouchstart: y[4] || (y[4] = (T) => d.swipeToClose === "right" && T.preventDefault())
-				}, null, 32)], 32)) : (0, vue.createCommentVNode)("", !0)], 16)), [[vue.vShow, d.displayDirective !== "show" || (0, vue.unref)(b)], [(0, vue.unref)(ve), d.displayDirective !== "visible" || (0, vue.unref)(b)]]) : (0, vue.createCommentVNode)("", !0)]),
-				_: 3
-			}, 16)], 16)), [[vue.vShow, d.displayDirective !== "show" || (0, vue.unref)(i)], [(0, vue.unref)(ve), d.displayDirective !== "visible" || (0, vue.unref)(i)]]) : (0, vue.createCommentVNode)("", !0)], 8, ["to", "disabled"]));
+			return (_ctx, _cache) => {
+				return (0, vue.openBlock)(), (0, vue.createElementBlock)(vue.Fragment, null, [(0, vue.createCommentVNode)(" The server renderer drops a Teleport without `to` even when it is disabled, so a disabled one still gets a target. "), ((0, vue.openBlock)(), (0, vue.createBlock)(vue.Teleport, {
+					to: teleportTarget.value || "body",
+					disabled: !teleportTarget.value
+				}, [_ctx.displayDirective !== "if" || (0, vue.unref)(visible) ? (0, vue.withDirectives)(((0, vue.openBlock)(), (0, vue.createElementBlock)("div", (0, vue.mergeProps)({ key: 0 }, (0, vue.unref)(attrs), {
+					ref_key: "vfmRootEl",
+					ref: vfmRootEl,
+					class: ["vfm vfm--fixed vfm--inset", { "vfm--prevent-none": _ctx.background === "interactive" || (0, vue.unref)(leaving) }],
+					style: { zIndex: (0, vue.unref)(zIndex) },
+					role: "dialog",
+					"aria-modal": "true",
+					onKeydown: _cache[1] || (_cache[1] = (0, vue.withKeys)((...args) => (0, vue.unref)(onEsc) && (0, vue.unref)(onEsc)(...args), ["esc"])),
+					onMouseup: _cache[2] || (_cache[2] = (0, vue.withModifiers)((...args) => (0, vue.unref)(onMouseupRoot) && (0, vue.unref)(onMouseupRoot)(...args), ["self"])),
+					onMousedown: _cache[3] || (_cache[3] = (0, vue.withModifiers)((...args) => (0, vue.unref)(onMousedown) && (0, vue.unref)(onMousedown)(...args), ["self"]))
+				}), [!_ctx.hideOverlay ? ((0, vue.openBlock)(), (0, vue.createBlock)(vue.Transition, (0, vue.mergeProps)({ key: 0 }, (0, vue.unref)(overlayTransition), (0, vue.toHandlers)((0, vue.unref)(overlayListeners))), {
+					default: (0, vue.withCtx)(() => [(0, vue.createVNode)((0, vue.unref)(VfmLayer), {
+						shown: (0, vue.unref)(overlayShown),
+						"keep-layout": _ctx.displayDirective === "visible",
+						class: (0, vue.normalizeClass)(["vfm__overlay vfm--overlay vfm--absolute vfm--inset vfm--prevent-none", _ctx.overlayClass]),
+						style: (0, vue.normalizeStyle)(_ctx.overlayStyle),
+						"aria-hidden": "true"
+					}, null, 8, [
+						"shown",
+						"keep-layout",
+						"class",
+						"style"
+					])]),
+					_: 1
+				}, 16)) : (0, vue.createCommentVNode)("v-if", true), (0, vue.createVNode)(vue.Transition, (0, vue.mergeProps)((0, vue.unref)(contentTransition), (0, vue.toHandlers)((0, vue.unref)(contentListeners))), {
+					default: (0, vue.withCtx)(() => [(0, vue.createVNode)((0, vue.unref)(VfmLayer), (0, vue.mergeProps)({
+						ref_key: "contentLayer",
+						ref: contentLayer,
+						shown: (0, vue.unref)(contentVisible),
+						"keep-layout": _ctx.displayDirective === "visible",
+						class: ["vfm__content vfm--outline-none", [_ctx.contentClass, { "vfm--prevent-auto": _ctx.background === "interactive" && !(0, vue.unref)(leaving) }]],
+						style: _ctx.contentStyle,
+						tabindex: "0"
+					}, (0, vue.unref)(bindSwipe), { onMousedown: (0, vue.unref)(onMousedown) }), {
+						default: (0, vue.withCtx)(() => [(0, vue.renderSlot)(_ctx.$slots, "default", { close: closeFromSlot }), _ctx.showSwipeBanner || _ctx.preventNavigationGestures ? ((0, vue.openBlock)(), (0, vue.createElementBlock)("div", {
+							key: 0,
+							ref_key: "swipeBannerEl",
+							ref: swipeBannerEl,
+							class: "vfm-swipe-banner-container",
+							onTouchstart: _cache[0] || (_cache[0] = (...args) => (0, vue.unref)(onTouchStartSwipeBanner) && (0, vue.unref)(onTouchStartSwipeBanner)(...args))
+						}, [_ctx.showSwipeBanner ? (0, vue.renderSlot)(_ctx.$slots, "swipe-banner", { key: 0 }, () => [(0, vue.createVNode)(SwipeBanners)]) : ((0, vue.openBlock)(), (0, vue.createBlock)(SwipeBanners, { key: 1 }))], 544)) : (0, vue.createCommentVNode)("v-if", true)]),
+						_: 3
+					}, 16, [
+						"shown",
+						"keep-layout",
+						"class",
+						"style",
+						"onMousedown"
+					])]),
+					_: 3
+				}, 16)], 16)), [[vue.vShow, _ctx.displayDirective !== "show" || (0, vue.unref)(visible)], [(0, vue.unref)(vVisible), _ctx.displayDirective !== "visible" || (0, vue.unref)(visible)]]) : (0, vue.createCommentVNode)("v-if", true)], 8, ["to", "disabled"]))], 2112);
+			};
 		}
 	});
-	function K() {
-		const e = Ao();
-		if (!e) throw new Error(`[Vue Final Modal]: getActiveVfm was called with no active Vfm. Did you forget to install vfm?
-	const vfm = createVfm()
-	app.use(vfm)
-This will fail in production.`);
-		return e;
-	}
+	(0, vue.defineComponent)({
+		name: "UseModal",
+		props: {
+			template: {
+				type: Object,
+				required: true
+			},
+			modelValue: {
+				type: Boolean,
+				required: true
+			},
+			onOpened: {
+				type: Function,
+				required: true
+			},
+			onClosed: {
+				type: Function,
+				required: true
+			},
+			onStopped: {
+				type: Function,
+				required: true
+			},
+			onStatus: {
+				type: Function,
+				required: true
+			}
+		},
+		emits: ["update:modelValue"],
+		setup(props, { emit }) {
+			const vNodeFn = templateToVNodeFn(() => {
+				const { component, slots } = props.template;
+				const bound = mergeTemplateAttrs(props.template);
+				return {
+					component,
+					slots,
+					attrs: {
+						...bound,
+						"modelValue": props.modelValue,
+						"onUpdate:modelValue": (value) => {
+							emit("update:modelValue", value);
+							bound["onUpdate:modelValue"]?.(value);
+						},
+						"on_opened": props.onOpened,
+						"on_closed": props.onClosed,
+						"on_stopped": props.onStopped,
+						"on_status": props.onStatus
+					}
+				};
+			});
+			(0, vue.onMounted)(() => {
+				if (!props.modelValue) props.onClosed();
+			});
+			return () => vNodeFn();
+		}
+	});
 	var __defProp = Object.defineProperty;
 	var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 	var __hasOwnProp = Object.prototype.hasOwnProperty;
@@ -2893,14 +3625,16 @@ This will fail in production.`);
 				}
 			},
 			onDragEnd() {
-				if (this.beingDragged) if (Math.abs(this.dragDelta) >= this.removalDistance) {
-					this.disableTransitions = true;
-					this.$nextTick(() => this.closeToast());
-				} else setTimeout(() => {
-					this.beingDragged = false;
-					if (isDOMRect(this.dragRect) && this.pauseOnHover && this.dragRect.bottom >= this.dragPos.y && this.dragPos.y >= this.dragRect.top && this.dragRect.left <= this.dragPos.x && this.dragPos.x <= this.dragRect.right) this.isRunning = false;
-					else this.isRunning = true;
-				});
+				if (this.beingDragged) {
+					if (Math.abs(this.dragDelta) >= this.removalDistance) {
+						this.disableTransitions = true;
+						this.$nextTick(() => this.closeToast());
+					} else setTimeout(() => {
+						this.beingDragged = false;
+						if (isDOMRect(this.dragRect) && this.pauseOnHover && this.dragRect.bottom >= this.dragPos.y && this.dragPos.y >= this.dragRect.top && this.dragRect.left <= this.dragPos.x && this.dragPos.x <= this.dragRect.right) this.isRunning = false;
+						else this.isRunning = true;
+					});
+				}
 			}
 		}
 	});
@@ -3163,14 +3897,14 @@ This will fail in production.`);
 	};
 	var src_default = VueToastificationPlugin;
 	_css(".Vue-Toastification__container{z-index:9999;box-sizing:border-box;color:#fff;pointer-events:none;flex-direction:column;width:600px;min-height:100%;padding:4px;display:flex;position:fixed}@media only screen and (width>=600px){.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:1em}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{flex-direction:column-reverse;bottom:1em}.Vue-Toastification__container.top-left,.Vue-Toastification__container.bottom-left{left:1em}.Vue-Toastification__container.top-left .Vue-Toastification__toast,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast{margin-right:auto}@supports not ((-moz-appearance:none)){.Vue-Toastification__container.top-left .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-left .Vue-Toastification__toast--rtl{margin-right:unset;margin-left:auto}}.Vue-Toastification__container.top-right,.Vue-Toastification__container.bottom-right{right:1em}.Vue-Toastification__container.top-right .Vue-Toastification__toast,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast{margin-left:auto}@supports not ((-moz-appearance:none)){.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl{margin-left:unset;margin-right:auto}}.Vue-Toastification__container.top-center,.Vue-Toastification__container.bottom-center{margin-left:-300px;left:50%}.Vue-Toastification__container.top-center .Vue-Toastification__toast,.Vue-Toastification__container.bottom-center .Vue-Toastification__toast{margin-left:auto;margin-right:auto}}@media only screen and (width<=600px){.Vue-Toastification__container{width:100vw;margin:0;padding:0;left:0}.Vue-Toastification__container .Vue-Toastification__toast{width:100%}.Vue-Toastification__container.top-left,.Vue-Toastification__container.top-right,.Vue-Toastification__container.top-center{top:0}.Vue-Toastification__container.bottom-left,.Vue-Toastification__container.bottom-right,.Vue-Toastification__container.bottom-center{flex-direction:column-reverse;bottom:0}}.Vue-Toastification__toast{box-sizing:border-box;pointer-events:auto;direction:ltr;border-radius:8px;justify-content:space-between;min-width:326px;max-width:600px;min-height:64px;max-height:800px;margin-bottom:1rem;padding:22px 24px;font-family:Lato,Helvetica,Roboto,Arial,sans-serif;display:inline-flex;position:relative;overflow:hidden;transform:translateZ(0);box-shadow:0 1px 10px #0000001a,0 2px 15px #0000000d}.Vue-Toastification__toast--rtl{direction:rtl}.Vue-Toastification__toast--default{color:#fff;background-color:#1976d2}.Vue-Toastification__toast--info{color:#fff;background-color:#2196f3}.Vue-Toastification__toast--success{color:#fff;background-color:#4caf50}.Vue-Toastification__toast--error{color:#fff;background-color:#ff5252}.Vue-Toastification__toast--warning{color:#fff;background-color:#ffc107}@media only screen and (width<=600px){.Vue-Toastification__toast{border-radius:0;margin-bottom:.5rem}}.Vue-Toastification__toast-body{word-break:break-word;white-space:pre-wrap;flex:1;font-size:16px;line-height:24px}.Vue-Toastification__toast-component-body{flex:1}.Vue-Toastification__toast.disable-transition{animation:none!important}.Vue-Toastification__close-button{cursor:pointer;color:#fff;opacity:.3;background:0 0;border:none;outline:none;align-items:center;padding:0 0 0 10px;font-size:24px;font-weight:700;line-height:24px;transition:visibility,opacity .2s linear}.Vue-Toastification__close-button:hover,.Vue-Toastification__close-button:focus{opacity:1}.Vue-Toastification__toast:not(:hover) .Vue-Toastification__close-button.show-on-hover{opacity:0}.Vue-Toastification__toast--rtl .Vue-Toastification__close-button{padding-left:unset;padding-right:10px}@keyframes scale-x-frames{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Vue-Toastification__progress-bar{z-index:10000;transform-origin:0;background-color:#ffffffb3;width:100%;height:5px;animation:linear forwards scale-x-frames;position:absolute;bottom:0;left:0}.Vue-Toastification__toast--rtl .Vue-Toastification__progress-bar{right:0;left:unset;transform-origin:100%}.Vue-Toastification__icon{background:0 0;border:none;outline:none;align-items:center;width:20px;height:100%;margin:auto 18px auto 0;padding:0;transition:all .3s}.Vue-Toastification__toast--rtl .Vue-Toastification__icon{margin:auto 0 auto 18px}@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate(3000px)}60%{opacity:1;transform:translate(-25px)}75%{transform:translate(10px)}90%{transform:translate(-5px)}to{transform:none}}@keyframes bounceOutRight{40%{opacity:1;transform:translate(-20px)}to{opacity:0;transform:translate(1000px)}}@keyframes bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate(-3000px)}60%{opacity:1;transform:translate(25px)}75%{transform:translate(-10px)}90%{transform:translate(5px)}to{transform:none}}@keyframes bounceOutLeft{20%{opacity:1;transform:translate(20px)}to{opacity:0;transform:translate(-2000px)}}@keyframes bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translateY(3000px)}60%{opacity:1;transform:translateY(-20px)}75%{transform:translateY(10px)}90%{transform:translateY(-5px)}to{transform:translate(0,0)}}@keyframes bounceOutUp{20%{transform:translateY(-10px)}40%,45%{opacity:1;transform:translateY(20px)}to{opacity:0;transform:translateY(-2000px)}}@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translateY(-3000px)}60%{opacity:1;transform:translateY(25px)}75%{transform:translateY(-10px)}90%{transform:translateY(5px)}to{transform:none}}@keyframes bounceOutDown{20%{transform:translateY(10px)}40%,45%{opacity:1;transform:translateY(-20px)}to{opacity:0;transform:translateY(2000px)}}.Vue-Toastification__bounce-enter-active.top-left,.Vue-Toastification__bounce-enter-active.bottom-left{animation-name:bounceInLeft}.Vue-Toastification__bounce-enter-active.top-right,.Vue-Toastification__bounce-enter-active.bottom-right{animation-name:bounceInRight}.Vue-Toastification__bounce-enter-active.top-center{animation-name:bounceInDown}.Vue-Toastification__bounce-enter-active.bottom-center{animation-name:bounceInUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-left,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-left{animation-name:bounceOutLeft}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-right,.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-right{animation-name:bounceOutRight}.Vue-Toastification__bounce-leave-active:not(.disable-transition).top-center{animation-name:bounceOutUp}.Vue-Toastification__bounce-leave-active:not(.disable-transition).bottom-center{animation-name:bounceOutDown}.Vue-Toastification__bounce-leave-active,.Vue-Toastification__bounce-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__bounce-move{transition-property:all;transition-duration:.4s;transition-timing-function:ease-in-out}@keyframes fadeOutTop{0%{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-50px)}}@keyframes fadeOutLeft{0%{opacity:1;transform:translate(0)}to{opacity:0;transform:translate(-50px)}}@keyframes fadeOutBottom{0%{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(50px)}}@keyframes fadeOutRight{0%{opacity:1;transform:translate(0)}to{opacity:0;transform:translate(50px)}}@keyframes fadeInLeft{0%{opacity:0;transform:translate(-50px)}to{opacity:1;transform:translate(0)}}@keyframes fadeInRight{0%{opacity:0;transform:translate(50px)}to{opacity:1;transform:translate(0)}}@keyframes fadeInTop{0%{opacity:0;transform:translateY(-50px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeInBottom{0%{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}.Vue-Toastification__fade-enter-active.top-left,.Vue-Toastification__fade-enter-active.bottom-left{animation-name:fadeInLeft}.Vue-Toastification__fade-enter-active.top-right,.Vue-Toastification__fade-enter-active.bottom-right{animation-name:fadeInRight}.Vue-Toastification__fade-enter-active.top-center{animation-name:fadeInTop}.Vue-Toastification__fade-enter-active.bottom-center{animation-name:fadeInBottom}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-left,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-left{animation-name:fadeOutLeft}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-right,.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-right{animation-name:fadeOutRight}.Vue-Toastification__fade-leave-active:not(.disable-transition).top-center{animation-name:fadeOutTop}.Vue-Toastification__fade-leave-active:not(.disable-transition).bottom-center{animation-name:fadeOutBottom}.Vue-Toastification__fade-leave-active,.Vue-Toastification__fade-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__fade-move{transition-property:all;transition-duration:.4s;transition-timing-function:ease-in-out}@keyframes slideInBlurredLeft{0%{transform-origin:100%;filter:blur(40px);opacity:0;transform:translate(-1000px)scaleX(2.5)scaleY(.2)}to{transform-origin:50%;filter:blur();opacity:1;transform:translate(0)scaleY(1)scaleX(1)}}@keyframes slideInBlurredTop{0%{transform-origin:50% 0;filter:blur(240px);opacity:0;transform:translateY(-1000px)scaleY(2.5)scaleX(.2)}to{transform-origin:50%;filter:blur();opacity:1;transform:translateY(0)scaleY(1)scaleX(1)}}@keyframes slideInBlurredRight{0%{transform-origin:0%;filter:blur(40px);opacity:0;transform:translate(1000px)scaleX(2.5)scaleY(.2)}to{transform-origin:50%;filter:blur();opacity:1;transform:translate(0)scaleY(1)scaleX(1)}}@keyframes slideInBlurredBottom{0%{transform-origin:50% 100%;filter:blur(240px);opacity:0;transform:translateY(1000px)scaleY(2.5)scaleX(.2)}to{transform-origin:50%;filter:blur();opacity:1;transform:translateY(0)scaleY(1)scaleX(1)}}@keyframes slideOutBlurredTop{0%{transform-origin:50% 0;filter:blur();opacity:1;transform:translateY(0)scaleY(1)scaleX(1)}to{transform-origin:50% 0;filter:blur(240px);opacity:0;transform:translateY(-1000px)scaleY(2)scaleX(.2)}}@keyframes slideOutBlurredBottom{0%{transform-origin:50%;filter:blur();opacity:1;transform:translateY(0)scaleY(1)scaleX(1)}to{transform-origin:50% 100%;filter:blur(240px);opacity:0;transform:translateY(1000px)scaleY(2)scaleX(.2)}}@keyframes slideOutBlurredLeft{0%{transform-origin:50%;filter:blur();opacity:1;transform:translate(0)scaleY(1)scaleX(1)}to{transform-origin:100%;filter:blur(40px);opacity:0;transform:translate(-1000px)scaleX(2)scaleY(.2)}}@keyframes slideOutBlurredRight{0%{transform-origin:50%;filter:blur();opacity:1;transform:translate(0)scaleY(1)scaleX(1)}to{transform-origin:0%;filter:blur(40px);opacity:0;transform:translate(1000px)scaleX(2)scaleY(.2)}}.Vue-Toastification__slideBlurred-enter-active.top-left,.Vue-Toastification__slideBlurred-enter-active.bottom-left{animation-name:slideInBlurredLeft}.Vue-Toastification__slideBlurred-enter-active.top-right,.Vue-Toastification__slideBlurred-enter-active.bottom-right{animation-name:slideInBlurredRight}.Vue-Toastification__slideBlurred-enter-active.top-center{animation-name:slideInBlurredTop}.Vue-Toastification__slideBlurred-enter-active.bottom-center{animation-name:slideInBlurredBottom}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-left,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-left{animation-name:slideOutBlurredLeft}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-right,.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-right{animation-name:slideOutBlurredRight}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).top-center{animation-name:slideOutBlurredTop}.Vue-Toastification__slideBlurred-leave-active:not(.disable-transition).bottom-center{animation-name:slideOutBlurredBottom}.Vue-Toastification__slideBlurred-leave-active,.Vue-Toastification__slideBlurred-enter-active{animation-duration:.75s;animation-fill-mode:both}.Vue-Toastification__slideBlurred-move{transition-property:all;transition-duration:.4s;transition-timing-function:ease-in-out}");
-	var _GM = typeof GM != "undefined" ? GM : void 0;
-	var _GM_addStyle = typeof GM_addStyle != "undefined" ? GM_addStyle : void 0;
-	var _GM_addValueChangeListener = typeof GM_addValueChangeListener != "undefined" ? GM_addValueChangeListener : void 0;
-	var _GM_getValue = typeof GM_getValue != "undefined" ? GM_getValue : void 0;
-	var _GM_setClipboard = typeof GM_setClipboard != "undefined" ? GM_setClipboard : void 0;
-	var _GM_setValue = typeof GM_setValue != "undefined" ? GM_setValue : void 0;
-	var _GM_xmlhttpRequest = typeof GM_xmlhttpRequest != "undefined" ? GM_xmlhttpRequest : void 0;
-	var _unsafeWindow = typeof unsafeWindow != "undefined" ? unsafeWindow : void 0;
+	var _GM = (() => typeof GM != "undefined" ? GM : void 0)();
+	var _GM_addStyle = (() => typeof GM_addStyle != "undefined" ? GM_addStyle : void 0)();
+	var _GM_addValueChangeListener = (() => typeof GM_addValueChangeListener != "undefined" ? GM_addValueChangeListener : void 0)();
+	var _GM_getValue = (() => typeof GM_getValue != "undefined" ? GM_getValue : void 0)();
+	var _GM_setClipboard = (() => typeof GM_setClipboard != "undefined" ? GM_setClipboard : void 0)();
+	var _GM_setValue = (() => typeof GM_setValue != "undefined" ? GM_setValue : void 0)();
+	var _GM_xmlhttpRequest = (() => typeof GM_xmlhttpRequest != "undefined" ? GM_xmlhttpRequest : void 0)();
+	var _unsafeWindow = (() => typeof unsafeWindow != "undefined" ? unsafeWindow : void 0)();
 	var ArchiveDownloadMethod = function(ArchiveDownloadMethod) {
 		ArchiveDownloadMethod["Manual"] = "Manual";
 		ArchiveDownloadMethod["HaH_Original"] = "HaH_org";
@@ -3593,6 +4327,10 @@ This will fail in production.`);
 		org: "Download Original Archive",
 		res: "Download Resample Archive"
 	};
+	var DOWNLOAD_TYPE_NAMES = {
+		org: "Original",
+		res: "Resample"
+	};
 	var DOWNLOAD_ACCEPTED_TEXT = "Locating archive server and preparing file for download...";
 	var HAH_ORIGINAL_RESOLUTION = "org";
 	var HAH_RESOLUTIONS = {
@@ -3627,6 +4365,12 @@ This will fail in production.`);
 	}
 	function getDirectDownloadUrl(root, dltype) {
 		return getElement(`form input[name="dltype"][value="${dltype}"]`, root)?.closest("form")?.getAttribute("action") ?? null;
+	}
+	function getDirectDownloadButton(dltype, root = document) {
+		return getElement(`input[value="${DOWNLOAD_LABELS[dltype]}"]`, root);
+	}
+	function isDirectDownloadOffered(dltype, root = document) {
+		return getDirectDownloadButton(dltype, root)?.disabled === false;
 	}
 	async function cancelArchiveSession() {
 		const url = getInvalidateForm()?.getAttribute("action");
@@ -3700,11 +4444,11 @@ This will fail in production.`);
 			}
 		}
 		async function sendDownloadRequest(postUrl, resolution) {
-			const formData = new FormData();
-			formData.append("hathdl_xres", resolution);
+			const params = new URLSearchParams();
+			params.append("hathdl_xres", resolution);
 			return await getDoc(postUrl, {
 				method: "POST",
-				body: formData
+				body: params
 			});
 		}
 		function parseResponse(response, logger) {
@@ -3855,9 +4599,13 @@ This will fail in production.`);
 			if (resolution) return startHentaiAtHomeDownload(popup, resolution);
 			const dltype = getArchiveDownloadType(quickArchiveDownloadMethod.value);
 			if (!dltype) return true;
-			const downloadButton = getElement(`input[value="${DOWNLOAD_LABELS[dltype]}"]`, popup.value);
+			const downloadButton = getDirectDownloadButton(dltype, popup.value);
 			if (!downloadButton) {
 				logger.error(`download button for "${dltype}" not found.`);
+				return false;
+			}
+			if (downloadButton.disabled) {
+				toast.warning(`This gallery doesn't offer the ${DOWNLOAD_TYPE_NAMES[dltype]} archive.\n Open popup`);
 				return false;
 			}
 			downloadButton.click();
@@ -3980,7 +4728,8 @@ This will fail in production.`);
 						isArchivePopupShow.value = !isArchivePopupShow.value;
 						archiveInnerHtml.value = "Fetching...";
 						activeButton.value = button;
-						archiveInnerHtml.value = await fetchArchive(await getArchiveLink(getElement("a", gallery).href));
+						const archiveLink = await getArchiveLink(getElement("a", gallery).href);
+						archiveInnerHtml.value = await fetchArchive(archiveLink);
 						setTimeout(() => {
 							setArchiveEvent();
 						}, 0);
@@ -4031,7 +4780,7 @@ This will fail in production.`);
 			}
 			if (highlightSwitch.value) watchDownloadedGalleries();
 			return (_ctx, _cache) => {
-				return (0, vue.openBlock)(), (0, vue.createBlock)((0, vue.unref)(Ro), (0, vue.mergeProps)({
+				return (0, vue.openBlock)(), (0, vue.createBlock)((0, vue.unref)(_sfc_main$1), (0, vue.mergeProps)({
 					modelValue: isArchivePopupShow.value,
 					"onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isArchivePopupShow.value = $event)
 				}, modalOptions.value), {
@@ -4111,16 +4860,16 @@ This will fail in production.`);
 			});
 			_unsafeWindow.clicked_fav = () => null;
 			async function setFavorite(category) {
-				const formData = new FormData();
+				const params = new URLSearchParams();
 				const favoriteNote = getElement("[name=favnote]")?.value;
 				const apply = category === "favdel" ? "Apply Changes" : "Add to Favorites";
-				formData.append("favcat", category);
-				formData.append("favnote", favoriteNote);
-				formData.append("apply", apply);
-				formData.append("update", "1");
+				params.append("favcat", category);
+				params.append("favnote", favoriteNote);
+				params.append("apply", apply);
+				params.append("update", "1");
 				const script = ((await (await fetch(getFavoritesLink(), {
 					method: "POST",
-					body: formData
+					body: params
 				})).text()).match(/(if\(window\.opener\.document\.getElementById\("favoritelink"\)).*/)?.[0])?.replaceAll(".opener", "");
 				Function(script)();
 				isPopupShow.value = false;
@@ -4361,7 +5110,7 @@ This will fail in production.`);
 			}
 			function getActionableDownloadType() {
 				const dltype = getArchiveDownloadType(quickArchiveDownloadMethod.value);
-				return dltype && hasArchiveSession() ? dltype : null;
+				return dltype && isDirectDownloadOffered(dltype) && hasArchiveSession() ? dltype : null;
 			}
 			async function handleArchiveSessionAction() {
 				const dltype = getActionableDownloadType();
@@ -4415,7 +5164,7 @@ This will fail in production.`);
 			});
 			return (_ctx, _cache) => {
 				return (0, vue.openBlock)(), (0, vue.createElementBlock)(vue.Fragment, null, [
-					(0, vue.createVNode)((0, vue.unref)(Ro), (0, vue.mergeProps)({
+					(0, vue.createVNode)((0, vue.unref)(_sfc_main$1), (0, vue.mergeProps)({
 						modelValue: isArchivePopupShow.value,
 						"onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isArchivePopupShow.value = $event)
 					}, modalOptions.value), {
@@ -4428,7 +5177,7 @@ This will fail in production.`);
 						}, null, 12, _hoisted_1$6)]),
 						_: 1
 					}, 16, ["modelValue"]),
-					(0, vue.createVNode)((0, vue.unref)(Ro), (0, vue.mergeProps)({
+					(0, vue.createVNode)((0, vue.unref)(_sfc_main$1), (0, vue.mergeProps)({
 						modelValue: isTorrentPopupShow.value,
 						"onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => isTorrentPopupShow.value = $event)
 					}, modalOptions.value), {
@@ -4441,7 +5190,7 @@ This will fail in production.`);
 						}, null, 12, _hoisted_2$3)]),
 						_: 1
 					}, 16, ["modelValue"]),
-					(0, vue.createVNode)((0, vue.unref)(Ro), (0, vue.mergeProps)({
+					(0, vue.createVNode)((0, vue.unref)(_sfc_main$1), (0, vue.mergeProps)({
 						modelValue: isFavoritePopupShow.value,
 						"onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => isFavoritePopupShow.value = $event)
 					}, modalOptions.value), {
@@ -4542,22 +5291,15 @@ This will fail in production.`);
 			return getElement(`img[id^=imgsrc_${currentPage.value}]`);
 		}
 		function syncCurrentImageOnScroll() {
-			const imageContainers = getElements(".mimg");
-			let firstIntersectingIndex = 1;
-			const observer = new IntersectionObserver((entries) => {
-				firstIntersectingIndex = Number(entries[0].target.id.replace("image_", ""));
-			});
-			imageContainers.forEach((container) => {
-				observer.observe(container);
-			});
+			const imageContainers = [...getElements(".mimg")];
 			paneImagesDiv.addEventListener("scroll", () => {
 				const visibleImageContainers = [];
-				for (let index = Math.max(firstIntersectingIndex - 1, 1); index < imageContainers.length; index++) {
-					const percentage = getVisiblePercentageInViewport(imageContainers[index - 1]);
-					if (percentage > 0) visibleImageContainers.push({
-						index,
-						percentage,
-						element: imageContainers[index]
+				for (let i = getFirstVisibleIndex(imageContainers); i < imageContainers.length; i++) {
+					const percentage = getVisiblePercentageInViewport(imageContainers[i]);
+					if (percentage === 0) break;
+					visibleImageContainers.push({
+						index: i + 1,
+						percentage
 					});
 				}
 				if (visibleImageContainers.length === 0) return;
@@ -4568,6 +5310,16 @@ This will fail in production.`);
 					if (largest.percentage / secondLargest.percentage >= 2) currentPage.value = largest.index;
 				}
 			});
+		}
+		function getFirstVisibleIndex(containersInPageOrder) {
+			let low = 0;
+			let high = containersInPageOrder.length;
+			while (low < high) {
+				const middle = Math.floor((low + high) / 2);
+				if (containersInPageOrder[middle].getBoundingClientRect().bottom > 0) high = middle;
+				else low = middle + 1;
+			}
+			return low;
 		}
 		function getVisiblePercentageInViewport(element) {
 			const viewportHeight = window.innerHeight;
@@ -4633,7 +5385,7 @@ This will fail in production.`);
 			invoke();
 		};
 		const debounced = function(...args) {
-			if (signal?.aborted) return;
+			if (signal === null || signal === void 0 ? void 0 : signal.aborted) return;
 			pendingThis = this;
 			pendingArgs = args;
 			const isFirstCall = timeoutId == null;
@@ -4643,7 +5395,7 @@ This will fail in production.`);
 		debounced.schedule = schedule;
 		debounced.cancel = cancel;
 		debounced.flush = flush;
-		signal?.addEventListener("abort", cancel, { once: true });
+		signal === null || signal === void 0 || signal.addEventListener("abort", cancel, { once: true });
 		return debounced;
 	}
 	var useEvents = createSharedComposable(_useEvents);
@@ -4658,9 +5410,7 @@ This will fail in production.`);
 					case "ArrowLeft":
 						goToPageByOffset(-10);
 						break;
-					case "ArrowRight":
-						goToPageByOffset(10);
-						break;
+					case "ArrowRight": goToPageByOffset(10);
 				}
 				else {
 					const currentImage = getCurrentImage();
@@ -4717,9 +5467,7 @@ This will fail in production.`);
 						case "Numpad7":
 							rotate(-90);
 							break;
-						case "Numpad9":
-							rotate(90);
-							break;
+						case "Numpad9": rotate(90);
 					}
 				}
 			});
@@ -4752,7 +5500,8 @@ This will fail in production.`);
 			}
 			function setThumbsClickEvent() {
 				paneThumbsDiv.addEventListener("click", (event) => {
-					currentPage.value = Number(event.target.closest("div")?.id.replace("thumb_", ""));
+					const index = Number(event.target.closest("div")?.id.replace("thumb_", ""));
+					currentPage.value = index;
 				});
 			}
 		}
@@ -5595,7 +6344,7 @@ div#bar3 {
 				location.reload();
 			}
 			return (_ctx, _cache) => {
-				return (0, vue.openBlock)(), (0, vue.createBlock)((0, vue.unref)(Ro), {
+				return (0, vue.openBlock)(), (0, vue.createBlock)((0, vue.unref)(_sfc_main$1), {
 					modelValue: isShow.value,
 					"onUpdate:modelValue": _cache[25] || (_cache[25] = ($event) => isShow.value = $event),
 					"overlay-transition": "vfm-fade",
@@ -5916,9 +6665,9 @@ div#bar3 {
 			};
 		}
 	});
-	_css(".vfm--fixed{position:fixed}.vfm--absolute{position:absolute}.vfm--inset{inset:0}.vfm--overlay{z-index:-1;background-color:#00000080}.vfm--prevent-none{pointer-events:none}.vfm--prevent-auto{pointer-events:auto}.vfm--outline-none:focus{outline:none}@keyframes fade-in{0%{opacity:0}to{opacity:1}}@keyframes fade-out{0%{opacity:1}to{opacity:0}}.vfm-fade-enter-active{animation:.3s fade-in}.vfm-fade-leave-active{animation:.3s fade-out}.vfm-bounce-back{transition-property:transform;transition-duration:.3s}.vfm-slide-up-enter-active,.vfm-slide-up-leave-active,.vfm-slide-down-enter-active,.vfm-slide-down-leave-active{transition:transform .3s}.vfm-slide-down-enter-from,.vfm-slide-down-leave-to{transform:translateY(100vh)!important}.vfm-slide-up-enter-from,.vfm-slide-up-leave-to{transform:translateY(-100vh)!important}.vfm-slide-right-enter-active,.vfm-slide-right-leave-active,.vfm-slide-left-enter-active,.vfm-slide-left-leave-active{transition:transform .3s}.vfm-slide-right-enter-from,.vfm-slide-right-leave-to{transform:translate(100vw)!important}.vfm-slide-left-enter-from,.vfm-slide-left-leave-to{transform:translate(-100vw)!important}.vfm-swipe-banner-back,.vfm-swipe-banner-forward{z-index:10;width:27px;position:fixed;top:0;bottom:0}.vfm-swipe-banner-back{left:0}.vfm-swipe-banner-forward{right:0}");
+	_css("@layer vfm{.vfm--fixed{position:fixed}.vfm--absolute{position:absolute}.vfm--inset{inset:0}.vfm--overlay{z-index:-1;background-color:#00000080}.vfm__overlay{-webkit-backdrop-filter:blur();backdrop-filter:blur()}.vfm--prevent-none{pointer-events:none}.vfm--prevent-auto{pointer-events:auto}.vfm--outline-none:focus{outline:none}@keyframes fade-in{0%{opacity:0}to{opacity:1}}@keyframes fade-out{0%{opacity:1}to{opacity:0}}.vfm-fade-enter-active{animation:.3s fade-in}.vfm-fade-leave-active{animation:.3s fade-out}.vfm-bounce-back{transition-property:transform;transition-duration:.3s}.vfm-slide-up-enter-active,.vfm-slide-up-leave-active,.vfm-slide-down-enter-active,.vfm-slide-down-leave-active{transition:transform .3s}.vfm-slide-down-enter-from,.vfm-slide-down-leave-to{transform:translateY(100vh)!important}.vfm-slide-up-enter-from,.vfm-slide-up-leave-to{transform:translateY(-100vh)!important}.vfm-slide-right-enter-active,.vfm-slide-right-leave-active,.vfm-slide-left-enter-active,.vfm-slide-left-leave-active{transition:transform .3s}.vfm-slide-right-enter-from,.vfm-slide-right-leave-to{transform:translate(100vw)!important}.vfm-slide-left-enter-from,.vfm-slide-left-leave-to{transform:translate(-100vw)!important}.vfm-swipe-banner-back,.vfm-swipe-banner-forward{z-index:10;width:27px;position:fixed;top:0;bottom:0}.vfm-swipe-banner-back{left:0}.vfm-swipe-banner-forward{right:0}}");
 	var app = (0, vue.createApp)(App_default);
-	var vfm = zo();
+	var vfm = createVfm();
 	app.use(vfm);
 	app.use(src_default, {
 		transition: "Vue-Toastification__fade",
