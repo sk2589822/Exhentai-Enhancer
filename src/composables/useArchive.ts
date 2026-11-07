@@ -221,11 +221,11 @@ export function useArchive() {
   }
 
   async function sendDownloadRequest(postUrl: string, resolution: string) {
-    const formData = new FormData()
-    formData.append('hathdl_xres', resolution)
+    const params = new URLSearchParams()
+    params.append('hathdl_xres', resolution)
     const doc = await getDoc(postUrl, {
       method: 'POST',
-      body: formData,
+      body: params,
     })
 
     return doc

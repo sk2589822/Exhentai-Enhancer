@@ -36,20 +36,20 @@ export function useFavorite(favoriteInnerHtml: Ref<string>) {
     unsafeWindow.clicked_fav = () => null
 
     async function setFavorite(category: string) {
-      const formData = new FormData()
+      const params = new URLSearchParams()
       const favoriteNote = (getElement<HTMLTextAreaElement>('[name=favnote]')?.value) as string
       const apply = category === 'favdel'
         ? 'Apply Changes'
         : 'Add to Favorites'
 
-      formData.append('favcat', category)
-      formData.append('favnote', favoriteNote)
-      formData.append('apply', apply)
-      formData.append('update', '1')
+      params.append('favcat', category)
+      params.append('favnote', favoriteNote)
+      params.append('apply', apply)
+      params.append('update', '1')
 
       const response = await fetch(getFavoritesLink(), {
         method: 'POST',
-        body: formData,
+        body: params,
       })
 
       const html = await response.text()
